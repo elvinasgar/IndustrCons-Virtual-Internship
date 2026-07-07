@@ -20,29 +20,51 @@
 
   document.getElementById('certificateWrap').hidden = false;
 
-  // Editable name: prompt once if still default
-  let studentName = state.profile.name;
-  if (studentName === 'Guest Student') {
-    const entered = window.prompt('Name to print on your certificate:', 'Guest Student');
-    if (entered && entered.trim()) {
-      studentName = entered.trim();
-      IC.store.setProfileName(studentName);
-    }
-  }
-
   const verifyCode = 'VER-' + rec.certNo.split('-').pop();
-  document.getElementById('certName').textContent = studentName;
   document.getElementById('certInternshipName').textContent = `${data.certificate.name} — ${data.companyIntro.name}`;
   document.getElementById('certDate').textContent = new Date(rec.completedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
   document.getElementById('certNo').textContent = rec.certNo;
   document.getElementById('certNoTag').textContent = rec.certNo;
   document.getElementById('certVerify').textContent = verifyCode;
 
-  // QR code — encodes a compact verification payload (no server exists to resolve it against)
-  new QRCode(document.getElementById('qrcode'), {
-    text: `IndustrCons IRE-3 Certificate\n${rec.certNo}\n${studentName}\n${data.certificate.name}\nVerify: ${verifyCode}`,
-    width: 72, height: 72, correctLevel: QRCode.CorrectLevel.M
-  });
+  let studentName = state.profile.name;
+  const nameInput = document.getElementById('certNameInput');
+  const saveNameBtn = document.getElementById('saveNameBtn');
+  const savedTag = document.getElementById('nameSavedTag');
+  const certNameEl = document.getElementById('certName');
+
+  function renderQr(name) {
+    const qrEl = document.getElementById('qrcode');
+    qrEl.innerHTML = '';
+    new QRCode(qrEl, {
+      text: `IndustrCons IRE-3 Certificate\n${rec.certNo}\n${name}\n${data.certificate.name}\nVerify: ${verifyCode}`,
+      width: 72, height: 72, correctLevel: QRCode.CorrectLevel.M
+    });
+  }
+
+  function renderName(name) {
+    certNameEl.textContent = name && name.trim() ? name.trim() : 'Guest Student';
+    renderQr(certNameEl.textContent);
+  }
+
+  nameInput.value = studentName === 'Guest Student' ? '' : studentName;
+  renderName(studentName);
+
+  // Live preview as they type, persist on explicit save (and on blur, so nothing is lost)
+  nameInput.addEventListener('input', () => renderName(nameInput.value || 'Guest Student'));
+  function persistName() {
+    const val = nameInput.value.trim();
+    if (!val) return;
+    studentName = val;
+    IC.store.setProfileName(val);
+    renderName(val);
+    savedTag.style.display = 'inline';
+    clearTimeout(persistName._t);
+    persistName._t = setTimeout(() => savedTag.style.display = 'none', 2200);
+  }
+  saveNameBtn.addEventListener('click', persistName);
+  nameInput.addEventListener('blur', persistName);
+  nameInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); persistName(); } });
 
   // Download PDF
   document.getElementById('downloadPdfBtn').addEventListener('click', async () => {
@@ -68,13 +90,19 @@
   // LinkedIn caption
   document.getElementById('shareLinkedInBtn').addEventListener('click', () => {
     const skills = data.skills.join(', ');
-    const caption = `🏗️ I just completed the "${data.certificate.name}" virtual internship at ${data.companyIntro.name} on IndustrCons IRE-3.
+    const name = certNameEl.textContent || 'Guest Student';
+    const caption = `🏗️ I'm ${name}, and I just completed the "${data.certificate.name}" virtual internship at ${data.companyIntro.name} on IndustrCons IRE-3.
 
 I practiced: ${skills}.
 
 Real-format engineering documents, a graded case study, and a certificate to show for it. Working through the "${data.caseStudy.title}" case study was the part that stuck with me most.
 
-#IndustryReadyEngineer #ConstructionEngineering #AEC #CivilEngineering #IndustrCons`;
+Thank you to @IndustrCons and its founder @Elvin Asgarov for building a hands-on way to get industry-ready before graduation.
+
+#IndustryReadyEngineer #ConstructionEngineering #AEC #CivilEngineering #IndustrCons
+
+IndustrCons: https://www.linkedin.com/company/industrcons/
+Elvin Asgarov: https://www.linkedin.com/in/elvinasgarov`;
     document.getElementById('linkedinCaption').value = caption;
     document.getElementById('linkedinCaptionCard').hidden = false;
     document.getElementById('linkedinCaptionCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -83,6 +111,9 @@ Real-format engineering documents, a graded case study, and a certificate to sho
   document.getElementById('copyCaptionBtn').addEventListener('click', () => {
     const ta = document.getElementById('linkedinCaption');
     ta.select();
-    navigator.clipboard.writeText(ta.value).then(() => IC.toast('Caption copied.')).catch(() => document.execCommand('copy'));
+    const openShare = () => window.open('https://www.linkedin.com/feed/?shareActive=true', '_blank', 'noopener');
+    navigator.clipboard.writeText(ta.value)
+      .then(() => { IC.toast('Mətn kopyalandı — indi LinkedIn-də yeni paylaşım qutusuna yapışdırın (Ctrl/Cmd+V).'); openShare(); })
+      .catch(() => { document.execCommand('copy'); openShare(); });
   });
 })();
