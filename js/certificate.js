@@ -66,13 +66,25 @@
   nameInput.addEventListener('blur', persistName);
   nameInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); persistName(); } });
 
+  async function captureCertPng() {
+    const card = document.getElementById('certificateCard');
+    const canvas = await html2canvas(card, { scale: 2, backgroundColor: '#ffffff' });
+    return canvas;
+  }
+
+  function downloadCanvas(canvas, filename) {
+    const link = document.createElement('a');
+    link.download = filename;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }
+
   // Download PDF
   document.getElementById('downloadPdfBtn').addEventListener('click', async () => {
-    const card = document.getElementById('certificateCard');
     const btn = document.getElementById('downloadPdfBtn');
     btn.disabled = true; btn.textContent = 'Preparing…';
     try {
-      const canvas = await html2canvas(card, { scale: 2, backgroundColor: '#ffffff' });
+      const canvas = await captureCertPng();
       const imgData = canvas.toDataURL('image/png');
       const { jsPDF } = window.jspdf;
       const pdf = new jsPDF({ orientation: 'landscape', unit: 'px', format: [canvas.width, canvas.height] });
@@ -85,10 +97,24 @@
     btn.disabled = false; btn.textContent = IC.i18n.t('certificate.downloadPdf');
   });
 
+  // Download PNG (also the format most useful to attach to a LinkedIn post)
+  document.getElementById('downloadPngBtn').addEventListener('click', async () => {
+    const btn = document.getElementById('downloadPngBtn');
+    btn.disabled = true; const original = btn.textContent; btn.textContent = 'Hazırlanır…';
+    try {
+      const canvas = await captureCertPng();
+      downloadCanvas(canvas, `IndustrCons-Certificate-${rec.certNo}.png`);
+    } catch (e) {
+      console.error(e);
+      IC.toast('Şəkil yaradıla bilmədi — internet bağlantınızı yoxlayın.');
+    }
+    btn.disabled = false; btn.textContent = original;
+  });
+
   document.getElementById('printBtn').addEventListener('click', () => window.print());
 
-  // LinkedIn caption
-  document.getElementById('shareLinkedInBtn').addEventListener('click', () => {
+  // LinkedIn caption + auto-download the certificate image so it's ready to attach
+  document.getElementById('shareLinkedInBtn').addEventListener('click', async () => {
     const skills = data.skills.join(', ');
     const name = certNameEl.textContent || 'Guest Student';
     const caption = `🏗️ I'm ${name}, and I just completed the "${data.certificate.name}" virtual internship at ${data.companyIntro.name} on IndustrCons IRE-3.
@@ -106,6 +132,15 @@ Elvin Asgarov: https://www.linkedin.com/in/elvinasgarov`;
     document.getElementById('linkedinCaption').value = caption;
     document.getElementById('linkedinCaptionCard').hidden = false;
     document.getElementById('linkedinCaptionCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    const btn = document.getElementById('shareLinkedInBtn');
+    btn.disabled = true;
+    try {
+      const canvas = await captureCertPng();
+      downloadCanvas(canvas, `IndustrCons-Certificate-${rec.certNo}.png`);
+      IC.toast('Sertifikat şəkli endirildi (Downloads qovluğu). Aşağıdan mətni kopyalayın, LinkedIn açılanda "Add media" ilə həmin şəkli əlavə edin.');
+    } catch (e) { console.error(e); }
+    btn.disabled = false;
   });
 
   document.getElementById('copyCaptionBtn').addEventListener('click', () => {
@@ -113,7 +148,7 @@ Elvin Asgarov: https://www.linkedin.com/in/elvinasgarov`;
     ta.select();
     const openShare = () => window.open('https://www.linkedin.com/feed/?shareActive=true', '_blank', 'noopener');
     navigator.clipboard.writeText(ta.value)
-      .then(() => { IC.toast('Mətn kopyalandı — indi LinkedIn-də yeni paylaşım qutusuna yapışdırın (Ctrl/Cmd+V).'); openShare(); })
+      .then(() => { IC.toast('Mətn kopyalandı — LinkedIn açılır. Paylaşım qutusuna yapışdırın (Ctrl/Cmd+V), sonra "Add media" ilə endirilmiş sertifikat şəklini əlavə edin.'); openShare(); })
       .catch(() => { document.execCommand('copy'); openShare(); });
   });
 })();
