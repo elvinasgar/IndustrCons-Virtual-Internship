@@ -6,17 +6,24 @@
   "difficulty": "Beginner",
   "durationHours": 6,
   "drawingTag": "INT-014 / REV.A",
-  "skills": ["Drawing Interpretation", "Concrete Calculation", "Site Inspection", "Daily Reporting"],
-
+  "skills": [
+    "Drawing Interpretation",
+    "Concrete Calculation",
+    "Site Inspection",
+    "Daily Reporting"
+  ],
   "companyIntro": {
     "name": "Atlas Construction",
     "country": "United Arab Emirates",
     "founded": 2004,
     "mission": "Deliver mid-rise and industrial developments on schedule without compromising site safety.",
     "culture": "Direct, deadline-driven, safety-first. Site engineers are expected to make defensible calls on routine items without waiting for sign-off.",
-    "projects": ["Al Marsa Logistics Hub (42,000 m² warehouse)", "Meadow Ridge Residential Towers", "Corniche Pedestrian Bridge"]
+    "projects": [
+      "Al Marsa Logistics Hub (42,000 m² warehouse)",
+      "Meadow Ridge Residential Towers",
+      "Corniche Pedestrian Bridge"
+    ]
   },
-
   "projectBackground": {
     "name": "Al Marsa Logistics Hub — Foundation Package",
     "client": "Al Marsa Free Zone Authority",
@@ -25,32 +32,53 @@
     "timeline": "14 weeks, currently in week 4 (foundations)",
     "context": "A 42,000 m² single-storey logistics warehouse on reclaimed coastal land. Isolated pad footings support the steel portal frame. Soil report flags moderate sulfate exposure, so the concrete mix is sulfate-resisting by spec."
   },
-
   "manager": {
     "name": "Mariam Haddad",
     "role": "Senior Site Engineer, Atlas Construction",
     "note": "Welcome aboard. You're covering Grid Line C for the next two days — footing verification, one pour, and your first Daily Report. I don't need you to ask permission for anything that's already on the drawing. I do need you to flag anything that isn't."
   },
-
   "assignment": {
     "title": "Verify and pour footing F-C4, Grid Line C",
     "brief": "Footing F-C4 is scheduled for concrete pour this afternoon. Before it goes ahead, verify the excavation and reinforcement match the structural drawing, calculate the concrete volume for the pour order, complete a pre-pour inspection, and log the day's work in a Daily Site Report."
   },
-
   "documents": [
-    { "id": "doc-footing-schedule", "name": "Footing Schedule — Grid C (extract)", "type": "Structural Drawing", "note": "F-C4: 2200mm x 2200mm x 600mm deep pad. Reinforcement: 16mm bars @ 150mm c/c both ways, top and bottom mat. Concrete grade: C35, sulfate-resisting cement (SRC), 75mm cover to blinding." },
-    { "id": "doc-boq", "name": "Bill of Quantities — Substructure (extract)", "type": "BOQ", "note": "Item 4.12 — Grade C35 SRC concrete to pad footings, measured net, includes 3% wastage allowance." },
-    { "id": "doc-method", "name": "Method Statement — Pad Footing Pour", "type": "Method Statement", "note": "Sequence: excavation inspection → blinding → rebar fix → formwork → pre-pour inspection sign-off → pour → cure. No pour proceeds without a signed pre-pour checklist." },
-    { "id": "doc-daily-report-template", "name": "Daily Site Report Template", "type": "Template", "note": "Fields: date, weather, manpower, plant on site, work completed, materials received, issues/delays, tomorrow's plan." }
+    {
+      "id": "doc-footing-schedule",
+      "name": "Footing Schedule — Grid C (extract)",
+      "type": "Structural Drawing",
+      "note": "F-C4: 2200mm x 2200mm x 600mm deep pad. Reinforcement: 16mm bars @ 150mm c/c both ways, top and bottom mat. Concrete grade: C35, sulfate-resisting cement (SRC), 75mm cover to blinding."
+    },
+    {
+      "id": "doc-boq",
+      "name": "Bill of Quantities — Substructure (extract)",
+      "type": "BOQ",
+      "note": "Item 4.12 — Grade C35 SRC concrete to pad footings, measured net, includes 3% wastage allowance."
+    },
+    {
+      "id": "doc-method",
+      "name": "Method Statement — Pad Footing Pour",
+      "type": "Method Statement",
+      "note": "Sequence: excavation inspection → blinding → rebar fix → formwork → pre-pour inspection sign-off → pour → cure. No pour proceeds without a signed pre-pour checklist."
+    },
+    {
+      "id": "doc-daily-report-template",
+      "name": "Daily Site Report Template",
+      "type": "Template",
+      "note": "Fields: date, weather, manpower, plant on site, work completed, materials received, issues/delays, tomorrow's plan."
+    }
   ],
-
   "tasks": [
     {
       "id": "task-1-drawing",
       "type": "mcq",
       "title": "Drawing Interpretation",
       "prompt": "Footing F-C4 is being poured today. Per the footing schedule extract, what cover to blinding does the reinforcement cage need?",
-      "options": ["40mm", "50mm", "75mm", "100mm"],
+      "options": [
+        "40mm",
+        "50mm",
+        "75mm",
+        "100mm"
+      ],
       "correctIndex": 2,
       "xp": 40,
       "reasoning": "The footing schedule specifies 75mm cover to blinding for pad footings on this project — blinding cover is typically more generous than cover to formed faces because the blinding surface is less controlled than shuttered concrete.",
@@ -86,7 +114,12 @@
         "Concrete supplier's invoice from last delivery reconciled",
         "Weather forecast for the following week reviewed"
       ],
-      "correctIndices": [0, 1, 2, 3],
+      "correctIndices": [
+        0,
+        1,
+        2,
+        3
+      ],
       "xp": 50,
       "reasoning": "The method statement's sequence — excavation, blinding, rebar fix, formwork — defines exactly what a pre-pour checklist must verify. Invoice reconciliation and next week's forecast aren't part of the pour readiness gate; they belong to commercial and planning workflows respectively.",
       "tip": "A pre-pour checklist should map one-to-one to the method statement's sequence — if an item isn't in the sequence, it doesn't belong on the pour-readiness checklist, even if it's a legitimate task for someone else that day.",
@@ -120,9 +153,83 @@
       "tip": "Always name the specific issue and who it was escalated to, even for minor observations — this is what protects you if a small issue becomes a bigger one three weeks later.",
       "mistake": "The most common weak report just restates the plan ('poured F-C4 as scheduled') without noting deviations, observations, or the reasoning behind any judgment call made on site.",
       "recommendation": "Treat the Daily Report as a legal and technical record, not an administrative formality — on most projects it's the primary evidence used to resolve later claims or defect investigations."
+    },
+    {
+      "id": "task-6-boq-excel",
+      "type": "excel-upload",
+      "title": "Complete the Bill of Quantities in Excel",
+      "prompt": "Site instruction: 15 isolated pad footings (1.0m x 1.0m x 0.5m deep each) need C25 concrete costed at 95 AZN/m³, on top of the 120 m³ excavation and 4,200 kg of reinforcement already logged. Download the BOQ template, work out the missing quantity and amount cells in Excel, then upload your completed file — it's checked automatically against the correct figures.",
+      "xp": 70,
+      "template": {
+        "fileName": "BOQ-Template.xlsx",
+        "sheetName": "BOQ",
+        "headers": [
+          "Item No.",
+          "Description",
+          "Unit",
+          "Quantity",
+          "Rate (AZN)",
+          "Amount (AZN)"
+        ],
+        "rows": [
+          [
+            1,
+            "Excavation - foundation",
+            "m³",
+            120,
+            8.5,
+            ""
+          ],
+          [
+            2,
+            "C25 Concrete - pad footings (15 nr, 1.0x1.0x0.5m)",
+            "m³",
+            "",
+            95,
+            ""
+          ],
+          [
+            3,
+            "Reinforcement steel",
+            "kg",
+            4200,
+            1.35,
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D3",
+          "expected": 7.5,
+          "tolerance": 0.05,
+          "label": "Quantity — C25 concrete (15 x 1.0 x 1.0 x 0.5 m³)"
+        },
+        {
+          "cell": "F2",
+          "expected": 1020,
+          "tolerance": 1,
+          "label": "Amount — Excavation (120 x 8.5)"
+        },
+        {
+          "cell": "F3",
+          "expected": 712.5,
+          "tolerance": 2,
+          "label": "Amount — Concrete (7.5 x 95)"
+        },
+        {
+          "cell": "F4",
+          "expected": 5670,
+          "tolerance": 1,
+          "label": "Amount — Reinforcement (4200 x 1.35)"
+        }
+      ],
+      "reasoning": "A Bill of Quantities converts physical scope into priced line items: quantity comes from measuring the drawing (footing count x dimensions here), and amount is simply quantity x rate. Getting the quantity wrong compounds directly into the amount, so it's worth double-checking the geometry before touching the rate.",
+      "tip": "Build BOQ formulas as Quantity = Amount/Rate style cross-checks (or vice versa) in a spare column while you work — it catches typos before the file goes to a QS for sign-off.",
+      "mistake": "A frequent mistake is forgetting that '15 nr' means the volume must be multiplied by the footing count, not treated as a single footing's volume — this alone under-orders concrete by 93%.",
+      "recommendation": "On real projects, BOQ quantities are cross-checked by a Quantity Surveyor against the drawings before procurement — treat this Excel file the same way you would a QS take-off sheet."
     }
   ],
-
   "caseStudy": {
     "title": "Case Study: The Sulfate Question",
     "background": "Two weeks after F-C4 was poured, a junior engineer on a neighboring plot used ordinary Portland cement instead of sulfate-resisting cement for a similar footing, after misreading an abbreviated spec sheet.",
@@ -139,35 +246,58 @@
     "solution": "Atlas Construction commissioned a petrographic analysis to quantify actual sulfate exposure risk, applied a surface sulfate-resisting coating system as an engineered mitigation (accepted by the client's structural consultant), and revised the document control process so sulfate classification is copied into every relevant BOQ item header, not left in a geotechnical appendix.",
     "lessonsLearned": "Strength testing verifies compressive performance, not durability against a specific exposure condition — the two are independent checks, and a passing cube result says nothing about sulfate resistance. Specification information that determines material selection needs to live where the person ordering material will actually see it, not in a cross-referenced appendix."
   },
-
   "quiz": [
     {
       "q": "Which test would most likely have caught the sulfate-resisting cement substitution error before pour?",
-      "options": ["28-day cube compressive strength test", "Cement type verification against the delivery docket at batching", "Slump test at the point of discharge", "Rebound hammer test after curing"],
+      "options": [
+        "28-day cube compressive strength test",
+        "Cement type verification against the delivery docket at batching",
+        "Slump test at the point of discharge",
+        "Rebound hammer test after curing"
+      ],
       "correctIndex": 1
     },
     {
       "q": "In the F-C4 concrete calculation, why is wastage applied after computing net volume rather than before?",
-      "options": ["It doesn't matter which order you apply it in", "Applying it first would understate the volume needed for the actual pour", "Wastage only applies to reinforcement, not concrete", "The BOQ requires wastage to be a separate line item"],
+      "options": [
+        "It doesn't matter which order you apply it in",
+        "Applying it first would understate the volume needed for the actual pour",
+        "Wastage only applies to reinforcement, not concrete",
+        "The BOQ requires wastage to be a separate line item"
+      ],
       "correctIndex": 1
     },
     {
-      "q": "A pre-pour checklist item should be included if:", 
-      "options": ["It reflects good general site practice", "It appears in the method statement's defined sequence for that pour", "The client specifically requests it in writing", "It was used on a previous, similar project"],
+      "q": "A pre-pour checklist item should be included if:",
+      "options": [
+        "It reflects good general site practice",
+        "It appears in the method statement's defined sequence for that pour",
+        "The client specifically requests it in writing",
+        "It was used on a previous, similar project"
+      ],
       "correctIndex": 1
     },
     {
       "q": "Why round up (not to the nearest whole number) when checking rebar count against a maximum spacing requirement?",
-      "options": ["Rounding up is always the industry default regardless of context", "Rounding down could result in a gap that exceeds the maximum allowed spacing", "It reduces the total steel tonnage", "It matches the BOQ measurement convention"],
+      "options": [
+        "Rounding up is always the industry default regardless of context",
+        "Rounding down could result in a gap that exceeds the maximum allowed spacing",
+        "It reduces the total steel tonnage",
+        "It matches the BOQ measurement convention"
+      ],
       "correctIndex": 1
     },
     {
       "q": "What is the primary purpose of a Daily Site Report?",
-      "options": ["To satisfy head-office reporting quotas", "To create an auditable record of decisions, deviations and observations", "To replace the need for a method statement", "To calculate the following week's material orders"],
+      "options": [
+        "To satisfy head-office reporting quotas",
+        "To create an auditable record of decisions, deviations and observations",
+        "To replace the need for a method statement",
+        "To calculate the following week's material orders"
+      ],
       "correctIndex": 1
     }
   ],
-
   "reflection": {
     "prompts": [
       "Which task in this internship required you to make a judgment call rather than just apply a formula? What made it a judgment call?",
@@ -175,7 +305,6 @@
       "If you were Mariam, what one change would you make to onboarding so new site engineers catch spec details like sulfate exposure faster?"
     ]
   },
-
   "certificate": {
     "name": "Site Engineer — Foundation Verification & Reporting",
     "totalXp": 230
