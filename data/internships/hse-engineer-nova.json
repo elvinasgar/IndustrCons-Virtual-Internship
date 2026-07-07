@@ -1,0 +1,237 @@
+{
+  "id": "hse-engineer-nova",
+  "title": "HSE Engineer",
+  "companyId": "nova-engineering",
+  "category": "HSE Engineer",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "drawingTag": "HSE-005 / REV.A",
+  "skills": [
+    "Risk Assessment",
+    "Safety Observation",
+    "Incident Investigation"
+  ],
+  "companyIntro": {
+    "name": "Nova Engineering",
+    "country": "Kazakhstan",
+    "founded": 2011,
+    "mission": "Zero preventable incidents — treat every near-miss as a full-strength warning, not a lucky escape to move past quickly.",
+    "culture": "Investigative rather than punitive. HSE engineers are expected to find the system cause, not just the person who happened to be closest to the incident.",
+    "projects": [
+      "Karaganda Industrial Yard Regrade",
+      "Nova Steel Fabrication Yard Upgrade",
+      "Aktau Logistics Park Earthworks"
+    ]
+  },
+  "projectBackground": {
+    "name": "Karaganda Industrial Yard — Regrading Works",
+    "client": "Karaganda Industrial Holdings",
+    "location": "Karaganda Industrial Zone, Yard C",
+    "budget": "$3.2M (regrading and drainage package)",
+    "timeline": "10 weeks, currently in week 5",
+    "context": "An active industrial yard is being regraded for improved drainage while remaining partially operational, with delivery trucks still moving through an adjacent access route. Excavators and truck traffic share a temporary haul road separated from pedestrian walkways by portable barriers."
+  },
+  "manager": {
+    "name": "Aigerim Bekova",
+    "role": "HSE Manager, Nova Engineering",
+    "note": "Yesterday afternoon an excavator's swing radius came within about a metre of a walking supervisor near the haul road barrier. Nobody was hurt. I want this treated exactly like it would be if someone had been hurt — full investigation, not a two-line entry in the log."
+  },
+  "assignment": {
+    "title": "Investigate the excavator near-miss, Yard C haul road",
+    "brief": "Classify the near-miss using the risk matrix, calculate its risk score, identify the root cause(s) using the site's investigation method, and issue a corrective action plan before excavation work resumes on that section tomorrow."
+  },
+  "documents": [
+    {
+      "id": "doc-incident-log",
+      "name": "Incident Log Entry — Near-Miss, Yard C",
+      "type": "Incident Report",
+      "note": "14:20, clear weather. Excavator swinging to load a truck; supervisor walking along the barrier line to check drainage levels came within approx. 1m of the swing radius. Excavator operator sounded horn and stopped swing. No contact, no injury."
+    },
+    {
+      "id": "doc-risk-matrix",
+      "name": "Site Risk Assessment Matrix",
+      "type": "HSE Standard",
+      "note": "Likelihood: Rare=1, Unlikely=2, Possible=3, Likely=4, Almost Certain=5. Severity: Negligible=1, Minor=2, Moderate=3, Major=4, Catastrophic=5. Risk Score = Likelihood x Severity. Score 1-6: Low. 7-14: Medium. 15-25: High."
+    },
+    {
+      "id": "doc-barrier-plan",
+      "name": "Yard C Traffic Management Plan (extract)",
+      "type": "Traffic Management Plan",
+      "note": "Portable barriers define a 2m exclusion zone from the haul road centreline. Pedestrian route runs parallel, 2.5m from centreline at the point of yesterday's near-miss."
+    },
+    {
+      "id": "doc-caplan-template",
+      "name": "Corrective Action Plan — Template",
+      "type": "Template",
+      "note": "Fields: immediate action, root cause, corrective action, responsible person, target date, verification method."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-classification",
+      "type": "mcq",
+      "title": "Hazard Classification",
+      "prompt": "The near-miss involved an excavator's swing radius coming within 1m of a pedestrian, where the exclusion zone is meant to keep 2m clearance. What type of hazard does this represent?",
+      "options": [
+        "Struck-by hazard from mobile plant",
+        "Manual handling hazard",
+        "Confined space hazard",
+        "Electrical hazard"
+      ],
+      "correctIndex": 0,
+      "xp": 35,
+      "reasoning": "A person entering the swing radius of moving plant is a classic struck-by hazard — the mechanism of harm is being struck by moving equipment, not any of the other listed hazard categories, which involve entirely different mechanisms.",
+      "tip": "Naming the correct hazard category isn't just paperwork — it determines which control hierarchy and which regulatory reporting pathway applies, so getting this step right shapes everything that follows in the investigation.",
+      "mistake": "New HSE engineers sometimes classify by the activity underway (excavation) rather than the actual mechanism of harm (struck-by) — the activity and the hazard type are related but not the same thing.",
+      "recommendation": "When several hazard types could plausibly apply, classify by the mechanism that was closest to causing harm in this specific event, not every hazard theoretically present at the site."
+    },
+    {
+      "id": "task-2-risk-score",
+      "type": "numeric",
+      "title": "Risk Score Calculation",
+      "prompt": "Given this was the second such near-miss on this site in a month (Likelihood: Likely = 4) and that a swing-radius strike from this excavator class is typically fatal (Severity: Catastrophic = 5), what is the risk score per the site's matrix?",
+      "answer": 20,
+      "tolerance": 0,
+      "unit": "score",
+      "xp": 50,
+      "workingNote": "Risk Score = Likelihood x Severity = 4 x 5 = 20, which falls in the High band (15-25).",
+      "reasoning": "The matrix defines risk score as likelihood multiplied by severity — the severity rating is based on realistic worst-case outcome of this hazard type (a struck-by incident with this equipment class), not on the fact that this particular event happened to end without injury.",
+      "tip": "Always rate severity on realistic worst-case potential outcome, not on what actually happened — a near-miss that could have been fatal is rated as a potential fatality, even though the actual outcome was zero harm.",
+      "mistake": "A very common and serious error is rating severity based on actual outcome ('nobody was hurt, so this is minor') rather than potential outcome, which systematically under-rates near-misses and delays the urgency of corrective action.",
+      "recommendation": "Any risk score landing in the 'High' band should trigger work stoppage on the specific activity until interim controls are in place — treat the number as an action trigger, not just a record-keeping figure."
+    },
+    {
+      "id": "task-3-rootcause",
+      "type": "multiselect",
+      "title": "Root Cause Investigation",
+      "prompt": "Based on the incident log and traffic management plan, select every factor that plausibly contributed to this near-miss as a root or contributing cause.",
+      "options": [
+        "The pedestrian route runs closer to the haul road (2.5m) than the barrier plan's stated exclusion zone would ideally allow given plant swing radius",
+        "The excavator operator's horn was working correctly",
+        "There was no spotter assigned to warn pedestrians near active swing operations",
+        "The supervisor was wearing the correct PPE",
+        "No visual/physical barrier existed at the specific point where the pedestrian route runs closest to the haul road"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        4
+      ],
+      "xp": 55,
+      "reasoning": "Root cause analysis looks for the systemic gaps that allowed the near-miss to become possible, not the things that already worked correctly. The route's proximity to plant swing radius, the absence of a spotter, and a physical barrier gap at the closest point are all system-level contributing factors. The horn working and correct PPE are both things that functioned as intended — they're not causes of the near-miss, if anything they're why it didn't become an actual strike.",
+      "tip": "A useful test for 'is this a root cause' is: would removing this factor have prevented the event? Removing 'operator's horn worked' would not have prevented the near-miss — it's not a cause, it's a control that happened to work.",
+      "mistake": "Investigations sometimes list every observation from the incident, including things that functioned correctly, which dilutes the corrective action plan with non-issues and can obscure the factors that actually need fixing.",
+      "recommendation": "Keep root cause findings strictly to factors that, if corrected, would measurably reduce recurrence likelihood — this keeps the corrective action plan focused and verifiable rather than a general site safety essay."
+    },
+    {
+      "id": "task-4-report",
+      "type": "text",
+      "title": "Incident Investigation Report",
+      "prompt": "Write a short investigation summary (3-5 sentences) covering: what happened, the risk classification, root cause, and the immediate corrective action taken.",
+      "minLength": 40,
+      "xp": 45,
+      "modelAnswer": "At 14:20 on [date], a supervisor walking the drainage inspection route in Yard C came within approximately 1m of an active excavator's swing radius; the operator sounded the horn and stopped the swing before contact occurred. This is classified as a struck-by near-miss with a risk score of 20 (High), rated on potential severity given this was the second such event in a month. Root cause investigation identified that the pedestrian route runs closer to the haul road (2.5m) than the exclusion zone allows for this equipment's swing radius, with no spotter or physical barrier at the closest point. As an immediate action, the affected section of the pedestrian route has been closed and rerouted 4m from the haul road centreline pending a full barrier redesign.",
+      "reasoning": "A complete incident report lets a reader who wasn't present understand exactly what happened, how serious it could have been, why it happened, and what's being done immediately — each of these four elements answers a different question a regulator, client, or future investigator will ask.",
+      "tip": "Always separate 'immediate action' (stops the hazard today) from 'corrective action' (fixes the root cause permanently) in your report — conflating them can make a temporary fix look like it has already solved the underlying problem.",
+      "mistake": "A weak report describes the sequence of events but stops short of stating the root cause and immediate action clearly, leaving the reader to infer whether anything has actually changed since the near-miss.",
+      "recommendation": "Write every near-miss report as though the next similar event could result in a fatality — because per the risk matrix's own severity logic, that's exactly the potential outcome being rated."
+    },
+    {
+      "id": "task-5-hierarchy",
+      "type": "mcq",
+      "title": "Corrective Action — Hierarchy of Controls",
+      "prompt": "Per the hierarchy of controls (elimination, substitution, engineering, administrative, PPE — from most to least effective), which corrective action best addresses the root cause identified here?",
+      "options": [
+        "Issue a memo reminding pedestrians to be careful near the haul road",
+        "Require pedestrians to wear high-visibility vests in the yard (already standard practice)",
+        "Install a physical barrier and reroute the pedestrian path to increase separation distance from the haul road",
+        "Ask the excavator operator to be more careful when swinging"
+      ],
+      "correctIndex": 2,
+      "xp": 40,
+      "reasoning": "A physical barrier and increased separation distance is an engineering control — it removes the hazard exposure by physically separating people from plant, which sits higher on the hierarchy of controls than administrative reminders or relying on individual vigilance. The other three options are administrative (memo), already-existing PPE (not a new control), or reliant on individual behaviour (asking the operator to be careful), all of which are less reliable than a physical, engineered separation.",
+      "tip": "When choosing a corrective action, default to the highest control on the hierarchy that's practical to implement — administrative controls and PPE are appropriate as supplementary measures, not as the primary fix for a struck-by hazard with a High risk score.",
+      "mistake": "A common but weak corrective action is a safety memo or toolbox talk reminding people to be careful — this addresses awareness, not the underlying exposure, and rarely prevents recurrence on its own.",
+      "recommendation": "For any High-risk-score finding, the corrective action plan should include at least one engineering or elimination-level control, not solely administrative measures, before work resumes on the affected activity."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Near-Miss Log Nobody Reopened",
+    "background": "On an earlier Nova project, an almost identical excavator swing near-miss was logged three months before a fatal struck-by incident on the same yard, involving a different pedestrian at a different point along the same haul road.",
+    "client": "Nova Steel Fabrication Yard Upgrade",
+    "budget": "N/A — fatality investigation and regulatory response",
+    "timeline": "Fatal incident occurred 3 months after the first near-miss was logged and closed with no engineering control implemented",
+    "challenges": "The first near-miss had been logged, classified as Medium risk (likelihood rated Unlikely since it was the first occurrence), and closed with an administrative action (toolbox talk) — no one revisited the risk rating when a second near-miss occurred at a different point on the same haul road two months later.",
+    "constraints": "The regulatory investigation following the fatality specifically cited the first near-miss's closure with only an administrative control as a missed opportunity to implement an engineering control before anyone was harmed.",
+    "questions": [
+      "Why should a second near-miss of the same type change the likelihood rating, even if severity stays the same?",
+      "What review trigger would have caught the escalating pattern before the fatality?",
+      "Is closing a High-consequence near-miss with only an administrative control ever defensible?"
+    ],
+    "solution": "Nova Engineering introduced a mandatory rule that any near-miss with a potential severity of Major or Catastrophic must include at least one engineering control in its corrective action plan, regardless of how low the likelihood was initially rated, and that a second similar event within 6 months automatically triggers a full site-wide review of that hazard type.",
+    "lessonsLearned": "Likelihood ratings must be revisited every time a similar event recurs — a hazard rated 'Unlikely' after one occurrence is no longer unlikely after a second, and treating each near-miss in isolation, without checking site history, misses exactly the pattern that predicts a future serious incident."
+  },
+  "quiz": [
+    {
+      "q": "A struck-by near-miss with zero injury should be rated for severity based on:",
+      "options": [
+        "The fact that no one was actually hurt",
+        "The realistic worst-case outcome of that hazard type",
+        "Whichever severity rating is easiest to close out administratively",
+        "The opinion of the person closest to the incident"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Risk Score in this site's matrix is calculated as:",
+      "options": [
+        "Severity minus Likelihood",
+        "Likelihood plus Severity",
+        "Likelihood multiplied by Severity",
+        "A fixed value set by the HSE manager"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "q": "Which of these is a valid root cause finding, rather than something that worked as intended?",
+      "options": [
+        "The excavator's horn sounded correctly",
+        "The pedestrian route runs closer to the haul road than the exclusion zone allows for this plant's swing radius",
+        "The supervisor was wearing correct PPE",
+        "The operator stopped swinging promptly"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Per the hierarchy of controls, which corrective action is generally most effective for a struck-by hazard?",
+      "options": [
+        "A toolbox talk reminding workers to be careful",
+        "An engineering control such as a physical barrier with increased separation distance",
+        "A sign requesting caution",
+        "Verbal instruction to the plant operator"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, what mistake led directly to the later fatality?",
+      "options": [
+        "The first near-miss was never logged at all",
+        "The first near-miss was closed with only an administrative control and its likelihood rating was never revisited",
+        "The excavator was mechanically faulty",
+        "The client refused to fund any corrective action"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task asked you to rate potential severity rather than actual outcome? Why does that distinction matter so much for near-misses specifically?",
+      "The case study shows a pattern (two similar near-misses) that, in hindsight, predicted a fatality. What site data would you want reviewed regularly to catch this kind of pattern going forward?",
+      "If you were Aigerim, what one rule would you add so a near-miss is never closed with only an administrative control when its potential severity is Major or Catastrophic?"
+    ]
+  },
+  "certificate": {
+    "name": "HSE Engineer — Near-Miss Investigation & Corrective Action",
+    "totalXp": 225
+  }
+}
