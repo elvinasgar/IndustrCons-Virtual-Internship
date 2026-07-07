@@ -56,9 +56,17 @@
   }
 
   try {
-    ALL = await fetch('data/internships/index.json').then(r => r.json());
+    const res = await fetch('data/internships/index.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status} for data/internships/index.json`);
+    ALL = await res.json();
   } catch (e) {
-    grid.innerHTML = `<p style="color:#dc2626;">Could not load the internship catalog.</p>`;
+    console.error('Catalog load failed:', e);
+    const detail = /HTTP \d+/.test(e.message)
+      ? `Server responded with an error (${e.message.replace('HTTP ', '')}). The file "data/internships/index.json" is likely missing from the deployed site — check that the data/ folder was committed and pushed to the repo.`
+      : (location.protocol === 'file:'
+          ? `You're viewing this file directly from disk. Serve the folder over http:// instead (e.g. "python3 -m http.server"), since fetch() of local JSON is blocked on file://.`
+          : `The response wasn't valid JSON. Open the file in the browser directly to see what's actually being returned (redirects, HTML error pages, etc. all break JSON parsing).`);
+    grid.innerHTML = `<p style="color:#dc2626;">Could not load the internship catalog. ${detail}</p>`;
     return;
   }
 
