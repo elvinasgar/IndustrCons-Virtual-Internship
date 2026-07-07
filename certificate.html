@@ -8,24 +8,61 @@
 <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
 <link rel="stylesheet" href="css/core.css">
 <link rel="stylesheet" href="css/components.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Cormorant+Garamond:ital@0;1&display=swap" rel="stylesheet">
 <style>
   #certificateCard{
-    width: 1000px; max-width: 100%; aspect-ratio: 1000/700; margin: 0 auto; background:#fff;
-    border: 10px solid var(--navy); border-radius: 6px; position: relative; padding: 46px 56px;
+    width: 1050px; max-width: 100%; aspect-ratio: 1050/720; margin: 0 auto;
+    background: linear-gradient(155deg, #ffffff 0%, #fbfbfd 55%, #f4f7fb 100%);
+    border-radius: 4px; position: relative; padding: 44px 60px 36px;
     display:flex; flex-direction:column; justify-content:space-between; color:#0F172A;
-    background-image: repeating-linear-gradient(0deg, rgba(0,91,170,.035) 0 1px, transparent 1px 34px), repeating-linear-gradient(90deg, rgba(0,91,170,.035) 0 1px, transparent 1px 34px);
+    box-shadow: 0 30px 70px -20px rgba(15,23,42,.35), 0 2px 0 rgba(15,23,42,.06);
+    overflow:hidden;
   }
-  #certificateCard::before{ content:''; position:absolute; inset:14px; border:1.5px solid #005BAA; border-radius:3px; pointer-events:none; }
+  /* outer navy frame + inner gold hairline */
+  #certificateCard::before{
+    content:''; position:absolute; inset:0; border-radius:4px; pointer-events:none;
+    border: 9px solid var(--navy);
+    -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+  }
+  #certificateCard::after{ content:''; position:absolute; inset:19px; border:1.5px solid #C9A24B; border-radius:2px; pointer-events:none; }
+  .cert-watermark{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family: var(--font-display); font-weight:800; font-size:11rem; letter-spacing:4px;
+    color: rgba(0,91,170,.035); white-space:nowrap; pointer-events:none; user-select:none; z-index:0;
+  }
+  .cert-guilloche{
+    position:absolute; inset:19px; pointer-events:none; opacity:.5;
+    background-image: repeating-linear-gradient(115deg, rgba(0,91,170,.05) 0 1px, transparent 1px 22px);
+  }
+  #certificateCard > *{ position:relative; z-index:1; }
+  .cert-eyebrow-line{ display:flex; align-items:center; gap:10px; justify-content:center; }
+  .cert-eyebrow-line::before, .cert-eyebrow-line::after{ content:''; flex:1; max-width:120px; height:1px; background:linear-gradient(90deg, transparent, #C9A24B, transparent); }
+  #certName{
+    font-family: 'Playfair Display', var(--font-display), serif;
+    font-weight:700; letter-spacing:.3px;
+  }
+  #certName.name-italic{ font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:600; }
   .cert-seal{
-    width:96px; height:96px; border-radius:50%;
+    width:104px; height:104px; border-radius:50%;
     background: conic-gradient(from 210deg, #F7941D, #ffe1ab, #F7941D, #d97e0e, #F7941D);
-    display:flex; align-items:center; justify-content:center; box-shadow: 0 8px 20px rgba(0,0,0,.18);
+    display:flex; align-items:center; justify-content:center; box-shadow: 0 10px 24px rgba(0,0,0,.22), inset 0 0 0 4px rgba(255,255,255,.5);
+    position:relative;
   }
-  .cert-seal span{ font-family: var(--font-display); font-weight:700; color:#0F172A; font-size:.7rem; text-align:center; }
+  .cert-seal::before{ content:''; position:absolute; inset:-6px; border-radius:50%; border:1.5px dashed rgba(201,162,75,.7); }
+  .cert-seal span{ font-family: var(--font-display); font-weight:700; color:#0F172A; font-size:.7rem; text-align:center; line-height:1.25; }
+  .cert-signature{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1.3rem; }
+
+  /* --- name entry panel (shown before the certificate itself) --- */
+  #nameEntryCard{ max-width:520px; margin:0 auto 30px; padding:26px 28px; }
+  #nameEntryCard .field label{ font-weight:600; }
+  #nameEntryCard .name-hint{ font-size:.82rem; color:var(--ink-soft); margin-top:6px; }
+
   @media print {
     body *{ visibility:hidden; }
     #certificateCard, #certificateCard *{ visibility:visible; }
-    #certificateCard{ position:fixed; inset:0; margin:0; width:100vw; height:100vh; border-width:14px; }
+    #certificateCard{ position:fixed; inset:0; margin:0; width:100vw; height:100vh; border-width:14px; box-shadow:none; }
   }
 </style>
 </head>
@@ -47,7 +84,22 @@
         <h1 style="font-size:var(--step-2);" data-i18n="certificate.title">Certificate of Completion</h1>
       </div>
 
+      <div class="card" id="nameEntryCard">
+        <div class="field">
+          <label for="certNameInput">Sertifikatda görünəcək ad, soyad</label>
+          <input type="text" id="certNameInput" placeholder="Məsələn: Elvin Əsgərov" autocomplete="name">
+        </div>
+        <p class="name-hint">Bu, sizin öz adınız olmalıdır — məhz bu ad sertifikatda çap olunacaq və LinkedIn-də paylaşdığınız zaman görünəcək. İstədiyiniz vaxt dəyişə bilərsiniz, dəyişiklik dərhal aşağıda əks olunur.</p>
+        <div class="flex" style="gap:10px; margin-top:6px; align-items:center;">
+          <button class="btn btn-primary btn-sm" id="saveNameBtn">Yadda saxla</button>
+          <span id="nameSavedTag" style="font-size:.8rem; color:var(--success); display:none;">✓ Yadda saxlanıldı</span>
+        </div>
+      </div>
+
       <div id="certificateCard">
+        <div class="cert-watermark">INDUSTRCONS</div>
+        <div class="cert-guilloche"></div>
+
         <div class="flex between" style="align-items:flex-start;">
           <img src="assets/icons/logo.svg" alt="IndustrCons IRE-3" style="height:34px;">
           <div class="title-block" style="border-color:#005BAA; color:#0F172A;">
@@ -56,8 +108,8 @@
         </div>
 
         <div class="text-center" style="flex:1; display:flex; flex-direction:column; justify-content:center;">
-          <div class="eyebrow" style="justify-content:center;" data-i18n="certificate.issuedTo">This certifies that</div>
-          <h2 id="certName" style="margin:6px 0 10px; font-size:2.2rem;">Guest Student</h2>
+          <div class="cert-eyebrow-line eyebrow" data-i18n="certificate.issuedTo">This certifies that</div>
+          <h2 id="certName" style="margin:10px 0 12px; font-size:2.6rem;">Guest Student</h2>
           <p style="max-width:600px; margin:0 auto 6px;"><span data-i18n="certificate.completed">has successfully completed the virtual internship</span></p>
           <h3 id="certInternshipName" style="margin:4px 0 0; color:#005BAA;">—</h3>
         </div>
@@ -74,7 +126,7 @@
             <div style="font-size:.68rem; margin-top:4px;">Scan to view details</div>
           </div>
           <div style="text-align:center; font-size:.78rem;">
-            <div style="border-top:1.5px solid #0F172A; padding-top:4px; min-width:150px;">Elvin Asgarov</div>
+            <div class="cert-signature" style="border-top:1.5px solid #0F172A; padding-top:4px; min-width:160px;">Elvin Asgarov</div>
             <div style="color:#4b5568;" data-i18n="certificate.founderTitle">Founder, IndustrCons</div>
           </div>
         </div>
@@ -87,10 +139,10 @@
       </div>
 
       <div class="card" style="max-width:640px; margin: 26px auto 0; padding:20px;" id="linkedinCaptionCard" hidden>
-        <h4 style="margin-top:0;">Your LinkedIn caption</h4>
-        <textarea id="linkedinCaption" rows="6" readonly style="width:100%; font-family:var(--font-body); padding:12px; border-radius:9px; border:1px solid var(--line);"></textarea>
-        <button class="btn btn-ghost btn-sm" style="margin-top:10px;" id="copyCaptionBtn">Copy caption</button>
-        <a class="btn btn-primary btn-sm" style="margin-top:10px; margin-left:8px;" href="https://www.linkedin.com/feed/" target="_blank" rel="noopener">Open LinkedIn</a>
+        <h4 style="margin-top:0;">LinkedIn üçün hazır mətn</h4>
+        <textarea id="linkedinCaption" rows="7" readonly style="width:100%; font-family:var(--font-body); padding:12px; border-radius:9px; border:1px solid var(--line);"></textarea>
+        <p class="name-hint">Mətn kopyalanacaq və LinkedIn açılacaq. Paylaşımı yazarkən <strong>@IndustrCons</strong> və <strong>@Elvin Asgarov</strong> yazıb siyahıdan seçsəniz, onlar da paylaşımda taqlanacaq.</p>
+        <button class="btn btn-primary btn-sm" style="margin-top:6px;" id="copyCaptionBtn">Mətni kopyala və LinkedIn-i aç</button>
       </div>
     </div>
   </div>
