@@ -1,0 +1,309 @@
+{
+  "id": "civil-engineer-prime",
+  "title": "Civil Engineer",
+  "companyId": "prime-infrastructure",
+  "category": "Civil Engineer",
+  "difficulty": "Beginner",
+  "durationHours": 7,
+  "drawingTag": "INT-021 / REV.B",
+  "skills": [
+    "Earthworks",
+    "Material Selection",
+    "Technical Report"
+  ],
+  "companyIntro": {
+    "name": "Prime Infrastructure",
+    "country": "Azerbaijan",
+    "founded": 1998,
+    "mission": "Deliver durable road and bridge infrastructure that performs under real traffic loading and real climate, not just design-life theory.",
+    "culture": "Methodical and paperwork-heavy by necessity — pavement failures show up years later, so every material decision is documented and justified at the time it's made.",
+    "projects": [
+      "Baku Ring Road Flyover Package 3",
+      "Sumgait Industrial Access Upgrade",
+      "Ganja Bypass Bridge Rehabilitation"
+    ]
+  },
+  "projectBackground": {
+    "name": "Baku Ring Road Flyover — Package 3, Earthworks & Pavement",
+    "client": "Azerbaijan State Roads Agency",
+    "location": "Ring Road Package 3, Ch. 4+200 to Ch. 6+800",
+    "budget": "$27.6M (earthworks and pavement package)",
+    "timeline": "20 weeks, currently in week 6 (earthworks nearing completion)",
+    "context": "A 2.6km flyover approach embankment over variable natural ground. Geotechnical investigation found the existing subgrade has patchy CBR values, so imported fill and a revised pavement structure are being assessed section by section rather than applied uniformly."
+  },
+  "manager": {
+    "name": "Farid Aliyev",
+    "role": "Project Civil Engineer, Prime Infrastructure",
+    "note": "Chainage 5+000 to 5+400 is your section this week. The subgrade test results just came back — I need your read on them before we commit to a pavement design, not after. If the numbers are marginal, say so and show your working."
+  },
+  "assignment": {
+    "title": "Assess subgrade and confirm pavement design, Ch. 5+000-5+400",
+    "brief": "Lab results for this chainage section just arrived. Classify the subgrade, calculate the cut/fill balance for the section, select an appropriate pavement build-up, and write the technical recommendation memo that goes to the client's resident engineer."
+  },
+  "documents": [
+    {
+      "id": "doc-geotech",
+      "name": "Geotechnical Test Report — Ch. 5+000-5+400",
+      "type": "Lab Report",
+      "note": "In-situ CBR: 4.2% (soaked). Plasticity index: 14. Classification: A-6 per AASHTO. Moisture content 2% above optimum."
+    },
+    {
+      "id": "doc-crosssection",
+      "name": "Typical Cross-Section — Embankment",
+      "type": "Civil Drawing",
+      "note": "Design formation level RL +42.80. Existing ground varies RL +41.10 to +43.60 across this chainage. Side slopes 1:2, 300mm topsoil strip before fill placement."
+    },
+    {
+      "id": "doc-pavement-spec",
+      "name": "Pavement Design Specification (extract)",
+      "type": "Specification",
+      "note": "Subgrade CBR ≥ 8%: standard 150mm sub-base. CBR 3-8%: capping layer required (min. 300mm) before sub-base. CBR < 3%: subgrade improvement or full replacement required — refer to designer."
+    },
+    {
+      "id": "doc-report-template",
+      "name": "Technical Recommendation Memo — Template",
+      "type": "Template",
+      "note": "Fields: chainage, finding, recommendation, risk if not actioned, sign-off."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-classification",
+      "type": "mcq",
+      "title": "Subgrade Classification",
+      "prompt": "Per the geotechnical report for Ch. 5+000-5+400, which pavement design pathway applies to this subgrade under the specification?",
+      "options": [
+        "Standard 150mm sub-base, no capping needed",
+        "Capping layer required (min. 300mm) before sub-base",
+        "Full subgrade replacement required, refer to designer",
+        "No pavement action needed, subgrade is adequate as-is"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "The report shows a soaked CBR of 4.2%, which falls in the 3-8% band. The specification is explicit that this band requires a capping layer before sub-base — it's neither the best case (≥8%, standard sub-base) nor the worst case (<3%, replacement).",
+      "tip": "Always read soaked CBR, not just as-tested CBR, when the spec doesn't say otherwise — soaked values represent the worst-case moisture condition the pavement will actually see in service, which is what the design pathway is based on.",
+      "mistake": "A common mistake is anchoring on the plasticity index or AASHTO classification alone and skipping the CBR banding check, when the pavement pathway in this spec is driven specifically by the CBR percentage.",
+      "recommendation": "When a CBR value sits close to a band boundary (e.g. 7.5% near the 8% line), request a second confirmatory test before committing — a single borderline result shouldn't decide a 2.6km pavement design on its own."
+    },
+    {
+      "id": "task-2-earthworks",
+      "type": "numeric",
+      "title": "Cut/Fill Volume Check",
+      "prompt": "For a 400m long section (Ch. 5+000 to 5+400) with an average fill depth of 1.35m and an average cross-sectional top width of 22m, what approximate fill volume (m³) should you report for this section? (Use cross-sectional area x length, ignore side-slope taper for this estimate.)",
+      "answer": 11880,
+      "tolerance": 200,
+      "unit": "m³",
+      "xp": 55,
+      "workingNote": "Cross-sectional area ≈ 22m x 1.35m = 29.7 m². Volume = 29.7 m² x 400m = 11,880 m³.",
+      "reasoning": "A quick end-area estimate multiplies the average cross-sectional area by the section length — this is the standard first-pass method site and planning engineers use before a full survey-based earthworks model is run.",
+      "tip": "Always state clearly when a volume is an end-area estimate versus a full triangulated surface model — the two can differ by several percent, and whoever orders fill material needs to know which one they're working from.",
+      "mistake": "A frequent error is using the design formation width instead of the actual top width of fill at that depth, which overstates or understates volume depending on side-slope geometry.",
+      "recommendation": "For any earthworks quantity feeding into a fill order over 5,000 m³, cross-check the end-area estimate against a full digital terrain model calculation before the order is placed."
+    },
+    {
+      "id": "task-3-material",
+      "type": "multiselect",
+      "title": "Fill Material Selection",
+      "prompt": "Given the A-6 subgrade classification and 2% over-optimum moisture content, select every action that is appropriate before placing embankment fill at this chainage.",
+      "options": [
+        "Aerate/dry the existing material to bring it closer to optimum moisture",
+        "Compact immediately at current moisture content to save time",
+        "Consider importing a granular fill if drying isn't practical within programme",
+        "Increase the design formation level to avoid addressing the subgrade",
+        "Test compacted density against the specified proctor value after placement"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        4
+      ],
+      "xp": 50,
+      "reasoning": "A-6 subgrade with above-optimum moisture compacts poorly and loses strength — the two legitimate paths are moisture conditioning (drying) or replacing with better-behaved granular fill, and either way the compacted result must be verified against the proctor value. Compacting wet material to save time, or simply raising formation level to avoid the problem, doesn't fix the underlying weak subgrade.",
+      "tip": "Moisture content above optimum is one of the most common causes of embankment compaction failure — it's cheaper to catch and correct at placement than to discover it during a proof-roll after the layer is already covered.",
+      "mistake": "Engineers under programme pressure sometimes compact at existing moisture 'because it's close enough' — a few percent above optimum can meaningfully reduce achievable dry density and long-term embankment stability.",
+      "recommendation": "Keep a moisture-density record for every fill lift on marginal subgrade sections — it becomes the evidence that due diligence was followed if a settlement issue is raised years into the road's service life."
+    },
+    {
+      "id": "task-4-report",
+      "type": "text",
+      "title": "Technical Recommendation Memo",
+      "prompt": "Write a short technical memo (3-5 sentences) to the resident engineer covering: your subgrade finding, the recommended pavement pathway, and one risk if the recommendation isn't followed.",
+      "minLength": 40,
+      "xp": 45,
+      "modelAnswer": "Chainage 5+000-5+400: soaked CBR tested at 4.2% (A-6, PI 14), placing this section in the capping-layer band per the pavement specification. Recommend a minimum 300mm capping layer beneath the standard sub-base, with fill moisture-conditioned to within 2% of optimum before compaction given the current 2% over-optimum reading. If capping is omitted to save programme time, the risk is accelerated rutting and differential settlement under early traffic loading, likely surfacing as a warranty claim within 2-3 years rather than an immediate failure.",
+      "reasoning": "A useful technical memo states the finding, the recommendation, and the consequence of inaction in a form the resident engineer can act on immediately — vague memos that only say 'subgrade is weak, please advise' push the decision back to someone with less direct knowledge of the section.",
+      "tip": "Always attach a consequence and a rough timeframe to your risk statement ('will show up in 2-3 years', not just 'may cause problems') — it helps a client weigh a small upfront cost against a real, but delayed, downside.",
+      "mistake": "A common weakness is describing the test result without translating it into the specification's decision pathway, leaving the reader to do that lookup themselves.",
+      "recommendation": "On infrastructure works with long service lives, frame every subgrade recommendation in terms of what happens years after handover, not just what happens during construction — pavement failures are a durability problem, not a construction-week problem."
+    },
+    {
+      "id": "task-5-pavement-calc",
+      "type": "numeric",
+      "title": "Capping Layer Material Check",
+      "prompt": "The capping layer for this 400m section is 300mm thick across a 9.5m carriageway width. What volume (m³) of capping material should you order, rounded to the nearest 10 m³?",
+      "answer": 1140,
+      "tolerance": 20,
+      "unit": "m³",
+      "xp": 45,
+      "workingNote": "0.3m x 9.5m x 400m = 1,140 m³.",
+      "reasoning": "Layer volume is simply thickness x width x length once the pavement pathway (capping required) has already been established from the CBR classification — this is a direct geometric calculation, not a design decision.",
+      "tip": "Keep pavement layer volumes and earthworks fill volumes as separate line items even though both are 'fill' conceptually — they're specified, tested, and often supplied by different sources.",
+      "mistake": "Mixing capping layer volume into the general embankment fill quantity is a common bookkeeping error that makes it hard to verify either quantity independently later.",
+      "recommendation": "Cross-check ordered capping volume against the sub-base contractor's own take-off before the material is delivered — a mismatch here is cheaper to catch on paper than after a partial layer is placed."
+    },
+    {
+      "id": "task-6-earthworks-excel",
+      "type": "excel-upload",
+      "title": "Cut/Fill Balance Sheet (Excel)",
+      "prompt": "Three more chainage sections need their fill volumes calculated the same way as Ch. 5+000-5+400 (cross-sectional area x length), plus a running total. Download the template, complete the calculations in Excel, then upload it — the amounts are checked automatically.",
+      "xp": 65,
+      "template": {
+        "fileName": "Earthworks-Cutfill-Template.xlsx",
+        "sheetName": "CutFill",
+        "headers": [
+          "Chainage",
+          "Length (m)",
+          "Avg. Width (m)",
+          "Avg. Fill Depth (m)",
+          "Volume (m³)",
+          "Running Total (m³)"
+        ],
+        "rows": [
+          [
+            "5+400 to 5+700",
+            "300",
+            "21",
+            "1.20",
+            "",
+            ""
+          ],
+          [
+            "5+700 to 6+100",
+            "400",
+            "20",
+            "0.95",
+            "",
+            ""
+          ],
+          [
+            "6+100 to 6+800",
+            "700",
+            "23",
+            "1.60",
+            "",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "E2",
+          "expected": 7560,
+          "tolerance": 30,
+          "label": "Volume — 5+400 to 5+700 (300 x 21 x 1.20)"
+        },
+        {
+          "cell": "E3",
+          "expected": 7600,
+          "tolerance": 30,
+          "label": "Volume — 5+700 to 6+100 (400 x 20 x 0.95)"
+        },
+        {
+          "cell": "E4",
+          "expected": 25760,
+          "tolerance": 60,
+          "label": "Volume — 6+100 to 6+800 (700 x 23 x 1.60)"
+        },
+        {
+          "cell": "F4",
+          "expected": 40920,
+          "tolerance": 90,
+          "label": "Running total after all three sections"
+        }
+      ],
+      "reasoning": "A running total is the check a planning or civil engineer uses to reconcile section-by-section volumes against a total fill order — if the running total doesn't match the sum of individual sections, either a formula or an input value is wrong.",
+      "tip": "Build the running total as a formula referencing the row above plus the current row's volume, rather than typing static numbers — that way it self-corrects if an earlier section's volume changes.",
+      "mistake": "A common spreadsheet error is copying a volume formula down without checking that each row references its own length/width/depth cells rather than accidentally reusing the first row's inputs.",
+      "recommendation": "On real earthworks packages, this exact running-total sheet is what gets reconciled weekly against actual truck-load counts leaving the borrow pit — treat the habit of keeping it accurate as directly tied to cost control."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Section That Was 'Close Enough'",
+    "background": "On an earlier package of the same ring road, a junior engineer classified a marginal CBR result (7.6%, just under the 8% standard threshold) as 'close enough' to standard and specified only the 150mm sub-base, skipping the capping layer.",
+    "client": "Azerbaijan State Roads Agency",
+    "budget": "Remediation estimate: $310,000 for the affected 800m section",
+    "timeline": "Rutting became visible 14 months after opening to traffic",
+    "challenges": "The pavement had already been surfaced and opened to traffic, so remediation meant milling and reconstructing a live carriageway under traffic management, at several times the cost of the original capping layer would have been.",
+    "constraints": "Reconstructing under live traffic required night works and lane closures, extending the remediation programme to 6 weeks and drawing public complaints about disruption.",
+    "questions": [
+      "Why is a CBR of 7.6% treated differently from a CBR of 8.0%, when the difference seems small?",
+      "What documentation step would have made this decision visible to a second reviewer before construction?",
+      "Is 'rounding up' a borderline test result ever defensible in a specification-driven design?"
+    ],
+    "solution": "Prime Infrastructure implemented a mandatory second sign-off for any CBR result within 1 percentage point of a specification threshold, and required the pavement pathway decision (not just the raw test number) to be recorded in the site diary before fill placement began.",
+    "lessonsLearned": "A specification threshold is a line, not a suggestion — 7.6% and 8.0% look close as numbers but represent materially different subgrade behaviour under repeated traffic loading, which is exactly why the spec draws the line there. Borderline results deserve more scrutiny, not a rounding shortcut, precisely because the cost of being wrong is so much higher once the road is paved and open."
+  },
+  "quiz": [
+    {
+      "q": "A soaked CBR of 4.2% falls into which pavement design pathway?",
+      "options": [
+        "Standard sub-base, no further action",
+        "Capping layer required before sub-base",
+        "Full subgrade replacement, refer to designer",
+        "Pavement can be built directly on this subgrade"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Why use soaked CBR rather than as-tested CBR for the design pathway decision?",
+      "options": [
+        "Soaked CBR is always higher and easier to satisfy",
+        "Soaked CBR represents worst-case in-service moisture conditions",
+        "As-tested CBR is not a recognised test method",
+        "There's no difference between the two in practice"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Fill material at 2% above optimum moisture content should generally be:",
+      "options": [
+        "Compacted immediately to save programme time",
+        "Dried/aerated toward optimum before compaction, or replaced if impractical",
+        "Left as-is since 2% is within all tolerances",
+        "Used only for the deepest fill layers"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, what made the eventual remediation so much more expensive than getting the design right the first time?",
+      "options": [
+        "The client refused to pay for capping material",
+        "Remediation required reconstruction under live traffic, not just an added layer before opening",
+        "The subgrade classification changed after construction",
+        "There was no case study finding, remediation was cheap"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "What is the main purpose of keeping a running total in a cut/fill balance sheet?",
+      "options": [
+        "It's a formatting convention with no technical purpose",
+        "It lets you reconcile section volumes against the total fill order, catching input or formula errors early",
+        "It replaces the need for a full digital terrain model",
+        "It's only relevant for cost estimation, not earthworks"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task asked you to translate a raw lab number into a specification decision, rather than just doing arithmetic? What made that translation step important?",
+      "The case study shows a 0.4 percentage-point rounding decision costing $310,000 fourteen months later. Where else in engineering might a small, easy-to-justify shortcut carry a delayed, disproportionate cost?",
+      "If you were Farid, what one process change would you make so a junior engineer's borderline judgment call always gets a second set of eyes before it's built?"
+    ]
+  },
+  "certificate": {
+    "name": "Civil Engineer — Earthworks & Pavement Assessment",
+    "totalXp": 300
+  }
+}
