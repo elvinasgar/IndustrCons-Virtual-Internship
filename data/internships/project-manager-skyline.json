@@ -1,0 +1,323 @@
+{
+  "id": "project-manager-skyline",
+  "title": "Project Manager",
+  "companyId": "skyline-contractors",
+  "category": "Project Manager",
+  "difficulty": "Advanced",
+  "durationHours": 10,
+  "drawingTag": "PM-112 / REV.D",
+  "skills": [
+    "Risk Assessment",
+    "Decision Making",
+    "Presentation"
+  ],
+  "companyIntro": {
+    "name": "Skyline Contractors",
+    "country": "Turkey",
+    "founded": 2009,
+    "mission": "Deliver complex high-rise cores on schedule by planning around the true critical path — and when things slip anyway, recover with a defensible plan, not a hopeful one.",
+    "culture": "Direct with clients about bad news, early. Project managers are expected to bring a recommendation to every problem, not just a status update.",
+    "projects": [
+      "Meridian Tower Core-and-Shell",
+      "Bosphorus Business Park Phase 2",
+      "Anatolia Logistics Campus"
+    ]
+  },
+  "projectBackground": {
+    "name": "Meridian Tower — Core-and-Shell Package",
+    "client": "Meridian Development Group",
+    "location": "Levent District, Istanbul",
+    "budget": "$64M (core-and-shell package), $2.1M contingency",
+    "timeline": "58 weeks, currently in week 24 (mid-rise floors, jump-form core)",
+    "context": "Following the earlier floor 14 rebar delay, a second, larger issue has emerged: a structural steel supplier has confirmed a 3-week fabrication delay across floors 18-22, this time with no simple shift-based recovery available. The client's monthly board meeting is in 5 days and expects a recovery plan, not just an explanation."
+  },
+  "manager": {
+    "name": "Cem Ozturk",
+    "role": "Regional Director, Skyline Contractors",
+    "note": "This one's yours to own. I don't want three options with no recommendation — the client board doesn't have time for that. Give me the risk-ranked options, pick one, and be ready to defend the contingency number in front of people who will ask hard questions."
+  },
+  "assignment": {
+    "title": "Build and present a recovery plan for the steel delay, floors 18-22",
+    "brief": "A confirmed 3-week steel fabrication delay threatens the tower's completion date. Assess the risk, evaluate recovery options against cost and schedule impact, decide on a contingency drawdown, and prepare the client board presentation."
+  },
+  "documents": [
+    {
+      "id": "doc-supplier-notice",
+      "name": "Supplier Delay Notice — Steel Fabrication",
+      "type": "Correspondence",
+      "note": "Confirmed 3-week delay to floors 18-22 steel package due to a mill production issue upstream of the fabricator. No partial early delivery is possible; the full package ships as one lot."
+    },
+    {
+      "id": "doc-risk-register",
+      "name": "Project Risk Register (extract)",
+      "type": "Risk Register",
+      "note": "Risk R-14 'Steel supply chain disruption' was previously logged at Medium (Likelihood: Possible=3, Severity: Moderate=3, Score=9), with $180,000 contingency allocated against it."
+    },
+    {
+      "id": "doc-recovery-options",
+      "name": "Recovery Options Cost/Schedule Summary",
+      "type": "Commercial Analysis",
+      "note": "Option A — Air freight partial steel lot: recovers 2 weeks, costs $340,000. Option B — Resequence non-critical MEP ahead of steel-dependent floors: recovers 1 week, costs $40,000, no schedule risk added elsewhere. Option C — Absorb into float and negotiate extension of time with client: recovers 0 weeks directly, costs $0 to Skyline, but requires client agreement and may affect Skyline's bonus/penalty clause."
+    },
+    {
+      "id": "doc-board-template",
+      "name": "Client Board Presentation — Talking Points Template",
+      "type": "Template",
+      "note": "Sections: issue summary, risk assessment, options considered, recommendation, ask of the board."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-risk-rerate",
+      "type": "mcq",
+      "title": "Risk Re-Rating",
+      "prompt": "Risk R-14 was logged at Medium (Likelihood: Possible) before this event. Now that the supplier has confirmed the delay has actually occurred, how should likelihood be re-rated for the purpose of this specific event?",
+      "options": [
+        "Keep it at Possible — the rating shouldn't change once contingency is already allocated",
+        "Re-rate to Almost Certain / Certain, since the delay is now a confirmed fact rather than a future possibility",
+        "Lower it, since the risk has already happened and can't happen again",
+        "Remove it from the register since it's now a live issue rather than a risk"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "Once a risk event has actually occurred and been confirmed by the supplier, it's no longer a probabilistic future event — for the purposes of managing this specific occurrence, likelihood is effectively certain. The risk register entry itself may later be revised or closed out, but the active management of this instance should be based on the confirmed impact, not the pre-event probability.",
+      "tip": "A risk register rating describes uncertainty about the future — once an event crystallises into an actual issue, switch from 'risk management' framing to 'issue management' framing, even though it may still live in the same register.",
+      "mistake": "A common mistake is continuing to manage a now-confirmed event using its original pre-event risk score, which understates the urgency and can lead to underpowered contingency decisions.",
+      "recommendation": "When a registered risk crystallises, immediately reassess both the contingency amount and the schedule impact against the confirmed facts, rather than the assumptions the original entry was based on."
+    },
+    {
+      "id": "task-2-contingency",
+      "type": "numeric",
+      "title": "Contingency Drawdown Check",
+      "prompt": "$180,000 was allocated against Risk R-14. If Option A (air freight, $340,000) is chosen, how much additional contingency beyond the original R-14 allocation must be drawn from the general project contingency?",
+      "answer": 160000,
+      "tolerance": 0,
+      "unit": "USD",
+      "xp": 60,
+      "workingNote": "$340,000 - $180,000 = $160,000 additional draw beyond what was already set aside for this specific risk.",
+      "reasoning": "The pre-allocated $180,000 was specifically earmarked for this risk, so only the amount exceeding that allocation represents new pressure on the general contingency pool — reporting the full $340,000 as new exposure would double-count the portion already planned for.",
+      "tip": "Always report contingency drawdown net of any risk-specific allocation already reserved — a client board needs to know the marginal impact on the overall contingency pool, not the gross cost of the recovery option.",
+      "mistake": "A common error is reporting the full recovery option cost as new exposure without netting off the pre-existing allocation, which overstates the financial impact and can trigger unnecessary alarm.",
+      "recommendation": "Keep a live running total of contingency drawn versus remaining across all risks, not just the one currently in focus — a board's real question is usually 'how much buffer is left', not just 'what does this one item cost'."
+    },
+    {
+      "id": "task-3-options",
+      "type": "multiselect",
+      "title": "Recovery Option Evaluation",
+      "prompt": "Based on the cost/schedule summary, select every statement that correctly evaluates the three recovery options.",
+      "options": [
+        "Option A fully recovers the 3-week delay at $340,000",
+        "Option B recovers 1 week at low cost with no added schedule risk, making it worth doing regardless of which other option is chosen",
+        "Option C has zero direct cost to Skyline but introduces commercial/contractual risk around the bonus/penalty clause",
+        "Combining Option B with a partial Option A could recover more of the delay than either alone, at a cost between the two",
+        "Option C should be dismissed immediately since it recovers no schedule time"
+      ],
+      "correctIndices": [
+        1,
+        2,
+        3
+      ],
+      "xp": 55,
+      "reasoning": "Option A only recovers 2 of the 3 weeks per the summary, not the full delay, so that claim is incorrect. Option B is genuinely low-risk and low-cost regardless of the final decision on the bigger delay, so it's worth doing either way. Option C's real cost is commercial/contractual, not cash, which is a legitimate and important framing. Combining B with a partial A is a reasonable path to explore rather than treating the three options as mutually exclusive. Dismissing Option C outright ignores that it may still be the right call once contractual risk is weighed against $340,000 of hard cost — that's a judgment call for the recommendation, not something to rule out before analysis.",
+      "tip": "Recovery options aren't always mutually exclusive — the strongest project management move is often combining a cheap, low-risk option (B) with a partial application of an expensive one (A) rather than picking a single option wholesale.",
+      "mistake": "Treating cost/schedule options as a single-choice menu, rather than checking whether they can be combined or partially applied, is a common way to miss a cheaper path to the same recovery outcome.",
+      "recommendation": "Before presenting a recommendation, explicitly check whether a hybrid of two options beats either option alone on cost-per-week-recovered — boards respond well to seeing that this check was done."
+    },
+    {
+      "id": "task-4-crashing",
+      "type": "numeric",
+      "title": "Cost-per-Week-Recovered Comparison",
+      "prompt": "What is Option A's cost per week of schedule recovered, in USD per week (round to the nearest thousand)?",
+      "answer": 170000,
+      "tolerance": 5000,
+      "unit": "USD/week",
+      "xp": 50,
+      "workingNote": "$340,000 / 2 weeks recovered = $170,000 per week.",
+      "reasoning": "Normalising recovery cost to a per-week (or per-day) figure is what actually lets a project manager compare options of different scale on a like-for-like basis — a $340,000 option that only recovers 2 weeks might be worse value than it first appears next to a cheaper, partial option.",
+      "tip": "Always calculate cost-per-unit-of-schedule-recovered before recommending an acceleration option — the headline cost figure alone doesn't tell a board whether they're getting good value for the recovery.",
+      "mistake": "Comparing total costs of different recovery options directly, without normalising for how much schedule each actually recovers, is a common error that can lead to recommending the wrong option.",
+      "recommendation": "When presenting acceleration costs to a client, show the per-week rate alongside the total cost — it demonstrates the analysis was done rigorously and gives the board a number they can sanity-check against their own commercial exposure per week of delay."
+    },
+    {
+      "id": "task-5-recommendation",
+      "type": "text",
+      "title": "Recovery Plan — Written Recommendation",
+      "prompt": "Write your recommendation to Cem (3-5 sentences): which option (or combination) you recommend, why, and what you need from the client board to proceed.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "I recommend combining Option B (resequence MEP ahead of steel-dependent floors, $40,000, recovers 1 week) with a partial application of Option A limited to floors 18-20 only, recovering an estimated additional 1.5 weeks at roughly $255,000 — bringing total recovery to 2.5 of the 3 delayed weeks for approximately $295,000, against $160,000 of contingency drawdown beyond the pre-allocated risk budget. The remaining 0.5-week gap I recommend absorbing into existing float rather than paying for full Option A coverage, since the marginal cost of recovering that last half-week is disproportionate. From the board, I need approval for the $295,000 spend and a decision on whether to proceed today given the 5-day supplier lead time on partial air freight booking.",
+      "reasoning": "A strong recommendation names a specific option (or combination), quantifies its cost and schedule effect, and states exactly what decision or approval is needed from the audience — this is what lets a board actually act in the meeting rather than asking for another week of analysis.",
+      "tip": "Always end a recommendation with a specific, time-bound ask ('approval today, given the 5-day supplier lead time') — it creates urgency and clarity about what happens if the board doesn't decide immediately.",
+      "mistake": "A common weakness is presenting the options neutrally without committing to a recommendation, which pushes the decision-making burden back onto a board that hired a project manager specifically to make this kind of call.",
+      "recommendation": "Practice defending the recommendation against the strongest counter-argument before the meeting (here: 'why not just do full Option A and guarantee full recovery?') — being ready for that question is often what actually earns the board's confidence in the number presented."
+    },
+    {
+      "id": "task-6-escalation",
+      "type": "mcq",
+      "title": "Decision Making Under Constraint",
+      "prompt": "The board asks: 'Why not just pay for full Option A and guarantee the entire 3 weeks back?' What is the strongest defensible answer?",
+      "options": [
+        "Because Skyline doesn't want to spend the money",
+        "Because the cost-per-week for the final, marginal week recovered by full Option A is disproportionately high compared to the hybrid approach, and that gap can be absorbed into existing float at zero cost",
+        "Because air freight isn't technically possible for steel components",
+        "Because the client board isn't authorised to approve spends over $300,000"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "The defensible answer is a value-for-money argument grounded in the cost-per-week analysis already done: the last half-week of recovery through full Option A costs disproportionately more than the hybrid plan, and there's a zero-cost alternative (float) already available for that specific gap. This is a stronger position than a vague appeal to cost-consciousness or an unrelated authorisation limit.",
+      "tip": "When defending a recommendation against 'why not just do the maximum option', always have the marginal cost-benefit of the last increment ready — it's usually the most persuasive number in the room.",
+      "mistake": "Answering a cost-based challenge with a vague statement like 'it's cheaper' without the specific marginal comparison invites further questioning and can look like the analysis wasn't actually done.",
+      "recommendation": "Prepare a one-line 'marginal cost of the last unit recovered' answer for every recovery recommendation you present — boards routinely ask exactly this question, and having the number ready signals rigor."
+    },
+    {
+      "id": "task-7-contingency-excel",
+      "type": "excel-upload",
+      "title": "Contingency Reallocation Table (Excel)",
+      "prompt": "Two more risks on the register need their contingency drawdown reconciled the same way as Risk R-14, plus a running total against the $2.1M project contingency. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 70,
+      "template": {
+        "fileName": "Contingency-Reallocation-Template.xlsx",
+        "sheetName": "Contingency",
+        "headers": [
+          "Risk ID",
+          "Pre-Allocated (USD)",
+          "Actual Cost (USD)",
+          "Additional Drawdown (USD)",
+          "Remaining Contingency (USD)"
+        ],
+        "rows": [
+          [
+            "R-14 Steel Supply Delay",
+            "180000",
+            "340000",
+            "",
+            ""
+          ],
+          [
+            "R-09 Weather Delay (already closed)",
+            "60000",
+            "45000",
+            "",
+            ""
+          ],
+          [
+            "R-22 Client Variation (already closed)",
+            "95000",
+            "110000",
+            "",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 160000,
+          "tolerance": 0,
+          "label": "Additional drawdown — R-14 (340,000 - 180,000)"
+        },
+        {
+          "cell": "D3",
+          "expected": -15000,
+          "tolerance": 0,
+          "label": "Additional drawdown — R-09 (45,000 - 60,000, a saving)"
+        },
+        {
+          "cell": "D4",
+          "expected": 15000,
+          "tolerance": 0,
+          "label": "Additional drawdown — R-22 (110,000 - 95,000)"
+        },
+        {
+          "cell": "E4",
+          "expected": 1940000,
+          "tolerance": 500,
+          "label": "Remaining contingency after all three (2,100,000 - 160,000 - (-15,000) - 15,000)"
+        }
+      ],
+      "reasoning": "Reconciling every risk's actual cost against its pre-allocation — including risks that came in under budget, which return money to the pool — is what keeps the overall contingency figure accurate. A risk that saved money (R-09) should reduce total drawdown, not be ignored just because it's already closed.",
+      "tip": "Build the additional drawdown column as Actual minus Pre-Allocated for every row, including ones with a negative result — a negative drawdown is a real saving that should flow through to the remaining contingency total, not be floored at zero.",
+      "mistake": "A common spreadsheet mistake is treating any negative result as an error and setting it to zero, which silently loses track of money that should have been returned to the general contingency pool.",
+      "recommendation": "Reconcile the full contingency register monthly, not just when a new risk crystallises — closed risks that came in under or over budget both need to flow through to keep the remaining contingency figure trustworthy for the next big decision."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Recommendation Nobody Made",
+    "background": "On an earlier Skyline project, a project manager presented three recovery options to a client board with no recommendation, 'to let the client decide objectively' — the board spent the entire meeting debating the options without deciding, and the delay grew by another two weeks before a decision was finally forced.",
+    "client": "Anatolia Logistics Campus — private developer client",
+    "budget": "Additional delay cost from the indecision period: approximately $210,000",
+    "timeline": "Two-week decision delay, on top of the original schedule issue",
+    "challenges": "Each board member had a different view on acceptable cost versus schedule trade-off, and without a recommendation to react to (agree, or argue against a specific position), the discussion had no anchor and kept restarting from first principles.",
+    "constraints": "The project manager's own director had to personally intervene at the following week's meeting with a firm recommendation, by which point the best recovery option (a partial early one) was no longer available due to the additional delay.",
+    "questions": [
+      "Why does presenting options neutrally sometimes cause worse outcomes than presenting a recommendation, even if the recommendation could be wrong?",
+      "What does a client board actually need from a project manager in a time-constrained decision?",
+      "How would you structure a recommendation to make it easy to agree with, or easy to specifically disagree with and counter-propose?"
+    ],
+    "solution": "Skyline instituted a standing rule that any recovery plan brought to a client board must include an explicit recommendation and a specific ask, even when multiple viable options exist — 'no recommendation' was removed as an acceptable presentation format for time-sensitive decisions.",
+    "lessonsLearned": "A recommendation isn't a constraint on the client's decision-making authority — it's what gives a board something concrete to agree with or push back against, which is almost always faster and better than asking a group to build consensus from a blank slate under time pressure."
+  },
+  "quiz": [
+    {
+      "q": "Once a registered risk has actually occurred, how should its likelihood be treated for managing that specific event?",
+      "options": [
+        "Unchanged from the original register entry",
+        "Effectively certain, since the event is now a confirmed fact",
+        "Lowered, since risks can't recur",
+        "Irrelevant, only severity matters now"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When reporting contingency drawdown for a recovery option, you should report:",
+      "options": [
+        "The full gross cost of the option",
+        "The cost net of any amount already pre-allocated to that specific risk",
+        "Only the cheapest option's cost",
+        "The client's budget, not the actual cost"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Why calculate cost-per-week-recovered when comparing recovery options?",
+      "options": [
+        "It's a formatting requirement with no analytical value",
+        "It allows fair comparison between options of different scale and cost",
+        "It's only relevant for options costing over $1M",
+        "It replaces the need for a schedule network"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, what was the direct cost of presenting options with no recommendation?",
+      "options": [
+        "None, it was a neutral and safe approach",
+        "A two-week decision delay that eliminated the best recovery option and cost roughly $210,000",
+        "The client fired Skyline immediately",
+        "It had no effect on the schedule"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A risk that comes in under its pre-allocated budget should be treated as:",
+      "options": [
+        "Irrelevant once closed",
+        "A saving that reduces overall contingency drawdown when reconciling the register",
+        "An error to be corrected to zero",
+        "Additional contingency to spend elsewhere immediately without reconciliation"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task forced you to commit to a specific recommendation rather than presenting neutral options? How did quantifying cost-per-week change what felt like the 'obvious' choice?",
+      "The case study shows that presenting options with no recommendation cost more than either option would have. Where else might 'staying neutral' actually be a more expensive choice than making a call?",
+      "If you were Cem, what would you want to hear in the first thirty seconds of this recommendation, before any numbers are shown?"
+    ]
+  },
+  "certificate": {
+    "name": "Project Manager — Risk-Based Recovery Planning",
+    "totalXp": 380
+  }
+}
