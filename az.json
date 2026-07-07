@@ -1,0 +1,168 @@
+{
+  "nav": {
+    "dashboard": "İdarə paneli",
+    "internships": "Təcrübələr",
+    "companies": "Şirkətlər",
+    "resources": "Resurslar",
+    "pricing": "Qiymətlər",
+    "start": "Pulsuz Başla",
+    "signIn": "Daxil ol"
+  },
+  "hero": {
+    "eyebrow": "Virtual Təcrübə Platforması · AEC Sənayesi",
+    "title": "İlk iş yerinizdən əvvəl real mühəndislik işini məşq edin.",
+    "subtitle": "IndustrCons IRE-3 sizi real tikinti layihələrinin — çertyojlar, smetalar, sahə jurnalları və son tarixlərin — içinə salır, işəgötürənlərin əslində qiymətləndirdiyi mühakiməni formalaşdırırsınız.",
+    "cta1": "Təcrübəyə Başla",
+    "cta2": "Təcrübələrə Bax",
+    "stat1": "Aktiv Təcrübələr",
+    "stat2": "Mühəndislik Tapşırıqları",
+    "stat3": "Sənəd Kitabxanasında",
+    "stat4": "Sertifikatlaşma üçün orta saat"
+  },
+  "why": {
+    "eyebrow": "Niyə virtual təcrübə",
+    "title": "Dərsliklər nəzəriyyəni öyrədir. Sahə mühakiməni öyrədir.",
+    "subtitle": "Hər təcrübə real layihələrdə istifadə olunan iş axınından qurulub — mühazirəyə baxmırsınız, qərar verirsiniz.",
+    "f1title": "Real sənədlər, slaydlar deyil",
+    "f1body": "Real formatlı çertyojları, smetaları, RFI-ları və metod bəyanatlarını izah edin — ilk işinizin əsaslandığı sənədlər.",
+    "f2title": "Öyrədən rəy",
+    "f2body": "Hər tapşırıq düzgün cavabı, arxasındakı mühəndislik məntiqini və yeni başlayanların ən çox etdiyi səhvi göstərir.",
+    "f3title": "Kurs deyil, vəzifə",
+    "f3body": "Sizi bir menecer, bir şirkət daxilində, büdcəsi və son tarixi olan bir layihəyə təyin edir — təzyiq daxil olmaqla.",
+    "f4title": "Göstərə biləcəyiniz sübut",
+    "f4body": "Doğrulanan sertifikat və məşq etdiklərinizi tam əks etdirən, dərhal paylaşıla bilən LinkedIn xülasəsi ilə bitirin."
+  },
+  "catalogPreview": {
+    "eyebrow": "Təcrübə Kataloqu",
+    "title": "Masada istədiyiniz yeri seçin.",
+    "viewAll": "Bütün təcrübələrə bax"
+  },
+  "companies": {
+    "eyebrow": "Simulyasiya Edilmiş Şirkətlər",
+    "title": "Sizi bir fəsil deyil, bir şirkət işə götürür.",
+    "subtitle": "Uydurma şirkətlər, real təşkilati dərinliklə qurulub — missiya, mədəniyyət, davam edən layihələr — aparıcı beynəlxalq podratçıların təcrübəsindən ilhamlanıb.",
+    "inspirationTitle": "Sənaye ilhamı",
+    "inspirationBody": "IRE-3 ssenariləri AECOM, Bechtel, Skanska, Turner Construction, VINCI Construction, STRABAG, Fluor, Jacobs və Balfour Beatty kimi şirkətlərin təcrübəsindən ilhamlanıb. IndustrCons bu şirkətlərlə əlaqəli, onlar tərəfindən dəstəklənən və ya tərəfdaş deyil; onlar yalnız beynəlxalq mühəndislik təcrübəsi nümunəsi kimi qeyd olunur."
+  },
+  "stats": {
+    "eyebrow": "Rəqəmlərlə",
+    "title": "Sadəcə tamamlama üçün deyil, dərinlik üçün qurulub."
+  },
+  "testimonials": {
+    "eyebrow": "İştirakçılardan",
+    "title": "Öz sözləri ilə sənayeyə hazır."
+  },
+  "faq": {
+    "eyebrow": "Suallar",
+    "title": "Başlamazdan əvvəl"
+  },
+  "cta": {
+    "title": "İlk sahə tapşırığınız sizi gözləyir.",
+    "subtitle": "Başlamaq pulsuzdur. Kredit kartı tələb olunmur. Tamamlandıqda sertifikat.",
+    "button": "Təcrübəyə Başla"
+  },
+  "footer": {
+    "tagline": "Öyrən. Məşq et. Sənayeyə Hazır Ol.",
+    "platform": "Platforma",
+    "company": "Şirkət",
+    "legal": "Hüquqi",
+    "about": "IndustrCons haqqında",
+    "knowledge": "Bilik Mərkəzi",
+    "help": "Yardım Mərkəzi",
+    "contact": "Əlaqə",
+    "terms": "İstifadə Şərtləri",
+    "privacy": "Məxfilik Siyasəti",
+    "disclaimer": "Ticarət Nişanı Bəyanatı",
+    "rights": "Bütün hüquqlar qorunur.",
+    "founder": "Təsisçi: Elvin Əsgərov."
+  },
+  "sidebar": {
+    "dashboard": "İdarə paneli",
+    "internships": "Təcrübələr",
+    "companies": "Şirkətlər",
+    "caseStudies": "Kejs Çalışmaları",
+    "resources": "Resurslar",
+    "knowledge": "Bilik Mərkəzi",
+    "skills": "Bacarıqlar",
+    "certificates": "Sertifikatlar",
+    "leaderboard": "Liderlər Cədvəli",
+    "achievements": "Nailiyyətlər",
+    "settings": "Tənzimləmələr",
+    "help": "Yardım Mərkəzi"
+  },
+  "dashboard": {
+    "welcome": "Yenidən xoş gəldiniz",
+    "welcomeSub": "Təcrübənizin bugünkü vəziyyəti budur.",
+    "level": "Səviyyə",
+    "xp": "XP",
+    "streak": "Ardıcıl Gün",
+    "hours": "Öyrənilən Saat",
+    "current": "Qaldığınız yerdən davam edin",
+    "noCurrent": "Hələ heç bir təcrübəyə başlamamısınız.",
+    "browse": "Təcrübələrə bax",
+    "recommended": "Sizin üçün tövsiyə olunur",
+    "badges": "Qazanılan nişanlar",
+    "activity": "Son fəaliyyət",
+    "noActivity": "Hələ fəaliyyət yoxdur — burada görmək üçün tapşırığa başlayın.",
+    "resume": "Təcrübəyə davam et"
+  },
+  "catalog": {
+    "title": "Təcrübə Kataloqu",
+    "subtitle": "AEC layihə həyat dövrü üzrə 15 vəzifə. Birindən başlayın və ya bir neçəsi üzrə karyera yolu qurun.",
+    "searchPlaceholder": "Təcrübə, bacarıq, şirkət axtar…",
+    "filterCategory": "Kateqoriya",
+    "filterDifficulty": "Çətinlik",
+    "filterDuration": "Müddət",
+    "all": "Hamısı",
+    "noResults": "Filtrlərinizə uyğun təcrübə yoxdur.",
+    "clearFilters": "Filtrləri təmizlə",
+    "hours": "saat",
+    "tasks": "tapşırıq",
+    "viewInternship": "Təcrübəyə bax"
+  },
+  "flow": {
+    "companyIntro": "Şirkətlə Tanışlıq",
+    "projectBackground": "Layihə Haqqında",
+    "meetManager": "Menecerinizlə Tanışlıq",
+    "assignment": "Tapşırığınız",
+    "documents": "Mühəndislik Sənədləri",
+    "tasks": "Tapşırıqlar",
+    "caseStudy": "Kejs Çalışması",
+    "quiz": "Test",
+    "reflection": "Refleksiya",
+    "feedback": "Rəy",
+    "certificate": "Sertifikat",
+    "startInternship": "Təcrübəyə Başla",
+    "continue": "Davam et",
+    "markComplete": "Tamamlandı kimi işarələ",
+    "submit": "Cavabı Göndər",
+    "next": "Növbəti Addım",
+    "download": "Yüklə",
+    "reopenTask": "Tapşırığı Təkrarla",
+    "correct": "Düzgün",
+    "reasoning": "Mühəndislik məntiqi",
+    "tip": "Peşəkar məsləhət",
+    "mistake": "Ümumi səhv",
+    "recommendation": "Sənaye tövsiyəsi",
+    "xpEarned": "Qazanılan XP",
+    "getCertificate": "Sertifikatınızı Alın"
+  },
+  "certificate": {
+    "title": "Tamamlanma Sertifikatı",
+    "issuedTo": "Bu sənəd təsdiq edir ki",
+    "completed": "aşağıdakı virtual təcrübəni uğurla tamamlamışdır",
+    "date": "Tamamlanma Tarixi",
+    "certNo": "Sertifikat No.",
+    "verify": "Doğrulama Kodu",
+    "downloadPdf": "PDF Yüklə",
+    "print": "Çap et",
+    "share": "LinkedIn-də Paylaş",
+    "founderTitle": "Təsisçi, IndustrCons"
+  },
+  "common": {
+    "loading": "Yüklənir…",
+    "back": "Geri",
+    "search": "Axtar",
+    "close": "Bağla"
+  }
+}
