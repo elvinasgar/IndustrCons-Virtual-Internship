@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings — IndustrCons IRE-3</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="settings">
+<div class="app-shell">
+  <div id="sidebarInclude"></div>
+  <div class="main-content" id="main" style="max-width:520px;">
+    <h1 style="font-size:var(--step-2);">Settings</h1>
+
+    <div class="card" style="padding:22px; margin-top:16px;">
+      <h4>Profile</h4>
+      <div class="field">
+        <label for="nameInput">Name on certificates</label>
+        <input id="nameInput" type="text">
+      </div>
+      <button class="btn btn-primary btn-sm" id="saveNameBtn">Save</button>
+    </div>
+
+    <div class="card" style="padding:22px; margin-top:16px;">
+      <h4>Preferences</h4>
+      <div class="field" style="flex-direction:row; align-items:center; justify-content:space-between;">
+        <label style="margin:0;">Language</label>
+        <div class="lang-switch"><button data-lang="en">EN</button><button data-lang="az">AZ</button></div>
+      </div>
+      <div class="field" style="flex-direction:row; align-items:center; justify-content:space-between; margin-bottom:0;">
+        <label style="margin:0;">Theme</label>
+        <button class="btn btn-ghost btn-sm" id="themeToggle2">Toggle dark / light</button>
+      </div>
+    </div>
+
+    <div class="card" style="padding:22px; margin-top:16px; border-color:var(--danger);">
+      <h4 style="color:var(--danger);">Reset progress</h4>
+      <p style="font-size:.86rem;">Clears all XP, badges, internship progress and certificates stored in this browser. This can't be undone.</p>
+      <button class="btn" style="background:var(--danger); color:#fff;" id="resetBtn">Reset all progress</button>
+    </div>
+  </div>
+</div>
+<script src="js/i18n.js"></script><script src="js/storage.js"></script><script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => setTimeout(() => {
+  const state = IC.store.getState();
+  document.getElementById('nameInput').value = state.profile.name;
+  document.getElementById('saveNameBtn').addEventListener('click', () => {
+    IC.store.setProfileName(document.getElementById('nameInput').value);
+    IC.toast('Name saved.');
+  });
+  document.getElementById('themeToggle2').addEventListener('click', () => document.getElementById('themeToggle').click());
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    if (confirm('This deletes all local progress permanently. Continue?')) {
+      IC.store.reset();
+      IC.toast('Progress reset.');
+      setTimeout(() => window.location.href = 'dashboard.html', 600);
+    }
+  });
+}, 80));
+</script>
+</body>
+</html>

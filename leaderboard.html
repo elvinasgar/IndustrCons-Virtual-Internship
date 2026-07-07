@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaderboard — IndustrCons IRE-3</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="leaderboard">
+<div class="app-shell">
+  <div id="sidebarInclude"></div>
+  <div class="main-content" id="main">
+    <h1 style="font-size:var(--step-2);">Leaderboard</h1>
+    <p style="max-width:640px; font-size:.86rem;">IRE-3 runs entirely in your browser with no shared server, so there's no real cross-student leaderboard yet. The rows below are illustrative example profiles alongside your real XP, to show how ranking will work once accounts are introduced.</p>
+    <table class="data-table" style="margin-top:16px;">
+      <thead><tr><th>Rank</th><th>Student</th><th>Level</th><th>XP</th></tr></thead>
+      <tbody id="lbBody"></tbody>
+    </table>
+  </div>
+</div>
+<script src="js/i18n.js"></script><script src="js/storage.js"></script><script src="js/main.js"></script>
+<script>
+const state = IC.store.getState();
+const level = IC.store.getLevelInfo(state.xp);
+const demo = [
+  { name: 'Nigar A. (example)', xp: 1840 },
+  { name: 'Tomasz K. (example)', xp: 1420 },
+  { name: `${state.profile.name} (you)`, xp: state.xp, isYou: true },
+  { name: 'Farid M. (example)', xp: 260 },
+  { name: 'Sofia R. (example)', xp: 90 }
+].sort((a,b) => b.xp - a.xp);
+
+document.getElementById('lbBody').innerHTML = demo.map((row, i) => `
+  <tr style="${row.isYou ? 'background:var(--blue-50); font-weight:700;' : ''}">
+    <td>#${i+1}</td><td>${row.name}</td><td>${IC.store.getLevelInfo(row.xp).level}</td><td>${row.xp}</td>
+  </tr>`).join('');
+</script>
+</body>
+</html>

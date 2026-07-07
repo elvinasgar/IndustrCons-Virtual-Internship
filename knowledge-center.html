@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knowledge Center — IndustrCons IRE-3</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="knowledge">
+<div class="app-shell">
+  <div id="sidebarInclude"></div>
+  <div class="main-content" id="main" style="max-width:760px;">
+    <h1 style="font-size:var(--step-2);">Knowledge Center</h1>
+    <p>Short technical reads, without leaving the platform.</p>
+
+    <details class="accordion-item" open>
+      <summary>Why cube strength tests don't catch every concrete defect</summary>
+      <div class="a-body">
+        <p>A compressive strength test measures exactly one thing: how much load a cured sample can carry before failure. It says nothing about durability under chemical exposure — sulfate attack, chloride ingress, carbonation — because none of those mechanisms show up within a 28-day strength test window. A mix can pass strength testing at 35 MPa and still fail a durability requirement if the wrong cement type was used. This is why specifications separate strength grade (e.g. C35) from exposure/durability class (e.g. sulfate-resisting) — they're independent requirements verified by different tests, on different timelines.</p>
+      </div>
+    </details>
+
+    <details class="accordion-item">
+      <summary>Reading a footing schedule without guessing</summary>
+      <div class="a-body">
+        <p>A footing schedule packs a lot into a small table: plan dimensions, depth, reinforcement diameter and spacing (often written as "16mm @ 150 c/c"), cover requirements, and concrete grade. The order to read it in is dimensions → reinforcement → cover → grade, because each later item depends on context from the one before it — cover, for instance, is measured differently to a formed face than to blinding, so you need to already know which face you're checking before the cover number means anything.</p>
+      </div>
+    </details>
+
+    <details class="accordion-item">
+      <summary>Why "round up" isn't always the safe answer</summary>
+      <div class="a-body">
+        <p>Rounding direction depends on what you're solving for. Checking maximum spacing compliance (like rebar centers) → round up, because rounding down could leave a gap that exceeds the limit. Estimating a cost quantity from a take-off → the correct convention is usually set by the BOQ measurement rules, which may round to whole units, nearest 0.5, or not round mid-calculation at all. Treat "round up" as a rule for one specific kind of question, not a universal habit.</p>
+      </div>
+    </details>
+
+    <details class="accordion-item">
+      <summary>What actually belongs on a pre-pour checklist</summary>
+      <div class="a-body">
+        <p>A pour-readiness checklist should map one-to-one to the method statement's defined sequence for that specific pour — nothing more, nothing less. Items that are legitimate site tasks but aren't part of the pour sequence (delivery reconciliation, forecast reviews, unrelated administrative sign-offs) dilute the checklist and slow down genuine readiness sign-off. If an item isn't gating the pour, it belongs in a different log.</p>
+      </div>
+    </details>
+  </div>
+</div>
+<script src="js/i18n.js"></script><script src="js/storage.js"></script><script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — IndustrCons IRE-3</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="dashboard">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app-shell">
+  <div id="sidebarInclude"></div>
+
+  <div class="main-content" id="main">
+    <div class="flex between reveal is-visible" style="margin-bottom:26px; flex-wrap:wrap; gap:12px;">
+      <div>
+        <h1 style="font-size:var(--step-2); margin-bottom:2px;"><span data-i18n="dashboard.welcome">Welcome back</span>, <span id="profileName">Guest Student</span></h1>
+        <p style="margin:0;" data-i18n="dashboard.welcomeSub">Here's where your internship stands today.</p>
+      </div>
+      <div class="lang-switch">
+        <button data-lang="en">EN</button><button data-lang="az">AZ</button>
+      </div>
+    </div>
+
+    <!-- Stat row -->
+    <div class="grid" style="grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:28px;">
+      <div class="card reveal is-visible" style="padding:20px; display:flex; align-items:center; gap:16px;">
+        <div class="xp-ring">
+          <svg width="64" height="64"><circle class="track" cx="32" cy="32" r="26"></circle><circle id="xpRingVal" class="val" cx="32" cy="32" r="26"></circle></svg>
+          <div class="label" id="xpRingLabel">1</div>
+        </div>
+        <div><div class="stat"><div class="num" id="levelNum" style="font-size:1.4rem;">1</div><div class="lbl" data-i18n="dashboard.level">Level</div></div></div>
+      </div>
+      <div class="card reveal is-visible" style="padding:20px;">
+        <div class="stat"><div class="num" id="xpNum">0</div><div class="lbl" data-i18n="dashboard.xp">XP</div></div>
+      </div>
+      <div class="card reveal is-visible" style="padding:20px;">
+        <div class="stat"><div class="num" id="streakNum">0</div><div class="lbl" data-i18n="dashboard.streak">Day Streak</div></div>
+      </div>
+      <div class="card reveal is-visible" style="padding:20px;">
+        <div class="stat"><div class="num" id="hoursNum">0</div><div class="lbl" data-i18n="dashboard.hours">Hours Learned</div></div>
+      </div>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 2fr 1fr; gap:20px; align-items:start;">
+      <div>
+        <!-- Current internship -->
+        <div class="card reveal is-visible" style="padding:24px; margin-bottom:20px;">
+          <h3 style="margin-bottom:14px;" data-i18n="dashboard.current">Continue where you left off</h3>
+          <div id="currentInternshipBlock"></div>
+        </div>
+
+        <!-- Recommended -->
+        <div class="reveal is-visible">
+          <h3 style="margin-bottom:14px;" data-i18n="dashboard.recommended">Recommended for you</h3>
+          <div id="recommendedGrid" class="grid" style="grid-template-columns:repeat(2,1fr); gap:16px;"></div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Badges -->
+        <div class="card reveal is-visible" style="padding:20px; margin-bottom:20px;">
+          <h4 style="margin-bottom:14px;" data-i18n="dashboard.badges">Badges earned</h4>
+          <div id="badgeGrid" class="grid" style="grid-template-columns:repeat(3,1fr); gap:10px;"></div>
+        </div>
+        <!-- Activity -->
+        <div class="card reveal is-visible" style="padding:20px;">
+          <h4 style="margin-bottom:14px;" data-i18n="dashboard.activity">Recent activity</h4>
+          <div class="timeline" id="activityTimeline"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/main.js"></script>
+<script>
+async function renderDashboard() {
+  const state = IC.store.getState();
+  const level = IC.store.getLevelInfo(state.xp);
+
+  document.getElementById('profileName').textContent = state.profile.name;
+  document.getElementById('levelNum').textContent = level.level;
+  document.getElementById('xpNum').textContent = state.xp;
+  document.getElementById('streakNum').textContent = state.streak.count;
+  document.getElementById('hoursNum').textContent = state.hoursLearned;
+
+  const R = 26, C = 2 * Math.PI * R;
+  const ring = document.getElementById('xpRingVal');
+  ring.setAttribute('stroke-dasharray', C);
+  ring.setAttribute('stroke-dashoffset', C - (level.pct / 100) * C);
+  document.getElementById('xpRingLabel').textContent = 'Lv' + level.level;
+
+  // Current internship
+  const internships = await fetch('data/internships/index.json').then(r => r.json());
+  const progressMap = state.internships;
+  const inProgressId = Object.keys(progressMap).find(id => progressMap[id].status === 'in_progress');
+  const block = document.getElementById('currentInternshipBlock');
+
+  if (inProgressId) {
+    const meta = internships.find(i => i.id === inProgressId);
+    const rec = progressMap[inProgressId];
+    const totalTasks = meta ? meta.taskCount : 5;
+    const done = Object.keys(rec.tasksDone).length;
+    const pct = Math.round((done / totalTasks) * 100);
+    block.innerHTML = `
+      <div class="flex between" style="align-items:flex-start;">
+        <div>
+          <div class="drawing-tag" style="margin-bottom:8px;">${meta ? meta.category : ''}</div>
+          <h4 style="margin:0 0 4px;">${meta ? meta.title : inProgressId} — ${meta ? meta.company : ''}</h4>
+          <p style="margin:0; font-size:.86rem;">${done}/${totalTasks} tasks complete</p>
+        </div>
+        <a class="btn btn-primary btn-sm" href="internship-detail.html?id=${inProgressId}" data-i18n="dashboard.resume">Resume internship</a>
+      </div>
+      <div class="progress progress-lg" style="margin-top:14px;"><span style="width:${pct}%;"></span></div>`;
+  } else {
+    block.innerHTML = `
+      <p data-i18n="dashboard.noCurrent">You haven't started an internship yet.</p>
+      <a class="btn btn-primary" href="internships.html" data-i18n="dashboard.browse">Browse internships</a>`;
+  }
+
+  // Recommended (simple: first 4 not completed)
+  const recGrid = document.getElementById('recommendedGrid');
+  internships.filter(i => !(progressMap[i.id] && progressMap[i.id].status === 'completed')).slice(0, 4).forEach(it => {
+    const href = it.playable ? `internship-detail.html?id=${it.id}` : `internships.html`;
+    const el = document.createElement('a');
+    el.href = href;
+    el.className = 'card card-hover internship-card';
+    el.innerHTML = `
+      <div class="thumb" style="height:80px;"><span class="drawing-tag">${it.category}</span></div>
+      <div class="body" style="padding:14px;">
+        <h4 style="margin:0; font-size:.95rem;">${it.title}</h4>
+        <p style="font-size:.8rem; margin:0;">${it.company}</p>
+      </div>`;
+    recGrid.appendChild(el);
+  });
+
+  // Badges
+  const badgeGrid = document.getElementById('badgeGrid');
+  const allBadgeKeys = Object.keys(IC.store.BADGE_DEFS);
+  badgeGrid.innerHTML = allBadgeKeys.map(key => {
+    const def = IC.store.BADGE_DEFS[key];
+    const earned = state.badges.includes(key);
+    return `<div class="achievement ${earned ? '' : 'locked'}"><div class="medal">${def.icon}</div><div class="name">${def.name}</div></div>`;
+  }).join('');
+
+  // Activity timeline
+  const timeline = document.getElementById('activityTimeline');
+  if (state.activity.length === 0) {
+    timeline.innerHTML = `<p style="margin:0; font-size:.86rem;" data-i18n="dashboard.noActivity">No activity yet — start a task to see it here.</p>`;
+  } else {
+    timeline.innerHTML = state.activity.slice(0, 8).map(a => `
+      <div class="timeline-item done">
+        <div class="timeline-time">${new Date(a.ts).toLocaleString()}</div>
+        <p style="margin:0; font-size:.86rem;">${a.label}</p>
+      </div>`).join('');
+  }
+}
+document.addEventListener('DOMContentLoaded', () => setTimeout(renderDashboard, 60));
+</script>
+</body>
+</html>

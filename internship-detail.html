@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internship — IndustrCons IRE-3</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="internships">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="navbarInclude"></div>
+
+<main id="main" class="section-tight">
+  <div class="container" style="max-width:880px;">
+    <nav class="breadcrumb">
+      <a href="internships.html">Internships</a><span class="sep">/</span><span id="crumbTitle">…</span>
+    </nav>
+
+    <div id="stepperWrap" style="margin-bottom:26px;">
+      <div class="stepper" id="stepper"></div>
+    </div>
+
+    <div id="flowContent" class="card" style="padding:32px;">
+      <p data-i18n="common.loading">Loading…</p>
+    </div>
+
+    <div class="flex between" style="margin-top:20px;">
+      <button class="btn btn-ghost" id="backStepBtn" data-i18n="common.back">Back</button>
+      <button class="btn btn-primary" id="nextStepBtn" data-i18n="flow.next">Next Step</button>
+    </div>
+  </div>
+</main>
+
+<div id="footerInclude"></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/main.js"></script>
+<script src="js/internship.js"></script>
+</body>
+</html>

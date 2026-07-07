@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Achievements — IndustrCons IRE-3</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="achievements">
+<div class="app-shell">
+  <div id="sidebarInclude"></div>
+  <div class="main-content" id="main">
+    <h1 style="font-size:var(--step-2);">Achievements</h1>
+    <p>Badges unlock as you complete tasks, categories, and full internships.</p>
+    <div id="badgeGrid" class="grid" style="grid-template-columns:repeat(4,1fr); gap:14px; margin-top:16px;"></div>
+  </div>
+</div>
+<script src="js/i18n.js"></script><script src="js/storage.js"></script><script src="js/main.js"></script>
+<script>
+const state = IC.store.getState();
+const grid = document.getElementById('badgeGrid');
+Object.entries(IC.store.BADGE_DEFS).forEach(([key, def]) => {
+  const earned = state.badges.includes(key);
+  const el = document.createElement('div');
+  el.className = `achievement ${earned ? '' : 'locked'}`;
+  el.innerHTML = `<div class="medal">${def.icon}</div><div class="name">${def.name}</div>`;
+  grid.appendChild(el);
+});
+</script>
+</body>
+</html>

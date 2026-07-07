@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help Center — IndustrCons IRE-3</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="help">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="navbarInclude"></div>
+<main id="main" class="section">
+  <div class="container" style="max-width:720px;">
+    <span class="eyebrow">Help</span>
+    <h1 style="margin-top:10px;">Help Center</h1>
+
+    <details class="accordion-item" open>
+      <summary>My progress disappeared</summary>
+      <div class="a-body"><p>Progress lives in your browser's local storage. It's cleared if you clear site data/cookies for this site, use a different browser or device, or open the site in a private/incognito window. Nothing is stored on a server, by design, so there's no way to recover it from elsewhere yet.</p></div>
+    </details>
+    <details class="accordion-item">
+      <summary>The certificate PDF download isn't working</summary>
+      <div class="a-body"><p>PDF export loads two small libraries from a CDN at the moment you click Download. If you're offline, or a network policy blocks cdnjs.cloudflare.com, the export will fail — use the Print button instead, which works fully offline via your browser's print-to-PDF option.</p></div>
+    </details>
+    <details class="accordion-item">
+      <summary>Can I redo a task?</summary>
+      <div class="a-body"><p>Not yet in this version — once submitted, a task's feedback is locked in so your record stays honest. A "redo" option is a natural next feature to add to the storage engine.</p></div>
+    </details>
+    <details class="accordion-item">
+      <summary>Why does the site only have one full internship?</summary>
+      <div class="a-body"><p>All 15 roles are in the catalog with real metadata (skills, duration, difficulty), but only the Site Engineer internship has its full step-by-step content authored right now. Every internship is a plain JSON file under <code>data/internships/</code> — adding the next one is a content task, not a rebuild.</p></div>
+    </details>
+  </div>
+</main>
+<div id="footerInclude"></div>
+<script src="js/i18n.js"></script><script src="js/storage.js"></script><script src="js/main.js"></script>
+</body>
+</html>

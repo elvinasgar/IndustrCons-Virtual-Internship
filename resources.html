@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources — IndustrCons IRE-3</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="resources">
+<div class="app-shell">
+  <div id="sidebarInclude"></div>
+  <div class="main-content" id="main">
+    <h1 style="font-size:var(--step-2);">Engineering Document Library</h1>
+    <p style="max-width:640px;">Reference templates used across internships. Download a blank copy to practice with outside the platform.</p>
+    <div id="templateGrid" class="grid" style="grid-template-columns:repeat(3,1fr); gap:16px; margin-top:16px;"></div>
+  </div>
+</div>
+<script src="js/i18n.js"></script><script src="js/storage.js"></script><script src="js/main.js"></script>
+<script>
+const TEMPLATES = [
+  { name: 'Daily Site Report', type: 'Template', file: 'daily-site-report.txt', body:
+`DAILY SITE REPORT
+Date:
+Weather:
+Manpower on site:
+Plant/equipment on site:
+
+Work completed today:
+-
+
+Materials received:
+-
+
+Issues / delays / observations:
+-
+
+Tomorrow's plan:
+-
+` },
+  { name: 'Pre-Pour Inspection Checklist', type: 'Checklist', file: 'pre-pour-checklist.txt', body:
+`PRE-POUR INSPECTION CHECKLIST
+Element / Grid ref:
+[ ] Excavation depth & dimensions match drawing
+[ ] Rebar size, spacing & cover confirmed against schedule
+[ ] Blinding layer placed and cured
+[ ] Formwork braced and dimensionally correct
+[ ] Embeds / sleeves positioned per drawing
+Inspected by:                Date:
+Approved for pour: Y / N
+` },
+  { name: 'Bill of Quantities (BOQ) — blank', type: 'BOQ', file: 'boq-template.txt', body:
+`BILL OF QUANTITIES
+Item No. | Description | Unit | Quantity | Rate | Amount
+---------|-------------|------|----------|------|-------
+` },
+  { name: 'Method Statement', type: 'Template', file: 'method-statement.txt', body:
+`METHOD STATEMENT
+Activity:
+Scope of works:
+Sequence of operations:
+1.
+2.
+3.
+Resources required (labour / plant / materials):
+Risk assessment reference:
+Prepared by:                Date:
+` },
+  { name: 'Risk Register', type: 'Template', file: 'risk-register.txt', body:
+`RISK REGISTER
+Ref | Hazard | Likelihood | Severity | Mitigation | Owner | Status
+----|--------|-----------|----------|-----------|-------|-------
+` },
+  { name: 'RFI (Request for Information)', type: 'Template', file: 'rfi-template.txt', body:
+`REQUEST FOR INFORMATION (RFI)
+RFI No.:              Date:
+Project:
+Raised by:            Discipline:
+Question:
+
+Drawing/spec reference:
+Response required by:
+Response:
+
+Responded by:          Date:
+` }
+];
+const grid = document.getElementById('templateGrid');
+TEMPLATES.forEach(t => {
+  const el = document.createElement('div');
+  el.className = 'card';
+  el.style.padding = '18px';
+  el.innerHTML = `
+    <span class="badge badge-outline">${t.type}</span>
+    <h4 style="margin:10px 0 12px;">${t.name}</h4>
+    <button class="btn btn-ghost btn-sm dl-btn">Download</button>`;
+  el.querySelector('.dl-btn').addEventListener('click', () => {
+    const blob = new Blob([t.body], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = t.file;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  });
+  grid.appendChild(el);
+});
+</script>
+</body>
+</html>

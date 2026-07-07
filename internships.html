@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internship Catalog — IndustrCons IRE-3</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="internships">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="navbarInclude"></div>
+
+<main id="main" class="section-tight">
+  <div class="container">
+    <div class="reveal" style="max-width:640px; margin-bottom:28px;">
+      <h1 style="font-size:var(--step-3);" data-i18n="catalog.title">Internship Catalog</h1>
+      <p data-i18n="catalog.subtitle">15 roles across the AEC project lifecycle. Start with one, or map a career path across several.</p>
+    </div>
+
+    <div class="card reveal" style="padding:18px; margin-bottom:28px;">
+      <div class="grid" style="grid-template-columns: 2fr 1fr 1fr 1fr auto; gap:14px; align-items:end;">
+        <div class="field" style="margin:0;">
+          <label for="searchInput" data-i18n="common.search">Search</label>
+          <input id="searchInput" type="search" data-i18n-placeholder="catalog.searchPlaceholder" placeholder="Search internships, skills, companies…">
+        </div>
+        <div class="field" style="margin:0;">
+          <label data-i18n="catalog.filterCategory">Category</label>
+          <select id="categoryFilter"><option value="" data-i18n="catalog.all">All</option></select>
+        </div>
+        <div class="field" style="margin:0;">
+          <label data-i18n="catalog.filterDifficulty">Difficulty</label>
+          <select id="difficultyFilter">
+            <option value="" data-i18n="catalog.all">All</option>
+            <option>Beginner</option><option>Intermediate</option><option>Advanced</option>
+          </select>
+        </div>
+        <div class="field" style="margin:0;">
+          <label data-i18n="catalog.filterDuration">Duration</label>
+          <select id="durationFilter">
+            <option value="" data-i18n="catalog.all">All</option>
+            <option value="short">Under 7 hrs</option>
+            <option value="long">7+ hrs</option>
+          </select>
+        </div>
+        <button class="btn btn-ghost" id="clearFiltersBtn" data-i18n="catalog.clearFilters">Clear filters</button>
+      </div>
+    </div>
+
+    <div id="resultsCount" style="font-size:.86rem; color:var(--ink-soft); margin-bottom:14px;"></div>
+    <div id="catalogGrid" class="grid" style="grid-template-columns:repeat(3,1fr); gap:20px;"></div>
+    <div id="emptyState" class="empty-state" hidden>
+      <div class="icon">🗂️</div>
+      <p data-i18n="catalog.noResults">No internships match your filters.</p>
+    </div>
+  </div>
+</main>
+
+<div id="footerInclude"></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/main.js"></script>
+<script src="js/catalog.js"></script>
+</body>
+</html>

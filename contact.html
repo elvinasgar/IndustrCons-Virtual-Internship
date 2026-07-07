@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — IndustrCons IRE-3</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="contact">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="navbarInclude"></div>
+<main id="main" class="section">
+  <div class="container" style="max-width:520px;">
+    <span class="eyebrow">Contact</span>
+    <h1 style="margin-top:10px;">Get in touch</h1>
+    <p>IRE-3 has no backend, so this form doesn't send anywhere yet — wire it to your email provider or a form service (e.g. Formspree) when you're ready to go live.</p>
+    <form onsubmit="event.preventDefault(); IC.toast('This demo form isn\'t wired to a backend yet.');">
+      <div class="field"><label for="cName">Name</label><input id="cName" required></div>
+      <div class="field"><label for="cEmail">Email</label><input id="cEmail" type="email" required></div>
+      <div class="field"><label for="cMsg">Message</label><textarea id="cMsg" rows="5" required></textarea></div>
+      <button class="btn btn-primary btn-block" type="submit">Send message</button>
+    </form>
+  </div>
+</main>
+<div id="footerInclude"></div>
+<script src="js/i18n.js"></script><script src="js/storage.js"></script><script src="js/main.js"></script>
+</body>
+</html>

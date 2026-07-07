@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Companies — IndustrCons IRE-3</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css"><link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="companies">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="app-shell">
+  <div id="sidebarInclude"></div>
+  <div class="main-content" id="main">
+    <h1 style="font-size:var(--step-2);">Simulated Companies</h1>
+    <p style="max-width:640px;">Every company below is fictional. They're built with real organizational depth so an internship feels like joining a team, not opening a chapter. IndustrCons has no partnership with any real-world company.</p>
+    <div id="companyGrid" class="grid" style="grid-template-columns:repeat(3,1fr); gap:18px; margin-top:20px;"></div>
+  </div>
+</div>
+<script src="js/i18n.js"></script><script src="js/storage.js"></script><script src="js/main.js"></script>
+<script>
+fetch('data/companies/companies.json').then(r=>r.json()).then(companies=>{
+  const grid = document.getElementById('companyGrid');
+  companies.forEach(c=>{
+    const el = document.createElement('div');
+    el.className = 'card company-card';
+    el.innerHTML = `
+      <div class="logo-badge">${c.name.split(' ').map(w=>w[0]).slice(0,2).join('')}</div>
+      <h4 style="margin:0;">${c.name}</h4>
+      <div style="font-size:.8rem; color:var(--ink-soft);">${c.country} · Est. ${c.founded}</div>
+      <p style="font-size:.86rem;"><strong>Mission:</strong> ${c.mission}</p>
+      <p style="font-size:.86rem;"><strong>Culture:</strong> ${c.culture}</p>
+      <div>${c.projects.map(p=>`<span class="chip" style="margin:2px;">${p}</span>`).join('')}</div>`;
+    grid.appendChild(el);
+  });
+});
+</script>
+</body>
+</html>

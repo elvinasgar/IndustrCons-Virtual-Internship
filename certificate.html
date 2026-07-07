@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Certificate — IndustrCons IRE-3</title>
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  #certificateCard{
+    width: 1000px; max-width: 100%; aspect-ratio: 1000/700; margin: 0 auto; background:#fff;
+    border: 10px solid var(--navy); border-radius: 6px; position: relative; padding: 46px 56px;
+    display:flex; flex-direction:column; justify-content:space-between; color:#0F172A;
+    background-image: repeating-linear-gradient(0deg, rgba(0,91,170,.035) 0 1px, transparent 1px 34px), repeating-linear-gradient(90deg, rgba(0,91,170,.035) 0 1px, transparent 1px 34px);
+  }
+  #certificateCard::before{ content:''; position:absolute; inset:14px; border:1.5px solid #005BAA; border-radius:3px; pointer-events:none; }
+  .cert-seal{
+    width:96px; height:96px; border-radius:50%;
+    background: conic-gradient(from 210deg, #F7941D, #ffe1ab, #F7941D, #d97e0e, #F7941D);
+    display:flex; align-items:center; justify-content:center; box-shadow: 0 8px 20px rgba(0,0,0,.18);
+  }
+  .cert-seal span{ font-family: var(--font-display); font-weight:700; color:#0F172A; font-size:.7rem; text-align:center; }
+  @media print {
+    body *{ visibility:hidden; }
+    #certificateCard, #certificateCard *{ visibility:visible; }
+    #certificateCard{ position:fixed; inset:0; margin:0; width:100vw; height:100vh; border-width:14px; }
+  }
+</style>
+</head>
+<body data-page="internships">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="navbarInclude"></div>
+
+<main id="main" class="section-tight">
+  <div class="container" style="max-width:1040px;">
+    <div id="notReadyState" class="empty-state" hidden>
+      <div class="icon">🔒</div>
+      <h3>No certificate here yet</h3>
+      <p>Finish the internship's tasks, case study, and quiz first — then come back to generate this certificate.</p>
+      <a class="btn btn-primary" href="internships.html">Browse internships</a>
+    </div>
+
+    <div id="certificateWrap" hidden>
+      <div class="text-center" style="margin-bottom:22px;">
+        <h1 style="font-size:var(--step-2);" data-i18n="certificate.title">Certificate of Completion</h1>
+      </div>
+
+      <div id="certificateCard">
+        <div class="flex between" style="align-items:flex-start;">
+          <img src="assets/icons/logo.svg" alt="IndustrCons IRE-3" style="height:34px;">
+          <div class="title-block" style="border-color:#005BAA; color:#0F172A;">
+            <span>CERT</span><b id="certNoTag">—</b>
+          </div>
+        </div>
+
+        <div class="text-center" style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+          <div class="eyebrow" style="justify-content:center;" data-i18n="certificate.issuedTo">This certifies that</div>
+          <h2 id="certName" style="margin:6px 0 10px; font-size:2.2rem;">Guest Student</h2>
+          <p style="max-width:600px; margin:0 auto 6px;"><span data-i18n="certificate.completed">has successfully completed the virtual internship</span></p>
+          <h3 id="certInternshipName" style="margin:4px 0 0; color:#005BAA;">—</h3>
+        </div>
+
+        <div class="flex between" style="align-items:flex-end;">
+          <div style="font-size:.78rem;">
+            <div><strong data-i18n="certificate.date">Completion Date</strong>: <span id="certDate">—</span></div>
+            <div><strong data-i18n="certificate.certNo">Certificate No.</strong>: <span id="certNo" class="mono">—</span></div>
+            <div><strong data-i18n="certificate.verify">Verification Code</strong>: <span id="certVerify" class="mono">—</span></div>
+          </div>
+          <div class="cert-seal"><span>INDUSTRY<br>READY</span></div>
+          <div style="text-align:center;">
+            <div id="qrcode" style="width:72px; height:72px;"></div>
+            <div style="font-size:.68rem; margin-top:4px;">Scan to view details</div>
+          </div>
+          <div style="text-align:center; font-size:.78rem;">
+            <div style="border-top:1.5px solid #0F172A; padding-top:4px; min-width:150px;">Elvin Asgarov</div>
+            <div style="color:#4b5568;" data-i18n="certificate.founderTitle">Founder, IndustrCons</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex center gap-2" style="margin-top:26px; flex-wrap:wrap;">
+        <button class="btn btn-primary" id="downloadPdfBtn" data-i18n="certificate.downloadPdf">Download PDF</button>
+        <button class="btn btn-ghost" id="printBtn" data-i18n="certificate.print">Print</button>
+        <button class="btn btn-accent" id="shareLinkedInBtn" data-i18n="certificate.share">Share on LinkedIn</button>
+      </div>
+
+      <div class="card" style="max-width:640px; margin: 26px auto 0; padding:20px;" id="linkedinCaptionCard" hidden>
+        <h4 style="margin-top:0;">Your LinkedIn caption</h4>
+        <textarea id="linkedinCaption" rows="6" readonly style="width:100%; font-family:var(--font-body); padding:12px; border-radius:9px; border:1px solid var(--line);"></textarea>
+        <button class="btn btn-ghost btn-sm" style="margin-top:10px;" id="copyCaptionBtn">Copy caption</button>
+        <a class="btn btn-primary btn-sm" style="margin-top:10px; margin-left:8px;" href="https://www.linkedin.com/feed/" target="_blank" rel="noopener">Open LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="footerInclude"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/main.js"></script>
+<script src="js/certificate.js"></script>
+</body>
+</html>
