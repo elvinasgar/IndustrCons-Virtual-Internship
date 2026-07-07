@@ -94,6 +94,16 @@
       inputHtml = `<div class="field"><label>Your answer (${t.unit})</label><input type="number" step="0.01" id="numericInput"></div>`;
     } else if (t.type === 'text') {
       inputHtml = `<div class="field"><label>Your report</label><textarea id="textInput" rows="5"></textarea></div>`;
+    } else if (t.type === 'excel-upload') {
+      inputHtml = `
+        <div class="card" style="padding:16px; margin-bottom:14px; background:var(--surface-2);">
+          <p style="margin:0 0 10px;">1. Download the template below and open it in Excel (or Google Sheets / LibreOffice).<br>2. Fill in the highlighted blank cells.<br>3. Save the file, then upload it here — it's checked automatically, right in your browser. Nothing is sent to a server.</p>
+          <button type="button" class="btn btn-ghost btn-sm" id="downloadTemplateBtn">⬇ Download ${t.template.fileName}</button>
+        </div>
+        <div class="field">
+          <label>Upload your completed file (.xlsx)</label>
+          <input type="file" id="excelInput" accept=".xlsx,.xls">
+        </div>`;
     }
 
     content.innerHTML = `
@@ -115,10 +125,21 @@
       document.getElementById('taskFeedback').innerHTML = feedbackPanel(t, true);
     }
 
-    submitBtn.addEventListener('click', (e) => {
+    if (t.type === 'excel-upload') {
+      document.getElementById('downloadTemplateBtn').addEventListener('click', () => {
+        const tpl = t.template;
+        const ws = XLSX.utils.aoa_to_sheet([tpl.headers, ...tpl.rows]);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, tpl.sheetName || 'Sheet1');
+        XLSX.writeFile(wb, tpl.fileName);
+      });
+    }
+
+    submitBtn.addEventListener('click', async (e) => {
       e.preventDefault();
       if (alreadyDone) return;
       let correct = true;
+      let excelDetail = '';
       if (t.type === 'mcq') {
         const sel = content.querySelector('input[name="mcq"]:checked');
         if (!sel) { IC.toast('Select an answer first.'); return; }
@@ -135,9 +156,31 @@
         const val = document.getElementById('textInput').value.trim();
         if (val.length < t.minLength) { IC.toast(`Write at least ${t.minLength} characters.`); return; }
         correct = true;
+      } else if (t.type === 'excel-upload') {
+        const fileInput = document.getElementById('excelInput');
+        const file = fileInput.files[0];
+        if (!file) { IC.toast('Upload your completed .xlsx file first.'); return; }
+        try {
+          const buf = await file.arrayBuffer();
+          const wb = XLSX.read(buf, { type: 'array' });
+          const ws = wb.Sheets[wb.SheetNames[0]];
+          const rows = [];
+          correct = true;
+          t.checks.forEach(chk => {
+            const cell = ws[chk.cell];
+            const val = cell ? parseFloat(cell.v) : NaN;
+            const ok = !isNaN(val) && Math.abs(val - chk.expected) <= (chk.tolerance || 0.01);
+            if (!ok) correct = false;
+            rows.push(`<tr><td>${chk.label}</td><td class="mono">${chk.cell}</td><td class="mono">${isNaN(val) ? '—' : val}</td><td class="mono">${chk.expected}</td><td>${ok ? '✅' : '❌'}</td></tr>`);
+          });
+          excelDetail = `<table class="data-table" style="margin-top:12px;"><tr><th>Check</th><th>Cell</th><th>Your value</th><th>Expected</th><th></th></tr>${rows.join('')}</table>`;
+        } catch (err) {
+          IC.toast('Could not read that file — make sure it\'s a valid .xlsx saved from Excel/Sheets/LibreOffice.');
+          return;
+        }
       }
       markTaskDone(t, correct);
-      document.getElementById('taskFeedback').innerHTML = feedbackPanel(t, correct) +
+      document.getElementById('taskFeedback').innerHTML = feedbackPanel(t, correct) + excelDetail +
         (t.type === 'text' ? `<div class="card" style="margin-top:12px; padding:16px;"><strong>Model answer for comparison:</strong><p style="margin:6px 0 0;">${t.modelAnswer}</p></div>` : '') +
         (t.type === 'numeric' && t.workingNote ? `<p style="margin-top:10px; font-size:.85rem; color:var(--ink-soft);"><em>Working: ${t.workingNote}</em></p>` : '');
       submitBtn.disabled = true;
