@@ -8,7 +8,12 @@
     "difficulty": "Beginner",
     "durationHours": 6,
     "taskCount": 5,
-    "skills": ["Drawing Interpretation", "Concrete Calculation", "Site Inspection", "Daily Reporting"],
+    "skills": [
+      "Drawing Interpretation",
+      "Concrete Calculation",
+      "Site Inspection",
+      "Daily Reporting"
+    ],
     "certificate": true,
     "playable": true,
     "summary": "Interpret structural drawings, verify a concrete pour, and file your first site inspection report on the Al Marsa Logistics Hub."
@@ -22,9 +27,13 @@
     "difficulty": "Beginner",
     "durationHours": 7,
     "taskCount": 6,
-    "skills": ["Earthworks", "Material Selection", "Technical Report"],
+    "skills": [
+      "Earthworks",
+      "Material Selection",
+      "Technical Report"
+    ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Assess subgrade material test results and recommend a pavement design for a highway flyover package."
   },
   {
@@ -36,7 +45,11 @@
     "difficulty": "Intermediate",
     "durationHours": 9,
     "taskCount": 7,
-    "skills": ["Steel Quantity", "Shop Drawing Review", "Concrete Calculation"],
+    "skills": [
+      "Steel Quantity",
+      "Shop Drawing Review",
+      "Concrete Calculation"
+    ],
     "certificate": true,
     "playable": false,
     "summary": "Review shop drawings for a commercial tower's steel frame and reconcile quantities against the BOQ."
@@ -50,9 +63,13 @@
     "difficulty": "Intermediate",
     "durationHours": 8,
     "taskCount": 6,
-    "skills": ["Scheduling", "Critical Path", "MS Project Logic"],
+    "skills": [
+      "Scheduling",
+      "Critical Path",
+      "MS Project Logic"
+    ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Build a look-ahead schedule and defend the critical path for a high-rise core-and-shell package."
   },
   {
@@ -64,7 +81,11 @@
     "difficulty": "Intermediate",
     "durationHours": 8,
     "taskCount": 6,
-    "skills": ["RFI", "Coordination", "Technical Report"],
+    "skills": [
+      "RFI",
+      "Coordination",
+      "Technical Report"
+    ],
     "certificate": true,
     "playable": false,
     "summary": "Resolve a design clash between MEP and structure by drafting and tracking an RFI to closure."
@@ -78,9 +99,13 @@
     "difficulty": "Advanced",
     "durationHours": 10,
     "taskCount": 7,
-    "skills": ["Risk Assessment", "Decision Making", "Presentation"],
+    "skills": [
+      "Risk Assessment",
+      "Decision Making",
+      "Presentation"
+    ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Triage a slipping schedule, reallocate budget contingency, and present a recovery plan to the client."
   },
   {
@@ -92,7 +117,10 @@
     "difficulty": "Beginner",
     "durationHours": 6,
     "taskCount": 5,
-    "skills": ["BOQ Analysis", "Cost Estimation"],
+    "skills": [
+      "BOQ Analysis",
+      "Cost Estimation"
+    ],
     "certificate": true,
     "playable": false,
     "summary": "Measure a housing block's blockwork and reconcile a subcontractor's BOQ submission."
@@ -106,7 +134,11 @@
     "difficulty": "Intermediate",
     "durationHours": 7,
     "taskCount": 6,
-    "skills": ["Cost Estimation", "Material Selection", "BOQ Analysis"],
+    "skills": [
+      "Cost Estimation",
+      "Material Selection",
+      "BOQ Analysis"
+    ],
     "certificate": true,
     "playable": false,
     "summary": "Price a water treatment facility package from drawings before the tender deadline."
@@ -120,7 +152,11 @@
     "difficulty": "Intermediate",
     "durationHours": 7,
     "taskCount": 6,
-    "skills": ["Quality Checklist", "Material Datasheet Review", "Site Inspection"],
+    "skills": [
+      "Quality Checklist",
+      "Material Datasheet Review",
+      "Site Inspection"
+    ],
     "certificate": true,
     "playable": false,
     "summary": "Run a concrete pour inspection and quality checklist against a bridge rehabilitation spec."
@@ -134,9 +170,13 @@
     "difficulty": "Beginner",
     "durationHours": 6,
     "taskCount": 5,
-    "skills": ["Risk Assessment", "Safety Observation", "Incident Investigation"],
+    "skills": [
+      "Risk Assessment",
+      "Safety Observation",
+      "Incident Investigation"
+    ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Investigate a near-miss on an industrial yard regrade and issue a corrective action plan."
   },
   {
@@ -148,7 +188,11 @@
     "difficulty": "Intermediate",
     "durationHours": 7,
     "taskCount": 5,
-    "skills": ["Procurement", "Material Selection", "Cost Estimation"],
+    "skills": [
+      "Procurement",
+      "Material Selection",
+      "Cost Estimation"
+    ],
     "certificate": true,
     "playable": false,
     "summary": "Compare three precast supplier quotes against spec and lead time for a transit interchange."
@@ -162,7 +206,11 @@
     "difficulty": "Advanced",
     "durationHours": 9,
     "taskCount": 6,
-    "skills": ["RFI", "Technical Report", "Engineering Ethics"],
+    "skills": [
+      "RFI",
+      "Technical Report",
+      "Engineering Ethics"
+    ],
     "certificate": true,
     "playable": false,
     "summary": "Evaluate a variation claim from a subcontractor against the contract's change-order clause."
@@ -176,7 +224,11 @@
     "difficulty": "Intermediate",
     "durationHours": 8,
     "taskCount": 6,
-    "skills": ["Shop Drawing Review", "Communication", "RFI"],
+    "skills": [
+      "Shop Drawing Review",
+      "Communication",
+      "RFI"
+    ],
     "certificate": true,
     "playable": false,
     "summary": "Coordinate architectural, structural and MEP drawing revisions ahead of an issue-for-construction deadline."
@@ -190,7 +242,11 @@
     "difficulty": "Intermediate",
     "durationHours": 8,
     "taskCount": 6,
-    "skills": ["Drawing Interpretation", "Shop Drawing Review", "Communication"],
+    "skills": [
+      "Drawing Interpretation",
+      "Shop Drawing Review",
+      "Communication"
+    ],
     "certificate": true,
     "playable": false,
     "summary": "Run a federated model clash detection pass and log resolvable vs. escalation-required clashes."
@@ -204,7 +260,12 @@
     "difficulty": "Advanced",
     "durationHours": 10,
     "taskCount": 7,
-    "skills": ["Scheduling", "Risk Assessment", "Decision Making", "Presentation"],
+    "skills": [
+      "Scheduling",
+      "Risk Assessment",
+      "Decision Making",
+      "Presentation"
+    ],
     "certificate": true,
     "playable": false,
     "summary": "Own the handover milestone for the Meadow Ridge Towers — sequencing, risk register, and client presentation."
