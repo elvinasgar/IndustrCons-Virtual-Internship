@@ -1,0 +1,301 @@
+{
+  "id": "planning-engineer-skyline",
+  "title": "Planning Engineer",
+  "companyId": "skyline-contractors",
+  "category": "Planning Engineer",
+  "difficulty": "Intermediate",
+  "durationHours": 8,
+  "drawingTag": "PRG-009 / REV.C",
+  "skills": [
+    "Scheduling",
+    "Critical Path",
+    "MS Project Logic"
+  ],
+  "companyIntro": {
+    "name": "Skyline Contractors",
+    "country": "Turkey",
+    "founded": 2009,
+    "mission": "Deliver complex high-rise cores on schedule by planning around the true critical path, not the activities that feel most urgent that week.",
+    "culture": "Planning-led — no major decision is made without checking schedule impact first. Planning engineers are expected to defend the critical path with logic, not opinion.",
+    "projects": [
+      "Meridian Tower Core-and-Shell",
+      "Bosphorus Business Park Phase 2",
+      "Anatolia Logistics Campus"
+    ]
+  },
+  "projectBackground": {
+    "name": "Meridian Tower — Core-and-Shell Package",
+    "client": "Meridian Development Group",
+    "location": "Levent District, Istanbul",
+    "budget": "$64M (core-and-shell package)",
+    "timeline": "58 weeks, currently in week 19 (mid-rise floors, jump-form core)",
+    "context": "A 42-storey tower using a jump-form slip system for the concrete core, with structural steel floor framing following roughly 4 floors behind. A recent rebar delivery delay on floor 14 is threatening to push the core's climb rate, and the client wants to know whether it affects the tower's completion date or can absorb into float."
+  },
+  "manager": {
+    "name": "Deniz Yilmaz",
+    "role": "Senior Planning Engineer, Skyline Contractors",
+    "note": "The floor 14 rebar delay is two days so far. Before I tell the client it's fine, I need you to actually trace it through the logic — not assume it's fine because the core has 'always had float'. Show me the critical path, not a guess."
+  },
+  "assignment": {
+    "title": "Assess schedule impact of the floor 14 rebar delay",
+    "brief": "A 2-day rebar delivery delay has hit the core climb at floor 14. Identify the current critical path, calculate float on the affected activities, determine whether the delay is absorbed or pushes the completion date, and prepare the update for the client's monthly progress meeting."
+  },
+  "documents": [
+    {
+      "id": "doc-logic-network",
+      "name": "Activity Logic Network — Core Climb, Floors 12-18",
+      "type": "Schedule Network",
+      "note": "Core climb (floor N) → Steel erection (floor N-4) → Floor slab pour (floor N-4) → MEP rough-in (floor N-6). Core climb activities are finish-to-start with 0 lag; steel erection has a 3-day lag after core climb of the corresponding floor."
+    },
+    {
+      "id": "doc-durations",
+      "name": "Activity Duration Table (extract)",
+      "type": "Schedule Data",
+      "note": "Core climb per floor: 4 working days. Steel erection per floor: 5 working days. Floor slab pour: 2 working days. MEP rough-in per floor: 6 working days."
+    },
+    {
+      "id": "doc-baseline",
+      "name": "Baseline Programme — Milestone Extract",
+      "type": "Baseline Schedule",
+      "note": "Core topping-out: Week 34. Steel erection complete: Week 38. Building weather-tight: Week 44. Total project float ahead of contractual completion: 6 working days, currently unallocated."
+    },
+    {
+      "id": "doc-progress-template",
+      "name": "Monthly Progress Update — Template",
+      "type": "Template",
+      "note": "Fields: current status, variance from baseline, critical path statement, recovery/mitigation actions, client-facing summary."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-critical-path",
+      "type": "mcq",
+      "title": "Identifying the Critical Path",
+      "prompt": "Per the logic network, if the core climb activity at floor 14 slips by 2 days, which downstream activity is directly affected first?",
+      "options": [
+        "MEP rough-in at floor 8",
+        "Steel erection at floor 10",
+        "Floor slab pour at floor 14",
+        "Steel erection at floor 14"
+      ],
+      "correctIndex": 3,
+      "xp": 45,
+      "reasoning": "The logic network states steel erection follows core climb of the corresponding floor with a 3-day lag, finish-to-start. A slip in core climb at floor 14 pushes the earliest start of steel erection at floor 14 directly — everything else in the list is either an unrelated floor or two steps further downstream.",
+      "tip": "Always trace delay impact one logic link at a time — jumping straight to 'the tower will be late' skips the step that actually proves it, which is following the specific finish-to-start and lag relationships in the network.",
+      "mistake": "A common mistake is assuming a delay ripples to the floor directly below in the erection sequence (floor N-4) immediately, without checking whether that activity is even the next one in the logic chain for the floor that actually slipped.",
+      "recommendation": "When explaining schedule impact to a client, name the specific logic link (finish-to-start, lag value) you traced — it turns 'trust me' into something they can verify against the network themselves."
+    },
+    {
+      "id": "task-2-float-calc",
+      "type": "numeric",
+      "title": "Float Calculation",
+      "prompt": "The core climb activity at floor 14 has an early finish of Day 58 and a late finish of Day 61 in the network. What is the total float (in days) on this activity?",
+      "answer": 3,
+      "tolerance": 0,
+      "unit": "days",
+      "xp": 60,
+      "workingNote": "Total float = Late Finish - Early Finish = 61 - 58 = 3 days.",
+      "reasoning": "Total float is the amount an activity can slip without delaying the project's overall completion date, calculated as late finish minus early finish (or equally, late start minus early start) from the network's forward and backward pass.",
+      "tip": "Float belongs to the schedule logic, not to a specific activity 'owner' — a common but incorrect assumption is that whoever is ahead of schedule 'keeps' their float for later use, when in fact float is shared along the entire logic path.",
+      "mistake": "Confusing total float with free float is a frequent error — free float only considers impact on the very next activity, while total float considers impact on the entire project completion date, and the two numbers can differ significantly.",
+      "recommendation": "Before telling a client an activity is 'fine' because it has float, confirm you're reading total float from the current schedule update, not a stale baseline value — float shrinks as other delays consume it elsewhere on the same path."
+    },
+    {
+      "id": "task-3-readiness",
+      "type": "multiselect",
+      "title": "Look-Ahead Schedule Readiness",
+      "prompt": "Before finalising the 3-week look-ahead schedule that includes the floor 14 recovery, select every item that should be verified.",
+      "options": [
+        "Material delivery dates for the delayed rebar confirmed with supplier",
+        "Crew availability for accelerated core climb, if acceleration is chosen",
+        "Client's preferred font for the progress report",
+        "Logic links between core climb and dependent activities re-validated after the update",
+        "Weather forecast for the recovery period",
+        "Whether the client's finance team has approved next month's invoice"
+      ],
+      "correctIndices": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "xp": 50,
+      "reasoning": "A look-ahead schedule update needs to verify the things that actually affect execution risk in the recovery window: confirmed material dates, crew availability if recovery requires acceleration, re-validated logic (since an update can silently break a dependency), and weather exposure for concrete or steel work. Report formatting and unrelated commercial/finance items don't affect schedule feasibility.",
+      "tip": "Re-validating logic links after every schedule update is easy to skip under time pressure, but a broken link (e.g. an activity now finishing after its successor starts) will produce a schedule that looks fine on a Gantt chart but is logically impossible.",
+      "mistake": "Planning engineers under pressure sometimes update dates directly without re-checking the underlying logic, which can silently corrupt the network's critical path calculation for the next update.",
+      "recommendation": "Run a logic-integrity check (open ends, dangling constraints, broken links) as a standing step every time a look-ahead schedule is reissued, not just when something looks visually wrong."
+    },
+    {
+      "id": "task-4-duration",
+      "type": "numeric",
+      "title": "Recovery Duration Check",
+      "prompt": "To recover 2 days on the core climb, the team proposes adding a second shift to floors 15 and 16, cutting each floor's climb duration from 4 days to 3 days. How many total days does this recover across both floors?",
+      "answer": 2,
+      "tolerance": 0,
+      "unit": "days",
+      "xp": 40,
+      "workingNote": "1 day saved per floor x 2 floors = 2 days recovered — exactly matching the delay, so the core climb returns to baseline by floor 16.",
+      "reasoning": "Recovery calculations should be checked against the actual delay amount, not just accepted because 'adding a shift will help' — here the specific saving (1 day/floor x 2 floors) happens to exactly match the 2-day delay, which is what makes it a valid recovery plan rather than a partial one.",
+      "tip": "Always state recovery in the same units and against the same baseline as the original delay — 'we recovered some time' is not verifiable, 'we recovered 2 of 2 delayed days by floor 16' is.",
+      "mistake": "A common error is proposing a recovery measure without checking whether the saved duration is on the critical path at all — accelerating a non-critical activity recovers nothing on the overall completion date.",
+      "recommendation": "Before committing to double-shift costs, confirm with the QS or commercial team what the acceleration actually costs versus the value of avoiding delay damages — recovery is a cost-benefit decision, not just a scheduling one."
+    },
+    {
+      "id": "task-5-update",
+      "type": "text",
+      "title": "Monthly Progress Update — Client Summary",
+      "prompt": "Write a short client-facing summary (3-5 sentences) covering: the delay, its critical path impact, and the recovery plan and its result.",
+      "minLength": 40,
+      "xp": 45,
+      "modelAnswer": "A 2-day rebar delivery delay affected the core climb at floor 14, which sits on the project's critical path — without action, this would have pushed the core topping-out milestone from Week 34 to Week 34 plus 2 days. The team has implemented a second shift on floors 15 and 16, recovering 1 day of climb duration per floor, for a total of 2 days recovered by floor 16. As a result, the core topping-out milestone and all downstream milestones remain unaffected against the current baseline, with 4 of the project's original 6 days of float still unallocated.",
+      "reasoning": "A useful client update states the delay, confirms whether it's on the critical path (and therefore matters to the completion date), and reports the recovery result in terms the client can verify against the baseline — this is what lets a client trust the planning function rather than double-checking every update independently.",
+      "tip": "Always report remaining float after a recovery action, not just 'we're back on track' — it tells the client exactly how much buffer is left for the next unplanned issue.",
+      "mistake": "A weak update states 'the delay has been resolved' without connecting it back to the critical path or naming the specific recovery mechanism, which reads as reassurance rather than evidence.",
+      "recommendation": "Treat every schedule update as something a second planning engineer should be able to independently verify from the network — vague, confidence-based updates erode trust faster than a precisely reported problem."
+    },
+    {
+      "id": "task-6-float-excel",
+      "type": "excel-upload",
+      "title": "Float Calculation Sheet (Excel)",
+      "prompt": "Three more activities need their float calculated the same way as floor 14 (Late Finish - Early Finish), plus you need to flag which ones are critical (float = 0). Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "Float-Calculation-Template.xlsx",
+        "sheetName": "Float",
+        "headers": [
+          "Activity",
+          "Early Finish (Day)",
+          "Late Finish (Day)",
+          "Total Float (Days)",
+          "Critical? (Y/N)"
+        ],
+        "rows": [
+          [
+            "Steel Erection — Floor 10",
+            "70",
+            "70",
+            "",
+            ""
+          ],
+          [
+            "MEP Rough-in — Floor 8",
+            "82",
+            "87",
+            "",
+            ""
+          ],
+          [
+            "Floor Slab Pour — Floor 14",
+            "60",
+            "63",
+            "",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 0,
+          "tolerance": 0,
+          "label": "Float — Steel Erection Floor 10 (70-70)"
+        },
+        {
+          "cell": "D3",
+          "expected": 5,
+          "tolerance": 0,
+          "label": "Float — MEP Rough-in Floor 8 (87-82)"
+        },
+        {
+          "cell": "D4",
+          "expected": 3,
+          "tolerance": 0,
+          "label": "Float — Floor Slab Pour Floor 14 (63-60)"
+        }
+      ],
+      "reasoning": "Float is calculated identically across every activity in a network (Late Finish minus Early Finish) — the skill being checked here is applying the formula consistently, then correctly recognising that a float of exactly zero is what defines a critical activity.",
+      "tip": "In a real MS Project or Primavera file, total float is a calculated field, not something you type manually — building it as a live formula in this exercise mirrors how it actually works, and self-updates if an upstream date changes.",
+      "mistake": "A common error is marking an activity 'critical' based on how urgent it feels rather than checking whether its float is actually zero — Steel Erection Floor 10 here is the only one that qualifies, despite MEP rough-in also looking tight at a glance.",
+      "recommendation": "Whenever you present a critical path to a client, be ready to show the float column, not just a highlighted Gantt bar — the float value is the actual evidence, the highlighting is just a visual summary of it."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Float That Wasn't There Anymore",
+    "background": "On an earlier Skyline project, a planning engineer reported a formwork delay as 'absorbed by float' based on a schedule baseline that was six weeks out of date — in the current schedule, that float had already been consumed by an unrelated MEP delay reported the previous month.",
+    "client": "Bosphorus Business Park Phase 2 — private developer client",
+    "budget": "Delay damages exposure: $180,000 for the resulting 6-day project slip",
+    "timeline": "Discovered when the client's own planner cross-checked the update against the live schedule",
+    "challenges": "Both delays were individually reported as 'within float' in isolation, but nobody had re-run the network after the first delay to confirm float still existed before reporting the second one as absorbed too.",
+    "constraints": "By the time the compounding effect was caught, the schedule slip was already contractually a delay event, triggering a formal notice process the client's team had not been expecting after two consecutive 'no impact' updates.",
+    "questions": [
+      "Why can two individually 'absorbed' delays still combine into a real project delay?",
+      "What single scheduling habit would have caught this before the second update went out?",
+      "Whose responsibility is it to catch float depletion across multiple, sequential delay events?"
+    ],
+    "solution": "Skyline introduced a standing rule that any 'absorbed by float' statement in a progress update must reference the current live schedule run, dated within 48 hours of the report, not a prior month's baseline or a remembered float figure.",
+    "lessonsLearned": "Float is a shared, depleting resource across an entire logic path, not a fixed cushion that resets each reporting period — every delay that claims to be 'within float' needs to be checked against the schedule as it stands after all prior delays, not in isolation."
+  },
+  "quiz": [
+    {
+      "q": "Total float on an activity is calculated as:",
+      "options": [
+        "Early Start minus Late Start",
+        "Late Finish minus Early Finish",
+        "Activity duration minus 1",
+        "Project duration minus activity duration"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "An activity with zero total float is:",
+      "options": [
+        "Ahead of schedule",
+        "On the critical path",
+        "Not yet started",
+        "Irrelevant to the completion date"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Why is 'total float' different from 'free float'?",
+      "options": [
+        "They are the same thing under different names",
+        "Free float only considers the next activity; total float considers the entire path to completion",
+        "Total float only applies to milestones",
+        "Free float is always larger than total float"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did two individually 'absorbed' delays still cause a real project delay?",
+      "options": [
+        "The delays happened on different weekends",
+        "Float is a shared resource across the path and had already been consumed before the second delay was reported",
+        "The client changed the contract terms",
+        "Weather caused an unrelated separate delay"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Before finalising a recovery plan built on adding a shift, what should be checked first?",
+      "options": [
+        "Whether the client likes the idea",
+        "Whether the accelerated activity is actually on the critical path",
+        "Whether the report template has a section for it",
+        "Nothing, acceleration always helps"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to prove a schedule impact through logic rather than intuition? What was the specific piece of evidence you relied on?",
+      "The case study shows float silently depleting across two separate, individually 'fine' updates. Where else in project controls might small, individually-acceptable numbers combine into a real problem?",
+      "If you were Deniz, what one standing rule would you add to progress reporting so 'absorbed by float' is never said without being verifiable?"
+    ]
+  },
+  "certificate": {
+    "name": "Planning Engineer — Critical Path & Schedule Recovery",
+    "totalXp": 305
+  }
+}
