@@ -1,0 +1,168 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "internships": "Internships",
+    "companies": "Companies",
+    "resources": "Resources",
+    "pricing": "Pricing",
+    "start": "Start Free",
+    "signIn": "Sign In"
+  },
+  "hero": {
+    "eyebrow": "Virtual Internship Platform · AEC Industry",
+    "title": "Practice real engineering work before your first job.",
+    "subtitle": "IndustrCons IRE-3 puts you inside realistic construction projects — drawings, BOQs, site logs, and deadlines — so you build the judgment employers actually hire for.",
+    "cta1": "Start Your Internship",
+    "cta2": "Browse Internships",
+    "stat1": "Active Internships",
+    "stat2": "Engineering Tasks",
+    "stat3": "Documents in Library",
+    "stat4": "Avg. Hours to Certify"
+  },
+  "why": {
+    "eyebrow": "Why a virtual internship",
+    "title": "Textbooks teach theory. Sites teach judgment.",
+    "subtitle": "Every internship is built from a real workflow used on real projects — you don't watch a lecture, you make the call.",
+    "f1title": "Real documents, not slides",
+    "f1body": "Interpret actual-format drawings, BOQs, RFIs and method statements — the paperwork your first job runs on.",
+    "f2title": "Feedback that teaches",
+    "f2body": "Every submission returns the correct answer, the engineering reasoning behind it, and the mistake most beginners make.",
+    "f3title": "A role, not a course",
+    "f3body": "You're assigned by a manager, inside a company, on a project with a budget and a deadline — pressure included.",
+    "f4title": "Proof you can show",
+    "f4body": "Finish with a verifiable certificate and a ready-to-post LinkedIn summary of exactly what you practiced."
+  },
+  "catalogPreview": {
+    "eyebrow": "Internship Catalog",
+    "title": "Choose the seat you want at the table.",
+    "viewAll": "View all internships"
+  },
+  "companies": {
+    "eyebrow": "Simulated Companies",
+    "title": "You're hired by a company, not a chapter.",
+    "subtitle": "Fictional firms, built with real organizational depth — mission, culture, live projects — inspired by how leading international contractors operate.",
+    "inspirationTitle": "Industry inspiration",
+    "inspirationBody": "IRE-3's scenarios are inspired by practices at firms such as AECOM, Bechtel, Skanska, Turner Construction, VINCI Construction, STRABAG, Fluor, Jacobs and Balfour Beatty. IndustrCons is not affiliated with, sponsored by, or partnered with these companies; they are referenced only as examples of international engineering practice."
+  },
+  "stats": {
+    "eyebrow": "By the numbers",
+    "title": "Built for depth, not just completion."
+  },
+  "testimonials": {
+    "eyebrow": "From learners",
+    "title": "Industry-ready, by their own account."
+  },
+  "faq": {
+    "eyebrow": "Questions",
+    "title": "Before you start"
+  },
+  "cta": {
+    "title": "Your first site assignment is waiting.",
+    "subtitle": "Free to start. No credit card. Certificate on completion.",
+    "button": "Start Your Internship"
+  },
+  "footer": {
+    "tagline": "Learn. Practice. Become Industry Ready.",
+    "platform": "Platform",
+    "company": "Company",
+    "legal": "Legal",
+    "about": "About IndustrCons",
+    "knowledge": "Knowledge Center",
+    "help": "Help Center",
+    "contact": "Contact",
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy",
+    "disclaimer": "Trademark Disclaimer",
+    "rights": "All rights reserved.",
+    "founder": "Founded by Elvin Asgarov."
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "internships": "Internships",
+    "companies": "Companies",
+    "caseStudies": "Case Studies",
+    "resources": "Resources",
+    "knowledge": "Knowledge Center",
+    "skills": "Skills",
+    "certificates": "Certificates",
+    "leaderboard": "Leaderboard",
+    "achievements": "Achievements",
+    "settings": "Settings",
+    "help": "Help Center"
+  },
+  "dashboard": {
+    "welcome": "Welcome back",
+    "welcomeSub": "Here's where your internship stands today.",
+    "level": "Level",
+    "xp": "XP",
+    "streak": "Day Streak",
+    "hours": "Hours Learned",
+    "current": "Continue where you left off",
+    "noCurrent": "You haven't started an internship yet.",
+    "browse": "Browse internships",
+    "recommended": "Recommended for you",
+    "badges": "Badges earned",
+    "activity": "Recent activity",
+    "noActivity": "No activity yet — start a task to see it here.",
+    "resume": "Resume internship"
+  },
+  "catalog": {
+    "title": "Internship Catalog",
+    "subtitle": "15 roles across the AEC project lifecycle. Start with one, or map a career path across several.",
+    "searchPlaceholder": "Search internships, skills, companies…",
+    "filterCategory": "Category",
+    "filterDifficulty": "Difficulty",
+    "filterDuration": "Duration",
+    "all": "All",
+    "noResults": "No internships match your filters.",
+    "clearFilters": "Clear filters",
+    "hours": "hrs",
+    "tasks": "tasks",
+    "viewInternship": "View internship"
+  },
+  "flow": {
+    "companyIntro": "Company Introduction",
+    "projectBackground": "Project Background",
+    "meetManager": "Meet Your Manager",
+    "assignment": "Your Assignment",
+    "documents": "Engineering Documents",
+    "tasks": "Tasks",
+    "caseStudy": "Case Study",
+    "quiz": "Quiz",
+    "reflection": "Reflection",
+    "feedback": "Feedback",
+    "certificate": "Certificate",
+    "startInternship": "Start Internship",
+    "continue": "Continue",
+    "markComplete": "Mark as Complete",
+    "submit": "Submit Answer",
+    "next": "Next Step",
+    "download": "Download",
+    "reopenTask": "Redo Task",
+    "correct": "Correct",
+    "reasoning": "Engineering reasoning",
+    "tip": "Professional tip",
+    "mistake": "Common mistake",
+    "recommendation": "Industry recommendation",
+    "xpEarned": "XP earned",
+    "getCertificate": "Get Your Certificate"
+  },
+  "certificate": {
+    "title": "Certificate of Completion",
+    "issuedTo": "This certifies that",
+    "completed": "has successfully completed the virtual internship",
+    "date": "Completion Date",
+    "certNo": "Certificate No.",
+    "verify": "Verification Code",
+    "downloadPdf": "Download PDF",
+    "print": "Print",
+    "share": "Share on LinkedIn",
+    "founderTitle": "Founder, IndustrCons"
+  },
+  "common": {
+    "loading": "Loading…",
+    "back": "Back",
+    "search": "Search",
+    "close": "Close"
+  }
+}
