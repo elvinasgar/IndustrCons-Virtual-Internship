@@ -1,0 +1,309 @@
+{
+  "id": "contract-engineer-skyline",
+  "title": "Contract Engineer",
+  "companyId": "skyline-contractors",
+  "category": "Contract Engineer",
+  "difficulty": "Advanced",
+  "durationHours": 8,
+  "drawingTag": "CE-071 / REV.B",
+  "skills": [
+    "RFI",
+    "Technical Report",
+    "Engineering Ethics"
+  ],
+  "companyIntro": {
+    "name": "Skyline Contractors",
+    "country": "Turkey",
+    "founded": 2009,
+    "mission": "Deliver complex high-rise cores on schedule — and when a contractual dispute arises, resolve it on the facts and the contract terms, not on who shouts loudest.",
+    "culture": "Precise and even-handed. Contract engineers are expected to build a position from the contract wording and the record, not from what would simply be most convenient for Skyline.",
+    "projects": [
+      "Meridian Tower Core-and-Shell",
+      "Bosphorus Business Park Phase 2",
+      "Anatolia Logistics Campus"
+    ]
+  },
+  "projectBackground": {
+    "name": "Meridian Tower — Core-and-Shell Package",
+    "client": "Meridian Development Group",
+    "location": "Levent District, Istanbul",
+    "budget": "$64M (core-and-shell package)",
+    "timeline": "58 weeks, currently in week 30",
+    "context": "The client has issued a variation instruction to upgrade the facade anchor system after an unrelated design change, but is now disputing Skyline's claimed cost and time impact, arguing the anchor change should have been anticipated and priced within the original contingency."
+  },
+  "manager": {
+    "name": "Elif Demir",
+    "role": "Contracts Manager, Skyline Contractors",
+    "note": "The client's argument sounds reasonable on the surface, but check the actual contract clause on variations and our original scope documents before we either concede or push back — I want a position built on the contract wording, not a gut reaction."
+  },
+  "assignment": {
+    "title": "Assess the facade anchor variation dispute",
+    "brief": "Review the variation instruction, the contract's variation clause, and the original scope documents. Determine whether the cost and time claim is contractually valid, and draft the formal response to the client's dispute."
+  },
+  "documents": [
+    {
+      "id": "doc-variation-instruction",
+      "name": "Variation Instruction VI-014 — Facade Anchor Upgrade",
+      "type": "Instruction",
+      "note": "Client instructs upgrade from standard to high-load facade anchors following an unrelated glazing design change, issued in week 27."
+    },
+    {
+      "id": "doc-contract-clause",
+      "name": "Contract Clause 12.3 — Variations (extract)",
+      "type": "Contract",
+      "note": "'Any instruction from the Client that changes the Works from what is shown in the Contract Documents shall be valued as a Variation, including associated cost and time impact, regardless of the reason prompting the instruction.'"
+    },
+    {
+      "id": "doc-original-scope",
+      "name": "Original Scope Document — Facade Package (extract)",
+      "type": "Scope Document",
+      "note": "Specifies standard-load facade anchors per the original glazing design. No allowance or provisional sum was included for a high-load anchor upgrade."
+    },
+    {
+      "id": "doc-response-template",
+      "name": "Formal Contract Response — Template",
+      "type": "Template",
+      "note": "Fields: reference instruction/clause, position statement, supporting basis, requested resolution."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-clause-read",
+      "type": "mcq",
+      "title": "Reading the Variation Clause",
+      "prompt": "Per Contract Clause 12.3, does the reason behind the client's instruction (an unrelated glazing design change prompting the anchor upgrade) affect whether it qualifies as a valid Variation?",
+      "options": [
+        "Yes — if the change was foreseeable, it doesn't count as a Variation",
+        "No — the clause states any instruction changing the Works from the Contract Documents is a Variation 'regardless of the reason prompting the instruction'",
+        "Yes — variations only apply to changes the contractor requests, not the client",
+        "The clause doesn't address this question at all"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "Clause 12.3 explicitly states that any instruction changing the Works from the Contract Documents is a Variation 'regardless of the reason prompting the instruction' — this directly and specifically addresses the client's argument that the reason (an unrelated design change) should matter, and the contract wording says it doesn't.",
+      "tip": "Always locate the exact clause wording before forming a contractual position — a client's argument can sound reasonable in plain conversation while being directly contradicted by specific, unambiguous contract language.",
+      "mistake": "A common error is evaluating a variation dispute based on what seems 'fair' in the abstract, rather than checking what the actual signed contract clause says — contracts often resolve exactly this kind of dispute explicitly, and the wording controls, not general fairness intuitions.",
+      "recommendation": "When quoting a contract clause in a formal response, quote the specific operative phrase directly rather than paraphrasing — here, 'regardless of the reason prompting the instruction' is the exact phrase that settles the client's argument, and paraphrasing it risks diluting its force."
+    },
+    {
+      "id": "task-2-scope-check",
+      "type": "mcq",
+      "title": "Checking the Original Scope",
+      "prompt": "The client argues the anchor upgrade 'should have been anticipated and priced within contingency.' What does the original scope document tell us about this argument?",
+      "options": [
+        "The original scope document confirms high-load anchors were always intended, supporting the client's position",
+        "The original scope document specifies standard-load anchors with no allowance for a high-load upgrade, undermining the client's argument that it was already priced",
+        "The scope document is silent on anchor load rating entirely",
+        "The scope document doesn't matter once a variation instruction is issued"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "The original scope document specifically shows standard-load anchors with no provisional allowance for an upgrade — this is direct evidence against the client's claim that the cost 'should have been anticipated', since the contract documents Skyline priced against explicitly did not include this scope.",
+      "tip": "Whenever a client claims a cost 'should have been anticipated' or 'was already covered', go directly to the specific contract document that defines the original priced scope — this is the objective evidence that either supports or refutes the claim, rather than relying on recollection or general practice.",
+      "mistake": "Accepting a client's framing of what 'should have been anticipated' without checking the actual priced scope document risks conceding a valid claim, since contingency allowances are for genuine uncertainties within the defined scope, not for scope changes outside it entirely.",
+      "recommendation": "Always attach the specific original scope reference to any variation response — it converts a subjective disagreement about what 'should have been' anticipated into an objective, document-based fact."
+    },
+    {
+      "id": "task-3-ethics",
+      "type": "multiselect",
+      "title": "Engineering Ethics in Contract Administration",
+      "prompt": "Skyline's cost claim for this variation includes a mark-up that a junior estimator has, on review, calculated slightly higher than the contract's specified variation mark-up percentage. Select every action consistent with sound engineering ethics.",
+      "options": [
+        "Correct the mark-up to the contractually specified percentage before submitting the claim, even though it reduces Skyline's claimed value",
+        "Submit the claim as originally calculated, since the client might not notice",
+        "Flag the discrepancy to the Contracts Manager so the correction is made transparently",
+        "Argue in the response that Skyline deserves the higher mark-up regardless of what the contract specifies",
+        "Ensure the corrected claim is properly documented showing why the change was made"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        4
+      ],
+      "xp": 55,
+      "reasoning": "Sound engineering ethics means adhering to the actual contract terms even when a discovered error would otherwise benefit your own organisation — correcting the mark-up, flagging it transparently, and documenting the correction all reflect integrity in contract administration. Submitting a known-incorrect claim hoping it goes unnoticed, or arguing for an entitlement the contract doesn't support, are exactly the behaviours that damage a contractor's credibility and can constitute a breach of professional and contractual obligations.",
+      "tip": "Treat a self-discovered error that happens to favour your own organisation exactly the same way you'd treat one that favoured the other party — the correct action doesn't depend on which direction the error points.",
+      "mistake": "Rationalising a favourable error as 'not worth raising' because the other party might not catch it is a common ethical lapse that, if discovered later, damages trust and credibility far more than the value of the original overclaim.",
+      "recommendation": "Build a habit of independently double-checking mark-up and rate calculations against the contract's specific commercial terms before any claim is submitted — catching this kind of error internally, before submission, is both good practice and good ethics."
+    },
+    {
+      "id": "task-4-time-impact",
+      "type": "numeric",
+      "title": "Time Impact Calculation",
+      "prompt": "The facade anchor upgrade requires re-ordering and re-fabricating anchors with a 6-week lead time, replacing the original 2-week lead time anchors already logged in the schedule. What is the net additional schedule impact (weeks)?",
+      "answer": 4,
+      "tolerance": 0,
+      "unit": "weeks",
+      "xp": 45,
+      "workingNote": "6 weeks (new lead time) minus 2 weeks (original, already accounted for in the baseline) = 4 weeks net additional impact.",
+      "reasoning": "A variation's time impact should be calculated as the net additional duration compared to what was already in the baseline programme, not the full new lead time in isolation — 2 of the 6 weeks were already accounted for before the variation was issued.",
+      "tip": "Always express a variation's time claim as a net delta against the baseline, and show both numbers (original vs. new) in the claim — a client reviewing a bare '6 weeks' claim without this context may wrongly assume the entire 6 weeks is new impact.",
+      "mistake": "Claiming the full new lead time as the impact, without netting off the portion already in the baseline, overstates the claim and gives the client legitimate grounds to dispute the whole figure rather than just query it.",
+      "recommendation": "Present time impact claims with the baseline duration, the new duration, and the net delta all shown explicitly — this transparency tends to speed up client agreement rather than triggering an extended dispute over the headline number."
+    },
+    {
+      "id": "task-5-response",
+      "type": "text",
+      "title": "Formal Contract Response",
+      "prompt": "Write the formal response to the client's dispute (3-5 sentences): reference the relevant clause and scope document, state Skyline's position, and the requested resolution.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "Per Contract Clause 12.3, Variation Instruction VI-014 constitutes a valid Variation, as it changes the Works from the Contract Documents 'regardless of the reason prompting the instruction' — the fact that it was prompted by an unrelated glazing design change does not affect its status as a Variation. The original Facade Package scope document specifies standard-load anchors with no provisional allowance for a high-load upgrade, confirming this cost was not already priced within contingency. We therefore maintain our claimed cost of [value] and net time impact of 4 weeks (6-week new lead time less the 2-week original lead time already in baseline), and request the Client's agreement to this valuation within 10 working days per Clause 12.4's variation agreement timeframe, to avoid further schedule impact on the facade package.",
+      "reasoning": "A strong contractual response cites the specific clause and evidence supporting the position, states the claim clearly with its calculation basis, and requests a specific, time-bound resolution — this is what moves a dispute toward resolution rather than an extended back-and-forth.",
+      "tip": "Always reference the contract's own timeframe for variation agreement (if one exists) when requesting a response — it turns an open-ended request into one grounded in the client's own contractual obligation to respond.",
+      "mistake": "A weak response argues the position in general terms without citing the specific clause and scope evidence, which invites further argument rather than closing the dispute on the strength of documented fact.",
+      "recommendation": "Keep every contractual position built on cited clauses and documents, never on general fairness arguments alone — a position grounded in the contract text is far harder for the other party to continue disputing."
+    },
+    {
+      "id": "task-6-markup-excel",
+      "type": "excel-upload",
+      "title": "Variation Valuation Check (Excel)",
+      "prompt": "Three more variation cost lines need their contract mark-up recalculated at the correct 12% rate (some were submitted with an incorrect rate) — Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "Variation-Markup-Template.xlsx",
+        "sheetName": "Markup",
+        "headers": [
+          "Cost Item",
+          "Net Cost (USD)",
+          "Contract Markup Rate",
+          "Correct Markup Value (USD)",
+          "Correct Total (USD)"
+        ],
+        "rows": [
+          [
+            "High-Load Anchors — Supply",
+            "42000",
+            "12%",
+            "",
+            ""
+          ],
+          [
+            "Anchor Installation Labour",
+            "18500",
+            "12%",
+            "",
+            ""
+          ],
+          [
+            "Re-fabrication Delay Costs",
+            "9600",
+            "12%",
+            "",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 5040,
+          "tolerance": 5,
+          "label": "Markup value — Anchors Supply (42,000 x 12%)"
+        },
+        {
+          "cell": "E2",
+          "expected": 47040,
+          "tolerance": 5,
+          "label": "Correct total — Anchors Supply (42,000 + 5,040)"
+        },
+        {
+          "cell": "E3",
+          "expected": 20720,
+          "tolerance": 5,
+          "label": "Correct total — Installation Labour (18,500 x 1.12)"
+        },
+        {
+          "cell": "E4",
+          "expected": 10752,
+          "tolerance": 5,
+          "label": "Correct total — Re-fabrication Delay (9,600 x 1.12)"
+        }
+      ],
+      "reasoning": "Applying the exact contractual mark-up rate consistently across every cost line — rather than a rounded or estimated figure — is what keeps a variation valuation defensible if the client's own quantity surveyor checks it line by line, which is standard practice on a disputed claim.",
+      "tip": "Build the correct total as net cost multiplied by (1 + markup rate) as a single formula, rather than calculating markup and total in separate manual steps — it reduces the chance of a transcription error between the two figures.",
+      "mistake": "Using an approximate or previously-used markup rate instead of checking the specific rate in the contract for this particular variation type is a common source of claim value errors that undermine credibility once discovered.",
+      "recommendation": "Always cite the specific contract clause defining the markup rate directly on the valuation sheet — it pre-empts a client's QS querying where the percentage came from and speeds up agreement."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Claim That Included Its Own Mistake",
+    "background": "On an earlier Skyline project, a variation claim was submitted with a markup rate error (unfavourable to the client) that the client's QS caught during review — beyond correcting that single line, the client's team then re-audited every other claim Skyline had submitted that year, delaying payment on multiple unrelated, valid claims while the audit was underway.",
+    "client": "Bosphorus Business Park Phase 2 — private developer client",
+    "budget": "Payment delay across multiple claims: approximately $310,000 held pending re-audit, for 7 weeks",
+    "timeline": "7-week hold across the whole claims history after one error was discovered",
+    "challenges": "Even though the underlying error was a simple transcription mistake rather than deliberate overclaiming, the discovery damaged the client's trust in Skyline's claims process broadly, not just for that one variation.",
+    "constraints": "Rebuilding the client's confidence required Skyline's contracts team to walk through their claims calculation methodology in detail, which took time neither party had budgeted for.",
+    "questions": [
+      "Why might a single small, unintentional error trigger scrutiny of unrelated, correct claims?",
+      "What internal check would have caught the transcription mistake before submission?",
+      "How does this connect to why ethics and accuracy in contract administration matter beyond the single claim in question?"
+    ],
+    "solution": "Skyline introduced a mandatory second-person check on the markup calculation for every variation claim before submission, specifically because a markup error — even an honest one — carries a disproportionate cost in damaged trust relative to its own dollar value.",
+    "lessonsLearned": "A contract engineer's credibility is the asset that makes every future claim faster to agree — a single discovered error, even an honest and unintentional one, can cost far more in lost trust and delayed unrelated payments than the error itself was ever worth, which is exactly why accuracy and transparency matter even on routine calculations."
+  },
+  "quiz": [
+    {
+      "q": "A contract clause states a Variation applies 'regardless of the reason prompting the instruction.' A client argues a variation shouldn't count because it was prompted by an unrelated design change. The correct position is:",
+      "options": [
+        "The client is right, since the reason matters more than the wording",
+        "The clause's explicit wording overrides the client's argument about the reason",
+        "Both readings are equally valid",
+        "Reason always determines variation status regardless of clause wording"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A client claims a cost 'should have been anticipated within contingency.' The best evidence to check is:",
+      "options": [
+        "General industry practice",
+        "The original priced scope document defining what was actually included",
+        "The client's opinion",
+        "Nothing, the claim should simply be conceded"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A self-discovered markup error that favours your own organisation should be:",
+      "options": [
+        "Left as submitted since it benefits your company",
+        "Corrected and flagged transparently, exactly as an unfavourable error would be",
+        "Only corrected if the other party notices",
+        "Argued for as a deserved additional benefit"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A variation's time impact claim should be calculated as:",
+      "options": [
+        "The full new lead time in isolation",
+        "The net additional duration compared to what was already in the baseline programme",
+        "Whatever number supports the largest claim",
+        "Time impact is never relevant to variations"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did one markup error trigger a 7-week audit of unrelated claims?",
+      "options": [
+        "The client was contractually required to audit everything",
+        "The single error damaged trust in the claims process broadly, not just that one variation",
+        "The error was actually much larger than described",
+        "There was no connection between the error and the audit"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to build a position from exact clause wording rather than a general sense of fairness? Why did the specific wording matter so much?",
+      "The case study shows a small, honest error costing far more in trust than in dollars. Where else might accuracy matter disproportionately to the size of the number involved?",
+      "If you were Elif, what one internal check would you make mandatory so a markup transcription error can never reach a client claim again?"
+    ]
+  },
+  "certificate": {
+    "name": "Contract Engineer — Variation Assessment & Claims",
+    "nameAz": "Müqavilə Mühəndisi — Dəyişiklik Qiymətləndirməsi və Tələblər",
+    "totalXp": 310
+  }
+}
