@@ -3,66 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Certificate — IndustrCons IRE-3</title>
+<title>Your Credential — IndustrCons IRE-3</title>
 <link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
 <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
 <link rel="stylesheet" href="css/core.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Cormorant+Garamond:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  #certificateCard{
-    width: 1050px; max-width: 100%; aspect-ratio: 1050/720; margin: 0 auto;
-    background: linear-gradient(155deg, #ffffff 0%, #fbfbfd 55%, #f4f7fb 100%);
-    border-radius: 4px; position: relative; padding: 44px 60px 36px;
-    display:flex; flex-direction:column; justify-content:space-between; color:#0F172A;
-    box-shadow: 0 30px 70px -20px rgba(15,23,42,.35), 0 2px 0 rgba(15,23,42,.06);
-    overflow:hidden;
+  #credentialCard{
+    width: 1080px; max-width: 100%; margin: 0 auto; background:#ffffff;
+    border-radius: 16px; position: relative; overflow:hidden;
+    box-shadow: 0 1px 2px rgba(15,23,42,.06), 0 24px 60px -24px rgba(15,23,42,.28);
+    border: 1px solid #E7EAF0;
   }
-  /* outer navy frame + inner gold hairline */
-  #certificateCard::before{
-    content:''; position:absolute; inset:0; border-radius:4px; pointer-events:none;
-    border: 9px solid var(--navy);
-    -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude;
-  }
-  #certificateCard::after{ content:''; position:absolute; inset:19px; border:1.5px solid #C9A24B; border-radius:2px; pointer-events:none; }
-  .cert-watermark{
-    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-    font-family: var(--font-display); font-weight:800; font-size:11rem; letter-spacing:4px;
-    color: rgba(0,91,170,.035); white-space:nowrap; pointer-events:none; user-select:none; z-index:0;
-  }
-  .cert-guilloche{
-    position:absolute; inset:19px; pointer-events:none; opacity:.5;
-    background-image: repeating-linear-gradient(115deg, rgba(0,91,170,.05) 0 1px, transparent 1px 22px);
-  }
-  #certificateCard > *{ position:relative; z-index:1; }
-  .cert-eyebrow-line{ display:flex; align-items:center; gap:10px; justify-content:center; }
-  .cert-eyebrow-line::before, .cert-eyebrow-line::after{ content:''; flex:1; max-width:120px; height:1px; background:linear-gradient(90deg, transparent, #C9A24B, transparent); }
-  #certName{
-    font-family: 'Playfair Display', var(--font-display), serif;
-    font-weight:700; letter-spacing:.3px;
-  }
-  #certName.name-italic{ font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:600; }
-  .cert-seal{
-    width:104px; height:104px; border-radius:50%;
-    background: conic-gradient(from 210deg, #F7941D, #ffe1ab, #F7941D, #d97e0e, #F7941D);
-    display:flex; align-items:center; justify-content:center; box-shadow: 0 10px 24px rgba(0,0,0,.22), inset 0 0 0 4px rgba(255,255,255,.5);
-    position:relative;
-  }
-  .cert-seal::before{ content:''; position:absolute; inset:-6px; border-radius:50%; border:1.5px dashed rgba(201,162,75,.7); }
-  .cert-seal span{ font-family: var(--font-display); font-weight:700; color:#0F172A; font-size:.7rem; text-align:center; line-height:1.25; }
-  .cert-signature{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1.3rem; }
+  .cred-topbar{ height:7px; background: linear-gradient(90deg, var(--navy) 0%, var(--navy) 55%, var(--orange) 100%); }
+  .cred-body{ padding: 40px 52px 30px; position:relative; }
 
-  /* --- name entry panel (shown before the certificate itself) --- */
-  #nameEntryCard{ max-width:520px; margin:0 auto 30px; padding:26px 28px; }
+  /* subtle blueprint corner marks — restrained, not decorative overload */
+  .blueprint-mark{ position:absolute; width:34px; height:34px; pointer-events:none; opacity:.35; }
+  .blueprint-mark.tl{ top:20px; left:20px; border-top:1.5px solid #B9C2D0; border-left:1.5px solid #B9C2D0; }
+  .blueprint-mark.br{ bottom:20px; right:20px; border-bottom:1.5px solid #B9C2D0; border-right:1.5px solid #B9C2D0; }
+  .blueprint-grid{
+    position:absolute; top:0; right:0; width:220px; height:220px; pointer-events:none; opacity:.5;
+    background-image: linear-gradient(#EEF1F6 1px, transparent 1px), linear-gradient(90deg, #EEF1F6 1px, transparent 1px);
+    background-size: 18px 18px;
+    -webkit-mask-image: radial-gradient(circle at 100% 0%, black 0%, transparent 70%);
+    mask-image: radial-gradient(circle at 100% 0%, black 0%, transparent 70%);
+  }
+
+  .cred-header{ display:flex; align-items:flex-start; justify-content:space-between; position:relative; z-index:1; }
+  .cred-header img{ height:30px; }
+  .cred-eyebrow{ font-family:var(--font-display); font-size:.68rem; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color:#8A93A3; text-align:right; }
+  .cred-id{ font-family:'JetBrains Mono', monospace; font-size:.72rem; color:#4B5568; text-align:right; margin-top:4px; }
+
+  .cred-main{ text-align:center; margin: 34px 0 22px; position:relative; z-index:1; }
+  .cred-kicker{ font-family:var(--font-display); font-size:.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--orange); margin-bottom:14px; }
+  #certName{
+    font-family: var(--font-display); font-weight:700; font-size:2.5rem; letter-spacing:-.5px;
+    color:#0B1526; margin:0 0 14px;
+  }
+  .cred-completed-line{ color:#5B6472; font-size:.98rem; max-width:640px; margin:0 auto; }
+  #certInternshipName{ font-family:var(--font-display); font-weight:700; font-size:1.3rem; color:var(--navy); margin:8px 0 0; }
+  .cred-company{ color:#5B6472; font-size:.92rem; margin-top:2px; }
+
+  .cred-skills{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin: 20px 0 6px; position:relative; z-index:1; }
+  .cred-chip{
+    font-size:.76rem; font-weight:600; color:var(--navy); background:#EEF3FB; border:1px solid #DCE6F5;
+    padding:5px 13px; border-radius:100px; letter-spacing:.2px;
+  }
+
+  .cred-divider{ height:1px; background:linear-gradient(90deg, transparent, #E7EAF0 15%, #E7EAF0 85%, transparent); margin: 26px 0 22px; }
+
+  .cred-footer{ display:grid; grid-template-columns: 1.1fr 1.1fr 1fr auto; gap:18px; align-items:end; position:relative; z-index:1; }
+  .cred-footer-block .label{ font-size:.66rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#8A93A3; margin-bottom:5px; }
+  .cred-footer-block .value{ font-size:.85rem; color:#0B1526; font-weight:600; }
+  .cred-footer-block .value.mono{ font-family:'JetBrains Mono', monospace; font-size:.78rem; color:#3A4250; font-weight:500; }
+
+  .cred-signature-block{ text-align:left; }
+  .cred-signature-name{ font-family: var(--font-display); font-weight:700; font-size:1.05rem; color:#0B1526; border-top:1.5px solid #0B1526; padding-top:6px; display:inline-block; min-width:150px; }
+  .cred-signature-title{ font-size:.72rem; color:#8A93A3; margin-top:2px; }
+
+  .cred-qr-block{ display:flex; flex-direction:column; align-items:center; gap:6px; }
+  .cred-qr-box{ width:66px; height:66px; padding:5px; background:#fff; border:1px solid #E7EAF0; border-radius:8px; }
+  .cred-qr-caption{ font-size:.62rem; color:#8A93A3; text-align:center; max-width:80px; }
+
+  /* Industry Ready badge — flat, modern, circular */
+  .ir-badge{ position:absolute; top:26px; right:26px; z-index:2; display:flex; flex-direction:column; align-items:center; }
+  .ir-badge-circle{
+    width:58px; height:58px; border-radius:50%; background:var(--navy);
+    border:3px solid var(--orange); display:flex; align-items:center; justify-content:center;
+    box-shadow:0 4px 14px rgba(0,91,170,.25);
+  }
+  .ir-badge-circle svg{ width:26px; height:26px; }
+  .ir-badge-label{ font-family:var(--font-display); font-size:.56rem; font-weight:700; letter-spacing:.6px; text-transform:uppercase; color:var(--navy); margin-top:5px; text-align:center; line-height:1.2; max-width:74px; }
+
+  /* --- name entry panel --- */
+  #nameEntryCard{ max-width:560px; margin:0 auto 28px; padding:26px 28px; }
   #nameEntryCard .field label{ font-weight:600; }
   #nameEntryCard .name-hint{ font-size:.82rem; color:var(--ink-soft); margin-top:6px; }
 
+  @media (max-width: 720px){
+    .cred-body{ padding:28px 22px 22px; }
+    #certName{ font-size:1.7rem; }
+    .cred-footer{ grid-template-columns: 1fr 1fr; row-gap:20px; }
+    .ir-badge{ position:static; margin:0 auto 16px; }
+  }
+
   @media print {
     body *{ visibility:hidden; }
-    #certificateCard, #certificateCard *{ visibility:visible; }
-    #certificateCard{ position:fixed; inset:0; margin:0; width:100vw; height:100vh; border-width:14px; box-shadow:none; }
+    #credentialCard, #credentialCard *{ visibility:visible; }
+    #credentialCard{ position:fixed; inset:0; margin:0; width:100vw; height:100vh; box-shadow:none; border-radius:0; }
   }
 </style>
 </head>
@@ -71,12 +102,12 @@
 <div id="navbarInclude"></div>
 
 <main id="main" class="section-tight">
-  <div class="container" style="max-width:1040px;">
+  <div class="container" style="max-width:1080px;">
     <div id="notReadyState" class="empty-state" hidden>
       <div class="icon">🔒</div>
-      <h3>No certificate here yet</h3>
-      <p>Finish the internship's tasks, case study, and quiz first — then come back to generate this certificate.</p>
-      <a class="btn btn-primary" href="internships.html">Browse internships</a>
+      <h3 data-i18n="certificate.notReadyTitle">No certificate here yet</h3>
+      <p data-i18n="certificate.notReadyText">Finish the internship's tasks, case study, and quiz first — then come back to generate this certificate.</p>
+      <a class="btn btn-primary" href="internships.html" data-i18n="certificate.browseInternships">Browse internships</a>
     </div>
 
     <div id="certificateWrap" hidden>
@@ -86,64 +117,85 @@
 
       <div class="card" id="nameEntryCard">
         <div class="field">
-          <label for="certNameInput">Sertifikatda görünəcək ad, soyad</label>
-          <input type="text" id="certNameInput" placeholder="Məsələn: Elvin Əsgərov" autocomplete="name">
+          <label for="certNameInput" data-i18n="certificate.nameLabel">Name to print on your credential</label>
+          <input type="text" id="certNameInput" data-i18n-placeholder="certificate.namePlaceholder" placeholder="e.g. Elvin Asgarov" autocomplete="name">
         </div>
-        <p class="name-hint">Bu, sizin öz adınız olmalıdır — məhz bu ad sertifikatda çap olunacaq və LinkedIn-də paylaşdığınız zaman görünəcək. İstədiyiniz vaxt dəyişə bilərsiniz, dəyişiklik dərhal aşağıda əks olunur.</p>
+        <p class="name-hint" data-i18n="certificate.nameHint">This should be your own name — it will be printed on the credential and shown if you share it on LinkedIn.</p>
         <div class="flex" style="gap:10px; margin-top:6px; align-items:center;">
-          <button class="btn btn-primary btn-sm" id="saveNameBtn">Yadda saxla</button>
-          <span id="nameSavedTag" style="font-size:.8rem; color:var(--success); display:none;">✓ Yadda saxlanıldı</span>
+          <button class="btn btn-primary btn-sm" id="saveNameBtn" data-i18n="certificate.saveName">Save</button>
+          <span id="nameSavedTag" style="font-size:.8rem; color:var(--success); display:none;" data-i18n="certificate.nameSaved">✓ Saved</span>
         </div>
       </div>
 
-      <div id="certificateCard">
-        <div class="cert-watermark">INDUSTRCONS</div>
-        <div class="cert-guilloche"></div>
+      <div id="credentialCard">
+        <div class="cred-topbar"></div>
+        <div class="cred-body">
+          <div class="blueprint-grid"></div>
+          <div class="blueprint-mark tl"></div>
+          <div class="blueprint-mark br"></div>
 
-        <div class="flex between" style="align-items:flex-start;">
-          <img src="assets/icons/logo-real.png" alt="IndustrCons IRE-3" style="height:34px;">
-          <div class="title-block" style="border-color:#005BAA; color:#0F172A;">
-            <span>CERT</span><b id="certNoTag">—</b>
+          <div class="ir-badge">
+            <div class="ir-badge-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <div class="ir-badge-label" data-i18n="certificate.industryReady">Industry Ready</div>
           </div>
-        </div>
 
-        <div class="text-center" style="flex:1; display:flex; flex-direction:column; justify-content:center;">
-          <div class="cert-eyebrow-line eyebrow" data-i18n="certificate.issuedTo">This certifies that</div>
-          <h2 id="certName" style="margin:10px 0 12px; font-size:2.6rem;">Guest Student</h2>
-          <p style="max-width:600px; margin:0 auto 6px;"><span data-i18n="certificate.completed">has successfully completed the virtual internship</span></p>
-          <h3 id="certInternshipName" style="margin:4px 0 0; color:#005BAA;">—</h3>
-        </div>
+          <div class="cred-header">
+            <div>
+              <img src="assets/icons/logo-real.png" alt="IndustrCons IRE-3">
+            </div>
+            <div>
+              <div class="cred-eyebrow" data-i18n="certificate.verifiedCredential">Verified Digital Credential</div>
+              <div class="cred-id"><span data-i18n="certificate.credentialId">Credential ID</span>: <span id="certNoTag">—</span></div>
+            </div>
+          </div>
 
-        <div class="flex between" style="align-items:flex-end;">
-          <div style="font-size:.78rem;">
-            <div><strong data-i18n="certificate.date">Completion Date</strong>: <span id="certDate">—</span></div>
-            <div><strong data-i18n="certificate.certNo">Certificate No.</strong>: <span id="certNo" class="mono">—</span></div>
-            <div><strong data-i18n="certificate.verify">Verification Code</strong>: <span id="certVerify" class="mono">—</span></div>
+          <div class="cred-main">
+            <div class="cred-kicker" data-i18n="certificate.issuedTo">This certifies that</div>
+            <h2 id="certName">Guest Student</h2>
+            <p class="cred-completed-line" data-i18n="certificate.completed">has successfully completed the virtual internship</p>
+            <h3 id="certInternshipName">—</h3>
+            <div class="cred-company" id="certCompanyName">—</div>
           </div>
-          <div class="cert-seal"><span>INDUSTRY<br>READY</span></div>
-          <div style="text-align:center;">
-            <div id="qrcode" style="width:72px; height:72px;"></div>
-            <div style="font-size:.68rem; margin-top:4px;">Scan to view details</div>
-          </div>
-          <div style="text-align:center; font-size:.78rem;">
-            <div class="cert-signature" style="border-top:1.5px solid #0F172A; padding-top:4px; min-width:160px;">Elvin Asgarov</div>
-            <div style="color:#4b5568;" data-i18n="certificate.founderTitle">Founder, IndustrCons</div>
+
+          <div class="cred-skills" id="certSkillsRow"></div>
+
+          <div class="cred-divider"></div>
+
+          <div class="cred-footer">
+            <div class="cred-footer-block">
+              <div class="label" data-i18n="certificate.issueDate">Issue Date</div>
+              <div class="value" id="certDate">—</div>
+            </div>
+            <div class="cred-footer-block">
+              <div class="label" data-i18n="certificate.verify">Verification Code</div>
+              <div class="value mono" id="certVerify">—</div>
+            </div>
+            <div class="cred-footer-block cred-signature-block">
+              <div class="cred-signature-name">Elvin Asgarov</div>
+              <div class="cred-signature-title" data-i18n="certificate.founderTitle">Founder, IndustrCons</div>
+            </div>
+            <div class="cred-qr-block">
+              <div class="cred-qr-box" id="qrcode"></div>
+              <div class="cred-qr-caption" data-i18n="certificate.scanVerify">Scan to verify</div>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="flex center gap-2" style="margin-top:26px; flex-wrap:wrap;">
         <button class="btn btn-primary" id="downloadPdfBtn" data-i18n="certificate.downloadPdf">Download PDF</button>
-        <button class="btn btn-ghost" id="downloadPngBtn">Şəkil kimi yüklə (PNG)</button>
+        <button class="btn btn-ghost" id="downloadPngBtn" data-i18n="certificate.downloadPng">Download image (PNG)</button>
         <button class="btn btn-ghost" id="printBtn" data-i18n="certificate.print">Print</button>
         <button class="btn btn-accent" id="shareLinkedInBtn" data-i18n="certificate.share">Share on LinkedIn</button>
       </div>
 
       <div class="card" style="max-width:640px; margin: 26px auto 0; padding:20px;" id="linkedinCaptionCard" hidden>
-        <h4 style="margin-top:0;">LinkedIn üçün hazır mətn</h4>
+        <h4 style="margin-top:0;" data-i18n="certificate.linkedinCaptionTitle">Ready-to-post LinkedIn text</h4>
         <textarea id="linkedinCaption" rows="7" readonly style="width:100%; font-family:var(--font-body); padding:12px; border-radius:9px; border:1px solid var(--line);"></textarea>
-        <p class="name-hint">Mətn kopyalanacaq və LinkedIn açılacaq. Paylaşımı yazarkən <strong>@IndustrCons</strong> və <strong>@Elvin Asgarov</strong> yazıb siyahıdan seçsəniz, onlar da paylaşımda taqlanacaq.</p>
-        <button class="btn btn-primary btn-sm" style="margin-top:6px;" id="copyCaptionBtn">Mətni kopyala və LinkedIn-i aç</button>
+        <p class="name-hint" data-i18n="certificate.linkedinCaptionHint">This text will be copied and LinkedIn will open.</p>
+        <button class="btn btn-primary btn-sm" style="margin-top:6px;" id="copyCaptionBtn" data-i18n="certificate.copyCaption">Copy text &amp; open LinkedIn</button>
       </div>
     </div>
   </div>
@@ -157,6 +209,6 @@
 <script src="js/i18n.js"></script>
 <script src="js/storage.js"></script>
 <script src="js/main.js"></script>
-<script src="js/certificate.js?v=3"></script>
+<script src="js/certificate.js?v=4"></script>
 </body>
 </html>
