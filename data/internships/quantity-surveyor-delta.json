@@ -1,0 +1,291 @@
+{
+  "id": "quantity-surveyor-delta",
+  "title": "Quantity Surveyor",
+  "companyId": "delta-civil",
+  "category": "Quantity Surveyor",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "QS-041 / REV.A",
+  "skills": [
+    "BOQ Analysis",
+    "Cost Estimation"
+  ],
+  "companyIntro": {
+    "name": "Delta Civil",
+    "country": "Brazil",
+    "founded": 2015,
+    "mission": "Affordable housing at scale without cutting structural corners — every real to the last cubic metre of concrete matters when margins are this tight.",
+    "culture": "Lean and numbers-driven. Quantity surveyors here are expected to catch a BOQ error before it becomes a variation claim, not after.",
+    "projects": [
+      "Vila Nova Housing Phase II",
+      "Rio Verde Water Treatment Facility",
+      "Sao Miguel Affordable Housing Block D"
+    ]
+  },
+  "projectBackground": {
+    "name": "Vila Nova Housing Phase II — Block D",
+    "client": "Vila Nova Municipal Housing Authority",
+    "location": "Vila Nova, São Paulo State",
+    "budget": "$6.8M (Block D — 64 units, 4 storeys)",
+    "timeline": "26 weeks, currently in week 7 (foundations complete, superstructure BOQ finalisation)",
+    "context": "The main contractor's interim payment application for foundations has just arrived, and it claims a concrete quantity noticeably higher than what the BOQ take-off and drawings support. Before certifying payment, the claimed quantity needs to be checked against the measured take-off."
+  },
+  "manager": {
+    "name": "Camila Souza",
+    "role": "Senior Quantity Surveyor, Delta Civil",
+    "note": "The contractor's application claims 8% more concrete than our BOQ take-off. Before you push back or certify anything, redo the take-off from the drawings yourself — I want a number we can defend, not just a gut feeling that theirs looks high."
+  },
+  "assignment": {
+    "title": "Verify the foundation concrete claim, Block D",
+    "brief": "Recalculate the foundation concrete volume from the drawings, compare it against both the original BOQ and the contractor's payment claim, identify the likely source of the discrepancy, and prepare your certification recommendation."
+  },
+  "documents": [
+    {
+      "id": "doc-foundation-drawing",
+      "name": "Foundation Drawing — Block D",
+      "type": "Structural Drawing",
+      "note": "32 pad footings, each 1.4m x 1.4m x 0.6m deep. Strip foundation along the perimeter: 168m length x 0.6m width x 0.5m depth."
+    },
+    {
+      "id": "doc-original-boq",
+      "name": "Original Bill of Quantities — Foundations (extract)",
+      "type": "BOQ",
+      "note": "Pad footing concrete: 37.6 m³ (allowed quantity). Strip foundation concrete: 50.4 m³ (allowed quantity). Total allowed: 88.0 m³."
+    },
+    {
+      "id": "doc-payment-claim",
+      "name": "Contractor's Interim Payment Application — Foundations",
+      "type": "Payment Application",
+      "note": "Claims 95.0 m³ of foundation concrete placed, at the contract rate of $145/m³."
+    },
+    {
+      "id": "doc-site-diary",
+      "name": "Site Diary Extract — Foundation Pour Weeks",
+      "type": "Site Diary",
+      "note": "Notes an additional 'blinding layer' of 50mm lean-mix concrete was placed under all pad footings and strip foundations before reinforcement, not shown as a separate line item on the original BOQ."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-pad-volume",
+      "type": "numeric",
+      "title": "Pad Footing Concrete Take-off",
+      "prompt": "Using the foundation drawing, what is the total concrete volume (m³) for the 32 pad footings? (32 x 1.4m x 1.4m x 0.6m)",
+      "answer": 37.63,
+      "tolerance": 0.1,
+      "unit": "m³",
+      "xp": 45,
+      "workingNote": "32 x 1.4 x 1.4 x 0.6 = 37.632 m³, matching the original BOQ allowance of 37.6 m³.",
+      "reasoning": "Recalculating from the drawing dimensions independently, rather than accepting either the original BOQ or the contractor's claim at face value, is exactly what a quantity surveyor's verification role requires — and here it confirms the original BOQ's pad footing figure was accurate.",
+      "tip": "Always redo take-offs from the drawing directly during a payment dispute, rather than starting from either party's number and trying to find where it 'must' be wrong — an independent calculation is what makes your certification defensible.",
+      "mistake": "A common shortcut is assuming the original BOQ must be correct since it was presumably checked once already — but BOQs are estimates prepared before construction, and re-verifying against as-built drawings is precisely the check a payment certification requires.",
+      "recommendation": "Keep independent take-off calculations as part of your certification file for every interim payment on a disputed quantity — if a claim is challenged later, your own defensible working is what protects the certification decision."
+    },
+    {
+      "id": "task-2-strip-volume",
+      "type": "numeric",
+      "title": "Strip Foundation Concrete Take-off",
+      "prompt": "What is the concrete volume (m³) for the perimeter strip foundation? (168m x 0.6m x 0.5m)",
+      "answer": 50.4,
+      "tolerance": 0.1,
+      "unit": "m³",
+      "xp": 45,
+      "workingNote": "168 x 0.6 x 0.5 = 50.4 m³, matching the original BOQ allowance.",
+      "reasoning": "Strip foundation volume is a straightforward length x width x depth calculation, and confirming it matches the original BOQ narrows down where the contractor's claimed discrepancy is actually coming from — it isn't in either of these two measured quantities.",
+      "tip": "When a total claimed quantity looks high, break it into its component parts and verify each independently rather than trying to explain the discrepancy as one lump figure — this is what reveals whether the issue is a measurement error, a scope difference, or something not yet accounted for.",
+      "mistake": "Accepting or disputing a total claimed figure without breaking it into its components risks missing that some parts of the claim are accurate while a specific, identifiable addition explains the rest.",
+      "recommendation": "Always structure your verification take-off to mirror the same line items as the original BOQ — it makes discrepancies traceable to a specific cause rather than a single unexplained total difference."
+    },
+    {
+      "id": "task-3-discrepancy",
+      "type": "mcq",
+      "title": "Identifying the Discrepancy Source",
+      "prompt": "Pad footings (37.6 m³) plus strip foundation (50.4 m³) equal 88.0 m³, matching the original BOQ — but the contractor claims 95.0 m³. Based on the site diary, what most likely explains the extra 7.0 m³?",
+      "options": [
+        "The contractor is simply overclaiming and no further explanation exists",
+        "The blinding layer (50mm lean-mix concrete under all footings and strip foundations) was placed but never included as a separate line item in the original BOQ",
+        "A measurement error in the original drawings",
+        "The strip foundation was built at a different depth than shown"
+      ],
+      "correctIndex": 1,
+      "xp": 50,
+      "reasoning": "The site diary specifically notes a blinding layer under all foundations that wasn't a separate BOQ line item — this is a real, legitimate quantity of concrete that was actually placed but simply wasn't priced as its own item, which is a very plausible and checkable explanation for most or all of the 7.0 m³ gap, rather than assuming pure overclaiming without investigating.",
+      "tip": "Before assuming a payment discrepancy is an overclaim, check the site diary and any additional work instructions for legitimate scope that wasn't in the original BOQ — blinding layers, additional compaction layers, and similar items are commonly missed at BOQ stage but genuinely constructed.",
+      "mistake": "Defaulting to 'the contractor is overclaiming' without checking site records for an explanation is a common and unfair assumption that can damage the working relationship and waste time on a dispute that a quick diary check would have resolved.",
+      "recommendation": "Always cross-reference a payment discrepancy against the site diary and any variation instructions before raising it as a dispute — many apparent overclaims turn out to be legitimate, simply unpriced scope."
+    },
+    {
+      "id": "task-4-blinding-volume",
+      "type": "numeric",
+      "title": "Blinding Layer Volume Check",
+      "prompt": "The blinding layer is 50mm deep under all pad footings (32 x 1.4m x 1.4m footprint) and the strip foundation (168m x 0.6m width). What is the blinding concrete volume (m³), rounded to one decimal?",
+      "answer": 8.14,
+      "tolerance": 0.15,
+      "unit": "m³",
+      "xp": 55,
+      "workingNote": "Pad footing blinding: 32 x 1.4 x 1.4 x 0.05 = 3.136 m³. Strip blinding: 168 x 0.6 x 0.05 = 5.04 m³. Total = 8.176 m³ ≈ 8.2 m³ (close to the claimed 7.0 m³ gap, within reasonable measurement variance).",
+      "reasoning": "Calculating the blinding layer volume independently tests whether it genuinely accounts for the claimed discrepancy — here it comes out close to, and slightly above, the 7.0 m³ gap, supporting that the blinding layer is indeed the real explanation rather than an overclaim, with the small remaining difference being within normal measurement tolerance.",
+      "tip": "When verifying whether an unpriced item explains a claimed discrepancy, calculate it independently rather than simply accepting that 'it probably adds up' — an exact or close match gives you confidence to recommend certifying the payment; a large unexplained remainder would not.",
+      "mistake": "Stopping the investigation once a plausible explanation is identified, without actually calculating whether it numerically accounts for the gap, risks certifying a payment that still contains a genuine overclaim hiding alongside a legitimate one.",
+      "recommendation": "Any time a legitimate unpriced item is identified as explaining a discrepancy, it should be raised as a formal variation for a proper contract rate, not simply folded into future BOQ allowances informally — this protects both parties' records for the rest of the contract."
+    },
+    {
+      "id": "task-5-certification",
+      "type": "text",
+      "title": "Payment Certification Recommendation",
+      "prompt": "Write your certification recommendation (3-5 sentences): what you verified, what explains the discrepancy, and what you recommend certifying.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "Independent take-off confirms pad footing concrete at 37.6 m³ and strip foundation concrete at 50.4 m³, both matching the original BOQ allowances of 88.0 m³ combined. The contractor's claimed 95.0 m³ includes an additional 7.0 m³ that the site diary attributes to a 50mm blinding layer under all foundations, which independent calculation confirms at approximately 8.2 m³ — closely supporting the claimed addition as legitimate, previously unpriced work rather than an overclaim. I recommend certifying payment for the original 88.0 m³ at the contract BOQ rate, and raising a separate variation for the blinding layer concrete (approximately 8.2 m³) at an agreed blinding-mix rate, rather than certifying it at the full structural concrete rate claimed, since blinding mix is a lower-grade, lower-cost material.",
+      "reasoning": "A complete certification recommendation states what was independently verified, explains the discrepancy with supporting figures, and gives a specific, actionable certification decision — including catching that blinding-mix concrete shouldn't be paid at the same rate as structural concrete, which is a real cost distinction a careful quantity surveyor should catch.",
+      "tip": "When a legitimate but unpriced item explains a discrepancy, check whether it should be paid at the same rate as the originally claimed item — a lower-grade material like blinding mix should not be certified at a structural concrete rate, even if it explains the same volume gap.",
+      "mistake": "A common oversight is certifying the full claimed amount at the full claimed rate once a plausible explanation is found for the volume gap, without checking whether the correct commercial rate for that specific item is actually lower.",
+      "recommendation": "Any time an unpriced item is identified during a payment dispute, resolve both the quantity AND the applicable rate as a formal variation — settling the quantity question alone can still leave the project overpaying at the wrong rate."
+    },
+    {
+      "id": "task-6-boq-excel",
+      "type": "excel-upload",
+      "title": "Interim Valuation Reconciliation (Excel)",
+      "prompt": "Three more BOQ line items on this payment application need reconciling the same way — claimed vs. verified quantity, and the value difference at the contract rate. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "Interim-Valuation-Template.xlsx",
+        "sheetName": "Valuation",
+        "headers": [
+          "BOQ Item",
+          "Claimed Qty",
+          "Verified Qty",
+          "Contract Rate (USD)",
+          "Value Difference (USD)"
+        ],
+        "rows": [
+          [
+            "Formwork — Foundations (m²)",
+            "310",
+            "280",
+            "18",
+            ""
+          ],
+          [
+            "Reinforcement — Foundations (kg)",
+            "9800",
+            "9450",
+            "1.9",
+            ""
+          ],
+          [
+            "Excavation — Foundations (m³)",
+            "145",
+            "145",
+            "22",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "E2",
+          "expected": 540,
+          "tolerance": 5,
+          "label": "Formwork value difference ((310-280) x 18)"
+        },
+        {
+          "cell": "E3",
+          "expected": 665,
+          "tolerance": 10,
+          "label": "Reinforcement value difference ((9800-9450) x 1.9)"
+        },
+        {
+          "cell": "E4",
+          "expected": 0,
+          "tolerance": 0,
+          "label": "Excavation value difference (claimed matches verified exactly)"
+        }
+      ],
+      "reasoning": "A full interim valuation reconciles every line item, not just the ones that look obviously wrong — Excavation matching exactly here confirms the reconciliation process itself is sound (it doesn't manufacture discrepancies where none exist), while Formwork and Reinforcement reveal genuine overclaims worth $540 and $665 respectively.",
+      "tip": "Include line items you expect to match exactly (like Excavation here) in your reconciliation, not just the disputed ones — a reconciliation that only checks suspicious items can miss that your own process has an error if everything always comes out 'wrong'.",
+      "mistake": "A common spreadsheet mistake is only building reconciliation formulas for items already known to be in dispute, which means a genuine new discrepancy elsewhere in the application goes completely unchecked.",
+      "recommendation": "Reconcile the full interim payment application every month using this same structure, not just the items flagged as unusual — small, uncontested-looking overclaims across many minor line items can add up to significant value over a project's life."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Blinding Layer That Was Never Priced",
+    "background": "On an earlier Delta Civil project, a quantity surveyor rejected an entire interim payment claim as 'overclaiming' when a contractor's application exceeded the BOQ, without checking site diaries for legitimate unpriced work — the resulting dispute escalated to a formal contractual claim before the blinding layer explanation was found.",
+    "client": "Rio Verde Water Treatment Facility",
+    "budget": "Dispute resolution and delayed payment cost: approximately 6 weeks of contractor cash flow disruption, plus legal correspondence costs",
+    "timeline": "6-week dispute period before the actual explanation was identified and the payment was properly reconciled",
+    "challenges": "The contractor, having genuinely done the blinding layer work in good faith as standard practice, felt unfairly accused of overclaiming, which damaged trust going into the next phase of the contract.",
+    "constraints": "Once framed as a formal dispute rather than a routine reconciliation query, resolving it required more formal correspondence and management involvement than a simple site diary check would have needed from the start.",
+    "questions": [
+      "Why is checking site diaries before disputing a claim faster and fairer than assuming overclaiming?",
+      "What single early step would have avoided six weeks of dispute?",
+      "How should a quantity surveyor balance being appropriately skeptical of claims with not damaging contractor relationships unnecessarily?"
+    ],
+    "solution": "Delta Civil introduced a standing rule that any payment application discrepancy must be cross-checked against site diaries and variation instructions before being raised as a formal query with the contractor, rather than defaulting to a dispute framing on the first discovery of a mismatch.",
+    "lessonsLearned": "A quantity surveyor's verification role is to find the true, defensible number — which sometimes means confirming the contractor's claim was legitimate all along — not to assume discrepancies are adversarial until proven otherwise; checking available records first is both faster and fairer."
+  },
+  "quiz": [
+    {
+      "q": "A contractor's payment claim exceeds the original BOQ quantity. The correct first step is:",
+      "options": [
+        "Immediately reject the claim as an overclaim",
+        "Independently recalculate the quantity from drawings and check site diaries for legitimate unpriced work before concluding anything",
+        "Certify the full claim without checking",
+        "Ask the contractor to simply lower their claim to match the BOQ"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A blinding layer that was constructed but not included as a BOQ line item should be:",
+      "options": [
+        "Ignored entirely since it wasn't in the original BOQ",
+        "Raised as a formal variation at an appropriate rate for that material",
+        "Paid at the full structural concrete rate automatically",
+        "Deducted from the contractor's next payment as a penalty"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Why is it useful to include line items expected to match exactly (like Excavation in this exercise) in a reconciliation?",
+      "options": [
+        "It's not useful and wastes time",
+        "It confirms the reconciliation process itself is working correctly, not just manufacturing discrepancies",
+        "It always reveals a discrepancy",
+        "Only disputed items need reconciling"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, what turned a routine reconciliation into a 6-week dispute?",
+      "options": [
+        "The contractor refused to provide any records",
+        "The claim was framed as overclaiming/disputed before checking site diaries for a legitimate explanation",
+        "The BOQ was completely wrong",
+        "The client refused to pay under any circumstances"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A lower-grade material (like blinding mix) that explains a quantity discrepancy should be certified at:",
+      "options": [
+        "The same rate as the higher-grade material it was compared against",
+        "Its own appropriate contract rate for that material, not the higher-grade rate",
+        "Whatever rate is highest",
+        "No rate at all, since it was unpriced"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to distinguish between a genuine overclaim and legitimate unpriced work? What record settled the question?",
+      "The case study shows a fair claim treated as a dispute, costing six weeks of trust and cash flow. Where else might defaulting to suspicion be slower and less fair than checking the record first?",
+      "If you were Camila, what one step would you make mandatory before any payment discrepancy is escalated to a formal query?"
+    ]
+  },
+  "certificate": {
+    "name": "Quantity Surveyor — Payment Verification & BOQ Reconciliation",
+    "nameAz": "Miqdar Geodeziyaçısı — Ödəniş Doğrulaması və BOQ Uyğunlaşdırması",
+    "totalXp": 315
+  }
+}
