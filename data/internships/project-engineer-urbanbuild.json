@@ -1,0 +1,301 @@
+{
+  "id": "project-engineer-urbanbuild",
+  "title": "Project Engineer",
+  "companyId": "urbanbuild-engineering",
+  "category": "Project Engineer",
+  "difficulty": "Beginner",
+  "durationHours": 7,
+  "drawingTag": "PE-018 / REV.B",
+  "skills": [
+    "RFI",
+    "Coordination",
+    "Technical Report"
+  ],
+  "companyIntro": {
+    "name": "UrbanBuild Engineering",
+    "country": "Poland",
+    "founded": 2011,
+    "mission": "Bring Scandinavian-style design coordination discipline to fast-growing urban infill projects — clash detection happens weekly, not at the end.",
+    "culture": "Collaborative and BIM-first. Project engineers are the hub between site, design, and subcontractors — expected to chase answers, not just log questions.",
+    "projects": [
+      "Wisła Riverside Mixed-Use",
+      "Krakow Transit Interchange",
+      "Solaris Office Campus"
+    ]
+  },
+  "projectBackground": {
+    "name": "Wisła Riverside Mixed-Use — Podium & Tower",
+    "client": "Wisła Development Partners",
+    "location": "Riverside District, Warsaw",
+    "budget": "$52M (podium and tower structure package)",
+    "timeline": "40 weeks, currently in week 14 (podium slab, MEP first-fix starting)",
+    "context": "The mechanical subcontractor has flagged a clash: a main chilled-water riser routed through the podium level conflicts with a structural transfer beam shown on the latest structural drawing revision, which was issued after the mechanical drawings were finalised."
+  },
+  "manager": {
+    "name": "Marta Kowalska",
+    "role": "Project Manager, UrbanBuild Engineering",
+    "note": "This clash needs an RFI to the structural engineer today, not next week — the mechanical sub can't proceed with riser installation on this level until it's resolved, and they're two days from being idle if we don't move fast."
+  },
+  "assignment": {
+    "title": "Resolve the riser/transfer beam clash, Podium Level 2",
+    "brief": "Confirm the clash using the drawings, write and issue an RFI to the structural engineer, coordinate an interim sequencing plan with the mechanical subcontractor so they aren't left idle, and report the resolution once it comes back."
+  },
+  "documents": [
+    {
+      "id": "doc-structural-rev",
+      "name": "Structural Drawing — Podium Level 2, Rev. D (latest)",
+      "type": "Structural Drawing",
+      "note": "Shows a 900mm deep transfer beam along Grid Line 4, spanning Grid C to Grid F, issued 3 weeks after the mechanical drawings were finalised — this beam did not exist in Rev. C."
+    },
+    {
+      "id": "doc-mech-drawing",
+      "name": "Mechanical Drawing — Podium Level 2 Riser Routing",
+      "type": "Mechanical Drawing",
+      "note": "Chilled-water riser routed at Grid Line 4, crossing between Grid D and E at a level that would pass directly through the new transfer beam's structural depth."
+    },
+    {
+      "id": "doc-rfi-log",
+      "name": "RFI Log (extract)",
+      "type": "RFI Log",
+      "note": "Open RFI turnaround target per contract: 5 working days. 3 RFIs currently open with the structural engineer, none related to this clash."
+    },
+    {
+      "id": "doc-rfi-template",
+      "name": "RFI Form — Template",
+      "type": "Template",
+      "note": "Fields: reference drawings, description of conflict, question, requested response date, impact if unresolved."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-clash-id",
+      "type": "mcq",
+      "title": "Confirming the Clash",
+      "prompt": "Comparing the structural Rev. D drawing to the mechanical riser routing drawing, what is the nature of this clash?",
+      "options": [
+        "No real clash — the riser and beam are on different grid lines",
+        "A new transfer beam introduced in the latest structural revision now occupies the same space as an already-designed mechanical riser route",
+        "The mechanical drawing is outdated and can simply be ignored",
+        "The clash only matters if construction has already started on the riser"
+      ],
+      "correctIndex": 1,
+      "xp": 35,
+      "reasoning": "The transfer beam is new in Rev. D and wasn't present when the mechanical riser routing was finalised — the riser's planned path now physically conflicts with the beam's structural depth at the same grid location. This is a genuine, current clash that needs resolution regardless of construction progress.",
+      "tip": "Whenever a structural drawing is revised after other trades' drawings were finalised, it's worth proactively re-checking for new clashes at the specific grid lines that changed — waiting for a subcontractor to discover it in the field is the expensive way to find out.",
+      "mistake": "Assuming a clash 'doesn't count' because construction hasn't reached that point yet is a common mistake — the earlier a clash is caught relative to construction, the cheaper and simpler it is to resolve.",
+      "recommendation": "When a structural revision is issued mid-project, request a delta summary from the structural engineer highlighting exactly what changed — it makes clash-checking against other trades' drawings far faster than comparing entire sheets."
+    },
+    {
+      "id": "task-2-rfi",
+      "type": "text",
+      "title": "Writing the RFI",
+      "prompt": "Write the RFI (3-5 sentences) to the structural engineer: describe the clash, ask your specific question, and state the impact if it isn't resolved quickly.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "Structural drawing S-204 Rev. D introduces a 900mm deep transfer beam along Grid Line 4 (between Grid C and F) that was not present in Rev. C; this beam now occupies the same space as the chilled-water riser routing shown on mechanical drawing M-112 at the Grid D-E crossing. Please confirm whether the riser can be rerouted around the beam within the available ceiling void, or whether a penetration/sleeve through the transfer beam is structurally acceptable at this location, and if so, what size and position constraints apply. This is currently holding up the mechanical subcontractor's first-fix works on Podium Level 2 — a response within 2 working days would avoid the crew standing idle, given the standard 5-day RFI turnaround would otherwise push their mobilisation on this level by a full week.",
+      "reasoning": "A strong RFI names the specific drawings and grid references, asks a precise, answerable question (not just 'please advise'), and states a concrete consequence and requested timeframe — this is what gets a fast, useful answer instead of a slow, generic one.",
+      "tip": "Always request a specific response date tied to a real consequence (crew idle time, schedule slip) rather than just asking for 'urgent' attention — a specific date with a stated reason is far more actionable for the person answering.",
+      "mistake": "A weak RFI describes the problem but doesn't ask a specific, answerable question, leaving the structural engineer to guess what decision is actually needed — this often produces a reply that doesn't actually resolve anything and triggers a second RFI.",
+      "recommendation": "Whenever an RFI has a real schedule consequence, communicate that same urgency directly to the recipient outside the formal RFI log too (a call or message) — RFI logs are sometimes checked in batches, and a genuinely urgent item can otherwise wait its turn."
+    },
+    {
+      "id": "task-3-coordination",
+      "type": "multiselect",
+      "title": "Interim Coordination with the Mechanical Sub",
+      "prompt": "While waiting for the RFI response, select every action that helps keep the mechanical subcontractor productive rather than idle.",
+      "options": [
+        "Ask the mechanical sub to proceed with riser installation as originally drawn, ignoring the clash",
+        "Identify other first-fix work on a different level or system the crew can move to in the meantime",
+        "Share the RFI reference number and expected response date with the subcontractor so they can plan around it",
+        "Tell the subcontractor nothing until the RFI is answered, to avoid confusing them",
+        "Check whether any interim design options (reroute vs. sleeve) can be pre-agreed in principle, pending final confirmation"
+      ],
+      "correctIndices": [
+        1,
+        2,
+        4
+      ],
+      "xp": 50,
+      "reasoning": "Good coordination keeps the crew productive elsewhere, keeps them informed with a specific reference and timeline so they can plan, and explores whether a provisional path forward exists pending final sign-off. Proceeding with known-clashing work is unsafe and wasteful, and withholding information 'to avoid confusion' just leaves the subcontractor unable to plan their own resourcing.",
+      "tip": "Sharing the RFI number and expected date with a subcontractor isn't just a courtesy — it lets their own planner make resourcing decisions instead of guessing, which reduces the chance they escalate a delay claim later.",
+      "mistake": "A common project engineering mistake is staying silent with subcontractors while an RFI is pending, out of a vague sense that 'it's not resolved yet so there's nothing to say' — but 'here's the reference number and expected timeline' is itself useful, actionable information.",
+      "recommendation": "Keep a running list of 'in the meantime' work for every subcontractor on site — when a clash or RFI pauses one activity, you want an immediate answer ready for 'what can this crew do today instead'."
+    },
+    {
+      "id": "task-4-followup",
+      "type": "mcq",
+      "title": "RFI Response Follow-Up",
+      "prompt": "The structural engineer's RFI response arrives on day 3, stating a 150mm diameter sleeve through the transfer beam is acceptable at a specific position, with a structural detail attached. What should you do next?",
+      "options": [
+        "File the response in the RFI log and consider the matter closed",
+        "Immediately share the sleeve detail with the mechanical subcontractor and confirm they can now proceed with the revised routing",
+        "Wait for the next scheduled coordination meeting to mention it",
+        "Ask the structural engineer to resend the response since day 3 doesn't match the day-2 request"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "The entire point of expediting the RFI was to unblock the mechanical subcontractor as fast as possible — the moment a usable answer arrives, it needs to reach the people who were waiting on it, not sit in a log or wait for a routine meeting that may be days away.",
+      "tip": "Treat 'closing the loop' with the original blocked party as part of the RFI process itself, not a separate afterthought — an RFI that gets answered but sits unread by the affected trade for days achieves nothing.",
+      "mistake": "A common project engineering gap is treating RFI management as complete once a response is received and logged, without an explicit step to actively push that information out to whoever was blocked by it.",
+      "recommendation": "Build a habit of closing every urgent RFI with a direct message to the blocked party the same day the response arrives, referencing the specific detail — don't rely on them checking the log themselves."
+    },
+    {
+      "id": "task-5-report",
+      "type": "text",
+      "title": "Coordination Report — Resolution Summary",
+      "prompt": "Write a short summary (3-5 sentences) for the weekly coordination report: the clash, how it was resolved, and the schedule impact (if any).",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "A clash was identified on Podium Level 2 between the newly introduced transfer beam (Structural Rev. D) and the chilled-water riser routing (Mechanical M-112) at the Grid D-E crossing. RFI-047 was issued to the structural engineer, who confirmed within 3 working days (ahead of the standard 5-day turnaround) that a 150mm sleeve through the transfer beam at a specified position resolves the conflict without requiring a full reroute. The mechanical subcontractor has been provided the sleeve detail and resumed riser installation on Level 2 the same day the response was received; no net schedule impact resulted, as the crew was reassigned to Level 3 first-fix work during the 3-day RFI turnaround.",
+      "reasoning": "A useful coordination report states what the clash was, how fast and how it was resolved, and whether it cost the project any time — this is exactly what a project manager or client needs to know without having to read the underlying RFI and drawings themselves.",
+      "tip": "Always report whether a resolved clash actually cost schedule time or not — 'resolved, no net impact due to reassigned work' is a materially different and more reassuring statement than 'resolved' alone.",
+      "mistake": "A weak report says an issue was 'resolved' without stating how quickly or what happened to the affected crew in the meantime, leaving the reader unable to judge whether the coordination process actually worked well.",
+      "recommendation": "Track your own RFI turnaround times against the contractual target over the life of the project — a pattern of successfully beating the target (as here) is genuinely useful evidence of effective project engineering when the client questions coordination performance."
+    },
+    {
+      "id": "task-6-rfi-log",
+      "type": "excel-upload",
+      "title": "RFI Log Turnaround Tracker (Excel)",
+      "prompt": "Three more RFIs need their turnaround time calculated (response date minus issue date), plus a flag for any that breached the 5-day contractual target. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "RFI-Turnaround-Template.xlsx",
+        "sheetName": "RFI Log",
+        "headers": [
+          "RFI No.",
+          "Issued (Day)",
+          "Responded (Day)",
+          "Turnaround (Days)",
+          "Breached 5-Day Target? (Y/N)"
+        ],
+        "rows": [
+          [
+            "RFI-048",
+            "10",
+            "14",
+            "",
+            " "
+          ],
+          [
+            "RFI-049",
+            "15",
+            "19",
+            "",
+            " "
+          ],
+          [
+            "RFI-050",
+            "20",
+            "28",
+            "",
+            " "
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 4,
+          "tolerance": 0,
+          "label": "Turnaround — RFI-048 (14-10)"
+        },
+        {
+          "cell": "D3",
+          "expected": 4,
+          "tolerance": 0,
+          "label": "Turnaround — RFI-049 (19-15)"
+        },
+        {
+          "cell": "D4",
+          "expected": 8,
+          "tolerance": 0,
+          "label": "Turnaround — RFI-050 (28-20), breaches 5-day target"
+        }
+      ],
+      "reasoning": "Tracking RFI turnaround against the contractual target across the whole log — not just the one urgent RFI you personally chased — is what reveals whether a structural or design consultant is systematically slow, which matters for both project planning and potential claims.",
+      "tip": "Flag breaches explicitly in a dedicated column rather than expecting someone to eyeball turnaround times and mentally compare them to the target — a clear Y/N flag is what actually gets reviewed in a monthly report.",
+      "mistake": "A common oversight is only tracking turnaround for RFIs that caused a visible problem, while routine RFIs that quietly breach the target accumulate unnoticed until they represent a real pattern of slow response.",
+      "recommendation": "Review the full RFI turnaround log monthly with the design team — a consistent pattern of breaches is worth raising proactively, since it's much easier to address as a process issue than to argue about after a schedule claim."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The RFI That Sat Unread",
+    "background": "On an earlier UrbanBuild project, a project engineer correctly identified a clash and issued a well-written RFI, which the structural engineer answered within 2 days — but the response sat in the RFI log for a further 9 days before anyone told the affected subcontractor, who had already escalated the delay to a formal claim.",
+    "client": "Krakow Transit Interchange — public infrastructure client",
+    "budget": "Delay claim settled at €38,000",
+    "timeline": "2-day RFI response, followed by a 9-day gap before the information reached the field",
+    "challenges": "The project engineer considered their job done once the RFI was logged as 'answered', without a process step for actively pushing resolved information back out to whoever was blocked by it.",
+    "constraints": "By the time the subcontractor found out through a routine document register check, they had already submitted a formal notice of delay based on the assumption the issue was still unresolved, and the claim process was harder to unwind after the fact than it would have been to prevent.",
+    "questions": [
+      "Why isn't logging an RFI response the same as resolving the coordination problem it was raised for?",
+      "What single habit would have closed this gap in 9 fewer days?",
+      "Whose job is it to make sure resolved information actually reaches the person who needs it?"
+    ],
+    "solution": "UrbanBuild introduced a rule that every RFI response affecting an active subcontractor's work must be personally communicated to that subcontractor's site supervisor within 24 hours of receipt, with the RFI log update treated as a secondary record, not the primary notification method.",
+    "lessonsLearned": "An RFI process isn't complete when a question is answered — it's complete when the answer actually reaches and unblocks the person who was waiting on it, and that last step needs to be an explicit, owned action, not an assumption that logging equals communicating."
+  },
+  "quiz": [
+    {
+      "q": "A new structural revision introduces a beam that occupies the same space as an already-finalised mechanical riser route. This is:",
+      "options": [
+        "Not a real clash since the drawings were issued at different times",
+        "A genuine clash requiring resolution before that area of work can safely proceed",
+        "Only the mechanical subcontractor's problem to solve",
+        "Irrelevant unless construction has already reached that point"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A strong RFI should include:",
+      "options": [
+        "A vague description and a request to 'advise soon'",
+        "Specific drawing/grid references, a precise answerable question, and a stated consequence with requested response date",
+        "Only the question, without referencing any drawings",
+        "A request for a meeting instead of a written answer"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "While an urgent RFI is pending, the project engineer should:",
+      "options": [
+        "Tell the subcontractor nothing until it's resolved",
+        "Find alternative productive work for the crew and share the RFI reference and expected timeline",
+        "Instruct the crew to proceed with the original, clashing design",
+        "Cancel the RFI and resolve it informally instead"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, what caused the €38,000 claim despite a fast 2-day RFI response?",
+      "options": [
+        "The response was actually wrong",
+        "The response sat unshared with the subcontractor for 9 days after being logged",
+        "The subcontractor never submitted a claim",
+        "The structural engineer refused to answer"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Tracking RFI turnaround against the contractual target across the full log (not just one urgent item) is useful because:",
+      "options": [
+        "It has no real use beyond record-keeping",
+        "It reveals systemic slow response patterns that matter for planning and potential claims",
+        "It's only relevant for the person who issued the RFI",
+        "Contractual targets don't apply to RFI turnaround"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task made you realise that answering a question isn't the same as resolving the problem it was raised for? What was the missing step?",
+      "The case study shows a fast, correct RFI response still causing a costly claim because of a communication gap. Where else might 'the right answer arrived' not be the same as 'the problem is actually solved'?",
+      "If you were Marta, what one habit would you build into every RFI process so this specific gap can never happen again?"
+    ]
+  },
+  "certificate": {
+    "name": "Project Engineer — RFI & Design Coordination",
+    "nameAz": "Layihə Mühəndisi — RFI və Dizayn Koordinasiyası",
+    "totalXp": 290
+  }
+}
