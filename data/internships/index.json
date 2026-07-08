@@ -51,7 +51,7 @@
       "Concrete Calculation"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Review shop drawings for a commercial tower's steel frame and reconcile quantities against the BOQ."
   },
   {
@@ -87,7 +87,7 @@
       "Technical Report"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Resolve a design clash between MEP and structure by drafting and tracking an RFI to closure."
   },
   {
@@ -122,7 +122,7 @@
       "Cost Estimation"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Measure a housing block's blockwork and reconcile a subcontractor's BOQ submission."
   },
   {
@@ -194,7 +194,7 @@
       "Cost Estimation"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Compare three precast supplier quotes against spec and lead time for a transit interchange."
   },
   {
