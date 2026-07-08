@@ -1,4 +1,5 @@
 (async function () {
+  console.log('IndustrCons certificate.js v3 loaded');
   await IC.i18n.init();
   const params = new URLSearchParams(window.location.search);
   const internshipId = params.get('internshipId');
@@ -21,8 +22,10 @@
   document.getElementById('certificateWrap').hidden = false;
 
   const verifyCode = 'VER-' + rec.certNo.split('-').pop();
-  document.getElementById('certInternshipName').textContent = `${data.certificate.name} — ${data.companyIntro.name}`;
-  document.getElementById('certDate').textContent = new Date(rec.completedAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+  const lang = IC.i18n.getLang();
+  const certTitleName = (lang === 'az' && data.certificate.nameAz) ? data.certificate.nameAz : data.certificate.name;
+  document.getElementById('certInternshipName').textContent = `${certTitleName} — ${data.companyIntro.name}`;
+  document.getElementById('certDate').textContent = new Date(rec.completedAt).toLocaleDateString(lang === 'az' ? 'az-AZ' : undefined, { year: 'numeric', month: 'long', day: 'numeric' });
   document.getElementById('certNo').textContent = rec.certNo;
   document.getElementById('certNoTag').textContent = rec.certNo;
   document.getElementById('certVerify').textContent = verifyCode;
@@ -34,12 +37,16 @@
   const certNameEl = document.getElementById('certName');
 
   function renderQr(name) {
-    const qrEl = document.getElementById('qrcode');
-    qrEl.innerHTML = '';
-    new QRCode(qrEl, {
-      text: `IndustrCons IRE-3 Certificate\n${rec.certNo}\n${name}\n${data.certificate.name}\nVerify: ${verifyCode}`,
-      width: 72, height: 72, correctLevel: QRCode.CorrectLevel.M
-    });
+    try {
+      const qrEl = document.getElementById('qrcode');
+      qrEl.innerHTML = '';
+      new QRCode(qrEl, {
+        text: `IndustrCons IRE-3 Certificate\n${rec.certNo}\n${name}\n${data.certificate.name}\nVerify: ${verifyCode}`,
+        width: 72, height: 72, correctLevel: QRCode.CorrectLevel.M
+      });
+    } catch (e) {
+      console.error('QR render failed (non-blocking):', e);
+    }
   }
 
   function renderName(name) {
@@ -47,8 +54,12 @@
     renderQr(certNameEl.textContent);
   }
 
-  nameInput.value = studentName === 'Guest Student' ? '' : studentName;
-  renderName(studentName);
+  try {
+    nameInput.value = studentName === 'Guest Student' ? '' : studentName;
+    renderName(studentName);
+  } catch (e) {
+    console.error('Initial certificate render issue (non-blocking):', e);
+  }
 
   // Live preview as they type, persist on explicit save (and on blur, so nothing is lost)
   nameInput.addEventListener('input', () => renderName(nameInput.value || 'Guest Student'));
