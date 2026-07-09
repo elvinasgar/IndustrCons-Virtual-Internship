@@ -140,7 +140,7 @@
       "BOQ Analysis"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Price a water treatment facility package from drawings before the tender deadline."
   },
   {
@@ -158,7 +158,7 @@
       "Site Inspection"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Run a concrete pour inspection and quality checklist against a bridge rehabilitation spec."
   },
   {
@@ -212,7 +212,7 @@
       "Engineering Ethics"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Evaluate a variation claim from a subcontractor against the contract's change-order clause."
   },
   {
@@ -230,7 +230,7 @@
       "RFI"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Coordinate architectural, structural and MEP drawing revisions ahead of an issue-for-construction deadline."
   },
   {
@@ -248,7 +248,7 @@
       "Communication"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Run a federated model clash detection pass and log resolvable vs. escalation-required clashes."
   },
   {
@@ -267,7 +267,7 @@
       "Presentation"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Own the handover milestone for the Meadow Ridge Towers — sequencing, risk register, and client presentation."
   }
 ]
