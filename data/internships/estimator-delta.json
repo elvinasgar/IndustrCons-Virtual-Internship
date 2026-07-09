@@ -1,0 +1,297 @@
+{
+  "id": "estimator-delta",
+  "title": "Estimator",
+  "companyId": "delta-civil",
+  "category": "Estimator",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "EST-063 / REV.A",
+  "skills": [
+    "Cost Estimation",
+    "Material Selection",
+    "BOQ Analysis"
+  ],
+  "companyIntro": {
+    "name": "Delta Civil",
+    "country": "Brazil",
+    "founded": 2015,
+    "mission": "Affordable housing and civil infrastructure at scale, without cutting structural corners — winning tenders on discipline, not on hopeful pricing.",
+    "culture": "Lean construction principles and tight cost control. Estimators are expected to price what's actually shown on the drawings, not what would be convenient for winning the bid.",
+    "projects": [
+      "Vila Nova Housing Phase II",
+      "Rio Verde Water Treatment Facility"
+    ]
+  },
+  "projectBackground": {
+    "name": "Rio Verde Water Treatment Facility — Civil Works Package",
+    "client": "Rio Verde Municipal Water Authority",
+    "location": "Rio Verde, Goiás State",
+    "budget": "Tender estimate target: under $9.2M to remain competitive",
+    "timeline": "Tender due in 6 days",
+    "context": "The civil works package for a new water treatment facility is out to tender, and Delta Civil's estimating team needs to price the concrete, formwork, and reinforcement scope from the structural drawings before the deadline, while also deciding on a material substitution that could improve competitiveness without compromising the specification."
+  },
+  "manager": {
+    "name": "Camila Souza",
+    "role": "Senior Quantity Surveyor & Estimating Lead, Delta Civil",
+    "note": "We've lost the last two tenders on price. I don't want us to lose this one on a measurement error either — take the time to get the take-off right, then let's see if there's a legitimate way to sharpen the price without touching anything the spec actually requires."
+  },
+  "assignment": {
+    "title": "Price the primary clarifier tank civil works package",
+    "brief": "Take off the concrete, formwork, and reinforcement quantities for the primary clarifier tank from the structural drawings, price them against current rates, evaluate a proposed formwork system substitution, and prepare the estimate summary for the tender submission."
+  },
+  "documents": [
+    {
+      "id": "doc-tank-drawing",
+      "name": "Primary Clarifier Tank — Structural Drawing",
+      "type": "Structural Drawing",
+      "note": "Circular tank, internal diameter 18m, wall height 4.5m, wall thickness 350mm. Base slab: 20m diameter, 400mm thick."
+    },
+    {
+      "id": "doc-rebar-schedule",
+      "name": "Reinforcement Schedule — Clarifier Tank (extract)",
+      "type": "Schedule",
+      "note": "Wall reinforcement: 145 kg/m³ of wall concrete. Base slab reinforcement: 110 kg/m³ of slab concrete."
+    },
+    {
+      "id": "doc-rate-schedule",
+      "name": "Current Cost Rate Schedule",
+      "type": "Rate Schedule",
+      "note": "Concrete (supply + place): $145/m³. Reinforcement (supply + fix): $1.85/kg. Standard timber formwork: $38/m² of contact area. Proposed alternative: modular steel formwork system, $52/m² of contact area but reusable, reducing effective net cost on repeat pours."
+    },
+    {
+      "id": "doc-estimate-template",
+      "name": "Tender Estimate Summary — Template",
+      "type": "Template",
+      "note": "Fields: item, quantity, rate, total, basis of estimate, assumptions."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-wall-volume",
+      "type": "numeric",
+      "title": "Tank Wall Concrete Volume",
+      "prompt": "For a circular tank wall (18m internal diameter, 350mm thickness, 4.5m height), what is the concrete volume (m³), rounded to one decimal? Use the average wall centreline circumference (diameter + wall thickness) x thickness x height.",
+      "answer": 90.4,
+      "tolerance": 1.5,
+      "unit": "m³",
+      "xp": 50,
+      "workingNote": "Centreline diameter = 18m + 0.35m = 18.35m. Circumference = π x 18.35 ≈ 57.65m. Volume = 57.65m x 0.35m x 4.5m ≈ 90.7 m³ (minor variance acceptable depending on rounding of π and intermediate steps).",
+      "reasoning": "For a circular wall, using the centreline circumference (rather than internal or external diameter alone) gives the most accurate volume estimate, since the wall's true average circumference sits between the inner and outer faces — this is a standard and important refinement in circular structure take-offs that a straight rectangular approximation would get wrong.",
+      "tip": "Always use centreline dimensions for curved or circular concrete elements rather than inner or outer face measurements alone — using the internal diameter alone systematically under-counts volume, while using the external diameter alone over-counts it.",
+      "mistake": "A common take-off error on circular structures is using the internal diameter directly in a simple circumference calculation, which understates the true wall volume by not accounting for the wall's own thickness sitting outside that diameter.",
+      "recommendation": "For any curved concrete element, always state which diameter (internal, external, or centreline) your calculation basis uses — this transparency lets whoever checks your take-off quickly verify you used the geometrically correct reference."
+    },
+    {
+      "id": "task-2-slab-volume",
+      "type": "numeric",
+      "title": "Base Slab Concrete Volume",
+      "prompt": "For the base slab (20m diameter, 400mm thick), what is the concrete volume (m³), rounded to one decimal? (Area = π x r², r = 10m)",
+      "answer": 125.7,
+      "tolerance": 1,
+      "unit": "m³",
+      "xp": 45,
+      "workingNote": "Area = π x 10² ≈ 314.16 m². Volume = 314.16 x 0.4 = 125.66 m³ ≈ 125.7 m³.",
+      "reasoning": "A circular slab's volume is straightforward area x thickness, using the standard circle area formula — this is a more direct calculation than the wall volume since there's no centreline consideration needed for a flat slab.",
+      "tip": "Double-check whether a given diameter is for the slab itself or for the internal tank diameter that the slab supports — these aren't always the same dimension, and confusing them is a common source of slab take-off errors on circular structures.",
+      "mistake": "Using the tank's internal diameter (18m) instead of the base slab's actual diameter (20m, which extends beyond the wall footprint) would understate the slab volume — always confirm which specific dimension the drawing provides for each element.",
+      "recommendation": "Cross-check slab and wall take-offs against the same drawing's plan view to confirm the slab extends the expected distance beyond the wall footprint — a mismatch here usually indicates a misread dimension rather than an actual design feature."
+    },
+    {
+      "id": "task-3-cost-summary",
+      "type": "numeric",
+      "title": "Reinforcement Cost Calculation",
+      "prompt": "Using 90.4 m³ of wall concrete at 145 kg/m³ reinforcement rate and $1.85/kg, what is the wall reinforcement cost (USD), rounded to the nearest hundred?",
+      "answer": 24300,
+      "tolerance": 300,
+      "unit": "USD",
+      "xp": 50,
+      "workingNote": "90.4 m³ x 145 kg/m³ = 13,108 kg. 13,108 kg x $1.85/kg ≈ $24,250, rounds to approximately $24,300.",
+      "reasoning": "Reinforcement cost is calculated by first converting concrete volume to reinforcement weight using the schedule's kg/m³ density rate, then applying the supply-and-fix rate per kilogram — this two-step conversion is a standard estimating calculation for any reinforced concrete element.",
+      "tip": "Always keep the intermediate reinforcement weight (kg) as a visible, checkable figure in your estimate, not just the final dollar cost — it lets a reviewer sanity-check your reinforcement density assumption independently from the final cost line.",
+      "mistake": "Applying the per-kg rate directly to concrete volume without first converting through the kg/m³ density figure is a fundamental estimating error that would produce a nonsensical result, conflating two different units entirely.",
+      "recommendation": "Keep reinforcement density assumptions (kg/m³) clearly documented against their source (the reinforcement schedule) in your estimate file — if actual reinforcement detailing changes later, this is what lets the estimate be quickly and defensibly updated."
+    },
+    {
+      "id": "task-4-formwork",
+      "type": "multiselect",
+      "title": "Formwork System Evaluation",
+      "prompt": "The tank wall requires formwork for both faces across its 4.5m height and 57.65m circumference — meaning the same formwork area could potentially be reused if the tank has repeat pour sections or if this design is used on other similar tanks in the same contract. Select every factor relevant to deciding between standard timber ($38/m²) and modular steel ($52/m², reusable) formwork.",
+      "options": [
+        "Whether this contract includes multiple similar tanks where the steel formwork could be reused across pours",
+        "The steel formwork's higher unit rate is a one-time cost if reused, effectively lowering its per-use cost below timber's on subsequent tanks",
+        "The specific brand name of the formwork manufacturer",
+        "Whether the pour sequence and programme allow enough turnaround time to reuse the same formwork panels between pours",
+        "Timber formwork's lower upfront cost may still be more economical if there's genuinely only one tank being priced with no reuse opportunity"
+      ],
+      "correctIndices": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "xp": 55,
+      "reasoning": "The genuine decision factors are whether reuse opportunities exist (multiple tanks or repeat pours), whether the reusable system's higher unit cost is offset by that reuse, whether the programme actually allows enough turnaround time to realise reuse, and whether timber remains the better choice for a genuinely single-use application. Brand name has no bearing on the cost-effectiveness comparison.",
+      "tip": "Never evaluate a reusable formwork system's cost-effectiveness on its per-use rate alone — calculate the effective cost per use across its expected number of reuses, which is what actually determines whether the higher upfront rate pays off.",
+      "mistake": "Assuming a 'better' or more modern formwork system is automatically worth its higher rate, without checking whether the specific project has genuine reuse opportunities within an achievable programme, can lead to recommending an option that's actually more expensive in this specific context.",
+      "recommendation": "Always model formwork system costs against the specific project's actual number of expected reuses, not a generic assumption — the same system can be the clearly better or clearly worse choice depending entirely on how many times it's genuinely reused."
+    },
+    {
+      "id": "task-5-estimate-memo",
+      "type": "text",
+      "title": "Tender Estimate Summary Memo",
+      "prompt": "Write the estimate summary memo (3-5 sentences) for the clarifier tank package: quantities, total cost, and the formwork recommendation with basis.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "The primary clarifier tank package comprises approximately 90.4 m³ of wall concrete and 125.7 m³ of base slab concrete, with reinforcement priced at 145 kg/m³ (wall) and 110 kg/m³ (slab) per the reinforcement schedule, for a combined concrete, reinforcement, and formwork cost of approximately [total]. Given this contract includes two additional clarifier tanks of the same design later in the programme, I recommend the modular steel formwork system ($52/m² vs. standard timber at $38/m²), as its reusability across all three tanks brings the effective cost per use below timber's, while also reducing crew time on each subsequent strike-and-erect cycle. This assumes the pour sequence allows the standard 5-day turnaround the modular system requires between reuses, which should be confirmed against the final construction programme before the tender is finalised.",
+      "reasoning": "A complete estimate summary states the priced quantities, the total cost, and a specific, justified recommendation on any judgment-call items like formwork system selection — this is what lets a tender reviewer understand both the number and the reasoning behind any non-obvious pricing decisions.",
+      "tip": "Always state the specific assumption underpinning a cost-saving recommendation (here, the programme allowing 5-day formwork turnaround) — an unstated assumption that turns out to be wrong can silently invalidate an otherwise sound recommendation.",
+      "mistake": "Presenting a total cost figure without explaining the reasoning behind judgment-call decisions (like formwork system choice) leaves the tender reviewer unable to assess whether that decision was sound or arbitrary.",
+      "recommendation": "Keep every cost-saving recommendation in an estimate explicitly tied to its underlying assumption, and flag that assumption for confirmation before the tender is finalised — this protects the estimate's credibility if a later reviewer challenges the number."
+    },
+    {
+      "id": "task-6-boq-excel",
+      "type": "excel-upload",
+      "title": "Full Package BOQ Pricing (Excel)",
+      "prompt": "Three more elements of the clarifier tank package need pricing the same way — quantity x rate, plus a package grand total. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 70,
+      "template": {
+        "fileName": "Clarifier-BOQ-Template.xlsx",
+        "sheetName": "BOQ",
+        "headers": [
+          "Item",
+          "Quantity",
+          "Unit",
+          "Rate (USD)",
+          "Total (USD)"
+        ],
+        "rows": [
+          [
+            "Excavation — Tank Foundation",
+            "680",
+            "m³",
+            "14",
+            ""
+          ],
+          [
+            "Waterstop — Wall/Slab Joint",
+            "57.65",
+            "m",
+            "22",
+            ""
+          ],
+          [
+            "Curing Compound — All Concrete Surfaces",
+            "1450",
+            "m²",
+            "3.2",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "E2",
+          "expected": 9520,
+          "tolerance": 20,
+          "label": "Excavation total (680 x 14)"
+        },
+        {
+          "cell": "E3",
+          "expected": 1268.3,
+          "tolerance": 10,
+          "label": "Waterstop total (57.65 x 22)"
+        },
+        {
+          "cell": "E4",
+          "expected": 4640,
+          "tolerance": 20,
+          "label": "Curing compound total (1,450 x 3.2)"
+        }
+      ],
+      "reasoning": "Pricing every BOQ line item with the same consistent quantity x rate approach, including smaller items like waterstop and curing compound that are easy to overlook, is what produces a complete and defensible tender price — small line items across a large tender can add up to a meaningful total if omitted or miscalculated.",
+      "tip": "Build every BOQ pricing line as an explicit quantity x rate formula, even for small items — a hand-typed total invites transcription errors that a formula-driven sheet avoids, and it's easy to update if a rate changes before submission.",
+      "mistake": "Estimators under tender deadline pressure sometimes price only the major cost items (concrete, reinforcement) carefully while rushing or approximating smaller items like waterstop and curing compound — these can still represent thousands of dollars across a full package.",
+      "recommendation": "Always price a tender estimate down to every BOQ line item with the same rigor, regardless of size — a tender that's competitive on major items but sloppy on minor ones can still lose margin, or worse, expose the bid to a legitimate post-award cost dispute over an under-priced item."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Formwork Decision That Wasn't Actually Modeled",
+    "background": "On an earlier Delta Civil tender, an estimator recommended the cheaper timber formwork system for a multi-tank water treatment package based on its lower per-use rate, without checking that the contract actually included four identical tanks where a reusable system would have been significantly cheaper overall.",
+    "client": "An earlier municipal water treatment tender (lost bid)",
+    "budget": "Estimated margin left on the table: approximately $180,000 across the four-tank package",
+    "timeline": "Discovered during a post-tender debrief after losing the bid to a competitor who priced the reusable system correctly",
+    "challenges": "Because the formwork decision was made without modeling the actual reuse opportunity, the estimate came in higher than necessary on this cost line, contributing to losing the tender on overall price to a competitor who had priced it more efficiently.",
+    "constraints": "Once a tender is submitted and lost, there's no opportunity to revise the pricing — the lesson could only inform future tenders, not recover this one.",
+    "questions": [
+      "Why does a 'cheaper per unit' choice sometimes lose to a 'more expensive per unit, but reusable' choice at the tender level?",
+      "What specific piece of contract information (number of similar tanks) should have triggered a different formwork evaluation?",
+      "How should an estimator systematically check for reuse opportunities across a multi-element tender, rather than pricing each element in isolation?"
+    ],
+    "solution": "Delta Civil introduced a standing checklist item for every tender: identify any repeated or similar elements across the full contract scope before pricing formwork, falsework, or other reusable systems, rather than pricing each priced element in isolation.",
+    "lessonsLearned": "An estimator's job isn't just pricing each line item correctly in isolation — it's recognising when a project's overall scope creates cost efficiencies (like formwork reuse across multiple similar elements) that only become visible by looking at the whole contract, not element by element."
+  },
+  "quiz": [
+    {
+      "q": "For a circular tank wall's concrete volume, the most accurate calculation uses:",
+      "options": [
+        "The internal diameter alone",
+        "The centreline diameter (accounting for wall thickness)",
+        "The external diameter alone",
+        "Any diameter, the difference is negligible"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Reinforcement cost is calculated by:",
+      "options": [
+        "Applying the per-kg rate directly to concrete volume",
+        "Converting concrete volume to reinforcement weight via the kg/m³ density, then applying the per-kg rate",
+        "Estimating a flat percentage of concrete cost",
+        "Reinforcement cost cannot be estimated before construction"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A reusable formwork system with a higher per-use rate should be evaluated by:",
+      "options": [
+        "Its per-use rate alone, regardless of reuse opportunities",
+        "Its effective cost across the actual expected number of reuses on this specific project",
+        "Whichever system is newest on the market",
+        "Formwork system choice never affects overall estimate competitiveness"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did pricing the timber formwork system 'in isolation' cost the tender the win?",
+      "options": [
+        "Timber formwork is always more expensive",
+        "The contract included four similar tanks where a reusable system would have been cheaper overall, but this wasn't checked before pricing",
+        "The competitor used inferior materials",
+        "Formwork choice never affects tender competitiveness"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Small BOQ line items (like waterstop or curing compound) should be priced:",
+      "options": [
+        "Roughly, since they're minor compared to concrete and reinforcement",
+        "With the same consistent rigor as major cost items, since they can add up meaningfully across a full package",
+        "Only if time permits after major items are finished",
+        "They don't need to be included in a competitive tender"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to look at the whole project scope rather than one element in isolation to make the right cost decision? What would you have missed by not doing that?",
+      "The case study shows a per-element pricing decision costing an entire tender bid. Where else might optimizing each individual piece separately produce a worse result than considering the whole?",
+      "If you were Camila, what one checklist item would you add to every tender so a reuse opportunity like this is never missed again?"
+    ]
+  },
+  "certificate": {
+    "name": "Estimator — Take-off, Costing & Tender Pricing",
+    "nameAz": "Smeta Mühəndisi — Ölçmə, Qiymətləndirmə və Tender Qiymətqoyması",
+    "totalXp": 325
+  }
+}
