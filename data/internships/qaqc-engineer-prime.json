@@ -1,0 +1,303 @@
+{
+  "id": "qaqc-engineer-prime",
+  "title": "QA/QC Engineer",
+  "companyId": "prime-infrastructure",
+  "category": "QA/QC Engineer",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "drawingTag": "QAQC-012 / REV.A",
+  "skills": [
+    "Quality Checklist",
+    "Material Datasheet Review",
+    "Site Inspection"
+  ],
+  "companyIntro": {
+    "name": "Prime Infrastructure",
+    "country": "Azerbaijan",
+    "founded": 1998,
+    "mission": "Deliver durable road and bridge infrastructure that performs under real traffic loading and real climate — quality control is what makes a design's assumptions actually true on site.",
+    "culture": "Checklist-driven and unforgiving of shortcuts. QA/QC engineers are expected to hold up a pour or a delivery if the paperwork doesn't match the material in front of them, no matter the schedule pressure.",
+    "projects": [
+      "Baku Ring Road Flyover Package 3",
+      "Sumgait Industrial Access Upgrade",
+      "Ganja Bypass Bridge Rehabilitation"
+    ]
+  },
+  "projectBackground": {
+    "name": "Sumgait Industrial Access Upgrade — Pavement Package",
+    "client": "Sumgait Industrial Development Authority",
+    "location": "Sumgait Industrial Access Road, Ch. 0+000 to 3+400",
+    "budget": "$14.2M (pavement and drainage package)",
+    "timeline": "24 weeks, currently in week 9 (sub-base placement)",
+    "context": "A delivery of sub-base aggregate has arrived on site with a supplier datasheet attached, and the site foreman wants to place it today to stay on programme. Before it goes down, QA/QC needs to confirm the material actually meets the specification, not just that paperwork exists."
+  },
+  "manager": {
+    "name": "Nigar Hasanova",
+    "role": "QA/QC Manager, Prime Infrastructure",
+    "note": "The foreman wants this aggregate down by 2pm. That's not a reason to skip checking the datasheet against spec — if it doesn't meet grading requirements, it comes off site today, not after it's compacted under the sub-base above it."
+  },
+  "assignment": {
+    "title": "Verify the sub-base aggregate delivery against specification",
+    "brief": "Check the supplier's material datasheet against the pavement specification's grading and quality requirements, inspect a sample against the checklist, and issue an accept/reject decision before placement proceeds."
+  },
+  "documents": [
+    {
+      "id": "doc-material-spec",
+      "name": "Sub-Base Aggregate Specification (extract)",
+      "type": "Specification",
+      "note": "Grading envelope: 100% passing 37.5mm sieve, 30-65% passing 4.75mm sieve, 5-15% passing 0.075mm sieve. Plasticity Index: max 6. CBR (soaked): min 30%."
+    },
+    {
+      "id": "doc-supplier-datasheet",
+      "name": "Supplier Material Datasheet — Delivery Batch #SB-114",
+      "type": "Datasheet",
+      "note": "Grading: 100% passing 37.5mm, 58% passing 4.75mm, 19% passing 0.075mm. Plasticity Index: 5. CBR (soaked): 34%."
+    },
+    {
+      "id": "doc-inspection-checklist",
+      "name": "Site Material Inspection Checklist — Template",
+      "type": "Checklist",
+      "note": "Items: datasheet present and current, grading within spec envelope, visual check for contamination/oversize material, sample retained for independent lab testing, delivery docket cross-referenced to datasheet batch number."
+    },
+    {
+      "id": "doc-ncr-template",
+      "name": "Non-Conformance Report — Template",
+      "type": "Template",
+      "note": "Fields: item, specification requirement, actual result, disposition (accept/reject/accept with conditions), corrective action."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-grading-check",
+      "type": "mcq",
+      "title": "Grading Envelope Check",
+      "prompt": "Comparing the supplier's datasheet (19% passing the 0.075mm sieve) against the specification (5-15% passing 0.075mm), what is the correct QA/QC decision?",
+      "options": [
+        "Accept — 19% is close enough to the 15% upper limit",
+        "Reject — the fines content (19% passing 0.075mm) exceeds the specification's 15% maximum, which affects drainage and compaction behaviour",
+        "Accept, since the CBR and plasticity index both pass",
+        "No decision needed — grading only matters for the top pavement layer, not sub-base"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "The specification sets a maximum of 15% passing the 0.075mm sieve (fines content) for sub-base material, and this batch tests at 19%, which is outside the allowed envelope. Excess fines reduce drainage capacity and can affect long-term compaction stability, regardless of the fact that CBR and plasticity index happen to pass — a material must satisfy every grading limit, not just the ones that pass.",
+      "tip": "Always check every parameter against its own limit independently — a material can pass CBR and plasticity while still failing grading, and all relevant limits must be satisfied, not just a majority of them.",
+      "mistake": "A common mistake is treating an overall 'looks mostly fine' impression as sufficient, when specifications are structured as a set of independent pass/fail thresholds where any single failure means the whole batch fails.",
+      "recommendation": "When a single parameter fails just outside its limit, don't approve on the assumption it's a rounding or testing variance — request a retest or a second sample before making a final disposition, since a genuine 4-point overage on fines content is a real material difference, not noise."
+    },
+    {
+      "id": "task-2-checklist",
+      "type": "multiselect",
+      "title": "Site Inspection Checklist",
+      "prompt": "Before this batch can even be considered for placement, select every item that should be verified per the inspection checklist.",
+      "options": [
+        "The datasheet is present, current, and matches this specific delivery batch number",
+        "The delivery truck's paint colour matches the supplier's usual livery",
+        "A visual check for contamination or oversize material in the load",
+        "A sample is retained for independent lab testing regardless of what the supplier's datasheet shows",
+        "The foreman's personal opinion on whether the material 'looks fine'"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        3
+      ],
+      "xp": 45,
+      "reasoning": "A proper material inspection verifies the paperwork matches the actual delivered batch, checks for visible defects the datasheet wouldn't capture, and retains an independent sample — this last point matters because a QA/QC process shouldn't rely solely on the supplier's own self-reported figures. Truck livery and informal opinions about how material 'looks' are not verification steps.",
+      "tip": "Always retain an independent sample for lab testing even when a supplier's datasheet looks compliant — datasheets describe a batch in general, but the specific truckload in front of you should still be independently verifiable.",
+      "mistake": "Relying entirely on a supplier-provided datasheet without any independent sampling is a common shortcut that removes the actual verification value of the QA/QC process — it becomes paperwork-checking rather than quality assurance.",
+      "recommendation": "Keep a retained-sample log cross-referenced to delivery docket numbers for every material batch — if a pavement performance issue surfaces later, this is the record that lets you trace it back to a specific delivery."
+    },
+    {
+      "id": "task-3-ncr",
+      "type": "text",
+      "title": "Non-Conformance Report",
+      "prompt": "Write the NCR entry (3-5 sentences): the specification requirement, the actual result, and your disposition decision.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "Sub-base aggregate delivery batch #SB-114 was tested for grading per the pavement specification, which requires 5-15% passing the 0.075mm sieve; the supplier's datasheet reports 19% passing, exceeding the maximum by 4 percentage points, while CBR (34%) and plasticity index (5) both meet requirements. Given the fines content directly affects drainage performance and long-term compaction stability, this batch does not meet specification as delivered and cannot be placed. Disposition: reject this batch; request either a reworked/washed batch meeting the grading envelope or a formal design engineer waiver with supporting justification before any further material from this supplier lot is accepted.",
+      "reasoning": "A complete NCR states the exact requirement, the actual measured result, and a clear disposition — this is what lets the supplier and site team both understand precisely what needs to change, rather than a vague 'material rejected' note that doesn't specify why or what would make it acceptable.",
+      "tip": "Always state the specific numeric gap (here, 4 percentage points over the limit) rather than just 'fails grading' — a supplier can act on 'reduce fines by at least 4%' far more directly than on a general fail notice.",
+      "mistake": "A weak NCR states that material 'doesn't meet spec' without identifying which specific parameter failed and by how much, which slows down the supplier's ability to correct and resupply.",
+      "recommendation": "Keep every rejected batch's NCR on file cross-referenced to the delivery docket and supplier — a pattern of repeated grading failures from the same supplier is itself useful evidence for a broader procurement conversation."
+    },
+    {
+      "id": "task-4-datasheet-review",
+      "type": "mcq",
+      "title": "Material Datasheet Currency Check",
+      "prompt": "A second delivery arrives with a datasheet dated 14 months ago, for a supplier whose quality control certification requires datasheets to be refreshed every 12 months. What should QA/QC do?",
+      "options": [
+        "Accept it — the material properties don't change over time",
+        "Treat the datasheet as expired and require a current one (or a fresh sample test) before accepting the delivery",
+        "Accept it only if the foreman is in a hurry",
+        "Reject the material permanently regardless of any future testing"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "A datasheet's validity period exists because supplier quarry sources, processing methods, and batch consistency can change over time — an expired datasheet doesn't necessarily mean the material is non-compliant, but it does mean there's no currently valid evidence that it is, and the correct QA/QC response is to require fresh evidence, not to assume based on age alone in either direction.",
+      "tip": "Treat a datasheet's expiry the same way you'd treat an expired calibration certificate on a test instrument — the underlying thing might still be fine, but you no longer have valid documented evidence of that, so the paperwork itself needs refreshing before you can rely on it.",
+      "mistake": "Accepting a delivery based on an expired datasheet 'since nothing else has changed' undermines the entire purpose of a certification renewal period, which exists precisely to catch changes that aren't otherwise visible.",
+      "recommendation": "Maintain a simple register of supplier datasheet expiry dates across all active material sources — catching an expiring datasheet before the next delivery arrives avoids a hold-up at the point of delivery."
+    },
+    {
+      "id": "task-5-inspection-rate",
+      "type": "numeric",
+      "title": "Sampling Frequency Check",
+      "prompt": "The QA/QC plan requires one independent sample per 500 tonnes of sub-base delivered. If 3,400 tonnes have been delivered so far this month, how many independent samples should have been taken (round up to the nearest whole sample)?",
+      "answer": 7,
+      "tolerance": 0,
+      "unit": "samples",
+      "xp": 45,
+      "workingNote": "3,400 / 500 = 6.8, which rounds up to 7 samples, since a partial 500-tonne increment still requires its own sample.",
+      "reasoning": "Sampling frequency requirements are based on rounding up any partial increment, since the purpose is to ensure no more than 500 tonnes goes unverified by an independent sample — rounding down would leave part of the delivered tonnage effectively unsampled.",
+      "tip": "Always round sampling frequency calculations up, not to the nearest whole number — a QA/QC sampling plan exists to cap the maximum unverified quantity, and rounding down defeats that purpose even if it seems like a minor difference.",
+      "mistake": "Rounding 6.8 down to 6 samples might seem like a reasonable approximation, but it leaves 400 tonnes of delivered material outside the required sampling coverage, which is exactly the gap the sampling frequency rule is designed to prevent.",
+      "recommendation": "Track cumulative delivered tonnage against samples taken as a running tally, not just per-delivery — it's the only reliable way to catch a sampling shortfall before it accumulates across many small deliveries."
+    },
+    {
+      "id": "task-6-datasheet-excel",
+      "type": "excel-upload",
+      "title": "Batch Compliance Tracker (Excel)",
+      "prompt": "Three more delivery batches need their grading results checked against the specification limits, with a clear pass/fail flag. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "Batch-Compliance-Template.xlsx",
+        "sheetName": "Compliance",
+        "headers": [
+          "Batch No.",
+          "% Passing 4.75mm (spec 30-65%)",
+          "% Passing 0.075mm (spec 5-15%)",
+          "Plasticity Index (spec max 6)",
+          "Overall Result (PASS/FAIL)"
+        ],
+        "rows": [
+          [
+            "SB-115",
+            "55",
+            "12",
+            "5",
+            ""
+          ],
+          [
+            "SB-116",
+            "70",
+            "10",
+            "4",
+            ""
+          ],
+          [
+            "SB-117",
+            "48",
+            "16",
+            "7",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "E2",
+          "expected": "PASS",
+          "tolerance": 0,
+          "label": "Batch SB-115 (all three parameters within spec)"
+        },
+        {
+          "cell": "E3",
+          "expected": "FAIL",
+          "tolerance": 0,
+          "label": "Batch SB-116 (70% passing 4.75mm exceeds the 65% maximum)"
+        },
+        {
+          "cell": "E4",
+          "expected": "FAIL",
+          "tolerance": 0,
+          "label": "Batch SB-117 (16% fines exceeds 15% max, and PI of 7 exceeds max 6)"
+        }
+      ],
+      "reasoning": "A batch only passes if every single parameter is within its own specification limit — SB-116 fails despite fine grading and PI both being fine, purely because its 4.75mm passing percentage exceeds the maximum; SB-117 fails on two separate parameters independently. Building this as an explicit multi-condition check (not just eyeballing each column) is what a real batch compliance tracker needs to do reliably.",
+      "tip": "Build the overall result as a formula checking every parameter against its own limit (e.g. an AND-style condition across all three columns) rather than manually eyeballing each row — it removes the risk of missing one failing parameter among several passing ones.",
+      "mistake": "A common QA/QC tracking error is marking a batch as PASS after checking only one or two of the required parameters, missing a failure in a parameter that wasn't the focus of attention that day.",
+      "recommendation": "Any batch tracker used for real project records should have its PASS/FAIL logic double-checked against a known example of each type (all-pass, single-parameter fail, multi-parameter fail) before being trusted for live decisions — exactly like the three rows in this exercise."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Datasheet That Was Right, Once",
+    "background": "On an earlier Prime Infrastructure project, a QA/QC engineer accepted six consecutive deliveries from the same supplier based on a single datasheet from the first delivery, assuming later loads from the 'same source' would be identical — the fourth delivery had actually come from a different quarry face with materially higher fines content.",
+    "client": "Ganja Bypass Bridge Rehabilitation",
+    "budget": "Remediation cost: $145,000 for partial sub-base removal and replacement in the affected section",
+    "timeline": "Discovered during a routine post-compaction proof-roll that showed unusual deflection in one section",
+    "challenges": "Because the affected material had already been placed and compacted under subsequent layers, remediation required excavating back through completed work to reach and replace the non-compliant sub-base.",
+    "constraints": "The supplier's contract didn't explicitly require a datasheet per individual delivery, only 'per source', which had been informally interpreted as covering the whole contract period rather than per batch — a gap that was only closed after this incident.",
+    "questions": [
+      "Why can material from the 'same supplier' still vary significantly between deliveries?",
+      "What specific sampling practice would have caught the fourth delivery's difference?",
+      "How should a QA/QC engineer interpret an ambiguous contract requirement ('per source') when the stricter reading is safer?"
+    ],
+    "solution": "Prime Infrastructure amended its QA/QC procedure to require a datasheet and independent sample verification for every individual delivery batch, explicitly regardless of whether it comes from a supplier already approved earlier in the contract.",
+    "lessonsLearned": "A supplier being 'approved' isn't the same as every individual batch being verified — natural material sources vary between extraction faces and over time, and a QA/QC process that stops checking after the first delivery from a known-good supplier is trusting an assumption rather than verifying a fact."
+  },
+  "quiz": [
+    {
+      "q": "A sub-base material passes CBR and plasticity index but fails the grading envelope on fines content. The correct decision is:",
+      "options": [
+        "Accept, since 2 of 3 parameters pass",
+        "Reject — every specification parameter must be satisfied independently",
+        "Accept with no further action needed",
+        "Ignore grading since CBR is the most important parameter"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Why should an independent sample be retained even when a supplier's datasheet shows compliant results?",
+      "options": [
+        "It's not necessary if the datasheet is compliant",
+        "QA/QC shouldn't rely solely on a supplier's self-reported figures for the specific batch delivered",
+        "Independent samples are only for non-compliant batches",
+        "Retained samples have no practical use"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A sampling plan requires one sample per 500 tonnes; 3,400 tonnes have been delivered. How many samples are required?",
+      "options": [
+        "6",
+        "7",
+        "6.8",
+        "3400"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, what was the core mistake that led to the $145,000 remediation?",
+      "options": [
+        "The supplier was fraudulent",
+        "Later deliveries from the 'same supplier' were assumed identical to the first, without independent verification per batch",
+        "The specification was wrong",
+        "The proof-roll test was faulty"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "An expired supplier datasheet (past its required renewal period) should be treated as:",
+      "options": [
+        "Still valid since properties don't change",
+        "No longer valid evidence — a current datasheet or fresh sample test is required before acceptance",
+        "Automatically a rejection of the material itself",
+        "Irrelevant to the QA/QC decision"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to reject a batch that passed most, but not all, of its requirements? Why is a single failing parameter enough to fail the whole batch?",
+      "The case study shows an assumption ('same supplier means same material') costing $145,000. Where else in engineering might a reasonable-sounding assumption substitute for actual verification?",
+      "If you were Nigar, what one rule would you add to the QA/QC procedure so this specific gap can never be exploited by schedule pressure again?"
+    ]
+  },
+  "certificate": {
+    "name": "QA/QC Engineer — Material Verification & Batch Compliance",
+    "nameAz": "Keyfiyyətə Nəzarət Mühəndisi — Material Doğrulaması və Partiya Uyğunluğu",
+    "totalXp": 285
+  }
+}
