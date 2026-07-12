@@ -39,6 +39,52 @@
     steps.push({ key: 'certificate', label: 'Certificate' });
   }
 
+  function ecosystemPanel() {
+    return `
+      <div class="card" style="margin-top:24px; padding:20px; background:var(--surface-2);">
+        <h4 style="margin-top:0;">What's next</h4>
+        <div class="grid" style="grid-template-columns:repeat(2,1fr); gap:10px;">
+          <a class="btn btn-ghost btn-sm" href="https://industrcons-knowledge-center.vercel.app/" target="_blank" rel="noopener">📚 Continue learning in Knowledge Center</a>
+          <a class="btn btn-ghost btn-sm" href="https://industrconsdocs.netlify.app/" target="_blank" rel="noopener">📄 Download related documents</a>
+          <a class="btn btn-ghost btn-sm" href="https://industrconsestimator.netlify.app/" target="_blank" rel="noopener">🧮 Open Cost Estimator</a>
+          <a class="btn btn-ghost btn-sm" href="https://industrcons-ai.vercel.app/" target="_blank" rel="noopener">🤖 Ask IndustrCons AI</a>
+          <a class="btn btn-ghost btn-sm" href="https://elvinasgar.github.io/IndustrCons-Enginering-Map/" target="_blank" rel="noopener">🗺️ Explore Engineering Map</a>
+          <a class="btn btn-ghost btn-sm" href="https://elvinasgar.github.io/IndustrCons-Games/" target="_blank" rel="noopener">🎮 Play Engineering Games</a>
+          <a class="btn btn-ghost btn-sm" href="https://elvinasgar.github.io/IndustrCons-Engineering-Comics/" target="_blank" rel="noopener">💬 Read Engineering Comics</a>
+          <a class="btn btn-ghost btn-sm" href="internships.html">➡ Start another internship</a>
+        </div>
+      </div>`;
+  }
+
+  function learningObjectives() {
+    const skillList = (data.skills || []).map(s => `apply <strong>${s}</strong>`).join(', ');
+    return `
+      <div class="card" style="margin-top:16px; padding:18px; background:var(--surface-2);">
+        <h4 style="margin-top:0;">Learning objectives</h4>
+        <ul style="margin:0; padding-left:18px;">
+          <li>Read and interpret the real-format engineering documents used on this project.</li>
+          <li>Complete ${data.tasks.length} graded tasks that ${skillList}.</li>
+          <li>Work through a full case study, including a decision with real trade-offs.</li>
+          <li>Leave with a verifiable, shareable digital credential.</li>
+        </ul>
+      </div>`;
+  }
+
+  function knowledgeReferencesBox() {
+    return `
+      <div class="card" style="margin-top:16px; padding:18px;">
+        <h4 style="margin-top:0;">Knowledge references &amp; AI assistance</h4>
+        <p style="font-size:.9rem; margin:0 0 10px;">Stuck on a concept behind one of these documents? These stay open in a separate tab while you work.</p>
+        <div class="flex gap-2" style="flex-wrap:wrap;">
+          <a class="btn btn-ghost btn-sm" href="https://industrcons-knowledge-center.vercel.app/" target="_blank" rel="noopener">📚 Knowledge Center</a>
+          <a class="btn btn-ghost btn-sm" href="https://industrconsdocs.netlify.app/" target="_blank" rel="noopener">📄 Docs &amp; templates</a>
+          <a class="btn btn-ghost btn-sm" href="https://industrcons-ai.vercel.app/" target="_blank" rel="noopener">🤖 Ask IndustrCons AI</a>
+          <a class="btn btn-ghost btn-sm" href="https://industrconsestimator.netlify.app/" target="_blank" rel="noopener">🧮 Cost Estimator</a>
+        </div>
+      </div>`;
+  }
+
+
   function renderStepper() {
     stepperEl.innerHTML = steps.map((s, i) => {
       const cls = i === current ? 'active' : (i < current ? 'complete' : '');
@@ -237,10 +283,16 @@
         <span class="eyebrow">${IC.i18n.t('flow.companyIntro')}</span>
         <h3 style="margin-top:10px;">${c.name}</h3>
         <p>${c.country} · Founded ${c.founded}</p>
+        <div class="flex gap-2" style="flex-wrap:wrap; margin:10px 0;">
+          <span class="badge badge-blue">⏱ ${data.durationHours} hrs</span>
+          <span class="badge badge-outline">${data.difficulty}</span>
+          ${(data.skills || []).map(s => `<span class="chip">${s}</span>`).join('')}
+        </div>
         <p><strong>Mission:</strong> ${c.mission}</p>
         <p><strong>Culture:</strong> ${c.culture}</p>
         <strong>Live projects</strong>
-        <ul style="margin:8px 0 0; padding-left:18px; color:var(--ink-soft);">${c.projects.map(p => `<li>${p}</li>`).join('')}</ul>`;
+        <ul style="margin:8px 0 0; padding-left:18px; color:var(--ink-soft);">${c.projects.map(p => `<li>${p}</li>`).join('')}</ul>
+        ${learningObjectives()}`;
     } else if (key === 'projectBackground') {
       const p = data.projectBackground;
       content.innerHTML = `
@@ -279,7 +331,8 @@
               <h4 style="margin:10px 0 6px; font-size:1rem;">${d.name}</h4>
               <p style="margin:0; font-size:.86rem;">${d.note}</p>
             </div>`).join('')}
-        </div>`;
+        </div>
+        ${knowledgeReferencesBox()}`;
     }
   }
 
@@ -323,6 +376,7 @@
     const state = IC.store.getState();
     const prog = state.internships[internshipId] || { tasksDone: {}, quizScore: null };
     const xpFromTasks = data.tasks.filter(t => prog.tasksDone[t.id]).reduce((s, t) => s + t.xp, 0);
+    const taskSummary = data.tasks.map(t => t.title.toLowerCase()).join(', ');
     content.innerHTML = `
       <span class="eyebrow">${IC.i18n.t('flow.feedback')}</span>
       <h3 style="margin-top:10px;">Internship summary</h3>
@@ -331,7 +385,16 @@
         <div class="stat"><div class="num">${prog.quizScore !== null ? prog.quizScore + '/' + data.quiz.length : '—'}</div><div class="lbl">Quiz score</div></div>
         <div class="stat"><div class="num">${xpFromTasks}</div><div class="lbl">XP from tasks</div></div>
       </div>
-      <p>You verified a footing against a structural drawing, calculated a concrete pour volume, ran a pre-pour inspection, spot-checked reinforcement spacing, and filed a Daily Site Report — the core rhythm of a first assignment as a Site Engineer.</p>
+      <p>You worked through: ${taskSummary} — the core rhythm of a first assignment as a ${data.title} at ${data.companyIntro.name}.</p>
+      <div class="card" style="margin-top:16px; padding:18px;">
+        <h4 style="margin-top:0;">Related to keep building on this</h4>
+        <ul style="margin:0; padding-left:18px; font-size:.9rem;">
+          <li><a href="https://industrcons-knowledge-center.vercel.app/" target="_blank" rel="noopener">Related articles</a> on the concepts behind this internship's tasks</li>
+          <li><a href="https://industrconsdocs.netlify.app/" target="_blank" rel="noopener">Related documents</a> — blank templates you can reuse outside IRE-3</li>
+          <li><a href="https://industrconsestimator.netlify.app/" target="_blank" rel="noopener">Related calculators</a> for the quantity and cost math in these tasks</li>
+        </ul>
+      </div>
+      ${ecosystemPanel()}
     `;
   }
 
@@ -342,7 +405,8 @@
       content.innerHTML = `
         <h3>🎉 Certificate issued</h3>
         <p>Certificate number: <span class="mono">${prog.certNo}</span></p>
-        <a class="btn btn-primary" href="certificate.html?internshipId=${internshipId}">View &amp; download your certificate</a>`;
+        <a class="btn btn-primary" href="certificate.html?internshipId=${internshipId}">View &amp; download your certificate</a>
+        ${ecosystemPanel()}`;
       return;
     }
     content.innerHTML = `
@@ -387,6 +451,101 @@
     if (current > 0) { current--; render(); }
   });
 
+  function injectInternshipSeo(d) {
+    const BASE = 'https://elvinasgar.github.io/IndustrCons-Virtual-Internship';
+    const url = `${BASE}/internship-detail.html?id=${internshipId}`;
+    const image = `${BASE}/assets/icons/logo-real.png`;
+    const desc = `${d.title} virtual internship at ${d.companyIntro.name} — ${d.assignment.title}. ${d.durationHours} hrs, ${d.difficulty} level. Skills: ${(d.skills||[]).join(', ')}.`;
+    const head = document.head;
+
+    function setMeta(attr, key, val) {
+      let el = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) { el = document.createElement('meta'); el.setAttribute(attr, key); head.appendChild(el); }
+      el.setAttribute('content', val);
+    }
+    function setLink(rel, href) {
+      let el = document.querySelector(`link[rel="${rel}"]`);
+      if (!el) { el = document.createElement('link'); el.setAttribute('rel', rel); head.appendChild(el); }
+      el.setAttribute('href', href);
+    }
+    function addSchema(obj) {
+      const s = document.createElement('script');
+      s.type = 'application/ld+json';
+      s.textContent = JSON.stringify(obj);
+      head.appendChild(s);
+    }
+
+    let descEl = document.querySelector('meta[name="description"]');
+    if (!descEl) { descEl = document.createElement('meta'); descEl.setAttribute('name', 'description'); head.appendChild(descEl); }
+    descEl.setAttribute('content', desc);
+
+    setLink('canonical', url);
+    setMeta('property', 'og:type', 'article');
+    setMeta('property', 'og:title', `${d.title} — IndustrCons IRE-3`);
+    setMeta('property', 'og:description', desc);
+    setMeta('property', 'og:url', url);
+    setMeta('property', 'og:image', image);
+    setMeta('property', 'og:site_name', 'IndustrCons IRE-3');
+    setMeta('name', 'twitter:card', 'summary_large_image');
+    setMeta('name', 'twitter:title', `${d.title} — IndustrCons IRE-3`);
+    setMeta('name', 'twitter:description', desc);
+    setMeta('name', 'twitter:image', image);
+
+    addSchema({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "IndustrCons IRE-3", "item": `${BASE}/index.html` },
+        { "@type": "ListItem", "position": 2, "name": "Internships", "item": `${BASE}/internships.html` },
+        { "@type": "ListItem", "position": 3, "name": d.title, "item": url }
+      ]
+    });
+
+    addSchema({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": `${d.title} Virtual Internship — ${d.companyIntro.name}`,
+      "description": desc,
+      "url": url,
+      "provider": { "@type": "EducationalOrganization", "name": "IndustrCons", "sameAs": `${BASE}/index.html` },
+      "timeRequired": `PT${d.durationHours}H`,
+      "coursePrerequisites": d.difficulty,
+      "teaches": (d.skills || []).join(', '),
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": `PT${d.durationHours}H`
+      }
+    });
+
+    addSchema({
+      "@context": "https://schema.org",
+      "@type": "LearningResource",
+      "name": `${d.title} — ${d.assignment.title}`,
+      "description": desc,
+      "url": url,
+      "learningResourceType": "Virtual Internship",
+      "educationalLevel": d.difficulty,
+      "teaches": (d.skills || []).join(', '),
+      "timeRequired": `PT${d.durationHours}H`,
+      "isPartOf": { "@type": "EducationalOrganization", "name": "IndustrCons" }
+    });
+
+    addSchema({
+      "@context": "https://schema.org",
+      "@type": "EducationalOccupationalProgram",
+      "name": `${d.title} — IndustrCons IRE-3 Track`,
+      "description": desc,
+      "url": url,
+      "occupationalCategory": d.category,
+      "provider": { "@type": "EducationalOrganization", "name": "IndustrCons" },
+      "timeToComplete": `PT${d.durationHours}H`,
+      "educationalProgramMode": "online",
+      "programType": "Virtual Internship"
+    });
+  }
+
+
   async function boot() {
     await IC.i18n.init();
     try {
@@ -408,6 +567,7 @@
     }
     document.getElementById('crumbTitle').textContent = data.title;
     document.title = `${data.title} — IndustrCons IRE-3`;
+    injectInternshipSeo(data);
     IC.store.startInternship(internshipId);
     buildSteps();
     const prog = IC.store.getInternshipProgress(internshipId);
