@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elvinasgar.github.io/IndustrCons-Virtual-Internship/sitemap.xml
