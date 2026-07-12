@@ -25,6 +25,7 @@ IC.includes = (function () {
     const tasks = [];
     if (document.querySelector('#navbarInclude')) tasks.push(inject('#navbarInclude', 'components/navbar.html'));
     if (document.querySelector('#sidebarInclude')) tasks.push(inject('#sidebarInclude', 'components/sidebar.html'));
+    if (document.querySelector('#ecosystemInclude')) tasks.push(inject('#ecosystemInclude', 'components/ecosystem.html'));
     if (document.querySelector('#footerInclude')) tasks.push(inject('#footerInclude', 'components/footer.html'));
     await Promise.all(tasks);
     markActiveNav();
