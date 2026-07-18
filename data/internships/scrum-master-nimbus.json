@@ -1,0 +1,289 @@
+{
+  "id": "scrum-master-nimbus",
+  "title": "Scrum Master",
+  "companyId": "nimbus-digital",
+  "category": "Agile & Scrum",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "drawingTag": "SCRUM-014 / SPRINT 9",
+  "skills": [
+    "Sprint Planning",
+    "Facilitation",
+    "Impediment Removal"
+  ],
+  "companyIntro": {
+    "name": "Nimbus Digital",
+    "country": "Germany",
+    "founded": 2016,
+    "mission": "Ship reliable software for mid-market clients without the chaos of ad-hoc project management.",
+    "culture": "Sprint-disciplined and blameless-retro focused. People here are expected to raise blockers loudly and early, not sit on them.",
+    "projects": [
+      "Meridian Client Portal Rebuild",
+      "Nimbus Internal Analytics Suite",
+      "Fintra Payments Integration"
+    ]
+  },
+  "projectBackground": {
+    "name": "Meridian Client Portal Rebuild — Squad Atlas",
+    "client": "Meridian Retail Group (internal client)",
+    "location": "Remote-first, EU time zones",
+    "budget": "N/A — internal capacity-funded squad",
+    "timeline": "Sprint 9 of a 6-month rebuild, 2-week sprints",
+    "context": "Squad Atlas has missed its sprint goal two sprints in a row. The team is frustrated, a backend dependency keeps blocking a key developer, and the Product Owner is pushing to add scope mid-sprint again."
+  },
+  "manager": {
+    "name": "Sofia Bauer",
+    "role": "Head of Delivery, Nimbus Digital",
+    "note": "Two missed sprint goals in a row isn't a coincidence, and it isn't really about velocity. Find out what's actually blocking this team before Sprint 10 planning — and hold the line on scope this time."
+  },
+  "assignment": {
+    "title": "Diagnose and address Squad Atlas's sprint execution problems",
+    "brief": "Review the last two sprints' data and retro notes, identify the real blocker, run Sprint 10 planning with a defensible scope, and handle the Product Owner's mid-sprint scope request the right way."
+  },
+  "documents": [
+    {
+      "id": "doc-sprint-report",
+      "name": "Sprint 8 Burndown & Completion Report",
+      "type": "Sprint Report",
+      "note": "Planned: 34 story points. Completed: 21 story points. 3 of 7 stories fully blocked for 4+ days each on a shared backend API owned by another squad."
+    },
+    {
+      "id": "doc-retro-notes",
+      "name": "Sprint 8 Retrospective Notes",
+      "type": "Retro Notes",
+      "note": "Recurring comment across 4 team members: 'blocked waiting on Squad Phoenix's API again.' No action item was assigned to resolve this after Sprint 7's retro either."
+    },
+    {
+      "id": "doc-po-request",
+      "name": "Product Owner Message — Mid-Sprint Request",
+      "type": "Correspondence",
+      "note": "PO asks to add a 'quick' reporting export feature mid-sprint, citing a client call that went well and wanting to capitalize on momentum."
+    },
+    {
+      "id": "doc-planning-template",
+      "name": "Sprint Planning Capacity Worksheet — Template",
+      "type": "Template",
+      "note": "Fields: team capacity (person-days), historical velocity, committed stories, buffer for known risks."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-root-cause",
+      "type": "mcq",
+      "title": "Identifying the Real Blocker",
+      "prompt": "Based on the sprint report and retro notes, what is the actual root cause of Squad Atlas missing its sprint goal twice?",
+      "options": [
+        "The team isn't working hard enough and needs to be pushed harder",
+        "A cross-team dependency on Squad Phoenix's API is repeatedly blocking work, and no action was taken after it was raised in the previous retro",
+        "The Product Owner is asking for too many features overall",
+        "Story point estimates are simply too optimistic and need across-the-board inflation"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "The data points directly to a specific, named, recurring blocker (the Squad Phoenix API dependency) that was raised in the prior retro but never resolved — this is a process failure in impediment removal, not a team effort or estimation problem, and treating it as either of those would miss the actual fix needed.",
+      "tip": "When a sprint is missed, always check whether the same blocker appeared in the previous retro before assuming it's a new problem — an unresolved impediment recurring is a Scrum Master process failure, not a one-off bad sprint.",
+      "mistake": "Defaulting to 'the team needs to work harder' or 're-estimate everything' when the data shows a specific, nameable, cross-team blocker is a common but unproductive diagnosis that leaves the actual problem completely unaddressed.",
+      "recommendation": "Track raised impediments across retros in a single visible list with an owner and status — an impediment that reappears unresolved after being raised once is exactly the pattern a Scrum Master's tracking should catch immediately."
+    },
+    {
+      "id": "task-2-impediment",
+      "type": "text",
+      "title": "Escalating the Cross-Team Dependency",
+      "prompt": "Write the message (3-5 sentences) you'd send to Squad Phoenix's lead and your own Head of Delivery to actually get this blocker resolved before Sprint 10.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "Squad Atlas has been blocked on Squad Phoenix's reporting API for 4+ days in each of the last two sprints, directly causing us to miss our sprint goal both times — this was raised in our Sprint 7 retro but no resolution followed. I'd like to set up a 20-minute call this week with Squad Phoenix's lead and our Head of Delivery to agree a specific interface contract and priority commitment for Squad Atlas's remaining dependent stories, rather than raising it informally again. Without a concrete commitment, I expect the same blocker to recur in Sprint 10 and would rather solve it now than report a third missed sprint goal.",
+      "reasoning": "An effective impediment escalation names the specific, recurring pattern (not just 'we're blocked again'), proposes a concrete next step (a scheduled conversation with a clear ask), and states the consequence of inaction — this is what turns a vague complaint into something that actually gets prioritized by another team's lead.",
+      "tip": "Always escalate a recurring blocker with its history ('this is the second time, previously raised in Sprint 7's retro') — it signals the issue is systemic, not a one-off annoyance, which tends to get faster attention from busy stakeholders.",
+      "mistake": "Re-raising the same blocker informally in another retro, without escalating it as a specific ask to the people who can actually resolve it, is how the exact same impediment can recur sprint after sprint.",
+      "recommendation": "As a Scrum Master, treat impediment removal as an active, escalating responsibility — if raising it once in a retro didn't work, the next step is a direct, specific ask to the people with the authority to fix it, not a repeat of the same passive mention."
+    },
+    {
+      "id": "task-3-planning",
+      "type": "numeric",
+      "title": "Sprint 10 Capacity Planning",
+      "prompt": "The team's actual average velocity over the last 4 sprints (excluding the two blocked ones) is 28 story points. Given the Phoenix dependency isn't guaranteed to be fully resolved by Sprint 10, what story point commitment would be the most defensible planning target — keeping a 15% buffer below the 28-point average?",
+      "answer": 24,
+      "tolerance": 1,
+      "unit": "story points",
+      "xp": 45,
+      "workingNote": "28 x 0.85 = 23.8, rounds to approximately 24 story points.",
+      "reasoning": "Planning to a buffered figure below historical average velocity — rather than the raw average, and especially not the higher, pre-blocker figure — is the defensible approach when a known risk (the dependency) hasn't been fully resolved yet, protecting the team from a third consecutive missed sprint goal.",
+      "tip": "Always apply an explicit, stated buffer percentage when a known risk is still active, rather than either ignoring the risk (planning to full average) or guessing a round number — a stated, calculated buffer is defensible in planning; an unstated gut-feel reduction is not.",
+      "mistake": "Planning to the full historical average velocity while a known blocker is still unresolved sets the team up to miss its goal a third time, undermining trust in sprint commitments generally.",
+      "recommendation": "Whenever a known risk is only partially mitigated going into a sprint, make the buffer explicit and visible in the planning session — this is what lets the team and Product Owner both understand why the commitment is lower than 'normal', rather than it looking like reduced ambition."
+    },
+    {
+      "id": "task-4-scope-request",
+      "type": "mcq",
+      "title": "Handling the Mid-Sprint Scope Request",
+      "prompt": "The Product Owner wants to add a 'quick' reporting export feature mid-sprint, right after two consecutive missed sprint goals. What is the Scrum Master's best response?",
+      "options": [
+        "Agree immediately, since keeping the Product Owner happy is the priority",
+        "Refuse to discuss it at all, citing Scrum rules",
+        "Explain that adding scope mid-sprint, especially after two missed goals, undermines the team's ability to hit Sprint 10's already-reduced commitment, and offer to prioritize it as the top item for Sprint 11 planning instead",
+        "Let the team decide informally without any structured conversation"
+      ],
+      "correctIndex": 2,
+      "xp": 45,
+      "reasoning": "The best response protects the sprint's integrity while still respecting the Product Owner's priorities — explaining the concrete risk (compounding two already-missed goals) and offering a specific, real alternative (top of next sprint) is far more constructive than a flat refusal or citing rules without explanation, and it keeps the relationship collaborative rather than adversarial.",
+      "tip": "When protecting sprint scope from a well-intentioned but risky request, always pair the 'no, not now' with a concrete 'yes, and here's when' — this preserves trust and shows the push-back is about protecting delivery, not obstructing the Product Owner.",
+      "mistake": "Either caving immediately to protect the relationship, or refusing rigidly by citing Scrum theory without explaining the actual risk, are both weaker responses than a reasoned explanation tied to this specific team's recent history.",
+      "recommendation": "Keep a running log of mid-sprint scope change requests and their outcomes — a pattern of frequent requests, even well-intentioned ones, is itself useful data to raise with the Product Owner in a broader conversation about planning discipline."
+    },
+    {
+      "id": "task-5-facilitation",
+      "type": "text",
+      "title": "Sprint 10 Planning Facilitation Notes",
+      "prompt": "Write your planning session notes (3-5 sentences): the agreed capacity, how the Phoenix dependency risk was addressed, and the PO's request outcome.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "Sprint 10 planning: team committed to 24 story points (15% buffer below the 28-point unblocked average), given the Phoenix API dependency risk is escalated but not yet confirmed resolved. Two stories with Phoenix dependencies were sequenced last in the sprint, with a fallback plan to swap in ready backlog items if the dependency isn't cleared by mid-sprint. The Product Owner's mid-sprint reporting export request was not added to Sprint 10, and has instead been committed as the top priority item for Sprint 11 planning, which the PO agreed to. Team morale was notably better by the end of planning than in the Sprint 8/9 retros, largely due to the concrete escalation plan for the recurring blocker.",
+      "reasoning": "Good facilitation notes capture not just what was decided, but why — the buffer rationale, the specific risk mitigation for the known dependency, and how a potentially contentious request was resolved — so anyone reviewing the notes later understands the reasoning, not just the numbers.",
+      "tip": "Always record how a difficult stakeholder conversation was actually resolved, not just that it happened — 'PO agreed to defer to Sprint 11' is verifiable and specific; 'discussed scope with PO' is not.",
+      "mistake": "Planning notes that only list committed stories without capturing risk mitigation or stakeholder decisions lose the most valuable context for future sprints — the numbers alone don't explain the judgment calls behind them.",
+      "recommendation": "Review planning notes from 2-3 sprints back before every new planning session — patterns like recurring dependencies or repeated scope requests are far easier to catch with the historical record in front of you than from memory alone."
+    },
+    {
+      "id": "task-6-velocity-excel",
+      "type": "excel-upload",
+      "title": "Velocity & Buffer Tracker (Excel)",
+      "prompt": "Build a velocity tracker for the last 4 sprints plus a buffered Sprint 10 target. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "Velocity-Buffer-Template.xlsx",
+        "sheetName": "Velocity",
+        "headers": [
+          "Sprint",
+          "Committed (pts)",
+          "Completed (pts)",
+          "Completion Rate (%)"
+        ],
+        "rows": [
+          [
+            "Sprint 6",
+            "30",
+            "27",
+            ""
+          ],
+          [
+            "Sprint 7",
+            "32",
+            "29",
+            ""
+          ],
+          [
+            "Sprint 8 (blocked)",
+            "34",
+            "21",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 90,
+          "tolerance": 1,
+          "label": "Sprint 6 completion rate (27/30 x 100)"
+        },
+        {
+          "cell": "D3",
+          "expected": 90.6,
+          "tolerance": 1,
+          "label": "Sprint 7 completion rate (29/32 x 100)"
+        },
+        {
+          "cell": "D4",
+          "expected": 61.8,
+          "tolerance": 1,
+          "label": "Sprint 8 completion rate (21/34 x 100) — visibly the outlier caused by blocking"
+        }
+      ],
+      "reasoning": "Tracking completion rate (not just raw points) across sprints makes the Sprint 8 anomaly immediately visible as a rate drop, not just a lower absolute number — this is exactly the kind of visual pattern that should trigger a root-cause conversation before the next planning session, not after two sprints have already been missed.",
+      "tip": "Build completion rate as a formula (completed/committed x 100) rather than eyeballing raw point differences — a consistent percentage-based view makes anomalies obvious across sprints of different sizes.",
+      "mistake": "Looking only at raw completed points without calculating rate against what was committed can hide a real problem if committed capacity also varies sprint to sprint.",
+      "recommendation": "Keep this tracker current and visible to the whole team, not just the Scrum Master — a shared, honest velocity record is what makes a buffered Sprint 10 commitment feel like informed planning rather than an arbitrary cut."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Retro Action Item Nobody Owned",
+    "background": "On an earlier Nimbus squad, a cross-team blocker was raised in three consecutive retrospectives as a general team observation ('we keep getting blocked by the design team') without ever being converted into a specific, owned action item with a named person and a date.",
+    "client": "Fintra Payments Integration — internal squad",
+    "budget": "Estimated cost of the resulting delay: one full sprint's worth of capacity, roughly 30 story points, across the affected quarter",
+    "timeline": "Three sprints of recurring, unaddressed blocking before a new Scrum Master finally escalated it directly",
+    "challenges": "Because the impediment was always phrased as a general observation rather than an actionable item, it never appeared on anyone's individual task list, and diffuse team-level frustration never translated into a concrete fix.",
+    "constraints": "By the time it was properly escalated, the affected squad had lost enough credibility on delivery estimates that the Product Owner had started padding requests with extra buffer, compounding planning friction.",
+    "questions": [
+      "Why does a general observation in a retro often fail to produce action, even when everyone agrees it's a problem?",
+      "What specific format would have turned this into something that actually got fixed after the first retro?",
+      "How does an unresolved impediment eventually affect trust beyond just the missed sprint goals?"
+    ],
+    "solution": "Nimbus introduced a standing rule that every retro action item must have a named owner and a target date recorded in the sprint board itself, not just written in retro notes — and any impediment that recurs for a second sprint automatically escalates to a director-level conversation.",
+    "lessonsLearned": "A blocker raised as a shared team feeling ('we keep getting blocked') rarely gets fixed, because nobody specifically owns it — turning every impediment into a named, dated, owned action item is what actually connects a Scrum Master's facilitation to a real resolution, rather than a repeated, sympathetic acknowledgment."
+  },
+  "quiz": [
+    {
+      "q": "A sprint is missed twice in a row, and the same blocker was mentioned in both retros. This points to:",
+      "options": [
+        "A team effort problem needing more pressure",
+        "A process failure in impediment removal — the same blocker wasn't resolved after being raised",
+        "An estimation problem requiring inflated story points",
+        "Nothing significant, misses happen randomly"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When escalating a recurring cross-team blocker, the most effective approach is to:",
+      "options": [
+        "Mention it again informally in the next retro",
+        "Name the specific history and pattern, and request a concrete commitment from the people who can resolve it",
+        "Wait for the other team to notice on their own",
+        "Avoid escalating to preserve the relationship"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When a known risk is only partially mitigated going into a sprint, planning capacity should be:",
+      "options": [
+        "The full historical average, ignoring the risk",
+        "An explicit, stated buffer below the average, reflecting the unresolved risk",
+        "Whatever number feels right without calculation",
+        "Always the previous sprint's committed number regardless of outcome"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "The best response to a mid-sprint scope request after two missed goals is to:",
+      "options": [
+        "Agree immediately to keep the Product Owner happy",
+        "Refuse without explanation, citing Scrum rules",
+        "Explain the specific risk and offer a concrete alternative (e.g., top of next sprint)",
+        "Let the team decide informally with no structure"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "q": "In the case study, why did the blocker go unresolved for three sprints despite being raised each time?",
+      "options": [
+        "It was raised as a general team observation, never converted into a specific, owned action item",
+        "Nobody noticed it at all",
+        "The other team refused to engage entirely",
+        "There was no real blocker, just perception"
+      ],
+      "correctIndex": 0
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to distinguish a real, systemic blocker from a surface-level symptom like low velocity? What was the key piece of evidence?",
+      "The case study shows a blocker mentioned three times without ever becoming an owned action item. Where else might something 'everyone agrees is a problem' still never get fixed, for the same reason?",
+      "If you were the Scrum Master here, what one facilitation habit would you build so an impediment is never just 'mentioned' again without becoming a specific, owned action?"
+    ]
+  },
+  "certificate": {
+    "name": "Scrum Master — Sprint Recovery & Facilitation",
+    "nameAz": "Scrum Master — Sprint Bərpası və Fasilitasiya",
+    "totalXp": 290
+  }
+}
