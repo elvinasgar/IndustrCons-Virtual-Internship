@@ -1,4 +1,5 @@
 (async function () {
+  console.log('IndustrCons catalog.js v2 loaded (generic data-source support)');
   let ALL = [];
   const grid = document.getElementById('catalogGrid');
   const emptyState = document.getElementById('emptyState');
