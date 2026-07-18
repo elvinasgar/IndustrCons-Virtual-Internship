@@ -1,0 +1,100 @@
+[
+  {
+    "id": "nimbus-digital",
+    "name": "Nimbus Digital",
+    "country": "Germany",
+    "founded": 2016,
+    "mission": "Ship reliable software for mid-market clients without the chaos of ad-hoc project management.",
+    "culture": "Sprint-disciplined and blameless-retro focused. People here are expected to raise blockers loudly and early.",
+    "projects": [
+      "Meridian Client Portal Rebuild",
+      "Nimbus Internal Analytics Suite",
+      "Fintra Payments Integration"
+    ],
+    "color": "#005BAA"
+  },
+  {
+    "id": "atlas-manufacturing",
+    "name": "Atlas Manufacturing",
+    "country": "South Korea",
+    "founded": 1999,
+    "mission": "World-class manufacturing discipline — every defect has a root cause, and every root cause gets fixed once, not patched repeatedly.",
+    "culture": "Lean-first and data-driven. Line staff and engineers alike are expected to know their process' current defect rate from memory.",
+    "projects": [
+      "Precision Components Line 4 Upgrade",
+      "Atlas EV Battery Housing Plant",
+      "Regional Distribution Hub"
+    ],
+    "color": "#005BAA"
+  },
+  {
+    "id": "meridian-freight-group",
+    "name": "Meridian Freight Group",
+    "country": "Netherlands",
+    "founded": 2005,
+    "mission": "Keep goods moving reliably across a fragmented, multi-carrier European logistics network.",
+    "culture": "Detail-obsessed and calm under disruption — a delayed shipment is a puzzle to solve, not a crisis to panic over.",
+    "projects": [
+      "Rotterdam-Warsaw Corridor Optimization",
+      "Cold Chain Expansion Project",
+      "Warehouse Automation Pilot"
+    ],
+    "color": "#005BAA"
+  },
+  {
+    "id": "verde-hospitality-group",
+    "name": "Verde Hospitality Group",
+    "country": "Italy",
+    "founded": 2012,
+    "mission": "Consistently excellent guest experience across a growing group of restaurants, without losing what makes each one distinct.",
+    "culture": "Fast-paced and guest-obsessed. Managers and chefs are expected to make good calls under real dinner-service pressure.",
+    "projects": [
+      "Verde Trattoria Relaunch",
+      "Riviera Rooftop Restaurant Opening",
+      "Group-Wide Menu Standardization"
+    ],
+    "color": "#005BAA"
+  },
+  {
+    "id": "ledger-and-co",
+    "name": "Ledger & Co.",
+    "country": "United Kingdom",
+    "founded": 1988,
+    "mission": "Accurate, defensible financial reporting for mid-sized clients — no shortcuts, no surprises at audit time.",
+    "culture": "Precise and process-driven. Accountants here are expected to explain any number they report, not just produce it.",
+    "projects": [
+      "Q3 Multi-Client Reconciliation Cycle",
+      "Internal Controls Modernization",
+      "SME Audit Readiness Program"
+    ],
+    "color": "#005BAA"
+  },
+  {
+    "id": "beacon-communications",
+    "name": "Beacon Communications",
+    "country": "United States",
+    "founded": 2008,
+    "mission": "Help clients say the right thing, to the right audience, especially when it's hardest to do so.",
+    "culture": "Fast-moving and calm under media pressure. PR specialists are expected to have a draft ready before the news cycle moves on.",
+    "projects": [
+      "Client Product Recall Response",
+      "Regional Brand Launch Campaign",
+      "Annual Sustainability Report Rollout"
+    ],
+    "color": "#005BAA"
+  },
+  {
+    "id": "lumen-learning-group",
+    "name": "Lumen Learning Group",
+    "country": "Canada",
+    "founded": 2014,
+    "mission": "Design training and education programs that actually change what people can do, not just what they've sat through.",
+    "culture": "Evidence-based and learner-centered. Program managers are expected to redesign based on completion data, not instinct.",
+    "projects": [
+      "Corporate Onboarding Redesign",
+      "Regional Teacher Training Rollout",
+      "Certification Program Overhaul"
+    ],
+    "color": "#005BAA"
+  }
+]

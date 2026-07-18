@@ -1,0 +1,380 @@
+[
+  {
+    "id": "scrum-master-nimbus",
+    "title": "Scrum Master",
+    "company": "Nimbus Digital",
+    "companyId": "nimbus-digital",
+    "category": "Agile & Scrum",
+    "difficulty": "Beginner",
+    "durationHours": 6,
+    "taskCount": 6,
+    "skills": [
+      "Sprint Planning",
+      "Facilitation",
+      "Impediment Removal"
+    ],
+    "certificate": true,
+    "playable": true,
+    "summary": "Run a real sprint for a struggling product squad — facilitate ceremonies, unblock the team, and defend the sprint goal to a frustrated stakeholder."
+  },
+  {
+    "id": "it-project-manager-nimbus",
+    "title": "IT Project Manager",
+    "company": "Nimbus Digital",
+    "companyId": "nimbus-digital",
+    "category": "IT Project Management",
+    "difficulty": "Intermediate",
+    "durationHours": 8,
+    "taskCount": 7,
+    "skills": [
+      "Risk Assessment",
+      "Stakeholder Management",
+      "Scheduling"
+    ],
+    "certificate": true,
+    "playable": true,
+    "summary": "Recover a slipping software delivery project, manage a vendor dependency risk, and report status to an anxious client."
+  },
+  {
+    "id": "product-manager-nimbus",
+    "title": "Product Manager",
+    "company": "Nimbus Digital",
+    "companyId": "nimbus-digital",
+    "category": "Product Management",
+    "difficulty": "Intermediate",
+    "durationHours": 7,
+    "taskCount": 6,
+    "skills": [
+      "Prioritization",
+      "User Research Reading",
+      "Roadmapping"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Decide what ships next on a constrained roadmap, using real user feedback data and a hard engineering capacity limit."
+  },
+  {
+    "id": "agile-coach-nimbus",
+    "title": "Agile Project Management Specialist",
+    "company": "Nimbus Digital",
+    "companyId": "nimbus-digital",
+    "category": "Agile & Scrum",
+    "difficulty": "Intermediate",
+    "durationHours": 6,
+    "taskCount": 6,
+    "skills": [
+      "Kanban",
+      "Velocity Analysis",
+      "Continuous Improvement"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Diagnose why a team's velocity is inconsistent and redesign their workflow using Kanban and retrospective data."
+  },
+  {
+    "id": "lean-six-sigma-greenbelt-atlas",
+    "title": "Lean Six Sigma Green Belt",
+    "company": "Atlas Manufacturing",
+    "companyId": "atlas-manufacturing",
+    "category": "Process Improvement",
+    "difficulty": "Intermediate",
+    "durationHours": 8,
+    "taskCount": 7,
+    "skills": [
+      "DMAIC",
+      "Root Cause Analysis",
+      "Statistical Process Control"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Reduce defect rate on a production line using the DMAIC framework, control charts, and a real root-cause investigation."
+  },
+  {
+    "id": "lean-manufacturing-tps-atlas",
+    "title": "Lean Manufacturing (Toyota Production System)",
+    "company": "Atlas Manufacturing",
+    "companyId": "atlas-manufacturing",
+    "category": "Process Improvement",
+    "difficulty": "Intermediate",
+    "durationHours": 7,
+    "taskCount": 6,
+    "skills": [
+      "Kaizen",
+      "Waste Identification",
+      "Value Stream Mapping"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Map a production value stream, identify the 7 wastes, and design a Kaizen event for a bottlenecked assembly cell."
+  },
+  {
+    "id": "logistics-coordinator-meridian",
+    "title": "Logistics Coordinator",
+    "company": "Meridian Freight Group",
+    "companyId": "meridian-freight-group",
+    "category": "Logistics",
+    "difficulty": "Beginner",
+    "durationHours": 6,
+    "taskCount": 6,
+    "skills": [
+      "Route Planning",
+      "Inventory Reconciliation",
+      "Carrier Coordination"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Resolve a shipment delay across three carriers and reconcile a warehouse inventory discrepancy before month-end."
+  },
+  {
+    "id": "supply-chain-analyst-meridian",
+    "title": "Supply Chain Analyst",
+    "company": "Meridian Freight Group",
+    "companyId": "meridian-freight-group",
+    "category": "Supply Chain",
+    "difficulty": "Intermediate",
+    "durationHours": 7,
+    "taskCount": 6,
+    "skills": [
+      "Demand Forecasting",
+      "Supplier Risk",
+      "Inventory Optimization"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Investigate a stockout, forecast next quarter's demand, and recommend a safety stock policy to prevent recurrence."
+  },
+  {
+    "id": "production-field-engineer-atlas",
+    "title": "Production Field Engineer",
+    "company": "Atlas Manufacturing",
+    "companyId": "atlas-manufacturing",
+    "category": "Production",
+    "difficulty": "Intermediate",
+    "durationHours": 7,
+    "taskCount": 6,
+    "skills": [
+      "Line Troubleshooting",
+      "Downtime Analysis",
+      "Technical Report"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Diagnose a recurring line stoppage, calculate its true downtime cost, and recommend a fix to the plant manager."
+  },
+  {
+    "id": "production-qaqc-atlas",
+    "title": "Production QA/QC Engineer",
+    "company": "Atlas Manufacturing",
+    "companyId": "atlas-manufacturing",
+    "category": "Production",
+    "difficulty": "Beginner",
+    "durationHours": 6,
+    "taskCount": 6,
+    "skills": [
+      "Quality Checklist",
+      "SPC Charts",
+      "Non-Conformance Handling"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Investigate a batch of out-of-spec parts using control charts and issue a non-conformance disposition."
+  },
+  {
+    "id": "production-hse-atlas",
+    "title": "Production HSE Specialist",
+    "company": "Atlas Manufacturing",
+    "companyId": "atlas-manufacturing",
+    "category": "Production",
+    "difficulty": "Beginner",
+    "durationHours": 6,
+    "taskCount": 6,
+    "skills": [
+      "Risk Assessment",
+      "Machine Guarding",
+      "Incident Investigation"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Investigate a near-miss at a stamping press and redesign the guarding and lockout procedure that failed."
+  },
+  {
+    "id": "production-planning-atlas",
+    "title": "Production Planning Engineer",
+    "company": "Atlas Manufacturing",
+    "companyId": "atlas-manufacturing",
+    "category": "Production",
+    "difficulty": "Intermediate",
+    "durationHours": 7,
+    "taskCount": 6,
+    "skills": [
+      "Capacity Planning",
+      "Scheduling",
+      "Bottleneck Analysis"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Replan a production schedule around a bottleneck machine and a rush order that threatens on-time delivery."
+  },
+  {
+    "id": "hr-specialist-nimbus",
+    "title": "HR Specialist",
+    "company": "Nimbus Digital",
+    "companyId": "nimbus-digital",
+    "category": "Human Resources",
+    "difficulty": "Beginner",
+    "durationHours": 6,
+    "taskCount": 6,
+    "skills": [
+      "Policy Interpretation",
+      "Conflict Resolution",
+      "Documentation"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Handle a workplace conflict escalation and a policy ambiguity, balancing fairness with documented process."
+  },
+  {
+    "id": "erp-specialist-atlas",
+    "title": "ERP Specialist",
+    "company": "Atlas Manufacturing",
+    "companyId": "atlas-manufacturing",
+    "category": "Enterprise Systems",
+    "difficulty": "Intermediate",
+    "durationHours": 7,
+    "taskCount": 6,
+    "skills": [
+      "Data Reconciliation",
+      "Process Mapping",
+      "System Configuration Logic"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Trace a costly inventory data mismatch back to a misconfigured ERP workflow and fix the root process."
+  },
+  {
+    "id": "crm-specialist-nimbus",
+    "title": "CRM Specialist",
+    "company": "Nimbus Digital",
+    "companyId": "nimbus-digital",
+    "category": "Customer Systems",
+    "difficulty": "Beginner",
+    "durationHours": 6,
+    "taskCount": 6,
+    "skills": [
+      "Data Hygiene",
+      "Segmentation",
+      "Pipeline Reporting"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Clean a corrupted customer database and rebuild a sales pipeline report the leadership team can actually trust."
+  },
+  {
+    "id": "restaurant-manager-verde",
+    "title": "Restaurant Manager",
+    "company": "Verde Hospitality Group",
+    "companyId": "verde-hospitality-group",
+    "category": "Hospitality",
+    "difficulty": "Beginner",
+    "durationHours": 6,
+    "taskCount": 6,
+    "skills": [
+      "Cost Control",
+      "Staff Scheduling",
+      "Service Recovery"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Fix a blown food-cost margin and recover a service failure with an upset regular customer, same week."
+  },
+  {
+    "id": "chef-culinary-verde",
+    "title": "Chef — Culinary Operations",
+    "company": "Verde Hospitality Group",
+    "companyId": "verde-hospitality-group",
+    "category": "Culinary",
+    "difficulty": "Beginner",
+    "durationHours": 6,
+    "taskCount": 6,
+    "skills": [
+      "Recipe Costing",
+      "Kitchen Workflow",
+      "Menu Engineering"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Re-cost a menu after a supplier price hike and redesign kitchen workflow to fix a recurring ticket-time problem."
+  },
+  {
+    "id": "accountant-acca-ledger",
+    "title": "Accountant (ACCA Track)",
+    "company": "Ledger & Co.",
+    "companyId": "ledger-and-co",
+    "category": "Accounting & Finance",
+    "difficulty": "Intermediate",
+    "durationHours": 8,
+    "taskCount": 7,
+    "skills": [
+      "Reconciliation",
+      "Financial Reporting",
+      "Variance Analysis"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Reconcile a discrepancy in monthly accounts and explain a budget variance to a non-financial department head."
+  },
+  {
+    "id": "public-relations-specialist-beacon",
+    "title": "Public Relations Specialist",
+    "company": "Beacon Communications",
+    "companyId": "beacon-communications",
+    "category": "Public Relations",
+    "difficulty": "Beginner",
+    "durationHours": 6,
+    "taskCount": 6,
+    "skills": [
+      "Crisis Messaging",
+      "Media Relations",
+      "Stakeholder Communication"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Draft a crisis response statement within hours of a negative news story breaking about a client."
+  },
+  {
+    "id": "education-manager-lumen",
+    "title": "Education Program Manager",
+    "company": "Lumen Learning Group",
+    "companyId": "lumen-learning-group",
+    "category": "Education Management",
+    "difficulty": "Intermediate",
+    "durationHours": 7,
+    "taskCount": 6,
+    "skills": [
+      "Curriculum Planning",
+      "Stakeholder Communication",
+      "Program Evaluation"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Redesign a failing training program's structure using real completion-rate data and instructor feedback."
+  },
+  {
+    "id": "leadership-fundamentals-atlas",
+    "title": "Leadership Fundamentals",
+    "company": "Atlas Manufacturing",
+    "companyId": "atlas-manufacturing",
+    "category": "Leadership",
+    "difficulty": "Beginner",
+    "durationHours": 6,
+    "taskCount": 6,
+    "skills": [
+      "Delegation",
+      "Feedback Delivery",
+      "Decision Making"
+    ],
+    "certificate": true,
+    "playable": false,
+    "summary": "Handle an underperforming team member and a resourcing conflict as a first-time people manager."
+  }
+]
