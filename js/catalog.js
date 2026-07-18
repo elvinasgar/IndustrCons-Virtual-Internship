@@ -8,9 +8,11 @@
   const difficultyFilter = document.getElementById('difficultyFilter');
   const durationFilter = document.getElementById('durationFilter');
   const clearBtn = document.getElementById('clearFiltersBtn');
+  const SOURCE = grid.dataset.source || 'data/internships/index.json';
+  const DETAIL_PAGE = grid.dataset.detailPage || 'internship-detail.html';
 
   function cardHtml(it) {
-    const href = it.playable ? `internship-detail.html?id=${it.id}` : `internships.html#${it.id}`;
+    const href = it.playable ? `${DETAIL_PAGE}?id=${it.id}` : `${location.pathname.split('/').pop()}#${it.id}`;
     const soon = it.playable ? '' : `<span class="badge badge-outline" style="position:absolute; top:12px; right:12px;">Preview</span>`;
     return `
     <a href="${href}" class="card card-hover internship-card reveal is-visible" data-id="${it.id}" style="position:relative;">
@@ -56,17 +58,17 @@
   }
 
   try {
-    const res = await fetch('data/internships/index.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error(`HTTP ${res.status} for data/internships/index.json`);
+    const res = await fetch(SOURCE, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status} for ${SOURCE}`);
     ALL = await res.json();
   } catch (e) {
     console.error('Catalog load failed:', e);
     const detail = /HTTP \d+/.test(e.message)
-      ? `Server responded with an error (${e.message.replace('HTTP ', '')}). The file "data/internships/index.json" is likely missing from the deployed site — check that the data/ folder was committed and pushed to the repo.`
+      ? `Server responded with an error (${e.message.replace('HTTP ', '')}). The file "${SOURCE}" is likely missing from the deployed site — check that the data/ folder was committed and pushed to the repo.`
       : (location.protocol === 'file:'
           ? `You're viewing this file directly from disk. Serve the folder over http:// instead (e.g. "python3 -m http.server"), since fetch() of local JSON is blocked on file://.`
           : `The response wasn't valid JSON. Open the file in the browser directly to see what's actually being returned (redirects, HTML error pages, etc. all break JSON parsing).`);
-    grid.innerHTML = `<p style="color:#dc2626;">Could not load the internship catalog. ${detail}</p>`;
+    grid.innerHTML = `<p style="color:#dc2626;">Could not load the catalog. ${detail}</p>`;
     return;
   }
 
