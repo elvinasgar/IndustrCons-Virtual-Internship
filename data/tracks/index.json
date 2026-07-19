@@ -50,7 +50,7 @@
       "Roadmapping"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Decide what ships next on a constrained roadmap, using real user feedback data and a hard engineering capacity limit."
   },
   {
@@ -86,7 +86,7 @@
       "Statistical Process Control"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Reduce defect rate on a production line using the DMAIC framework, control charts, and a real root-cause investigation."
   },
   {
@@ -122,7 +122,7 @@
       "Carrier Coordination"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Resolve a shipment delay across three carriers and reconcile a warehouse inventory discrepancy before month-end."
   },
   {
@@ -284,7 +284,7 @@
       "Service Recovery"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Fix a blown food-cost margin and recover a service failure with an upset regular customer, same week."
   },
   {
