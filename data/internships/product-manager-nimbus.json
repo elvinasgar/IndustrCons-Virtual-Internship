@@ -1,0 +1,299 @@
+{
+  "id": "product-manager-nimbus",
+  "title": "Product Manager",
+  "companyId": "nimbus-digital",
+  "category": "Product Management",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "PROD-042 / Q3 ROADMAP",
+  "skills": [
+    "Prioritization",
+    "User Research Reading",
+    "Roadmapping"
+  ],
+  "companyIntro": {
+    "name": "Nimbus Digital",
+    "country": "Germany",
+    "founded": 2016,
+    "mission": "Ship reliable software for mid-market clients without the chaos of ad-hoc project management.",
+    "culture": "Data-informed, not data-worshipping. Product Managers are expected to use research to sharpen judgment, not replace it entirely.",
+    "projects": [
+      "Meridian Client Portal Rebuild",
+      "Nimbus Internal Analytics Suite",
+      "Fintra Payments Integration"
+    ]
+  },
+  "projectBackground": {
+    "name": "Nimbus Internal Analytics Suite — Q3 Roadmap",
+    "client": "Internal product, used by 40+ external client teams",
+    "location": "Remote-first, EU time zones",
+    "budget": "2 squads' capacity for Q3 (approx. 20 developer-weeks)",
+    "timeline": "Q3 roadmap planning, locking scope this week",
+    "context": "User research just landed showing a major usability complaint about the reporting export feature, right as engineering flags that a long-requested 'custom dashboards' feature is finally feasible this quarter. Capacity only allows one major initiative, not both."
+  },
+  "manager": {
+    "name": "Julia Hoffmann",
+    "role": "VP of Product, Nimbus Digital",
+    "note": "I don't want a roadmap that just lists everything people asked for. I want to see the actual trade-off reasoning — why one thing over the other — because the engineering lead and I both know we can't do both well this quarter."
+  },
+  "assignment": {
+    "title": "Decide and defend the Q3 roadmap priority",
+    "brief": "Read the user research data, weigh it against the engineering team's capacity and the custom dashboards opportunity, decide what ships in Q3, and present the roadmap with your reasoning to leadership."
+  },
+  "documents": [
+    {
+      "id": "doc-research-summary",
+      "name": "User Research Summary — Reporting Export Usability",
+      "type": "Research Report",
+      "note": "23 of 40 client teams surveyed report the export feature is 'confusing' or 'frequently broken'; average support tickets per week on this feature: 14, roughly 30% of all product support volume."
+    },
+    {
+      "id": "doc-feature-request-log",
+      "name": "Custom Dashboards — Feature Request Log",
+      "type": "Request Log",
+      "note": "Requested by 12 client teams over 18 months, including the 3 largest accounts by contract value. Engineering estimates 18 developer-weeks; previously blocked on a data-layer limitation now resolved."
+    },
+    {
+      "id": "doc-capacity",
+      "name": "Q3 Engineering Capacity Estimate",
+      "type": "Capacity Plan",
+      "note": "Total available: 20 developer-weeks. Reporting export fix estimated at 6 developer-weeks. Custom dashboards estimated at 18 developer-weeks. Both together: not feasible within Q3."
+    },
+    {
+      "id": "doc-roadmap-template",
+      "name": "Quarterly Roadmap — Template",
+      "type": "Template",
+      "note": "Fields: initiative, rationale, capacity required, expected impact, what's explicitly deprioritized and why."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-data-read",
+      "type": "mcq",
+      "title": "Reading the Research Data",
+      "prompt": "23 of 40 client teams report the export feature is confusing or broken, generating 30% of all support volume. What does this tell you about prioritizing the fix?",
+      "options": [
+        "This is a minor issue since only 23 teams mentioned it, not all 40",
+        "This represents a majority of surveyed clients experiencing a real, ongoing problem that's consuming a disproportionate share of support resources — a strong signal worth acting on",
+        "Support ticket volume is irrelevant to product prioritization",
+        "The research is inconclusive and more data is needed before any decision can be made"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "23 of 40 is a clear majority (57.5%) reporting a real usability problem, and the fact that this single feature accounts for 30% of all support volume across the whole product is a strong, quantifiable signal of ongoing cost — both the survey result and the support data point the same direction, which is exactly the kind of converging evidence that should carry real weight in prioritization.",
+      "tip": "Look for convergence between different data sources (survey sentiment and support ticket volume here) — when multiple independent signals point the same direction, that's stronger evidence than either alone, and it's what should carry the most weight in a prioritization call.",
+      "mistake": "Dismissing a majority result as 'not everyone' (23 of 40 isn't 40 of 40) is a common way to under-weight real, substantial evidence — a majority experiencing an ongoing problem is a strong signal, not a weak one.",
+      "recommendation": "When research data converges with an independent operational metric (like support ticket volume), treat that convergence itself as part of the evidence — it's harder to dismiss than a single survey result on its own."
+    },
+    {
+      "id": "task-2-capacity",
+      "type": "numeric",
+      "title": "Capacity Trade-off Calculation",
+      "prompt": "With 20 developer-weeks available, if you fully fund the reporting export fix (6 dev-weeks), how many developer-weeks remain for custom dashboards work — and is that enough to complete the full 18 dev-week estimate?",
+      "answer": 14,
+      "tolerance": 0,
+      "unit": "developer-weeks (remaining, insufficient for the full 18-week estimate)",
+      "xp": 45,
+      "workingNote": "20 - 6 = 14 developer-weeks remain, which is 4 developer-weeks short of the 18 needed for the full custom dashboards initiative.",
+      "reasoning": "Calculating the actual remaining capacity after committing to one initiative is what turns 'we might be able to do both' into a concrete, checkable fact — 14 remaining developer-weeks against an 18-week requirement clearly shows the full dashboards feature can't also be completed this quarter.",
+      "tip": "Before considering 'doing both' initiatives, always calculate the actual remaining capacity after the first commitment — a rough sense that capacity is 'tight' is far less useful than a specific number showing exactly how many developer-weeks short you'd be.",
+      "mistake": "Assuming two initiatives can somehow both fit by underestimating one or both efforts, without recalculating remaining capacity after the first commitment, sets up a roadmap that's likely to slip on both fronts rather than deliver either well.",
+      "recommendation": "When capacity doesn't stretch to cover both a fix and a new initiative, calculate whether a partial version of the second initiative fits in the remaining capacity, rather than assuming it's all-or-nothing — this often reveals a legitimate middle path."
+    },
+    {
+      "id": "task-3-prioritization",
+      "type": "multiselect",
+      "title": "Prioritization Reasoning",
+      "prompt": "Select every factor that should genuinely influence whether the export fix or the dashboards feature gets Q3 priority.",
+      "options": [
+        "The export fix addresses a widespread, quantified pain point already consuming 30% of support volume",
+        "Custom dashboards has been requested by the 3 largest accounts by contract value, representing meaningful retention/expansion risk if delayed further",
+        "The personal preference of whoever built the original export feature",
+        "Whether a partial dashboards delivery (e.g., for the 3 largest accounts only) could fit within the remaining 14 developer-weeks after the fix",
+        "Which initiative would look better in a company all-hands presentation"
+      ],
+      "correctIndices": [
+        0,
+        1,
+        3
+      ],
+      "xp": 55,
+      "reasoning": "Genuine prioritization factors include the quantified pain point behind the export fix, the real business risk behind delayed dashboards (especially for top accounts), and whether a partial/scoped version of the second initiative could still fit remaining capacity. Personal preference of the original builder and how something looks in a presentation are not legitimate product prioritization criteria.",
+      "tip": "When two initiatives both have real merit, actively look for a partial-scope option (e.g., dashboards for only the top 3 accounts) before assuming it's a strict either/or choice — this is often exactly the trade-off that satisfies both sets of stakeholders reasonably well.",
+      "mistake": "Treating prioritization purely as 'whichever has a louder or more senior advocate' rather than working through the quantified impact and capacity trade-offs is a common way product decisions lose credibility with engineering and other stakeholders.",
+      "recommendation": "Always document why the deprioritized option was deprioritized, specifically, in the roadmap itself — this is what lets the people who wanted the other initiative understand it was a considered trade-off, not an oversight or dismissal."
+    },
+    {
+      "id": "task-4-roadmap-decision",
+      "type": "text",
+      "title": "Q3 Roadmap Decision",
+      "prompt": "Write your roadmap decision (3-5 sentences): what ships in Q3, the capacity allocation, and what's explicitly deprioritized and why.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "Q3 priority: fully fund the reporting export fix (6 developer-weeks), which addresses a usability problem affecting 57.5% of surveyed client teams and currently consuming 30% of all support ticket volume. With the remaining 14 developer-weeks, we will deliver a scoped version of custom dashboards limited to our 3 largest accounts by contract value, rather than the full 18-developer-week general release, directly addressing the retention risk on our most important accounts within available capacity. The full general-availability dashboards release is explicitly deprioritized to Q4, once the export fix's support-ticket impact can be measured and engineering capacity is reassessed. This trade-off prioritizes fixing a widespread, quantified pain point while still making meaningful progress on our most commercially significant open request.",
+      "reasoning": "A strong roadmap decision states what ships, the capacity math behind it, and explicitly names what's deprioritized and why — this transparency is what lets stakeholders who don't get their initiative funded this quarter understand it was a reasoned trade-off, not an oversight.",
+      "tip": "Always look for a genuine middle path (like the scoped dashboards-for-top-accounts option here) before presenting a decision as a strict binary choice — it often satisfies more of the underlying business need than either extreme.",
+      "mistake": "A roadmap decision that doesn't explicitly name what's being deprioritized, and why, tends to generate more stakeholder frustration later than one that's upfront about the trade-off from the start.",
+      "recommendation": "Set a specific review trigger for deprioritized items (here, 'reassess in Q4 once export fix impact is measured') — it signals the decision isn't a permanent no, just a sequencing choice based on current information."
+    },
+    {
+      "id": "task-5-presentation",
+      "type": "mcq",
+      "title": "Defending the Decision to Leadership",
+      "prompt": "A senior stakeholder pushes back: 'Our 3 biggest accounts have been asking for full dashboards for 18 months — why are we only giving them a partial version?' What is the strongest response?",
+      "options": [
+        "Apologize and agree to fund the full dashboards feature instead, cutting the export fix entirely",
+        "Explain that the scoped version specifically serves those 3 accounts within available capacity, while the export fix addresses a widespread problem currently costing significant support resources across the whole client base — both are being addressed within real capacity constraints",
+        "Point out that 18 months is not that long to wait",
+        "Avoid answering directly and suggest revisiting the topic next quarter"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "The strongest response reaffirms the actual reasoning behind the trade-off — the scoped dashboards version was specifically designed to address the top accounts' need within capacity, while still fixing a widespread, costly problem — rather than caving entirely, dismissing the stakeholder's concern, or avoiding the question.",
+      "tip": "When a decision is challenged by a senior stakeholder, restate the specific reasoning that led to it (not just the decision itself) — a well-reasoned trade-off explained clearly tends to hold up better under challenge than either defensiveness or immediate concession.",
+      "mistake": "Caving to pressure and abandoning a well-reasoned trade-off the moment a senior stakeholder pushes back undermines the credibility of the prioritization process for every future roadmap decision.",
+      "recommendation": "Prepare a specific, ready answer for the most likely pushback on any roadmap decision before presenting it — anticipating 'why not fully fund X instead' is almost always part of defending a real trade-off."
+    },
+    {
+      "id": "task-6-metrics-excel",
+      "type": "excel-upload",
+      "title": "Feature Impact Tracker (Excel)",
+      "prompt": "Three more features need their support-ticket-share and requesting-account-value calculated to inform next quarter's prioritization. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "Feature-Impact-Template.xlsx",
+        "sheetName": "Impact",
+        "headers": [
+          "Feature",
+          "Weekly Support Tickets",
+          "Total Weekly Tickets (all features)",
+          "Support Ticket Share (%)"
+        ],
+        "rows": [
+          [
+            "Notification Settings",
+            "6",
+            "46",
+            ""
+          ],
+          [
+            "Bulk User Import",
+            "9",
+            "46",
+            ""
+          ],
+          [
+            "API Rate Limit Errors",
+            "14",
+            "46",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 13.0,
+          "tolerance": 0.5,
+          "label": "Notification Settings share (6/46 x 100)"
+        },
+        {
+          "cell": "D3",
+          "expected": 19.6,
+          "tolerance": 0.5,
+          "label": "Bulk User Import share (9/46 x 100)"
+        },
+        {
+          "cell": "D4",
+          "expected": 30.4,
+          "tolerance": 0.5,
+          "label": "API Rate Limit Errors share (14/46 x 100, the largest share)"
+        }
+      ],
+      "reasoning": "Calculating each feature's share of total support volume consistently is what lets a Product Manager compare pain points on a like-for-like basis — API Rate Limit Errors emerges as the largest single driver here, which is exactly the kind of prioritization signal this exercise is meant to surface.",
+      "tip": "Build support ticket share as a percentage formula rather than comparing raw ticket counts alone — percentages make it immediately clear which feature is a genuinely disproportionate driver of support cost relative to the whole product.",
+      "mistake": "Comparing raw ticket counts without converting to a share of total volume can make a feature's problem look smaller or larger than it actually is relative to everything else competing for engineering attention.",
+      "recommendation": "Maintain this feature-impact view as a standing input to every quarterly roadmap planning session — it turns 'this feature seems to generate a lot of complaints' into a specific, comparable, and decision-ready number."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Roadmap That Tried to Do Both",
+    "background": "On an earlier Nimbus roadmap cycle, a Product Manager tried to partially fund both a major bug fix and a new feature request simultaneously, splitting capacity roughly in half rather than making a clear priority call — both initiatives ended up under-resourced and slipped into the following quarter.",
+    "client": "Meridian Client Portal Rebuild",
+    "budget": "Estimated cost of the double slip: one additional quarter of delay on both initiatives, plus continued elevated support ticket volume",
+    "timeline": "Both initiatives originally planned for one quarter; both actually completed nearly two quarters later",
+    "challenges": "Splitting a fixed capacity across two initiatives without fully resourcing either meant neither team had enough focus to hit their milestones, and context-switching between the two further reduced effective velocity on both.",
+    "constraints": "By the time the pattern was recognized mid-quarter, both initiatives were already partially built, making it costly to fully stop either one and made the eventual full-priority decision harder to make cleanly.",
+    "questions": [
+      "Why does splitting fixed capacity across two initiatives often produce a worse outcome than fully funding one?",
+      "What specific signal, if caught earlier, would have prompted a clearer priority call?",
+      "How does partial funding of multiple initiatives make an eventual necessary trade-off decision harder later?"
+    ],
+    "solution": "Nimbus introduced a standing planning rule that any quarter with genuinely competing initiatives must have a single, clearly prioritized lead initiative with full capacity commitment, with any secondary initiative explicitly scoped down to fit remaining capacity rather than run in parallel at reduced resourcing.",
+    "lessonsLearned": "Attempting to satisfy two competing priorities by splitting capacity between them often delivers neither well — a clear, single priority call with a properly scoped secondary option (rather than two half-funded initiatives) is usually the trade-off that actually protects the quarter's delivery."
+  },
+  "quiz": [
+    {
+      "q": "23 of 40 surveyed teams report a usability problem, and that feature drives 30% of all support tickets. This combination of evidence should be treated as:",
+      "options": [
+        "Weak, since it's not all 40 teams",
+        "A strong, converging signal worth prioritizing, since survey sentiment and support data point the same direction",
+        "Irrelevant to product decisions",
+        "Inconclusive without further data"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Before assuming two initiatives can both fit in a quarter's capacity, a Product Manager should:",
+      "options": [
+        "Assume it will probably work out",
+        "Calculate the actual remaining capacity after committing to the first initiative",
+        "Only consider what leadership prefers",
+        "Skip capacity planning entirely for prioritized features"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When two initiatives both have real merit but capacity is limited, a Product Manager should first look for:",
+      "options": [
+        "Whichever stakeholder is more senior",
+        "A genuine partial-scope option that could satisfy the core need of both",
+        "A coin flip",
+        "Postponing both indefinitely"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When a roadmap decision is challenged by a senior stakeholder, the strongest response is to:",
+      "options": [
+        "Immediately cave and reverse the decision",
+        "Restate the specific reasoning and trade-off that led to the decision",
+        "Dismiss the stakeholder's concern",
+        "Avoid answering and defer the conversation"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did splitting capacity between two initiatives lead to both slipping?",
+      "options": [
+        "The initiatives were poorly scoped from the start",
+        "Neither team had full focus or resourcing, and context-switching further reduced effective velocity on both",
+        "The client changed requirements",
+        "Engineering refused to work on either"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to look for a partial-scope compromise rather than treating the decision as strictly either/or? What made that option viable?",
+      "The case study shows that splitting capacity between two initiatives delivered neither well. Where else might trying to satisfy two competing priorities at once produce a worse outcome than committing fully to one?",
+      "If you were Julia, what one question would you always ask before approving a roadmap that tries to fund two big initiatives in the same quarter?"
+    ]
+  },
+  "certificate": {
+    "name": "Product Manager — Roadmap Prioritization & Trade-offs",
+    "nameAz": "Məhsul Meneceri — Yol Xəritəsi Prioritetləşdirilməsi",
+    "totalXp": 300
+  }
+}

@@ -1,0 +1,298 @@
+{
+  "id": "restaurant-manager-verde",
+  "title": "Restaurant Manager",
+  "companyId": "verde-hospitality-group",
+  "category": "Hospitality",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "drawingTag": "OPS-033 / SERVICE WEEK",
+  "skills": [
+    "Cost Control",
+    "Staff Scheduling",
+    "Service Recovery"
+  ],
+  "companyIntro": {
+    "name": "Verde Hospitality Group",
+    "country": "Italy",
+    "founded": 2012,
+    "mission": "Consistently excellent guest experience across a growing group of restaurants, without losing what makes each one distinct.",
+    "culture": "Fast-paced and guest-obsessed. Managers are expected to make good calls under real dinner-service pressure, not just follow a manual.",
+    "projects": [
+      "Verde Trattoria Relaunch",
+      "Riviera Rooftop Restaurant Opening",
+      "Group-Wide Menu Standardization"
+    ]
+  },
+  "projectBackground": {
+    "name": "Verde Trattoria — Monthly Operations Review",
+    "client": "Verde Trattoria (flagship location)",
+    "location": "Verde Trattoria, city center",
+    "budget": "Monthly food cost target: 30% of food revenue",
+    "timeline": "Month-end review, this week",
+    "context": "This month's food cost has come in at 34.5% against a 30% target, right as a regular customer's service complaint from last weekend needs a response, and next week's schedule needs building around a staff member's last-minute leave request."
+  },
+  "manager": {
+    "name": "Giulia Romano",
+    "role": "Regional Operations Director, Verde Hospitality Group",
+    "note": "4.5 points over food cost target is real money, not a rounding error. Find out where it's actually coming from before you touch the menu or portion sizes — and don't let that customer complaint sit unanswered while you're looking at spreadsheets."
+  },
+  "assignment": {
+    "title": "Diagnose the food cost overage and handle this week's operational issues",
+    "brief": "Identify what's actually driving the food cost overage using the cost breakdown, respond to the customer service complaint, and build next week's staff schedule around the leave request without compromising service coverage."
+  },
+  "documents": [
+    {
+      "id": "doc-cost-breakdown",
+      "name": "Monthly Food Cost Breakdown by Category",
+      "type": "Cost Report",
+      "note": "Proteins: 36% of food cost (target 32%). Produce: 22% (target 22%, on target). Dairy: 14% (target 10%). Other: 28% (target 26%). Dairy shows the largest variance from target as a share."
+    },
+    {
+      "id": "doc-supplier-invoice",
+      "name": "Dairy Supplier Invoice — Last 4 Weeks",
+      "type": "Invoice",
+      "note": "Cheese order volume increased 40% over the prior month with no corresponding menu change; kitchen manager notes 'we've been over-portioning the burrata starter, plating's inconsistent.'"
+    },
+    {
+      "id": "doc-complaint",
+      "name": "Customer Complaint — Weekend Service",
+      "type": "Correspondence",
+      "note": "Regular guest reports a 50-minute wait for appetizers on Saturday night and says the table felt forgotten; asks whether this is 'the new normal' at Verde Trattoria."
+    },
+    {
+      "id": "doc-schedule-template",
+      "name": "Weekly Staff Schedule — Template",
+      "type": "Template",
+      "note": "Fields: shift, role, assigned staff, coverage notes. Minimum coverage: 2 servers + 1 host during dinner service."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-cost-diagnosis",
+      "type": "mcq",
+      "title": "Diagnosing the Food Cost Overage",
+      "prompt": "Dairy is at 14% of food cost against a 10% target — the largest percentage-point variance of any category. What does the supplier invoice and kitchen manager's note suggest as the actual cause?",
+      "options": [
+        "Random price inflation across all categories equally",
+        "Inconsistent over-portioning of the burrata starter is driving unnecessary cheese usage, not a supplier price increase or a menu-wide problem",
+        "The dairy supplier is charging fraudulent prices",
+        "Produce costs are the real problem and dairy is a distraction"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "The data points specifically to over-portioning on one dish (the burrata starter) as the driver — a 40% cheese volume increase with no menu change, plus the kitchen manager's own note about inconsistent plating, both point to a portioning control issue rather than a supplier pricing problem or a broader, unrelated category (produce is actually on target).",
+      "tip": "When one cost category shows the largest variance, look for a specific, narrow cause (like one dish's portioning) before assuming a broad, category-wide explanation — narrow causes are both more common and more fixable than 'everything in dairy got more expensive.'",
+      "mistake": "Assuming a cost overage requires a broad fix (renegotiating with the supplier, cutting the whole menu category) without first checking whether it's actually concentrated in one specific, identifiable cause wastes effort on the wrong solution.",
+      "recommendation": "Whenever a cost category variance is unusually large, check for a volume change without a corresponding menu or business change — an unexplained volume increase is usually the fastest lead to the real, narrow cause."
+    },
+    {
+      "id": "task-2-cost-calc",
+      "type": "numeric",
+      "title": "Portion Control Savings Calculation",
+      "prompt": "If correcting the burrata starter's over-portioning reduces cheese usage by 40% back to the prior baseline, and dairy currently represents 14% of a $60,000 monthly food cost, what would dairy's cost be if it returns to the 10% target share, assuming total food cost stays otherwise similar?",
+      "answer": 6000,
+      "tolerance": 200,
+      "unit": "USD",
+      "xp": 45,
+      "workingNote": "10% of $60,000 = $6,000 (down from the current 14% x $60,000 = $8,400, a $2,400 monthly saving).",
+      "reasoning": "Calculating the target dollar figure (not just the percentage-point difference) is what shows the actual monthly saving available from fixing the portioning issue — a $2,400/month saving is a concrete number that justifies the effort of retraining staff on plating consistency.",
+      "tip": "Always convert a percentage-point cost variance into an actual dollar figure — 'dairy is 4 points over target' is much less motivating to a kitchen team than 'this is costing us $2,400 a month,' even though they describe the same gap.",
+      "mistake": "Stopping the analysis at the percentage-point variance without calculating the dollar impact can make a real, worthwhile fix seem like a minor statistical detail rather than meaningful recoverable margin.",
+      "recommendation": "Recalculate this figure again the month after implementing a portioning fix — showing the kitchen team the actual before-and-after dollar saving is far more motivating for maintaining consistency than a percentage target alone."
+    },
+    {
+      "id": "task-3-service-recovery",
+      "type": "text",
+      "title": "Service Recovery Response",
+      "prompt": "Write your response (3-5 sentences) to the regular guest who complained about the 50-minute appetizer wait.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "Thank you for telling us directly — a 50-minute wait for appetizers, and feeling forgotten at your table, is absolutely not the experience we want for you, especially as a regular guest, and I'm sorry that's what Saturday night looked like. We had a specific service breakdown between the kitchen and floor that night that I've addressed directly with the team, and this is not the new normal at Verde Trattoria. I'd love the chance to have you back as our guest for dinner, on us, so we can show you the experience we actually intend to deliver — would sometime next week work for you?",
+      "reasoning": "A strong service recovery response acknowledges the specific problem without being defensive, explains (briefly) that it's being addressed without over-explaining internal operations, reassures the guest this isn't the standard, and offers a concrete gesture to rebuild the relationship — this combination is what turns a complaint into a chance to retain a loyal guest.",
+      "tip": "Always name the specific thing the guest experienced (the wait, feeling forgotten) rather than a generic apology — it shows you actually read and understood their complaint, not just sent a template response.",
+      "mistake": "Over-explaining internal causes (short-staffing, a callout, kitchen issues) in a guest-facing response can come across as excuse-making rather than accountability — guests care that it's being fixed, not the internal operational details.",
+      "recommendation": "Always follow up personally after the guest's next visit (the comped dinner here) to confirm the experience actually met expectations — service recovery isn't complete until the guest has had a genuinely good subsequent visit, not just received an apology."
+    },
+    {
+      "id": "task-4-scheduling",
+      "type": "multiselect",
+      "title": "Schedule Adjustment for the Leave Request",
+      "prompt": "A server has requested last-minute leave for Friday dinner service, which requires minimum 2 servers + 1 host. Select every action worth considering to maintain coverage.",
+      "options": [
+        "Check whether another staff member can pick up the shift, offering the standard shift premium if applicable",
+        "Simply run Friday dinner with only 1 server and hope it's a quiet night",
+        "Ask if the host can flex into a server role for part of the shift if they're cross-trained",
+        "Cancel the staff member's leave request unilaterally without discussion",
+        "Check whether Friday's reservation volume is lower than usual, which might make reduced coverage more viable if genuinely necessary"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        4
+      ],
+      "xp": 45,
+      "reasoning": "Reasonable coverage solutions include offering the shift to another available staff member, considering cross-trained flexibility (host covering server duties temporarily), and checking actual reservation volume to see if reduced coverage is genuinely viable that specific night. Running understaffed and hoping for the best risks a repeat of exactly the service failure just complained about, while unilaterally canceling an approved leave request damages staff trust and is generally not a sustainable people-management approach.",
+      "tip": "Before assuming a schedule gap must be filled exactly as originally planned, check the actual expected volume for that specific shift — a genuinely quieter night might make a leaner but still-adequate staffing plan reasonable, rather than forcing an inflexible one-size response.",
+      "mistake": "Running a shift understaffed without checking coverage options or actual expected volume, right after a service-failure complaint, risks a repeat of the exact problem that just damaged guest trust.",
+      "recommendation": "Keep a running list of cross-trained staff and their flexible capabilities — this is exactly the kind of situation where knowing 'the host can also run food and take drink orders if needed' turns a scheduling problem into a manageable adjustment rather than a crisis."
+    },
+    {
+      "id": "task-5-training",
+      "type": "text",
+      "title": "Kitchen Portioning Correction Plan",
+      "prompt": "Write a short plan (3-5 sentences) for correcting the burrata starter's inconsistent portioning with the kitchen team.",
+      "minLength": 40,
+      "xp": 45,
+      "modelAnswer": "I'll review the standard portion spec for the burrata starter with the kitchen team this week — likely a simple visual reference photo and a portion scale check at the pass, since the current issue seems to be inconsistent plating rather than a recipe change. We'll do a one-week check-in where the sous chef spot-checks 3-4 plates per service against the spec, logging any variance, to confirm the correction is holding rather than assuming one conversation fixes it. I'll also share the dollar impact of the over-portioning with the team directly — framing this as protecting the restaurant's margin, not as a criticism of anyone's cooking, tends to get better buy-in than a purely corrective conversation.",
+      "reasoning": "A good correction plan addresses the specific standard (a visual reference and portion check), includes a verification period rather than assuming a single conversation fixes an ongoing habit, and frames the change in terms the team will find motivating (protecting margin) rather than purely punitive.",
+      "tip": "Always include a specific verification step (spot-checking plates against spec) rather than just having one conversation and assuming behavior changes — habits, especially plating habits, often need a short verification period to actually stick.",
+      "mistake": "Addressing a portioning issue with a single verbal correction and no follow-up check risks the same inconsistency creeping back within a few weeks, since there's no way to confirm the correction actually held.",
+      "recommendation": "Share the dollar cost of an operational issue directly with the team responsible for it, framed constructively — kitchen staff generally respond better to 'this is costing us $2,400/month' with a clear fix than to a vague instruction to 'be more careful.'"
+    },
+    {
+      "id": "task-6-costvariance-excel",
+      "type": "excel-upload",
+      "title": "Category Cost Variance Tracker (Excel)",
+      "prompt": "Three more cost categories from a sister location need their variance from target calculated the same way, in both percentage points and dollars. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "Cost-Variance-Template.xlsx",
+        "sheetName": "Variance",
+        "headers": [
+          "Category",
+          "Actual % of Food Cost",
+          "Target %",
+          "Total Monthly Food Cost (USD)",
+          "Dollar Variance (USD)"
+        ],
+        "rows": [
+          [
+            "Proteins",
+            "35",
+            "32",
+            "52000",
+            ""
+          ],
+          [
+            "Beverage/Mixers",
+            "9",
+            "7",
+            "52000",
+            ""
+          ],
+          [
+            "Bakery/Bread",
+            "8",
+            "8",
+            "52000",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "E2",
+          "expected": 1560,
+          "tolerance": 20,
+          "label": "Proteins dollar variance ((35-32)% x 52,000)"
+        },
+        {
+          "cell": "E3",
+          "expected": 1040,
+          "tolerance": 20,
+          "label": "Beverage/Mixers dollar variance ((9-7)% x 52,000)"
+        },
+        {
+          "cell": "E4",
+          "expected": 0,
+          "tolerance": 0,
+          "label": "Bakery/Bread dollar variance (8-8=0%, exactly on target)"
+        }
+      ],
+      "reasoning": "Converting every category's percentage-point variance into a dollar figure, not just the one already known to be a problem, is what lets a Restaurant Manager rank issues by actual financial impact rather than by which one happens to be top-of-mind — here, Proteins' dollar variance is actually larger than Beverage's despite a smaller percentage-point gap in absolute terms relative to their targets.",
+      "tip": "Always calculate dollar variance as (actual % - target %) x total cost, and rank categories by this dollar figure rather than by percentage-point gap alone — a small percentage gap on a large-volume category can represent more real money than a large gap on a small one.",
+      "mistake": "Prioritizing whichever category has the largest percentage-point gap, without converting to dollars, can lead to spending management attention on a smaller financial problem while a bigger one gets less scrutiny.",
+      "recommendation": "Rank every location's cost categories by dollar variance monthly, not percentage variance — this is what tells you where the real recoverable margin is across the whole operation, not just which category looks worst on a percentage chart."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Fix That Targeted the Wrong Category",
+    "background": "On an earlier month at a sister Verde location, a manager noticed Produce was 3 percentage points over target and spent significant effort renegotiating with the produce supplier and adjusting portion sizes — while a much larger, unaddressed variance in Proteins (6 points over target, representing three times the dollar impact) went unaddressed because it wasn't the category that 'looked' most over target that week.",
+    "client": "Riviera Rooftop Restaurant",
+    "budget": "Estimated unrecovered margin from the unaddressed Protein variance: approximately $3,800/month for 4 months",
+    "timeline": "4 months before a full cost audit caught the actual larger issue",
+    "challenges": "Because Produce's percentage-point gap happened to be the one the manager noticed first, effort went there, even though converting both variances to dollars would have shown Proteins was the bigger problem the whole time.",
+    "constraints": "By the time the audit caught it, four months of avoidable margin loss had already occurred, and the specific cause (a supplier substitution to a pricier cut without approval) had to be traced back through old invoices.",
+    "questions": [
+      "Why can percentage-point variance alone be misleading for prioritizing cost issues?",
+      "What specific calculation would have immediately shown Proteins was the bigger problem?",
+      "How does 'whichever number looks biggest at a glance' differ from 'whichever number represents the most real money'?"
+    ],
+    "solution": "Verde Hospitality Group introduced a standing rule that monthly cost variance review must rank every category by dollar impact, not percentage-point gap, before deciding where to focus corrective action.",
+    "lessonsLearned": "A percentage-point variance and a dollar variance can tell two different stories, especially across categories of different total size — always convert to dollars before deciding where a cost-control effort will actually recover the most real margin, rather than chasing whichever percentage looks most alarming at first glance."
+  },
+  "quiz": [
+    {
+      "q": "Dairy shows the largest percentage-point variance from target, driven by inconsistent portioning on one dish. The best first response is:",
+      "options": [
+        "Renegotiate with the dairy supplier immediately",
+        "Correct the specific portioning issue on that dish with the kitchen team",
+        "Remove dairy items from the menu entirely",
+        "Ignore it since it's just one dish"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When responding to a guest service complaint, the response should:",
+      "options": [
+        "Focus mainly on internal operational excuses",
+        "Acknowledge the specific issue, avoid over-explaining internal causes, and offer a concrete gesture to rebuild trust",
+        "Deny that anything went wrong",
+        "Ignore the complaint if the guest seems upset"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Before assuming a last-minute staffing gap must be filled exactly as originally planned, a manager should:",
+      "options": [
+        "Cancel the staff member's approved leave unilaterally",
+        "Check actual expected volume and cross-trained coverage options for that specific shift",
+        "Always run the shift understaffed",
+        "Close the restaurant for that shift"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When prioritizing which cost category to address, a manager should rank by:",
+      "options": [
+        "Whichever percentage-point gap looks largest at a glance",
+        "Dollar variance, since it reflects the actual real-money impact regardless of category size",
+        "Alphabetical order",
+        "Whichever category management mentioned most recently"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did the larger Protein cost issue go unaddressed for 4 months?",
+      "options": [
+        "It was correctly identified but ignored on purpose",
+        "Attention went to Produce's percentage-point gap instead, without converting both variances to dollars to compare real impact",
+        "There was no cost issue in Proteins at all",
+        "The kitchen refused to cooperate"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to find a narrow, specific cause rather than assuming a broad category-wide problem? What evidence pointed you there?",
+      "The case study shows a manager's attention going to the category that 'looked' most over target rather than the one costing the most real money. Where else might something eye-catching distract from a bigger, less obvious problem?",
+      "If you were Giulia, what one habit would you make standard so cost review always prioritizes dollar impact over percentage-point appearance?"
+    ]
+  },
+  "certificate": {
+    "name": "Restaurant Manager — Cost Control & Service Recovery",
+    "nameAz": "Restoran Meneceri — Xərc Nəzarəti və Xidmət Bərpası",
+    "totalXp": 285
+  }
+}

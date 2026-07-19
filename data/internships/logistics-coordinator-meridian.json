@@ -1,0 +1,290 @@
+{
+  "id": "logistics-coordinator-meridian",
+  "title": "Logistics Coordinator",
+  "companyId": "meridian-freight-group",
+  "category": "Logistics",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "drawingTag": "LOG-058 / SHIPMENT TRACE",
+  "skills": [
+    "Route Planning",
+    "Inventory Reconciliation",
+    "Carrier Coordination"
+  ],
+  "companyIntro": {
+    "name": "Meridian Freight Group",
+    "country": "Netherlands",
+    "founded": 2005,
+    "mission": "Keep goods moving reliably across a fragmented, multi-carrier European logistics network.",
+    "culture": "Detail-obsessed and calm under disruption — a delayed shipment is a puzzle to solve, not a crisis to panic over.",
+    "projects": [
+      "Rotterdam-Warsaw Corridor Optimization",
+      "Cold Chain Expansion Project",
+      "Warehouse Automation Pilot"
+    ]
+  },
+  "projectBackground": {
+    "name": "Rotterdam-Warsaw Corridor — Multi-Carrier Shipment",
+    "client": "Nordvik Electronics (retail client)",
+    "location": "Rotterdam Port → Warsaw Distribution Center",
+    "budget": "N/A — ongoing logistics coordination contract",
+    "timeline": "Shipment due at Warsaw DC in 3 days; currently delayed",
+    "context": "A container of client electronics is stuck at a customs checkpoint, and the client is asking why their shipment tracking shows conflicting information across two carriers' systems. Meanwhile, month-end inventory reconciliation shows a discrepancy at the Warsaw warehouse that needs resolving before it closes."
+  },
+  "manager": {
+    "name": "Anke de Vries",
+    "role": "Logistics Operations Manager, Meridian Freight Group",
+    "note": "The client is anxious and I don't blame them — two carriers are telling two different stories about the same container. Find out what's actually true, fix the customs hold if we can, and don't let the warehouse discrepancy slide into next month unresolved."
+  },
+  "assignment": {
+    "title": "Resolve the customs hold and the warehouse inventory discrepancy",
+    "brief": "Reconcile the conflicting carrier tracking information, resolve the customs documentation issue holding the shipment, and investigate the warehouse inventory discrepancy before month-end close."
+  },
+  "documents": [
+    {
+      "id": "doc-carrier-a-tracking",
+      "name": "Carrier A Tracking Status — Container MFRT-4471",
+      "type": "Tracking Record",
+      "note": "Status: 'Cleared customs, in transit to Warsaw.' Last update: 2 days ago."
+    },
+    {
+      "id": "doc-carrier-b-tracking",
+      "name": "Carrier B Tracking Status — Container MFRT-4471",
+      "type": "Tracking Record",
+      "note": "Status: 'Held at customs — missing commercial invoice.' Last update: 6 hours ago."
+    },
+    {
+      "id": "doc-customs-notice",
+      "name": "Customs Checkpoint Notice",
+      "type": "Customs Document",
+      "note": "Container MFRT-4471 flagged for missing/incomplete commercial invoice matching the declared HS code. Requires resubmission before release."
+    },
+    {
+      "id": "doc-inventory-count",
+      "name": "Warsaw DC Month-End Inventory Count (extract)",
+      "type": "Inventory Record",
+      "note": "System records 1,240 units of SKU EL-2290 on hand. Physical count shows 1,190 units. A transfer-out of 50 units to a regional hub was processed in the system 3 days ago."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-conflicting-data",
+      "type": "mcq",
+      "title": "Resolving Conflicting Tracking Information",
+      "prompt": "Carrier A's tracking (2 days old) says the container cleared customs; Carrier B's tracking (6 hours old) says it's held for a missing document, matching the customs notice. Which status should you trust and communicate to the client?",
+      "options": [
+        "Carrier A's, since it sounds more reassuring for the client",
+        "Carrier B's, since it's the most recent update and is independently corroborated by the actual customs checkpoint notice",
+        "Average the two statuses into something in between",
+        "Neither, since carrier tracking is never reliable"
+      ],
+      "correctIndex": 1,
+      "xp": 35,
+      "reasoning": "Carrier B's status is both more recent (6 hours vs. 2 days old) and independently corroborated by the actual customs checkpoint notice — when two data sources conflict, the more recent one backed by independent confirmation should be trusted, not the more reassuring-sounding one.",
+      "tip": "When two tracking systems disagree, always check for independent corroboration (like the actual customs notice here) rather than picking whichever status is more convenient or reassuring to report to the client.",
+      "mistake": "Reporting the more optimistic status to a client without checking which one is actually current and corroborated risks giving false reassurance that then has to be walked back, damaging trust further than an accurate but less pleasant update would have.",
+      "recommendation": "Always timestamp-compare conflicting carrier updates and cross-check against any independent source (customs notices, port records) before communicating status to a client — recency plus independent corroboration is the tiebreaker."
+    },
+    {
+      "id": "task-2-customs-fix",
+      "type": "text",
+      "title": "Resolving the Customs Hold",
+      "prompt": "Write the message (3-5 sentences) you'd send internally to get the missing commercial invoice resubmitted and the shipment released.",
+      "minLength": 40,
+      "xp": 45,
+      "modelAnswer": "Container MFRT-4471 is held at the Rotterdam customs checkpoint due to a missing commercial invoice matching the declared HS code, confirmed by both the customs notice and Carrier B's current tracking status. Please resend the correct commercial invoice for this shipment to the customs broker today, referencing container MFRT-4471 and the checkpoint notice number, so it can be resubmitted before the next customs processing window. Given the client's 3-day delivery deadline, I'd like confirmation once the invoice is resubmitted so I can give the client an accurate updated ETA rather than continuing to report uncertain status.",
+      "reasoning": "An effective internal resolution message names the specific container and document needed, gives a clear next action with urgency tied to the actual deadline, and requests confirmation so the client communication can be updated with accurate information rather than continued uncertainty.",
+      "tip": "Always reference the specific checkpoint or notice number when requesting document resubmission — it lets whoever is handling it act immediately without needing to look up which shipment or issue you mean.",
+      "mistake": "Sending a vague request to 'sort out the customs issue' without naming the specific missing document and container reference can cause delay while the recipient tracks down what's actually needed.",
+      "recommendation": "Always tie an internal urgent request to the actual external deadline (the client's 3-day delivery window here) — it helps whoever receives the request prioritize it correctly among their other work."
+    },
+    {
+      "id": "task-3-reconciliation",
+      "type": "numeric",
+      "title": "Inventory Discrepancy Calculation",
+      "prompt": "System shows 1,240 units on hand; physical count shows 1,190 units; a 50-unit transfer-out was processed 3 days ago. After accounting for the transfer, what is the remaining unexplained discrepancy (units)?",
+      "answer": 0,
+      "tolerance": 0,
+      "unit": "units",
+      "xp": 45,
+      "workingNote": "1,240 (system) - 50 (transfer-out) = 1,190, which exactly matches the physical count — the discrepancy is fully explained by the recorded transfer, with zero units unaccounted for.",
+      "reasoning": "Checking whether a known, recorded transaction (the 50-unit transfer) fully explains an apparent discrepancy is the first step before assuming inventory is actually missing — here, the transfer accounts for the entire gap, meaning there's no real unexplained loss once it's properly factored in.",
+      "tip": "Always check recent recorded transactions (transfers, returns, adjustments) before treating a system-versus-physical-count gap as a genuine inventory loss — many apparent discrepancies are simply a timing or reporting gap around a legitimate transaction.",
+      "mistake": "Immediately escalating a 50-unit gap as 'missing inventory' without first checking whether a recorded transfer already explains it can trigger an unnecessary investigation into shrinkage or theft when the real explanation is simple and already in the system.",
+      "recommendation": "Always reconcile inventory discrepancies against the transaction log for the relevant period before closing month-end — this single check often resolves what initially looks like a serious problem into a simple, fully explained timing difference."
+    },
+    {
+      "id": "task-4-client-update",
+      "type": "text",
+      "title": "Client Status Update",
+      "prompt": "Write the client update (3-5 sentences): the accurate shipment status, what's being done, and a realistic revised ETA.",
+      "minLength": 40,
+      "xp": 45,
+      "modelAnswer": "Container MFRT-4471 is currently held at Rotterdam customs due to a missing commercial invoice, confirmed directly with the checkpoint — we've identified this as a documentation gap rather than a physical inspection issue, which is more straightforward to resolve. The corrected invoice is being resubmitted today, and based on typical processing times at this checkpoint, we expect the container to clear and resume transit within 24-48 hours. This puts revised delivery at your Warsaw facility at approximately 2 days later than originally planned; we'll confirm the exact ETA once customs clearance is confirmed and will proactively update you rather than waiting for you to ask.",
+      "reasoning": "A trustworthy client update states the actual verified status (not the more reassuring but incorrect one), explains what's being done in specific terms, and gives a realistic revised timeframe with a commitment to proactive follow-up — this is what maintains client confidence even when the news isn't perfect.",
+      "tip": "Always characterize the type of hold accurately (documentation gap vs. physical inspection) when updating a client — a documentation issue is typically faster and more predictable to resolve, which is genuinely useful context for the client's own planning.",
+      "mistake": "Giving a vague 'we're working on it' update without a specific reason, action, or realistic timeframe leaves a client unable to plan around the delay and more likely to escalate their own anxiety about the shipment.",
+      "recommendation": "Always commit to proactive follow-up ('we'll update you') rather than leaving the client to chase status themselves — this small commitment does a lot to maintain trust during a disruption that isn't otherwise your fault."
+    },
+    {
+      "id": "task-5-route-numeric",
+      "type": "numeric",
+      "title": "Revised Route Time Calculation",
+      "prompt": "The original Rotterdam-Warsaw transit time is 30 hours. If the customs hold adds 36 hours before release, and the container can then travel at the original transit speed, what is the total revised transit time (hours) from the original departure point?",
+      "answer": 66,
+      "tolerance": 0,
+      "unit": "hours",
+      "xp": 40,
+      "workingNote": "30 (original transit) + 36 (customs hold delay) = 66 hours total.",
+      "reasoning": "Calculating total revised transit time as original transit plus the specific hold duration is what produces an accurate, defensible ETA for the client — this is a simple addition, but it's exactly the number that turns a vague 'it'll be a bit late' into a specific, plannable date and time.",
+      "tip": "Always state a revised ETA as a specific calculation (original time + known delay), not a rounded guess — a specific number is both more useful to the client's own planning and more defensible if questioned later.",
+      "mistake": "Giving a rounded or approximate revised ETA without showing the calculation makes it harder to explain to a client why the number is what it is, and harder to catch if the estimate itself contains an error.",
+      "recommendation": "Whenever a delay has a known duration (like a customs hold), always add it explicitly to the original transit time rather than estimating a new ETA from scratch — this keeps the calculation traceable and easy to update if the delay duration changes."
+    },
+    {
+      "id": "task-6-inventory-excel",
+      "type": "excel-upload",
+      "title": "Multi-SKU Inventory Reconciliation (Excel)",
+      "prompt": "Three more SKUs need their month-end discrepancy reconciled against recorded transactions the same way. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "Inventory-Reconciliation-Template.xlsx",
+        "sheetName": "Reconciliation",
+        "headers": [
+          "SKU",
+          "System Qty",
+          "Physical Count",
+          "Recorded Transfers/Adjustments",
+          "Unexplained Discrepancy"
+        ],
+        "rows": [
+          [
+            "EL-3310",
+            "860",
+            "860",
+            "0",
+            ""
+          ],
+          [
+            "EL-4420",
+            "540",
+            "505",
+            "35 (transfer out)",
+            ""
+          ],
+          [
+            "EL-5510",
+            "720",
+            "705",
+            "0",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "E2",
+          "expected": 0,
+          "tolerance": 0,
+          "label": "EL-3310 (860-860-0, fully matched, no discrepancy)"
+        },
+        {
+          "cell": "E3",
+          "expected": 0,
+          "tolerance": 0,
+          "label": "EL-4420 (540-505=35, fully explained by the recorded transfer)"
+        },
+        {
+          "cell": "E4",
+          "expected": 15,
+          "tolerance": 0,
+          "label": "EL-5510 (720-705=15, with 0 recorded transfers — genuinely unexplained, needs investigation)"
+        }
+      ],
+      "reasoning": "Reconciling every SKU the same way — checking system quantity against physical count against recorded transactions — is what separates genuinely unexplained discrepancies (like EL-5510's 15 units, needing real investigation) from ones that are fully accounted for by legitimate recorded activity (like EL-4420).",
+      "tip": "Build the unexplained discrepancy formula as (system - physical - recorded transfers), so a fully explained gap correctly resolves to zero — only a non-zero result after this calculation represents something that actually needs investigating.",
+      "mistake": "Flagging every system-versus-physical-count gap as a problem, without netting off recorded transactions first, wastes investigation effort on discrepancies that are already fully explained by legitimate activity.",
+      "recommendation": "Run this exact reconciliation for every SKU at month-end, not just ones that look obviously off — a small, genuinely unexplained gap like EL-5510's is exactly the kind of thing this systematic check is designed to catch before it accumulates into a larger loss."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Discrepancy That Was Never Reconciled",
+    "background": "On an earlier Meridian contract, a series of small, individually-dismissed inventory discrepancies (5-10 units each month) at a regional hub were never systematically reconciled against transaction records — over 8 months, they accumulated into a 340-unit unexplained loss that was only caught during an annual audit.",
+    "client": "A regional distribution hub client (name withheld)",
+    "budget": "Cost of the unresolved accumulated loss: approximately €28,000 at replacement value",
+    "timeline": "8 months of small, unreconciled monthly discrepancies before the annual audit caught the pattern",
+    "challenges": "Because each individual month's discrepancy was small enough to dismiss as 'probably a counting error,' nobody reconciled it against the transaction log at the time, and the pattern only became visible in aggregate.",
+    "constraints": "By the time the accumulated loss was discovered, there was no way to determine when or how the actual loss occurred, since 8 months of transaction history would need to be individually re-examined without a clear starting point.",
+    "questions": [
+      "Why do individually small discrepancies deserve the same reconciliation rigor as large ones?",
+      "What specific monthly habit would have caught this pattern within the first 1-2 months?",
+      "How does dismissing something as 'probably a counting error' prevent the actual root cause from ever being found?"
+    ],
+    "solution": "Meridian introduced a standing rule that every inventory discrepancy, regardless of size, must be reconciled against the transaction log at month-end, with any genuinely unexplained gap (after transactions are accounted for) logged and tracked cumulatively across months, not just reviewed in isolation each month.",
+    "lessonsLearned": "A small, dismissed discrepancy this month and a small, dismissed discrepancy next month aren't two separate minor issues — reconciling every gap against transaction records immediately, every time, is what prevents small unexplained losses from silently accumulating into a large one that's much harder to trace back to its source."
+  },
+  "quiz": [
+    {
+      "q": "Two carriers show conflicting tracking statuses for the same shipment. The correct approach is to:",
+      "options": [
+        "Report whichever status is more reassuring to the client",
+        "Trust the more recent status, especially if independently corroborated by another source",
+        "Average the two statuses",
+        "Ignore both and guess"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A 50-unit inventory gap is fully explained by a recorded 50-unit transfer-out. The unexplained discrepancy is:",
+      "options": [
+        "50 units",
+        "0 units",
+        "100 units",
+        "Cannot be determined"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A client update about a shipment delay should include:",
+      "options": [
+        "A vague 'we're working on it' with no timeframe",
+        "The verified status, specific action being taken, and a realistic revised ETA",
+        "Only an apology, no further detail",
+        "Nothing until the issue is fully resolved"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When reconciling inventory, discrepancies should be checked against:",
+      "options": [
+        "Nothing, all gaps should be treated as losses",
+        "Recorded transactions (transfers, adjustments) before being treated as genuine losses",
+        "Only the physical count",
+        "The carrier's tracking system"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did small monthly discrepancies accumulate into a 340-unit loss undetected?",
+      "options": [
+        "Each one was individually dismissed as a counting error without being reconciled against transaction records",
+        "The warehouse was deliberately falsifying records",
+        "There was no inventory system at all",
+        "The losses all happened in a single event"
+      ],
+      "correctIndex": 0
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to check a recorded transaction before treating a gap as a real problem? What would have happened if you'd skipped that step?",
+      "The case study shows small, dismissed discrepancies accumulating into a much larger, harder-to-trace loss. Where else might small, individually-ignored issues combine into something much bigger?",
+      "If you were Anke, what one monthly habit would you make mandatory so a small discrepancy is never dismissed without being reconciled?"
+    ]
+  },
+  "certificate": {
+    "name": "Logistics Coordinator — Shipment Tracing & Inventory Reconciliation",
+    "nameAz": "Logistika Koordinatoru — Yük İzlənməsi və Anbar Uzlaşdırması",
+    "totalXp": 270
+  }
+}

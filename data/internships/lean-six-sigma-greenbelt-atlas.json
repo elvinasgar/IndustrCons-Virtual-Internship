@@ -1,0 +1,289 @@
+{
+  "id": "lean-six-sigma-greenbelt-atlas",
+  "title": "Lean Six Sigma Green Belt",
+  "companyId": "atlas-manufacturing",
+  "category": "Process Improvement",
+  "difficulty": "Intermediate",
+  "durationHours": 8,
+  "drawingTag": "LSS-019 / DMAIC PHASE",
+  "skills": [
+    "DMAIC",
+    "Root Cause Analysis",
+    "Statistical Process Control"
+  ],
+  "companyIntro": {
+    "name": "Atlas Manufacturing",
+    "country": "South Korea",
+    "founded": 1999,
+    "mission": "World-class manufacturing discipline — every defect has a root cause, and every root cause gets fixed once, not patched repeatedly.",
+    "culture": "Lean-first and data-driven. Line staff and engineers alike are expected to know their process' current defect rate from memory.",
+    "projects": [
+      "Precision Components Line 4 Upgrade",
+      "Atlas EV Battery Housing Plant",
+      "Regional Distribution Hub"
+    ]
+  },
+  "projectBackground": {
+    "name": "Precision Components Line 4 — Defect Reduction Project",
+    "client": "Internal manufacturing improvement initiative",
+    "location": "Precision Components Plant, Line 4",
+    "budget": "Target: reduce scrap cost by $180,000/year",
+    "timeline": "12-week DMAIC project, currently in week 4 (Measure phase complete, entering Analyze)",
+    "context": "Line 4's defect rate on precision-machined housings has crept up to 4.2%, well above the 1.5% target, and scrap cost is now a visible line item in monthly plant reviews. The plant manager wants a root cause and a fix, not just tighter inspection."
+  },
+  "manager": {
+    "name": "Dr. Min-jun Park",
+    "role": "Continuous Improvement Manager, Atlas Manufacturing",
+    "note": "Everyone's first instinct is to blame the operators. The data rarely agrees with that instinct. Work the DMAIC process properly — find the actual root cause before anyone proposes a fix."
+  },
+  "assignment": {
+    "title": "Diagnose and reduce the Line 4 defect rate using DMAIC",
+    "brief": "Analyze the control chart and defect data to find the real root cause of the elevated defect rate, verify it statistically, and propose a control-phase solution that actually addresses the cause."
+  },
+  "documents": [
+    {
+      "id": "doc-control-chart",
+      "name": "Control Chart — Housing Diameter, Line 4 (last 30 days)",
+      "type": "SPC Chart Data",
+      "note": "Process mean has drifted from 24.98mm to 25.06mm over the period; upper control limit is 25.05mm. Variation (spread) has not increased — the mean has shifted, not the spread."
+    },
+    {
+      "id": "doc-defect-pareto",
+      "name": "Defect Pareto Analysis (last 30 days)",
+      "type": "Pareto Chart Data",
+      "note": "Oversized diameter: 68% of all defects. Surface finish: 19%. Other: 13%."
+    },
+    {
+      "id": "doc-tool-log",
+      "name": "Cutting Tool Change Log — Line 4",
+      "type": "Maintenance Log",
+      "note": "Tool change interval was extended from every 800 cycles to every 1,200 cycles 6 weeks ago, as a cost-saving measure, coinciding closely with when the diameter drift began."
+    },
+    {
+      "id": "doc-dmaic-template",
+      "name": "DMAIC Analyze/Control Summary — Template",
+      "type": "Template",
+      "note": "Fields: root cause hypothesis, statistical verification, proposed control, verification method, expected impact."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-chart-read",
+      "type": "mcq",
+      "title": "Reading the Control Chart",
+      "prompt": "The control chart shows the process mean has shifted from 24.98mm to 25.06mm, while variation (spread) hasn't increased. What does this pattern typically indicate?",
+      "options": [
+        "Random, uncontrollable variation that can't be diagnosed",
+        "A special-cause shift — something specific changed in the process (not random noise), since the mean moved while the underlying variation stayed consistent",
+        "The measurement system itself must be broken",
+        "Operators have become less careful over time"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "A shift in the process mean while spread (variation) stays consistent is a classic signature of a special cause — something specific and identifiable changed in the process, as opposed to common-cause variation (random, inherent noise) which would typically show up as increased spread, not a clean shift in the average.",
+      "tip": "Always distinguish special-cause variation (a specific, identifiable, fixable event) from common-cause variation (background noise inherent to the process) before proposing a fix — the two require completely different types of solutions, and treating a special cause as random noise means the real fix never gets applied.",
+      "mistake": "Attributing a clear mean shift to 'normal variation' or vague operator inconsistency, without looking for a specific coinciding process change, is a common way root cause investigations stall out on the wrong track.",
+      "recommendation": "Whenever a control chart shows a mean shift with stable spread, actively look for a specific process change (tooling, material batch, settings) that coincides with the timing of the shift — this pattern almost always has a findable, fixable cause."
+    },
+    {
+      "id": "task-2-root-cause",
+      "type": "mcq",
+      "title": "Identifying the Root Cause",
+      "prompt": "The tool change interval was extended from 800 to 1,200 cycles 6 weeks ago, closely coinciding with when the diameter drift began. What does this suggest as the most likely root cause?",
+      "options": [
+        "Coincidental timing with no real connection to the defect increase",
+        "Extended tool life before replacement likely allows more tool wear, which can gradually increase machined part dimensions — directly consistent with the diameter drift pattern observed",
+        "The defect increase is unrelated to any process change and is simply due to random chance",
+        "Operators started running the machines faster around the same time"
+      ],
+      "correctIndex": 1,
+      "xp": 50,
+      "reasoning": "Extending tool change interval means each tool experiences more wear before replacement — worn cutting tools commonly produce gradually oversized dimensions as they lose sharpness, which matches exactly the gradual mean shift toward larger diameters seen on the control chart, and the timing coincides closely with when the interval was extended.",
+      "tip": "When a process change and a defect pattern coincide closely in timing and the mechanism is physically plausible (tool wear → larger dimensions), that combination of timing plus plausible mechanism is strong evidence — pursue it as the leading hypothesis rather than treating it as coincidence.",
+      "mistake": "Dismissing a closely-timed process change as 'probably coincidental' without considering whether there's a plausible physical mechanism connecting it to the defect pattern is how real, fixable root causes get missed in favor of vaguer explanations.",
+      "recommendation": "Always cross-reference defect timing against a log of every process change (tooling, materials, settings, staffing) in the same window — the root cause is very often the thing that changed right before the defect pattern started."
+    },
+    {
+      "id": "task-3-verification",
+      "type": "numeric",
+      "title": "Statistical Verification",
+      "prompt": "If the process mean shifted from 24.98mm to 25.06mm and the specification target is 25.00mm ± 0.05mm (i.e., upper spec limit 25.05mm), by how many mm does the new mean (25.06mm) exceed the upper specification limit?",
+      "answer": 0.01,
+      "tolerance": 0.001,
+      "unit": "mm",
+      "xp": 45,
+      "workingNote": "25.06mm - 25.05mm (upper spec limit) = 0.01mm over the upper specification limit.",
+      "reasoning": "Confirming that the shifted mean now actually exceeds the specification limit (not just the internal control limit) is what verifies this is a real defect-causing problem, not just an internal process signal — the process is now centered outside the customer's allowable tolerance, which directly explains the rising defect rate.",
+      "tip": "Always distinguish control limits (internal process monitoring boundaries) from specification limits (external customer/design requirements) — a process can drift outside control limits while still being within spec, or as here, actually exceed the spec limit, which is the more serious condition.",
+      "mistake": "Confusing control limits with specification limits can lead to under- or over-reacting to a process shift — treating an out-of-control-but-in-spec shift as urgent as an out-of-spec shift (or vice versa) misallocates urgency.",
+      "recommendation": "Report process shifts in DMAIC analysis relative to specification limits specifically when defect rate is the concern — this is what directly connects the statistical finding to the actual customer-facing quality problem."
+    },
+    {
+      "id": "task-4-control-plan",
+      "type": "text",
+      "title": "Control Phase Recommendation",
+      "prompt": "Write your Control phase recommendation (3-5 sentences): the root cause, the proposed fix, and how you'll verify it's actually working.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "Root cause: extending the cutting tool change interval from 800 to 1,200 cycles increased tool wear before replacement, gradually shifting the machined diameter mean from 24.98mm to 25.06mm — now 0.01mm above the upper specification limit of 25.05mm. Recommended control: revert the tool change interval to 800 cycles, and add an in-process diameter check every 200 cycles as an early-warning control point rather than relying solely on end-of-run inspection. Verification: track the control chart for 4 weeks after reverting the interval to confirm the mean returns to approximately 24.98-25.00mm and defect rate returns to the 1.5% target, with a formal sign-off review at the end of that period before closing the DMAIC project.",
+      "reasoning": "A complete Control phase recommendation states the confirmed root cause, a specific fix directly addressing that cause (not just tighter inspection, which treats the symptom), and a concrete verification plan with a timeframe — this is what actually closes a DMAIC project rather than leaving the fix's effectiveness unconfirmed.",
+      "tip": "Always propose a fix that addresses the confirmed root cause directly (reverting the tool interval here) rather than only adding inspection — inspection catches defects after they happen, while addressing the root cause prevents them from occurring in the first place.",
+      "mistake": "Proposing tighter inspection alone as the 'fix' treats the symptom (defects reaching detection) rather than the cause (the tool wear itself), meaning the underlying scrap cost and rework burden continues even if more defects get caught before shipping.",
+      "recommendation": "Always include a specific verification period and success criterion in a Control phase recommendation — a DMAIC project isn't complete until the fix is confirmed to actually work with real post-change data, not just implemented and assumed effective."
+    },
+    {
+      "id": "task-5-cost-calc",
+      "type": "numeric",
+      "title": "Scrap Cost Impact Calculation",
+      "prompt": "At the current 4.2% defect rate, if Line 4 produces 8,000 units/month at a scrap cost of $45 per defective unit, what is the current monthly scrap cost? (Round to the nearest hundred.)",
+      "answer": 15100,
+      "tolerance": 200,
+      "unit": "USD",
+      "xp": 45,
+      "workingNote": "8,000 x 0.042 = 336 defective units. 336 x $45 = $15,120, rounds to approximately $15,100.",
+      "reasoning": "Converting a defect rate into an actual monthly cost figure is what makes the business case for a DMAIC project concrete and comparable against the project's target savings — a percentage alone doesn't convey the real financial urgency the way a dollar figure does.",
+      "tip": "Always translate a defect rate into its dollar cost using actual production volume and per-unit scrap cost — this is the number that gets a DMAIC project's business case taken seriously by plant leadership, more than the percentage alone.",
+      "mistake": "Reporting only the defect rate percentage without converting it to a cost figure can understate the urgency of a process problem to stakeholders who think in budget terms, not statistical terms.",
+      "recommendation": "Recalculate this cost figure again once the fix is verified in the Control phase — showing the before-and-after dollar impact is the clearest way to demonstrate a DMAIC project's return on the time invested."
+    },
+    {
+      "id": "task-6-spc-excel",
+      "type": "excel-upload",
+      "title": "Process Capability Check (Excel)",
+      "prompt": "Three more process parameters need their deviation from specification limits calculated to check if they're also drifting. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "Process-Capability-Template.xlsx",
+        "sheetName": "Capability",
+        "headers": [
+          "Parameter",
+          "Current Mean",
+          "Upper Spec Limit",
+          "Deviation from USL"
+        ],
+        "rows": [
+          [
+            "Housing Wall Thickness (mm)",
+            "3.22",
+            "3.20",
+            ""
+          ],
+          [
+            "Surface Roughness (Ra, µm)",
+            "1.15",
+            "1.60",
+            ""
+          ],
+          [
+            "Bore Diameter (mm)",
+            "12.04",
+            "12.05",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 0.02,
+          "tolerance": 0.005,
+          "label": "Wall Thickness deviation (3.22-3.20, exceeds USL — needs attention)"
+        },
+        {
+          "cell": "D3",
+          "expected": -0.45,
+          "tolerance": 0.01,
+          "label": "Surface Roughness deviation (1.15-1.60, well within spec — negative means under the limit)"
+        },
+        {
+          "cell": "D4",
+          "expected": -0.01,
+          "tolerance": 0.005,
+          "label": "Bore Diameter deviation (12.04-12.05, just within spec but very close)"
+        }
+      ],
+      "reasoning": "Calculating deviation from the upper specification limit consistently across every parameter — not just the one already flagged as a problem — is what a thorough process capability review requires; here it reveals Wall Thickness is already out of spec and Bore Diameter is dangerously close, both worth proactive attention alongside the diameter issue already being addressed.",
+      "tip": "A negative deviation value (current mean below the limit) is good news and should be kept as a negative number, not floored at zero — it shows exactly how much margin exists, which matters for judging how close a parameter is to becoming a problem.",
+      "mistake": "Only tracking the parameter already known to be problematic, while ignoring nearby parameters that might be drifting toward their own limits, is how a second quality issue (like Bore Diameter here) goes unnoticed until it's already causing defects.",
+      "recommendation": "Run this full capability check across every controlled parameter on a line periodically, not just the one currently under a DMAIC project — catching a parameter like Bore Diameter while it's still marginally within spec is far cheaper than waiting for it to become the next defect investigation."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Fix That Treated the Symptom",
+    "background": "On an earlier Atlas Manufacturing line, a defect spike was 'fixed' by adding a second inspection station rather than identifying the root cause — scrap cost dropped temporarily because more defects were caught before shipping, but the underlying process problem (a worn fixture) continued producing defective parts at the same rate, now just caught internally instead of reaching customers.",
+    "client": "Atlas EV Battery Housing Plant",
+    "budget": "Ongoing cost of the uncorrected root cause: approximately $12,000/month in continued scrap, for 5 months before the real cause was found",
+    "timeline": "5 months of continued internal scrap after the 'fix' was implemented, before a new Green Belt project properly diagnosed the fixture wear",
+    "challenges": "Because customer-facing defect complaints had stopped (the extra inspection caught the problem before shipping), the issue appeared 'resolved' in customer-facing metrics, reducing the urgency to actually find and fix the root cause.",
+    "constraints": "The additional inspection station itself became a permanent added cost and a bottleneck on the line, since it was never intended as a long-term solution.",
+    "questions": [
+      "Why can a fix that only adds inspection look successful in the short term while leaving the real problem unresolved?",
+      "What metric, if tracked, would have revealed the fix wasn't actually addressing the root cause?",
+      "How does 'customer complaints stopped' create false confidence that a quality problem is solved?"
+    ],
+    "solution": "Atlas Manufacturing introduced a rule that any quality fix classified as 'inspection-only' must be explicitly labeled as an interim containment action, not a Control-phase solution, and every DMAIC project must show a specific root-cause-addressing fix before being closed.",
+    "lessonsLearned": "An inspection-only fix can make a quality problem invisible to customers while leaving its underlying cost (scrap, rework, bottleneck) fully intact internally — a DMAIC project isn't actually complete until the confirmed root cause itself has been addressed, not just contained by catching its symptoms downstream."
+  },
+  "quiz": [
+    {
+      "q": "A control chart shows the process mean shifting while spread stays consistent. This pattern typically indicates:",
+      "options": [
+        "Random, uncontrollable noise",
+        "A special cause — something specific changed in the process",
+        "A broken measurement system",
+        "Nothing significant"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A process change (like extending tool life) that closely coincides with a defect pattern, with a plausible physical mechanism connecting them, should be treated as:",
+      "options": [
+        "Coincidental and not worth investigating",
+        "The leading root-cause hypothesis, worth pursuing and verifying",
+        "Irrelevant unless proven with a full designed experiment first",
+        "Something to ignore since correlation isn't causation"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Control limits and specification limits are:",
+      "options": [
+        "The same thing under different names",
+        "Different — control limits are internal process monitoring boundaries, specification limits are external requirements"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A fix that only adds inspection, without addressing the root cause, results in:",
+      "options": [
+        "The underlying cost (scrap, rework) being fully resolved",
+        "Defects being caught before reaching customers, while the underlying cause and its cost continue unaddressed",
+        "No change in outcomes at all",
+        "A permanent, complete solution"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did the inspection-only fix appear successful for 5 months?",
+      "options": [
+        "The root cause was actually fixed",
+        "Customer complaints stopped because defects were caught internally, masking that the underlying problem was unresolved",
+        "The fixture wear stopped on its own",
+        "There was no real problem to begin with"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to distinguish a real root cause from a coincidental correlation? What evidence made the difference?",
+      "The case study shows an inspection-only fix looking successful while leaving the real cost unresolved for 5 months. Where else might treating a symptom look like progress while the underlying problem continues?",
+      "If you were Dr. Park, what one rule would you add so a DMAIC project can never be closed with an inspection-only fix labeled as the solution?"
+    ]
+  },
+  "certificate": {
+    "name": "Lean Six Sigma Green Belt — DMAIC Root Cause Project",
+    "nameAz": "Lean Six Sigma Green Belt — DMAIC Kök Səbəb Layihəsi",
+    "totalXp": 305
+  }
+}
