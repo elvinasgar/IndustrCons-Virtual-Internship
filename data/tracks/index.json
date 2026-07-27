@@ -68,7 +68,7 @@
       "Continuous Improvement"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Diagnose why a team's velocity is inconsistent and redesign their workflow using Kanban and retrospective data."
   },
   {
@@ -104,7 +104,7 @@
       "Value Stream Mapping"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Map a production value stream, identify the 7 wastes, and design a Kaizen event for a bottlenecked assembly cell."
   },
   {
@@ -140,7 +140,7 @@
       "Inventory Optimization"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Investigate a stockout, forecast next quarter's demand, and recommend a safety stock policy to prevent recurrence."
   },
   {
@@ -158,7 +158,7 @@
       "Technical Report"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Diagnose a recurring line stoppage, calculate its true downtime cost, and recommend a fix to the plant manager."
   },
   {
@@ -176,7 +176,7 @@
       "Non-Conformance Handling"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Investigate a batch of out-of-spec parts using control charts and issue a non-conformance disposition."
   },
   {
@@ -194,7 +194,7 @@
       "Incident Investigation"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Investigate a near-miss at a stamping press and redesign the guarding and lockout procedure that failed."
   },
   {
@@ -212,7 +212,7 @@
       "Bottleneck Analysis"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Replan a production schedule around a bottleneck machine and a rush order that threatens on-time delivery."
   },
   {
@@ -230,7 +230,7 @@
       "Documentation"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Handle a workplace conflict escalation and a policy ambiguity, balancing fairness with documented process."
   },
   {
@@ -248,7 +248,7 @@
       "System Configuration Logic"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Trace a costly inventory data mismatch back to a misconfigured ERP workflow and fix the root process."
   },
   {
@@ -266,7 +266,7 @@
       "Pipeline Reporting"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Clean a corrupted customer database and rebuild a sales pipeline report the leadership team can actually trust."
   },
   {
@@ -302,7 +302,7 @@
       "Menu Engineering"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Re-cost a menu after a supplier price hike and redesign kitchen workflow to fix a recurring ticket-time problem."
   },
   {
@@ -320,7 +320,7 @@
       "Variance Analysis"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Reconcile a discrepancy in monthly accounts and explain a budget variance to a non-financial department head."
   },
   {
@@ -338,7 +338,7 @@
       "Stakeholder Communication"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Draft a crisis response statement within hours of a negative news story breaking about a client."
   },
   {
@@ -356,7 +356,7 @@
       "Program Evaluation"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Redesign a failing training program's structure using real completion-rate data and instructor feedback."
   },
   {
@@ -374,7 +374,7 @@
       "Decision Making"
     ],
     "certificate": true,
-    "playable": false,
+    "playable": true,
     "summary": "Handle an underperforming team member and a resourcing conflict as a first-time people manager."
   }
 ]
