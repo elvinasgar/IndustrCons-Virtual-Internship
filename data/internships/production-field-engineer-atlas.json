@@ -1,0 +1,295 @@
+{
+  "id": "production-field-engineer-atlas",
+  "title": "Production Field Engineer",
+  "companyId": "atlas-manufacturing",
+  "category": "Production",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "PFE-016",
+  "skills": [
+    "Line Troubleshooting",
+    "Downtime Analysis",
+    "Technical Report"
+  ],
+  "companyIntro": {
+    "name": "Atlas Manufacturing",
+    "country": "South Korea",
+    "founded": 1999,
+    "mission": "World-class manufacturing discipline — every defect and every stoppage has a root cause.",
+    "culture": "Data-driven and hands-on. Field engineers are expected to diagnose from evidence on the line, not guess from the office.",
+    "projects": [
+      "Precision Components Line 4 Upgrade",
+      "Atlas EV Battery Housing Plant",
+      "Regional Distribution Hub"
+    ]
+  },
+  "projectBackground": {
+    "name": "Line 4 — Recurring Stoppage Investigation",
+    "client": "Internal production line",
+    "location": "Precision Components Plant, Line 4",
+    "budget": "Downtime cost target: reduce unplanned stops by 50%",
+    "timeline": "Investigation this week, ahead of month-end downtime review",
+    "context": "Line 4 has stopped unexpectedly 11 times this month, each averaging 14 minutes, and maintenance logs show the same fault code every time — but nobody has traced why the fault recurs despite being 'fixed' after each stop."
+  },
+  "manager": {
+    "name": "Sung-ho Lee",
+    "role": "Production Manager, Atlas Manufacturing",
+    "note": "Maintenance keeps clearing the fault and restarting the line, and it keeps coming back within a day or two. That's not a fix, that's a reset. Find out what's actually causing the fault to return."
+  },
+  "assignment": {
+    "title": "Diagnose the recurring stoppage and propose a permanent fix",
+    "brief": "Analyze the downtime log and fault pattern, identify the true root cause behind the recurring fault code, calculate the downtime cost, and propose a permanent countermeasure."
+  },
+  "documents": [
+    {
+      "id": "doc-downtime-log",
+      "name": "Line 4 Downtime Log — This Month",
+      "type": "Downtime Log",
+      "note": "11 unplanned stops, fault code E-204 (sensor misalignment) every time. Average stop duration: 14 minutes. Maintenance response: sensor manually realigned and line restarted each time."
+    },
+    {
+      "id": "doc-maintenance-notes",
+      "name": "Maintenance Technician Notes",
+      "type": "Maintenance Log",
+      "note": "Recurring note: 'sensor realigned, seems fine.' No investigation into why the sensor keeps drifting out of alignment in the first place."
+    },
+    {
+      "id": "doc-vibration-data",
+      "name": "Line Vibration Monitoring Data",
+      "type": "Sensor Data",
+      "note": "Vibration levels near the E-204 sensor mount have been elevated for the past 6 weeks, following a changeover to a higher-speed production setting on an adjacent station."
+    },
+    {
+      "id": "doc-report-template",
+      "name": "Downtime Root Cause Report — Template",
+      "type": "Template",
+      "note": "Fields: fault pattern, root cause hypothesis, downtime cost, proposed permanent countermeasure."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-symptom-vs-cause",
+      "type": "mcq",
+      "title": "Symptom vs. Root Cause",
+      "prompt": "Maintenance keeps realigning the sensor and restarting the line, but the fault returns within days. What does this indicate?",
+      "options": [
+        "The sensor itself is simply defective and needs replacing every time",
+        "Realigning the sensor treats the symptom, not the underlying cause making it drift out of alignment repeatedly — the real question is why it keeps drifting",
+        "Operators are causing the fault through careless handling",
+        "This is normal and expected behavior for this fault code"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "Repeatedly realigning a sensor that keeps drifting back out of alignment is a clear sign the fix is only addressing the symptom (misalignment) each time, not whatever underlying condition is causing the drift to keep recurring.",
+      "tip": "When the same fix is applied repeatedly for a recurring fault, that repetition itself is the signal that the fix is treating a symptom — ask what's causing the symptom to keep returning, not just how to correct it again.",
+      "mistake": "Continuing to apply the same corrective action (realignment) without ever asking why the problem recurs is how a stoppage can repeat for months without anyone identifying the actual root cause.",
+      "recommendation": "Track how many times the same corrective action has been applied to the same fault — a rising repeat count is itself evidence that the current 'fix' isn't addressing the real cause."
+    },
+    {
+      "id": "task-2-root-cause",
+      "type": "mcq",
+      "title": "Connecting the Root Cause",
+      "prompt": "Vibration levels near the sensor mount have been elevated for 6 weeks, coinciding with a speed increase on an adjacent station. What does this suggest?",
+      "options": [
+        "Coincidental timing unrelated to the sensor faults",
+        "The increased vibration from the adjacent station's higher speed is likely causing the sensor mount to loosen or drift over time, which is the actual root cause of the recurring misalignment",
+        "The sensor manufacturer's product is simply low quality",
+        "Nothing can be concluded without a formal vibration analysis study"
+      ],
+      "correctIndex": 1,
+      "xp": 50,
+      "reasoning": "The timing correlation between the speed increase and the onset of elevated vibration, combined with a plausible physical mechanism (vibration loosening a sensor mount over time), makes this a strong root-cause hypothesis worth pursuing directly, rather than dismissing as coincidence or declaring it unknowable without further study.",
+      "tip": "When a physical fault's onset coincides with an unrelated-seeming process change (here, a speed increase on a different station), check for a plausible physical mechanism connecting them — vibration transmission between adjacent equipment is a common and real effect.",
+      "mistake": "Treating the sensor itself as simply low-quality or randomly faulty, without investigating the vibration data that coincides closely with when the problem started, misses an identifiable and fixable environmental cause.",
+      "recommendation": "Cross-reference fault onset timing against a log of all nearby process changes, not just changes to the faulting equipment itself — the root cause is often something that changed on adjacent equipment."
+    },
+    {
+      "id": "task-3-downtime-cost",
+      "type": "numeric",
+      "title": "Downtime Cost Calculation",
+      "prompt": "11 stops averaging 14 minutes each this month, at a line downtime cost of $180/minute, what is the total monthly downtime cost from this fault?",
+      "answer": 27720,
+      "tolerance": 50,
+      "unit": "USD",
+      "xp": 45,
+      "workingNote": "11 x 14 x $180 = $27,720.",
+      "reasoning": "Converting the stoppage pattern into an actual monthly dollar cost is what makes the business case for a permanent fix (versus continuing to just reset and restart) concrete and urgent to plant leadership.",
+      "tip": "Always calculate total downtime cost (stops x average duration x cost per minute) rather than reporting stop count alone — the dollar figure is what typically justifies engineering time for a permanent fix.",
+      "mistake": "Reporting only 'the line stopped 11 times' without converting to a cost figure can make a real, expensive problem seem like a minor operational inconvenience rather than nearly $28,000 a month in avoidable downtime.",
+      "recommendation": "Recalculate this cost figure after implementing the permanent fix to demonstrate the actual monthly saving — this is the number that justifies the engineering investment to leadership."
+    },
+    {
+      "id": "task-4-countermeasures",
+      "type": "multiselect",
+      "title": "Permanent Countermeasure Options",
+      "prompt": "Select every countermeasure worth genuinely evaluating for the recurring sensor misalignment.",
+      "options": [
+        "Reinforce or redesign the sensor mount to resist vibration-induced drift",
+        "Continue manually realigning the sensor whenever the fault occurs, indefinitely",
+        "Investigate whether the adjacent station's speed setting can be adjusted or vibration-isolated to reduce transmitted vibration",
+        "Add a scheduled preventive check of sensor alignment before it drifts far enough to trigger a fault",
+        "Replace the maintenance technician who has been performing the realignments"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        3
+      ],
+      "xp": 55,
+      "reasoning": "Genuine countermeasures address the root cause (reinforcing the mount, reducing transmitted vibration) or catch the drift before it causes a stoppage (preventive checks). Continuing indefinite manual realignment perpetuates the same non-fix, and replacing the technician misdiagnoses a mechanical/process root cause as a personnel problem.",
+      "tip": "When a root cause involves an external factor (vibration from an adjacent station), always consider countermeasures at the source (reducing the vibration) alongside countermeasures at the affected point (reinforcing the mount) — addressing both is often more robust than either alone.",
+      "mistake": "Treating a mechanical root cause (vibration-induced drift) as a personnel performance issue misdirects the fix entirely and doesn't address why the fault keeps recurring regardless of who performs the realignment.",
+      "recommendation": "Evaluate both a source-side fix (isolating or reducing vibration) and a point-side fix (reinforcing the sensor mount) together — combining both typically gives a more durable solution than either alone."
+    },
+    {
+      "id": "task-5-report",
+      "type": "text",
+      "title": "Root Cause Report",
+      "prompt": "Write the root cause report (3-5 sentences): the fault pattern, root cause, cost, and proposed permanent countermeasure.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "Line 4 has experienced 11 unplanned stops this month on fault code E-204 (sensor misalignment), each resolved only by manual realignment and restart, at a total downtime cost of approximately $27,720. Root cause: elevated vibration near the sensor mount, coinciding with a speed increase on the adjacent station 6 weeks ago, is likely causing the mount to gradually loosen and drift out of alignment, explaining why realignment alone doesn't prevent recurrence. Recommended permanent countermeasure: reinforce the sensor mount to resist vibration-induced drift, and evaluate whether the adjacent station's vibration transmission can be reduced or isolated, combined with a preventive alignment check every shift until the mount reinforcement is verified effective. This is expected to eliminate the recurring $27,720/month downtime cost once the root cause is properly addressed rather than repeatedly reset.",
+      "reasoning": "A strong root cause report states the pattern with its cost, names the actual mechanical root cause (not just the symptom), and proposes a countermeasure that addresses that root cause directly — this combination is what actually stops a recurring fault rather than continuing an expensive cycle of resets.",
+      "tip": "Always state the dollar cost of a recurring fault in the report itself — it's what typically gets a permanent engineering fix prioritized over the cheaper-seeming but ultimately more expensive cycle of repeated manual resets.",
+      "mistake": "A report that only describes 'sensor misalignment fault, resolved by realignment' without identifying why the misalignment keeps recurring doesn't give the plant manager anything to act on beyond continuing the same costly cycle.",
+      "recommendation": "Include a specific verification step and timeframe in the report — a permanent countermeasure isn't confirmed until post-fix downtime data shows the fault rate has actually dropped."
+    },
+    {
+      "id": "task-6-downtime-excel",
+      "type": "excel-upload",
+      "title": "Multi-Fault Downtime Cost Tracker (Excel)",
+      "prompt": "Three more recurring fault codes need their monthly downtime cost calculated to prioritize engineering attention. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "Downtime-Cost-Template.xlsx",
+        "sheetName": "Downtime",
+        "headers": [
+          "Fault Code",
+          "Stops This Month",
+          "Avg Duration (min)",
+          "Cost/Minute (USD)",
+          "Monthly Cost (USD)"
+        ],
+        "rows": [
+          [
+            "E-118",
+            "6",
+            "8",
+            "150",
+            ""
+          ],
+          [
+            "E-302",
+            "3",
+            "25",
+            "150",
+            ""
+          ],
+          [
+            "E-450",
+            "9",
+            "5",
+            "150",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "E2",
+          "expected": 7200,
+          "tolerance": 50,
+          "label": "E-118 monthly cost (6x8x150)"
+        },
+        {
+          "cell": "E3",
+          "expected": 11250,
+          "tolerance": 50,
+          "label": "E-302 monthly cost (3x25x150, fewer stops but much higher cost due to long duration)"
+        },
+        {
+          "cell": "E4",
+          "expected": 6750,
+          "tolerance": 50,
+          "label": "E-450 monthly cost (9x5x150, frequent but short stops)"
+        }
+      ],
+      "reasoning": "Calculating monthly cost consistently across every fault code — not just counting stops — reveals that E-302, despite having the fewest stops, actually costs more than E-450, which stops far more often but for much shorter durations each time.",
+      "tip": "Rank fault codes by total monthly cost, not by stop frequency alone — a fault with few but long stops (like E-302) can cost more than one with many short stops, and cost is what should drive engineering prioritization.",
+      "mistake": "Prioritizing engineering attention based on which fault 'happens most often' rather than which one costs the most can misdirect effort toward a high-frequency but low-cost fault while a lower-frequency, high-cost one goes unaddressed.",
+      "recommendation": "Maintain this cost-ranked fault list monthly as a standing input to the production engineering team's priority queue, not just for faults already flagged as problems."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Reset That Ran for Six Months",
+    "background": "On an earlier Atlas line, a different recurring fault was reset by maintenance for six months without a root cause investigation, since each individual stop was short enough that no single incident triggered an escalation — the cumulative downtime cost was only discovered when a new field engineer happened to review the full log and calculate the total.",
+    "client": "Precision Components Line 4 (an earlier fault pattern)",
+    "budget": "Estimated cumulative downtime cost over 6 months: approximately $95,000, discovered retroactively",
+    "timeline": "6 months of unaddressed recurring stops before the pattern was calculated and escalated",
+    "challenges": "Because each individual stop was brief and seemed minor in isolation, nobody added them up over time, and the fault was treated as routine background noise rather than a cumulative cost problem worth investigating.",
+    "constraints": "Once escalated, the root cause investigation itself took only a few days — the real delay had been in recognizing the cumulative pattern was worth investigating at all.",
+    "questions": [
+      "Why can a recurring fault with individually 'minor' stops still represent a large cumulative cost?",
+      "What habit would catch this pattern within the first month instead of after six?",
+      "How does calculating total downtime cost change how a recurring fault gets prioritized?"
+    ],
+    "solution": "Atlas Manufacturing instituted a rule that any fault code recurring more than 3 times in a month automatically triggers a mandatory root cause investigation and cost calculation, regardless of how minor each individual stop seems.",
+    "lessonsLearned": "A recurring fault that seems minor because each individual stop is brief can still represent a very large cumulative cost — the habit of calculating total monthly cost, not just noting that stops are individually short, is what reveals which recurring faults actually deserve engineering priority."
+  },
+  "quiz": [
+    {
+      "q": "Repeatedly applying the same corrective action (like realignment) to a recurring fault, without asking why it recurs, typically indicates:",
+      "options": [
+        "The fix is working correctly",
+        "The fix is addressing a symptom, not the underlying root cause"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When a fault's onset coincides with a change on adjacent, seemingly unrelated equipment, the correct approach is to:",
+      "options": [
+        "Dismiss it as coincidence",
+        "Check for a plausible physical mechanism (like vibration transmission) connecting the two"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When ranking fault codes for engineering priority, the best metric is:",
+      "options": [
+        "Stop frequency alone",
+        "Total monthly downtime cost (frequency x duration x cost rate)"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A permanent countermeasure for a vibration-induced fault should generally address:",
+      "options": [
+        "Only the point where the fault appears",
+        "Both the source of the vibration and the affected point, where possible"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did a recurring fault go uninvestigated for 6 months?",
+      "options": [
+        "Each individual stop seemed too minor to escalate, and nobody calculated the cumulative cost until later",
+        "The fault was actually not costing anything",
+        "Maintenance refused to respond to the fault",
+        "There was no fault at all"
+      ],
+      "correctIndex": 0
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to look past the immediate fix (realignment) to find why the problem kept recurring? What evidence pointed to the real cause?",
+      "The case study shows individually minor stops accumulating into a $95,000 problem before anyone calculated the total. Where else might something that seems too small to worry about actually be costing much more in aggregate?",
+      "If you were Sung-ho, what one rule would you make standing so a recurring fault is never just reset without investigation past a certain point?"
+    ]
+  },
+  "certificate": {
+    "name": "Production Field Engineer — Downtime Root Cause Analysis",
+    "nameAz": "İstehsalat Sahə Mühəndisi — Dayanma Vaxtının Kök Səbəb Təhlili",
+    "totalXp": 305
+  }
+}

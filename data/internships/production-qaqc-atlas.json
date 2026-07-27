@@ -1,0 +1,293 @@
+{
+  "id": "production-qaqc-atlas",
+  "title": "Production QA/QC Engineer",
+  "companyId": "atlas-manufacturing",
+  "category": "Production",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "drawingTag": "PQC-009",
+  "skills": [
+    "Quality Checklist",
+    "SPC Charts",
+    "Non-Conformance Handling"
+  ],
+  "companyIntro": {
+    "name": "Atlas Manufacturing",
+    "country": "South Korea",
+    "founded": 1999,
+    "mission": "World-class manufacturing discipline — every defect has a root cause.",
+    "culture": "Data-driven and unforgiving of shortcuts. QA/QC staff are expected to hold a batch if the control chart says so, regardless of schedule pressure.",
+    "projects": [
+      "Precision Components Line 4 Upgrade",
+      "Atlas EV Battery Housing Plant",
+      "Regional Distribution Hub"
+    ]
+  },
+  "projectBackground": {
+    "name": "Line 4 — Out-of-Spec Batch Investigation",
+    "client": "Internal production line",
+    "location": "Precision Components Plant, Line 4",
+    "budget": "N/A — internal quality investigation",
+    "timeline": "This shift, batch on hold pending disposition",
+    "context": "A batch of 500 machined housings has been flagged with several parts measuring outside the diameter tolerance. Production wants to know if the batch can ship, and the control chart data needs to be read correctly before any decision is made."
+  },
+  "manager": {
+    "name": "Yuki Tanaka",
+    "role": "QA Manager, Atlas Manufacturing",
+    "note": "The line supervisor wants this batch released today to hit the shipment deadline. I don't care about the deadline if the chart shows something real is wrong — read the data first, then tell me what it means."
+  },
+  "assignment": {
+    "title": "Investigate the out-of-spec batch and issue a disposition",
+    "brief": "Read the control chart pattern, calculate how many parts in the batch likely require sorting, and issue a non-conformance disposition with a corrective action."
+  },
+  "documents": [
+    {
+      "id": "doc-control-chart-qc",
+      "name": "Control Chart — Housing Diameter, This Shift",
+      "type": "SPC Chart Data",
+      "note": "Last 8 subgroup averages show a steady upward trend, with the most recent 3 points above the upper control limit — a classic trend pattern, not a single random spike."
+    },
+    {
+      "id": "doc-sample-data",
+      "name": "Sample Inspection Data — 50-Unit Sample from Batch",
+      "type": "Inspection Data",
+      "note": "6 of 50 sampled units measured outside the diameter tolerance (upper spec limit exceeded)."
+    },
+    {
+      "id": "doc-tool-wear-log",
+      "name": "Tool Wear Log",
+      "type": "Maintenance Log",
+      "note": "Cutting tool on this station has run 1,150 cycles since last change, compared to the standard 800-cycle change interval — tool change was delayed due to a parts shortage."
+    },
+    {
+      "id": "doc-ncr-template-qc",
+      "name": "Non-Conformance Report — Template",
+      "type": "Template",
+      "note": "Fields: defect description, sample data, disposition (sort/scrap/rework/release), root cause, corrective action."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-chart-pattern",
+      "type": "mcq",
+      "title": "Reading the Control Chart Pattern",
+      "prompt": "The last 8 subgroup averages show a steady upward trend, with the most recent 3 above the upper control limit. What does this pattern indicate?",
+      "options": [
+        "A single random event affecting one measurement",
+        "A gradual, non-random trend — something in the process is progressively drifting, not a one-off anomaly",
+        "The measurement equipment is broken",
+        "Nothing meaningful, this is normal variation"
+      ],
+      "correctIndex": 1,
+      "xp": 35,
+      "reasoning": "A steady, multi-point upward trend (not a single spike) is a classic non-random pattern indicating a progressive process drift — this is different from random noise and points toward a specific, ongoing cause like tool wear rather than an isolated incident.",
+      "tip": "Distinguish a trend pattern (several consecutive points moving steadily in one direction) from a single out-of-control point — a trend indicates a progressive, ongoing cause, while an isolated spike often suggests a one-off event.",
+      "mistake": "Treating a clear multi-point trend as 'just one bad measurement' misses that the process is progressively getting worse, which means the problem will keep growing until its cause is addressed.",
+      "recommendation": "Whenever a control chart shows a trend (not just an isolated point), immediately investigate what's changing progressively in the process — tool wear, material batch changes, or gradual calibration drift are common causes."
+    },
+    {
+      "id": "task-2-batch-estimate",
+      "type": "numeric",
+      "title": "Estimating Batch-Wide Non-Conformance",
+      "prompt": "If 6 of 50 sampled units are out of spec, what percentage of the full 500-unit batch would be estimated to require sorting, if the sample is representative?",
+      "answer": 12,
+      "tolerance": 0.5,
+      "unit": "%",
+      "xp": 40,
+      "workingNote": "6/50 x 100 = 12%.",
+      "reasoning": "Projecting the sample defect rate onto the full batch size (not just reporting the raw sample count) is what gives production and QA a realistic estimate of the scale of sorting or rework required before making a disposition decision.",
+      "tip": "Always express a sample defect rate as a percentage and apply it to the full batch size — '6 units in the sample' sounds much smaller than '12% of the batch,' but they represent the same underlying rate.",
+      "mistake": "Reporting only the raw sample count (6 units) without projecting to the full batch can understate the scale of the problem to someone deciding whether to release, sort, or scrap the batch.",
+      "recommendation": "State both the sample rate and the projected batch-wide estimate in any disposition report — it's what lets production properly plan for the sorting or rework effort actually required."
+    },
+    {
+      "id": "task-3-rootcause-qc",
+      "type": "mcq",
+      "title": "Identifying the Root Cause",
+      "prompt": "The cutting tool has run 1,150 cycles against a standard 800-cycle change interval, delayed due to a parts shortage. What does this suggest as the root cause of the diameter drift?",
+      "options": [
+        "Coincidental timing unrelated to the defect trend",
+        "Extended tool life beyond the standard change interval likely caused progressive tool wear, which explains the gradual upward diameter trend seen on the control chart",
+        "The operators changed their process without authorization",
+        "The specification itself must be wrong"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "The tool running 44% beyond its standard change interval, combined with a gradual diameter trend consistent with a wearing cutting tool, makes this the clear leading root cause — tool wear commonly causes exactly this kind of gradual dimensional drift rather than a sudden shift.",
+      "tip": "When a control chart shows a gradual trend, check maintenance and tooling logs for anything running past its standard interval — extended tool life is one of the most common causes of exactly this kind of drift pattern.",
+      "mistake": "Dismissing the connection between a significantly overdue tool change and a matching gradual defect trend, without investigating further, misses a clear and directly fixable root cause.",
+      "recommendation": "Track tool cycle counts against standard change intervals as a standing control, and flag any tool running over its interval as an immediate investigation trigger before a defect trend even appears."
+    },
+    {
+      "id": "task-4-disposition",
+      "type": "multiselect",
+      "title": "Batch Disposition Decision",
+      "prompt": "Given the pattern and root cause found, select every appropriate action for this batch.",
+      "options": [
+        "Sort the full batch to separate conforming from non-conforming units before any release",
+        "Release the full batch as-is to hit the shipment deadline, since only 12% is estimated to be affected",
+        "Change the cutting tool immediately, since it's significantly beyond its standard interval",
+        "Continue running the line on the same tool until the shift ends, then address it in the next shift",
+        "Document the delayed tool change (due to parts shortage) as a contributing cause in the non-conformance report"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        4
+      ],
+      "xp": 45,
+      "reasoning": "The appropriate response sorts the batch to separate conforming and non-conforming units (rather than shipping a batch with a confirmed 12% non-conformance rate), changes the overdue tool immediately to stop the progressive drift, and documents the parts-shortage-driven delay as a contributing cause. Releasing the batch as-is ignores a confirmed defect rate, and continuing to run on the same worn tool allows the drift to worsen further before the shift ends.",
+      "tip": "When a control chart shows an active, worsening trend, don't wait until a convenient stopping point to address the root cause — the drift will continue to worsen with every additional cycle on the same worn tool.",
+      "mistake": "Releasing a batch with a statistically confirmed 12% non-conformance rate to meet a shipment deadline, rather than sorting it, risks shipping defective parts to a customer, which is a far more costly outcome than a delayed shipment.",
+      "recommendation": "Document the systemic cause behind a tool running overdue (here, a parts shortage) in the non-conformance report — it's what prevents the same root cause (delayed tool changes due to supply issues) from repeating on future batches."
+    },
+    {
+      "id": "task-5-ncr-qc",
+      "type": "text",
+      "title": "Non-Conformance Report",
+      "prompt": "Write the NCR entry (3-5 sentences): the defect pattern, root cause, disposition, and corrective action.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "Control chart data for this shift shows a clear upward trend in housing diameter over 8 subgroups, with the most recent 3 points exceeding the upper control limit; a 50-unit sample confirmed 6 units (12%) outside the specification tolerance. Root cause: the cutting tool has run 1,150 cycles against the standard 800-cycle change interval, delayed due to a parts shortage, causing progressive tool wear consistent with the observed diameter drift. Disposition: sort the full 500-unit batch to separate conforming from non-conforming units before release; do not ship as-is. Corrective action: change the cutting tool immediately, and flag the parts shortage that delayed the scheduled change to the maintenance planning team to prevent recurrence on other stations.",
+      "reasoning": "A complete non-conformance report states the statistical pattern and sample evidence, names the specific root cause, gives a clear batch disposition, and includes a corrective action addressing the systemic cause (the parts shortage), not just the immediate symptom (the worn tool).",
+      "tip": "Always state both the immediate corrective action (change the tool now) and the systemic corrective action (fix the parts shortage that caused the delay) — fixing only the immediate symptom risks the same tool-change delay recurring on the next scheduled interval.",
+      "mistake": "An NCR that only says 'batch out of spec, sorted' without identifying the root cause or systemic contributing factor gives the plant no way to prevent the same problem from recurring on the next batch or station.",
+      "recommendation": "Follow up on whether the parts shortage that delayed this tool change has been resolved — if not, other stations running the same tool type are at risk of the identical drift pattern."
+    },
+    {
+      "id": "task-6-cpk-excel",
+      "type": "excel-upload",
+      "title": "Process Capability Check (Excel)",
+      "prompt": "Three more stations need their sample defect rate projected to full batch size the same way. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "Batch-Defect-Template.xlsx",
+        "sheetName": "Batch Defects",
+        "headers": [
+          "Station",
+          "Sample Size",
+          "Defects in Sample",
+          "Batch Size",
+          "Projected Batch Defects"
+        ],
+        "rows": [
+          [
+            "Station 7",
+            "40",
+            "2",
+            "400",
+            ""
+          ],
+          [
+            "Station 9",
+            "60",
+            "9",
+            "600",
+            ""
+          ],
+          [
+            "Station 12",
+            "30",
+            "1",
+            "300",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "E2",
+          "expected": 20,
+          "tolerance": 1,
+          "label": "Station 7 projected defects (2/40 x 400)"
+        },
+        {
+          "cell": "E3",
+          "expected": 90,
+          "tolerance": 2,
+          "label": "Station 9 projected defects (9/60 x 600, the highest rate — priority for investigation)"
+        },
+        {
+          "cell": "E4",
+          "expected": 10,
+          "tolerance": 1,
+          "label": "Station 12 projected defects (1/30 x 300)"
+        }
+      ],
+      "reasoning": "Projecting sample defect rate to full batch size consistently across every station, not just the one already flagged, is what reveals Station 9 has both the highest rate and highest projected defect count — clear priority for QA attention.",
+      "tip": "Always project sample defect rates to full batch size using the formula (defects/sample x batch size) — comparing raw sample defect counts across stations with different sample and batch sizes can be misleading without this projection.",
+      "mistake": "Comparing raw defect counts (2 vs. 9 vs. 1) without projecting to batch size can understate how serious Station 9's problem actually is relative to its full 600-unit batch.",
+      "recommendation": "Rank stations by projected batch-wide defect count when allocating QA investigation time — it's a more accurate priority signal than raw sample defect counts alone."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Batch Released Under Deadline Pressure",
+    "background": "On an earlier Atlas shift, a QA engineer released a batch showing a similar upward control chart trend under pressure to hit a shipment deadline, reasoning the sample defect rate was 'probably still acceptable' without projecting it to the full batch — the batch shipped with a confirmed 15% non-conformance rate, resulting in a customer return of the entire shipment.",
+    "client": "Precision Components Plant (an earlier shift)",
+    "budget": "Cost of the customer return and re-shipment: approximately $85,000, plus damaged customer trust",
+    "timeline": "Discovered when the customer's own incoming inspection caught the defect rate, days after shipment",
+    "challenges": "Because the batch was released under schedule pressure without a proper sample projection or root cause investigation, the true scale of the problem (well above an acceptable threshold) wasn't recognized until the customer caught it.",
+    "constraints": "The customer required a full corrective action report and additional inspection audits on subsequent shipments for several months, extending the relationship damage well beyond the immediate cost.",
+    "questions": [
+      "Why is schedule pressure not a valid reason to skip a batch disposition decision based on control chart and sample data?",
+      "What specific calculation would have revealed the batch was not acceptable to ship?",
+      "How did the cost of shipping the bad batch compare to the cost of the delay that releasing it was meant to avoid?"
+    ],
+    "solution": "Atlas Manufacturing instituted a rule that any batch showing a control chart trend pattern (not just a single point) must be sampled and projected to full batch size before any release decision, regardless of shipment deadline pressure.",
+    "lessonsLearned": "Schedule pressure to release a batch is never a valid substitute for reading the actual control chart pattern and sample data — the cost of shipping a genuinely non-conforming batch, once a customer catches it, is almost always far higher than the cost of the delay that skipping proper disposition was meant to avoid."
+  },
+  "quiz": [
+    {
+      "q": "A steady, multi-point upward trend on a control chart (versus a single spike) indicates:",
+      "options": [
+        "Random noise, no action needed",
+        "A progressive, ongoing cause worth investigating, like tool wear"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "If 6 of 50 sampled units are out of spec, the estimated defect rate for the full batch is:",
+      "options": [
+        "6 units regardless of batch size",
+        "12%, applied proportionally to the full batch size"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A cutting tool running significantly beyond its standard change interval is a common cause of:",
+      "options": [
+        "Random, unpredictable defects",
+        "Progressive dimensional drift, consistent with a control chart trend"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A batch with a confirmed non-conformance rate should be:",
+      "options": [
+        "Released as-is to meet shipment deadlines",
+        "Sorted to separate conforming from non-conforming units before any release"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did the inspection-only fix appear successful for months?",
+      "options": [
+        "The root cause was actually fixed",
+        "Customer complaints stopped because defects were caught internally, masking that the underlying problem was unresolved"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to project a sample rate to the full batch rather than reacting to the raw sample count alone? Why did that projection matter for the decision?",
+      "The case study shows a batch released under deadline pressure costing far more than the delay it avoided. Where else might a short-term shortcut end up costing more than the delay it was meant to prevent?",
+      "If you were Yuki, what one rule would you make standing so a batch is never released based on schedule pressure alone, regardless of chart pattern?"
+    ]
+  },
+  "certificate": {
+    "name": "Production QA/QC Engineer — Control Chart Analysis & Batch Disposition",
+    "nameAz": "İstehsalat Keyfiyyət Mühəndisi — Nəzarət Cədvəli Təhlili",
+    "totalXp": 275
+  }
+}

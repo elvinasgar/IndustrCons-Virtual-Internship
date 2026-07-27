@@ -1,0 +1,282 @@
+{
+  "id": "accountant-acca-ledger",
+  "title": "Accountant (ACCA Track)",
+  "companyId": "ledger-and-co",
+  "category": "Accounting & Finance",
+  "difficulty": "Intermediate",
+  "durationHours": 8,
+  "drawingTag": "ACC-052",
+  "skills": [
+    "Reconciliation",
+    "Financial Reporting",
+    "Variance Analysis"
+  ],
+  "companyIntro": {
+    "name": "Ledger & Co.",
+    "country": "United Kingdom",
+    "founded": 1988,
+    "mission": "Accurate, defensible financial reporting for mid-sized clients — no shortcuts, no surprises at audit time.",
+    "culture": "Precise and process-driven. Accountants are expected to explain any number they report, not just produce it.",
+    "projects": [
+      "Q3 Multi-Client Reconciliation Cycle",
+      "Internal Controls Modernization",
+      "SME Audit Readiness Program"
+    ]
+  },
+  "projectBackground": {
+    "name": "Client Account Reconciliation — Month-End Close",
+    "client": "Riverside Manufacturing Ltd. (client)",
+    "location": "Client site, month-end close",
+    "budget": "N/A — monthly close engagement",
+    "timeline": "Close due in 3 days",
+    "context": "The client's bank reconciliation shows a £14,300 unexplained difference between the bank statement balance and the general ledger cash balance. Meanwhile, the department head is asking why marketing spend came in 18% over budget this quarter, and needs an explanation before the board meeting."
+  },
+  "manager": {
+    "name": "Priya Nair",
+    "role": "Senior Accountant, Ledger & Co.",
+    "note": "A £14,300 gap doesn't close itself, and 'it's probably a timing difference' isn't an answer I'll accept without you actually tracing it. Find the specific items causing it, and separately, give the client a real answer on marketing, not just a percentage."
+  },
+  "assignment": {
+    "title": "Reconcile the bank gap and explain the budget variance",
+    "brief": "Trace the bank reconciliation difference to specific items, calculate the marketing budget variance and its drivers, and prepare both explanations for the month-end close."
+  },
+  "documents": [
+    {
+      "id": "doc-bank-statement",
+      "name": "Bank Statement — Month-End Balance",
+      "type": "Bank Statement",
+      "note": "Bank statement closing balance: £182,450. General ledger cash balance: £168,150. Difference: £14,300."
+    },
+    {
+      "id": "doc-outstanding-items",
+      "name": "Outstanding Items Log",
+      "type": "Reconciliation Data",
+      "note": "3 outstanding cheques not yet cleared totaling £6,200. A bank charge of £180 was deducted by the bank but not yet recorded in the ledger. A customer payment of £8,720 was received directly into the bank account but not yet recorded as a receipt in the ledger."
+    },
+    {
+      "id": "doc-marketing-budget",
+      "name": "Marketing Budget vs. Actual — Q3",
+      "type": "Budget Report",
+      "note": "Budgeted marketing spend: £45,000. Actual spend: £53,100. A one-time £7,200 trade show sponsorship, not in the original budget, accounts for a significant portion of the overage."
+    },
+    {
+      "id": "doc-recon-template",
+      "name": "Reconciliation & Variance Report — Template",
+      "type": "Template",
+      "note": "Fields: reconciling items, adjusted balances, variance amount, variance driver, recommendation."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-recon-calc",
+      "type": "numeric",
+      "title": "Bank Reconciliation Calculation",
+      "prompt": "Starting from the bank balance of £182,450, subtracting outstanding cheques of £6,200, what is the adjusted bank balance?",
+      "answer": 176250,
+      "tolerance": 50,
+      "unit": "GBP",
+      "xp": 40,
+      "workingNote": "£182,450 - £6,200 = £176,250.",
+      "reasoning": "Adjusting the bank balance for outstanding cheques (issued but not yet cleared) is a standard first reconciliation step — cheques already recorded in the ledger as paid, but not yet cleared by the bank, should be subtracted from the bank statement balance to get to a comparable figure.",
+      "tip": "Always adjust the bank statement side for outstanding cheques and deposits in transit before comparing to the ledger — the two balances shouldn't be expected to match until both sides reflect the same set of transactions.",
+      "mistake": "Comparing the raw bank statement balance directly to the ledger balance without adjusting for outstanding items will always show a difference, even when there's no actual error — this is a normal timing difference, not evidence of a problem, until other unexplained items remain.",
+      "recommendation": "Keep a running outstanding items list updated each month — it's what makes each month's reconciliation faster and reveals whether the same cheques are outstanding for suspiciously long periods."
+    },
+    {
+      "id": "task-2-ledger-calc",
+      "type": "numeric",
+      "title": "Ledger Adjustment Calculation",
+      "prompt": "Starting from the ledger balance of £168,150, adding the unrecorded customer payment of £8,720 and subtracting the unrecorded bank charge of £180, what is the adjusted ledger balance?",
+      "answer": 176690,
+      "tolerance": 50,
+      "unit": "GBP",
+      "xp": 45,
+      "workingNote": "£168,150 + £8,720 - £180 = £176,690.",
+      "reasoning": "Adjusting the ledger side for items the bank has already processed but the ledger hasn't yet recorded (the customer payment and bank charge) is the other half of a proper reconciliation — both sides need adjusting before comparing them.",
+      "tip": "Always identify items known to the bank but not yet recorded in the ledger (direct receipts, bank charges, direct debits) and adjust the ledger balance accordingly — this is symmetrical to adjusting the bank side for outstanding items.",
+      "mistake": "Focusing only on adjusting the bank side (outstanding cheques) while ignoring items missing from the ledger side (the unrecorded receipt and charge) will still leave an unexplained gap even after doing half the reconciliation correctly.",
+      "recommendation": "Once identified, ensure the unrecorded customer payment and bank charge are actually posted as journal entries in the ledger, not just accounted for on the reconciliation worksheet — the worksheet explains the gap, but the ledger itself needs correcting."
+    },
+    {
+      "id": "task-3-recon-check",
+      "type": "mcq",
+      "title": "Confirming the Reconciliation",
+      "prompt": "After both adjustments, the bank side shows £176,250 and the ledger side shows £176,690 — a remaining £440 difference. What should happen next?",
+      "options": [
+        "Accept the remaining £440 as normal rounding and close the books",
+        "Continue investigating — a reconciliation should tie out to zero (or to a specifically identified remaining item); an unexplained £440 gap after adjusting for all known items needs its own investigation, not dismissal as rounding",
+        "Split the £440 difference evenly between the two balances",
+        "Use whichever of the two balances is more convenient for the close and ignore the other"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "A proper reconciliation should tie out exactly once all known reconciling items are accounted for — an unexplained £440 remainder after adjusting for the outstanding cheques, unrecorded receipt, and bank charge indicates there's still an unidentified item (perhaps another transaction, a data entry error, or a further outstanding item) that needs to be found, not dismissed as rounding.",
+      "tip": "Never accept a remaining reconciliation gap as 'probably rounding' without specifically identifying what it is — a genuine reconciliation should tie to zero once every reconciling item is properly accounted for.",
+      "mistake": "Closing the books with an unexplained £440 gap, even a small one relative to the original £14,300, leaves an unverified discrepancy in the accounts that could indicate a real, uninvestigated error.",
+      "recommendation": "Keep investigating until every pound of the original difference is specifically explained by an identified item — this is what makes a reconciliation defensible if ever reviewed by an auditor."
+    },
+    {
+      "id": "task-4-variance-calc",
+      "type": "numeric",
+      "title": "Marketing Budget Variance",
+      "prompt": "Budgeted marketing spend is £45,000, actual is £53,100. What is the variance, and as a percentage of budget?",
+      "answer": 18.0,
+      "tolerance": 0.3,
+      "unit": "% over budget",
+      "xp": 45,
+      "workingNote": "(£53,100 - £45,000) / £45,000 x 100 = 18.0% over budget (£8,100 over in absolute terms).",
+      "reasoning": "Calculating the variance both in absolute terms (£8,100) and as a percentage (18%) gives a complete picture — the percentage shows relative significance, while the absolute figure shows the real pound impact that needs explaining.",
+      "tip": "Always report a budget variance in both absolute and percentage terms — a department head or board member may find one framing more immediately meaningful than the other, and both are useful for different follow-up questions.",
+      "mistake": "Reporting only the percentage variance (18% over) without the absolute figure (£8,100) can make a variance seem more or less significant than its actual pound impact on the business.",
+      "recommendation": "Cross-check whether the identified driver (the £7,200 trade show sponsorship) fully explains the variance, or whether a remaining unexplained amount needs further investigation, similar to the bank reconciliation approach."
+    },
+    {
+      "id": "task-5-variance-explain",
+      "type": "text",
+      "title": "Variance Explanation Memo",
+      "prompt": "Write the memo (3-5 sentences) explaining the marketing variance to the department head, ahead of the board meeting.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "Marketing spend came in at £53,100 against a £45,000 budget, an 18% (£8,100) overage. The primary driver is a one-time £7,200 trade show sponsorship that was not included in the original Q3 budget, accounting for 89% of the total overage; the remaining £900 reflects minor variances across other marketing line items within normal range. This overage is a one-time event tied to a specific, identifiable opportunity rather than a systemic budget control issue, and I'd recommend the board presentation frame it this way rather than as an unexplained cost overrun. Going forward, I recommend a standing practice of adding a small contingency line for one-time sponsorship opportunities in future marketing budgets, so similar decisions don't automatically register as a variance against the baseline budget.",
+      "reasoning": "A strong variance explanation identifies the specific driver, quantifies how much of the variance it explains (89% here), and distinguishes a one-time, explainable event from a systemic budget control problem — this is what lets the department head walk into the board meeting with a credible, specific answer rather than a vague apology for being over budget.",
+      "tip": "Always calculate what percentage of a variance a specific driver actually explains (here, 89%) rather than just naming the driver — it shows the explanation is complete, not just a partial excuse, and flags if a meaningful unexplained portion remains.",
+      "mistake": "A variance explanation that only reports the percentage over budget, without identifying the specific driving event, leaves the department head unable to answer the board's inevitable follow-up question of 'why.'",
+      "recommendation": "Propose a forward-looking process improvement (the contingency line) alongside the explanation — it shows the accounting function is helping prevent the same kind of variance surprise next quarter, not just explaining this one after the fact."
+    },
+    {
+      "id": "task-6-recon-excel",
+      "type": "excel-upload",
+      "title": "Multi-Account Reconciliation Tracker (Excel)",
+      "prompt": "Three more client accounts need their reconciling items calculated the same way. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "Reconciliation-Template.xlsx",
+        "sheetName": "Reconciliation",
+        "headers": [
+          "Account",
+          "Bank Balance (GBP)",
+          "Outstanding Cheques (GBP)",
+          "Unrecorded Receipts (GBP)",
+          "Adjusted Balance (GBP)"
+        ],
+        "rows": [
+          [
+            "Client B - Operating",
+            "95000",
+            "3200",
+            "0",
+            ""
+          ],
+          [
+            "Client C - Payroll",
+            "42000",
+            "0",
+            "1500",
+            ""
+          ],
+          [
+            "Client D - Reserve",
+            "210000",
+            "8900",
+            "4200",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "E2",
+          "expected": 91800,
+          "tolerance": 50,
+          "label": "Client B adjusted balance (95,000-3,200)"
+        },
+        {
+          "cell": "E3",
+          "expected": 43500,
+          "tolerance": 50,
+          "label": "Client C adjusted balance (42,000+1,500)"
+        },
+        {
+          "cell": "E4",
+          "expected": 205300,
+          "tolerance": 50,
+          "label": "Client D adjusted balance (210,000-8,900+4,200)"
+        }
+      ],
+      "reasoning": "Applying the same reconciliation adjustment logic (subtract outstanding cheques, add unrecorded receipts) consistently across every client account is what a firm managing multiple client reconciliations needs to keep month-end close accurate and efficient across the full client base.",
+      "tip": "Build the adjusted balance formula consistently as (bank balance - outstanding cheques + unrecorded receipts) for every account — a consistent formula structure reduces the chance of an error when reconciling many accounts under month-end time pressure.",
+      "mistake": "Handling each client account's reconciliation with an ad-hoc, un-templated approach increases the risk of an inconsistent or overlooked adjustment across a busy multi-client close cycle.",
+      "recommendation": "Maintain this reconciliation tracker as the standing monthly template for every client — it's what makes a multi-client close cycle both faster and more consistent in quality across accounts."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Reconciliation Closed With a Gap",
+    "background": "On an earlier Ledger & Co. engagement, a junior accountant closed a client's books with a small £310 unreconciled difference, noting it as 'immaterial rounding' without investigation — during the annual audit, the auditor traced it to a duplicate posting error that, while small in this instance, indicated a systemic double-entry issue affecting several other accounts across the year.",
+    "client": "An earlier SME client engagement",
+    "budget": "Audit finding requiring re-review of affected accounts across the full year, adding significant unplanned audit fees for the client",
+    "timeline": "Discovered during annual audit, months after the original month-end close where it was dismissed as immaterial",
+    "challenges": "Because the £310 gap was dismissed as immaterial rounding rather than investigated at month-end, the systemic duplicate-posting issue causing it continued undetected and affected multiple subsequent months.",
+    "constraints": "The audit finding required Ledger & Co. to re-examine the client's full year of postings, a costly and time-consuming process that would have been a five-minute investigation at the original month-end close.",
+    "questions": [
+      "Why might a small unreconciled amount be dismissed as 'immaterial' rather than investigated, and why is that risky?",
+      "What habit would have caught the duplicate posting error at the original month-end close?",
+      "How did the cost of the audit finding compare to the cost of investigating fully at the time?"
+    ],
+    "solution": "Ledger & Co. mandated that every reconciliation must tie to exactly zero, with every reconciling item specifically identified, before a close can be marked complete — no remaining difference may be dismissed as immaterial without being specifically traced.",
+    "lessonsLearned": "A small unreconciled amount dismissed as 'immaterial rounding' can be hiding a systemic error that compounds across subsequent periods — the discipline of tracing every reconciling item to zero, regardless of how small the remaining gap seems, is what actually protects against a much larger, costlier problem being discovered much later."
+  },
+  "quiz": [
+    {
+      "q": "A bank reconciliation should generally be adjusted for:",
+      "options": [
+        "Only items on the bank statement side",
+        "Both outstanding items on the bank side and unrecorded items on the ledger side"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "After adjusting both sides of a reconciliation, a remaining unexplained difference should be:",
+      "options": [
+        "Accepted as normal rounding if it's small",
+        "Investigated further and specifically identified, regardless of size"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A budget variance explanation should ideally include:",
+      "options": [
+        "Only the percentage over/under budget",
+        "Both the specific driver and what percentage of the variance it explains"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A one-time, identifiable variance driver (like a trade show sponsorship) should be:",
+      "options": [
+        "Treated the same as a systemic budget control failure",
+        "Distinguished from a systemic issue, since it reflects a specific, explainable event"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did a small £310 gap lead to a costly audit finding months later?",
+      "options": [
+        "It was investigated immediately and found to be nothing",
+        "It was dismissed as immaterial rounding rather than traced, allowing a systemic duplicate-posting issue to continue undetected"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to keep investigating a small remaining gap rather than accepting it as rounding? Why does that discipline matter?",
+      "The case study shows a small dismissed gap leading to a costly audit finding months later. Where else might a small, unexplained inconsistency actually be hiding a bigger, systemic issue?",
+      "If you were Priya, what one rule would you make standing so a reconciliation is never closed with an unexplained remaining difference, however small?"
+    ]
+  },
+  "certificate": {
+    "name": "Accountant (ACCA Track) — Reconciliation & Variance Analysis",
+    "nameAz": "Mühasib (ACCA) — Uzlaşdırma və Fərq Təhlili",
+    "totalXp": 290
+  }
+}

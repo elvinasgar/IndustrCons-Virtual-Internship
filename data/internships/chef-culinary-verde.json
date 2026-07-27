@@ -1,0 +1,286 @@
+{
+  "id": "chef-culinary-verde",
+  "title": "Chef — Culinary Operations",
+  "companyId": "verde-hospitality-group",
+  "category": "Culinary",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "drawingTag": "CHEF-021",
+  "skills": [
+    "Recipe Costing",
+    "Kitchen Workflow",
+    "Menu Engineering"
+  ],
+  "companyIntro": {
+    "name": "Verde Hospitality Group",
+    "country": "Italy",
+    "founded": 2012,
+    "mission": "Consistently excellent guest experience across a growing group of restaurants, without losing what makes each one distinct.",
+    "culture": "Fast-paced and craft-proud. Chefs are expected to protect quality and margin at the same time, not sacrifice one for the other.",
+    "projects": [
+      "Verde Trattoria Relaunch",
+      "Riviera Rooftop Restaurant Opening",
+      "Group-Wide Menu Standardization"
+    ]
+  },
+  "projectBackground": {
+    "name": "Verde Trattoria — Menu Cost Re-Engineering",
+    "client": "Verde Trattoria (flagship location)",
+    "location": "Verde Trattoria kitchen",
+    "budget": "Target food cost: 30% of menu price per dish",
+    "timeline": "This week, ahead of new menu print",
+    "context": "A key supplier just raised prices on a core ingredient by 22%, and the current bestselling pasta dish's food cost percentage is now above target. Meanwhile, ticket times for that same dish have been running long during dinner rush, frustrating both kitchen staff and guests."
+  },
+  "manager": {
+    "name": "Chef Marco Bianchi",
+    "role": "Executive Chef, Verde Hospitality Group",
+    "note": "I'm not dropping quality on our best-selling dish to save a few cents, but I'm also not pretending a 22% supplier increase doesn't matter. Find a way to protect the margin and fix why this dish is slow to plate — both, not just one."
+  },
+  "assignment": {
+    "title": "Re-cost the bestseller and fix its kitchen workflow bottleneck",
+    "brief": "Recalculate the dish's food cost after the price increase, identify the workflow bottleneck causing long ticket times, and propose changes that protect both margin and plating speed."
+  },
+  "documents": [
+    {
+      "id": "doc-recipe-cost",
+      "name": "Recipe Cost Card — Signature Pasta Dish",
+      "type": "Recipe Card",
+      "note": "Current ingredients cost €4.20/plate at old prices, sold at €14.00 (30% food cost). The supplier's 22% increase applies to a cheese ingredient representing €1.80 of the total ingredient cost."
+    },
+    {
+      "id": "doc-ticket-times",
+      "name": "Ticket Time Log — Signature Pasta, Dinner Service",
+      "type": "Kitchen Log",
+      "note": "Average ticket time for this dish has risen to 11 minutes during dinner rush, against a 7-minute target, while other pasta dishes on the menu remain within target."
+    },
+    {
+      "id": "doc-station-workflow",
+      "name": "Kitchen Station Workflow — Pasta Station",
+      "type": "Workflow Map",
+      "note": "The dish requires the pasta station to plate, then walk to the garnish station 4 meters away for a finishing garnish, then return to pass — this back-and-forth adds an estimated 45 seconds per plate during rush."
+    },
+    {
+      "id": "doc-menu-template",
+      "name": "Menu Cost & Workflow Fix — Template",
+      "type": "Template",
+      "note": "Fields: new food cost %, pricing/recipe adjustment, workflow fix, expected ticket time improvement."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-newcost",
+      "type": "numeric",
+      "title": "Recalculating Food Cost After Price Increase",
+      "prompt": "The cheese ingredient (€1.80 of the €4.20 total) increases by 22%. What is the new total ingredient cost per plate?",
+      "answer": 4.6,
+      "tolerance": 0.05,
+      "unit": "EUR",
+      "xp": 35,
+      "workingNote": "€1.80 x 1.22 = €2.196 (cheese cost after increase). New total = €4.20 - €1.80 + €2.196 = €4.60 (rounded).",
+      "reasoning": "Recalculating only the affected ingredient's new cost and adding it back into the total is more precise than assuming the whole recipe cost rose by 22% — the increase applies only to the cheese, not the other ingredients in the dish.",
+      "tip": "Always isolate which specific ingredient a price increase applies to, and recalculate just that portion, rather than applying the percentage increase to the entire recipe cost.",
+      "mistake": "Applying a 22% increase to the full €4.20 recipe cost (rather than just the €1.80 cheese portion) would overstate the actual cost impact and could lead to an unnecessarily large price increase or recipe change.",
+      "recommendation": "Keep each ingredient's cost broken out separately on the recipe card, not just a single total — it's what makes recalculating after a single-ingredient price change fast and accurate."
+    },
+    {
+      "id": "task-2-newpct",
+      "type": "numeric",
+      "title": "New Food Cost Percentage",
+      "prompt": "At the current €14.00 menu price, what is the new food cost percentage with the €4.60 ingredient cost?",
+      "answer": 32.9,
+      "tolerance": 0.3,
+      "unit": "%",
+      "xp": 40,
+      "workingNote": "€4.60 / €14.00 x 100 = 32.9%.",
+      "reasoning": "Recalculating the actual percentage against the current menu price (not just noting 'costs went up') is what confirms exactly how far the dish has drifted from the 30% target — 32.9% is a specific, actionable number rather than a vague sense that margin has worsened.",
+      "tip": "Always recalculate the full food cost percentage after any ingredient price change, rather than estimating — a precise number is what determines whether a menu price adjustment, recipe tweak, or supplier renegotiation is the right-sized response.",
+      "mistake": "Reacting to 'the supplier raised prices' without recalculating the actual resulting food cost percentage risks either overreacting (unnecessarily changing a dish that's still close to target) or underreacting (leaving a dish meaningfully over target unaddressed).",
+      "recommendation": "Recheck this percentage again after implementing any fix (price adjustment, recipe tweak) to confirm it actually returns to the 30% target, not just that it's been addressed in some general sense."
+    },
+    {
+      "id": "task-3-margin-options",
+      "type": "multiselect",
+      "title": "Margin Protection Options",
+      "prompt": "Select every option worth genuinely evaluating to bring this dish back toward the 30% target without sacrificing quality.",
+      "options": [
+        "Modestly increase the menu price to reflect the genuine, quantifiable increase in ingredient cost",
+        "Substitute the cheese with a lower-quality alternative without telling guests, to hide the cost increase",
+        "Slightly adjust the garnish or portion of a lower-impact ingredient elsewhere in the dish, preserving the core flavor profile",
+        "Absorb the entire cost increase without any menu or recipe change, protecting price at the expense of margin indefinitely",
+        "Discuss with the supplier whether a different cut or grade of the same cheese type could reduce cost while maintaining acceptable quality"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        4
+      ],
+      "xp": 45,
+      "reasoning": "A reasonable response includes a modest, justified price increase, a thoughtful adjustment to a lower-impact part of the recipe (not the ingredient that makes the dish special), and exploring supplier options for cost-effective quality. Secretly downgrading quality misleads guests and risks damaging trust if noticed, while absorbing the full cost indefinitely sacrifices margin without limit and isn't sustainable business practice.",
+      "tip": "When addressing a cost increase, distinguish between the ingredient that defines the dish's identity (which shouldn't be secretly downgraded) and lower-impact components that can be adjusted without guests noticing a quality difference.",
+      "mistake": "Secretly substituting a lower-quality ingredient to hide a cost increase, rather than being transparent through pricing, risks a guest noticing the quality change and losing trust in the restaurant more broadly than a modest price increase ever would.",
+      "recommendation": "Combine multiple smaller levers (a modest price increase, a minor recipe adjustment, supplier discussion) rather than relying entirely on one — this typically protects both margin and guest-perceived quality better than a single large change to either."
+    },
+    {
+      "id": "task-4-bottleneck-chef",
+      "type": "mcq",
+      "title": "Diagnosing the Workflow Bottleneck",
+      "prompt": "The dish requires plating, then walking 4 meters to garnish, then returning to pass — adding 45 seconds per plate during rush. What's the most direct fix?",
+      "options": [
+        "Ask the kitchen staff to walk faster",
+        "Relocate the garnish station adjacent to the pasta plating station, eliminating the back-and-forth walk entirely",
+        "Remove the garnish from the dish entirely to save time",
+        "Hire an additional staff member to run the garnish back and forth instead"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "Eliminating the physical distance between plating and garnishing removes the actual root cause of the delay (unnecessary movement) rather than asking staff to move faster within an inefficient layout, removing quality from the dish, or adding labor cost to work around a fixable layout problem.",
+      "tip": "When a workflow delay is caused by physical distance between two required steps, the most durable fix is usually relocating stations to eliminate the movement, not asking staff to move faster through the same inefficient layout.",
+      "mistake": "Asking staff to simply work faster within a layout that requires unnecessary back-and-forth movement treats the symptom, not the actual physical root cause, and tends to increase stress and errors during a busy rush rather than genuinely fixing the delay.",
+      "recommendation": "Time the dish again after relocating the garnish station to confirm the expected 45-second improvement is actually realized — a layout fix should be verified with real ticket time data, not assumed effective."
+    },
+    {
+      "id": "task-5-plan-chef",
+      "type": "text",
+      "title": "Combined Margin & Workflow Plan",
+      "prompt": "Write your plan (3-5 sentences): the pricing/recipe adjustment and the workflow fix.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "Following the 22% cheese price increase, the dish's food cost has risen to 32.9% at the current €14.00 price; I recommend a modest price increase to €14.50, which brings food cost back to approximately 31.7%, combined with a small portion adjustment to a lower-impact side ingredient to close the remaining gap to 30% without touching the signature cheese that defines the dish. Separately, the 45-second delay caused by walking between the pasta and garnish stations will be addressed by relocating the garnish station directly adjacent to plating, eliminating the back-and-forth movement entirely. I'll time the dish again during next week's dinner service to confirm both the cost percentage and the ticket time have actually improved as expected, rather than assuming the changes worked based on the plan alone.",
+      "reasoning": "A strong combined plan addresses both problems (margin and workflow) with specific, calculated fixes rather than treating them as separate concerns, and includes a verification step — this is exactly what Chef Marco asked for: protecting quality and margin together, with confirmation that the fix actually worked.",
+      "tip": "Always verify a workflow fix with actual re-timed data, not just confidence that relocating a station 'should' help — real service conditions sometimes reveal a fix didn't fully solve the problem as expected.",
+      "mistake": "Addressing only the cost problem or only the workflow problem, when both were flagged as issues with the same dish, misses that Chef Marco specifically wants both protected together, not one sacrificed for the other.",
+      "recommendation": "Keep this recipe and workflow fix as a documented reference for the next supplier price change — showing exactly which levers were used (price, minor recipe tweak, layout) makes future cost pressure easier to respond to quickly."
+    },
+    {
+      "id": "task-6-recipe-excel",
+      "type": "excel-upload",
+      "title": "Multi-Dish Food Cost Tracker (Excel)",
+      "prompt": "Three more menu dishes need their food cost percentage recalculated after the same supplier price increase. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "Recipe-Cost-Template.xlsx",
+        "sheetName": "Food Cost",
+        "headers": [
+          "Dish",
+          "Ingredient Cost (EUR)",
+          "Menu Price (EUR)",
+          "Food Cost %"
+        ],
+        "rows": [
+          [
+            "Risotto ai Funghi",
+            "3.80",
+            "13.00",
+            ""
+          ],
+          [
+            "Branzino al Sale",
+            "7.20",
+            "24.00",
+            ""
+          ],
+          [
+            "Tiramisu",
+            "1.90",
+            "8.00",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 29.2,
+          "tolerance": 0.3,
+          "label": "Risotto food cost % (3.80/13.00) — within target"
+        },
+        {
+          "cell": "D3",
+          "expected": 30.0,
+          "tolerance": 0.3,
+          "label": "Branzino food cost % (7.20/24.00) — right at target"
+        },
+        {
+          "cell": "D4",
+          "expected": 23.8,
+          "tolerance": 0.3,
+          "label": "Tiramisu food cost % (1.90/8.00) — comfortably under target, healthy margin"
+        }
+      ],
+      "reasoning": "Calculating food cost percentage consistently across the full menu, not just the one dish already flagged, confirms which dishes are healthy (Tiramisu), on target (Branzino), or need attention — giving Chef Marco a complete picture rather than a single-dish fix in isolation.",
+      "tip": "Recalculate food cost percentage across the whole menu whenever a significant supplier price change occurs, even for dishes that don't use the affected ingredient — it's a good opportunity to confirm the rest of the menu's margins are still on target.",
+      "mistake": "Reacting only to the one dish that was flagged as a problem, without checking the rest of the menu, can miss that a supplier price change on a widely-used ingredient may have quietly pushed other dishes over target too.",
+      "recommendation": "Maintain this food cost percentage table as a living menu reference, updated whenever prices change — it's what lets a kitchen respond quickly and precisely to the next cost pressure, rather than starting the analysis from scratch each time."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Quiet Quality Downgrade",
+    "background": "On an earlier Verde location, a kitchen manager quietly substituted a lower-grade ingredient in a signature dish to protect margin after a price increase, without adjusting the menu price or informing anyone — a longtime regular guest noticed the change within weeks and posted about feeling 'deceived' in an online review, damaging the location's reputation for that specific dish going forward.",
+    "client": "Riviera Rooftop Restaurant Opening (an earlier menu decision)",
+    "budget": "Reputational cost: a widely-shared negative review specifically citing the ingredient downgrade, and a measurable drop in reorders of that dish for several months",
+    "timeline": "Substitution made quietly; discovered by a guest within weeks and made public shortly after",
+    "challenges": "Because the change was made without any transparency (no price adjustment, no menu note, no communication), guests who had a baseline expectation of the dish's quality noticed the difference and reasonably felt misled rather than informed.",
+    "constraints": "Recovering the dish's reputation required publicly reverting to the original ingredient and communicating that correction, at a higher cost than if a transparent price increase had simply been made from the start.",
+    "questions": [
+      "Why does secretly downgrading a dish's quality risk more damage than a transparent price increase would have?",
+      "What guest reaction should have been anticipated before the quiet substitution was made?",
+      "How does this connect to the transparent pricing and recipe-adjustment approach used in this internship's assignment?"
+    ],
+    "solution": "Verde Hospitality Group mandated that any ingredient substitution affecting a dish's core flavor identity must go through a documented approval process, with a clear preference for transparent price adjustment over quiet quality downgrades.",
+    "lessonsLearned": "Guests notice quality changes in dishes they know well, and a quiet downgrade to protect margin risks far more reputational damage, once discovered, than a modest and transparent price increase — protecting margin through pricing and thoughtful recipe adjustments (rather than hidden quality cuts) is both more honest and, in the long run, safer for the business."
+  },
+  "quiz": [
+    {
+      "q": "After a supplier price increase, recalculating the exact new food cost percentage (rather than estimating) is important because:",
+      "options": [
+        "It has no real value beyond a general sense of increased cost",
+        "It gives a precise, actionable number for deciding the right-sized response (pricing, recipe adjustment, or both)"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When protecting margin after a cost increase, it's best to:",
+      "options": [
+        "Secretly downgrade the ingredient that defines the dish's identity",
+        "Use a combination of a modest price increase and adjustments to lower-impact ingredients, preserving the dish's core identity"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A workflow delay caused by physical distance between two kitchen stations is best fixed by:",
+      "options": [
+        "Asking staff to move faster within the same layout",
+        "Relocating stations to eliminate the unnecessary movement, the root cause of the delay"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "After implementing a workflow or cost fix, it's important to:",
+      "options": [
+        "Assume the fix worked based on the plan alone",
+        "Re-verify with actual data (re-timed service, recalculated cost) that the fix achieved its intended result"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did the quiet ingredient downgrade cause more damage than a price increase would have?",
+      "options": [
+        "The downgrade was actually cheaper overall",
+        "A guest noticed the quality change and felt deceived, causing public reputational damage beyond what a transparent price adjustment would have risked"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to protect a dish's core identity while still addressing a real cost problem? What made that balance possible?",
+      "The case study shows a quiet quality downgrade causing more damage than an honest price increase would have. Where else might transparency about a necessary change be safer than trying to hide it?",
+      "If you were Chef Marco, what one rule would you set so a kitchen never secretly downgrades a signature dish's quality again?"
+    ]
+  },
+  "certificate": {
+    "name": "Chef — Recipe Costing & Kitchen Workflow",
+    "nameAz": "Aşpaz — Resept Xərcləməsi və Mətbəx İş Axını",
+    "totalXp": 280
+  }
+}

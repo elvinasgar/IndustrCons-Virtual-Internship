@@ -1,0 +1,286 @@
+{
+  "id": "leadership-fundamentals-atlas",
+  "title": "Leadership Fundamentals",
+  "companyId": "atlas-manufacturing",
+  "category": "Leadership",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "drawingTag": "LEAD-011",
+  "skills": [
+    "Delegation",
+    "Feedback Delivery",
+    "Decision Making"
+  ],
+  "companyIntro": {
+    "name": "Atlas Manufacturing",
+    "country": "South Korea",
+    "founded": 1999,
+    "mission": "World-class manufacturing discipline — including how first-time managers are developed to lead people, not just processes.",
+    "culture": "Direct but developmental. New managers are expected to make real calls early, with coaching support, not to wait for permission on everything.",
+    "projects": [
+      "Precision Components Line 4 Upgrade",
+      "Atlas EV Battery Housing Plant",
+      "Regional Distribution Hub"
+    ]
+  },
+  "projectBackground": {
+    "name": "First Team Lead Assignment — Shift Team of 6",
+    "client": "Internal management development",
+    "location": "Precision Components Plant, Line 4 shift team",
+    "budget": "N/A — first-time management assignment",
+    "timeline": "This week, ongoing team lead responsibilities",
+    "context": "You've just been promoted to shift team lead for a 6-person line crew. One experienced team member has been quietly missing quality checks, a newer member is asking for more responsibility, and you need to decide how to handle a scheduling conflict between two team members who both want the same day off."
+  },
+  "manager": {
+    "name": "Dae-hyun Jung",
+    "role": "Plant Operations Manager, Atlas Manufacturing",
+    "note": "Being promoted from the team to lead the team is the hardest transition there is. You're going to want to avoid the uncomfortable conversation about the missed quality checks — don't. And figure out how much you can actually delegate versus what still needs you."
+  },
+  "assignment": {
+    "title": "Handle your first week of real team leadership decisions",
+    "brief": "Address the missed quality checks with direct but fair feedback, decide how to handle the scheduling conflict, and identify what to delegate to the team member asking for more responsibility."
+  },
+  "documents": [
+    {
+      "id": "doc-quality-log",
+      "name": "Quality Check Log — Team Member Compliance",
+      "type": "Performance Data",
+      "note": "Experienced team member has skipped the required end-of-shift quality check log entry 4 of the last 10 shifts, though verbal reports suggest checks may have still been performed informally, just not documented."
+    },
+    {
+      "id": "doc-scheduling-request",
+      "name": "Time-Off Requests — Same Day Conflict",
+      "type": "Schedule Data",
+      "note": "Two team members both requested the same Saturday off; one submitted their request 2 weeks ago, the other submitted theirs yesterday. Only one can be off given minimum staffing requirements."
+    },
+    {
+      "id": "doc-growth-request",
+      "name": "Development Conversation Notes — Newer Team Member",
+      "type": "HR Note",
+      "note": "A newer, capable team member has asked for more responsibility, specifically mentioning interest in eventually training new hires, but has only been on the team for 3 months."
+    },
+    {
+      "id": "doc-feedback-template",
+      "name": "Feedback Conversation Planner — Template",
+      "type": "Template",
+      "note": "Fields: specific behavior observed, impact, desired change, and how you'll check in."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-feedback-approach",
+      "type": "mcq",
+      "title": "Addressing the Missed Quality Checks",
+      "prompt": "The experienced team member has skipped documenting quality checks 4 of 10 shifts, though checks may have still been done informally. What's the right first move?",
+      "options": [
+        "Let it go since the checks may have been done informally anyway",
+        "Have a direct, specific conversation citing the actual pattern (4 of 10 shifts) and explaining why documentation itself matters, separate from whether the check was informally done",
+        "Publicly call out the behavior in front of the team to make an example",
+        "Assume malicious intent and escalate directly to disciplinary action"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "A direct conversation citing the specific pattern (not a vague 'I've noticed some things') is the right first step for a new team lead — it addresses the actual behavior professionally and explains why documentation matters (traceability, accountability, audit readiness) even if the underlying check may have been performed, without either ignoring it or overreacting with public callout or premature escalation.",
+      "tip": "As a new team lead, address performance patterns directly and specifically in a private conversation before considering any escalation — most performance gaps are coaching opportunities, not disciplinary matters, especially on a first occurrence pattern like this.",
+      "mistake": "Letting a documented pattern like this go because the work 'was probably still done informally' misses that documentation itself often has a real purpose (accountability, traceability) that an experienced team member should already understand, and ignoring it early makes addressing it later much harder.",
+      "recommendation": "Prepare specific examples (dates, shifts) before any feedback conversation — citing the actual pattern, not just a general impression, is what makes feedback feel evidence-based rather than personal or vague."
+    },
+    {
+      "id": "task-2-feedback-script",
+      "type": "text",
+      "title": "Feedback Conversation Plan",
+      "prompt": "Write your plan (3-5 sentences) for the conversation with the experienced team member about the missed quality checks.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "I've noticed the end-of-shift quality check log hasn't been completed on 4 of the last 10 shifts — I want to understand what's been happening and make sure we're both on the same page about why the documentation matters, not just the check itself, since it's what protects both of us if a quality issue is ever traced back to a shift. I'm not assuming anything went wrong technically, but the log itself is part of the process, and I need it completed every shift going forward. Is there something making the documentation step harder to complete that I should know about — timing, competing priorities, or something else? Let's check in again in two weeks to see how it's going, and I appreciate you being straight with me about what's actually going on.",
+      "reasoning": "A good feedback conversation states the specific pattern factually, explains why the specific requirement (documentation, not just the underlying check) matters, invites the other person's perspective on what's actually happening, and sets a follow-up — this combination respects the person while being clear about the expected change.",
+      "tip": "Ask an open question about what's driving the behavior ('is there something making this harder?') rather than only delivering the correction — as a new team lead, understanding the actual cause (competing priorities, unclear expectations, etc.) often reveals something worth addressing beyond just repeating the rule.",
+      "mistake": "Assuming the worst about an experienced team member's intent, without first asking what's actually happening, can turn a coachable moment into an unnecessarily adversarial one right at the start of a new leadership relationship.",
+      "recommendation": "Always set a specific follow-up point (here, two weeks) after a feedback conversation — it signals the conversation is the start of a change, not a one-time reprimand, and gives you both a natural checkpoint to confirm things have actually improved."
+    },
+    {
+      "id": "task-3-scheduling",
+      "type": "mcq",
+      "title": "Resolving the Scheduling Conflict",
+      "prompt": "Two team members want the same Saturday off; one requested 2 weeks ago, the other yesterday. Only one can be off. What's the fairest approach?",
+      "options": [
+        "Give it to whoever asks again most persistently",
+        "Grant it to the team member who requested first (2 weeks ago), applying a clear, consistent, and explainable rule (first-come, first-served) rather than an ad-hoc judgment call",
+        "Flip a coin to avoid making a decision",
+        "Deny both requests to avoid any appearance of favoritism"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "Applying a clear, consistent, explainable rule (first-request-received) is the fairest approach precisely because it's not a subjective judgment call about whose reason is more valid — it's a rule you can apply the same way every time, which is what builds trust in a new team lead's decision-making over time.",
+      "tip": "Establish and communicate a consistent rule for resolving scheduling conflicts (like first-request-received) before you need it in a high-stakes moment — having a known, standing policy is what makes individual decisions feel fair rather than arbitrary.",
+      "mistake": "Making an ad-hoc judgment call each time a conflict arises, without a consistent underlying rule, risks the appearance (or reality) of favoritism, especially damaging for a first-time team lead still building credibility with the team.",
+      "recommendation": "Communicate the rule you used (first-request-received) to both team members when explaining the decision — transparency about the reasoning, not just the outcome, is what makes even a disappointing decision feel fair."
+    },
+    {
+      "id": "task-4-delegation",
+      "type": "multiselect",
+      "title": "Delegation Decision",
+      "prompt": "The newer team member (3 months in) wants more responsibility, specifically training new hires. Select every appropriate action.",
+      "options": [
+        "Give them full responsibility for training new hires immediately, since they asked for it directly",
+        "Have them shadow and assist with the next new hire's training under your supervision, as a stepping stone before full ownership",
+        "Tell them to wait at least a year before any additional responsibility, regardless of readiness",
+        "Acknowledge their interest directly and give them a clear, specific path toward the goal, including what needs to be demonstrated first",
+        "Ignore the request since they're too new to be taken seriously"
+      ],
+      "correctIndices": [
+        1,
+        3
+      ],
+      "xp": 45,
+      "reasoning": "A reasonable delegation approach gives a capable but still-developing team member a graduated path (shadowing/assisting first) rather than full immediate ownership of training new hires, and communicates that path clearly rather than dismissing or indefinitely deferring the request. Immediately handing over full training responsibility skips necessary development, while an arbitrary blanket 'wait a year' rule or ignoring the request outright both fail to engage with the person's actual demonstrated interest and capability.",
+      "tip": "When someone asks for more responsibility, look for a graduated step (shadowing, assisting, partial ownership) rather than an all-or-nothing decision — this lets you assess readiness in a lower-risk way while still genuinely responding to their interest.",
+      "mistake": "Dismissing a capable team member's request for growth, or setting an arbitrary time-based rule unrelated to actual demonstrated readiness, risks disengaging someone who's shown real initiative — a clear, specific path forward is a much stronger response than either extreme.",
+      "recommendation": "Give a specific, named next step and what would need to be demonstrated before further responsibility — vague encouragement ('we'll see') is far less motivating and less actionable than 'shadow the next new hire training, and if that goes well, we'll talk about you leading the one after.'"
+    },
+    {
+      "id": "task-5-delegation-plan",
+      "type": "text",
+      "title": "Delegation Response",
+      "prompt": "Write your response (3-5 sentences) to the team member asking for more responsibility.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "I really appreciate you raising this directly — it tells me you're thinking about where you want to grow, and training new hires is a great direction to consider. Given you're 3 months in, I'd like you to shadow and assist with the next new hire's onboarding under my direct supervision, so you get exposure to how we structure training here and I can see how it goes. If that goes well, I'd be glad to have you lead the training for the hire after that, with me available for support rather than directly running it. Let's plan for you to start shadowing within the next few weeks — I want this to be a real path, not just something we talked about once.",
+      "reasoning": "A strong delegation response validates the person's initiative, proposes a specific graduated step rather than an all-or-nothing answer, and commits to a concrete timeline — this combination is what makes the response feel like a genuine opportunity rather than a polite deferral.",
+      "tip": "Always give a specific timeframe for the first step (here, 'within the next few weeks') rather than an open-ended 'sometime soon' — vague timelines are often how genuine development opportunities quietly never actually happen.",
+      "mistake": "A response that only says 'let's see how it goes' without a specific next step and timeline risks the team member feeling like their initiative was acknowledged politely but not actually acted upon.",
+      "recommendation": "Follow through on the specific timeline you commit to — a new team lead's credibility on delegation promises is built or lost based on whether stated next steps actually happen when promised."
+    },
+    {
+      "id": "task-6-decision-excel",
+      "type": "excel-upload",
+      "title": "Decision Consistency Tracker (Excel)",
+      "prompt": "Three more scheduling conflicts need resolving with the same consistent first-request rule. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 55,
+      "template": {
+        "fileName": "Decision-Consistency-Template.xlsx",
+        "sheetName": "Scheduling",
+        "headers": [
+          "Conflict",
+          "Request A Date Submitted (days ago)",
+          "Request B Date Submitted (days ago)",
+          "Winner (A or B, whichever submitted earlier/more days ago)"
+        ],
+        "rows": [
+          [
+            "Conflict 1",
+            "10",
+            "3",
+            ""
+          ],
+          [
+            "Conflict 2",
+            "2",
+            "15",
+            ""
+          ],
+          [
+            "Conflict 3",
+            "7",
+            "7",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": "A",
+          "tolerance": 0,
+          "label": "Conflict 1: Request A submitted 10 days ago (earlier) wins over B's 3 days ago"
+        },
+        {
+          "cell": "D3",
+          "expected": "B",
+          "tolerance": 0,
+          "label": "Conflict 2: Request B submitted 15 days ago (earlier) wins over A's 2 days ago"
+        },
+        {
+          "cell": "D4",
+          "expected": "Tie - needs a secondary rule",
+          "tolerance": 0,
+          "label": "Conflict 3: both submitted 7 days ago — a true tie, requiring a secondary tiebreaker rule (e.g., seniority or rotation) to stay consistent"
+        }
+      ],
+      "reasoning": "Applying the same first-request rule consistently across every conflict — including recognizing when it produces an actual tie needing a secondary rule — is what keeps a team lead's scheduling decisions predictable and fair over time, rather than seeming arbitrary case by case.",
+      "tip": "Define a secondary tiebreaker rule (such as rotation or seniority) in advance for the rare case for a genuine tie in your primary rule — having thought about this before it happens keeps even a tie situation feeling fair and consistent rather than improvised.",
+      "mistake": "Applying a consistent rule to most conflicts but improvising differently when a tie occurs (rather than having a pre-defined secondary rule) can undermine the perceived fairness that a consistent primary rule was building.",
+      "recommendation": "Document your scheduling decision rule (and its tiebreaker) somewhere the whole team can see it — transparency about the rule itself, not just fair application of it, is what builds trust in a new team lead's decision-making over time."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Manager Who Avoided the Hard Conversation",
+    "background": "On an earlier Atlas team, a newly promoted team lead noticed a similar pattern of missed documentation from an experienced team member but avoided the conversation for months, hoping it would resolve itself — it didn't, and when a quality issue eventually arose that couldn't be traced to a specific shift due to the documentation gaps, the team lead's own credibility was questioned for not having addressed the pattern much earlier.",
+    "client": "Precision Components Line 4 (an earlier team)",
+    "budget": "Cost of the untraceable quality issue: extended investigation time and inability to identify the root cause shift, plus damaged credibility for the team lead",
+    "timeline": "Pattern first noticed within the first month of the team lead's promotion; avoided for 5 months before the quality issue forced the conversation",
+    "challenges": "Because the team lead was uncomfortable with the first real difficult conversation of their new role, they avoided it, allowing the documentation gap to continue and directly contributing to a later quality traceability problem.",
+    "constraints": "Once the conversation finally happened (forced by the quality incident), it was significantly more difficult and higher-stakes than the same conversation would have been in month one, and included an implicit question about why it hadn't happened sooner.",
+    "questions": [
+      "Why do first-time managers often avoid a straightforward feedback conversation, even when the pattern is clear early on?",
+      "What would have made this specific conversation easier to have in month one rather than month five?",
+      "How did avoiding the conversation end up affecting the team lead's own credibility later?"
+    ],
+    "solution": "Atlas Manufacturing's management development program now includes explicit coaching on delivering direct, specific feedback within the first month of any new team lead's promotion, using role-played scenarios similar to this internship's assignment.",
+    "lessonsLearned": "The discomfort of a first difficult conversation as a new manager is real, but avoiding it doesn't make the underlying issue go away — it usually makes it larger and harder to address later, and can end up costing the new manager's own credibility more than the original, more easily addressed conversation ever would have."
+  },
+  "quiz": [
+    {
+      "q": "When a new team lead notices a clear performance pattern, the appropriate first response is generally to:",
+      "options": [
+        "Avoid the conversation and hope it resolves on its own",
+        "Address it directly and specifically in a private conversation, early"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Resolving a scheduling conflict fairly is best done by:",
+      "options": [
+        "An ad-hoc judgment call each time based on whoever seems more deserving",
+        "A consistent, pre-defined, explainable rule applied the same way every time"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When someone asks for more responsibility, an effective response often includes:",
+      "options": [
+        "Either full immediate ownership or an outright refusal",
+        "A graduated next step (like shadowing) with a specific timeline"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A feedback conversation is strengthened by:",
+      "options": [
+        "A vague general impression of the issue",
+        "Specific, factual examples of the pattern being addressed"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, what was the cost of avoiding the feedback conversation for 5 months?",
+      "options": [
+        "There was no real cost",
+        "A later quality issue couldn't be traced properly due to the ongoing documentation gap, and the team lead's own credibility was questioned"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to have a direct conversation you might have been tempted to avoid? What made the direct approach the better choice?",
+      "The case study shows an avoided conversation growing into a bigger, more damaging problem over 5 months. Where else might avoiding an uncomfortable but necessary conversation early make things worse later?",
+      "If you were Dae-hyun, what one piece of advice would you give every first-time team lead about their first difficult conversation?"
+    ]
+  },
+  "certificate": {
+    "name": "Leadership Fundamentals — Feedback, Delegation & Fair Decision-Making",
+    "nameAz": "Liderlik Əsasları — Rəy Bildirmə, Səlahiyyət Vermə",
+    "totalXp": 280
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "id": "education-manager-lumen",
+  "title": "Education Program Manager",
+  "companyId": "lumen-learning-group",
+  "category": "Education Management",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "EDU-029",
+  "skills": [
+    "Curriculum Planning",
+    "Stakeholder Communication",
+    "Program Evaluation"
+  ],
+  "companyIntro": {
+    "name": "Lumen Learning Group",
+    "country": "Canada",
+    "founded": 2014,
+    "mission": "Design training and education programs that actually change what people can do, not just what they've sat through.",
+    "culture": "Evidence-based and learner-centered. Program managers are expected to redesign based on completion data, not instinct.",
+    "projects": [
+      "Corporate Onboarding Redesign",
+      "Regional Teacher Training Rollout",
+      "Certification Program Overhaul"
+    ]
+  },
+  "projectBackground": {
+    "name": "Corporate Onboarding Program — Completion Crisis",
+    "client": "Client: a mid-size logistics company (200 new hires/year)",
+    "location": "Client site and remote delivery",
+    "budget": "N/A — program redesign engagement",
+    "timeline": "Redesign proposal due before next hiring cohort",
+    "context": "The client's new-hire onboarding program has a completion rate of only 58%, and exit interviews with hires who left mid-program cite 'too long' and 'not relevant to my actual role' as the top complaints. The client wants a redesign before the next hiring wave starts in 3 weeks."
+  },
+  "manager": {
+    "name": "Aisha Rahman",
+    "role": "Director of Learning Design, Lumen Learning Group",
+    "note": "58% completion means 42% of new hires aren't getting oriented properly, and that shows up later as turnover and mistakes. Don't just shorten the program to fix the number — find out what's actually driving people to drop off, and fix that."
+  },
+  "assignment": {
+    "title": "Diagnose the onboarding completion problem and redesign the program",
+    "brief": "Analyze the completion and feedback data to find where and why hires are dropping off, then redesign the program structure to address the actual cause, not just the surface complaint."
+  },
+  "documents": [
+    {
+      "id": "doc-completion-data",
+      "name": "Module-by-Module Completion Data — Last 6 Cohorts",
+      "type": "Program Data",
+      "note": "Module 1 (Company Overview): 96% completion. Module 2 (Role-Specific Systems Training): 61% completion. Module 3 (Compliance Training): 94% completion of those who reach it. The steepest drop-off occurs specifically within Module 2."
+    },
+    {
+      "id": "doc-exit-interviews",
+      "name": "Exit Interview Themes — Hires Who Left Mid-Program",
+      "type": "Feedback Data",
+      "note": "Common theme: Module 2 covers all systems used across every department in the company, regardless of the hire's actual role, making most of the content feel irrelevant to warehouse-floor hires, for example, who never use half the systems covered."
+    },
+    {
+      "id": "doc-role-breakdown",
+      "name": "New Hire Role Breakdown",
+      "type": "HR Data",
+      "note": "Of 200 annual hires, approximately 65% are warehouse/operations roles, 20% are logistics coordination roles, and 15% are office/admin roles — each using a different, mostly non-overlapping subset of company systems."
+    },
+    {
+      "id": "doc-redesign-template",
+      "name": "Program Redesign Proposal — Template",
+      "type": "Template",
+      "note": "Fields: root cause finding, redesign structure, expected completion impact, evaluation plan."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-dropoff",
+      "type": "mcq",
+      "title": "Identifying Where the Drop-off Occurs",
+      "prompt": "Module 1 has 96% completion, Module 2 has 61%, and Module 3 has 94% completion of those who reach it. Where is the actual problem concentrated?",
+      "options": [
+        "Evenly across all three modules",
+        "Specifically within Module 2 (Role-Specific Systems Training) — Module 1 and Module 3 both retain hires well, isolating the drop-off to one specific module rather than the program as a whole",
+        "Only in Module 3, since compliance training is inherently boring",
+        "The data doesn't show a clear pattern"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "Module 1 and Module 3 both show strong completion (96% and 94% of those who reach it), which isolates the actual problem specifically to Module 2 — this is valuable because it means the fix can be targeted at one specific module's content and structure, not a wholesale redesign of the entire program.",
+      "tip": "When diagnosing a program-wide completion problem, always break down completion module by module rather than looking at the overall program completion rate alone — a program-wide average can hide that the real problem is concentrated in just one section.",
+      "mistake": "Assuming the whole program needs shortening or redesigning, based on the overall 58% completion figure alone, would unnecessarily change Module 1 and Module 3, which are actually working well and don't need to be touched.",
+      "recommendation": "Keep completion data broken down by module as standard practice for any training program — it's what lets you target a redesign precisely at the actual problem area rather than guessing."
+    },
+    {
+      "id": "task-2-rootcause-edu",
+      "type": "mcq",
+      "title": "Connecting the Root Cause",
+      "prompt": "Exit interviews cite Module 2's content as irrelevant to many hires' actual roles, and new hires span very different role types using different systems. What does this suggest?",
+      "options": [
+        "Hires are simply unmotivated and unwilling to learn",
+        "Module 2 uses a one-size-fits-all structure covering every company system regardless of role, making most of the content genuinely irrelevant to any individual hire's actual job — a structural design problem, not a motivation problem",
+        "The training content itself is poorly written",
+        "Hires need more time, not different content"
+      ],
+      "correctIndex": 1,
+      "xp": 50,
+      "reasoning": "The combination of specific exit interview feedback (irrelevant content) and the fact that different roles use non-overlapping systems points to a structural design flaw: a single, undifferentiated module trying to cover every system for every role inevitably wastes most hires' time on systems they'll never use — this is a targeting problem, not a motivation or content-quality problem.",
+      "tip": "When completion drops specifically at content that different audience segments would experience very differently (here, role-specific systems), check whether the content is actually differentiated by segment — a single generic module for a diverse audience often produces exactly this kind of relevance complaint.",
+      "mistake": "Attributing the drop-off to hires being 'unmotivated,' when the specific complaint is about content relevance and the audience genuinely has very different system needs by role, misdiagnoses a structural design problem as a personal motivation problem.",
+      "recommendation": "Segment any training content by audience need before assuming a completion problem is about motivation, pacing, or content quality — often the real issue is that one version of content is being forced onto meaningfully different audiences."
+    },
+    {
+      "id": "task-3-segment-calc",
+      "type": "numeric",
+      "title": "Calculating Wasted Content by Segment",
+      "prompt": "If Module 2 covers systems for all departments but a warehouse/operations hire (65% of all hires) only actually uses about 30% of the systems covered, what percentage of Module 2's content is irrelevant to this majority segment?",
+      "answer": 70,
+      "tolerance": 1,
+      "unit": "%",
+      "xp": 45,
+      "workingNote": "100% - 30% = 70% of the module's content is irrelevant to warehouse/operations hires, who make up 65% of all hires.",
+      "reasoning": "Quantifying that 70% of the content is irrelevant to the majority of hires (65% of all new hires) makes the scale of the structural mismatch concrete — this is a specific, actionable number that justifies redesigning the module by role rather than making a minor tweak.",
+      "tip": "Always calculate the specific proportion of irrelevant content for the largest affected audience segment — a vague sense that 'some content doesn't apply to everyone' is far less actionable than 'the majority of hires find 70% of this module irrelevant.'",
+      "mistake": "Treating this as a minor issue affecting 'some hires somewhat' rather than calculating the actual scale (70% irrelevant content for 65% of all hires, the majority) understates how significant this structural problem actually is.",
+      "recommendation": "Use this same calculation for the other two role segments (logistics coordination, office/admin) to confirm whether they experience a similarly high irrelevance rate, which would further support a role-based redesign for all segments, not just warehouse/operations."
+    },
+    {
+      "id": "task-4-redesign-options",
+      "type": "multiselect",
+      "title": "Redesign Options",
+      "prompt": "Select every redesign option worth genuinely evaluating.",
+      "options": [
+        "Split Module 2 into role-specific tracks, so each hire only completes training on the systems relevant to their actual role",
+        "Simply shorten Module 2 uniformly by half, keeping the same one-size-fits-all structure",
+        "Keep a small shared core within Module 2 covering systems genuinely used by all roles, with role-specific tracks added on top",
+        "Remove Module 2 entirely, since it has poor completion",
+        "Pilot the role-specific redesign with the next cohort and measure completion before rolling it out company-wide"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        4
+      ],
+      "xp": 55,
+      "reasoning": "Genuine redesign options split content by actual role relevance, preserve a small shared core for genuinely universal content, and pilot the change to verify it actually improves completion before full rollout. Uniformly shortening a one-size-fits-all module doesn't fix the underlying relevance mismatch, it just makes the same problem shorter, and removing the module entirely would leave hires without necessary systems training altogether.",
+      "tip": "When redesigning training for a diverse audience, look for a shared core plus differentiated tracks structure — this avoids either forcing irrelevant content on everyone or losing genuinely universal content that all roles do need.",
+      "mistake": "Simply shortening irrelevant content, rather than actually removing what's irrelevant to each specific role, still wastes proportionally the same amount of each hire's time relative to the shorter total — the core mismatch remains, just at a smaller scale.",
+      "recommendation": "Pilot any structural redesign with one cohort and measure the actual completion impact before full rollout — this confirms the redesign genuinely solves the diagnosed problem rather than assuming it will based on the theory alone."
+    },
+    {
+      "id": "task-5-proposal",
+      "type": "text",
+      "title": "Redesign Proposal",
+      "prompt": "Write the proposal (3-5 sentences): the root cause, your redesign structure, and expected impact.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "Completion data isolates the drop-off specifically to Module 2 (61% completion vs. 96% and 94% for Modules 1 and 3), and exit interviews confirm the cause: a one-size-fits-all structure forces every hire through training on all company systems, regardless of role — for warehouse/operations hires (65% of all new hires), approximately 70% of this content is irrelevant to their actual job. Proposed redesign: restructure Module 2 into a small shared core (systems genuinely used by all roles) plus three role-specific tracks (warehouse/operations, logistics coordination, office/admin), so each hire completes only the content relevant to their actual position. I recommend piloting this redesign with the next cohort (3 weeks out) and measuring Module 2 completion specifically, with a target of returning it to at least 90%, in line with Modules 1 and 3's existing completion rates.",
+      "reasoning": "A strong redesign proposal identifies the specific root cause with supporting data (not just 'completion is low'), proposes a structural fix that directly addresses that cause, and sets a specific, measurable target for the pilot — this is what lets Aisha and the client evaluate whether the redesign actually worked, rather than just trusting it will.",
+      "tip": "Always set a specific target completion rate for a redesign pilot (here, 90%, matching the other modules) — it gives a clear, objective standard for judging whether the redesign succeeded, rather than a vague sense of 'hopefully better.'",
+      "mistake": "A redesign proposal that only says 'we'll make Module 2 more relevant' without a specific structural change (shared core plus role tracks) and a measurable target leaves the client unable to judge whether the redesign is likely to actually work.",
+      "recommendation": "Measure Module 2 completion specifically after the pilot cohort, not just overall program completion — this is what confirms whether the redesign fixed the specific problem it was targeted at, rather than being obscured by the already-healthy completion of Modules 1 and 3."
+    },
+    {
+      "id": "task-6-completion-excel",
+      "type": "excel-upload",
+      "title": "Multi-Cohort Module Completion Tracker (Excel)",
+      "prompt": "Three more training programs need their module-by-module completion compared to find where drop-off is concentrated. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "Module-Completion-Template.xlsx",
+        "sheetName": "Completion",
+        "headers": [
+          "Program",
+          "Module A Completion (%)",
+          "Module B Completion (%)",
+          "Module C Completion (%)",
+          "Lowest Module (identify by letter)"
+        ],
+        "rows": [
+          [
+            "Sales Onboarding",
+            "92",
+            "54",
+            "89",
+            " "
+          ],
+          [
+            "Safety Certification",
+            "88",
+            "91",
+            "85",
+            " "
+          ],
+          [
+            "Manager Training",
+            "95",
+            "90",
+            "48",
+            " "
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "E2",
+          "expected": "B",
+          "tolerance": 0,
+          "label": "Sales Onboarding lowest module is B (54%) — likely concentrated problem there"
+        },
+        {
+          "cell": "E3",
+          "expected": "C",
+          "tolerance": 0,
+          "label": "Safety Certification lowest module is C (85%) — relatively even completion, smaller concern"
+        },
+        {
+          "cell": "E4",
+          "expected": "C",
+          "tolerance": 0,
+          "label": "Manager Training lowest module is C (48%) — the most severe drop-off of all three programs, priority for investigation"
+        }
+      ],
+      "reasoning": "Identifying the specific lowest-completion module for each program, rather than looking only at overall program completion, is what tells Lumen's team exactly where to focus a redesign investigation for each client program — Manager Training's Module C (48%) stands out as the most urgent priority.",
+      "tip": "Always identify the specific lowest-performing module by name/letter, not just note that 'completion is low somewhere' — this is what turns a vague concern into an actionable investigation target for each program.",
+      "mistake": "Looking only at each program's overall completion rate, without breaking it down by module, would miss that Manager Training's problem is heavily concentrated in one module (48%) while its other modules perform well (95%, 90%) — a very different situation from evenly low completion.",
+      "recommendation": "Use this same module-by-module breakdown as standard diagnostic practice for every client program review — it consistently reveals whether a completion problem is concentrated (fixable with a targeted redesign) or spread evenly (requiring a different kind of intervention)."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Redesign That Shortened Everything",
+    "background": "On an earlier Lumen engagement, a different client's onboarding program had a similar completion problem, and the initial redesign response was to uniformly shorten every module by 30% without first identifying where the actual drop-off was concentrated — completion improved only marginally, because the shortened irrelevant content was still irrelevant, just less of it.",
+    "client": "Regional Teacher Training Rollout (an earlier client engagement)",
+    "budget": "Wasted redesign effort and continued low completion for two additional cohorts before the actual root cause was properly diagnosed",
+    "timeline": "Two full cohorts (approximately 4 months) of continued underperformance after the first 'redesign' before a proper module-by-module analysis was done",
+    "challenges": "Because the initial redesign reacted to the overall low completion number without breaking it down by module, the actual concentrated problem (irrelevant content in one specific section) was never identified, and the uniform shortening didn't address it.",
+    "constraints": "The eventual proper diagnosis and role-based redesign, once finally done, resolved the completion problem within one cohort — the same result the two prior cohorts of uniform shortening had failed to achieve.",
+    "questions": [
+      "Why did uniformly shortening every module fail to meaningfully improve completion?",
+      "What specific analysis, done first, would have avoided two wasted cohorts of ineffective redesign?",
+      "How does this compare to the module-by-module diagnosis used in this internship's assignment?"
+    ],
+    "solution": "Lumen Learning Group mandated that any program redesign triggered by a completion problem must begin with a module-by-module completion breakdown and root cause analysis, before any structural changes are proposed.",
+    "lessonsLearned": "Reacting to an overall low completion number by uniformly shortening a program, without first identifying where the problem is actually concentrated, tends to produce only marginal improvement — a proper module-by-module diagnosis is what reveals whether the fix should be targeted at one specific problem area or address the program more broadly."
+  },
+  "quiz": [
+    {
+      "q": "A program-wide completion problem should first be diagnosed by:",
+      "options": [
+        "Uniformly shortening the whole program",
+        "Breaking completion down module by module to find where the drop-off is actually concentrated"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Exit interview feedback about content being 'irrelevant,' combined with a diverse audience using different systems, typically points to:",
+      "options": [
+        "A general motivation problem among learners",
+        "A structural design problem — content not differentiated by audience segment"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A good redesign for a diverse audience with some shared and some role-specific needs uses:",
+      "options": [
+        "One uniform module for everyone",
+        "A shared core plus role-specific tracks structure"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "After a redesign, the most useful evaluation approach is to:",
+      "options": [
+        "Assume it worked without checking completion data",
+        "Measure completion specifically for the redesigned module against a set target"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did uniformly shortening the program fail to fix completion?",
+      "options": [
+        "The shortened content was still irrelevant to many learners, just in a smaller quantity",
+        "The redesign was never actually implemented",
+        "Learners refused to attempt the shorter version",
+        "The shortening made completion worse, not better"
+      ],
+      "correctIndex": 0
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to isolate the specific module driving the completion problem, rather than reacting to the overall program completion rate? Why did that isolation matter?",
+      "The case study shows a redesign that shortened everything without fixing the real problem, wasting two cohorts. Where else might a broad, uniform fix fail to address a problem that's actually concentrated in one specific area?",
+      "If you were Aisha, what one rule would you make standing so a program redesign never proceeds without a module-by-module diagnosis first?"
+    ]
+  },
+  "certificate": {
+    "name": "Education Program Manager — Curriculum Diagnosis & Redesign",
+    "nameAz": "Təhsil Proqramı Meneceri — Tədris Planı Diaqnostikası",
+    "totalXp": 305
+  }
+}

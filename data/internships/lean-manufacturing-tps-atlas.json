@@ -1,0 +1,285 @@
+{
+  "id": "lean-manufacturing-tps-atlas",
+  "title": "Lean Manufacturing (Toyota Production System)",
+  "companyId": "atlas-manufacturing",
+  "category": "Process Improvement",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "TPS-008",
+  "skills": [
+    "Kaizen",
+    "Waste Identification",
+    "Value Stream Mapping"
+  ],
+  "companyIntro": {
+    "name": "Atlas Manufacturing",
+    "country": "South Korea",
+    "founded": 1999,
+    "mission": "World-class manufacturing discipline — every defect has a root cause, and every root cause gets fixed once.",
+    "culture": "Lean-first and data-driven. Staff are expected to see waste as a solvable problem, not an accepted cost of doing business.",
+    "projects": [
+      "Precision Components Line 4 Upgrade",
+      "Atlas EV Battery Housing Plant",
+      "Regional Distribution Hub"
+    ]
+  },
+  "projectBackground": {
+    "name": "Battery Housing Assembly Cell — Value Stream Review",
+    "client": "Internal manufacturing improvement initiative",
+    "location": "Atlas EV Battery Housing Plant, Assembly Cell 2",
+    "budget": "Target: reduce cell lead time by 30%",
+    "timeline": "3-week Kaizen event, currently in week 1 (current-state mapping)",
+    "context": "Assembly Cell 2's lead time is nearly double the cell's actual processing time — parts spend most of their time waiting between stations, not being worked on, and nobody has mapped the full value stream before."
+  },
+  "manager": {
+    "name": "Hana Cho",
+    "role": "Plant Manager, Atlas Manufacturing",
+    "note": "Everyone assumes we need faster machines. Map the actual value stream first — I suspect the real waste isn't in the processing time at all, and I want the data to prove it one way or the other before we spend money on equipment."
+  },
+  "assignment": {
+    "title": "Map the value stream and identify the real waste",
+    "brief": "Build a current-state value stream map, classify the waste found using the 7 wastes framework, and propose a Kaizen target for the highest-impact waste."
+  },
+  "documents": [
+    {
+      "id": "doc-vsm-data",
+      "name": "Current-State Time Study — Assembly Cell 2",
+      "type": "Time Study Data",
+      "note": "Total lead time per unit: 42 minutes. Sum of actual processing time across all 5 stations: 11 minutes. Remaining 31 minutes is wait/transport time between stations."
+    },
+    {
+      "id": "doc-inventory-count",
+      "name": "Work-in-Process Inventory Count",
+      "type": "WIP Data",
+      "note": "Average of 14 units sitting in queue between Station 2 and Station 3 at any given time, the largest queue of any station pair in the cell."
+    },
+    {
+      "id": "doc-layout",
+      "name": "Cell Floor Layout",
+      "type": "Layout Drawing",
+      "note": "Station 2 and Station 3 are physically 18 meters apart, requiring a forklift transport step between them; all other stations are directly adjacent."
+    },
+    {
+      "id": "doc-kaizen-template",
+      "name": "Kaizen Target Statement — Template",
+      "type": "Template",
+      "note": "Fields: waste type identified, current state metric, target metric, proposed countermeasure."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-pce",
+      "type": "numeric",
+      "title": "Process Cycle Efficiency",
+      "prompt": "What is the Process Cycle Efficiency (processing time / total lead time x 100) for this cell?",
+      "answer": 26.2,
+      "tolerance": 0.5,
+      "unit": "%",
+      "xp": 40,
+      "workingNote": "11 / 42 x 100 = 26.2%.",
+      "reasoning": "Process Cycle Efficiency isolates how much of total lead time is actually value-adding work versus waiting — a PCE this low (26%) confirms the real problem is flow, not processing speed, exactly as Hana suspected.",
+      "tip": "Always calculate PCE before proposing any fix — a low PCE (commonly under 25-30% in unoptimized processes) points directly at flow and waiting waste, not processing speed, as the highest-leverage improvement target.",
+      "mistake": "Assuming faster machines will fix a lead time problem, without first checking PCE, risks investing in equipment that speeds up the 11 minutes of actual work while leaving the 31 minutes of waiting completely untouched.",
+      "recommendation": "Report PCE alongside any lead time figure — it's the single number that tells you whether to look at machine speed or at flow and queuing."
+    },
+    {
+      "id": "task-2-waste-id",
+      "type": "mcq",
+      "title": "Identifying the Waste Type",
+      "prompt": "14 units queue between Station 2 and Station 3, which are 18 meters apart requiring forklift transport. What waste type does this represent?",
+      "options": [
+        "Waiting waste only, unrelated to layout",
+        "A combination of waiting waste (units queuing) and transportation waste (the 18-meter forklift move), both stemming from the physical distance between stations",
+        "Overproduction, since too many units are being made",
+        "Defect waste from poor quality control"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "The combination of a large queue and a required forklift transport between two specific stations points to both waiting waste (units sitting idle) and transportation waste (unnecessary movement) — both driven by the same root cause: physical distance between stations that could otherwise be adjacent.",
+      "tip": "When queue size correlates with physical distance between stations, look for both transportation and waiting waste together — they often share the same root cause and the same fix (moving stations closer).",
+      "mistake": "Classifying this only as 'waiting waste' misses that the transport step itself (the forklift move) is a distinct, addressable waste that a simple layout change could eliminate entirely.",
+      "recommendation": "Map waste types against the specific stations in the value stream, not just as a general list — it's what connects an abstract waste category to a concrete, physical countermeasure."
+    },
+    {
+      "id": "task-3-countermeasures",
+      "type": "multiselect",
+      "title": "Kaizen Countermeasure Options",
+      "prompt": "Select every countermeasure worth genuinely evaluating for the Station 2-3 gap.",
+      "options": [
+        "Relocate Station 3 adjacent to Station 2 to eliminate the forklift transport entirely",
+        "Buy a faster forklift to reduce transport time slightly",
+        "Simply accept the current layout since it's always been this way",
+        "Introduce a small standardized WIP cap between the stations to limit queue buildup while the relocation is planned",
+        "Add more inspectors to check the queued units while they wait"
+      ],
+      "correctIndices": [
+        0,
+        3
+      ],
+      "xp": 50,
+      "reasoning": "Relocating Station 3 addresses the root cause directly (eliminating the transport waste entirely), and a temporary WIP cap is a reasonable interim measure while relocation is planned. A faster forklift only marginally reduces a waste that should be eliminated, not sped up, accepting the status quo ignores a clearly quantified problem, and adding inspectors addresses quality, not the flow waste actually identified.",
+      "tip": "Prefer eliminating a waste at its root (relocating the station) over merely speeding up the wasteful step (a faster forklift) — Lean improvement targets elimination first, speed second.",
+      "mistake": "Proposing to speed up a wasteful step, rather than eliminate it, is a common but weaker Kaizen response — it accepts the waste as permanent and just makes it marginally less costly.",
+      "recommendation": "Always pair a root-cause fix (relocation) with a reasonable interim measure (a WIP cap) for the transition period — this shows a plan that's both correct long-term and responsible in the short term."
+    },
+    {
+      "id": "task-4-kaizen-statement",
+      "type": "text",
+      "title": "Kaizen Target Statement",
+      "prompt": "Write the Kaizen target statement (3-5 sentences): the waste identified, current vs. target metric, and the countermeasure.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "Current-state analysis shows Process Cycle Efficiency of only 26.2% (11 minutes processing time against 42 minutes total lead time), with the largest single contributor being a 14-unit queue and required forklift transport between Station 2 and Station 3, located 18 meters apart. Waste identified: combined waiting and transportation waste driven by station layout. Target: relocate Station 3 adjacent to Station 2, eliminating the forklift transport step entirely and reducing the queue-related wait, targeting a Process Cycle Efficiency improvement to at least 45% and a lead time reduction of roughly 30%. Interim countermeasure: introduce a WIP cap of 4 units between the stations while the physical relocation is scheduled and executed.",
+      "reasoning": "A strong Kaizen target statement names the specific waste, gives before/after metrics (not just a vague improvement goal), and states both the root-cause fix and a reasonable interim step — this is what makes a Kaizen event's outcome measurable and actionable rather than aspirational.",
+      "tip": "Always express a Kaizen target as a specific before/after metric (26.2% to 45% PCE) rather than a vague goal like 'improve flow' — a specific target is what lets the team verify afterward whether the Kaizen event actually worked.",
+      "mistake": "Setting a Kaizen goal without a specific, measurable target metric makes it impossible to confirm afterward whether the countermeasure actually achieved the intended improvement.",
+      "recommendation": "Re-measure Process Cycle Efficiency 4-6 weeks after the relocation to confirm the target was actually met — a Kaizen event isn't complete until its impact is verified with real post-change data."
+    },
+    {
+      "id": "task-5-projected-leadtime",
+      "type": "numeric",
+      "title": "Projected Lead Time After Fix",
+      "prompt": "If eliminating the Station 2-3 transport and queue reduces total lead time by 30% from the current 42 minutes, what is the projected new lead time (minutes)?",
+      "answer": 29.4,
+      "tolerance": 0.5,
+      "unit": "minutes",
+      "xp": 40,
+      "workingNote": "42 x (1 - 0.30) = 29.4 minutes.",
+      "reasoning": "Projecting the specific target lead time (not just 'a 30% improvement') is what gives the team a concrete number to verify against after the Kaizen countermeasure is implemented.",
+      "tip": "Always convert a percentage improvement target into the specific resulting metric — '29.4 minutes' is checkable in a follow-up time study; '30% better' alone is not.",
+      "mistake": "Stating only a percentage target without calculating the resulting absolute figure makes it harder to notice if the actual post-change result falls short of what was intended.",
+      "recommendation": "Track the actual post-Kaizen lead time against this specific 29.4-minute target, not just against the original 42 minutes — it's the number that confirms whether the full intended improvement was achieved."
+    },
+    {
+      "id": "task-6-pce-excel",
+      "type": "excel-upload",
+      "title": "Process Cycle Efficiency Tracker (Excel)",
+      "prompt": "Three more assembly cells need their Process Cycle Efficiency calculated to prioritize the next Kaizen event. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "PCE-Template.xlsx",
+        "sheetName": "PCE",
+        "headers": [
+          "Cell",
+          "Processing Time (min)",
+          "Total Lead Time (min)",
+          "PCE (%)"
+        ],
+        "rows": [
+          [
+            "Cell 1 (Battery Pack)",
+            "8",
+            "24",
+            ""
+          ],
+          [
+            "Cell 3 (Housing Weld)",
+            "15",
+            "20",
+            ""
+          ],
+          [
+            "Cell 4 (Final Assembly)",
+            "6",
+            "35",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 33.3,
+          "tolerance": 0.5,
+          "label": "Cell 1 PCE (8/24 x 100)"
+        },
+        {
+          "cell": "D3",
+          "expected": 75.0,
+          "tolerance": 0.5,
+          "label": "Cell 3 PCE (15/20 x 100, already quite efficient)"
+        },
+        {
+          "cell": "D4",
+          "expected": 17.1,
+          "tolerance": 0.5,
+          "label": "Cell 4 PCE (6/35 x 100, the lowest — highest-priority Kaizen candidate)"
+        }
+      ],
+      "reasoning": "Calculating PCE across every cell, not just the one already under review, is what lets plant leadership prioritize the next Kaizen event on Cell 4 (17.1% PCE, the worst) rather than guessing which cell needs attention most.",
+      "tip": "Rank cells by PCE (lowest first) when deciding where to run the next Kaizen event — a low PCE is a direct, calculable signal of the highest waste concentration, more reliable than visual impression of a cell's activity.",
+      "mistake": "Judging which cell 'looks busiest' or most in need of attention without calculating PCE can misdirect Kaizen effort toward a cell that's actually already reasonably efficient, like Cell 3 here.",
+      "recommendation": "Maintain this PCE ranking across all cells quarterly — it turns Kaizen event selection into a data-driven decision rather than whichever cell's problems are most visible or recently complained about."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Machine Upgrade That Didn't Help",
+    "background": "On an earlier Atlas Manufacturing line, leadership approved a $310,000 machine upgrade to speed up a station's processing time, based on that station appearing to be the bottleneck — without first mapping the value stream, which would have shown the station's processing time was already a small fraction of total lead time, and the real waste was queuing elsewhere.",
+    "client": "Precision Components Line 4 (an earlier phase)",
+    "budget": "$310,000 spent on equipment that reduced lead time by less than 2%",
+    "timeline": "6 months from purchase approval to installation, followed by a disappointing post-upgrade time study",
+    "challenges": "Because the upgrade decision was based on visual impression of which station 'seemed slow' rather than a proper value stream map, the actual root cause (queuing at a different station pair) was never addressed by the investment.",
+    "constraints": "Recovering the credibility of future improvement proposals required demonstrating, with a proper value stream map, exactly where the real waste was — the same rigor this internship's assignment models.",
+    "questions": [
+      "Why can a station 'seem like' the bottleneck without actually being the primary source of lead time waste?",
+      "What specific analysis would have caught this before $310,000 was committed?",
+      "How does Process Cycle Efficiency prevent this kind of misdirected investment?"
+    ],
+    "solution": "Atlas Manufacturing mandated that any capital equipment request above $50,000 justified by a lead time or throughput problem must include a current-state value stream map and PCE calculation before approval.",
+    "lessonsLearned": "Visual impressions of where a process is slow are frequently wrong — a proper value stream map and Process Cycle Efficiency calculation are what reveal where the real waste is, often in queuing and waiting rather than in the processing steps that seem busiest."
+  },
+  "quiz": [
+    {
+      "q": "Process Cycle Efficiency is calculated as:",
+      "options": [
+        "Total lead time divided by number of stations",
+        "Processing time divided by total lead time, x 100"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A low PCE (e.g., 26%) typically indicates the improvement priority should be:",
+      "options": [
+        "Faster machines/processing speed",
+        "Flow and waiting/queuing waste, not processing speed"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When queue size correlates closely with physical distance between two stations, this often indicates:",
+      "options": [
+        "Coincidence unrelated to layout",
+        "Combined transportation and waiting waste stemming from the same layout root cause"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "The best Kaizen countermeasure generally aims to:",
+      "options": [
+        "Speed up a wasteful step",
+        "Eliminate the waste at its root cause"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did the $310,000 machine upgrade fail to meaningfully improve lead time?",
+      "options": [
+        "The equipment was faulty",
+        "The station upgraded was not actually where most of the lead time waste was occurring, which a value stream map would have shown"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to calculate PCE before proposing any fix? How did that number change what seemed like the obvious solution?",
+      "The case study shows a $310,000 investment based on visual impression rather than data, missing the real problem. Where else might 'what looks like the bottleneck' differ from 'what the data shows is the bottleneck'?",
+      "If you were Hana, what one rule would you make standing so a capital equipment request is never approved without a value stream map first?"
+    ]
+  },
+  "certificate": {
+    "name": "Lean Manufacturing — Value Stream Mapping & Kaizen",
+    "nameAz": "Lean İstehsal — Dəyər Axını Xəritələşdirməsi və Kaizen",
+    "totalXp": 290
+  }
+}
