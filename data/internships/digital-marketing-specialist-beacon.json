@@ -1,0 +1,287 @@
+{
+  "id": "digital-marketing-specialist-beacon",
+  "title": "Digital Marketing Specialist",
+  "companyId": "beacon-communications",
+  "category": "Digital Marketing",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "drawingTag": "DM-011",
+  "skills": [
+    "Campaign Budget Allocation",
+    "ROI Analysis",
+    "A/B Test Interpretation"
+  ],
+  "companyIntro": {
+    "name": "Beacon Communications",
+    "country": "United States",
+    "founded": 2008,
+    "mission": "Help clients say the right thing, to the right audience — including spending their ad budget where it actually performs.",
+    "culture": "Data-driven and honest about underperformance. Specialists are expected to reallocate budget away from what isn't working, even if a client likes that channel.",
+    "projects": [
+      "Client Product Recall Response",
+      "Regional Brand Launch Campaign",
+      "Annual Sustainability Report Rollout"
+    ]
+  },
+  "projectBackground": {
+    "name": "Regional Brand Launch — Mid-Campaign Budget Review",
+    "client": "Beacon retail client (regional apparel brand)",
+    "location": "Digital campaign across 3 channels",
+    "budget": "$45,000 monthly digital ad budget",
+    "timeline": "Mid-campaign review, 2 weeks into a 6-week launch",
+    "context": "Two weeks into a 3-channel digital launch campaign, performance data shows a big difference in cost-per-acquisition across channels, but the client's favorite channel (the one their CEO personally likes) is actually the worst performer. The client wants a budget reallocation recommendation for the remaining 4 weeks."
+  },
+  "manager": {
+    "name": "Naomi Clarke",
+    "role": "Senior Account Director, Beacon Communications",
+    "note": "The CEO likes Channel A because that's where he sees the ads himself, but that's not how we should be allocating budget. Show me the actual cost-per-acquisition numbers and make the case for the reallocation, even though it means telling the client their gut feeling is wrong."
+  },
+  "assignment": {
+    "title": "Analyze channel performance and recommend budget reallocation",
+    "brief": "Calculate cost-per-acquisition across the three channels, identify the underperformer, and build a data-backed budget reallocation recommendation for the remaining campaign weeks."
+  },
+  "documents": [
+    {
+      "id": "doc-channel-data",
+      "name": "Channel Performance Data — First 2 Weeks",
+      "type": "Campaign Data",
+      "note": "Channel A (Social Media): $18,000 spent, 120 conversions. Channel B (Search Ads): $15,000 spent, 250 conversions. Channel C (Display Ads): $12,000 spent, 40 conversions."
+    },
+    {
+      "id": "doc-client-note",
+      "name": "Client Note from CEO",
+      "type": "Correspondence",
+      "note": "'I keep seeing our Channel A ads everywhere when I'm scrolling — I think we should put more budget there for the rest of the campaign, it clearly has great reach.'"
+    },
+    {
+      "id": "doc-target-cpa",
+      "name": "Campaign Target Cost-Per-Acquisition",
+      "type": "Campaign Brief",
+      "note": "Target CPA for this campaign: $100 or lower per conversion, to remain profitable given the client's average order value and margin."
+    },
+    {
+      "id": "doc-reallocation-template",
+      "name": "Budget Reallocation Recommendation — Template",
+      "type": "Template",
+      "note": "Fields: current CPA by channel, target CPA, reallocation recommendation, expected impact, how to address client's channel preference."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-cpa-a",
+      "type": "numeric",
+      "title": "Channel A Cost-Per-Acquisition",
+      "prompt": "Channel A spent $18,000 for 120 conversions. What is the cost-per-acquisition?",
+      "answer": 150,
+      "tolerance": 2,
+      "unit": "USD",
+      "xp": 35,
+      "workingNote": "$18,000 / 120 = $150 per acquisition.",
+      "reasoning": "Calculating CPA (spend divided by conversions) converts raw spend and conversion numbers into a single comparable performance metric — this is the number that actually determines whether a channel is worth continued investment, not the CEO's personal impression of ad visibility.",
+      "tip": "Always calculate CPA per channel before making any budget allocation recommendation — reach or visibility (what the CEO is responding to) is a different metric from actual acquisition efficiency, and conflating the two leads to poor budget decisions.",
+      "mistake": "Relying on a channel's perceived visibility or a stakeholder's personal impression, without calculating actual CPA, is exactly how budget ends up misallocated toward a channel that feels prominent but performs poorly.",
+      "recommendation": "Report CPA for every channel side by side, not just the one being questioned — it's what makes a reallocation recommendation immediately clear and comparable."
+    },
+    {
+      "id": "task-2-cpa-b",
+      "type": "numeric",
+      "title": "Channel B Cost-Per-Acquisition",
+      "prompt": "Channel B spent $15,000 for 250 conversions. What is the cost-per-acquisition?",
+      "answer": 60,
+      "tolerance": 2,
+      "unit": "USD",
+      "xp": 35,
+      "workingNote": "$15,000 / 250 = $60 per acquisition.",
+      "reasoning": "Channel B's CPA of $60 is well under the $100 target and dramatically better than Channel A's $150 — this is the specific evidence that should drive additional budget toward Channel B, not personal visibility impressions.",
+      "tip": "Compare every channel's CPA against both the campaign target and each other — a channel performing well under target, like Channel B here, is exactly where additional budget typically generates the best incremental return.",
+      "mistake": "Failing to highlight Channel B's strong performance (not just Channel A's weak performance) misses half of the reallocation case — the recommendation isn't just 'take money from A,' it's specifically 'move it toward B, which is proven to convert efficiently.'",
+      "recommendation": "When recommending a reallocation, always name where the money is moving to, not just where it's moving from — a client is more likely to accept a shift when they understand the specific opportunity being captured."
+    },
+    {
+      "id": "task-3-cpa-c",
+      "type": "numeric",
+      "title": "Channel C Cost-Per-Acquisition",
+      "prompt": "Channel C spent $12,000 for 40 conversions. What is the cost-per-acquisition?",
+      "answer": 300,
+      "tolerance": 5,
+      "unit": "USD",
+      "xp": 40,
+      "workingNote": "$12,000 / 40 = $300 per acquisition.",
+      "reasoning": "Channel C's CPA of $300 is three times the $100 target and the worst performer of all three channels — even though the CEO's note focused on Channel A, calculating all three channels reveals Channel C is actually the most urgent problem, not Channel A.",
+      "tip": "Always calculate CPA for every channel, not just the one already under discussion — the stakeholder's attention (here, on Channel A) doesn't necessarily point to the actual worst performer, which the full data set reveals is Channel C.",
+      "mistake": "Focusing analysis only on Channel A, because that's what the CEO raised, risks missing that Channel C is actually a bigger performance problem — the CEO's note shaped which channel got scrutinized, not which one the data says is worst.",
+      "recommendation": "Present the full three-channel comparison to the client, not just a response to the specific channel they asked about — it gives them the complete picture needed for a genuinely informed reallocation decision."
+    },
+    {
+      "id": "task-4-reallocation",
+      "type": "multiselect",
+      "title": "Reallocation Recommendation",
+      "prompt": "Given Channel A ($150 CPA), Channel B ($60 CPA), and Channel C ($300 CPA) against a $100 target, select every element that belongs in the reallocation recommendation.",
+      "options": [
+        "Increase budget allocation to Channel B, which is well under target and converting efficiently",
+        "Increase budget allocation to Channel A specifically because the CEO personally prefers it, overriding the CPA data",
+        "Reduce or pause Channel C, which at $300 CPA is three times the target and the weakest performer",
+        "Reduce Channel A's allocation given its $150 CPA is 50% over target, while acknowledging the CEO's visibility observation separately",
+        "Keep all three channels at exactly equal budget shares regardless of performance, to avoid an uncomfortable conversation"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        3
+      ],
+      "xp": 45,
+      "reasoning": "A sound recommendation shifts budget toward the efficient performer (Channel B), reduces or pauses the worst performer (Channel C), and reduces the over-target channel (Channel A) while separately and respectfully addressing the CEO's visibility observation. Increasing Channel A's budget purely on personal preference, overriding the data, or keeping all channels equal to avoid a difficult conversation both fail to act on what the performance data actually shows.",
+      "tip": "When a stakeholder's preference conflicts with the performance data, address both — acknowledge what they're noticing (visibility) while being clear about what the data shows (efficiency) — rather than either dismissing their observation or letting it override the numbers.",
+      "mistake": "Avoiding the reallocation recommendation to sidestep an uncomfortable conversation with the CEO ultimately costs the client real money throughout the remaining 4 weeks of the campaign — the data-based case needs to be made regardless of how it lands.",
+      "recommendation": "Frame the reallocation around the target CPA ($100) as the objective benchmark — this keeps the conversation about a pre-agreed campaign goal rather than a subjective disagreement about channel preference."
+    },
+    {
+      "id": "task-5-client-memo",
+      "type": "text",
+      "title": "Client Reallocation Memo",
+      "prompt": "Write the memo (3-5 sentences) recommending the reallocation, addressing the CEO's Channel A preference directly but respectfully.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "Two weeks into the campaign, cost-per-acquisition varies significantly by channel: Channel B is performing strongly at $60 (well under our $100 target), Channel A is at $150 (50% over target), and Channel C is the weakest at $300 (three times over target). I recommend shifting budget from Channel C and partially from Channel A toward Channel B for the remaining 4 weeks, which should meaningfully improve overall campaign efficiency and total conversions within the same budget. I understand Channel A's visibility is noticeable when scrolling personally — that's a real signal of reach and impressions, but it's a different metric from cost-per-acquisition, which measures how efficiently that visibility is actually converting into customers; Channel B is quietly delivering far more of those conversions per dollar spent. I'd like to implement this reallocation starting next week to maximize the benefit across the remaining campaign weeks.",
+      "reasoning": "A strong reallocation memo presents the specific CPA data for all channels against the target, makes the recommendation clearly, and directly but respectfully addresses the stakeholder's conflicting observation by distinguishing reach/visibility from acquisition efficiency — this combination makes the case persuasive without dismissing the CEO's perspective outright.",
+      "tip": "Distinguish between reach/visibility (what a stakeholder personally notices) and acquisition efficiency (what the CPA data measures) explicitly in your recommendation — this reframing often resolves the apparent conflict between a stakeholder's gut feeling and the data, since both can be true at once.",
+      "mistake": "A memo that only presents the numbers without acknowledging the CEO's specific observation risks feeling dismissive of a senior stakeholder's input, even when the recommendation is fully justified by the data.",
+      "recommendation": "Propose a specific implementation timeline (starting next week) — it converts the recommendation into an actionable next step rather than leaving the reallocation as an open-ended suggestion the client might not act on quickly."
+    },
+    {
+      "id": "task-6-cpa-excel",
+      "type": "excel-upload",
+      "title": "Multi-Campaign CPA Comparison (Excel)",
+      "prompt": "Three more client campaigns need their channel CPAs calculated to flag underperformers against each campaign's target. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "CPA-Comparison-Template.xlsx",
+        "sheetName": "CPA Analysis",
+        "headers": [
+          "Campaign - Channel",
+          "Spend (USD)",
+          "Conversions",
+          "Target CPA (USD)",
+          "Actual CPA (USD)"
+        ],
+        "rows": [
+          [
+            "Campaign X - Email",
+            "4000",
+            "80",
+            "60",
+            ""
+          ],
+          [
+            "Campaign Y - Influencer",
+            "22000",
+            "110",
+            "150",
+            ""
+          ],
+          [
+            "Campaign Z - Video Ads",
+            "9000",
+            "30",
+            "200",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "E2",
+          "expected": 50,
+          "tolerance": 1,
+          "label": "Campaign X Email actual CPA (4000/80) — under target of 60, performing well"
+        },
+        {
+          "cell": "E3",
+          "expected": 200,
+          "tolerance": 2,
+          "label": "Campaign Y Influencer actual CPA (22000/110) — over target of 150, needs attention"
+        },
+        {
+          "cell": "E4",
+          "expected": 300,
+          "tolerance": 5,
+          "label": "Campaign Z Video Ads actual CPA (9000/30) — well over target of 200, weakest of the three"
+        }
+      ],
+      "reasoning": "Calculating actual CPA against each campaign's own specific target — not a single blanket number — is what correctly identifies Campaign X as healthy while flagging Campaign Y and especially Campaign Z as needing budget attention, since different campaigns can have different acceptable CPA targets based on their margins.",
+      "tip": "Always compare actual CPA against the specific target for that campaign, not a generic industry benchmark — different clients and products have different acceptable CPA levels based on their own margins and average order value.",
+      "mistake": "Comparing all campaigns against the same fixed CPA number, rather than each one's own specific target, could flag a genuinely healthy campaign as underperforming or miss a real problem in a campaign with a higher acceptable target.",
+      "recommendation": "Rank campaigns by how far actual CPA exceeds target (not by raw CPA alone) when deciding where to focus optimization attention across a full client portfolio — Campaign Z's 100% overage is a bigger relative problem than its raw $300 CPA alone might suggest."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Channel That Looked Impressive and Lost Money",
+    "background": "On an earlier Beacon campaign, a client insisted on doubling budget for a channel based on strong impression and reach numbers, without checking actual CPA — the channel's CPA was nearly triple the campaign's break-even threshold, and the doubled investment significantly worsened the campaign's overall return before the pattern was caught and reversed at the next monthly review.",
+    "client": "Annual Sustainability Report Rollout (an earlier related campaign)",
+    "budget": "Estimated wasted ad spend from one month of doubled investment in the underperforming channel: approximately $30,000 in acquisitions that cost far more than they returned",
+    "timeline": "One full month of doubled spend before the next scheduled review caught the CPA problem",
+    "challenges": "Because the reach and impression numbers looked genuinely strong and were the metric the client was focused on, nobody flagged that CPA — the metric that actually determines profitability — was telling a very different story until the next review cycle.",
+    "constraints": "By the time the pattern was caught and reversed, a full month's worth of inefficient spend had already occurred, representing money that couldn't be recovered even after the budget was correctly reallocated going forward.",
+    "questions": [
+      "Why can a channel with strong reach or impression numbers still be a poor investment from a CPA perspective?",
+      "What earlier check would have caught this before a full month of doubled inefficient spend occurred?",
+      "How does this connect to the CEO's Channel A preference in this internship's assignment?"
+    ],
+    "solution": "Beacon Communications instituted a rule that any budget reallocation request, regardless of who requests it, must be accompanied by a CPA comparison against the campaign's target before being approved, specifically to prevent reach-based impressions from driving spend decisions without efficiency data.",
+    "lessonsLearned": "Reach and impression metrics measure how much a channel is seen, not how efficiently that visibility converts into paying customers — a channel can be genuinely prominent and simultaneously a poor use of budget, and the CPA data, not the visibility impression, is what should drive allocation decisions."
+  },
+  "quiz": [
+    {
+      "q": "Cost-per-acquisition is calculated as:",
+      "options": [
+        "Conversions divided by spend",
+        "Spend divided by conversions"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A stakeholder's impression that a channel has 'great reach' based on personal visibility is:",
+      "options": [
+        "The same thing as strong cost-per-acquisition performance",
+        "A different metric (visibility) from acquisition efficiency (CPA), and can conflict with it"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When analyzing channel performance, it's important to calculate CPA for:",
+      "options": [
+        "Only the channel a stakeholder has raised concerns or praise about",
+        "Every channel, since the actual worst performer may not be the one already under discussion"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A reallocation recommendation that conflicts with a senior stakeholder's preference should:",
+      "options": [
+        "Avoid the topic to prevent an uncomfortable conversation",
+        "Present the data clearly while respectfully acknowledging what the stakeholder is observing, distinguishing the two different metrics involved"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did doubling investment in the 'strong reach' channel actually worsen campaign results?",
+      "options": [
+        "The channel had strong CPA that was miscalculated",
+        "The channel's CPA was nearly triple the break-even threshold despite strong reach, and this wasn't checked before the reallocation"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to calculate a metric across all channels, not just the one already under discussion? What did the full comparison reveal that a partial one would have missed?",
+      "The case study shows a channel with strong visibility numbers actually losing money once CPA was properly checked. Where else might an impressive-looking surface metric hide a different, more important underlying reality?",
+      "If you were Naomi, what one rule would you make standing so a budget reallocation is never approved based on visibility alone, without a CPA check?"
+    ]
+  },
+  "certificate": {
+    "name": "Digital Marketing Specialist — Channel Performance & Budget Reallocation",
+    "nameAz": "Rəqəmsal Marketinq Mütəxəssisi — Kanal Performansı Təhlili",
+    "totalXp": 270
+  }
+}

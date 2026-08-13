@@ -1,0 +1,295 @@
+{
+  "id": "data-analyst-nimbus",
+  "title": "Data Analyst",
+  "companyId": "nimbus-digital",
+  "category": "Data & Analytics",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "DA-025",
+  "skills": [
+    "Data Cleaning",
+    "Trend Analysis",
+    "Dashboard Interpretation"
+  ],
+  "companyIntro": {
+    "name": "Nimbus Digital",
+    "country": "Germany",
+    "founded": 2016,
+    "mission": "Ship reliable software for mid-market clients — including internal decisions that should be based on clean, correctly-interpreted data.",
+    "culture": "Skeptical of numbers until verified. Data analysts are expected to question a surprising trend before reporting it as fact.",
+    "projects": [
+      "Meridian Client Portal Rebuild",
+      "Nimbus Internal Analytics Suite",
+      "Fintra Payments Integration"
+    ]
+  },
+  "projectBackground": {
+    "name": "Internal Analytics Suite — User Drop-off Investigation",
+    "client": "Internal product team",
+    "location": "Remote analysis, Nimbus Internal Analytics Suite data",
+    "budget": "N/A — internal product analytics",
+    "timeline": "Findings needed before next sprint planning",
+    "context": "The product team is alarmed by a dashboard showing a sudden 40% drop in daily active users last Tuesday, and wants to know if this reflects a real product problem before they reprioritize the sprint to investigate. Before reporting this as a real trend, the data needs to be checked."
+  },
+  "manager": {
+    "name": "Julia Hoffmann",
+    "role": "VP of Product, Nimbus Digital",
+    "note": "A 40% single-day drop is either a genuine crisis or a data artifact, and I don't want to reprioritize the whole sprint based on a number nobody's actually verified. Check the data before we react to it."
+  },
+  "assignment": {
+    "title": "Investigate the reported user drop-off before it drives a sprint reprioritization",
+    "brief": "Verify the reported metric against raw data, identify whether the drop is real or a data artifact, and report the finding with a clear recommendation."
+  },
+  "documents": [
+    {
+      "id": "doc-dashboard-metric",
+      "name": "Dashboard Metric — Daily Active Users, Last 10 Days",
+      "type": "Dashboard Export",
+      "note": "Shows a steady range of 2,800-3,100 daily active users for 9 days, then a sudden drop to 1,860 on the 10th day (last Tuesday) — a 40% single-day decline."
+    },
+    {
+      "id": "doc-raw-event-log",
+      "name": "Raw Event Log — Last Tuesday (extract)",
+      "type": "Raw Data",
+      "note": "Raw login events for last Tuesday total 2,950, consistent with prior days — but only 1,860 of these were successfully processed into the daily active users dashboard metric, with the remainder appearing in an 'unprocessed' queue."
+    },
+    {
+      "id": "doc-deployment-log",
+      "name": "Deployment Log — Last Tuesday",
+      "type": "Engineering Log",
+      "note": "A scheduled analytics pipeline update was deployed last Tuesday at 6:00 AM, changing how login events are aggregated into the daily active users metric."
+    },
+    {
+      "id": "doc-investigation-template",
+      "name": "Metric Investigation Report — Template",
+      "type": "Template",
+      "note": "Fields: reported anomaly, raw data comparison, root cause finding, corrected metric, recommendation."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-first-check",
+      "type": "mcq",
+      "title": "First Verification Step",
+      "prompt": "Before accepting the dashboard's reported 40% drop as a real business trend, what should you check first?",
+      "options": [
+        "Immediately alert the whole company that user engagement has collapsed",
+        "Compare the dashboard's reported number against the raw underlying event data for the same day, to check whether the dashboard metric itself is accurately reflecting actual user activity",
+        "Assume it's definitely a data error without checking anything, since large sudden drops are usually artifacts",
+        "Wait a week to see if the number recovers on its own before investigating"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "The first and most direct verification step for any surprising metric is comparing it against the raw underlying data it's supposed to be summarizing — this is what immediately reveals whether the dashboard is accurately reporting reality or whether something in the data pipeline is causing a discrepancy, before jumping to any conclusion in either direction.",
+      "tip": "Always verify a surprising dashboard number against raw source data before treating it as a real business signal — dashboards are downstream summaries that can be affected by pipeline changes, bugs, or processing issues that have nothing to do with actual user behavior.",
+      "mistake": "Both immediately panicking about a dramatic-looking trend and immediately assuming it must be an error, without actually checking the raw data either way, are guesses — the only way to know which is correct is to compare the dashboard figure against the underlying raw events.",
+      "recommendation": "Build a habit of checking raw data behind any metric before it drives a business decision, especially one as significant as reprioritizing a sprint — this single verification step is often what separates a real signal from a data artifact."
+    },
+    {
+      "id": "task-1b-raw-check",
+      "type": "numeric",
+      "title": "Comparing Raw Login Events",
+      "prompt": "Raw login events for last Tuesday totaled 2,950, consistent with prior days (2,800-3,100 range). The dashboard reported 1,860 daily active users. What is the discrepancy between raw events and the reported metric?",
+      "answer": 1090,
+      "tolerance": 20,
+      "unit": "users (2,950 raw events vs. 1,860 reported — a 1,090 user gap)",
+      "xp": 45,
+      "workingNote": "2,950 - 1,860 = 1,090.",
+      "reasoning": "Quantifying the specific gap between raw events (2,950, consistent with normal activity) and the reported dashboard metric (1,860) confirms that actual user login activity did NOT drop — the discrepancy is entirely in how the dashboard is processing and reporting that activity, not in real user behavior.",
+      "tip": "Always calculate the specific size of the gap between raw data and a reported metric, not just note that a discrepancy exists — 1,090 users is a precise, actionable figure that directly supports the conclusion that this is a data processing issue, not a real user drop-off.",
+      "mistake": "Noting only that 'raw data looks normal' without calculating the specific gap against the reported metric leaves the finding less precise and less immediately convincing to a product team ready to reprioritize a sprint based on the dashboard number.",
+      "recommendation": "Present both figures (raw events and reported metric) side by side with the calculated gap in your report — this is the clearest way to show the product team that actual user activity was normal, and the problem is entirely in the reporting pipeline."
+    },
+    {
+      "id": "task-2-rootcause-da",
+      "type": "mcq",
+      "title": "Connecting the Root Cause",
+      "prompt": "A scheduled analytics pipeline update was deployed last Tuesday at 6:00 AM, changing how login events are aggregated into the metric. What does this suggest?",
+      "options": [
+        "Coincidental timing unrelated to the metric discrepancy",
+        "The pipeline update deployed the same day is the most likely cause of the discrepancy — it probably changed the aggregation logic in a way that's failing to process a portion of login events into the daily active users count",
+        "User behavior genuinely changed for unrelated business reasons",
+        "The raw event log itself must be wrong, not the dashboard"
+      ],
+      "correctIndex": 1,
+      "xp": 50,
+      "reasoning": "A pipeline change deployed on the exact same day the discrepancy first appeared, directly affecting how login events are aggregated into the metric, is a strong and specific root-cause candidate — it's far more likely that the new aggregation logic is failing to process some events correctly than that user behavior genuinely and suddenly changed with no other supporting evidence.",
+      "tip": "When a metric discrepancy begins on the exact day of a known system or pipeline change, treat that change as the leading root-cause hypothesis and investigate it directly — this kind of precise timing correlation, especially combined with a plausible technical mechanism (aggregation logic change), is strong evidence.",
+      "mistake": "Concluding that real user behavior changed, without checking for a same-day technical change that offers a much more direct and plausible explanation, risks an incorrect and alarming conclusion that could unnecessarily reprioritize the team's work.",
+      "recommendation": "Cross-reference any suspicious metric change against the engineering deployment log for the same date — this is often the fastest way to distinguish a real business trend from a technical artifact."
+    },
+    {
+      "id": "task-3-nextsteps-da",
+      "type": "multiselect",
+      "title": "Next Steps",
+      "prompt": "Select every appropriate next step given the finding.",
+      "options": [
+        "Report to the product team that daily active users did not actually drop — raw login activity was normal, and the reported metric is a pipeline processing artifact from the same-day deployment",
+        "Recommend the sprint be immediately and fully reprioritized around a user engagement crisis",
+        "Recommend the engineering team investigate and fix the pipeline aggregation logic from the deployment",
+        "Recommend the dashboard display a temporary caveat or be corrected until the pipeline issue is resolved, to prevent further false alarms",
+        "Say nothing and let the dashboard continue showing the incorrect number without flagging it to anyone"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        3
+      ],
+      "xp": 50,
+      "reasoning": "Appropriate next steps report the actual finding (no real user drop, a pipeline artifact), recommend engineering investigate and fix the specific pipeline change, and recommend correcting or flagging the dashboard to prevent further false alarms. Recommending a full sprint reprioritization around a crisis that the data shows isn't real would waste the team's time, and silently letting an incorrect dashboard continue misleading people leaves the underlying problem both unfixed and likely to cause the same false alarm again.",
+      "tip": "Once you've confirmed a metric discrepancy is a data pipeline issue rather than a real business trend, always recommend both a fix (engineering investigation) and a safeguard (dashboard correction or caveat) — fixing the pipeline alone doesn't prevent the dashboard from misleading someone again before the fix is deployed.",
+      "mistake": "Recommending a full crisis-mode sprint reprioritization based on a metric that's been shown to be a data artifact would waste real team capacity on a problem that doesn't actually exist, while the real issue (the broken pipeline) goes unaddressed.",
+      "recommendation": "Flag the dashboard issue to whoever else might be viewing it in the meantime, not just to the product team who happened to ask — an unflagged incorrect metric can mislead other stakeholders checking the same dashboard independently."
+    },
+    {
+      "id": "task-4-investigation-report",
+      "type": "text",
+      "title": "Metric Investigation Report",
+      "prompt": "Write the report (3-5 sentences): the reported anomaly, your verification finding, root cause, and recommendation.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "The dashboard reported a 40% single-day drop in daily active users last Tuesday (2,950 average down to 1,860), which triggered concern about a potential product engagement crisis. Verification against raw login event data shows actual login activity was normal that day (2,950 events, consistent with the prior 9-day average), a 1,090-user gap between raw activity and the reported metric — meaning real user engagement did not actually decline. Root cause: a scheduled analytics pipeline update deployed the same morning changed how login events are aggregated, and appears to be failing to process a portion of events into the daily active users count. I recommend engineering investigate and fix the pipeline aggregation logic, and that the dashboard display a temporary caveat until confirmed corrected, and that no sprint reprioritization occurs around this specific metric, since the underlying user behavior was normal.",
+      "reasoning": "A strong investigation report states the original alarming finding, the verification result with specific numbers, the identified root cause, and a clear recommendation that directly addresses what was actually found — this combination is what lets the product team confidently stand down from an unnecessary crisis response while still ensuring the real pipeline issue gets fixed.",
+      "tip": "Always explicitly state the business conclusion (no real user drop-off occurred) as clearly as the technical finding — a report focused only on the pipeline mechanism, without clearly reassuring the product team about actual user behavior, might not fully prevent the unnecessary reprioritization it's meant to avoid.",
+      "mistake": "A report that identifies the pipeline issue but doesn't explicitly recommend against the sprint reprioritization leaves the product team to draw their own conclusion, risking a reaction that doesn't match what the data actually supports.",
+      "recommendation": "Follow up once the pipeline fix is deployed to confirm the dashboard metric returns to normal — a root cause finding isn't fully verified until the fix is confirmed to actually resolve the discrepancy in subsequent data."
+    },
+    {
+      "id": "task-6-metric-excel",
+      "type": "excel-upload",
+      "title": "Multi-Metric Anomaly Check (Excel)",
+      "prompt": "Three more dashboard metrics need their raw-vs-reported gap calculated to check which reflect real anomalies. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "Metric-Anomaly-Template.xlsx",
+        "sheetName": "Anomaly Check",
+        "headers": [
+          "Metric",
+          "Raw Data Value",
+          "Dashboard Reported Value",
+          "Gap",
+          "Likely Real Anomaly? (Y/N, gap>5% of raw = N, likely artifact)"
+        ],
+        "rows": [
+          [
+            "Signups",
+            "450",
+            "448",
+            "",
+            ""
+          ],
+          [
+            "Page Views",
+            "18000",
+            "11200",
+            "",
+            ""
+          ],
+          [
+            "Support Tickets",
+            "62",
+            "65",
+            "",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 2,
+          "tolerance": 1,
+          "label": "Signups gap (450-448=2, tiny — Y, likely a real/negligible number, no artifact)"
+        },
+        {
+          "cell": "D3",
+          "expected": 6800,
+          "tolerance": 50,
+          "label": "Page Views gap (18000-11200=6800, large — N, likely a pipeline artifact given the huge gap)"
+        },
+        {
+          "cell": "D4",
+          "expected": -3,
+          "tolerance": 1,
+          "label": "Support Tickets gap (62-65=-3, small — Y, within normal reporting variance, likely real"
+        }
+      ],
+      "reasoning": "Calculating the raw-vs-reported gap consistently across every metric — not just the one already flagged as concerning — is what reveals Page Views has a large, artifact-like gap (6,800) needing the same kind of pipeline investigation just completed for daily active users, while Signups and Support Tickets show only minor, likely-real variance.",
+      "tip": "Apply a consistent threshold (e.g., gap greater than 5% of raw value) to flag likely data artifacts versus real, small reporting variances — this turns 'does this number look off' into an objective, repeatable check across every dashboard metric.",
+      "mistake": "Investigating only the one metric someone happened to notice and flag, without routinely checking others, risks a second data pipeline issue (like Page Views here) going undetected and potentially causing its own false alarm later.",
+      "recommendation": "Run this raw-vs-reported comparison as a standing weekly check across key dashboard metrics, not just reactively when someone raises a concern — it's what would have caught the daily active users pipeline issue before it ever reached the product team as an alarming surprise."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Dashboard Nobody Double-Checked",
+    "background": "On an earlier Nimbus product decision, a dashboard metric showing a sustained decline in a key engagement number drove a significant product redesign effort over several sprints — the decline turned out to be a tracking code error introduced months earlier, and the redesign effort, while not wasted entirely, had been prioritized based on a problem that was substantially smaller than the (incorrect) data suggested.",
+    "client": "Nimbus Internal Analytics Suite — an earlier product cycle",
+    "budget": "Approximately 6 weeks of product development effort prioritized based on an overstated problem, redirected from other roadmap items",
+    "timeline": "The tracking error had been present for 3 months before the redesign effort began, and wasn't caught until well into the redesign work",
+    "challenges": "Because the declining metric matched a plausible-sounding business narrative (users losing interest in a specific feature), nobody thought to verify it against raw data before committing significant product development resources to addressing it.",
+    "constraints": "Once the tracking error was found, the team had to reassess how much of the original 'decline' was real versus artifact, and recalibrate the redesign's priority and scope, after several sprints had already been invested based on the inflated figure.",
+    "questions": [
+      "Why might a plausible-sounding metric decline be accepted without verification, especially if it matches an existing narrative or assumption?",
+      "What specific check, done before committing development resources, would have caught this tracking error?",
+      "How does this compare to the daily active users investigation in this internship's assignment?"
+    ],
+    "solution": "Nimbus mandated that any dashboard metric driving a resourcing or reprioritization decision above a certain scale must be verified against raw source data before the decision is finalized, specifically because of the earlier redesign effort based on unverified data.",
+    "lessonsLearned": "A metric that matches a plausible existing narrative is often accepted without verification precisely because it confirms what people already suspected — but a plausible story is not the same as a verified fact, and any metric significant enough to drive real resourcing decisions deserves a raw-data check before it's acted upon, regardless of how well it fits the expected narrative."
+  },
+  "quiz": [
+    {
+      "q": "Before treating a surprising dashboard metric as a real business trend, the first step should be:",
+      "options": [
+        "Immediately act on the metric",
+        "Verify it against the raw underlying source data"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A metric discrepancy that begins on the exact day of a known pipeline or system change should be:",
+      "options": [
+        "Assumed unrelated coincidence",
+        "Treated as the leading root-cause hypothesis and investigated directly"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Once a metric anomaly is confirmed to be a data pipeline artifact rather than a real trend, the report should:",
+      "options": [
+        "Recommend reprioritizing work around the apparent trend anyway",
+        "Clearly state no real change occurred, recommend fixing the pipeline, and recommend against reacting to the artifact as if it were real"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Checking raw-vs-reported gaps across multiple dashboard metrics, not just one flagged metric, is useful because:",
+      "options": [
+        "It has no additional value once one metric is checked",
+        "It can catch other undetected pipeline issues before they cause their own false alarms"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did an incorrect metric drive weeks of misdirected product development effort?",
+      "options": [
+        "The declining metric matched a plausible existing narrative and was acted on without being verified against raw data first",
+        "The product team ignored the metric entirely",
+        "There was no actual metric involved",
+        "The redesign was unrelated to any metric"
+      ],
+      "correctIndex": 0
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to compare a reported number against raw source data before accepting it as real? What would have happened if that verification step had been skipped?",
+      "The case study shows an unverified but plausible-sounding metric driving weeks of misdirected work. Where else might a number that 'fits the expected story' get accepted without the verification it deserves?",
+      "If you were Julia, what one rule would you make standing so a metric significant enough to reprioritize work is never acted on without a raw-data check first?"
+    ]
+  },
+  "certificate": {
+    "name": "Data Analyst — Metric Verification & Root Cause Investigation",
+    "nameAz": "Data Analitik — Metrik Doğrulaması və Kök Səbəb Araşdırması",
+    "totalXp": 305
+  }
+}

@@ -269,5 +269,59 @@
     "certificate": true,
     "playable": true,
     "summary": "Own the handover milestone for the Meadow Ridge Towers — sequencing, risk register, and client presentation."
+  },
+  {
+    "id": "geotechnical-engineer-prime",
+    "title": "Geotechnical Engineer",
+    "company": "Prime Infrastructure",
+    "companyId": "prime-infrastructure",
+    "category": "Geotechnical",
+    "difficulty": "Intermediate",
+    "durationHours": 7,
+    "taskCount": 6,
+    "skills": [
+      "Soil Classification",
+      "Foundation Design Logic",
+      "Bearing Capacity Calculation"
+    ],
+    "certificate": true,
+    "playable": true,
+    "summary": "Interpret borehole data, calculate bearing capacity, and confirm the correct foundation type for a flyover pier before the piling contractor mobilises."
+  },
+  {
+    "id": "land-surveyor-prime",
+    "title": "Land Surveyor",
+    "company": "Prime Infrastructure",
+    "companyId": "prime-infrastructure",
+    "category": "Survey",
+    "difficulty": "Beginner",
+    "durationHours": 6,
+    "taskCount": 6,
+    "skills": [
+      "Coordinate Calculation",
+      "Area Computation",
+      "Error Detection"
+    ],
+    "certificate": true,
+    "playable": true,
+    "summary": "Diagnose why a site boundary traverse won't close, trace the error to its source, and deliver corrected coordinates the design team can trust."
+  },
+  {
+    "id": "road-highway-engineer-prime",
+    "title": "Road & Highway Engineer",
+    "company": "Prime Infrastructure",
+    "companyId": "prime-infrastructure",
+    "category": "Road & Highway",
+    "difficulty": "Intermediate",
+    "durationHours": 7,
+    "taskCount": 6,
+    "skills": [
+      "Earthworks Balance",
+      "Pavement Design Logic",
+      "Cross-Section Analysis"
+    ],
+    "certificate": true,
+    "playable": true,
+    "summary": "Balance cut and fill volumes across a road corridor and confirm pavement thickness against design traffic loading before earthworks pricing."
   }
 ]
