@@ -166,6 +166,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://elvinasgar.github.io/IndustrCons-Virtual-Internship/internship-detail.html?id=geotechnical-engineer-prime</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://elvinasgar.github.io/IndustrCons-Virtual-Internship/internship-detail.html?id=land-surveyor-prime</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://elvinasgar.github.io/IndustrCons-Virtual-Internship/internship-detail.html?id=road-highway-engineer-prime</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://elvinasgar.github.io/IndustrCons-Virtual-Internship/internship-detail.html?id=scrum-master-nimbus</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -267,6 +282,21 @@
   </url>
   <url>
     <loc>https://elvinasgar.github.io/IndustrCons-Virtual-Internship/internship-detail.html?id=leadership-fundamentals-atlas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://elvinasgar.github.io/IndustrCons-Virtual-Internship/internship-detail.html?id=business-analyst-nimbus</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://elvinasgar.github.io/IndustrCons-Virtual-Internship/internship-detail.html?id=digital-marketing-specialist-beacon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://elvinasgar.github.io/IndustrCons-Virtual-Internship/internship-detail.html?id=data-analyst-nimbus</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
