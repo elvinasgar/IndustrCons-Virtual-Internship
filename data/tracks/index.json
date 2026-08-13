@@ -376,5 +376,59 @@
     "certificate": true,
     "playable": true,
     "summary": "Handle an underperforming team member and a resourcing conflict as a first-time people manager."
+  },
+  {
+    "id": "business-analyst-nimbus",
+    "title": "Business Analyst",
+    "company": "Nimbus Digital",
+    "companyId": "nimbus-digital",
+    "category": "Business Analysis",
+    "difficulty": "Intermediate",
+    "durationHours": 7,
+    "taskCount": 6,
+    "skills": [
+      "Process Mapping",
+      "Requirements Documentation",
+      "Gap Analysis"
+    ],
+    "certificate": true,
+    "playable": true,
+    "summary": "Find the gap between documented requirements and real observed process before development builds the wrong thing."
+  },
+  {
+    "id": "digital-marketing-specialist-beacon",
+    "title": "Digital Marketing Specialist",
+    "company": "Beacon Communications",
+    "companyId": "beacon-communications",
+    "category": "Digital Marketing",
+    "difficulty": "Beginner",
+    "durationHours": 6,
+    "taskCount": 6,
+    "skills": [
+      "Campaign Budget Allocation",
+      "ROI Analysis",
+      "A/B Test Interpretation"
+    ],
+    "certificate": true,
+    "playable": true,
+    "summary": "Use cost-per-acquisition data to recommend a mid-campaign budget reallocation, even when it conflicts with the client's gut feeling."
+  },
+  {
+    "id": "data-analyst-nimbus",
+    "title": "Data Analyst",
+    "company": "Nimbus Digital",
+    "companyId": "nimbus-digital",
+    "category": "Data & Analytics",
+    "difficulty": "Intermediate",
+    "durationHours": 7,
+    "taskCount": 6,
+    "skills": [
+      "Data Cleaning",
+      "Trend Analysis",
+      "Dashboard Interpretation"
+    ],
+    "certificate": true,
+    "playable": true,
+    "summary": "Verify an alarming dashboard metric against raw data before it drives an unnecessary sprint reprioritization."
   }
 ]
