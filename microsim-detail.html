@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Micro Simulation — IndustrCons IRE-3</title>
+<meta name="description" content="A fast, focused 15-40 minute decision sprint — real scenario, quick tasks, instant feedback.">
+<link rel="canonical" href="https://elvinasgar.github.io/IndustrCons-Virtual-Internship/microsim-detail.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IndustrCons IRE-3 Micro Simulation">
+<meta property="og:description" content="A fast, focused decision sprint — real scenario, quick tasks, instant feedback.">
+<meta property="og:image" content="https://elvinasgar.github.io/IndustrCons-Virtual-Internship/assets/icons/logo-real.png">
+<meta property="og:site_name" content="IndustrCons IRE-3">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://elvinasgar.github.io/IndustrCons-Virtual-Internship/assets/icons/logo-real.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "IndustrCons",
+  "url": "https://elvinasgar.github.io/IndustrCons-Virtual-Internship/",
+  "logo": "https://elvinasgar.github.io/IndustrCons-Virtual-Internship/assets/icons/logo-real.png",
+  "founder": { "@type": "Person", "name": "Elvin Asgarov" }
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  .ms-progress { display:flex; gap:6px; margin-bottom:22px; }
+  .ms-progress .dot { flex:1; height:5px; border-radius:3px; background:var(--line); }
+  .ms-progress .dot.done { background:var(--success); }
+  .ms-progress .dot.active { background:var(--blue); }
+  .ms-meta-row { display:flex; gap:10px; flex-wrap:wrap; margin:10px 0 18px; }
+</style>
+</head>
+<body data-page="internships">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="navbarInclude"></div>
+
+<main id="main" class="section-tight">
+  <div class="container" style="max-width:820px;">
+    <nav class="breadcrumb">
+      <a href="microsims.html">Micro Simulations</a><span class="sep">/</span><span id="crumbTitle">…</span>
+    </nav>
+
+    <div class="ms-progress" id="msProgress"></div>
+
+    <div id="flowContent" class="card" style="padding:32px;"></div>
+
+    <div class="flex between" style="margin-top:20px;">
+      <button class="btn btn-ghost" id="prevBtn">← Back</button>
+      <button class="btn btn-primary" id="nextBtn" disabled>Continue →</button>
+    </div>
+  </div>
+</main>
+
+<div id="footerInclude"></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/main.js"></script>
+<script src="js/microsim.js?v=1"></script>
+</body>
+</html>
