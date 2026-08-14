@@ -23,7 +23,7 @@
         <div class="flex between"><h4 style="margin:0;">${it.title}</h4><span class="badge badge-blue">${it.difficulty}</span></div>
         <p style="font-size:.86rem; margin:0;">${it.company} — ${it.summary}</p>
         <div class="meta">
-          <span>⏱ ${it.durationHours} <span data-i18n="catalog.hours">hrs</span></span>
+          <span>⏱ ${it.durationMinutes ? it.durationMinutes + ' min' : it.durationHours + ' ' + (IC.i18n.t('catalog.hours') || 'hrs')}</span>
           <span>✅ ${it.taskCount} <span data-i18n="catalog.tasks">tasks</span></span>
           ${it.certificate ? '<span>🏅 Certificate</span>' : ''}
         </div>
