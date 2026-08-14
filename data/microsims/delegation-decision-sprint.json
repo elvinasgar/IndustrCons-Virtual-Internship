@@ -1,0 +1,52 @@
+{
+  "id": "delegation-decision-sprint",
+  "title": "Delegation Decision Sprint",
+  "category": "Leadership & Strategy",
+  "durationMinutes": 15,
+  "difficulty": "Beginner",
+  "skills": [
+    "Delegation",
+    "Trust Building"
+  ],
+  "scenario": {
+    "setting": "Monday morning, planning the week",
+    "brief": "You have a task that needs doing this week: preparing a client-facing summary report. You could do it yourself (30 min, guaranteed quality) or delegate it to a capable but newer team member (they'd need 90 min and some guidance, but it's a good growth opportunity for them).",
+    "context": "Delegation decisions are rarely about who can do it fastest — they're about what builds team capability over time."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "mcq",
+      "title": "Making the Call",
+      "prompt": "What's the strongest reasoning for this decision?",
+      "options": [
+        "Always do it yourself if you can do it faster and better",
+        "Delegate it, since the time cost now is a reasonable investment in the team member's growth, as long as you can review it before it goes to the client",
+        "Delegate it and send it to the client without reviewing, to fully hand off ownership",
+        "Never delegate anything client-facing, regardless of the team member's capability"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "Delegating with a review step balances the real goal (developing the team member's capability) against the real risk (client-facing quality) — this is what makes delegation sustainable rather than either overly cautious (never delegating) or reckless (no review at all).",
+      "tip": "When delegating something client-facing for the first time, keep a review step in the process — it protects quality while still giving the team member real ownership of the work itself.",
+      "mistake": "Always doing it yourself because it's faster in the moment optimizes for this week's efficiency at the cost of ever building a team member's capability — a manager who never delegates limits their own team's growth and their own ability to scale.",
+      "recommendation": "Frame delegation explicitly as a growth opportunity when assigning it — telling the team member 'this is client-facing, so let's do a review together before it goes out' sets clear, supportive expectations."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Assigning the Task",
+      "prompt": "Write the message (2-3 sentences) you'd send delegating this task.",
+      "minLength": 30,
+      "xp": 45,
+      "modelAnswer": "I'd like you to take the lead on this week's client summary report — it's client-facing, so let's plan for me to review it with you before it goes out, but I want you to own the drafting and structure. Take a look at last month's version as a reference, and let's touch base Wednesday to review before Friday's deadline. This is a good chance to get more reps on client communication.",
+      "reasoning": "A strong delegation message clearly assigns real ownership (drafting and structure), sets the review checkpoint expectation upfront (not as a surprise later), gives a helpful reference point, and names why this is a valuable opportunity — this combination builds trust and sets the team member up to succeed.",
+      "tip": "Set the review checkpoint expectation at the time of assignment, not as a last-minute addition — it feels very different to a team member to know from the start that a review is part of the process, versus being told at the last minute that their work needs checking.",
+      "mistake": "Delegating without any reference material or context ('just do the report') leaves a newer team member guessing at expectations, increasing both their stress and the chance the review step reveals major issues.",
+      "recommendation": "Explicitly name the growth value of the task ('good chance to get more reps on client communication') — it reframes the task as an opportunity rather than just an assignment."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "What's a task you currently do yourself that you could delegate as a growth opportunity for someone else? What's stopping you?"
+  }
+}

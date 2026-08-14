@@ -1,0 +1,52 @@
+{
+  "id": "technical-interview-sprint",
+  "title": "Technical Interview Sprint",
+  "category": "Interview & Career",
+  "durationMinutes": 20,
+  "difficulty": "Beginner",
+  "skills": [
+    "Technical Communication",
+    "Problem Breakdown"
+  ],
+  "scenario": {
+    "setting": "Video call with a hiring manager at a mid-size engineering firm",
+    "brief": "You're 10 minutes into a technical interview. The interviewer just asked you to walk through how you'd approach a problem you've never seen before — not solve it perfectly, just show your thinking.",
+    "context": "Interviewers care more about how you break down an unfamiliar problem than whether you land the exact right answer in real time."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "mcq",
+      "title": "Opening Move",
+      "prompt": "The interviewer asks: 'How would you estimate the number of manhole covers in a city?' What's the strongest first move?",
+      "options": [
+        "Immediately state a specific number to sound confident",
+        "Ask a clarifying question about the city's size/type, then think aloud through a structured estimate",
+        "Say you don't know and ask for a different question",
+        "Give a long disclaimer about how these questions are unfair"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "Clarifying the scope first, then reasoning aloud through a structured estimate, is exactly what this question type is designed to test — the interviewer wants to see your process, not a memorized answer.",
+      "tip": "Always restate or clarify an ambiguous question before diving in — it shows you don't just react, you scope the problem first.",
+      "mistake": "Blurting out a random number without any visible reasoning gives the interviewer nothing to evaluate except luck.",
+      "recommendation": "Practice narrating your thinking out loud for ambiguous questions — silence while you think privately is much harder for an interviewer to assess than visible reasoning."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Thinking Out Loud",
+      "prompt": "Write what you'd actually say (3-4 sentences) as your structured estimate approach for the manhole cover question.",
+      "minLength": 40,
+      "xp": 45,
+      "modelAnswer": "I'd start by estimating the city's population, say 1 million people, then think about how manhole covers relate to street infrastructure rather than population directly. I'd estimate roughly one manhole per city block, and estimate the number of blocks based on a rough grid layout for a city that size — maybe 20,000 blocks. That gives a rough estimate around 20,000 manhole covers, and I'd flag that this is a first-pass estimate I'd refine with real infrastructure data if this were a real project.",
+      "reasoning": "A strong verbal answer breaks the problem into smaller, estimable pieces, states the assumptions explicitly, and arrives at a specific (if rough) number — this is what demonstrates structured thinking under uncertainty.",
+      "tip": "State your assumptions explicitly as you go ('assuming roughly 1 million people') — it lets the interviewer follow your logic and correct you if an assumption seems off, rather than silently judging a final number.",
+      "mistake": "Trying to get to a 'correct' answer instead of a well-reasoned one misses the point of this question type entirely — there is no correct answer, only a well- or poorly-reasoned path to one.",
+      "recommendation": "End your answer by naming it as a first-pass estimate you'd refine with real data — this shows awareness that estimation is a starting point, not a final answer."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "What's one unfamiliar-problem question you might get asked in your next real interview, and how would you structure your first 30 seconds of response?"
+  }
+}

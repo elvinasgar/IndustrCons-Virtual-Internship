@@ -1,0 +1,55 @@
+{
+  "id": "budget-cut-decision",
+  "title": "Budget Cut Decision Sprint",
+  "category": "Budget & Risk",
+  "durationMinutes": 25,
+  "difficulty": "Intermediate",
+  "skills": [
+    "Prioritization",
+    "Trade-off Reasoning"
+  ],
+  "scenario": {
+    "setting": "Department head's office, quarterly budget review",
+    "brief": "Your department's budget just got cut by 15% for next quarter. You have four ongoing initiatives and need to decide what to cut, reduce, or protect — before the finance meeting in 20 minutes.",
+    "context": "A 15% cut rarely means cutting everything by 15% equally — it means making real trade-off decisions about what matters most."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "multiselect",
+      "title": "Evaluating the Initiatives",
+      "prompt": "Given: Initiative A (high impact, on track, 30% of budget), B (low impact, behind schedule, 20% of budget), C (high impact, at risk without more funding, 25% of budget), D (medium impact, nice-to-have, 25% of budget) — select every initiative that should be seriously considered for cutting or reducing.",
+      "options": [
+        "Initiative A — high impact and on track",
+        "Initiative B — low impact and already behind schedule",
+        "Initiative C — high impact but at risk without more funding",
+        "Initiative D — medium impact, nice-to-have"
+      ],
+      "correctIndices": [
+        1,
+        3
+      ],
+      "xp": 45,
+      "reasoning": "Initiative B (low impact, already struggling) and Initiative D (medium impact, explicitly 'nice-to-have') are the clearest candidates for cutting — they combine lower strategic value with either poor performance or non-essential status. Initiative A is a clear protect (high impact, on track), and Initiative C, despite being at risk, is high-impact and arguably needs more support, not less, making it a poor cutting candidate despite its current struggles.",
+      "tip": "Rank initiatives by combining impact AND current trajectory, not either alone — a low-impact initiative that's already struggling (B) is a much clearer cut than a high-impact one that's struggling (C), which might need investment, not less of it.",
+      "mistake": "Cutting Initiative C because it's 'at risk' without considering that it's also high-impact would remove funding from exactly the initiative that most needs support to get back on track.",
+      "recommendation": "When presenting cuts, always explain the impact-plus-trajectory reasoning explicitly — it shows the decision was a deliberate trade-off analysis, not just cutting whatever seemed easiest."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Your Recommendation",
+      "prompt": "Write your recommendation (3-4 sentences) for the finance meeting.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "I recommend fully protecting Initiative A, which is high-impact and on track, and providing Initiative C with its needed additional support rather than cutting it, since it's high-impact but currently at risk without it. To absorb the 15% cut, I recommend cutting Initiative B entirely, given its low impact and existing schedule struggles, and reducing Initiative D's scope significantly, since it's explicitly a nice-to-have rather than essential. This protects our two highest-impact initiatives while making real, defensible trade-offs on the two lower-priority ones, rather than applying an across-the-board cut that would weaken everything equally.",
+      "reasoning": "A strong budget recommendation states which initiatives are protected and why, which are cut and why, and explicitly rejects the easier-seeming but weaker option (equal cuts across everything) — this shows real prioritization thinking under pressure.",
+      "tip": "Explicitly name and reject the 'equal cut across everything' option in your recommendation — it shows you considered it and chose a more deliberate trade-off instead, which is more defensible in a finance meeting.",
+      "mistake": "A recommendation that doesn't explain the reasoning behind which initiatives were protected versus cut leaves the finance team unable to evaluate whether the trade-offs actually make sense.",
+      "recommendation": "Prepare a one-line answer for 'why not just cut everything by 15%' before the meeting — it's the most likely pushback question, and having a ready answer (equal cuts weaken your best initiatives too) strengthens your position."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "If you had to defend cutting Initiative B specifically to its project lead, what would you say, and how would you handle their pushback?"
+  }
+}

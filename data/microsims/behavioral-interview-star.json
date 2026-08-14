@@ -1,0 +1,52 @@
+{
+  "id": "behavioral-interview-star",
+  "title": "Behavioral Interview (STAR Method)",
+  "category": "Interview & Career",
+  "durationMinutes": 20,
+  "difficulty": "Beginner",
+  "skills": [
+    "Storytelling",
+    "Self-Reflection"
+  ],
+  "scenario": {
+    "setting": "Panel interview, three interviewers on screen",
+    "brief": "An interviewer asks: 'Tell me about a time you disagreed with a decision at work or school. What did you do?' You have about 90 seconds to answer well.",
+    "context": "The STAR method (Situation, Task, Action, Result) is the standard structure for answering behavioral interview questions clearly and concisely."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "mcq",
+      "title": "Structuring the Answer",
+      "prompt": "Which structure gives the strongest 90-second answer to a behavioral question?",
+      "options": [
+        "A long, chronological story with every detail included",
+        "Situation (brief context), Task (what you needed to do), Action (what you specifically did), Result (the outcome) — STAR, kept concise",
+        "Just the outcome, since that's what matters most",
+        "A general philosophy about disagreement without a specific example"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "The STAR structure (Situation, Task, Action, Result) is specifically designed to fit a concise, complete answer into a short time — it gives the interviewer exactly what they need without rambling or omitting the outcome.",
+      "tip": "Time-box each STAR component mentally before you start speaking — roughly 15 seconds on Situation, 10 on Task, 40 on Action, 15 on Result keeps you from running long on any one part.",
+      "mistake": "Spending most of your 90 seconds on background context (Situation) and rushing the Action and Result — the parts that actually show what YOU did and achieved — is the most common way this answer type falls flat.",
+      "recommendation": "Practice timing yourself on 2-3 real STAR stories before an interview — knowing your stories cold means you can adapt them to slightly different questions without losing structure."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Your STAR Answer",
+      "prompt": "Write a STAR-structured answer (4-5 sentences) to: 'Tell me about a time you disagreed with a decision.'",
+      "minLength": 50,
+      "xp": 50,
+      "modelAnswer": "Situation: During a group project, my team decided to skip a testing phase to hit a deadline. Task: I believed this created real risk of shipping something broken, and needed to raise the concern without derailing the team's momentum. Action: I proposed a compressed, focused testing pass covering just the highest-risk features instead of skipping testing entirely, and offered to lead it myself so it wouldn't add to anyone else's workload. Result: We caught two significant bugs in that focused pass, fixed them before the deadline, and the team adopted 'focused testing pass' as a standard practice for future tight deadlines.",
+      "reasoning": "A strong STAR answer is specific (real details, not generic), shows genuine action you personally took (not just what 'the team' did), and ends with a concrete, ideally positive result — this combination is memorable and credible to an interviewer.",
+      "tip": "Choose a story where your own specific action clearly mattered to the outcome — a story where you were mostly a bystander doesn't showcase what an interviewer is actually trying to learn about you.",
+      "mistake": "A vague answer ('we talked about it and figured it out') without a specific action and result gives the interviewer nothing concrete to remember or evaluate.",
+      "recommendation": "End with a result that, where possible, includes what you learned or how it changed future behavior — it shows growth, not just a one-off resolution."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "Which of your own real experiences would make a strong STAR story for a 'disagreement' or 'conflict' question? Outline it in your head using the four STAR parts."
+  }
+}

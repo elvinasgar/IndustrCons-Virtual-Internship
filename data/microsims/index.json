@@ -1,0 +1,218 @@
+[
+  {
+    "id": "technical-interview-sprint",
+    "title": "Technical Interview Sprint",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Interview & Career",
+    "difficulty": "Beginner",
+    "durationHours": 0.33,
+    "durationMinutes": 20,
+    "taskCount": 2,
+    "skills": [
+      "Technical Communication",
+      "Problem Breakdown"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "You're 10 minutes into a technical interview. The interviewer just asked you to walk through how you'd approach a problem you've never seen before — not solve it perfectly, just show your thinking."
+  },
+  {
+    "id": "behavioral-interview-star",
+    "title": "Behavioral Interview (STAR Method)",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Interview & Career",
+    "difficulty": "Beginner",
+    "durationHours": 0.33,
+    "durationMinutes": 20,
+    "taskCount": 2,
+    "skills": [
+      "Storytelling",
+      "Self-Reflection"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "An interviewer asks: 'Tell me about a time you disagreed with a decision at work or school. What did you do?' You have about 90 seconds to answer well."
+  },
+  {
+    "id": "elevator-pitch-challenge",
+    "title": "60-Second Elevator Pitch Challenge",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Interview & Career",
+    "difficulty": "Beginner",
+    "durationHours": 0.25,
+    "durationMinutes": 15,
+    "taskCount": 2,
+    "skills": [
+      "Concise Communication",
+      "Self-Positioning"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "A recruiter you've been hoping to meet just asked, 'So, tell me about yourself.' You have about 60 seconds before they need to move to the next person in line."
+  },
+  {
+    "id": "difficult-feedback-conversation",
+    "title": "Difficult Feedback Conversation",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Conflict & People",
+    "difficulty": "Beginner",
+    "durationHours": 0.33,
+    "durationMinutes": 20,
+    "taskCount": 2,
+    "skills": [
+      "Feedback Delivery",
+      "Directness"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "A team member has missed the same deadline twice in three weeks, and you have a 1-on-1 with them in 15 minutes. You need to raise it directly without being harsh."
+  },
+  {
+    "id": "budget-cut-decision",
+    "title": "Budget Cut Decision Sprint",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Budget & Risk",
+    "difficulty": "Intermediate",
+    "durationHours": 0.42,
+    "durationMinutes": 25,
+    "taskCount": 2,
+    "skills": [
+      "Prioritization",
+      "Trade-off Reasoning"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "Your department's budget just got cut by 15% for next quarter. You have four ongoing initiatives and need to decide what to cut, reduce, or protect — before the finance meeting in 20 minutes."
+  },
+  {
+    "id": "safety-walk-simulation",
+    "title": "Safety Walk Simulation",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Site & Field",
+    "difficulty": "Beginner",
+    "durationHours": 0.25,
+    "durationMinutes": 15,
+    "taskCount": 2,
+    "skills": [
+      "Hazard Recognition",
+      "Observation"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "You're doing a routine safety walk on an active site. You have about 10 minutes to spot hazards before reporting back to the site manager."
+  },
+  {
+    "id": "scope-creep-conversation",
+    "title": "Scope Creep Conversation",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Client & Stakeholder",
+    "difficulty": "Intermediate",
+    "durationHours": 0.33,
+    "durationMinutes": 20,
+    "taskCount": 2,
+    "skills": [
+      "Boundary Setting",
+      "Client Communication"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "A client asks, mid-call, 'Can you also just quickly add X?' — a request that's outside the original agreed scope and would take real time, but they're framing it as small."
+  },
+  {
+    "id": "code-review-roleplay",
+    "title": "Code Review Roleplay",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Technical & Review",
+    "difficulty": "Beginner",
+    "durationHours": 0.25,
+    "durationMinutes": 15,
+    "taskCount": 2,
+    "skills": [
+      "Constructive Feedback",
+      "Technical Communication"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "You're reviewing a colleague's code and found a real bug — a function that will fail under certain inputs. You need to leave a comment on it."
+  },
+  {
+    "id": "root-cause-5whys-sprint",
+    "title": "Root Cause 5-Whys Sprint",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Technical & Review",
+    "difficulty": "Beginner",
+    "durationHours": 0.25,
+    "durationMinutes": 15,
+    "taskCount": 2,
+    "skills": [
+      "Root Cause Analysis",
+      "Structured Thinking"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "A website went down for 20 minutes. The immediate cause was a server running out of memory. Your team lead wants the real root cause before everyone moves on, not just 'the server ran out of memory.'"
+  },
+  {
+    "id": "delegation-decision-sprint",
+    "title": "Delegation Decision Sprint",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Leadership & Strategy",
+    "difficulty": "Beginner",
+    "durationHours": 0.25,
+    "durationMinutes": 15,
+    "taskCount": 2,
+    "skills": [
+      "Delegation",
+      "Trust Building"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "You have a task that needs doing this week: preparing a client-facing summary report. You could do it yourself (30 min, guaranteed quality) or delegate it to a capable but newer team member (they'd need 90 min and some guidance, but it's a good growth opportunity for them)."
+  },
+  {
+    "id": "bid-nobid-decision",
+    "title": "Bid/No-Bid Decision Sprint",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Tender & Commercial",
+    "difficulty": "Intermediate",
+    "durationHours": 0.33,
+    "durationMinutes": 20,
+    "taskCount": 2,
+    "skills": [
+      "Commercial Judgment",
+      "Risk-Reward Analysis"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "A tender opportunity just landed — a project that fits your company's expertise well, but the client has a reputation for slow payment and the tender preparation itself will cost real time and money with no guarantee of winning."
+  },
+  {
+    "id": "ai-prompt-challenge",
+    "title": "AI Prompt Challenge",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Technical & Review",
+    "difficulty": "Beginner",
+    "durationHours": 0.25,
+    "durationMinutes": 15,
+    "taskCount": 2,
+    "skills": [
+      "Prompt Engineering",
+      "Critical AI Use"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "You need an AI assistant to help draft a professional email to a client about a project delay. Your first prompt attempt got a generic, unhelpful response. You have one more try to get something usable."
+  }
+]

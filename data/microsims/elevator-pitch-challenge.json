@@ -1,0 +1,52 @@
+{
+  "id": "elevator-pitch-challenge",
+  "title": "60-Second Elevator Pitch Challenge",
+  "category": "Interview & Career",
+  "durationMinutes": 15,
+  "difficulty": "Beginner",
+  "skills": [
+    "Concise Communication",
+    "Self-Positioning"
+  ],
+  "scenario": {
+    "setting": "A career fair, unexpectedly face-to-face with a recruiter from your target company",
+    "brief": "A recruiter you've been hoping to meet just asked, 'So, tell me about yourself.' You have about 60 seconds before they need to move to the next person in line.",
+    "context": "A strong 60-second pitch covers who you are, what you're good at, and what you're looking for — without turning into your full life story."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "mcq",
+      "title": "Choosing What to Include",
+      "prompt": "What's the biggest risk in a 60-second self-introduction?",
+      "options": [
+        "Not mentioning your GPA or grades",
+        "Trying to cover your entire life story instead of the 2-3 most relevant points for this specific audience",
+        "Speaking too slowly",
+        "Not smiling enough"
+      ],
+      "correctIndex": 1,
+      "xp": 35,
+      "reasoning": "The most common failure mode in a short pitch is trying to say everything, which means nothing lands clearly — picking 2-3 genuinely relevant points and delivering them well is far more memorable than a rushed, comprehensive summary.",
+      "tip": "Prepare your pitch's core 2-3 points in advance and adapt the framing to the specific audience (this recruiter, this company) rather than reciting one generic script every time.",
+      "mistake": "Cramming in every achievement, class, and project to 'not miss anything' is exactly what makes a pitch forgettable — the listener can't retain a dozen equally-weighted facts in 60 seconds.",
+      "recommendation": "End your pitch with a specific, forward-looking statement (what you're looking for, why this company) — it gives the listener something concrete to respond to, rather than just nodding at a summary."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Write Your Pitch",
+      "prompt": "Write your 60-second pitch (4-5 sentences) as if speaking directly to this recruiter.",
+      "minLength": 50,
+      "xp": 45,
+      "modelAnswer": "Hi, I'm a final-year civil engineering student who's spent the last year focused specifically on structural analysis and site coordination through hands-on project work. I recently led the structural review portion of a student bridge design competition, where our team placed second nationally, and I've also completed a virtual internship focused on real site engineering decision-making. I'm looking for a graduate role where I can keep developing that hands-on structural and site coordination experience, ideally somewhere working on infrastructure projects at real scale. I've been following your firm's transit projects and would love to learn more about your graduate program if you have a moment.",
+      "reasoning": "A strong pitch names a clear specialization (not just 'I'm a student'), backs it with one or two concrete, specific proof points, states what you're looking for clearly, and ends with a direct, easy-to-answer question or ask — this gives the listener a natural way to respond.",
+      "tip": "Always end with something the listener can directly respond to (a question or specific ask) — a pitch that just trails off after describing yourself misses the chance to turn a 60-second window into an actual conversation.",
+      "mistake": "A pitch that's just a list of facts with no throughline ('I did X, I did Y, I did Z') is much less memorable than one built around a clear specialization or theme that connects the facts together.",
+      "recommendation": "Practice this pitch out loud, timed, more than once — a pitch that reads well on paper often runs long or sounds stilted the first few times it's spoken aloud."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "What are the 2-3 points you'd actually choose for your own 60-second pitch right now, and why those specifically?"
+  }
+}

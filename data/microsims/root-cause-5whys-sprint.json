@@ -1,0 +1,52 @@
+{
+  "id": "root-cause-5whys-sprint",
+  "title": "Root Cause 5-Whys Sprint",
+  "category": "Technical & Review",
+  "durationMinutes": 15,
+  "difficulty": "Beginner",
+  "skills": [
+    "Root Cause Analysis",
+    "Structured Thinking"
+  ],
+  "scenario": {
+    "setting": "Post-incident review, 15 minutes after a system outage was resolved",
+    "brief": "A website went down for 20 minutes. The immediate cause was a server running out of memory. Your team lead wants the real root cause before everyone moves on, not just 'the server ran out of memory.'",
+    "context": "The 5-Whys technique asks 'why' repeatedly until you reach a genuinely actionable root cause, not just the first, most obvious symptom."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "text",
+      "title": "Running the 5-Whys",
+      "prompt": "Given: 'The server ran out of memory' → Why? 'A memory leak in the new caching module.' → Why? 'The caching module doesn't release memory for expired cache entries.' → Why? 'This code path was never tested with long-running processes.' Write what you think the 4th 'why' and root-cause finding should be (2-3 sentences).",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "Why wasn't this code path tested with long-running processes? Because the team's testing process only runs short-duration test suites (a few minutes), and no test scenario simulates the days-long uptime a production server actually experiences. Root cause: the testing process itself has a structural gap — it doesn't include long-running scenario tests — which is why a memory leak like this can pass all existing tests and still cause a production outage.",
+      "reasoning": "The real root cause in a 5-Whys chain is usually a process or systemic gap (like missing long-running tests here), not a single line of buggy code — the buggy code is a symptom of the process gap that allowed it to go undetected.",
+      "tip": "Keep asking 'why' past the first technical-sounding answer (the memory leak) — a technical bug is rarely the true root cause on its own; there's almost always a process reason the bug wasn't caught before production.",
+      "mistake": "Stopping at 'a memory leak caused it' and fixing only that specific leak addresses this one incident but leaves the testing process gap in place, meaning a different long-running bug could cause the same kind of outage again.",
+      "recommendation": "Propose a specific process fix as your root-cause action (add long-running test scenarios), not just a code fix (patch this specific leak) — the process fix is what actually prevents the next similar incident."
+    },
+    {
+      "id": "s2",
+      "type": "mcq",
+      "title": "Choosing the Right Fix",
+      "prompt": "Given the process-gap root cause found, what should the post-incident action items focus on?",
+      "options": [
+        "Only patching this specific memory leak",
+        "Patching this leak AND adding long-running test scenarios to the testing process, addressing both the immediate bug and the systemic gap that let it through",
+        "Firing whoever wrote the caching module",
+        "Doing nothing since the immediate issue is now resolved"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "A complete post-incident action set addresses both the immediate technical fix (patch the leak) and the systemic process gap (add long-running tests) — fixing only one of the two either leaves the current outage's cause unpatched, or leaves the door open for the next similar bug to slip through the same testing gap.",
+      "tip": "Always pair an immediate technical fix with a process-level action item when a 5-Whys chain reveals a systemic gap — the immediate fix resolves this incident, the process fix prevents the next one.",
+      "mistake": "Patching only the specific leak without addressing the testing gap is a common but incomplete response — it treats this incident as isolated rather than as a symptom of a process weakness likely to produce similar incidents again.",
+      "recommendation": "Assign a specific owner and timeline to the process-level action item (adding long-running tests), not just the immediate code fix — process improvements are the ones most likely to be deprioritized once the immediate fire is out."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "Think of a recurring problem you've experienced (personal or team). If you ran a 5-Whys on it, what do you think the real root cause would turn out to be?"
+  }
+}

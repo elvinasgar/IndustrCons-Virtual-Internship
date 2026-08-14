@@ -1,0 +1,58 @@
+{
+  "id": "bid-nobid-decision",
+  "title": "Bid/No-Bid Decision Sprint",
+  "category": "Tender & Commercial",
+  "durationMinutes": 20,
+  "difficulty": "Intermediate",
+  "skills": [
+    "Commercial Judgment",
+    "Risk-Reward Analysis"
+  ],
+  "scenario": {
+    "setting": "Tender review meeting, decision due today",
+    "brief": "A tender opportunity just landed — a project that fits your company's expertise well, but the client has a reputation for slow payment and the tender preparation itself will cost real time and money with no guarantee of winning.",
+    "context": "Not every opportunity worth pursuing is worth bidding on — a bid/no-bid decision should weigh the real cost of pursuing against the realistic probability and value of winning."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "multiselect",
+      "title": "Weighing the Factors",
+      "prompt": "Select every factor that should genuinely influence this bid/no-bid decision.",
+      "options": [
+        "How well the project fits your company's core expertise",
+        "The client's reputation for slow payment, which affects cash flow risk if you win",
+        "The estimated cost and time of preparing a competitive tender",
+        "Whether a competitor you personally dislike is also likely to bid",
+        "The realistic probability of winning based on your company's position and relationships with this client"
+      ],
+      "correctIndices": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "xp": 40,
+      "reasoning": "Genuine bid/no-bid factors include strategic fit, payment/cash-flow risk, tender preparation cost, and realistic win probability — these are the factors that actually determine whether pursuing this opportunity is a good use of resources. Personal feelings about a competitor have no bearing on whether this specific bid is a good business decision.",
+      "tip": "Always weigh tender preparation cost against realistic win probability, not just project value — a great project you have only a 10% realistic chance of winning may not justify an expensive tender preparation effort, however appealing the project itself is.",
+      "mistake": "Letting personal rivalry with a competitor influence a bid/no-bid decision replaces business judgment with an emotional reaction that has nothing to do with whether this specific opportunity is worth pursuing.",
+      "recommendation": "Factor in the client's payment reputation explicitly as a cash-flow risk, not just a minor annoyance — for a company with tight cash flow, a client known for slow payment can create real operational strain even on a project that's otherwise profitable on paper."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Your Recommendation",
+      "prompt": "Write your bid/no-bid recommendation (3-4 sentences) with reasoning.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "I recommend bidding, with conditions: the project fits our core expertise well, and while the client's slow-payment reputation is a real risk, we can mitigate it with stricter payment milestone terms built into our proposal rather than avoiding the opportunity entirely. Our realistic win probability is reasonable given our existing relationship with the client's technical team, which justifies the tender preparation cost. I'd recommend we cap our tender preparation budget at [X] and set a clear internal deadline to reassess if it looks like we're overinvesting relative to a realistic win chance as the process continues.",
+      "reasoning": "A strong bid/no-bid recommendation states the decision clearly, addresses the specific risk factor directly (with a mitigation, not just acknowledgment), ties the investment to a realistic win probability, and sets a practical control (a preparation budget cap) — this is a business decision, not just an opinion.",
+      "tip": "When a risk factor (like slow payment) doesn't make you decide against bidding, explicitly propose how you'll mitigate it (stricter payment terms) rather than just noting it and moving on — this shows the risk was actively managed, not ignored.",
+      "mistake": "A recommendation that just says 'let's bid, it's a good project' without addressing the specific risk factor or tying the decision to realistic win probability doesn't give the team confidence the trade-offs were actually considered.",
+      "recommendation": "Set an internal checkpoint or budget cap for the tender preparation effort — it protects against sunk-cost thinking where the team keeps investing in a bid preparation that's increasingly unlikely to win."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "Think of a time you (or someone you know) invested significant effort chasing an opportunity that, in hindsight, wasn't worth pursuing. What would a clearer bid/no-bid framework have caught earlier?"
+  }
+}
