@@ -1,0 +1,52 @@
+{
+  "id": "ncr-review-sprint",
+  "title": "NCR Review Sprint",
+  "category": "Site & Field",
+  "durationMinutes": 15,
+  "difficulty": "Beginner",
+  "skills": [
+    "Disposition Judgment",
+    "Quality Standards"
+  ],
+  "scenario": {
+    "setting": "Quality office, batch on hold",
+    "brief": "A batch of materials has been flagged as a minor non-conformance — slightly outside spec but arguably usable. You need to decide the disposition before the site team, waiting to proceed, escalates.",
+    "context": "The pressure to just approve a 'close enough' non-conformance to keep work moving is real — the right process resists that pressure without being inflexible."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "mcq",
+      "title": "Making the Disposition Call",
+      "prompt": "The material is 2% outside the specified tolerance, with no clear guidance on whether this specific tolerance has any flexibility. What's the right first step?",
+      "options": [
+        "Approve it immediately since 2% sounds small and the site team is waiting",
+        "Reject it outright without any further check",
+        "Check whether the specification or the original designer allows any documented tolerance flexibility for this specific parameter, before making a disposition decision",
+        "Let the site team decide since they're the ones waiting"
+      ],
+      "correctIndex": 2,
+      "xp": 40,
+      "reasoning": "Before approving or rejecting, checking whether there's documented flexibility for this specific tolerance (from the specification itself or by getting a designer's confirmation) is the responsible middle step — approving based on a gut sense that 2% 'sounds small' skips the actual specification check, while outright rejection without checking might unnecessarily hold up usable material.",
+      "tip": "Never approve a non-conformance based on how small the deviation 'feels' — always check the actual specification or get designer confirmation for whether any tolerance flexibility exists for that specific parameter, since some tolerances matter much more than others even at small percentages.",
+      "mistake": "Approving quickly just because the site team is waiting and the deviation seems minor is exactly the kind of schedule-pressure shortcut that can turn into a real quality or safety problem, especially if this specific tolerance matters more than it appears to.",
+      "recommendation": "Whatever the outcome, document the specific check you did (specification review or designer confirmation) in the NCR disposition — this is what makes the decision defensible later, whether the material was approved or rejected."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Your Disposition Note",
+      "prompt": "Given the designer confirms this specific tolerance has no flexibility (it's a critical dimension), write the NCR disposition note (2-3 sentences).",
+      "minLength": 30,
+      "xp": 50,
+      "modelAnswer": "Disposition: Reject. The designer confirmed this specific dimension is a critical tolerance with no documented flexibility, meaning the 2% deviation, while numerically small, falls outside an acceptable range for this parameter specifically. Recommend the batch be returned to the supplier for replacement material meeting the full specification, and flag to the site team that this decision was confirmed directly with the designer to avoid the specific tolerance being second-guessed as unnecessarily strict.",
+      "reasoning": "A strong disposition note states the decision clearly, cites the specific verification that led to it (the designer's confirmation), and proactively addresses the likely pushback (numerically small deviation) — this makes the rejection defensible and less likely to be challenged by a frustrated site team.",
+      "tip": "Explicitly note that the deviation is 'numerically small but functionally critical' when rejecting a seemingly minor non-conformance — this pre-empts the most likely pushback (why reject something so small) with the actual reasoning.",
+      "mistake": "A rejection disposition without citing the specific verification (the designer's confirmation) leaves it looking like an arbitrary, overly strict judgment call rather than a verified, defensible decision.",
+      "recommendation": "Communicate the decision to the site team directly and promptly, with the reasoning included — a rejected NCR that isn't clearly explained to the waiting team often generates frustration and repeated escalation requests."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "Have you ever felt pressure to approve something 'close enough' under time pressure? What process check would have made that decision more defensible either way?"
+  }
+}

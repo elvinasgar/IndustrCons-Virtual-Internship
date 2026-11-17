@@ -1,5 +1,5 @@
 (async function () {
-  console.log('IndustrCons certificate.js v4 loaded');
+  console.log('IndustrCons certificate.js v5 loaded');
   await IC.i18n.init();
   const params = new URLSearchParams(window.location.search);
   const internshipId = params.get('internshipId');
@@ -62,7 +62,8 @@
 
   document.getElementById('certInternshipName').textContent = certTitleName;
   document.getElementById('certCompanyName').textContent = data.companyIntro.name;
-  document.getElementById('certDate').textContent = new Date(rec.completedAt).toLocaleDateString(lang === 'az' ? 'az-AZ' : undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+  (function(){ const d = new Date(rec.completedAt); const AZM=['yanvar','fevral','mart','aprel','may','iyun','iyul','avqust','sentyabr','oktyabr','noyabr','dekabr'];
+    document.getElementById('certDate').textContent = lang === 'az' ? `${d.getDate()} ${AZM[d.getMonth()]} ${d.getFullYear()}` : d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }); })();
   document.getElementById('certNoTag').textContent = rec.certNo;
   document.getElementById('certVerify').textContent = verifyCode;
 
@@ -81,8 +82,8 @@
       const qrEl = document.getElementById('qrcode');
       qrEl.innerHTML = '';
       new QRCode(qrEl, {
-        text: `IndustrCons IRE-3 Credential\n${rec.certNo}\n${name}\n${certTitleName}\nVerify: ${verifyCode}`,
-        width: 56, height: 56, correctLevel: QRCode.CorrectLevel.M
+        text: `IndustrCons IRE-3 | ${rec.certNo} | ${verifyCode} | ${String(name).slice(0,28)}`,
+        width: 72, height: 72, correctLevel: QRCode.CorrectLevel.M
       });
     } catch (e) {
       console.error('QR render failed (non-blocking):', e);
@@ -119,7 +120,16 @@
 
   async function captureCertPng() {
     const card = document.getElementById('credentialCard');
-    const canvas = await html2canvas(card, { scale: 2, backgroundColor: '#ffffff' });
+    const canvas = await html2canvas(card, {
+      scale: 2, backgroundColor: '#ffffff', useCORS: true,
+      width: 1123, height: 794, windowWidth: 1400,
+      onclone: (doc) => {
+        const c = doc.getElementById('credentialCard');
+        c.style.transform = 'none';
+        const v = doc.getElementById('certViewport');
+        v.style.height = '794px'; v.style.width = '1123px'; v.style.maxWidth = 'none'; v.style.overflow = 'visible';
+      }
+    });
     return canvas;
   }
 
@@ -139,8 +149,8 @@
       const canvas = await captureCertPng();
       const imgData = canvas.toDataURL('image/png');
       const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF({ orientation: 'landscape', unit: 'px', format: [canvas.width, canvas.height] });
-      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+      const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
+      pdf.addImage(imgData, 'PNG', 0, 0, 297, 210);
       pdf.save(`IndustrCons-Credential-${rec.certNo}.pdf`);
     } catch (e) {
       console.error(e);
@@ -227,4 +237,18 @@ Elvin Asgarov: https://www.linkedin.com/in/elvinasgarov`;
       })
       .catch(() => { document.execCommand('copy'); openShare(); });
   });
+
+  // Scale the fixed landscape canvas to the available width (phones included) — layout never reflows.
+  function fitCert() {
+    const v = document.getElementById('certViewport'), c = document.getElementById('credentialCard');
+    if (!v || !c) return;
+    const s = Math.min(1, v.clientWidth / 1123);
+    c.style.transform = `scale(${s})`;
+    v.style.height = Math.round(794 * s) + 'px';
+  }
+  fitCert();
+  window.addEventListener('resize', fitCert);
+  window.addEventListener('orientationchange', fitCert);
+  window.addEventListener('load', fitCert);
+  setTimeout(fitCert, 300);
 })();

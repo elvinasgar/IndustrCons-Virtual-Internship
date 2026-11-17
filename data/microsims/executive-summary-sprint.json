@@ -1,0 +1,52 @@
+{
+  "id": "executive-summary-sprint",
+  "title": "Executive Summary Sprint",
+  "category": "Presentation & Communication",
+  "durationMinutes": 15,
+  "difficulty": "Beginner",
+  "skills": [
+    "Concise Writing",
+    "Prioritization"
+  ],
+  "scenario": {
+    "setting": "10 minutes before a board packet is due",
+    "brief": "You've just finished a 12-page project report, but the board only reads the 1-page executive summary. You have 10 minutes to write it.",
+    "context": "An executive summary isn't a shorter version of the report — it's the 3-4 things a busy reader actually needs to know and decide on."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "mcq",
+      "title": "What Belongs in an Executive Summary",
+      "prompt": "Given a 12-page report covering methodology, detailed findings, and recommendations, what should the 1-page summary prioritize?",
+      "options": [
+        "A condensed version of every section, roughly equal length each",
+        "The key finding, its business implication, the recommendation, and what decision (if any) is needed from the board",
+        "Mostly methodology, since that shows the rigor of the work",
+        "A list of everyone who contributed to the report"
+      ],
+      "correctIndex": 1,
+      "xp": 35,
+      "reasoning": "A board-level executive summary should lead with what matters for decision-making: the key finding, why it matters to the business, what you recommend, and what specific decision or approval is needed from the board — methodology and contributor lists belong in the full report, not the summary a busy reader will actually use.",
+      "tip": "Write the executive summary as if the reader will only read this one page and nothing else — because for many board members, that's exactly what happens.",
+      "mistake": "Trying to proportionally compress every section of the full report into the summary usually means no single point gets enough space to be clear or actionable — an executive summary needs sharp prioritization, not proportional compression.",
+      "recommendation": "End the executive summary with an explicit statement of what decision or action is needed from the reader — a summary that's purely informational, without a clear ask, often gets read and then forgotten without action."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Write the Summary",
+      "prompt": "Write the 1-page executive summary (4-5 sentences) for a report that found the project is 3 weeks behind schedule due to a permitting delay, but is still within budget, with a recommended path to partially recover the timeline.",
+      "minLength": 50,
+      "xp": 55,
+      "modelAnswer": "The project is currently 3 weeks behind the original schedule, driven by an external permitting delay outside our control, though it remains fully within the approved budget. We recommend a targeted recovery plan adding weekend shifts for the next 4 weeks at an estimated additional cost of $45,000, which would recover 2 of the 3 lost weeks. We do not recommend attempting to recover the full 3 weeks, as the cost of doing so rises disproportionately for the final week given current crew availability. We're requesting board approval for the $45,000 recovery spend at this meeting, with the project otherwise proceeding on the recovered timeline.",
+      "reasoning": "A strong executive summary states the key finding and its implication upfront, gives a specific recommendation with its cost, explains why a bigger ask (full recovery) isn't recommended, and ends with the exact decision being requested — this is what lets a board member read one page and make an informed decision.",
+      "tip": "State clearly what you're NOT recommending, and briefly why, alongside what you are recommending — it shows the board the full trade-off was considered, not just the option you're asking them to approve.",
+      "mistake": "A summary that describes the situation and recommendation without stating a clear, specific ask (the $45,000 approval) leaves the board unsure whether they need to actually decide something today or just note the update.",
+      "recommendation": "Keep the executive summary to one page in practice, not just in principle — the discipline of fitting the decision-relevant information into a strict length constraint is what makes it genuinely useful to a busy reader."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "Think of a report or document you've written that was longer than it needed to be. What would the 1-paragraph executive summary of it actually say?"
+  }
+}

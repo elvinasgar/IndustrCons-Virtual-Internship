@@ -214,5 +214,275 @@
     "certificate": false,
     "playable": true,
     "summary": "You need an AI assistant to help draft a professional email to a client about a project delay. Your first prompt attempt got a generic, unhelpful response. You have one more try to get something usable."
+  },
+  {
+    "id": "client-meeting-simulation",
+    "title": "Client Meeting Simulation",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Client & Stakeholder",
+    "difficulty": "Intermediate",
+    "durationHours": 0.42,
+    "durationMinutes": 25,
+    "taskCount": 2,
+    "skills": [
+      "De-escalation",
+      "Active Listening"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "A client opens the call by saying, 'Honestly, I'm not happy. This is the second delay this month.' You need to respond in the next 30 seconds."
+  },
+  {
+    "id": "objection-handling-roleplay",
+    "title": "Objection Handling Roleplay",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Presentation & Communication",
+    "difficulty": "Beginner",
+    "durationHours": 0.25,
+    "durationMinutes": 15,
+    "taskCount": 2,
+    "skills": [
+      "Sales Communication",
+      "Reframing"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "A prospect says, 'Your price is higher than [competitor]. Why should I pick you?' You have to respond in the moment, live on the call."
+  },
+  {
+    "id": "executive-summary-sprint",
+    "title": "Executive Summary Sprint",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Presentation & Communication",
+    "difficulty": "Beginner",
+    "durationHours": 0.25,
+    "durationMinutes": 15,
+    "taskCount": 2,
+    "skills": [
+      "Concise Writing",
+      "Prioritization"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "You've just finished a 12-page project report, but the board only reads the 1-page executive summary. You have 10 minutes to write it."
+  },
+  {
+    "id": "underperformance-decision",
+    "title": "Underperformance Decision Sprint",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Conflict & People",
+    "difficulty": "Intermediate",
+    "durationHours": 0.42,
+    "durationMinutes": 25,
+    "taskCount": 2,
+    "skills": [
+      "Performance Management",
+      "Fair Process"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "A team member has missed targets for the third consecutive month despite two prior coaching conversations. You need to decide the next step — before your check-in with HR in 20 minutes."
+  },
+  {
+    "id": "cost-overrun-investigation",
+    "title": "Cost Overrun Investigation Sprint",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Budget & Risk",
+    "difficulty": "Intermediate",
+    "durationHours": 0.33,
+    "durationMinutes": 20,
+    "taskCount": 2,
+    "skills": [
+      "Root Cause Analysis",
+      "Financial Reasoning"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "Finance just flagged that your project's spend is 22% over the monthly budget. You have a call with your director in 20 minutes and need to know why before you walk in."
+  },
+  {
+    "id": "risk-register-sprint",
+    "title": "Risk Register Sprint",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Budget & Risk",
+    "difficulty": "Beginner",
+    "durationHours": 0.25,
+    "durationMinutes": 15,
+    "taskCount": 2,
+    "skills": [
+      "Risk Assessment",
+      "Quick Prioritization"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "You have 10 minutes in today's check-in to update the project risk register. Three new risks have come up this week and need to be logged and prioritized."
+  },
+  {
+    "id": "strategic-prioritization-matrix",
+    "title": "Strategic Prioritization Matrix",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Leadership & Strategy",
+    "difficulty": "Intermediate",
+    "durationHours": 0.33,
+    "durationMinutes": 20,
+    "taskCount": 2,
+    "skills": [
+      "Prioritization Frameworks",
+      "Strategic Thinking"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "You have four potential projects for next quarter but capacity for only two. You need to rank them using a clear framework before presenting to leadership in 20 minutes."
+  },
+  {
+    "id": "hackathon-micro-challenge",
+    "title": "Hackathon Micro-Challenge",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Innovation & Research",
+    "difficulty": "Intermediate",
+    "durationHours": 0.5,
+    "durationMinutes": 30,
+    "taskCount": 2,
+    "skills": [
+      "Rapid Ideation",
+      "Scoping Under Constraint"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "Your company is running an internal hackathon: build a rough concept for reducing customer support response time, in 45 minutes, working solo. You have time for planning, not full execution."
+  },
+  {
+    "id": "meeting-facilitation-drill",
+    "title": "Meeting Facilitation Drill",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Presentation & Communication",
+    "difficulty": "Beginner",
+    "durationHours": 0.25,
+    "durationMinutes": 15,
+    "taskCount": 2,
+    "skills": [
+      "Facilitation",
+      "Time Management"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "You're facilitating a meeting, and 15 minutes in, the conversation has drifted into an unrelated tangent that two people are debating passionately. You have 15 minutes left and three agenda items still to cover."
+  },
+  {
+    "id": "rfi-review-challenge",
+    "title": "RFI Review Challenge",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Site & Field",
+    "difficulty": "Beginner",
+    "durationHours": 0.25,
+    "durationMinutes": 15,
+    "taskCount": 2,
+    "skills": [
+      "Technical Judgment",
+      "Response Prioritization"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "Three Requests for Information (RFIs) are sitting in your queue. You have 15 minutes before a site meeting and need to triage which needs an urgent response."
+  },
+  {
+    "id": "ncr-review-sprint",
+    "title": "NCR Review Sprint",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Site & Field",
+    "difficulty": "Beginner",
+    "durationHours": 0.25,
+    "durationMinutes": 15,
+    "taskCount": 2,
+    "skills": [
+      "Disposition Judgment",
+      "Quality Standards"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "A batch of materials has been flagged as a minor non-conformance — slightly outside spec but arguably usable. You need to decide the disposition before the site team, waiting to proceed, escalates."
+  },
+  {
+    "id": "drawing-clash-detection-sprint",
+    "title": "Drawing Clash Detection Sprint",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Technical & Review",
+    "difficulty": "Intermediate",
+    "durationHours": 0.33,
+    "durationMinutes": 20,
+    "taskCount": 2,
+    "skills": [
+      "Spatial Reasoning",
+      "Cross-Discipline Coordination"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "You're reviewing a federated 3D model before a coordination meeting and need to identify which flagged clashes are real problems worth discussing versus noise."
+  },
+  {
+    "id": "one-on-one-coaching-sprint",
+    "title": "One-on-One Coaching Sprint",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Leadership & Strategy",
+    "difficulty": "Beginner",
+    "durationHours": 0.33,
+    "durationMinutes": 20,
+    "taskCount": 2,
+    "skills": [
+      "Coaching",
+      "Active Listening"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "A normally engaged team member has seemed quieter and less energetic in the last two weeks. You have your regular weekly 1-on-1 in 5 minutes and want to check in without making it awkward."
+  },
+  {
+    "id": "sustainability-tradeoff-sprint",
+    "title": "Sustainability Trade-off Sprint",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Technical & Review",
+    "difficulty": "Intermediate",
+    "durationHours": 0.33,
+    "durationMinutes": 20,
+    "taskCount": 2,
+    "skills": [
+      "ESG Reasoning",
+      "Cost-Benefit Analysis"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "You're choosing between a standard building material (cheaper, higher carbon footprint) and a sustainable alternative (15% more expensive, significantly lower carbon footprint) for a client who has both budget constraints and stated sustainability goals."
+  },
+  {
+    "id": "email-triage-sprint",
+    "title": "Email Triage Sprint",
+    "company": "IndustrCons Sprint Series",
+    "companyId": "industrcons-sprints",
+    "category": "Presentation & Communication",
+    "difficulty": "Beginner",
+    "durationHours": 0.25,
+    "durationMinutes": 15,
+    "taskCount": 2,
+    "skills": [
+      "Prioritization",
+      "Efficient Communication"
+    ],
+    "certificate": false,
+    "playable": true,
+    "summary": "You're back from a few days away and have 47 unread emails. You have 15 minutes before your first meeting to triage the most important ones."
   }
 ]

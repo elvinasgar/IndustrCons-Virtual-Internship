@@ -91,4 +91,3 @@ IC.i18n = (function () {
 
   return { init, setLanguage, t, onChange, getLang, applyToDom };
 })();
-

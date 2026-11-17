@@ -1,0 +1,55 @@
+{
+  "id": "strategic-prioritization-matrix",
+  "title": "Strategic Prioritization Matrix",
+  "category": "Leadership & Strategy",
+  "durationMinutes": 20,
+  "difficulty": "Intermediate",
+  "skills": [
+    "Prioritization Frameworks",
+    "Strategic Thinking"
+  ],
+  "scenario": {
+    "setting": "Quarterly planning session, four competing projects",
+    "brief": "You have four potential projects for next quarter but capacity for only two. You need to rank them using a clear framework before presenting to leadership in 20 minutes.",
+    "context": "A prioritization matrix (impact vs. effort) turns a subjective argument into an objective, defensible ranking."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "multiselect",
+      "title": "Classifying the Projects",
+      "prompt": "Given: Project A (high impact, low effort), Project B (high impact, high effort), Project C (low impact, low effort), Project D (low impact, high effort) — select every project that should be prioritized for next quarter's two available slots.",
+      "options": [
+        "Project A — high impact, low effort",
+        "Project B — high impact, high effort",
+        "Project C — low impact, low effort",
+        "Project D — low impact, high effort"
+      ],
+      "correctIndices": [
+        0,
+        1
+      ],
+      "xp": 40,
+      "reasoning": "Project A (high impact, low effort — a clear quick win) and Project B (high impact, high effort — a strategic bet worth the investment) are the two that genuinely justify the available capacity. Project C is a low-value distraction even though it's easy, and Project D is the worst combination possible — high cost for low return — and shouldn't be considered at all.",
+      "tip": "Always prioritize by impact first, then use effort as the tiebreaker or sequencing factor — a low-impact project should rarely make the list regardless of how easy it is, since 'easy but low value' still consumes real capacity.",
+      "mistake": "Choosing Project C because it's 'easy to do' rather than because it's actually valuable is a common trap — low-effort, low-impact work can feel productive while contributing little real value.",
+      "recommendation": "When presenting this ranking, explicitly show WHY Project D was excluded (worst effort-to-impact ratio) — showing you considered and deliberately rejected an option is more persuasive than just presenting your top picks."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Your Presentation Points",
+      "prompt": "Write the 3-4 sentences you'd say presenting this prioritization to leadership.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "For next quarter, I recommend prioritizing Project A and Project B. Project A is a high-impact, low-effort quick win that we can deliver fast with clear near-term value, and Project B, while requiring significant effort, has the highest strategic impact of anything on our list and justifies the investment. I'm recommending against Project C, which despite being easy, has limited real impact and would consume capacity better spent elsewhere, and against Project D, which combines high effort with low impact — the weakest possible combination on our list.",
+      "reasoning": "A strong prioritization presentation states the recommended projects with their specific impact/effort reasoning, and explicitly names what was excluded and why — this demonstrates the ranking was a genuine, considered trade-off analysis, not just an arbitrary pick.",
+      "tip": "Always explain why the lowest-priority option (Project D here) was excluded specifically, not just silently omit it — naming the worst option and why it's worst often makes your top recommendations more persuasive by contrast.",
+      "mistake": "Presenting only your top picks without addressing the excluded options leaves leadership wondering whether you actually considered the alternatives or just picked your personal favorites.",
+      "recommendation": "Bring the actual impact/effort matrix visual to the presentation, not just the verbal ranking — a simple 2x2 grid is often more persuasive than a purely verbal explanation of the same reasoning."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "Think of a decision you're currently facing with multiple competing options. How would they map onto an impact-vs-effort matrix?"
+  }
+}

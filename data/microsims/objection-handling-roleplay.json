@@ -1,0 +1,52 @@
+{
+  "id": "objection-handling-roleplay",
+  "title": "Objection Handling Roleplay",
+  "category": "Presentation & Communication",
+  "durationMinutes": 15,
+  "difficulty": "Beginner",
+  "skills": [
+    "Sales Communication",
+    "Reframing"
+  ],
+  "scenario": {
+    "setting": "Sales call, prospect on the fence",
+    "brief": "A prospect says, 'Your price is higher than [competitor]. Why should I pick you?' You have to respond in the moment, live on the call.",
+    "context": "A strong objection response acknowledges the comparison honestly while reframing around value, not just defending the price."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "mcq",
+      "title": "Choosing the Response Approach",
+      "prompt": "What's the strongest way to handle a price objection like this?",
+      "options": [
+        "Immediately offer a discount to match the competitor's price",
+        "Get defensive about why the competitor is 'actually worse'",
+        "Acknowledge the price difference honestly, then reframe around the specific value/outcome difference that justifies it",
+        "Avoid answering directly and change the subject"
+      ],
+      "correctIndex": 2,
+      "xp": 40,
+      "reasoning": "Acknowledging the price difference honestly (rather than dodging it) while reframing the conversation around the specific value that justifies the difference respects the prospect's intelligence and keeps the conversation focused on what actually matters to their decision — outcome, not just price.",
+      "tip": "Never contest a price comparison the prospect has clearly already researched — acknowledge it's accurate, then pivot immediately to the specific, concrete value difference, rather than disputing their facts.",
+      "mistake": "Jumping straight to a discount signals that your original price wasn't really justified, which undermines trust in your value proposition going forward, even if it wins this specific deal.",
+      "recommendation": "Prepare 2-3 specific, concrete value differentiators in advance (not generic 'we're better') — a vague reframe ('we offer better quality') is much weaker than a specific one tied to their actual situation."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Your Response",
+      "prompt": "Write your actual spoken response (3-4 sentences) to the price objection.",
+      "minLength": 40,
+      "xp": 45,
+      "modelAnswer": "You're right, we are priced higher than them for this package. The difference is that our implementation includes dedicated onboarding support for the first 90 days, which for a team your size typically means faster time-to-value and fewer support tickets down the line — several clients who switched from that competitor specifically cited support gaps as the reason. If budget is the main blocker, I'd rather figure out the right scope with you than lower quality just to match a number — what if we looked at a phased rollout that fits your current budget while still getting you the support piece?",
+      "reasoning": "A strong objection response confirms the fact honestly, gives one specific and concrete differentiator (not vague), backs it with a credible reason (other clients' experience), and offers a genuine alternative path forward (phased rollout) rather than just a discount — this respects the prospect while still moving toward a deal.",
+      "tip": "Offer an alternative structural solution (like phasing) rather than jumping straight to a discount when budget is the real blocker — it often solves the actual problem (affordability) without undermining your pricing integrity.",
+      "mistake": "A response that's purely defensive, explaining why the competitor is worse without any concrete evidence, sounds like unsubstantiated sales talk rather than a credible answer.",
+      "recommendation": "Practice this kind of response out loud before a real call — a well-reasoned written answer can still come out sounding rehearsed or defensive if you haven't practiced saying it naturally."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "What's an objection you've heard (in sales, in an argument, anywhere) that you struggled to respond to well in the moment? How would you reframe it now?"
+  }
+}
