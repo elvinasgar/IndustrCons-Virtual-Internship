@@ -265,3 +265,28 @@ table.data-table{ width:100%; border-collapse: collapse; font-size:.88rem; }
 .section{ padding: 88px 0; }
 .section-tight{ padding: 56px 0; }
 @media (max-width: 760px){ .section{ padding: 56px 0; } }
+
+/* ===== Mobile / tablet responsiveness (overrides inline grid columns) ===== */
+html,body{ max-width:100%; overflow-x:hidden; }
+img,svg,video{ max-width:100%; }
+@media (max-width: 980px){
+  .grid[style*="repeat(4"], .grid[style*="1.3fr"]{ grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .grid[style*="repeat(3"]{ grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .grid[style*="2fr 1fr 1fr 1fr auto"], .grid[style*="1.1fr 1.1fr 1fr auto"]{ grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 640px){
+  .container{ padding-left:16px; padding-right:16px; }
+  .grid[style*="grid-template-columns"]{ grid-template-columns: minmax(0,1fr) !important; }
+  .grid[style*="repeat(2"], .grid[style*="repeat(4"]:not(#companyGrid){ grid-template-columns: minmax(0,1fr) !important; }
+  #companyGrid{ grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .grid[style*="2fr 1fr 1fr 1fr auto"]{ grid-template-columns: minmax(0,1fr) !important; }
+  .card, .internship-card{ min-width:0; }
+  h1{ font-size: clamp(1.7rem, 7vw, 2.2rem); }
+  .nav-actions .btn-accent{ display:none; }
+  .nav-actions{ gap:8px; }
+  .lang-switch button{ padding:6px 8px; }
+  .mobile-nav a{ padding:15px 20px; font-size:1rem; }
+  .flex.between{ flex-wrap:wrap; gap:8px; }
+  table{ display:block; overflow-x:auto; }
+  pre, code{ white-space:pre-wrap; word-break:break-word; }
+}
