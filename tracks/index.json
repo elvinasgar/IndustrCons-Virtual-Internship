@@ -1,0 +1,1172 @@
+[
+ {
+  "id": "scrum-master-nimbus",
+  "title": "Scrum Master",
+  "company": "Nimbus Digital",
+  "companyId": "nimbus-digital",
+  "category": "Agile & Scrum",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Sprint Planning",
+   "Facilitation",
+   "Impediment Removal"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Run a real sprint for a struggling product squad — facilitate ceremonies, unblock the team, and defend the sprint goal to a frustrated stakeholder."
+ },
+ {
+  "id": "it-project-manager-nimbus",
+  "title": "IT Project Manager",
+  "company": "Nimbus Digital",
+  "companyId": "nimbus-digital",
+  "category": "IT Project Management",
+  "difficulty": "Intermediate",
+  "durationHours": 8,
+  "taskCount": 7,
+  "skills": [
+   "Risk Assessment",
+   "Stakeholder Management",
+   "Scheduling"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Recover a slipping software delivery project, manage a vendor dependency risk, and report status to an anxious client."
+ },
+ {
+  "id": "product-manager-nimbus",
+  "title": "Product Manager",
+  "company": "Nimbus Digital",
+  "companyId": "nimbus-digital",
+  "category": "Product Management",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Prioritization",
+   "User Research Reading",
+   "Roadmapping"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Decide what ships next on a constrained roadmap, using real user feedback data and a hard engineering capacity limit."
+ },
+ {
+  "id": "agile-coach-nimbus",
+  "title": "Agile Project Management Specialist",
+  "company": "Nimbus Digital",
+  "companyId": "nimbus-digital",
+  "category": "Agile & Scrum",
+  "difficulty": "Intermediate",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Kanban",
+   "Velocity Analysis",
+   "Continuous Improvement"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Diagnose why a team's velocity is inconsistent and redesign their workflow using Kanban and retrospective data."
+ },
+ {
+  "id": "lean-six-sigma-greenbelt-atlas",
+  "title": "Lean Six Sigma Green Belt",
+  "company": "Atlas Manufacturing",
+  "companyId": "atlas-manufacturing",
+  "category": "Process Improvement",
+  "difficulty": "Intermediate",
+  "durationHours": 8,
+  "taskCount": 7,
+  "skills": [
+   "DMAIC",
+   "Root Cause Analysis",
+   "Statistical Process Control"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Reduce defect rate on a production line using the DMAIC framework, control charts, and a real root-cause investigation."
+ },
+ {
+  "id": "lean-manufacturing-tps-atlas",
+  "title": "Lean Manufacturing (Toyota Production System)",
+  "company": "Atlas Manufacturing",
+  "companyId": "atlas-manufacturing",
+  "category": "Process Improvement",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Kaizen",
+   "Waste Identification",
+   "Value Stream Mapping"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Map a production value stream, identify the 7 wastes, and design a Kaizen event for a bottlenecked assembly cell."
+ },
+ {
+  "id": "logistics-coordinator-meridian",
+  "title": "Logistics Coordinator",
+  "company": "Meridian Freight Group",
+  "companyId": "meridian-freight-group",
+  "category": "Logistics",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Route Planning",
+   "Inventory Reconciliation",
+   "Carrier Coordination"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Resolve a shipment delay across three carriers and reconcile a warehouse inventory discrepancy before month-end."
+ },
+ {
+  "id": "supply-chain-analyst-meridian",
+  "title": "Supply Chain Analyst",
+  "company": "Meridian Freight Group",
+  "companyId": "meridian-freight-group",
+  "category": "Supply Chain",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Demand Forecasting",
+   "Supplier Risk",
+   "Inventory Optimization"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Investigate a stockout, forecast next quarter's demand, and recommend a safety stock policy to prevent recurrence."
+ },
+ {
+  "id": "production-field-engineer-atlas",
+  "title": "Production Field Engineer",
+  "company": "Atlas Manufacturing",
+  "companyId": "atlas-manufacturing",
+  "category": "Production",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Line Troubleshooting",
+   "Downtime Analysis",
+   "Technical Report"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Diagnose a recurring line stoppage, calculate its true downtime cost, and recommend a fix to the plant manager."
+ },
+ {
+  "id": "production-qaqc-atlas",
+  "title": "Production QA/QC Engineer",
+  "company": "Atlas Manufacturing",
+  "companyId": "atlas-manufacturing",
+  "category": "Production",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Quality Checklist",
+   "SPC Charts",
+   "Non-Conformance Handling"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Investigate a batch of out-of-spec parts using control charts and issue a non-conformance disposition."
+ },
+ {
+  "id": "production-hse-atlas",
+  "title": "Production HSE Specialist",
+  "company": "Atlas Manufacturing",
+  "companyId": "atlas-manufacturing",
+  "category": "Production",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Risk Assessment",
+   "Machine Guarding",
+   "Incident Investigation"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Investigate a near-miss at a stamping press and redesign the guarding and lockout procedure that failed."
+ },
+ {
+  "id": "production-planning-atlas",
+  "title": "Production Planning Engineer",
+  "company": "Atlas Manufacturing",
+  "companyId": "atlas-manufacturing",
+  "category": "Production",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Capacity Planning",
+   "Scheduling",
+   "Bottleneck Analysis"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Replan a production schedule around a bottleneck machine and a rush order that threatens on-time delivery."
+ },
+ {
+  "id": "hr-specialist-nimbus",
+  "title": "HR Specialist",
+  "company": "Nimbus Digital",
+  "companyId": "nimbus-digital",
+  "category": "Human Resources",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Policy Interpretation",
+   "Conflict Resolution",
+   "Documentation"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Handle a workplace conflict escalation and a policy ambiguity, balancing fairness with documented process."
+ },
+ {
+  "id": "erp-specialist-atlas",
+  "title": "ERP Specialist",
+  "company": "Atlas Manufacturing",
+  "companyId": "atlas-manufacturing",
+  "category": "Enterprise Systems",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Data Reconciliation",
+   "Process Mapping",
+   "System Configuration Logic"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Trace a costly inventory data mismatch back to a misconfigured ERP workflow and fix the root process."
+ },
+ {
+  "id": "crm-specialist-nimbus",
+  "title": "CRM Specialist",
+  "company": "Nimbus Digital",
+  "companyId": "nimbus-digital",
+  "category": "Customer Systems",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Data Hygiene",
+   "Segmentation",
+   "Pipeline Reporting"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Clean a corrupted customer database and rebuild a sales pipeline report the leadership team can actually trust."
+ },
+ {
+  "id": "restaurant-manager-verde",
+  "title": "Restaurant Manager",
+  "company": "Verde Hospitality Group",
+  "companyId": "verde-hospitality-group",
+  "category": "Hospitality",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Cost Control",
+   "Staff Scheduling",
+   "Service Recovery"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Fix a blown food-cost margin and recover a service failure with an upset regular customer, same week."
+ },
+ {
+  "id": "chef-culinary-verde",
+  "title": "Chef — Culinary Operations",
+  "company": "Verde Hospitality Group",
+  "companyId": "verde-hospitality-group",
+  "category": "Culinary",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Recipe Costing",
+   "Kitchen Workflow",
+   "Menu Engineering"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Re-cost a menu after a supplier price hike and redesign kitchen workflow to fix a recurring ticket-time problem."
+ },
+ {
+  "id": "accountant-acca-ledger",
+  "title": "Accountant (ACCA Track)",
+  "company": "Ledger & Co.",
+  "companyId": "ledger-and-co",
+  "category": "Accounting & Finance",
+  "difficulty": "Intermediate",
+  "durationHours": 8,
+  "taskCount": 7,
+  "skills": [
+   "Reconciliation",
+   "Financial Reporting",
+   "Variance Analysis"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Reconcile a discrepancy in monthly accounts and explain a budget variance to a non-financial department head."
+ },
+ {
+  "id": "public-relations-specialist-beacon",
+  "title": "Public Relations Specialist",
+  "company": "Beacon Communications",
+  "companyId": "beacon-communications",
+  "category": "Public Relations",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Crisis Messaging",
+   "Media Relations",
+   "Stakeholder Communication"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Draft a crisis response statement within hours of a negative news story breaking about a client."
+ },
+ {
+  "id": "education-manager-lumen",
+  "title": "Education Program Manager",
+  "company": "Lumen Learning Group",
+  "companyId": "lumen-learning-group",
+  "category": "Education Management",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Curriculum Planning",
+   "Stakeholder Communication",
+   "Program Evaluation"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Redesign a failing training program's structure using real completion-rate data and instructor feedback."
+ },
+ {
+  "id": "leadership-fundamentals-atlas",
+  "title": "Leadership Fundamentals",
+  "company": "Atlas Manufacturing",
+  "companyId": "atlas-manufacturing",
+  "category": "Leadership",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Delegation",
+   "Feedback Delivery",
+   "Decision Making"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Handle an underperforming team member and a resourcing conflict as a first-time people manager."
+ },
+ {
+  "id": "business-analyst-nimbus",
+  "title": "Business Analyst",
+  "company": "Nimbus Digital",
+  "companyId": "nimbus-digital",
+  "category": "Business Analysis",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Process Mapping",
+   "Requirements Documentation",
+   "Gap Analysis"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Find the gap between documented requirements and real observed process before development builds the wrong thing."
+ },
+ {
+  "id": "digital-marketing-specialist-beacon",
+  "title": "Digital Marketing Specialist",
+  "company": "Beacon Communications",
+  "companyId": "beacon-communications",
+  "category": "Digital Marketing",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Campaign Budget Allocation",
+   "ROI Analysis",
+   "A/B Test Interpretation"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Use cost-per-acquisition data to recommend a mid-campaign budget reallocation, even when it conflicts with the client's gut feeling."
+ },
+ {
+  "id": "data-analyst-nimbus",
+  "title": "Data Analyst",
+  "company": "Nimbus Digital",
+  "companyId": "nimbus-digital",
+  "category": "Data & Analytics",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Data Cleaning",
+   "Trend Analysis",
+   "Dashboard Interpretation"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Verify an alarming dashboard metric against raw data before it drives an unnecessary sprint reprioritization."
+ },
+ {
+  "id": "financial-analyst-quantis",
+  "title": "Financial Analyst (FP&A)",
+  "company": "Quantis Capital",
+  "companyId": "quantis-capital",
+  "category": "Finance & Planning",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Variance Analysis",
+   "Financial Forecasting",
+   "Scenario Modelling"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Reforecast a SaaS product line — explain price and volume variances, stress-test scenarios in Excel, and brief a sceptical CFO."
+ },
+ {
+  "id": "acca-financial-reporting-ledger",
+  "title": "ACCA Financial Reporting (IFRS)",
+  "company": "Ledger & Co.",
+  "companyId": "ledger-and-co",
+  "category": "Accounting & Finance",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 7,
+  "skills": [
+   "IFRS Fundamentals",
+   "Financial Ratios",
+   "Asset Valuation"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Prepare year-end reporting adjustments under IFRS — inventory, depreciation, revenue recognition — and interpret liquidity ratios for a client board."
+ },
+ {
+  "id": "audit-associate-ledger",
+  "title": "Audit Associate",
+  "company": "Ledger & Co.",
+  "companyId": "ledger-and-co",
+  "category": "Audit",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 7,
+  "skills": [
+   "Audit Materiality",
+   "Audit Sampling",
+   "Internal Controls Testing"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Plan and perform an audit — set materiality, size a sample, test controls in Excel, and draft a management letter point."
+ },
+ {
+  "id": "credit-risk-analyst-quantis",
+  "title": "Credit Risk Analyst",
+  "company": "Quantis Capital",
+  "companyId": "quantis-capital",
+  "category": "Risk & Credit",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Credit Analysis",
+   "Debt Service Coverage",
+   "Covenant Monitoring"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Assess a loan request — compute DSCR, leverage and LTV, rank borrowers in Excel and write a credit recommendation."
+ },
+ {
+  "id": "aml-compliance-analyst-quantis",
+  "title": "AML & Compliance Analyst",
+  "company": "Quantis Capital",
+  "companyId": "quantis-capital",
+  "category": "Compliance",
+  "difficulty": "Intermediate",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "KYC & Due Diligence",
+   "Transaction Monitoring",
+   "Suspicious Activity Reporting"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Investigate unusual transactions — spot structuring, apply enhanced due diligence and write a compliant suspicious activity report."
+ },
+ {
+  "id": "data-scientist-helix",
+  "title": "Data Scientist",
+  "company": "Helix Data Labs",
+  "companyId": "helix-data-labs",
+  "category": "Data Science",
+  "difficulty": "Intermediate",
+  "durationHours": 8,
+  "taskCount": 6,
+  "skills": [
+   "Model Evaluation",
+   "Experiment Analysis",
+   "Data Leakage Detection"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Evaluate a churn model, spot data leakage, analyse an A/B test and explain the result to non-technical stakeholders."
+ },
+ {
+  "id": "sql-data-analyst-helix",
+  "title": "SQL Data Analyst",
+  "company": "Helix Data Labs",
+  "companyId": "helix-data-labs",
+  "category": "Data & Analytics",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "SQL Joins",
+   "Aggregation",
+   "Data Quality Checks"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Answer business questions with SQL — joins, aggregation, duplicates and the classic fan-out bug that inflates revenue."
+ },
+ {
+  "id": "ml-engineer-helix",
+  "title": "Machine Learning Engineer",
+  "company": "Helix Data Labs",
+  "companyId": "helix-data-labs",
+  "category": "Machine Learning",
+  "difficulty": "Advanced",
+  "durationHours": 8,
+  "taskCount": 6,
+  "skills": [
+   "Model Deployment",
+   "Drift Monitoring",
+   "Release Safety"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Take a model to production safely — latency budgets, drift detection, canary rollout and rollback."
+ },
+ {
+  "id": "software-developer-forge",
+  "title": "Software Developer (Backend)",
+  "company": "Forge Software",
+  "companyId": "forge-software",
+  "category": "Software Development",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Debugging",
+   "Code Review",
+   "API Design"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Fix a slow, buggy order API — find the N+1 query, design safe endpoints and review a pull request."
+ },
+ {
+  "id": "frontend-developer-forge",
+  "title": "Frontend Web Developer",
+  "company": "Forge Software",
+  "companyId": "forge-software",
+  "category": "Software Development",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Responsive Layout",
+   "Web Accessibility",
+   "Page Performance"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Fix a merchant dashboard that breaks on phones — responsive layout, accessibility and performance."
+ },
+ {
+  "id": "qa-test-engineer-forge",
+  "title": "QA / Software Test Engineer",
+  "company": "Forge Software",
+  "companyId": "forge-software",
+  "category": "Quality Assurance",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Test Design",
+   "Defect Reporting",
+   "Quality Metrics"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Design tests for a signup form, compute quality metrics and write a reproducible bug report."
+ },
+ {
+  "id": "devops-engineer-cumulus",
+  "title": "DevOps Engineer",
+  "company": "Cumulus Cloud Partners",
+  "companyId": "cumulus-cloud",
+  "category": "DevOps",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "CI/CD Pipelines",
+   "Incident Response",
+   "Reliability Metrics"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Run a release pipeline — measure change failure rate and MTTR, add pipeline gates and write a blameless post-incident review."
+ },
+ {
+  "id": "cloud-solutions-cumulus",
+  "title": "Cloud Solutions Engineer",
+  "company": "Cumulus Cloud Partners",
+  "companyId": "cumulus-cloud",
+  "category": "Cloud Computing",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Cloud Cost Optimisation",
+   "High Availability",
+   "Cloud Security Basics"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Right-size a cloud bill, design for high availability and close common security gaps."
+ },
+ {
+  "id": "cybersecurity-analyst-sentinel",
+  "title": "Cybersecurity Analyst (SOC)",
+  "company": "Sentinel Security Operations",
+  "companyId": "sentinel-security",
+  "category": "Cybersecurity",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Alert Triage",
+   "Incident Containment",
+   "Security Fundamentals"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Work a SOC shift — triage a phishing report, detect a brute-force attack, contain an incident and write the handover."
+ },
+ {
+  "id": "it-business-analyst-nimbus",
+  "title": "IT Business Analyst",
+  "company": "Nimbus Digital",
+  "companyId": "nimbus-digital",
+  "category": "IT Business Analysis",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Requirements Elicitation",
+   "User Stories",
+   "Acceptance Criteria"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Turn a vague request into clear requirements — user stories, acceptance criteria, prioritisation and a delivery forecast."
+ },
+ {
+  "id": "it-project-manager-evm-nimbus",
+  "title": "IT Project Manager — Budget, Risk & EVM",
+  "company": "Nimbus Digital",
+  "companyId": "nimbus-digital",
+  "category": "IT Project Management",
+  "difficulty": "Advanced",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Earned Value Management",
+   "Risk Management",
+   "Status Reporting"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Take over a struggling IT project — calculate earned value metrics in Excel, forecast the final cost and brief stakeholders honestly."
+ },
+ {
+  "id": "ui-ux-designer-pixel",
+  "title": "UI/UX Designer",
+  "company": "Pixel & Pine Studio",
+  "companyId": "pixel-pine-studio",
+  "category": "UX Design",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "User Research",
+   "Usability Heuristics",
+   "Usability Testing"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Improve a checkout flow — run a usability test, interpret results and fix the issues that cost conversions."
+ },
+ {
+  "id": "it-service-desk-itil-nimbus",
+  "title": "IT Support & Service Desk (ITIL)",
+  "company": "Nimbus Digital",
+  "companyId": "nimbus-digital",
+  "category": "IT Support",
+  "difficulty": "Beginner",
+  "durationHours": 5,
+  "taskCount": 5,
+  "skills": [
+   "Incident Management",
+   "SLA Management",
+   "User Communication"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Run a service desk shift — prioritise tickets, separate incidents from problems, track SLA and communicate clearly."
+ },
+ {
+  "id": "product-owner-nimbus",
+  "title": "Product Owner",
+  "company": "Nimbus Digital",
+  "companyId": "nimbus-digital",
+  "category": "Product Management",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Backlog Prioritisation",
+   "RICE Scoring",
+   "Stakeholder Management"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Own a product backlog — score features with RICE, protect sprint capacity and say a well-reasoned no to a senior stakeholder."
+ },
+ {
+  "id": "management-consultant-summit",
+  "title": "Management Consultant",
+  "company": "Summit Advisory",
+  "companyId": "summit-advisory",
+  "category": "Consulting",
+  "difficulty": "Advanced",
+  "durationHours": 8,
+  "taskCount": 6,
+  "skills": [
+   "Market Sizing",
+   "Structured Problem Solving",
+   "Executive Communication"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Work a consulting case — size a market, find cost savings, score options in Excel and write an answer-first executive summary."
+ },
+ {
+  "id": "operations-manager-atlas",
+  "title": "Operations Manager",
+  "company": "Atlas Manufacturing",
+  "companyId": "atlas-manufacturing",
+  "category": "Operations",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "OEE & Capacity",
+   "Takt Time",
+   "Bottleneck Management"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Run a production line — compute OEE, takt time and utilisation, find the bottleneck and plan a shift."
+ },
+ {
+  "id": "procurement-tender-specialist-tradewind",
+  "title": "Procurement & Tender Specialist",
+  "company": "Tradewind Supply Partners",
+  "companyId": "tradewind-supply",
+  "category": "Procurement",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Tender Evaluation",
+   "Total Cost of Ownership",
+   "Supplier Risk"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Run a tender — compare suppliers on total cost, evaluate bids fairly and write an award recommendation."
+ },
+ {
+  "id": "sales-business-development-northwind",
+  "title": "Sales & Business Development",
+  "company": "Northwind Commercial",
+  "companyId": "northwind-commercial",
+  "category": "Sales",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Pipeline Management",
+   "Discovery & Qualification",
+   "Negotiation"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Manage a B2B pipeline — qualify leads, weight the forecast in Excel and handle a discount request without giving away margin."
+ },
+ {
+  "id": "startup-founder-summit",
+  "title": "Startup Founder",
+  "company": "Summit Advisory",
+  "companyId": "summit-advisory",
+  "category": "Entrepreneurship",
+  "difficulty": "Intermediate",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Unit Economics",
+   "MVP Validation",
+   "Runway Planning"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Run the numbers on a young startup — payback, lifetime value, runway and a pitch an investor can fund."
+ },
+ {
+  "id": "tax-specialist-kestrel",
+  "title": "Tax Specialist",
+  "company": "Kestrel Law & Tax",
+  "companyId": "kestrel-law-tax",
+  "category": "Tax",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "VAT Computation",
+   "Corporate Tax",
+   "Tax Compliance"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Prepare a client's VAT and corporate tax — compute payable VAT, adjust profit for tax and advise on avoidance versus evasion."
+ },
+ {
+  "id": "investment-analyst-quantis",
+  "title": "Investment Analyst",
+  "company": "Quantis Capital",
+  "companyId": "quantis-capital",
+  "category": "Investment Analysis",
+  "difficulty": "Advanced",
+  "durationHours": 8,
+  "taskCount": 6,
+  "skills": [
+   "Discounted Cash Flow",
+   "Valuation Multiples",
+   "Investment Recommendation"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Value a company — discount cash flows, compare multiples in Excel and write a buy/hold recommendation."
+ },
+ {
+  "id": "contract-specialist-kestrel",
+  "title": "Contract & Commercial Law Specialist",
+  "company": "Kestrel Law & Tax",
+  "companyId": "kestrel-law-tax",
+  "category": "Commercial Law",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Contract Review",
+   "Liability & Indemnity",
+   "Risk Negotiation"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Review a supplier contract — find the dangerous clauses, calculate delay damages and propose redlines the other side will accept."
+ },
+ {
+  "id": "insurance-underwriter-bastion",
+  "title": "Insurance Underwriter",
+  "company": "Bastion Insurance Group",
+  "companyId": "bastion-insurance",
+  "category": "Insurance",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Risk Pricing",
+   "Loss & Combined Ratio",
+   "Underwriting Judgement"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Price and select risks — compute loss and combined ratios, set a premium and decide when to decline."
+ },
+ {
+  "id": "treasury-analyst-quantis",
+  "title": "Treasury & Cash Management Analyst",
+  "company": "Quantis Capital",
+  "companyId": "quantis-capital",
+  "category": "Treasury",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Cash Forecasting",
+   "FX Exposure",
+   "Liquidity Management"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Run a company's cash — forecast weekly liquidity in Excel, measure FX exposure and invest surplus safely."
+ },
+ {
+  "id": "mechanical-design-engineer-atlas",
+  "title": "Mechanical Design Engineer",
+  "company": "Atlas Manufacturing",
+  "companyId": "atlas-manufacturing",
+  "category": "Mechanical Engineering",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Stress Analysis",
+   "Factor of Safety",
+   "Design Verification"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Check a bolted joint and a pressure vessel — compute stress and safety factors, verify joints in Excel and justify the design."
+ },
+ {
+  "id": "electrical-design-engineer-voltara",
+  "title": "Electrical Design Engineer",
+  "company": "Voltara Energy",
+  "companyId": "voltara-energy",
+  "category": "Electrical Engineering",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Load Calculations",
+   "Voltage Drop",
+   "Protection Selection"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Design a power feed — compute three-phase load, voltage drop and protection sizing, build a load schedule in Excel and follow safe isolation."
+ },
+ {
+  "id": "hvac-design-engineer-hartmann",
+  "title": "HVAC Design Engineer",
+  "company": "Hartmann Process Engineering",
+  "companyId": "hartmann-process",
+  "category": "HVAC",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Cooling Load",
+   "Ventilation Rates",
+   "Chiller Efficiency"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Size an HVAC system — cooling load from airflow, air changes, chiller COP and a room schedule in Excel."
+ },
+ {
+  "id": "maintenance-reliability-engineer-atlas",
+  "title": "Maintenance & Reliability Engineer",
+  "company": "Atlas Manufacturing",
+  "companyId": "atlas-manufacturing",
+  "category": "Maintenance & Reliability",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "MTBF & Availability",
+   "Preventive Maintenance",
+   "Criticality Analysis"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Improve plant reliability — calculate MTBF and availability, rank assets in Excel and choose the right maintenance strategy."
+ },
+ {
+  "id": "oil-gas-process-engineer-hartmann",
+  "title": "Oil & Gas Process Engineer",
+  "company": "Hartmann Process Engineering",
+  "companyId": "hartmann-process",
+  "category": "Oil & Gas",
+  "difficulty": "Advanced",
+  "durationHours": 8,
+  "taskCount": 6,
+  "skills": [
+   "Mass Balance",
+   "Line Sizing",
+   "Process Safety (HAZOP)"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Debottleneck a gas processing train — close a mass balance, check line velocity, size a pump and capture HAZOP findings."
+ },
+ {
+  "id": "solar-project-analyst-voltara",
+  "title": "Solar Project Analyst",
+  "company": "Voltara Energy",
+  "companyId": "voltara-energy",
+  "category": "Renewable Energy",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Energy Yield",
+   "Capacity Factor",
+   "Levelised Cost"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Assess a solar park — estimate annual yield, capacity factor and cost per MWh, compare sites in Excel and brief the investment committee."
+ },
+ {
+  "id": "procurement-engineer-tradewind",
+  "title": "Procurement Engineer",
+  "company": "Tradewind Supply Partners",
+  "companyId": "tradewind-supply",
+  "category": "Engineering Procurement",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Technical Bid Evaluation",
+   "Landed Cost",
+   "Delivery Planning"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Buy engineered equipment — evaluate technical compliance, compute landed cost and protect the delivery schedule."
+ },
+ {
+  "id": "facility-manager-civica",
+  "title": "Facility Manager",
+  "company": "Civica Facilities Management",
+  "companyId": "civica-facilities",
+  "category": "Facility Management",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Planned Maintenance",
+   "Cost per Area",
+   "Energy Management"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Run a building portfolio — track maintenance compliance, benchmark cost per square metre in Excel and cut energy use."
+ },
+ {
+  "id": "esg-analyst-greenfield",
+  "title": "ESG & Sustainability Analyst",
+  "company": "Greenfield Sustainability",
+  "companyId": "greenfield-sustainability",
+  "category": "ESG & Sustainability",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Carbon Accounting",
+   "Scope 1, 2, 3",
+   "Credible Reporting"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Measure a company's carbon footprint — classify scopes, calculate emissions, build a site table in Excel and avoid greenwashing."
+ },
+ {
+  "id": "gis-specialist-terra",
+  "title": "GIS Specialist",
+  "company": "Terra Spatial",
+  "companyId": "terra-spatial",
+  "category": "GIS & Spatial Analysis",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Map Scale & Geometry",
+   "Spatial Analysis",
+   "Data Quality"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Analyse location data — map scale, buffers, parcel areas in Excel, projection pitfalls and a spatial join explained to a planner."
+ },
+ {
+  "id": "quantity-surveyor-sterling",
+  "title": "Quantity Surveyor",
+  "company": "Sterling Cost & Contracts",
+  "companyId": "sterling-cost",
+  "category": "Quantity Surveying",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Measurement",
+   "Bill of Quantities",
+   "Variation Valuation"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Control construction cost — measure quantities, price a bill of quantities in Excel and value variations fairly."
+ },
+ {
+  "id": "planning-engineer-primavera-sterling",
+  "title": "Planning Engineer (Primavera P6)",
+  "company": "Sterling Cost & Contracts",
+  "companyId": "sterling-cost",
+  "category": "Planning & Scheduling",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Critical Path",
+   "Float Analysis",
+   "Delay & EOT Claims"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Plan a project programme — forward pass in Excel, critical path and float, delay impact and an extension-of-time note."
+ }
+]

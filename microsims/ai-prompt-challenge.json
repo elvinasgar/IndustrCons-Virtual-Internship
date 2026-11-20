@@ -1,0 +1,52 @@
+{
+  "id": "ai-prompt-challenge",
+  "title": "AI Prompt Challenge",
+  "category": "Technical & Review",
+  "durationMinutes": 15,
+  "difficulty": "Beginner",
+  "skills": [
+    "Prompt Engineering",
+    "Critical AI Use"
+  ],
+  "scenario": {
+    "setting": "Using an AI assistant to help draft a client email",
+    "brief": "You need an AI assistant to help draft a professional email to a client about a project delay. Your first prompt attempt got a generic, unhelpful response. You have one more try to get something usable.",
+    "context": "The difference between a vague AI prompt and a specific one is often the difference between a generic response and a genuinely useful one."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "mcq",
+      "title": "Diagnosing the First Attempt",
+      "prompt": "Your first prompt was: 'Write an email about a delay.' What's the main problem with this prompt?",
+      "options": [
+        "It's too polite",
+        "It lacks the specific context (why, how long, tone, relationship) the AI needs to write something genuinely useful rather than generic",
+        "AI assistants can't write emails at all",
+        "It's too short, so it should just be longer with more words regardless of content"
+      ],
+      "correctIndex": 1,
+      "xp": 35,
+      "reasoning": "A vague prompt with no context about the specific situation forces the AI to produce a generic, one-size-fits-all response — the fix isn't necessarily more words, it's the RIGHT specific details: what caused the delay, how long, the relationship with this client, and the tone needed.",
+      "tip": "Include the specific facts an AI needs to personalize its output: who the audience is, what happened, what tone fits the relationship, and what outcome you want — this is what separates a specific, useful prompt from a generic one.",
+      "mistake": "Assuming a longer prompt is automatically better, without ensuring the added length is actually specific and relevant context, doesn't reliably improve the output — specificity matters more than length.",
+      "recommendation": "Treat your first AI response as a draft to react to, not a final answer — noticing what's generic about it (as you just did) is exactly what tells you which specific details to add in your next prompt."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Your Improved Prompt",
+      "prompt": "Write the improved, specific prompt you'd use instead.",
+      "minLength": 50,
+      "xp": 50,
+      "modelAnswer": "Write a professional but warm email to a long-term client explaining that their project will be delayed by 2 weeks due to an unexpected permit approval issue with the local authority, which was outside our control. The client has been easy to work with and this is our first delay with them, so acknowledge the inconvenience genuinely without being overly apologetic, and reassure them we're actively managing it, with a specific offer to walk them through the revised timeline on a call this week if helpful.",
+      "reasoning": "A strong improved prompt specifies the exact cause of the delay, the relationship context (long-term, first delay), the desired tone (warm but not overly apologetic), and a specific desired action (offering a call) — this gives the AI everything it needs to produce something genuinely usable rather than generic.",
+      "tip": "Specify the relationship context explicitly (long-term client, first delay) — it changes what tone is appropriate, and an AI without this context can't calibrate that on its own.",
+      "mistake": "A prompt that specifies the topic but not the tone, relationship, or desired next action still leaves the AI guessing at exactly the details that would make the output actually usable without heavy editing.",
+      "recommendation": "Review and personalize whatever the AI produces before sending — even a well-prompted AI draft is a strong starting point, not something to send completely unedited to a real client."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "Think of a recent time an AI tool gave you a generic or unhelpful response. What specific detail, if added to your prompt, would likely have fixed it?"
+  }
+}

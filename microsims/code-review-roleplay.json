@@ -1,0 +1,52 @@
+{
+  "id": "code-review-roleplay",
+  "title": "Code Review Roleplay",
+  "category": "Technical & Review",
+  "durationMinutes": 15,
+  "difficulty": "Beginner",
+  "skills": [
+    "Constructive Feedback",
+    "Technical Communication"
+  ],
+  "scenario": {
+    "setting": "Reviewing a teammate's pull request",
+    "brief": "You're reviewing a colleague's code and found a real bug — a function that will fail under certain inputs. You need to leave a comment on it.",
+    "context": "The same technical finding can be delivered constructively or harshly — the difference is entirely in how it's written."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "mcq",
+      "title": "Choosing the Right Comment",
+      "prompt": "Which review comment is most constructive while still being clear about the bug?",
+      "options": [
+        "'This is wrong.'",
+        "'Did you even test this?'",
+        "'This function will throw an error if the input array is empty — worth adding a check for that case before merging?'",
+        "Approve the PR without mentioning the bug to avoid conflict"
+      ],
+      "correctIndex": 2,
+      "xp": 40,
+      "reasoning": "Naming the specific technical issue (empty array case), explaining the consequence (will throw an error), and framing the fix as a question invites the author to engage and fix it, without being either harsh or silently letting a real bug through.",
+      "tip": "Always pair a critical code review comment with the specific technical reasoning and, ideally, a suggested direction — 'this is wrong' gives the author nothing to act on beyond confusion or defensiveness.",
+      "mistake": "Approving a PR with a known bug to avoid an uncomfortable comment doesn't actually avoid the conflict, it just delays the cost of the bug to production, where it's much more expensive to fix.",
+      "recommendation": "Frame a review comment as a question ('worth adding a check?') rather than a command when there's room for the author's own judgment on the fix — it invites collaboration rather than issuing a directive."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Writing the Full Comment",
+      "prompt": "Write out the complete review comment you'd leave, including the technical detail and your tone.",
+      "minLength": 40,
+      "xp": 45,
+      "modelAnswer": "Nice work on the overall structure here! One thing I noticed: this function will throw an error if the input array is empty, since it assumes at least one element exists when calculating the average. Might be worth adding an early return or a default value for the empty case before this merges, since I could see this getting called with an empty array from the reporting module. Happy to pair on this if useful, otherwise looks good to merge once that's handled.",
+      "reasoning": "A well-rounded review comment opens with genuine acknowledgment of what's working, clearly explains the specific bug and why it matters (where it could actually occur), suggests a direction without dictating the exact fix, and offers help — this combination gets bugs fixed without damaging the working relationship.",
+      "tip": "Point out a specific, realistic scenario where the bug would actually trigger (here, being called from the reporting module) — it makes the bug concrete and worth fixing now, rather than a theoretical edge case that might get deprioritized.",
+      "mistake": "A comment that's purely critical, with no acknowledgment of what's working and no suggested direction, can make code review feel adversarial even when the technical finding itself is completely valid.",
+      "recommendation": "Offering to pair on a fix (even if rarely taken up) signals that the goal is a working codebase, not scoring a point in review — this small gesture goes a long way toward keeping review culture collaborative."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "Think of a code review comment (or any critical feedback) you received that felt harsh. How would you rewrite it using this constructive structure?"
+  }
+}

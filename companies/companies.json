@@ -1,0 +1,72 @@
+[
+  {
+    "id": "atlas-construction",
+    "name": "Atlas Construction",
+    "country": "United Arab Emirates",
+    "founded": 2004,
+    "mission": "Deliver mid-rise and industrial developments on schedule without compromising site safety.",
+    "culture": "Direct, deadline-driven, safety-first. Site engineers are expected to make defensible calls without waiting for sign-off on routine items.",
+    "projects": ["Al Marsa Logistics Hub (42,000 m² warehouse)", "Meadow Ridge Residential Towers (2 x 18 floors)", "Corniche Pedestrian Bridge"],
+    "color": "#005BAA"
+  },
+  {
+    "id": "urbanbuild-engineering",
+    "name": "UrbanBuild Engineering",
+    "country": "Poland",
+    "founded": 2011,
+    "mission": "Bring Scandinavian-style design coordination discipline to fast-growing urban infill projects.",
+    "culture": "Collaborative and BIM-first — clash detection happens weekly, not at the end.",
+    "projects": ["Wisła Riverside Mixed-Use", "Krakow Transit Interchange", "Solaris Office Campus"],
+    "color": "#005BAA"
+  },
+  {
+    "id": "skyline-contractors",
+    "name": "Skyline Contractors",
+    "country": "United States",
+    "founded": 1998,
+    "mission": "High-rise general contracting with a reputation for holding the critical path.",
+    "culture": "Planning-heavy. Every trade foreman gets a look-ahead schedule every Friday, no exceptions.",
+    "projects": ["Beacon Financial Tower", "Harborview Convention Center Expansion"],
+    "color": "#005BAA"
+  },
+  {
+    "id": "prime-infrastructure",
+    "name": "Prime Infrastructure",
+    "country": "India",
+    "founded": 2009,
+    "mission": "Deliver highway and bridge infrastructure that survives monsoon-season stress tests.",
+    "culture": "Rigorous QA/QC, heavy documentation, strong emphasis on materials testing.",
+    "projects": ["NH-48 Flyover Package 3", "Kaveri River Bridge Rehabilitation"],
+    "color": "#005BAA"
+  },
+  {
+    "id": "delta-civil",
+    "name": "Delta Civil",
+    "country": "Brazil",
+    "founded": 2015,
+    "mission": "Affordable housing at scale without cutting structural corners.",
+    "culture": "Lean construction principles, tight cost control, resourceful field engineering.",
+    "projects": ["Vila Nova Housing Phase II", "Rio Verde Water Treatment Facility"],
+    "color": "#005BAA"
+  },
+  {
+    "id": "nova-engineering",
+    "name": "Nova Engineering",
+    "country": "South Africa",
+    "founded": 2007,
+    "mission": "Industrial and mining-adjacent civil works built to withstand harsh operating conditions.",
+    "culture": "Risk-assessment-first culture; nothing gets built without a method statement.",
+    "projects": ["Karoo Solar Foundations Package", "Vaal Industrial Yard Regrade"],
+    "color": "#005BAA"
+  },
+  {
+    "id": "caspian-structures",
+    "name": "Caspian Structures",
+    "country": "Azerbaijan",
+    "founded": 2013,
+    "mission": "Structural steel and reinforced concrete works for the South Caucasus energy and commercial sectors.",
+    "culture": "Precision-driven; structural tolerances are treated as non-negotiable, drawings are the law.",
+    "projects": ["Baku Bay Commercial Tower", "Absheron Steel Fabrication Yard"],
+    "color": "#005BAA"
+  }
+]

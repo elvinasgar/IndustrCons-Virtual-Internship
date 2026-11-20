@@ -1,0 +1,52 @@
+{
+  "id": "difficult-feedback-conversation",
+  "title": "Difficult Feedback Conversation",
+  "category": "Conflict & People",
+  "durationMinutes": 20,
+  "difficulty": "Beginner",
+  "skills": [
+    "Feedback Delivery",
+    "Directness"
+  ],
+  "scenario": {
+    "setting": "Your desk, 15 minutes before a scheduled 1-on-1",
+    "brief": "A team member has missed the same deadline twice in three weeks, and you have a 1-on-1 with them in 15 minutes. You need to raise it directly without being harsh.",
+    "context": "How you open a feedback conversation sets the tone for whether the other person gets defensive or genuinely engages."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "mcq",
+      "title": "Opening the Conversation",
+      "prompt": "What's the strongest way to open this feedback conversation?",
+      "options": [
+        "'You've missed two deadlines, what's going on with you?'",
+        "'I want to talk about the last two deadlines — I've noticed a pattern and want to understand what's happening, not just flag it.'",
+        "Avoid the topic and hope it improves on its own",
+        "'Everyone on the team is annoyed you keep missing deadlines.'"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "Naming the specific, factual pattern (two deadlines) while framing it as wanting to understand rather than accuse invites a genuine conversation instead of a defensive reaction — this is the difference between feedback and a confrontation.",
+      "tip": "Always lead with the specific, observable pattern (not a vague impression) and pair it with genuine curiosity about the cause — it signals you want to solve the problem together, not just deliver a verdict.",
+      "mistake": "Opening with 'what's going on with you' can land as accusatory even if not intended that way — it centers on the person's character rather than the specific, addressable behavior.",
+      "recommendation": "Never invoke 'everyone else thinks' in a 1-on-1 — it's both unverifiable and turns a direct conversation into a vague, hard-to-address group judgment."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Your Opening Line",
+      "prompt": "Write the actual opening 2-3 sentences you'd say out loud.",
+      "minLength": 40,
+      "xp": 45,
+      "modelAnswer": "I wanted to talk about the last two deadlines — the client report last week and the design doc the week before. I've noticed a pattern and want to understand what's happening on your end before we figure out how to fix it together. Is there something making it harder to hit these dates that I should know about?",
+      "reasoning": "A strong opening names specific instances (not a vague pattern), states the intent to understand and solve together, and ends with a genuine open question — this combination invites honesty rather than defensiveness.",
+      "tip": "Ask an open question at the end of your opening, not just a statement — it signals this is a two-way conversation, not a one-way correction.",
+      "mistake": "An opening that lists every frustration at once, rather than starting with the specific pattern and asking what's happening, can overwhelm the other person before they've had a chance to explain.",
+      "recommendation": "Practice saying this opening out loud before the real conversation — it often sounds different (harsher or softer) spoken than it does written down."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "Think of a real situation where you needed to give someone direct feedback. How did you open that conversation, and what would you do differently now?"
+  }
+}

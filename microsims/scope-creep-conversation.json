@@ -1,0 +1,52 @@
+{
+  "id": "scope-creep-conversation",
+  "title": "Scope Creep Conversation",
+  "category": "Client & Stakeholder",
+  "durationMinutes": 20,
+  "difficulty": "Intermediate",
+  "skills": [
+    "Boundary Setting",
+    "Client Communication"
+  ],
+  "scenario": {
+    "setting": "Video call with a client, mid-project",
+    "brief": "A client asks, mid-call, 'Can you also just quickly add X?' — a request that's outside the original agreed scope and would take real time, but they're framing it as small.",
+    "context": "Saying no to scope creep well is a skill — it protects the project without damaging the client relationship."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "mcq",
+      "title": "Responding in the Moment",
+      "prompt": "What's the strongest immediate response?",
+      "options": [
+        "'Sure, no problem, I'll just fit it in.'",
+        "'That's outside our original scope — I can't do that.' (flat refusal, no further detail)",
+        "'That's a great idea — it's outside our current scope, so let's talk about what it would take to add it, either now or as a follow-up phase.'",
+        "Stay silent and hope they forget they asked"
+      ],
+      "correctIndex": 2,
+      "xp": 40,
+      "reasoning": "Acknowledging the request positively while being clear it's outside scope, then offering a concrete path (now or later) keeps the relationship warm while still protecting the project boundary — this is far more sustainable than either caving immediately or refusing coldly.",
+      "tip": "Always pair a scope boundary with a genuine next step (a follow-up phase, a scoped add-on) rather than a flat no — it shows you're still solving their problem, just through a proper process.",
+      "mistake": "Agreeing immediately to 'just fit it in' without any scope conversation is exactly how projects quietly balloon in effort without any corresponding change in timeline, budget, or client expectations.",
+      "recommendation": "Practice a version of this response you're comfortable saying live on a call — scope creep often happens verbally and in the moment, so having language ready matters more than having a written policy."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Following Up in Writing",
+      "prompt": "Write the follow-up email (3-4 sentences) after the call, confirming what was discussed.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "Following up on today's call — I wanted to confirm that the additional feature you mentioned (X) is outside our current project scope, and I'd love to help scope it properly as a follow-up addition. Could you share a bit more detail on what you're hoping X would do, so I can put together a quick estimate of the additional time and cost involved? I want to make sure we deliver the current scope on time while also giving this new idea the proper planning it deserves, rather than squeezing it in informally.",
+      "reasoning": "A strong follow-up email confirms the boundary was communicated (protecting against 'I thought that was included' disputes later), invites more detail to properly scope the addition, and reiterates the reason (protecting the current delivery) — this creates a written record while still being collaborative.",
+      "tip": "Always put a scope boundary conversation in writing after it happens verbally — a written record protects both parties if there's ever confusion later about what was agreed.",
+      "mistake": "An email that only says 'that's out of scope' without inviting next steps can read as dismissive in writing, even if the live conversation was warm — written communication loses tone easily.",
+      "recommendation": "Ask for more detail about the new request in your follow-up — it shows genuine interest in eventually delivering it, not just protecting your own workload."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "Have you ever said yes to a 'small' extra request that turned into much more work than expected? What would you do differently now?"
+  }
+}

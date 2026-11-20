@@ -1,0 +1,52 @@
+{
+  "id": "meeting-facilitation-drill",
+  "title": "Meeting Facilitation Drill",
+  "category": "Presentation & Communication",
+  "durationMinutes": 15,
+  "difficulty": "Beginner",
+  "skills": [
+    "Facilitation",
+    "Time Management"
+  ],
+  "scenario": {
+    "setting": "15 minutes into a 30-minute meeting that's gone off track",
+    "brief": "You're facilitating a meeting, and 15 minutes in, the conversation has drifted into an unrelated tangent that two people are debating passionately. You have 15 minutes left and three agenda items still to cover.",
+    "context": "Good facilitation means protecting the group's time without shutting down genuine engagement rudely."
+  },
+  "steps": [
+    {
+      "id": "s1",
+      "type": "mcq",
+      "title": "Redirecting the Conversation",
+      "prompt": "What's the strongest way to redirect without being harsh?",
+      "options": [
+        "Let the tangent continue since people are engaged, even if it means not finishing the agenda",
+        "Interrupt abruptly with 'This isn't relevant, let's move on'",
+        "Acknowledge the tangent is interesting, note it for a follow-up conversation, and redirect to the remaining agenda given limited time",
+        "Stay silent and let the meeting run over its scheduled time"
+      ],
+      "correctIndex": 2,
+      "xp": 40,
+      "reasoning": "Acknowledging the tangent's value (rather than dismissing it), explicitly parking it for later, and redirecting to the remaining agenda respects both the group's engagement and everyone's time — this is a much more sustainable facilitation approach than either letting the meeting derail or shutting down engagement rudely.",
+      "tip": "Always name what you're doing when redirecting a meeting ('let's park this and come back to it') rather than silently changing the subject — transparency about the facilitation move itself helps the group trust the process.",
+      "mistake": "Interrupting abruptly and dismissively can discourage people from engaging genuinely in future meetings, even though protecting the agenda time is the right instinct — the delivery matters as much as the redirect itself.",
+      "recommendation": "Actually follow up on parked topics after the meeting (a quick note or a slot in the next meeting) — if 'let's park this' never leads anywhere, people learn the phrase just means their point is being dismissed."
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "title": "Your Redirect Script",
+      "prompt": "Write the actual words (2-3 sentences) you'd say to redirect the meeting.",
+      "minLength": 30,
+      "xp": 45,
+      "modelAnswer": "This is a really interesting discussion, and I don't want to cut it off entirely — let's park it and I'll set up a follow-up conversation for just the two of you plus anyone else interested, maybe later this week. For now, with 15 minutes left, we still have three agenda items to get through, so let's move to the budget update — [Name], can you give us the quick version?",
+      "reasoning": "A strong redirect script validates the tangent's value, commits to a specific follow-up (not a vague 'later'), and immediately transitions to the next concrete agenda item with a direct question — this combination moves the meeting forward smoothly without anyone feeling shut down.",
+      "tip": "End your redirect by immediately naming the next agenda item and asking a specific person a direct question — this creates immediate forward momentum rather than leaving an awkward pause after the redirect.",
+      "mistake": "A vague 'let's move on' without acknowledging the tangent or committing to any follow-up can feel dismissive, especially to the people who were genuinely engaged in the discussion.",
+      "recommendation": "Note the parked topic somewhere visible (shared notes, a follow-up calendar invite) during the meeting itself, not just verbally — it's what actually ensures the follow-up happens rather than being forgotten once the meeting ends."
+    }
+  ],
+  "outcome": {
+    "reflectionPrompt": "Think of a meeting you've been in that went off track. What would a good facilitator have said in that moment?"
+  }
+}
