@@ -1,0 +1,294 @@
+{
+ "id": "planning-engineer-primavera-sterling",
+ "title": "Planning Engineer (Primavera P6)",
+ "companyId": "sterling-cost",
+ "category": "Planning & Scheduling",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "PLN-102",
+ "skills": [
+  "Critical Path",
+  "Float Analysis",
+  "Delay & EOT Claims"
+ ],
+ "companyIntro": {
+  "name": "Sterling Cost & Contracts",
+  "country": "United Kingdom",
+  "founded": 1999,
+  "mission": "Control cost, time and contract risk on major construction projects.",
+  "culture": "Every figure traces to a measurement or a rate. Notices are served on time, in writing.",
+  "projects": [
+   "Hospital Cost Plan",
+   "Rail Depot Contract Administration",
+   "Port Terminal Programme"
+  ]
+ },
+ "projectBackground": {
+  "name": "Rail Depot Programme — Maintenance Shed",
+  "client": "Metro Rail Authority",
+  "location": "Birmingham, on-site",
+  "budget": "Contract period: 19 days (for training extract)",
+  "timeline": "Programme update this week",
+  "context": "A critical activity slipped. The contractor claims an extension of time and the authority wants the real impact."
+ },
+ "manager": {
+  "name": "Helen Marsh",
+  "role": "Associate Director, Sterling Cost & Contracts",
+  "note": "The programme is a legal document. Be clear which activities are critical and what the delay actually does to completion."
+ },
+ "assignment": {
+  "title": "Analyse the programme and the delay",
+  "brief": "Run the forward pass, find the critical path and float, assess the delay and write an EOT note."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Activity List",
+   "type": "Programme",
+   "note": "A 5 days; B 7 days after A; C 10 days after A; D 4 days after B and C."
+  },
+  {
+   "id": "doc-2",
+   "name": "Progress Update",
+   "type": "Report",
+   "note": "Activity C is forecast to take 4 days longer."
+  },
+  {
+   "id": "doc-3",
+   "name": "Contract Clause",
+   "type": "Contract",
+   "note": "Extension of time is granted for delay on the critical path caused by the employer."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "pln-1-dur",
+   "type": "numeric",
+   "title": "Project Duration",
+   "prompt": "A (5), B (7), C (10), D (4). A precedes B and C; D follows both. What is the project duration (days)?",
+   "answer": 19,
+   "tolerance": 0,
+   "unit": "days",
+   "xp": 40,
+   "workingNote": "Path A-B-D = 16; path A-C-D = 19. Duration = 19.",
+   "reasoning": "The longest path sets the duration.",
+   "tip": "Check every path.",
+   "mistake": "Adding all durations (26) ignores parallel work.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pln-2-float",
+   "type": "numeric",
+   "title": "Float on B",
+   "prompt": "Using the same network, what is the total float on activity B (days)?",
+   "answer": 3,
+   "tolerance": 0,
+   "unit": "days",
+   "xp": 40,
+   "workingNote": "Critical path is 19; B's path is 16; float = 3.",
+   "reasoning": "Float is the delay an activity can absorb.",
+   "tip": "Zero float means critical.",
+   "mistake": "Treating B as critical wastes effort.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pln-3-delay",
+   "type": "numeric",
+   "title": "Delay Impact",
+   "prompt": "If C takes 4 days longer, what is the new project duration (days)?",
+   "answer": 23,
+   "tolerance": 0,
+   "unit": "days",
+   "xp": 40,
+   "workingNote": "C is critical, so duration = 19 + 4 = 23.",
+   "reasoning": "A delay on the critical path moves completion day for day.",
+   "tip": "Recalculate after every update.",
+   "mistake": "Assuming float absorbs the delay is wrong for C.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pln-4-rel",
+   "type": "mcq",
+   "title": "Logic Relationships",
+   "prompt": "The most common relationship in Primavera P6 is:",
+   "options": [
+    "Start-to-Finish",
+    "Finish-to-Start",
+    "Finish-to-Finish only",
+    "No relationship"
+   ],
+   "correctIndex": 1,
+   "xp": 30,
+   "reasoning": "FS is the standard dependency.",
+   "tip": "Use other types only with reason.",
+   "mistake": "Overusing lags and SS/FF obscures the logic.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pln-5-fp",
+   "type": "excel-upload",
+   "title": "Forward Pass (Excel)",
+   "prompt": "Early Finish in column D = C + B for each activity (ES given).",
+   "xp": 60,
+   "template": {
+    "fileName": "Forward-Template.xlsx",
+    "sheetName": "Network",
+    "headers": [
+     "Activity",
+     "Duration (days)",
+     "Early Start",
+     "Early Finish"
+    ],
+    "rows": [
+     [
+      "A",
+      "5",
+      "0",
+      ""
+     ],
+     [
+      "B",
+      "7",
+      "5",
+      ""
+     ],
+     [
+      "C",
+      "10",
+      "5",
+      ""
+     ],
+     [
+      "D",
+      "4",
+      "15",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 5,
+     "tolerance": 0,
+     "label": "A finish"
+    },
+    {
+     "cell": "D3",
+     "expected": 12,
+     "tolerance": 0,
+     "label": "B finish"
+    },
+    {
+     "cell": "D4",
+     "expected": 15,
+     "tolerance": 0,
+     "label": "C finish"
+    },
+    {
+     "cell": "D5",
+     "expected": 19,
+     "tolerance": 0,
+     "label": "D finish"
+    }
+   ],
+   "reasoning": "D starts at 15 — the later of B (12) and C (15).",
+   "tip": "Successor start equals the latest predecessor finish.",
+   "mistake": "Taking the earlier predecessor understates duration.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pln-6-eot",
+   "type": "text",
+   "title": "EOT Note",
+   "prompt": "Write a 3-5 sentence note assessing the extension-of-time request.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "Activity C is on the critical path (zero float) so a 4-day delay moves completion from day 19 to day 23. If the cause is an employer delay under the contract clause, the contractor is entitled to a 4-day extension of time. We have asked for the programme update showing the fragnet and the delay notice dates. Entitlement to costs is assessed separately.",
+   "reasoning": "A good EOT note states the critical impact, the contractual basis and the evidence required.",
+   "tip": "Impact, basis, evidence.",
+   "mistake": "Granting time without analysis creates liability.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Float That Disappeared",
+  "background": "A contractor used all the float on a non-critical activity, then a small delay on another path became critical and finished late. Both sides disputed who owned the float.",
+  "client": "Rail client",
+  "budget": "£350,000 in delay claims",
+  "timeline": "Late completion",
+  "challenges": "Float ownership wasn't defined.",
+  "constraints": "Programme logic was weak.",
+  "questions": [
+   "Who owns float?",
+   "How should it be stated?",
+   "What protects the programme?"
+  ],
+  "solution": "Sterling added a float-ownership clause and monthly programme audits.",
+  "lessonsLearned": "Know your critical path and who owns float."
+ },
+ "quiz": [
+  {
+   "q": "Critical path is:",
+   "options": [
+    "The longest path",
+    "The shortest path",
+    "Any path",
+    "The cheapest path"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Float means:",
+   "options": [
+    "Possible delay without impact",
+    "Time wasted",
+    "Cost",
+    "Risk"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "A critical delay:",
+   "options": [
+    "Is absorbed",
+    "Moves completion",
+    "Is ignored",
+    "Reduces cost"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "The common logic link is:",
+   "options": [
+    "Start-to-Finish",
+    "Finish-to-Start",
+    "None",
+    "Random"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Float ownership was unclear",
+    "No programme",
+    "Low prices",
+    "No staff"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "How would you prove a delay is critical?",
+   "How do you keep a programme honest?",
+   "What records matter for an EOT?"
+  ]
+ },
+ "certificate": {
+  "name": "Planning Engineer (Primavera P6) — Critical Path & Delay",
+  "nameAz": "Planlaşdırma Mühəndisi (Primavera P6) — Kritik Yol və Gecikmə",
+  "totalXp": 265
+ }
+}

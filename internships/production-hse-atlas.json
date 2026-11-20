@@ -1,0 +1,295 @@
+{
+  "id": "production-hse-atlas",
+  "title": "Production HSE Specialist",
+  "companyId": "atlas-manufacturing",
+  "category": "Production",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "drawingTag": "HSE-041",
+  "skills": [
+    "Risk Assessment",
+    "Machine Guarding",
+    "Incident Investigation"
+  ],
+  "companyIntro": {
+    "name": "Atlas Manufacturing",
+    "country": "South Korea",
+    "founded": 1999,
+    "mission": "World-class manufacturing discipline, including zero tolerance for preventable safety incidents.",
+    "culture": "Safety-first without being punitive — investigations focus on system causes, not blame.",
+    "projects": [
+      "Precision Components Line 4 Upgrade",
+      "Atlas EV Battery Housing Plant",
+      "Regional Distribution Hub"
+    ]
+  },
+  "projectBackground": {
+    "name": "Stamping Press Near-Miss Investigation",
+    "client": "Internal production line",
+    "location": "Precision Components Plant, Stamping Cell",
+    "budget": "N/A — internal safety investigation",
+    "timeline": "Investigation due before the press resumes operation",
+    "context": "An operator's hand came within centimeters of a stamping press die during a jam-clearing procedure. The press's light curtain (a safety guard) did not stop the machine as it should have. No injury occurred, but this could easily have been severe."
+  },
+  "manager": {
+    "name": "Grace Oduya",
+    "role": "HSE Manager, Atlas Manufacturing",
+    "note": "A light curtain that doesn't stop a machine on time is not a minor equipment glitch, it's a near-miss that could have taken someone's hand off. I want to know exactly why it didn't trigger, and I don't want this press running again until we know."
+  },
+  "assignment": {
+    "title": "Investigate the light curtain failure and near-miss",
+    "brief": "Investigate why the light curtain didn't stop the press in time, classify the risk, and issue a corrective action before the press can safely resume operation."
+  },
+  "documents": [
+    {
+      "id": "doc-incident-log-hse",
+      "name": "Incident Log Entry — Stamping Cell Near-Miss",
+      "type": "Incident Report",
+      "note": "Operator reached into the press area to clear a jam per the standard procedure; light curtain should have stopped the ram but the press continued its cycle for approximately 0.4 seconds after the operator's hand crossed the curtain plane."
+    },
+    {
+      "id": "doc-lightcurtain-spec",
+      "name": "Light Curtain Safety Specification",
+      "type": "Equipment Spec",
+      "note": "Rated response time: stop the machine within 0.15 seconds of beam interruption. Response time has not been tested or recalibrated since installation 3 years ago."
+    },
+    {
+      "id": "doc-maintenance-history",
+      "name": "Light Curtain Maintenance History",
+      "type": "Maintenance Log",
+      "note": "No scheduled recalibration or response-time testing exists in the maintenance plan for this safety device — only visual inspection for physical damage is currently scheduled, quarterly."
+    },
+    {
+      "id": "doc-caplan-template-hse",
+      "name": "Corrective Action Plan — Template",
+      "type": "Template",
+      "note": "Fields: immediate action, root cause, corrective action, responsible person, target date, verification method."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-classify-hse",
+      "type": "mcq",
+      "title": "Hazard Classification",
+      "prompt": "A press's safety light curtain failed to stop the ram in time during a jam-clearing procedure. What type of hazard does this represent?",
+      "options": [
+        "A minor equipment malfunction with no safety significance",
+        "A struck-by/caught-in hazard with potentially severe injury consequences, since a failed safety device allowed the ram to continue cycling near an operator's hand",
+        "A housekeeping issue",
+        "An electrical hazard unrelated to the press mechanism"
+      ],
+      "correctIndex": 1,
+      "xp": 35,
+      "reasoning": "A safety device failing to stop a mechanical press in time, with an operator's hand in the danger zone, is a struck-by/caught-in hazard with realistic potential for severe injury (amputation-level) — this is not a minor equipment issue, it's a safety-critical failure.",
+      "tip": "Always classify a safety-device failure by the injury it could have caused if timing had been slightly different, not by the fact that no injury actually occurred this time — the potential severity is what should drive the response.",
+      "mistake": "Treating a light curtain response failure as 'just an equipment glitch' understates that this is exactly the kind of failure that causes severe, life-altering injuries when the timing doesn't work out as narrowly as it did here.",
+      "recommendation": "Classify near-misses involving safety-critical equipment (light curtains, interlocks, e-stops) at the severity of their worst-case potential outcome, always — this is what ensures they get investigated with appropriate urgency."
+    },
+    {
+      "id": "task-2-response-gap",
+      "type": "numeric",
+      "title": "Response Time Gap Calculation",
+      "prompt": "The light curtain is rated to stop the machine within 0.15 seconds, but it took approximately 0.4 seconds. What is the response time gap (seconds)?",
+      "answer": 0.25,
+      "tolerance": 0.01,
+      "unit": "seconds",
+      "xp": 40,
+      "workingNote": "0.4 - 0.15 = 0.25 seconds slower than rated.",
+      "reasoning": "Quantifying the specific gap between rated and actual response time is what confirms this is a genuine equipment failure (not just unlucky timing) and gives a concrete figure to report and investigate against the manufacturer's specification.",
+      "tip": "Always calculate the specific gap between a safety device's rated performance and its actual observed performance — 'it was a bit slow' is not investigatable; '0.25 seconds slower than rated' is.",
+      "mistake": "Describing the failure only qualitatively ('the light curtain didn't work fast enough') without the specific timing gap makes it harder to determine whether this is a calibration issue, a wear issue, or a device failure requiring replacement.",
+      "recommendation": "Report this specific response time gap to the equipment manufacturer as part of the investigation — it may indicate a device-specific fault pattern relevant to other similarly-aged units."
+    },
+    {
+      "id": "task-3-rootcause-hse",
+      "type": "mcq",
+      "title": "Root Cause of the Failure",
+      "prompt": "The light curtain has never been recalibrated or response-time tested since installation 3 years ago, with only a quarterly visual inspection scheduled. What does this suggest as the root cause?",
+      "options": [
+        "The light curtain is inherently defective and always was",
+        "A missing preventive maintenance schedule — visual inspection alone doesn't verify actual response time, allowing gradual degradation to go undetected for 3 years",
+        "Operator error caused the failure",
+        "This is a random, unexplainable equipment fault"
+      ],
+      "correctIndex": 1,
+      "xp": 50,
+      "reasoning": "Visual inspection only checks for physical damage, not actual response time performance — without periodic response-time testing, a light curtain's electronic response can degrade gradually over years without any visible sign, which is exactly the gap that allowed this failure to go undetected for 3 years.",
+      "tip": "For any safety-critical device, distinguish between visual/physical inspection and functional performance testing — a device can look physically fine while its actual safety-critical response time has degraded significantly.",
+      "mistake": "Assuming a quarterly visual inspection is sufficient for a device whose critical safety function is response time (not physical appearance) is a common gap that lets exactly this kind of failure develop undetected.",
+      "recommendation": "Add functional response-time testing to the preventive maintenance schedule for every safety-critical device, not just visual inspection — this is what actually verifies the safety function is still working, not just that the equipment looks intact."
+    },
+    {
+      "id": "task-4-corrective-hse",
+      "type": "multiselect",
+      "title": "Corrective Action Selection",
+      "prompt": "Select every corrective action that genuinely addresses this near-miss.",
+      "options": [
+        "Recalibrate or replace the light curtain to restore rated 0.15-second response time before the press resumes operation",
+        "Add functional response-time testing to the preventive maintenance schedule for all light curtains on site, not just this one",
+        "Simply remind the operator to be more careful during jam-clearing procedures",
+        "Audit all safety-critical devices installed around the same time as this one, since they may share the same undetected degradation risk",
+        "Resume normal operation immediately since no injury actually occurred"
+      ],
+      "correctIndices": [
+        0,
+        1,
+        3
+      ],
+      "xp": 55,
+      "reasoning": "Genuine corrective actions restore the device's actual safety function, extend functional testing to all similar devices (not just this one), and audit similarly-aged equipment for the same undetected risk. Reminding the operator to be careful doesn't address a hardware failure that made the safety system itself unreliable, and resuming operation without a fix ignores that the underlying failure mode is still present.",
+      "tip": "When a safety-critical device fails, always ask whether the same undetected degradation risk exists on similar equipment installed around the same time — a single device failure is often a signal about a whole category, not an isolated unit.",
+      "mistake": "Relying on operator carefulness to compensate for a malfunctioning engineering safety control (the light curtain) inverts the hierarchy of controls — the engineering control is supposed to protect the operator, not the other way around.",
+      "recommendation": "Resuming operation without a confirmed fix and verification, just because this particular incident didn't result in injury, risks the exact same failure occurring again with a worse outcome next time."
+    },
+    {
+      "id": "task-5-investigation-hse",
+      "type": "text",
+      "title": "Incident Investigation Report",
+      "prompt": "Write the investigation report (3-5 sentences): the failure, root cause, and corrective action.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "During a standard jam-clearing procedure, the stamping press's safety light curtain failed to stop the ram within its rated 0.15-second response time, actually taking approximately 0.4 seconds — a 0.25-second gap that brought the operator's hand within centimeters of the die with no injury resulting. Root cause: the light curtain has not been functionally response-time tested since installation 3 years ago, with only quarterly visual inspection scheduled, allowing gradual electronic degradation to go undetected despite the device appearing physically intact. Corrective action: the light curtain will be recalibrated or replaced to restore rated response time before the press resumes operation, functional response-time testing will be added to the preventive maintenance schedule for all light curtains on site, and all safety-critical devices installed in the same period will be audited for the same undetected degradation risk.",
+      "reasoning": "A complete investigation report states the specific failure with its measured gap, identifies the systemic root cause (missing functional testing, not just 'equipment failure'), and proposes both an immediate fix and a broader preventive action across similar equipment.",
+      "tip": "Always distinguish 'equipment failed' from the more useful and specific 'equipment's functional performance was never actually verified after installation' — the second framing points directly at the preventive maintenance gap that needs fixing.",
+      "mistake": "A report that concludes 'light curtain malfunctioned, has been fixed' without identifying why the malfunction went undetected for 3 years misses the systemic gap that could allow the same undetected degradation on other devices.",
+      "recommendation": "Set a mandatory response-time verification schedule and stick to it — this is precisely the record that would let you catch degradation long before it results in a near-miss like this one."
+    },
+    {
+      "id": "task-6-response-excel",
+      "type": "excel-upload",
+      "title": "Safety Device Response Time Audit (Excel)",
+      "prompt": "Three more safety-critical devices need their response time gap checked against rated performance. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "Response-Time-Audit-Template.xlsx",
+        "sheetName": "Response Audit",
+        "headers": [
+          "Device",
+          "Rated Response (sec)",
+          "Measured Response (sec)",
+          "Gap (sec)",
+          "Pass/Fail (Fail if gap > 0.05 sec)"
+        ],
+        "rows": [
+          [
+            "Light Curtain - Press 2",
+            "0.15",
+            "0.18",
+            "",
+            " "
+          ],
+          [
+            "E-Stop - Conveyor 3",
+            "0.10",
+            "0.11",
+            "",
+            " "
+          ],
+          [
+            "Interlock - Guard Door 5",
+            "0.20",
+            "0.42",
+            "",
+            " "
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 0.03,
+          "tolerance": 0.005,
+          "label": "Press 2 gap (0.18-0.15) — within tolerance, PASS"
+        },
+        {
+          "cell": "D3",
+          "expected": 0.01,
+          "tolerance": 0.005,
+          "label": "Conveyor 3 gap (0.11-0.10) — within tolerance, PASS"
+        },
+        {
+          "cell": "D4",
+          "expected": 0.22,
+          "tolerance": 0.01,
+          "label": "Guard Door 5 gap (0.42-0.20) — well outside tolerance, FAIL, needs immediate attention"
+        }
+      ],
+      "reasoning": "Auditing every safety-critical device's response gap against a consistent tolerance threshold — not just the one already known to have failed — is what proactively catches a second problem device (Guard Door 5) before it causes its own near-miss.",
+      "tip": "Set a clear, consistent fail threshold (here, gap greater than 0.05 seconds) for response-time audits — it removes ambiguity about which devices need immediate attention versus which are operating within acceptable tolerance.",
+      "mistake": "Auditing only the device already known to have failed, rather than extending the same check to all similar safety-critical devices, misses exactly the kind of second problem (Guard Door 5's much larger gap) that this systematic audit reveals.",
+      "recommendation": "Run this response-time audit on a recurring schedule across every safety-critical device on site — the original incident happened precisely because this kind of functional testing wasn't happening at all before now."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Inspection That Checked the Wrong Thing",
+    "background": "On an earlier Atlas site, a different safety interlock passed its scheduled visual inspection for two years running while its actual response time degraded well outside safe limits — the gap was only discovered after a genuine injury occurred, at which point the investigation found the maintenance plan had never included functional testing, only appearance checks.",
+    "client": "Atlas EV Battery Housing Plant (an earlier incident)",
+    "budget": "Workers' compensation and equipment remediation cost: undisclosed but substantial; regulatory investigation and increased audit scrutiny followed",
+    "timeline": "2 years of passing visual inspections while functional performance silently degraded",
+    "challenges": "Because the maintenance checklist only required confirming the device was physically undamaged, nobody ever verified its actual safety-critical function (response time) during that period, and the gap was invisible until an injury forced the question.",
+    "constraints": "The subsequent regulatory investigation required Atlas to demonstrate functional testing protocols for every safety-critical device across all sites, a significant retroactive compliance effort.",
+    "questions": [
+      "Why is passing a visual inspection not the same as a safety device actually functioning correctly?",
+      "What specific testing practice would have caught this degradation before an injury occurred?",
+      "How does this case connect to the light curtain near-miss investigated in this internship?"
+    ],
+    "solution": "Atlas Manufacturing mandated functional response-time testing (not just visual inspection) for every safety-critical device across all sites, following the earlier injury investigation — directly informing the corrective action in this internship's near-miss.",
+    "lessonsLearned": "A safety device passing visual inspection tells you it looks intact, not that its actual safety-critical function still works within spec — functional testing, not just appearance checks, is what actually verifies a device will do its job when it matters."
+  },
+  "quiz": [
+    {
+      "q": "A light curtain failing to stop a machine in time, even with no injury resulting, should be classified as:",
+      "options": [
+        "A minor equipment glitch",
+        "A serious hazard, classified by its worst-case potential severity"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Visual inspection of a safety device confirms:",
+      "options": [
+        "That its safety-critical function (like response time) is still working correctly",
+        "That it appears physically undamaged, which is not the same as functional performance"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "The root cause of an undetected safety device degradation is typically:",
+      "options": [
+        "Random, unexplainable equipment failure",
+        "A maintenance plan that checks appearance but never tests actual functional performance"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When a safety-critical device fails, corrective action should also include:",
+      "options": [
+        "Auditing only that specific device",
+        "Auditing similar devices installed around the same time for the same undetected risk"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did the interlock's degradation go undetected for 2 years?",
+      "options": [
+        "The maintenance plan only checked physical appearance, not functional response time",
+        "There was no maintenance plan at all",
+        "The device was brand new",
+        "Operators disabled the device intentionally"
+      ],
+      "correctIndex": 0
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to distinguish visual/physical condition from actual functional performance? Why does that distinction matter so much for safety devices specifically?",
+      "The case study shows 2 years of passing inspections while real function degraded, ending in injury. Where else might 'looks fine' be mistaken for 'is actually working'?",
+      "If you were Grace, what one standing rule would you add so a safety-critical device's function is never assumed just because it passed a visual check?"
+    ]
+  },
+  "certificate": {
+    "name": "Production HSE Specialist — Safety Device Investigation",
+    "nameAz": "İstehsalat İSƏM Mütəxəssisi — Təhlükəsizlik Cihazı Araşdırması",
+    "totalXp": 290
+  }
+}

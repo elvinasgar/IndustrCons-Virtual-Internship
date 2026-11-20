@@ -1,0 +1,283 @@
+{
+ "id": "treasury-analyst-quantis",
+ "title": "Treasury & Cash Management Analyst",
+ "companyId": "quantis-capital",
+ "category": "Treasury",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "TRS-090",
+ "skills": [
+  "Cash Forecasting",
+  "FX Exposure",
+  "Liquidity Management"
+ ],
+ "companyIntro": {
+  "name": "Quantis Capital",
+  "country": "Switzerland",
+  "founded": 2008,
+  "mission": "Give mid-sized businesses institutional-grade financial planning, credit and compliance discipline.",
+  "culture": "Numbers must tie out and every assumption must be written down. Analysts are expected to defend their model line by line.",
+  "projects": [
+   "Orion SaaS Reforecast",
+   "Meridian Credit Facility Review",
+   "Alpine Retail Bank AML Uplift"
+  ]
+ },
+ "projectBackground": {
+  "name": "Liquidity Review — Alder Industrial Group",
+  "client": "Alder Industrial Group",
+  "location": "Zurich, remote",
+  "budget": "Cash balance: CHF 500,000",
+  "timeline": "Weekly treasury meeting",
+  "context": "Alder pays suppliers in euros and receives dollars. The CFO wants to know if there is enough cash and how exposed the group is."
+ },
+ "manager": {
+  "name": "Anya Moser",
+  "role": "Group Treasurer, Quantis Capital",
+  "note": "Cash is the one number that can't be restated. Forecast it honestly and keep a buffer."
+ },
+ "assignment": {
+  "title": "Forecast liquidity and manage exposure",
+  "brief": "Build the cash forecast, compute FX loss and interest on surplus and advise the CFO."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Cash Position",
+   "type": "Bank",
+   "note": "Opening cash 500; receipts 320; payments 410 (thousands); minimum buffer 300."
+  },
+  {
+   "id": "doc-2",
+   "name": "FX Receivable",
+   "type": "Ledger",
+   "note": "€200,000 receivable; booked at 1.10 USD per EUR."
+  },
+  {
+   "id": "doc-3",
+   "name": "Surplus Plan",
+   "type": "Plan",
+   "note": "110 thousand surplus for 90 days at 3.6%."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "trs-1-close",
+   "type": "numeric",
+   "title": "Closing Cash",
+   "prompt": "Opening 500, receipts 320, payments 410 (all in thousands). What is closing cash?",
+   "answer": 410,
+   "tolerance": 1,
+   "unit": "thousand",
+   "xp": 30,
+   "workingNote": "500 + 320 - 410 = 410.",
+   "reasoning": "Closing cash = opening + receipts - payments.",
+   "tip": "Check against the bank.",
+   "mistake": "Forgetting payments overstates liquidity.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "trs-2-surplus",
+   "type": "numeric",
+   "title": "Surplus Over Buffer",
+   "prompt": "The minimum buffer is 300 thousand. What surplus is available (thousand)?",
+   "answer": 110,
+   "tolerance": 1,
+   "unit": "thousand",
+   "xp": 30,
+   "workingNote": "410 - 300 = 110.",
+   "reasoning": "Buffers protect against shocks.",
+   "tip": "Never invest the buffer.",
+   "mistake": "Investing the buffer risks a liquidity gap.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "trs-3-fx",
+   "type": "numeric",
+   "title": "FX Loss",
+   "prompt": "A €200,000 receivable was booked at 1.10 USD per EUR. If the rate falls to 1.05 and it is unhedged, what is the loss (USD)?",
+   "answer": 10000,
+   "tolerance": 50,
+   "unit": "USD",
+   "xp": 40,
+   "workingNote": "(1.10 - 1.05) x 200,000 = 10,000.",
+   "reasoning": "Unhedged exposure loses when the currency falls.",
+   "tip": "Quantify before deciding to hedge.",
+   "mistake": "Treating FX as noise ignores real cash impact.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "trs-4-int",
+   "type": "numeric",
+   "title": "Interest on Surplus",
+   "prompt": "110,000 invested for 90 days at 3.6% (360-day basis). What interest (currency units)?",
+   "answer": 990,
+   "tolerance": 2,
+   "unit": "currency units",
+   "xp": 35,
+   "workingNote": "110,000 x 0.036 x 90 / 360 = 990.",
+   "reasoning": "Simple interest uses the day count.",
+   "tip": "State the day-count basis.",
+   "mistake": "Using a full year gives 3,960, which is wrong.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "trs-5-weekly",
+   "type": "excel-upload",
+   "title": "Weekly Cash Forecast (Excel)",
+   "prompt": "Closing cash in column E = B + C - D for three weeks (thousands). Upload for checking.",
+   "xp": 60,
+   "template": {
+    "fileName": "Cash-Template.xlsx",
+    "sheetName": "Cash",
+    "headers": [
+     "Week",
+     "Opening",
+     "Receipts",
+     "Payments",
+     "Closing"
+    ],
+    "rows": [
+     [
+      "Week 1",
+      "500",
+      "120",
+      "150",
+      ""
+     ],
+     [
+      "Week 2",
+      "470",
+      "100",
+      "200",
+      ""
+     ],
+     [
+      "Week 3",
+      "370",
+      "90",
+      "160",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "E2",
+     "expected": 470,
+     "tolerance": 0.5,
+     "label": "Week 1 closing"
+    },
+    {
+     "cell": "E3",
+     "expected": 370,
+     "tolerance": 0.5,
+     "label": "Week 2 closing"
+    },
+    {
+     "cell": "E4",
+     "expected": 300,
+     "tolerance": 0.5,
+     "label": "Week 3 closing"
+    }
+   ],
+   "reasoning": "Week 3 hits the minimum buffer exactly: a warning.",
+   "tip": "Link next week's opening to this week's closing.",
+   "mistake": "Hard-coded openings can hide errors.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "trs-6-cfo",
+   "type": "text",
+   "title": "Advice to the CFO",
+   "prompt": "Write a 3-5 sentence recommendation to the CFO on liquidity and FX.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "Cash falls from 500 to 300 over three weeks, touching our minimum buffer in week 3, so I recommend not investing beyond the 110 surplus and delaying non-critical payments if receipts slip. The euro receivable carries a 10,000 dollar loss at 1.05; I propose hedging 50% with a forward and matching euro payments where possible. We'll update the forecast weekly and escalate if cash approaches 300 earlier.",
+   "reasoning": "A good recommendation gives the liquidity picture, an action on FX and triggers.",
+   "tip": "Position, action, trigger.",
+   "mistake": "Optimism without a buffer is not treasury.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: Profitable and Bankrupt",
+  "background": "A profitable manufacturer ran out of cash when a large customer paid 60 days late. It had no weekly forecast and no credit line.",
+  "client": "Industrial client",
+  "budget": "Emergency refinancing at high cost",
+  "timeline": "Single cash crisis",
+  "challenges": "Profit was monitored; cash wasn't.",
+  "constraints": "No liquidity buffer.",
+  "questions": [
+   "Why can a profitable firm fail?",
+   "What forecast would help?",
+   "How large should the buffer be?"
+  ],
+  "solution": "Quantis introduced a 13-week rolling cash forecast and a minimum liquidity policy.",
+  "lessonsLearned": "Profit is opinion; cash is fact."
+ },
+ "quiz": [
+  {
+   "q": "Closing cash equals:",
+   "options": [
+    "Receipts only",
+    "Profit",
+    "Payments only",
+    "Opening + receipts - payments"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "A liquidity buffer is:",
+   "options": [
+    "Spare profit",
+    "Minimum cash kept",
+    "Debt",
+    "Tax"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Unhedged FX risk means:",
+   "options": [
+    "No risk",
+    "A gain",
+    "A tax",
+    "Exposure to rate moves"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Simple interest uses:",
+   "options": [
+    "Rate x principal x days / basis",
+    "Only rate",
+    "Only days",
+    "Profit"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Cash wasn't forecast",
+    "Profit was low",
+    "Taxes rose",
+    "Sales fell"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "How big should your buffer be?",
+   "When would you hedge?",
+   "How often would you update the forecast?"
+  ]
+ },
+ "certificate": {
+  "name": "Treasury & Cash Management Analyst — Liquidity & FX",
+  "nameAz": "Xəzinədarlıq və Nağd Vəsait İdarəetmə Analitiki — Likvidlik və Valyuta",
+  "totalXp": 250
+ }
+}

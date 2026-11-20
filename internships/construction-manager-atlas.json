@@ -1,0 +1,326 @@
+{
+  "id": "construction-manager-atlas",
+  "title": "Construction Manager",
+  "companyId": "atlas-construction",
+  "category": "Construction Manager",
+  "difficulty": "Advanced",
+  "durationHours": 9,
+  "drawingTag": "CM-101 / REV.C",
+  "skills": [
+    "Scheduling",
+    "Risk Assessment",
+    "Decision Making",
+    "Presentation"
+  ],
+  "companyIntro": {
+    "name": "Atlas Construction",
+    "country": "United Arab Emirates",
+    "founded": 2004,
+    "mission": "Deliver mid-rise and industrial developments on schedule without compromising site safety.",
+    "culture": "Direct, deadline-driven, safety-first. Construction managers are expected to make defensible calls without waiting for sign-off on routine items, and to bring a recommendation whenever they escalate a problem.",
+    "projects": [
+      "Al Marsa Logistics Hub (42,000 m² warehouse)",
+      "Meadow Ridge Residential Towers (2 x 18 floors)",
+      "Corniche Pedestrian Bridge"
+    ]
+  },
+  "projectBackground": {
+    "name": "Al Marsa Logistics Hub — 42,000 m² Warehouse",
+    "client": "Al Marsa Logistics Group",
+    "location": "Al Marsa Industrial Zone",
+    "budget": "$58M (design-build warehouse and yard package)",
+    "timeline": "34 weeks, currently in week 20 (roof structure and cladding)",
+    "context": "An unseasonal sandstorm has damaged a partially installed section of roof cladding and delayed crane availability for three days, on top of an existing tight sequence between roof completion and the client's fit-out contractor mobilising. The client's operations director is asking for a revised handover date this week."
+  },
+  "manager": {
+    "name": "Khalid Al-Mansoori",
+    "role": "Regional Operations Director, Atlas Construction",
+    "note": "The client wants a number by Friday, not a list of reasons why it's complicated. Assess the actual damage and schedule impact, weigh the recovery options, and bring me one clear recommendation with the risk register updated — I'll take it from there with the client."
+  },
+  "assignment": {
+    "title": "Assess storm damage impact and recommend a recovery path",
+    "brief": "Inspect and quantify the cladding damage, assess the combined schedule impact of the damage and crane delay, evaluate recovery options against the fit-out contractor's mobilisation date, update the risk register, and prepare the client-facing recommendation."
+  },
+  "documents": [
+    {
+      "id": "doc-damage-report",
+      "name": "Site Damage Assessment — Roof Cladding",
+      "type": "Inspection Report",
+      "note": "approximately 850 m² of newly installed roof cladding panels damaged beyond repair (torn/bent panels) out of 6,200 m² installed to date; remainder of installed area unaffected."
+    },
+    {
+      "id": "doc-crane-schedule",
+      "name": "Crane Availability Update",
+      "type": "Resource Schedule",
+      "note": "Main tower crane unavailable for 3 additional working days due to post-storm structural inspection requirement before resuming lifts."
+    },
+    {
+      "id": "doc-fitout-notice",
+      "name": "Fit-Out Contractor Mobilisation Notice",
+      "type": "Correspondence",
+      "note": "Client's fit-out contractor is contractually mobilising in 4 weeks, requiring a weathertight building envelope (including complete roof cladding) as a precondition per their own mobilisation contract."
+    },
+    {
+      "id": "doc-risk-register",
+      "name": "Project Risk Register (extract)",
+      "type": "Risk Register",
+      "note": "Risk R-08 'Adverse weather event' was logged at Low (Likelihood: Unlikely=2, Severity: Moderate=3, Score=6) with no specific contingency allocated beyond general weather allowance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-damage-calc",
+      "type": "numeric",
+      "title": "Damage Quantification",
+      "prompt": "850 m² of cladding needs replacement out of 6,200 m² installed to date. What percentage of installed cladding is affected, to one decimal place?",
+      "answer": 13.7,
+      "tolerance": 0.2,
+      "unit": "%",
+      "xp": 40,
+      "workingNote": "850 / 6,200 = 0.1371 = 13.7%.",
+      "reasoning": "Quantifying damage as a percentage of work already completed (not just an absolute area) gives a clearer sense of relative impact and is the figure that translates most directly into a labour/material recovery estimate proportional to progress already made.",
+      "tip": "Always express damage or rework quantities both as an absolute figure and as a percentage of completed work — the percentage helps stakeholders quickly judge relative severity without needing to know the total project scope by heart.",
+      "mistake": "Reporting only the absolute damaged area (850 m²) without context can make a stakeholder over- or under-react, since 850 m² sounds very different against a 6,200 m² installed base than it would against the full 42,000 m² warehouse footprint.",
+      "recommendation": "When reporting damage or rework to a client, always state the percentage against the most relevant base quantity (here, installed area, not total building area) — it's the number that most accurately reflects true impact."
+    },
+    {
+      "id": "task-2-risk-rerate",
+      "type": "mcq",
+      "title": "Risk Re-Rating After the Event",
+      "prompt": "Risk R-08 'Adverse weather event' was logged at Low (Score 6) before this storm. How should it be treated now that a damaging storm event has actually occurred?",
+      "options": [
+        "Leave it at Low, since the original rating was based on the region's typical weather patterns",
+        "Re-rate the likelihood upward for the remainder of the project, since an actual occurrence demonstrates this risk is more present than the original 'Unlikely' rating assumed, and increase contingency accordingly",
+        "Remove the risk from the register since it has already happened once",
+        "The rating doesn't matter now that damage has occurred"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "An actual occurrence of a previously 'Unlikely' event is real evidence that the original likelihood assessment may have underestimated the risk for the remainder of the project — a construction manager should update the register's forward-looking rating and contingency based on this new evidence, not treat the original assumption as still valid or the risk as somehow used up.",
+      "tip": "Treat any risk that has actually occurred as new evidence for re-assessing its likelihood going forward, not as a one-off event disconnected from future risk — weather patterns, supplier issues, and similar risks often cluster or recur within a project's remaining duration.",
+      "mistake": "Assuming a risk that has occurred once is now 'done' and can't recur is a common and costly mistake — many risk categories, especially weather and supply chain, have genuine potential to recur within the same project timeframe.",
+      "recommendation": "After any risk event materialises, immediately review both its own re-rating and whether additional contingency should be allocated for the remainder of the project, rather than treating the response as purely reactive to the single event."
+    },
+    {
+      "id": "task-3-options",
+      "type": "multiselect",
+      "title": "Recovery Option Evaluation",
+      "prompt": "Given the fit-out contractor's hard 4-week mobilisation requirement for a weathertight envelope, select every factor that should genuinely influence the recovery plan.",
+      "options": [
+        "Whether replacement cladding material can be sourced and delivered within the available window",
+        "Whether additional crews or shifts could accelerate the replacement installation once material arrives",
+        "The personal preference of the site foreman for which subcontractor installs the replacement panels",
+        "Whether the 3-day crane delay can be absorbed by resequencing other crane-dependent activities in the meantime",
+        "Whether missing the fit-out mobilisation date triggers a contractual consequence with the client that changes the urgency calculus"
+      ],
+      "correctIndices": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "xp": 55,
+      "reasoning": "A sound recovery plan considers material sourcing lead time, whether acceleration (extra crews/shifts) is genuinely available, whether the crane delay can be absorbed through resequencing, and the real contractual consequence of missing the client's hard deadline — all of which shape both the urgency and the options genuinely available. Personal subcontractor preference has no bearing on the technical recovery plan.",
+      "tip": "When facing a hard external deadline (like a client's fit-out mobilisation), always check what contractual consequence actually attaches to missing it — this materially changes how much acceleration cost is justified compared to a soft, internally-driven date.",
+      "mistake": "Evaluating recovery options purely on internal preference or convenience, without first establishing the real external deadline and its consequence, risks either under- or over-investing in acceleration relative to what's actually at stake.",
+      "recommendation": "Before committing to any acceleration cost, get written confirmation of the exact contractual consequence of the client's fit-out mobilisation date — this number should directly inform how much you're willing to spend to protect it."
+    },
+    {
+      "id": "task-4-accel-cost",
+      "type": "numeric",
+      "title": "Acceleration Cost-Benefit Check",
+      "prompt": "Adding a second cladding crew for 5 days costs $85,000 and recovers 4 working days, fully offsetting the current delay. If missing the fit-out mobilisation date triggers a $30,000/day client penalty clause and the current unrecovered delay is 4 days, what is the net financial benefit of accelerating (penalty avoided minus acceleration cost)?",
+      "answer": 35000,
+      "tolerance": 0,
+      "unit": "USD",
+      "xp": 55,
+      "workingNote": "Penalty avoided: 4 days x $30,000 = $120,000. Acceleration cost: $85,000. Net benefit: $120,000 - $85,000 = $35,000.",
+      "reasoning": "Comparing the cost of acceleration against the penalty it avoids is exactly the calculation that turns 'should we accelerate' from a judgment call into a clear financial decision — here, the $85,000 acceleration cost is worthwhile because it avoids $120,000 in penalty exposure, a net benefit of $35,000.",
+      "tip": "Always calculate acceleration decisions as a net benefit (avoided cost minus acceleration cost), not just by comparing the acceleration cost in isolation to how expensive it 'feels' — an $85,000 spend can be the clearly right call once the alternative cost is quantified.",
+      "mistake": "Rejecting an acceleration option because its cost looks large in isolation, without calculating it against the specific penalty or delay cost it avoids, is a common decision-making error that can lead to a more expensive outcome overall.",
+      "recommendation": "Present acceleration decisions to clients and leadership with both numbers side by side (cost of acceleration vs. cost of not accelerating) — this framing makes the recommendation self-evidently justified rather than requiring separate persuasion."
+    },
+    {
+      "id": "task-5-recommendation",
+      "type": "text",
+      "title": "Client Recommendation Memo",
+      "prompt": "Write your recommendation to Khalid (3-5 sentences): the situation, your recommended recovery option, and the financial/schedule justification.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "The recent sandstorm damaged approximately 850 m² (13.7%) of installed roof cladding and delayed crane availability by 3 working days, creating a combined 4-day risk to the fit-out contractor's hard 4-week mobilisation deadline, which requires a weathertight envelope. I recommend adding a second cladding crew for 5 days at $85,000 to fully recover the 4-day delay, since missing the mobilisation date would trigger a $30,000/day client penalty clause — a $120,000 exposure that the $85,000 acceleration cost avoids for a net benefit of $35,000. I've also re-rated Risk R-08 (Adverse Weather) from Low to Medium for the remainder of the project and recommend allocating additional weather contingency accordingly, given this storm demonstrates the risk is more present than originally assessed.",
+      "reasoning": "A strong recommendation to leadership states the situation concisely, names a specific recommended action with its cost, and justifies it with a clear financial comparison — this is what lets Khalid take a ready, defensible position into the client conversation rather than needing to redo the analysis himself.",
+      "tip": "Always fold a forward-looking risk register update into your recommendation when a risk event has just occurred — it shows the analysis extends beyond just fixing today's problem to protecting the rest of the project.",
+      "mistake": "A common weakness is presenting the immediate fix recommendation without updating the risk register for the remainder of the project, missing the opportunity to proactively protect against a recurrence of the same risk category.",
+      "recommendation": "Practice presenting acceleration recommendations with the net benefit number leading the justification, not buried at the end — a leader reviewing many decisions benefits from seeing the bottom line early."
+    },
+    {
+      "id": "task-6-presentation",
+      "type": "mcq",
+      "title": "Client Presentation Framing",
+      "prompt": "The client's operations director asks: 'Why should we trust this won't happen again?' What is the strongest response, drawing on your risk register update?",
+      "options": [
+        "Reassure them that storms are rare and this was just bad luck, with no further explanation",
+        "Explain that Risk R-08 has been formally re-rated from Low to Medium based on this event, with additional weather contingency now allocated for the remainder of the project as a direct result",
+        "Avoid the question since risk registers are internal documents not typically shared with clients",
+        "Promise that no further weather delays will occur under any circumstances"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "The strongest response demonstrates a concrete, evidence-based process response to the event — re-rating the risk and allocating contingency shows the organisation actually learned from the event and adjusted its forward planning, which is a far more credible answer than a vague reassurance or an unrealistic promise that nothing will go wrong again.",
+      "tip": "When a client asks 'why should we trust this won't happen again', the most credible answer is always a specific process change made because of this event — vague reassurance or promises of certainty tend to reduce confidence rather than build it.",
+      "mistake": "Promising a client that a risk category 'won't happen again' is both dishonest and sets up a credibility problem if a similar event does recur — a mature answer acknowledges the risk exists and describes how it's now being actively managed.",
+      "recommendation": "Build client presentations around demonstrated process response to risk events, not reassurance — clients in construction generally trust organisations more when they show adaptive risk management than when they promise an impossible certainty."
+    },
+    {
+      "id": "task-7-recovery-excel",
+      "type": "excel-upload",
+      "title": "Recovery Cost-Benefit Matrix (Excel)",
+      "prompt": "Two more recovery options need their net benefit calculated the same way, to confirm the second crew is genuinely the best option. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 70,
+      "template": {
+        "fileName": "Recovery-Cost-Benefit-Template.xlsx",
+        "sheetName": "Recovery Options",
+        "headers": [
+          "Option",
+          "Cost (USD)",
+          "Days Recovered",
+          "Penalty Avoided (USD, at $30,000/day)",
+          "Net Benefit (USD)"
+        ],
+        "rows": [
+          [
+            "Second Cladding Crew (5 days)",
+            "85000",
+            "4",
+            "",
+            ""
+          ],
+          [
+            "Weekend/Night Shift Only",
+            "52000",
+            "2",
+            "",
+            ""
+          ],
+          [
+            "Air-Freight Replacement Panels",
+            "140000",
+            "4",
+            "",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 120000,
+          "tolerance": 0,
+          "label": "Penalty avoided — Second Crew (4 days x 30,000)"
+        },
+        {
+          "cell": "E2",
+          "expected": 35000,
+          "tolerance": 0,
+          "label": "Net benefit — Second Crew (120,000 - 85,000)"
+        },
+        {
+          "cell": "E3",
+          "expected": 8000,
+          "tolerance": 0,
+          "label": "Net benefit — Weekend/Night Shift (60,000 - 52,000)"
+        },
+        {
+          "cell": "E4",
+          "expected": -20000,
+          "tolerance": 0,
+          "label": "Net benefit — Air-Freight (120,000 - 140,000, a net loss)"
+        }
+      ],
+      "reasoning": "Calculating net benefit consistently across every recovery option — including one that turns out to be a net loss (Air-Freight) — is what confirms the Second Crew option is genuinely the best choice, rather than just the first reasonable-sounding option considered.",
+      "tip": "Always include at least one 'obviously expensive' option in a cost-benefit comparison, even if you suspect it will lose — a negative net benefit result is valuable confirmation that cheaper options were correctly prioritised, not a wasted calculation.",
+      "mistake": "Stopping the analysis once one acceptable option is found, without calculating net benefit for the alternatives, risks missing that a different option might actually offer a better net benefit, or confirming the chosen option was the right choice by comparison.",
+      "recommendation": "Present the full cost-benefit matrix (not just your chosen option's numbers) to leadership when recommending a recovery path — showing that a net-loss option was genuinely considered and rejected on the numbers builds more confidence than presenting only the winning choice."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Recovery That Wasn't Actually Compared",
+    "background": "On an earlier Atlas Construction project, a construction manager recommended an expensive air-freight material recovery option after a storm delay, based on it being the fastest option available, without calculating its net benefit against the actual contractual penalty it was meant to avoid.",
+    "client": "Meadow Ridge Residential Towers",
+    "budget": "Unnecessary acceleration spend: approximately $95,000 more than the penalty it was avoiding",
+    "timeline": "Discovered during post-project financial review, well after the acceleration cost had been spent",
+    "challenges": "Because the decision was made under time pressure and felt urgent, the net-benefit calculation was skipped in favour of choosing the fastest-sounding option, without checking whether 'fastest' was actually 'best value' against the real financial consequence being avoided.",
+    "constraints": "By the time the post-project review caught the discrepancy, the money had already been spent and there was no way to recover it — the lesson could only be applied to future projects.",
+    "questions": [
+      "Why is 'fastest option' not automatically the same as 'best value option' under time pressure?",
+      "What specific calculation would have caught this before the money was committed?",
+      "How much time pressure is too much to skip a net-benefit calculation, if any?"
+    ],
+    "solution": "Atlas Construction introduced a mandatory rule that any acceleration or recovery spend above $25,000 must include a documented net-benefit calculation against the specific consequence it's avoiding, signed off before commitment, regardless of how time-pressured the decision feels.",
+    "lessonsLearned": "Time pressure is exactly when a clear net-benefit calculation matters most, not a valid reason to skip it — the fastest-sounding recovery option isn't automatically the best value one, and a quick, disciplined calculation under pressure is what actually protects against an expensive, avoidable overcommitment."
+  },
+  "quiz": [
+    {
+      "q": "A weather risk previously rated 'Unlikely' has just occurred and caused damage. Going forward, it should be:",
+      "options": [
+        "Left at its original rating, since the event has already happened",
+        "Re-rated based on this new evidence, with contingency reviewed for the remainder of the project",
+        "Removed from the register entirely",
+        "Ignored since weather can't be managed anyway"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "An acceleration option costs $85,000 and avoids a $120,000 penalty. The net benefit is:",
+      "options": [
+        "$85,000",
+        "$120,000",
+        "$35,000",
+        "$205,000"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "q": "When a client asks 'why should we trust this won't happen again,' the strongest response is:",
+      "options": [
+        "A vague reassurance that it was bad luck",
+        "A specific description of how the risk was re-rated and contingency adjusted as a direct result",
+        "A promise it will never happen again",
+        "Avoiding the question entirely"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, what was the actual mistake in the air-freight recovery decision?",
+      "options": [
+        "The option was technically impossible",
+        "It was chosen for being the fastest option without calculating its net benefit against the actual penalty being avoided",
+        "The client rejected it",
+        "It was the cheapest available option"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Why should a cost-benefit comparison include an option expected to show a net loss?",
+      "options": [
+        "It shouldn't, it wastes time",
+        "It confirms cheaper options were correctly prioritised and demonstrates the analysis was thorough",
+        "Net-loss options should never be calculated",
+        "It's only useful if that option is chosen"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task turned an urgent, pressured decision into a clear, numbers-based recommendation? What was the key calculation that made the difference?",
+      "The case study shows a decision made under time pressure costing $95,000 more than necessary. Where else might urgency tempt someone to skip a calculation that would actually take only a few minutes?",
+      "If you were Khalid, what one rule would you set so acceleration decisions are never made without a net-benefit calculation, no matter how much time pressure exists?"
+    ]
+  },
+  "certificate": {
+    "name": "Construction Manager — Risk-Based Recovery & Client Presentation",
+    "nameAz": "Tikinti Meneceri — Riskə Əsaslanan Bərpa və Müştəri Təqdimatı",
+    "totalXp": 360
+  }
+}

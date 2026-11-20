@@ -1,0 +1,250 @@
+{
+ "id": "ml-engineer-helix",
+ "title": "Machine Learning Engineer",
+ "companyId": "helix-data-labs",
+ "category": "Machine Learning",
+ "difficulty": "Advanced",
+ "durationHours": 8,
+ "drawingTag": "ML-069",
+ "skills": [
+  "Model Deployment",
+  "Drift Monitoring",
+  "Release Safety"
+ ],
+ "companyIntro": {
+  "name": "Helix Data Labs",
+  "country": "Netherlands",
+  "founded": 2014,
+  "mission": "Turn messy business data into decisions people can trust and models that survive production.",
+  "culture": "Evidence over opinion. A result is not a result until someone else can reproduce it.",
+  "projects": [
+   "Customer Churn Platform",
+   "Retail Demand Forecasting",
+   "Helix Experimentation Hub"
+  ]
+ },
+ "projectBackground": {
+  "name": "Retail Demand Forecasting Service",
+  "client": "Retail client",
+  "location": "Amsterdam, remote",
+  "budget": "Cloud budget: €8,000 per month",
+  "timeline": "Go-live in three weeks",
+  "context": "A demand model works in a notebook but must serve predictions in real time and stay accurate as customer behaviour changes."
+ },
+ "manager": {
+  "name": "Eva Jansen",
+  "role": "Head of ML Platform, Helix Data Labs",
+  "note": "A model nobody monitors is a liability. Tell me how we know it's still right and how we get back if it isn't."
+ },
+ "assignment": {
+  "title": "Ship the model safely",
+  "brief": "Reason about skew, latency and drift, choose a rollout strategy and write a short runbook."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Serving Latency Profile",
+   "type": "Performance",
+   "note": "Budget p95 200 ms; feature fetch 40, inference 85, post-processing 35."
+  },
+  {
+   "id": "doc-2",
+   "name": "Feature Pipeline Notes",
+   "type": "Design",
+   "note": "Training features computed in batch; serving features computed live with different code."
+  },
+  {
+   "id": "doc-3",
+   "name": "Monitoring Plan",
+   "type": "Plan",
+   "note": "Input distribution and prediction drift alerts."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "ml-1-skew",
+   "type": "mcq",
+   "title": "Training-Serving Skew",
+   "prompt": "Features are computed with different code in training and serving. The main risk is:",
+   "options": [
+    "Faster training",
+    "Lower cost",
+    "Training-serving skew causing worse live accuracy",
+    "Better explainability"
+   ],
+   "correctIndex": 2,
+   "xp": 40,
+   "reasoning": "Different code paths produce different feature values, breaking model assumptions.",
+   "tip": "Share feature code or use a feature store.",
+   "mistake": "Ignoring skew explains 'it worked offline' failures.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ml-2-headroom",
+   "type": "numeric",
+   "title": "Latency Headroom",
+   "prompt": "The p95 budget is 200 ms. Feature fetch takes 40 ms, inference 85 ms and post-processing 35 ms. How much headroom remains (ms)?",
+   "answer": 40,
+   "tolerance": 1,
+   "unit": "ms",
+   "xp": 35,
+   "workingNote": "40 + 85 + 35 = 160; 200 - 160 = 40.",
+   "reasoning": "Add the stages and subtract from the budget.",
+   "tip": "Budget latency per stage.",
+   "mistake": "Ignoring stage costs leads to timeouts at peak load.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ml-3-drift",
+   "type": "mcq",
+   "title": "Drift",
+   "prompt": "Customer behaviour changes and input distributions shift. What is this called and what is the response?",
+   "options": [
+    "Overfitting; ignore",
+    "Bias; remove the model",
+    "Latency; add servers",
+    "Data drift; monitor, investigate and retrain if performance degrades"
+   ],
+   "correctIndex": 3,
+   "xp": 40,
+   "reasoning": "Drift reduces model accuracy over time and needs monitoring.",
+   "tip": "Alert on input and output distributions.",
+   "mistake": "Treating drift as static noise lets accuracy decay silently.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ml-4-canary",
+   "type": "mcq",
+   "title": "Safe Rollout",
+   "prompt": "How should the new model be released?",
+   "options": [
+    "Replace 100% immediately",
+    "Release on a Friday evening",
+    "Canary release to a small traffic share with automatic rollback",
+    "Disable monitoring to save cost"
+   ],
+   "correctIndex": 2,
+   "xp": 45,
+   "reasoning": "Canary limits blast radius and allows comparison with the old model.",
+   "tip": "Define success and rollback thresholds before release.",
+   "mistake": "Full cutover without a rollback path risks outage.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ml-5-gate",
+   "type": "multiselect",
+   "title": "Promotion Checklist",
+   "prompt": "Select what must be true before promoting the model.",
+   "options": [
+    "Offline metrics meet agreed thresholds",
+    "Latency within budget under load",
+    "Model name is final",
+    "Rollback tested and documented",
+    "Dashboard colours chosen"
+   ],
+   "correctIndices": [
+    0,
+    1,
+    3
+   ],
+   "xp": 50,
+   "reasoning": "Quality, performance and recoverability are the gates.",
+   "tip": "Make criteria explicit.",
+   "mistake": "Promoting without a tested rollback is gambling.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ml-6-runbook",
+   "type": "text",
+   "title": "Runbook Note",
+   "prompt": "Write a 3-5 sentence runbook note for the on-call engineer if prediction error spikes.",
+   "minLength": 120,
+   "xp": 55,
+   "modelAnswer": "If forecast error exceeds the alert threshold for two hours, first check the input data pipeline and feature freshness, then compare against the previous model on the same traffic. If the new model is worse, shift traffic back to the previous version using the release switch and open an incident. Capture drift metrics and examples for the review. Retraining only starts after the root cause is confirmed.",
+   "reasoning": "A good runbook gives the first checks, the decision rule and the rollback action.",
+   "tip": "Check, decide, roll back, record.",
+   "mistake": "Retraining first wastes time if the cause is a broken pipeline.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Model That Silently Decayed",
+  "background": "A pricing model lost accuracy for months after a supplier changed a data feed. No monitoring existed, and margin fell 2 points before anyone noticed.",
+  "client": "Retail client",
+  "budget": "Estimated €400,000 margin loss",
+  "timeline": "Noticed in a quarterly review",
+  "challenges": "Feature distribution changed; no alert fired.",
+  "constraints": "Monitoring covered uptime only.",
+  "questions": [
+   "Why did uptime monitoring miss the problem?",
+   "What would you monitor?",
+   "How fast should alerts trigger?"
+  ],
+  "solution": "Helix added feature and prediction drift monitors with weekly review and automatic rollback criteria.",
+  "lessonsLearned": "Monitor data and model behaviour, not just servers."
+ },
+ "quiz": [
+  {
+   "q": "Skew is:",
+   "options": [
+    "Slow GPU",
+    "High cost",
+    "Large model",
+    "Different features in training and serving"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Canary release:",
+   "options": [
+    "Sends a small share of traffic first",
+    "Replaces all traffic",
+    "Stops monitoring",
+    "Deletes the old model"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Drift monitoring tracks:",
+   "options": [
+    "Office hours",
+    "Changes in data and predictions",
+    "CPU colour",
+    "Team size"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Rollback should be:",
+   "options": [
+    "Invented during the incident",
+    "Optional",
+    "Tested before release",
+    "Impossible"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "In the case study loss happened because:",
+   "options": [
+    "No drift monitoring",
+    "Bad weather",
+    "Too many users",
+    "New logo"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "What would make you stop a release?",
+   "How do you decide when to retrain?",
+   "What belongs in an on-call runbook?"
+  ]
+ },
+ "certificate": {
+  "name": "Machine Learning Engineer — Deployment & Monitoring",
+  "nameAz": "Maşın Öyrənməsi Mühəndisi — Deploy və Monitorinq",
+  "totalXp": 265
+ }
+}

@@ -1,0 +1,273 @@
+{
+  "id": "erp-specialist-atlas",
+  "title": "ERP Specialist",
+  "companyId": "atlas-manufacturing",
+  "category": "Enterprise Systems",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "ERP-033",
+  "skills": [
+    "Data Reconciliation",
+    "Process Mapping",
+    "System Configuration Logic"
+  ],
+  "companyIntro": {
+    "name": "Atlas Manufacturing",
+    "country": "South Korea",
+    "founded": 1999,
+    "mission": "World-class manufacturing discipline — including data integrity across every system that tracks it.",
+    "culture": "Process-rigorous. ERP specialists are expected to trace a data problem to its configuration root cause, not just patch the numbers.",
+    "projects": [
+      "Precision Components Line 4 Upgrade",
+      "Atlas EV Battery Housing Plant",
+      "Regional Distribution Hub"
+    ]
+  },
+  "projectBackground": {
+    "name": "Inventory Valuation Mismatch — Finance Escalation",
+    "client": "Internal ERP system",
+    "location": "Precision Components Plant, Finance & Inventory Modules",
+    "budget": "N/A — internal data integrity investigation",
+    "timeline": "Resolution needed before month-end close",
+    "context": "Finance has flagged that the ERP's inventory valuation for a component category is $180,000 higher than the physical count supports. This has happened before and been manually adjusted each time without anyone tracing why the system keeps generating the discrepancy."
+  },
+  "manager": {
+    "name": "Seo-yeon Kim",
+    "role": "ERP Systems Manager, Atlas Manufacturing",
+    "note": "A manual adjustment every month isn't a fix, it's a workaround. I want you to trace this back to whatever workflow is actually causing bad data to enter the system, not just correct the number again this month."
+  },
+  "assignment": {
+    "title": "Trace and fix the inventory valuation discrepancy's root cause",
+    "brief": "Investigate the ERP workflow generating the inventory mismatch, identify the specific process step causing it, calculate the discrepancy, and propose a permanent system fix."
+  },
+  "documents": [
+    {
+      "id": "doc-valuation-report",
+      "name": "Inventory Valuation Report — Component Category X",
+      "type": "ERP Report",
+      "note": "System valuation: $640,000. Physical count valuation: $460,000. Discrepancy of $180,000 has recurred at month-end for the past 4 months, each time manually adjusted down without root cause investigation."
+    },
+    {
+      "id": "doc-workflow-map",
+      "name": "Receiving-to-Inventory Workflow Map",
+      "type": "Process Map",
+      "note": "Standard workflow: goods received → quality inspection → inventory posting. A recent process change allows warehouse staff to post received goods to inventory before quality inspection is complete, to speed up receiving throughput."
+    },
+    {
+      "id": "doc-rejection-log",
+      "name": "Quality Rejection Log — Component Category X",
+      "type": "Quality Log",
+      "note": "Approximately 8% of received goods in this category are rejected at quality inspection each month and returned to the supplier — but rejected goods already posted to inventory are not being reversed in the system."
+    },
+    {
+      "id": "doc-fix-template",
+      "name": "System Configuration Fix — Template",
+      "type": "Template",
+      "note": "Fields: root cause, current workflow step, proposed configuration change, expected impact."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-workflow-gap",
+      "type": "mcq",
+      "title": "Identifying the Workflow Gap",
+      "prompt": "Goods are posted to inventory before quality inspection, and rejected goods aren't reversed afterward. What does this suggest as the root cause of the valuation discrepancy?",
+      "options": [
+        "Random data entry errors by warehouse staff",
+        "Rejected goods remain valued in inventory even after being returned to the supplier, since the system never reverses the initial posting when a later rejection occurs",
+        "The ERP software itself has a bug",
+        "Suppliers are shipping incorrect quantities"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "The workflow allows goods to be valued in inventory immediately upon receipt, but when a portion is later rejected and returned, there's no corresponding reversal step in the system — meaning rejected goods remain phantom-valued in inventory indefinitely, which directly explains a persistent, recurring overvaluation.",
+      "tip": "When a data discrepancy recurs consistently every month, trace the actual process workflow step by step rather than assuming random error — a systemic workflow gap (like a missing reversal step) produces exactly this kind of consistent, repeating discrepancy.",
+      "mistake": "Treating a recurring discrepancy as random data entry error, rather than mapping the actual workflow, misses that the true cause is a specific missing process step (the reversal), which will keep recurring every month until it's fixed.",
+      "recommendation": "Whenever a financial discrepancy recurs on a predictable cycle (like month-end, every month), map the full workflow from source transaction to final valuation — a recurring pattern usually indicates a specific missing or broken process step, not random error."
+    },
+    {
+      "id": "task-2-quantify-erp",
+      "type": "numeric",
+      "title": "Quantifying the Expected Impact",
+      "prompt": "If 8% of received goods in this category are rejected monthly, and total monthly receipts in this category are valued at $2,250,000, what is the expected monthly value of unreversed rejected goods?",
+      "answer": 180000,
+      "tolerance": 2000,
+      "unit": "USD",
+      "xp": 50,
+      "workingNote": "$2,250,000 x 0.08 = $180,000 — matching almost exactly the observed discrepancy, strongly confirming this is the actual root cause.",
+      "reasoning": "Calculating the expected discrepancy from the known rejection rate and receipt volume, and finding it matches the observed $180,000 gap almost exactly, is strong statistical confirmation that the missing reversal step is indeed the full explanation for the discrepancy, not just a partial contributing factor.",
+      "tip": "When a calculated expected impact (based on a specific process gap) closely matches an observed discrepancy, that convergence is strong evidence the hypothesis is correct — it's worth explicitly calculating and presenting, not just noting the two numbers are similar.",
+      "mistake": "Stopping at 'rejected goods might explain some of the discrepancy' without calculating the actual expected dollar impact leaves the conclusion much weaker and less actionable than showing the numbers match almost exactly.",
+      "recommendation": "Present this calculated-versus-observed comparison directly to Finance — showing the math confirms the root cause is far more persuasive than describing the workflow gap alone."
+    },
+    {
+      "id": "task-3-fix-options",
+      "type": "multiselect",
+      "title": "System Fix Options",
+      "prompt": "Select every fix worth including in the permanent solution.",
+      "options": [
+        "Configure the ERP to automatically reverse the inventory posting when a quality rejection is logged against the same received goods",
+        "Continue relying on manual month-end adjustments, since they've worked as a stopgap so far",
+        "Require quality inspection to complete before goods can be posted to inventory, reversing the recent process change that created this gap",
+        "Simply increase the inventory valuation buffer to account for the expected 8% rejection rate each month",
+        "Audit other component categories for the same missing-reversal gap, since the same recent process change likely affects them too"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        4
+      ],
+      "xp": 55,
+      "reasoning": "Genuine fixes include configuring an automatic reversal on rejection (closing the actual data gap), reverting to inspection-before-posting (removing the root process change that created the gap), and auditing other categories for the same issue. Continuing manual adjustments perpetuates the workaround rather than fixing it, and simply padding a valuation buffer masks the problem with an estimate rather than fixing the underlying data accuracy.",
+      "tip": "When a workflow gap is found in one process, always check whether the same recent process change affects other categories or workflows — a single root cause (like the receipt-before-inspection change) often has effects beyond just the one flagged discrepancy.",
+      "mistake": "Relying on a valuation buffer to 'estimate around' a known data gap treats the symptom rather than the cause, and leaves the underlying inventory records genuinely inaccurate for any other purpose (audits, reporting) that relies on them.",
+      "recommendation": "Prioritize the automatic reversal configuration as the most durable fix — it corrects the data at its source regardless of whether the inspect-before-post process change is also reverted, providing a safety net either way."
+    },
+    {
+      "id": "task-4-configfix",
+      "type": "text",
+      "title": "Configuration Fix Proposal",
+      "prompt": "Write the fix proposal (3-5 sentences): root cause, calculated confirmation, and proposed system change.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "Root cause: a recent process change allows goods to post to inventory before quality inspection completes, and when goods are later rejected (approximately 8% of Component Category X monthly), the system never reverses the initial inventory posting, leaving rejected goods phantom-valued in inventory. This is confirmed numerically: 8% of $2,250,000 in monthly receipts equals $180,000, matching the observed discrepancy almost exactly. Proposed fix: configure the ERP to automatically trigger an inventory reversal transaction whenever a quality rejection is logged against previously-posted received goods, and separately evaluate reverting the receipt workflow to require inspection completion before posting, which would prevent the gap from occurring at all rather than only correcting it after the fact. I recommend also auditing other component categories that went through the same recent process change for the identical unreversed-rejection gap.",
+      "reasoning": "A strong fix proposal states the root cause with numerical confirmation (not just a hypothesis), proposes a specific system configuration change addressing the cause directly, and recommends checking for the same issue elsewhere — this combination is what actually closes a recurring discrepancy rather than requiring another manual adjustment next month.",
+      "tip": "Always include the numerical confirmation (calculated vs. observed discrepancy) in a fix proposal — it's what turns 'I think this might be the cause' into 'the numbers confirm this is the cause,' which is far more persuasive to Finance and leadership.",
+      "mistake": "Proposing only a corrective fix (auto-reversal) without also flagging the upstream process change (post-before-inspection) that created the gap in the first place leaves the door open for a similar gap to be introduced again by a future process change.",
+      "recommendation": "Confirm the fix is working by checking that next month's valuation report shows no similar discrepancy — a system configuration change isn't verified until it's actually observed to prevent the recurrence in live data."
+    },
+    {
+      "id": "task-6-erp-excel",
+      "type": "excel-upload",
+      "title": "Multi-Category Discrepancy Check (Excel)",
+      "prompt": "Three more component categories need their expected rejection-driven discrepancy calculated to check if they share the same gap. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "ERP-Discrepancy-Template.xlsx",
+        "sheetName": "Discrepancy Check",
+        "headers": [
+          "Category",
+          "Monthly Receipts (USD)",
+          "Rejection Rate (%)",
+          "Expected Discrepancy (USD)"
+        ],
+        "rows": [
+          [
+            "Category Y",
+            "1500000",
+            "5",
+            ""
+          ],
+          [
+            "Category Z",
+            "900000",
+            "12",
+            ""
+          ],
+          [
+            "Category W",
+            "2100000",
+            "3",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 75000,
+          "tolerance": 1000,
+          "label": "Category Y expected discrepancy (1,500,000 x 0.05)"
+        },
+        {
+          "cell": "D3",
+          "expected": 108000,
+          "tolerance": 1000,
+          "label": "Category Z expected discrepancy (900,000 x 0.12, the largest — priority for audit)"
+        },
+        {
+          "cell": "D4",
+          "expected": 63000,
+          "tolerance": 1000,
+          "label": "Category W expected discrepancy (2,100,000 x 0.03)"
+        }
+      ],
+      "reasoning": "Calculating expected discrepancy across every category that went through the same process change, not just the one Finance already flagged, is what proactively catches similar hidden valuation errors (like Category Z's $108,000) before they surface as separate month-end surprises.",
+      "tip": "Apply the same expected-discrepancy formula (receipts x rejection rate) to every category sharing the same process change — this is a fast way to prioritize which categories most urgently need the same fix and audit.",
+      "mistake": "Fixing only the one category Finance happened to flag, without checking whether the same underlying process change affects other categories, leaves those other categories exposed to the identical, still-undiscovered valuation error.",
+      "recommendation": "Present this full category comparison to Finance and the ERP team together — it turns a single flagged problem into a proactive, prioritized fix across every category actually affected by the same root cause."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Manual Adjustment That Became Permanent",
+    "background": "On an earlier Atlas ERP issue, a similar recurring valuation discrepancy was manually adjusted every month for over a year, becoming an accepted routine task on Finance's month-end checklist, until a new ERP specialist asked why it kept happening at all and traced it to an unreversed transaction type in a different module.",
+    "client": "Regional Distribution Hub (an earlier ERP issue)",
+    "budget": "Over a year of unnecessary manual adjustment effort, plus persistent inaccurate interim financial reporting",
+    "timeline": "12+ months of monthly manual adjustments before the root cause was actually investigated",
+    "challenges": "Because the manual adjustment reliably corrected the reported number each month, nobody questioned why the underlying data kept generating the same error in the first place — the workaround became normalized as routine process.",
+    "constraints": "Once finally investigated, the actual system fix took less than a week to configure — the twelve months of manual adjustment effort had all been avoidable.",
+    "questions": [
+      "Why can a reliable manual workaround actually discourage investigating the real root cause?",
+      "What question, asked earlier, would have prompted the actual investigation sooner?",
+      "How does this compare to the inventory valuation issue investigated in this internship?"
+    ],
+    "solution": "Atlas Manufacturing mandated that any recurring manual financial adjustment performed for more than 2 consecutive months must trigger a mandatory root cause investigation by the ERP team, rather than continuing indefinitely as a routine task.",
+    "lessonsLearned": "A reliable manual workaround can quietly become a permanent, unquestioned routine — the fact that a monthly adjustment 'always fixes it' is not the same as the underlying data actually being correct, and a recurring correction is itself a signal that deserves a root cause investigation, not just repeated patching."
+  },
+  "quiz": [
+    {
+      "q": "A recurring monthly data discrepancy that's always manually corrected typically indicates:",
+      "options": [
+        "A one-off data entry mistake each month",
+        "A systemic workflow or configuration gap worth tracing to its root cause"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When a calculated expected discrepancy (from a known process gap) closely matches an observed discrepancy, this is:",
+      "options": [
+        "Coincidental and not meaningful",
+        "Strong confirmation that the identified process gap is the actual root cause"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "The best system fix for a data gap caused by a process change is to:",
+      "options": [
+        "Add a valuation buffer to estimate around the gap",
+        "Configure the system to automatically correct for the specific gap (e.g., auto-reversal on rejection), addressing the root cause"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When a root cause is found affecting one category, it's important to also:",
+      "options": [
+        "Assume no other categories are affected",
+        "Check other categories that went through the same underlying process change"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did a discrepancy get manually adjusted for over a year before being fixed?",
+      "options": [
+        "The workaround reliably corrected the reported number, so nobody questioned why the underlying error kept recurring",
+        "There was no actual discrepancy",
+        "The ERP system had no adjustment capability",
+        "Finance refused to report the issue"
+      ],
+      "correctIndex": 0
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to confirm a root cause hypothesis with a calculation rather than just a plausible workflow story? Why did the numerical match matter?",
+      "The case study shows a reliable workaround delaying investigation for over a year. Where else might a workaround that 'always works' actually discourage fixing the real underlying problem?",
+      "If you were Seo-yeon, what one rule would you make standing so a recurring manual adjustment never becomes a permanent, unquestioned routine again?"
+    ]
+  },
+  "certificate": {
+    "name": "ERP Specialist — Inventory Data Reconciliation & Workflow Fix",
+    "nameAz": "ERP Mütəxəssisi — Anbar Məlumatlarının Uzlaşdırılması",
+    "totalXp": 270
+  }
+}

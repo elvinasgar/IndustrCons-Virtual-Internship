@@ -1,0 +1,288 @@
+{
+  "id": "production-planning-atlas",
+  "title": "Production Planning Engineer",
+  "companyId": "atlas-manufacturing",
+  "category": "Production",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "PP-027",
+  "skills": [
+    "Capacity Planning",
+    "Scheduling",
+    "Bottleneck Analysis"
+  ],
+  "companyIntro": {
+    "name": "Atlas Manufacturing",
+    "country": "South Korea",
+    "founded": 1999,
+    "mission": "World-class manufacturing discipline — schedules that respect the real bottleneck, not just the loudest complaint.",
+    "culture": "Data-driven scheduling culture. Planners are expected to defend a schedule with capacity math, not gut feel.",
+    "projects": [
+      "Precision Components Line 4 Upgrade",
+      "Atlas EV Battery Housing Plant",
+      "Regional Distribution Hub"
+    ]
+  },
+  "projectBackground": {
+    "name": "Line 4 — Rush Order Replan",
+    "client": "Internal production planning",
+    "location": "Precision Components Plant, Line 4",
+    "budget": "N/A — internal capacity replan",
+    "timeline": "Rush order due in 5 working days",
+    "context": "A key client has placed a rush order that needs to be inserted into next week's schedule without blowing existing delivery commitments. One station is already running near full capacity, and naive insertion of the rush order will overload it."
+  },
+  "manager": {
+    "name": "Joon-ho Baek",
+    "role": "Plant Scheduling Manager, Atlas Manufacturing",
+    "note": "Sales already promised the client this rush order will ship on time. Before you tell me it can't be done, show me the actual bottleneck capacity math — I want to know exactly where this breaks, not just that it 'feels tight.'"
+  },
+  "assignment": {
+    "title": "Replan the schedule to fit the rush order without blowing existing commitments",
+    "brief": "Identify the true bottleneck station, calculate available capacity, and replan the schedule to fit the rush order while protecting existing delivery commitments."
+  },
+  "documents": [
+    {
+      "id": "doc-capacity-table",
+      "name": "Station Capacity Table — Line 4",
+      "type": "Capacity Data",
+      "note": "Station 1: 500 units/day capacity, currently at 350/day. Station 2 (press): 420 units/day capacity, currently at 410/day. Station 3: 480 units/day capacity, currently at 300/day."
+    },
+    {
+      "id": "doc-rush-order",
+      "name": "Rush Order Requirements",
+      "type": "Order Spec",
+      "note": "1,200 additional units required within 5 working days, all requiring processing through all 3 stations including Station 2."
+    },
+    {
+      "id": "doc-existing-commitments",
+      "name": "Existing Delivery Commitments — Next 5 Days",
+      "type": "Schedule Data",
+      "note": "Current schedule already commits Station 2 to 410 units/day for existing orders, leaving only 10 units/day of stated spare capacity at that station."
+    },
+    {
+      "id": "doc-replan-template",
+      "name": "Schedule Replan — Template",
+      "type": "Template",
+      "note": "Fields: bottleneck station, available capacity, rush order allocation plan, impact on existing commitments."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-bottleneck",
+      "type": "mcq",
+      "title": "Identifying the Bottleneck",
+      "prompt": "With Station 1 at 350/500, Station 2 at 410/420, and Station 3 at 300/480, which station is the true bottleneck constraining how much rush order volume can be added?",
+      "options": [
+        "Station 1, since it has the highest absolute capacity number",
+        "Station 2, since it has the least spare capacity (only 10 units/day) relative to its maximum, and all rush order units must pass through it",
+        "Station 3, since it has the most available capacity",
+        "All three stations equally constrain the schedule"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "Station 2 has only 10 units/day of spare capacity (420-410), far less than Station 1's 150 or Station 3's 180 — since the rush order must pass through all three stations, Station 2's tight spare capacity is what actually limits how much additional volume the line can absorb, making it the true bottleneck.",
+      "tip": "Always identify the bottleneck as the station with the least spare capacity relative to demand passing through it, not the one with the highest or lowest absolute capacity number — a bottleneck is about relative constraint, not raw size.",
+      "mistake": "Focusing on Station 3's large available capacity (180 units/day) while ignoring Station 2's narrow 10-unit spare capacity would produce a schedule that looks feasible on paper but fails at the actual constraining station.",
+      "recommendation": "Always calculate spare capacity (capacity minus current load) for every station in the routing, not just the ones that seem busy — the bottleneck is sometimes the station that looks fine at a glance but has the least room relative to what's coming."
+    },
+    {
+      "id": "task-2-daily-capacity",
+      "type": "numeric",
+      "title": "Available Rush Capacity",
+      "prompt": "Given Station 2's spare capacity of 10 units/day, over the 5 working days available, what is the maximum additional volume Station 2 could absorb without any schedule changes elsewhere?",
+      "answer": 50,
+      "tolerance": 0,
+      "unit": "units",
+      "xp": 45,
+      "workingNote": "10 units/day x 5 days = 50 units.",
+      "reasoning": "Calculating total available bottleneck capacity over the full timeframe (not just the daily rate) is what shows the current schedule can only absorb 50 of the needed 1,200 units without further changes — a massive shortfall that needs to be actively solved, not just noted.",
+      "tip": "Always multiply spare daily capacity by the number of days available to get total available capacity for a rush order — a daily rate alone doesn't answer 'can we fit this by the deadline.'",
+      "mistake": "Stopping at 'Station 2 has 10 units/day spare' without calculating the total over 5 days can understate just how large the gap is between what's needed (1,200 units) and what's currently available (50 units).",
+      "recommendation": "Once the shortfall is calculated (1,200 needed vs. 50 available), that gap itself — 1,150 units — is the number to solve for, whether through overtime, resequencing, or deprioritizing other work."
+    },
+    {
+      "id": "task-3-options-pp",
+      "type": "multiselect",
+      "title": "Capacity Solution Options",
+      "prompt": "With a 1,150-unit shortfall at the bottleneck station, select every option worth genuinely evaluating.",
+      "options": [
+        "Add overtime shifts at Station 2 specifically, since it's the actual bottleneck",
+        "Add overtime at Station 1 and Station 3, which already have ample spare capacity and aren't the constraint",
+        "Deprioritize or delay a portion of existing lower-priority orders at Station 2 to free up capacity for the rush order",
+        "Simply promise the client the full volume without checking if it's actually achievable",
+        "Check whether the rush order's full 1,200 units are truly all needed by the deadline, or if a partial early delivery satisfies the client"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        4
+      ],
+      "xp": 55,
+      "reasoning": "Genuine solutions focus overtime specifically on the bottleneck (Station 2), consider deprioritizing lower-priority existing work at that same station to free capacity, and check whether a partial delivery could satisfy the client's actual need. Adding overtime at Station 1 or 3 doesn't help, since they aren't the constraint — extra capacity anywhere except the bottleneck doesn't increase overall throughput.",
+      "tip": "Any capacity-adding action (overtime, extra shifts) only helps if applied at the actual bottleneck station — adding capacity anywhere else, even generously, does nothing to solve a bottleneck-constrained shortfall.",
+      "mistake": "A common and wasteful planning mistake is adding overtime broadly across all stations 'to be safe,' when only overtime at the specific bottleneck station (Station 2 here) actually increases the line's real throughput.",
+      "recommendation": "Before committing to costly overtime, always check whether the client's actual need can be partially satisfied by an earlier partial delivery — this is often a cheaper and equally acceptable solution to a rush order's schedule pressure."
+    },
+    {
+      "id": "task-4-overtime-calc",
+      "type": "numeric",
+      "title": "Overtime Capacity Needed",
+      "prompt": "If overtime shifts at Station 2 can add 180 units/day of extra capacity, and 1,150 additional units are needed over 5 days, how many overtime days are required (round up to the nearest whole day)?",
+      "answer": 7,
+      "tolerance": 0,
+      "unit": "days (i.e., overtime alone won't fully cover it within 5 available days, since only 5 days exist — confirming a blended solution is required)",
+      "xp": 50,
+      "workingNote": "1,150 / 180 = 6.4, rounds up to 7 days — but only 5 days are actually available, confirming overtime alone cannot fully solve the shortfall within the deadline, and a blended approach (overtime plus deprioritization or partial delivery) is required.",
+      "reasoning": "Calculating that overtime alone would require more days than actually exist is exactly the kind of finding that should be presented to leadership — it proves a single-lever solution (overtime only) isn't sufficient, and a combined approach is genuinely necessary, not just convenient.",
+      "tip": "Running this calculation explicitly (rather than assuming 'more overtime' solves any capacity gap) is what reveals whether a single lever is sufficient or whether the schedule genuinely requires combining multiple approaches.",
+      "mistake": "Assuming overtime alone can always close any capacity gap, without checking whether the required overtime days actually fit within the available timeframe, can lead to a schedule commitment that's mathematically impossible to keep.",
+      "recommendation": "Present this exact calculation to leadership when a rush order request seems to require more than a single lever — it's the evidence that justifies combining overtime with deprioritization or partial delivery, rather than just working the team harder."
+    },
+    {
+      "id": "task-5-replan",
+      "type": "text",
+      "title": "Schedule Replan Summary",
+      "prompt": "Write the replan summary (3-5 sentences): the bottleneck, the shortfall, and your blended solution.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "Station 2 is the true bottleneck for this rush order, with only 10 units/day (50 units over 5 days) of spare capacity against a 1,200-unit rush order requirement — a 1,150-unit shortfall that overtime alone cannot fully close within the 5-day deadline (which would require 7 overtime days at 180 units/day added capacity). Recommended blended solution: run overtime at Station 2 for all 5 available days (adding 900 units), deprioritize 150 units of lower-priority existing work at that station to free further capacity, and confirm with the client whether the remaining 100 units can be delivered 1 day after the main shipment as a partial completion. This combined approach fits the rush order within the deadline for the vast majority of volume while being transparent about the small remaining gap, rather than promising a commitment that the bottleneck math doesn't actually support.",
+      "reasoning": "A strong replan summary states the specific bottleneck and shortfall with numbers, shows that a single-lever solution was checked and found insufficient, and proposes a specific blended plan — this is what lets leadership make an informed commitment to the client rather than an optimistic one that later breaks.",
+      "tip": "Always show that you checked whether a single, simpler solution (overtime alone) would work before proposing a blended one — it demonstrates the blended approach is a genuine necessity, not an unnecessarily complicated first response.",
+      "mistake": "Committing to a client's full rush order volume without doing the bottleneck capacity math first risks a broken promise discovered mid-week, which is far worse for the client relationship than a transparent, partial-delivery conversation upfront.",
+      "recommendation": "Confirm the client's actual flexibility on partial delivery before finalizing the plan — many 'rush order' deadlines have more flexibility on the last small portion than the sales team's original promise implied."
+    },
+    {
+      "id": "task-6-capacity-excel",
+      "type": "excel-upload",
+      "title": "Multi-Station Bottleneck Finder (Excel)",
+      "prompt": "Three more lines need their true bottleneck identified using spare capacity. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "Bottleneck-Finder-Template.xlsx",
+        "sheetName": "Bottleneck",
+        "headers": [
+          "Station",
+          "Max Capacity (units/day)",
+          "Current Load (units/day)",
+          "Spare Capacity (units/day)"
+        ],
+        "rows": [
+          [
+            "Line 6 - Station A",
+            "600",
+            "480",
+            ""
+          ],
+          [
+            "Line 6 - Station B",
+            "550",
+            "540",
+            ""
+          ],
+          [
+            "Line 6 - Station C",
+            "700",
+            "520",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 120,
+          "tolerance": 0,
+          "label": "Station A spare capacity (600-480)"
+        },
+        {
+          "cell": "D3",
+          "expected": 10,
+          "tolerance": 0,
+          "label": "Station B spare capacity (550-540) — the true bottleneck, least spare capacity"
+        },
+        {
+          "cell": "D4",
+          "expected": 180,
+          "tolerance": 0,
+          "label": "Station C spare capacity (700-520)"
+        }
+      ],
+      "reasoning": "Calculating spare capacity consistently across every station on Line 6 confirms Station B, despite not having the lowest maximum capacity number, is the actual bottleneck with only 10 units/day of room — exactly the same pattern found on Line 4's Station 2.",
+      "tip": "Identify the bottleneck as the station with the smallest spare capacity number, never by comparing maximum capacity ratings alone — a station with a high maximum can still be the tightest constraint if its current load is also proportionally high.",
+      "mistake": "Assuming the station with the lowest maximum capacity rating must be the bottleneck, without calculating actual spare capacity for every station, can lead to focusing improvement or scheduling effort on the wrong station entirely.",
+      "recommendation": "Run this spare-capacity calculation across every line during any rush order or capacity planning exercise — it's the fast, reliable way to find the true constraint before committing to any delivery promise."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Promise Made Before the Math",
+    "background": "On an earlier Atlas rush order, sales committed a client to a delivery date before checking bottleneck capacity with production planning — the schedule broke mid-week when the true bottleneck station couldn't absorb the promised volume, forcing an embarrassing renegotiation with the client after the commitment had already been made public internally.",
+    "client": "Regional Distribution Hub (an earlier rush order)",
+    "budget": "Cost of the broken commitment: expedited shipping fees of $22,000 plus damaged client trust",
+    "timeline": "Promise made without capacity check; schedule break discovered 2 days into the 5-day commitment window",
+    "challenges": "Because the commitment was made before any bottleneck capacity analysis, the shortfall wasn't discovered until the schedule was already underway and partially communicated to the client, leaving far less room to negotiate a graceful adjustment.",
+    "constraints": "The client required a formal service recovery plan and closer delivery monitoring on subsequent orders for several months following the broken commitment.",
+    "questions": [
+      "Why is committing to a delivery date before checking bottleneck capacity a risky practice?",
+      "What specific calculation, done before the commitment, would have prevented this?",
+      "How does discovering a shortfall mid-week compare to identifying it before any promise is made?"
+    ],
+    "solution": "Atlas Manufacturing mandated that any rush order commitment to a client must be confirmed with a bottleneck capacity check from production planning before being communicated externally, not after.",
+    "lessonsLearned": "A delivery commitment made before checking actual bottleneck capacity is a promise based on hope, not data — the specific spare-capacity calculation this internship walks through is exactly what should happen before any commitment is made, not after it's already broken."
+  },
+  "quiz": [
+    {
+      "q": "The true bottleneck in a multi-station line is the station with:",
+      "options": [
+        "The highest maximum capacity rating",
+        "The least spare capacity relative to demand passing through it"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Adding overtime capacity anywhere except the actual bottleneck station:",
+      "options": [
+        "Increases overall line throughput proportionally",
+        "Does not meaningfully increase overall throughput, since the bottleneck still constrains it"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "If overtime alone would require more days than are actually available before a deadline, this indicates:",
+      "options": [
+        "The schedule should proceed with overtime alone anyway",
+        "A blended solution combining multiple levers is genuinely necessary"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A delivery commitment to a client should ideally be made:",
+      "options": [
+        "Before checking bottleneck capacity, to respond quickly",
+        "After confirming bottleneck capacity, to ensure the commitment is actually achievable"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did the rush order commitment break mid-week?",
+      "options": [
+        "The commitment was made before any bottleneck capacity check was done",
+        "The client changed their order",
+        "The wrong product was manufactured",
+        "There was no rush order at all"
+      ],
+      "correctIndex": 0
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to calculate spare capacity rather than relying on maximum capacity numbers? What would have gone wrong if you'd used maximum capacity instead?",
+      "The case study shows a commitment made before checking capacity math, breaking mid-week. Where else might committing before verifying feasibility lead to a worse outcome than a brief delay to check first?",
+      "If you were Joon-ho, what one rule would you make standing so sales can never commit a client to a date without a bottleneck capacity check first?"
+    ]
+  },
+  "certificate": {
+    "name": "Production Planning Engineer — Bottleneck Analysis & Rush Order Scheduling",
+    "nameAz": "İstehsalat Planlaşdırma Mühəndisi — Dar Boğaz Təhlili",
+    "totalXp": 310
+  }
+}

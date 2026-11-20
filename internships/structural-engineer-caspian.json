@@ -1,0 +1,321 @@
+{
+  "id": "structural-engineer-caspian",
+  "title": "Structural Engineer",
+  "companyId": "caspian-structures",
+  "category": "Structural Engineer",
+  "difficulty": "Intermediate",
+  "durationHours": 8,
+  "drawingTag": "STR-034 / REV.C",
+  "skills": [
+    "Steel Quantity",
+    "Shop Drawing Review",
+    "Concrete Calculation"
+  ],
+  "companyIntro": {
+    "name": "Caspian Structures",
+    "country": "Azerbaijan",
+    "founded": 2013,
+    "mission": "Structural steel and reinforced concrete works for the South Caucasus energy and commercial sectors — drawings are the law, tolerances are non-negotiable.",
+    "culture": "Precision-driven and detail-obsessed. Structural engineers here are expected to catch fabrication discrepancies on paper, long before they reach the yard.",
+    "projects": [
+      "Baku Bay Commercial Tower",
+      "Absheron Steel Fabrication Yard",
+      "Caspian Energy HQ Annex"
+    ]
+  },
+  "projectBackground": {
+    "name": "Baku Bay Commercial Tower — Structural Steel Package",
+    "client": "Baku Bay Developments",
+    "location": "Baku Bay Waterfront District",
+    "budget": "$41M (structural steel and composite deck package)",
+    "timeline": "44 weeks, currently in week 12 (steel erection, levels 4-9)",
+    "context": "A 22-storey composite steel-frame tower with a braced core. The fabricator's shop drawings for levels 7-9 have just come back for review before fabrication is released, and a beam-column connection detail looks different from what the structural design drawings show."
+  },
+  "manager": {
+    "name": "Rashad Guliyev",
+    "role": "Senior Structural Engineer, Caspian Structures",
+    "note": "The fabricator is waiting on our sign-off to cut steel for levels 7-9. Don't rubber-stamp these shop drawings — if a connection detail doesn't match design intent, it needs to come back marked up, not approved 'as similar enough'."
+  },
+  "assignment": {
+    "title": "Review shop drawings and confirm steel quantities, Levels 7-9",
+    "brief": "Check the fabricator's shop drawings against the structural design drawings for the Level 7-9 beam-column connections, verify the steel tonnage take-off, and calculate the composite slab concrete volume before releasing this package for fabrication."
+  },
+  "documents": [
+    {
+      "id": "doc-design-drawing",
+      "name": "Structural Design Drawing — Typical Beam-Column Connection, Levels 7-9",
+      "type": "Structural Drawing",
+      "note": "Design intent: bolted moment connection, 8No. M24 bolts, extended end-plate, per design code Cl. 6.4. Beam: 450UB, Column: 350UC."
+    },
+    {
+      "id": "doc-shop-drawing",
+      "name": "Fabricator Shop Drawing — Levels 7-9 (submitted for approval)",
+      "type": "Shop Drawing",
+      "note": "Shows a flush end-plate connection with 6No. M24 bolts at the same beam-column junction — fewer bolts and a different end-plate configuration than the design drawing."
+    },
+    {
+      "id": "doc-steel-schedule",
+      "name": "Steel Member Schedule — Levels 7-9 (extract)",
+      "type": "Schedule",
+      "note": "450UB beams: unit mass 67.5 kg/m, 14 beams x 8.2m average length this package. 350UC columns: unit mass 96.8 kg/m, 9 columns x 3.6m storey height."
+    },
+    {
+      "id": "doc-slab-spec",
+      "name": "Composite Slab Specification (extract)",
+      "type": "Specification",
+      "note": "Slab thickness 130mm on 0.9mm profiled steel decking, concrete grade C30/37, over a 620 m² floor plate per level for Levels 7-9."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-connection-check",
+      "type": "mcq",
+      "title": "Shop Drawing vs. Design Intent",
+      "prompt": "Comparing the fabricator's shop drawing to the structural design drawing for the Level 7-9 beam-column connection, what is the correct review outcome?",
+      "options": [
+        "Approve as submitted — 6 bolts is close enough to 8 bolts for this connection type",
+        "Reject and return marked up — the shop drawing shows fewer bolts and a different end-plate type than the design connection requires",
+        "Approve, since shop drawings are allowed to differ from design drawings by definition",
+        "No review needed — bolt count is a fabrication preference, not a structural design matter"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "The design drawing specifies an extended end-plate connection with 8No. M24 bolts per a specific design code clause — this bolt count and end-plate type were calculated to carry a specific moment capacity. A shop drawing showing 6 bolts and a flush end-plate is a different connection with different capacity, not a fabrication-level variation of the same one, so it must be rejected and returned marked up rather than approved.",
+      "tip": "Always check shop drawings against the specific design code clause referenced on the design drawing, not just against the general member sizes — connection capacity lives in the bolt count, plate type, and weld details, which are exactly the things fabricators sometimes simplify to save cost.",
+      "mistake": "A common and serious mistake is treating shop drawing review as a formality once member sizes match, without checking that connection details actually deliver the same calculated capacity as the design.",
+      "recommendation": "Any change to a connection type between design and shop drawings should trigger a re-check by whoever performed the original connection design calculation — not just a visual comparison by the reviewer, since capacity differences aren't always visually obvious."
+    },
+    {
+      "id": "task-2-steel-tonnage",
+      "type": "numeric",
+      "title": "Steel Tonnage Take-off",
+      "prompt": "Using the steel member schedule, what is the total steel weight (in kg) for the 14 beams in this package? (14 beams x 8.2m x 67.5 kg/m)",
+      "answer": 7749,
+      "tolerance": 20,
+      "unit": "kg",
+      "xp": 55,
+      "workingNote": "14 x 8.2m x 67.5 kg/m = 7,749 kg.",
+      "reasoning": "Steel tonnage take-off multiplies member count, length, and unit mass per metre — this is the calculation that feeds directly into fabricator invoicing and delivery scheduling, so accuracy here has a direct cost impact.",
+      "tip": "Always separate beam tonnage from column tonnage in your take-off, even when reporting a combined package total — fabricators price and deliver these as different product lines.",
+      "mistake": "A common error is using nominal member length (e.g. a rounded grid dimension) instead of the actual detailed cut length including connection allowances, which under- or over-states tonnage by a small but compounding percentage across many members.",
+      "recommendation": "Cross-check your manual take-off total against the fabricator's own quantity submission before approving payment — a tonnage mismatch of even 2-3% across a large package represents real money."
+    },
+    {
+      "id": "task-3-checklist",
+      "type": "multiselect",
+      "title": "Shop Drawing Review Checklist",
+      "prompt": "Before releasing the Level 7-9 package for fabrication, select every item that must be verified on the shop drawings.",
+      "options": [
+        "Connection bolt count and type match the design drawing's specified capacity",
+        "The fabricator's preferred drawing software and file format",
+        "Member sizes and grades match the structural design drawing",
+        "Erection sequence markings are present and consistent with the site's steel erection plan",
+        "The fabricator's company logo placement on the drawing sheet"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        3
+      ],
+      "xp": 50,
+      "reasoning": "A structural shop drawing review focuses on what affects structural performance and buildability: connection capacity, correct member sizes/grades, and erection sequence consistency with the site plan. Drawing software preference and logo placement are administrative details with no bearing on structural adequacy or safe erection.",
+      "tip": "Erection sequence markings matter more than they first appear — a structurally correct connection detail can still cause a site problem if the erection sequence assumed in the shop drawing doesn't match how the crane and crew actually plan to build the frame.",
+      "mistake": "Reviewers sometimes focus entirely on connection details and skip erection sequence consistency, which can lead to a temporarily unstable partial frame condition on site even though every individual connection is correctly designed.",
+      "recommendation": "Involve the site erection engineer in shop drawing review for complex packages, not just the design office — buildability and design intent both need to be satisfied before steel is cut."
+    },
+    {
+      "id": "task-4-slab-volume",
+      "type": "numeric",
+      "title": "Composite Slab Concrete Volume",
+      "prompt": "For one floor level (620 m² floor plate, 130mm slab thickness), what is the concrete volume (m³) required, rounded to the nearest whole m³?",
+      "answer": 81,
+      "tolerance": 1,
+      "unit": "m³",
+      "xp": 50,
+      "workingNote": "620 m² x 0.13m = 80.6 m³, rounds to 81 m³. (Note: in practice, the volume displaced by decking ribs is often deducted — this exercise uses gross volume for a first-pass estimate.)",
+      "reasoning": "Composite slab volume is a straightforward area x thickness calculation used for a first-pass concrete order — refining it to account for deck rib profile and any construction joint losses comes later, but the gross figure is what a structural engineer reports first to the concrete supply team.",
+      "tip": "Always state clearly whether a reported slab volume is gross (area x thickness) or net (accounting for decking rib displacement) — the two can differ by 5-8%, which matters when ordering ready-mix concrete in bulk.",
+      "mistake": "Reporting a net volume without stating the assumption can cause a concrete order to run short on-site, since gross-based site planning figures and net-based structural design figures are sometimes confused for each other.",
+      "recommendation": "When this figure is used for an actual concrete order (not just a design check), always get the decking manufacturer's rib displacement factor and apply it — a shortfall discovered mid-pour on a composite slab is a serious problem."
+    },
+    {
+      "id": "task-5-markup",
+      "type": "text",
+      "title": "Shop Drawing Markup Comments",
+      "prompt": "Write the markup comment (3-5 sentences) that will accompany the rejected shop drawing back to the fabricator, explaining what's wrong and what's required.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "The beam-column connection shown on sheet SD-107 (Levels 7-9, Grid C-4) does not match the structural design intent: the design drawing specifies an extended end-plate connection with 8No. M24 bolts per Cl. 6.4, while the submitted shop drawing shows a flush end-plate with only 6No. M24 bolts, which is a different connection with a different calculated moment capacity. Please revise the shop drawing to match the extended end-plate, 8-bolt configuration shown on structural drawing S-204 Rev. C, or submit an alternative connection design with supporting calculations for engineer review if a flush end-plate is preferred for fabrication reasons. This package cannot be released for fabrication until the connection detail is resolved, given the tight erection sequence for Levels 7-9.",
+      "reasoning": "A useful markup comment names the specific sheet and location, explains precisely what doesn't match and why it matters (moment capacity, not just 'looks different'), and states exactly what's required to resolve it and move forward — this is what lets the fabricator's drafting team fix the issue in one round rather than several rounds of vague back-and-forth.",
+      "tip": "Always give the fabricator a path forward — either 'match the design as shown' or 'submit calculations for an alternative' — rather than just rejecting, since a purely negative markup without a path forward tends to just bounce the same problem back unresolved.",
+      "mistake": "A common weak markup says only 'does not match design, please revise' without naming the specific discrepancy or its structural consequence, which often leads to a second incorrect resubmission because the fabricator's drafter doesn't understand what specifically to change.",
+      "recommendation": "On any package with a tight erection sequence dependency, note the schedule consequence of the hold in your markup — it helps the fabricator prioritise the correction appropriately rather than treating it as routine paperwork."
+    },
+    {
+      "id": "task-6-column-tonnage",
+      "type": "numeric",
+      "title": "Column Tonnage Cross-Check",
+      "prompt": "Using the steel schedule, what is the total steel weight (kg) for the 9 columns in this package? (9 columns x 3.6m x 96.8 kg/m)",
+      "answer": 3136,
+      "tolerance": 15,
+      "unit": "kg",
+      "xp": 45,
+      "workingNote": "9 x 3.6m x 96.8 kg/m = 3,136.3 kg, rounds to 3,136 kg.",
+      "reasoning": "Column tonnage is calculated the same way as beam tonnage but reported separately, since columns and beams are typically fabricated and delivered as distinct product runs with different lead times.",
+      "tip": "When cross-checking a fabricator's quantity submission, calculate beam and column tonnage independently rather than checking only the combined total — an error in one category can be masked by an offsetting error in the other if you only check the sum.",
+      "mistake": "Relying solely on a combined package tonnage figure to 'sanity check' a fabricator's invoice can miss a real discrepancy in one member category that happens to be offset by the other.",
+      "recommendation": "Keep separate running tonnage totals by member type across the whole project, not just per package — this becomes the reconciliation record against total steel purchased when the project closes out."
+    },
+    {
+      "id": "task-7-steel-excel",
+      "type": "excel-upload",
+      "title": "Steel Tonnage Reconciliation (Excel)",
+      "prompt": "Three more member groups need their tonnage calculated the same way, plus a package grand total. Download the template, complete it in Excel, then upload it — the amounts are checked automatically.",
+      "xp": 70,
+      "template": {
+        "fileName": "Steel-Tonnage-Template.xlsx",
+        "sheetName": "Tonnage",
+        "headers": [
+          "Member Group",
+          "Count",
+          "Length (m)",
+          "Unit Mass (kg/m)",
+          "Total Weight (kg)"
+        ],
+        "rows": [
+          [
+            "Secondary Beams — 310UB",
+            "22",
+            "6.0",
+            "46.2",
+            ""
+          ],
+          [
+            "Bracing — 150x150x10 EA",
+            "16",
+            "4.8",
+            "22.6",
+            ""
+          ],
+          [
+            "Base Plates — 500x500x25mm",
+            "9",
+            "N/A (each 49.1 kg)",
+            "N/A",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "E2",
+          "expected": 6098.4,
+          "tolerance": 10,
+          "label": "Secondary beams (22 x 6.0 x 46.2)"
+        },
+        {
+          "cell": "E3",
+          "expected": 1735.68,
+          "tolerance": 10,
+          "label": "Bracing (16 x 4.8 x 22.6)"
+        },
+        {
+          "cell": "E4",
+          "expected": 441.9,
+          "tolerance": 5,
+          "label": "Base plates (9 x 49.1 kg each)"
+        },
+        {
+          "cell": "E4",
+          "expected": 441.9,
+          "tolerance": 5,
+          "label": "Base plates weight check"
+        }
+      ],
+      "reasoning": "Reconciling every member group's tonnage individually, including irregular items like base plates that aren't priced per metre, is what produces a trustworthy package total for the fabricator's invoice — skipping the odd-shaped items because they don't fit the standard formula is a common source of reconciliation gaps.",
+      "tip": "For items priced per-piece rather than per-metre (like base plates here), keep the formula explicit as count x unit weight rather than trying to force it into a length x unit-mass pattern — clarity in the formula prevents copy-paste errors.",
+      "mistake": "A common spreadsheet mistake is copying the length x unit-mass formula down into a row for an item (like base plates) that isn't actually priced that way, producing a nonsensical result that looks superficially plausible.",
+      "recommendation": "Any steel reconciliation sheet used for actual invoicing should be checked against the fabricator's own mill certificates and delivery dockets, not just recalculated independently — both records should agree before payment is released."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Connection That Looked Close Enough",
+    "background": "On an earlier Caspian Structures project, a junior engineer approved a shop drawing showing a simplified connection detail because the beam and column sizes matched the design drawing, without checking the bolt count and end-plate type against the design calculation.",
+    "client": "Absheron Steel Fabrication Yard — internal capability project",
+    "budget": "Remediation cost: $95,000 for retrofit strengthening of 6 connections after discovery",
+    "timeline": "Discrepancy discovered during a routine third-party structural audit, after the frame was already erected to that level",
+    "challenges": "Retrofitting a connection after erection meant working at height on a live structure, adding temporary bracing, and coordinating with the erection crew to avoid destabilising the partially complete frame during the fix.",
+    "constraints": "The retrofit required a full engineering re-analysis to confirm the temporary condition was safe throughout the works, adding three weeks to the levels above being able to proceed.",
+    "questions": [
+      "Why do member sizes matching the design drawing not guarantee the connection is adequate?",
+      "What specific check would have caught this before erection?",
+      "Whose responsibility is it to verify that a shop drawing delivers the same capacity as the design, not just the same-looking geometry?"
+    ],
+    "solution": "Caspian Structures introduced a mandatory rule that any beam-column connection detail differing from the design drawing's exact bolt count, plate type, or weld specification must be referred back to the original connection designer for explicit written sign-off, regardless of how minor the visual difference appears.",
+    "lessonsLearned": "A structural connection's capacity lives in details that are easy to visually gloss over — bolt count, plate thickness, weld size — and matching member sizes is necessary but nowhere near sufficient to confirm a shop drawing delivers the design's intended structural performance."
+  },
+  "quiz": [
+    {
+      "q": "A shop drawing shows a connection with fewer bolts than the design drawing specifies. The correct action is:",
+      "options": [
+        "Approve, since fewer bolts saves fabrication cost",
+        "Reject and return marked up, referencing the specific design capacity requirement",
+        "Approve only if the beam size matches",
+        "Ignore, bolt count is a fabrication detail"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Steel tonnage take-off is calculated as:",
+      "options": [
+        "Member count only",
+        "Member count x length x unit mass per metre",
+        "Floor area x steel grade",
+        "A fixed percentage of concrete volume"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Why should base plates be calculated differently from beams in a tonnage reconciliation?",
+      "options": [
+        "They should not, all items use length x unit mass",
+        "They are priced per-piece rather than per-metre, so count x unit weight is the correct formula",
+        "Base plates don't need to be reconciled",
+        "They are always negligible in weight"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why was retrofitting the connection after erection so much more disruptive than catching it at shop drawing stage?",
+      "options": [
+        "It required working at height on a live partially-erected structure with temporary bracing and re-analysis",
+        "It required no special precautions",
+        "The fabricator refused to help",
+        "It was actually cheaper to fix after erection"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "q": "Matching member sizes between a design drawing and shop drawing means:",
+      "options": [
+        "The connection is automatically adequate",
+        "Necessary but not sufficient — connection details like bolt count and plate type must also match design capacity",
+        "No further review is needed",
+        "The shop drawing can be approved without checking connections"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to look past matching member sizes to find the real discrepancy? What specifically told you the connection wasn't equivalent?",
+      "The case study shows a visually 'close enough' connection costing $95,000 to fix after erection. Where else in engineering might something that looks structurally similar actually not be equivalent?",
+      "If you were Rashad, what one line item would you add to a shop drawing review checklist so this specific mistake is never repeated?"
+    ]
+  },
+  "certificate": {
+    "name": "Structural Engineer — Steel Shop Drawing Review & Quantities",
+    "nameAz": "Struktur Mühəndisi — Polad İstehsalat Çertyojlarının Yoxlanılması",
+    "totalXp": 365
+  }
+}

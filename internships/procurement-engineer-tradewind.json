@@ -1,0 +1,247 @@
+{
+ "id": "procurement-engineer-tradewind",
+ "title": "Procurement Engineer",
+ "companyId": "tradewind-supply",
+ "category": "Engineering Procurement",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "PEN-097",
+ "skills": [
+  "Technical Bid Evaluation",
+  "Landed Cost",
+  "Delivery Planning"
+ ],
+ "companyIntro": {
+  "name": "Tradewind Supply Partners",
+  "country": "Turkey",
+  "founded": 2005,
+  "mission": "Source the right goods at the right total cost, fairly and on time.",
+  "culture": "Fair process, documented decisions. If you cannot justify an award in writing, you cannot make it.",
+  "projects": [
+   "Regional Tender Framework",
+   "Supplier Consolidation",
+   "Materials Sourcing Programme"
+  ]
+ },
+ "projectBackground": {
+  "name": "Materials Sourcing Programme — Transformer Package",
+  "client": "Voltara Energy (client)",
+  "location": "Istanbul, remote",
+  "budget": "Package value: €50,000 equipment",
+  "timeline": "PO placement in two weeks",
+  "context": "A transformer is on the project's critical path. Bidders differ on price, delivery and compliance."
+ },
+ "manager": {
+  "name": "Selin Demir",
+  "role": "Head of Procurement, Tradewind Supply Partners",
+  "note": "Technical compliance first, then price. A non-compliant cheap item is the most expensive one you can buy."
+ },
+ "assignment": {
+  "title": "Place the order without risking the schedule",
+  "brief": "Compute landed cost and delivery float, evaluate technical compliance, set PO terms and write an expediting email."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Quotation",
+   "type": "Bid",
+   "note": "Ex-works price €50,000; freight €2,500; import duty 5% of price; insurance 0.5%."
+  },
+  {
+   "id": "doc-2",
+   "name": "Lead Time Data",
+   "type": "Schedule",
+   "note": "Manufacture 14 weeks; transit 3 weeks; inspection 1 week; required on site in 20 weeks."
+  },
+  {
+   "id": "doc-3",
+   "name": "Technical Datasheet",
+   "type": "Spec",
+   "note": "Bidder's rating below the specified short-circuit level."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "pen-1-landed",
+   "type": "numeric",
+   "title": "Landed Cost",
+   "prompt": "Price €50,000, freight €2,500, duty 5% of price (€2,500), insurance 0.5% (€250). What is the landed cost (€)?",
+   "answer": 55250,
+   "tolerance": 10,
+   "unit": "EUR",
+   "xp": 40,
+   "workingNote": "50,000 + 2,500 + 2,500 + 250 = 55,250.",
+   "reasoning": "Landed cost includes everything to site.",
+   "tip": "Compare bids on landed cost.",
+   "mistake": "Comparing ex-works prices hides €5,250 of cost.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pen-2-float",
+   "type": "numeric",
+   "title": "Delivery Float",
+   "prompt": "Manufacture 14 weeks + transit 3 + inspection 1 = 18 weeks. Required on site in 20 weeks. What is the float (weeks)?",
+   "answer": 2,
+   "tolerance": 0,
+   "unit": "weeks",
+   "xp": 35,
+   "workingNote": "20 - 18 = 2.",
+   "reasoning": "Float shows schedule margin.",
+   "tip": "Order immediately when float is thin.",
+   "mistake": "Delaying PO by 3 weeks makes the item late.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pen-3-tbe",
+   "type": "mcq",
+   "title": "Technical Evaluation",
+   "prompt": "A bidder's rating is below the specified short-circuit level. What should you do?",
+   "options": [
+    "Treat as non-compliant until clarified or corrected",
+    "Accept because it's cheapest",
+    "Ignore it",
+    "Change the spec quietly"
+   ],
+   "correctIndex": 0,
+   "xp": 45,
+   "reasoning": "Safety-critical specs aren't negotiable.",
+   "tip": "Evaluate technical before commercial.",
+   "mistake": "Accepting non-compliant equipment creates a safety risk.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pen-4-itp",
+   "type": "mcq",
+   "title": "Inspection",
+   "prompt": "What does an Inspection and Test Plan (ITP) provide?",
+   "options": [
+    "A price list",
+    "A delivery date only",
+    "Agreed inspection and witness points before shipment",
+    "Marketing"
+   ],
+   "correctIndex": 2,
+   "xp": 35,
+   "reasoning": "ITPs control quality at source.",
+   "tip": "Include hold points.",
+   "mistake": "Skipping ITPs finds defects on site.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pen-5-po",
+   "type": "multiselect",
+   "title": "PO Terms",
+   "prompt": "Select terms a good purchase order includes.",
+   "options": [
+    "Verbal-only specification",
+    "Inspection and documentation requirements",
+    "Delivery date with delay damages",
+    "Warranty period",
+    "No payment terms"
+   ],
+   "correctIndices": [
+    1,
+    2,
+    3
+   ],
+   "xp": 40,
+   "reasoning": "Clear terms protect cost and schedule.",
+   "tip": "Reference the specification explicitly.",
+   "mistake": "Missing terms weaken your claim.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pen-6-exp",
+   "type": "text",
+   "title": "Expediting Email",
+   "prompt": "Write a 3-5 sentence expediting email to the supplier.",
+   "minLength": 90,
+   "xp": 45,
+   "modelAnswer": "Dear Mr Weber, our transformer order is on the project's critical path with only two weeks of float. Please confirm by Friday the current manufacturing status, the planned test date and the shipping booking. If any milestone has slipped, tell us the new date and what we can do to help. We would like to schedule an inspection visit in week 12.",
+   "reasoning": "A good expediting email is specific, dated and offers help.",
+   "tip": "Ask, date, offer.",
+   "mistake": "Vague chasers get vague answers.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Late Transformer",
+  "background": "A transformer was ordered with no delay damages or inspection plan. It arrived 10 weeks late and failed factory tests on site, delaying energisation by 5 months.",
+  "client": "Energy client",
+  "budget": "€1.8M delay cost",
+  "timeline": "Over the project",
+  "challenges": "No schedule float analysis or quality plan.",
+  "constraints": "Contract lacked leverage.",
+  "questions": [
+   "Why was the project exposed?",
+   "What PO terms were missing?",
+   "How should you track critical items?"
+  ],
+  "solution": "Tradewind added critical item tracking, ITPs and delay damages to every PO.",
+  "lessonsLearned": "Protect schedule and quality before the PO."
+ },
+ "quiz": [
+  {
+   "q": "Landed cost includes:",
+   "options": [
+    "Freight, duty and insurance",
+    "Price only",
+    "Profit",
+    "Brand"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Float equals:",
+   "options": [
+    "Required time - planned time",
+    "Planned - required",
+    "Cost",
+    "Weight"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "A non-compliant bid should be:",
+   "options": [
+    "Accepted",
+    "Hidden",
+    "Rejected or clarified",
+    "Praised"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "An ITP defines:",
+   "options": [
+    "Colours",
+    "Dates only",
+    "Inspection points",
+    "Budget"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "No ITP or delay terms",
+    "Cheap price",
+    "Short lead time",
+    "Good quality"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "How would you protect a critical item?",
+   "How do you handle a late supplier?",
+   "When would you pay more?"
+  ]
+ },
+ "certificate": {
+  "name": "Procurement Engineer — Landed Cost & Delivery",
+  "nameAz": "Satınalma Mühəndisi — Çatdırılma Dəyəri və Təchizat",
+  "totalXp": 240
+ }
+}

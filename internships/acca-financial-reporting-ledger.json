@@ -1,0 +1,334 @@
+{
+ "id": "acca-financial-reporting-ledger",
+ "title": "ACCA Financial Reporting (IFRS)",
+ "companyId": "ledger-and-co",
+ "category": "Accounting & Finance",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "ACC-063",
+ "skills": [
+  "IFRS Fundamentals",
+  "Financial Ratios",
+  "Asset Valuation"
+ ],
+ "companyIntro": {
+  "name": "Ledger & Co.",
+  "country": "United Kingdom",
+  "founded": 1988,
+  "mission": "Accurate, defensible financial reporting for mid-sized clients — no shortcuts, no surprises at audit time.",
+  "culture": "Precise and process-driven. Accountants here are expected to explain any number they report, not just produce it.",
+  "projects": [
+   "Q3 Multi-Client Reconciliation Cycle",
+   "Internal Controls Modernization",
+   "SME Audit Readiness Program"
+  ]
+ },
+ "projectBackground": {
+  "name": "Year-End Financial Statements — Harbour Components Ltd",
+  "client": "Harbour Components Ltd",
+  "location": "London, remote",
+  "budget": "Audit fee budget: £18,000",
+  "timeline": "Statements due to auditors in 10 working days",
+  "context": "Harbour's draft accounts contain unadjusted inventory, an asset register without depreciation, and a revenue contract spanning year-end."
+ },
+ "manager": {
+  "name": "Priya Nair",
+  "role": "Senior Accountant, Ledger & Co.",
+  "note": "Auditors will test every adjustment against the standard. Show me which IFRS you're applying, the calculation, and why it is the right treatment."
+ },
+ "assignment": {
+  "title": "Adjust the draft accounts and interpret the ratios",
+  "brief": "Apply IAS 2, IAS 16 and IFRS 15 correctly, compute liquidity ratios in Excel for three clients and explain the write-down to the board."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Draft Statement of Financial Position",
+   "type": "Financial Statement",
+   "note": "Inventory carried at cost £120,000; estimated net realisable value £105,000."
+  },
+  {
+   "id": "doc-2",
+   "name": "Fixed Asset Register",
+   "type": "Schedule",
+   "note": "Machine cost £250,000; residual £25,000; useful life 5 years; purchased two years ago."
+  },
+  {
+   "id": "doc-3",
+   "name": "Revenue Contract Summary",
+   "type": "Contract",
+   "note": "Multi-period service contract with performance obligations delivered over time."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "acf-1-ias2",
+   "type": "mcq",
+   "title": "Inventory Valuation",
+   "prompt": "Under IAS 2, inventory must be measured at:",
+   "options": [
+    "Selling price",
+    "The lower of cost and net realisable value",
+    "Replacement cost always",
+    "Highest of cost and NRV"
+   ],
+   "correctIndex": 1,
+   "xp": 35,
+   "reasoning": "IAS 2 prevents assets being overstated: if NRV is below cost, inventory is written down.",
+   "tip": "Compare cost to NRV item by item, not on the total unless items are similar.",
+   "mistake": "Carrying inventory at cost when NRV is lower overstates profit and assets.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "acf-2-writedown",
+   "type": "numeric",
+   "title": "Inventory Write-Down",
+   "prompt": "Inventory cost is £120,000 and net realisable value is £105,000. What write-down must be recognised?",
+   "answer": 15000,
+   "tolerance": 50,
+   "unit": "GBP",
+   "xp": 35,
+   "workingNote": "120,000 - 105,000 = 15,000 expense.",
+   "reasoning": "The £15,000 difference reduces inventory to NRV and is charged to profit.",
+   "tip": "Recognise write-downs in the period they occur.",
+   "mistake": "Waiting for the item to sell defers a known loss.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "acf-3-nbv",
+   "type": "numeric",
+   "title": "Net Book Value",
+   "prompt": "A machine cost £250,000 with residual value £25,000 and a five-year life (straight-line). What is its net book value after two years?",
+   "answer": 160000,
+   "tolerance": 100,
+   "unit": "GBP",
+   "xp": 45,
+   "workingNote": "Annual depreciation = (250,000 - 25,000) / 5 = 45,000. After two years accumulated = 90,000. NBV = 160,000.",
+   "reasoning": "Depreciation is based on depreciable amount (cost less residual), not full cost.",
+   "tip": "Subtract the residual value before dividing by the useful life.",
+   "mistake": "Using full cost gives £50,000 per year and an NBV of £150,000 — wrong.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "acf-4-ifrs15",
+   "type": "mcq",
+   "title": "Revenue Recognition",
+   "prompt": "Under IFRS 15, revenue on a service delivered over time is recognised when:",
+   "options": [
+    "The invoice is raised",
+    "Performance obligations are satisfied, over the period the service is provided",
+    "Cash is received",
+    "The contract is signed"
+   ],
+   "correctIndex": 1,
+   "xp": 40,
+   "reasoning": "IFRS 15 ties revenue to transfer of control, not to cash or billing.",
+   "tip": "Identify the performance obligations first.",
+   "mistake": "Recognising on invoice timing misstates revenue in the wrong period.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "acf-5-cashflow",
+   "type": "multiselect",
+   "title": "Cash Flow Adjustments",
+   "prompt": "Using the indirect method, select the items that adjust profit to arrive at operating cash flow.",
+   "options": [
+    "Deduct dividends paid as an operating item",
+    "Add back depreciation",
+    "Add the proceeds of a share issue",
+    "Add an increase in payables",
+    "Deduct an increase in receivables"
+   ],
+   "correctIndices": [
+    1,
+    3,
+    4
+   ],
+   "xp": 45,
+   "reasoning": "Non-cash charges and working-capital movements adjust profit to cash from operations; financing flows are shown separately.",
+   "tip": "Ask: is it non-cash or a working-capital movement?",
+   "mistake": "Mixing financing items into operating cash distorts the statement.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "acf-6-ratios",
+   "type": "excel-upload",
+   "title": "Liquidity Ratios (Excel)",
+   "prompt": "Complete current ratio (E = B / D) and quick ratio (F = (B - C) / D) for three clients. Upload for checking.",
+   "xp": 70,
+   "template": {
+    "fileName": "Ratio-Template.xlsx",
+    "sheetName": "Ratios",
+    "headers": [
+     "Company",
+     "Current Assets (GBP)",
+     "Inventory (GBP)",
+     "Current Liabilities (GBP)",
+     "Current Ratio",
+     "Quick Ratio"
+    ],
+    "rows": [
+     [
+      "Alder Ltd",
+      "540000",
+      "180000",
+      "360000",
+      "",
+      ""
+     ],
+     [
+      "Birch Ltd",
+      "300000",
+      "100000",
+      "400000",
+      "",
+      ""
+     ],
+     [
+      "Cedar Ltd",
+      "450000",
+      "150000",
+      "250000",
+      "",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "E2",
+     "expected": 1.5,
+     "tolerance": 0.01,
+     "label": "Alder current ratio"
+    },
+    {
+     "cell": "F2",
+     "expected": 1.0,
+     "tolerance": 0.01,
+     "label": "Alder quick ratio"
+    },
+    {
+     "cell": "E3",
+     "expected": 0.75,
+     "tolerance": 0.01,
+     "label": "Birch current ratio"
+    },
+    {
+     "cell": "F3",
+     "expected": 0.5,
+     "tolerance": 0.01,
+     "label": "Birch quick ratio"
+    },
+    {
+     "cell": "E4",
+     "expected": 1.8,
+     "tolerance": 0.01,
+     "label": "Cedar current ratio"
+    },
+    {
+     "cell": "F4",
+     "expected": 1.2,
+     "tolerance": 0.01,
+     "label": "Cedar quick ratio"
+    }
+   ],
+   "reasoning": "Quick ratio excludes inventory because it is the least liquid current asset.",
+   "tip": "Use cell references so ratios update if figures change.",
+   "mistake": "Copying inventory into the quick ratio overstates liquidity.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "acf-7-board",
+   "type": "text",
+   "title": "Board Explanation",
+   "prompt": "Explain to the board in 3-4 sentences why the £15,000 inventory write-down is required and what it does to profit.",
+   "minLength": 120,
+   "xp": 55,
+   "modelAnswer": "Under IAS 2, inventory must not be carried above the amount we expect to recover. The stock cost £120,000 but can only be sold for £105,000 net, so we recognise a £15,000 write-down this year. This reduces reported profit by £15,000 but prevents overstating assets and gives the auditors a defensible number. It also signals a pricing or obsolescence issue that management should review.",
+   "reasoning": "A good explanation cites the standard, the calculation and the business implication.",
+   "tip": "Link the accounting to the business reason.",
+   "mistake": "Citing a rule without showing the numbers invites audit challenge.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Overstated Stock",
+  "background": "A manufacturer carried obsolete stock at cost for three years. When the auditor tested NRV the write-down was £480,000 and wiped out half of the year's profit.",
+  "client": "Mid-size manufacturer",
+  "budget": "£480,000 write-down and restated comparatives",
+  "timeline": "Found at the annual audit",
+  "challenges": "Management assumed slow-moving stock would eventually sell at full price.",
+  "constraints": "No NRV review was performed during the year.",
+  "questions": [
+   "Why is deferring a known loss misleading?",
+   "What routine would have found the issue earlier?",
+   "How should obsolete items be flagged?"
+  ],
+  "solution": "Ledger & Co. introduced a quarterly NRV review with an ageing report and sign-off by the finance director.",
+  "lessonsLearned": "Review NRV regularly; obsolescence is a recurring risk, not a year-end surprise."
+ },
+ "quiz": [
+  {
+   "q": "Inventory is valued at:",
+   "options": [
+    "Cost only",
+    "Selling price",
+    "Replacement cost",
+    "Lower of cost and NRV"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Straight-line depreciation uses:",
+   "options": [
+    "Cost / residual",
+    "(Cost - residual) / useful life",
+    "Cost x rate on reducing balance",
+    "Revenue / life"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Quick ratio excludes:",
+   "options": [
+    "Cash",
+    "Receivables",
+    "Inventory",
+    "Short-term investments"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Revenue over time is recognised as:",
+   "options": [
+    "Cash arrives",
+    "The invoice is printed",
+    "The year ends",
+    "Obligations are satisfied"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "In the case study the write-down was large because:",
+   "options": [
+    "Cost was too low",
+    "NRV was never reviewed",
+    "Tax rates changed",
+    "The audit was late"
+   ],
+   "correctIndex": 1
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which adjustment was hardest to justify? What evidence would the auditor ask for?",
+   "Where might your own organisation defer a known loss?",
+   "What review routine would you set up first?"
+  ]
+ },
+ "certificate": {
+  "name": "ACCA Financial Reporting (IFRS) — Year-End Adjustments",
+  "nameAz": "ACCA Maliyyə Hesabatı (IFRS) — İlin Sonu Düzəlişləri",
+  "totalXp": 325
+ }
+}

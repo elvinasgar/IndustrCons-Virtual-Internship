@@ -1,0 +1,307 @@
+{
+ "id": "gis-specialist-terra",
+ "title": "GIS Specialist",
+ "companyId": "terra-spatial",
+ "category": "GIS & Spatial Analysis",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "GIS-100",
+ "skills": [
+  "Map Scale & Geometry",
+  "Spatial Analysis",
+  "Data Quality"
+ ],
+ "companyIntro": {
+  "name": "Terra Spatial",
+  "country": "Netherlands",
+  "founded": 2012,
+  "mission": "Turn location data into decisions for infrastructure and cities.",
+  "culture": "Coordinate systems are never assumed. Data lineage and accuracy are documented.",
+  "projects": [
+   "Utility Network Mapping",
+   "Flood Risk Atlas",
+   "Site Selection Platform"
+  ]
+ },
+ "projectBackground": {
+  "name": "Flood Risk Atlas — Riverside District",
+  "client": "Municipality of Delft",
+  "location": "Amsterdam, remote",
+  "budget": "Project budget: €85,000",
+  "timeline": "Planning committee in three weeks",
+  "context": "The municipality needs to know which parcels are within a flood buffer and how reliable the data is."
+ },
+ "manager": {
+  "name": "Femke de Boer",
+  "role": "Head of Spatial Analysis, Terra Spatial",
+  "note": "Never assume a coordinate system. A map that looks right can still measure wrong."
+ },
+ "assignment": {
+  "title": "Build the flood buffer analysis",
+  "brief": "Convert map scale, compute buffer area, calculate parcel areas in Excel, address projection issues and explain a spatial join."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Map Sheet",
+   "type": "Scale Note",
+   "note": "Map scale 1:5,000; a feature measures 4 cm on the map."
+  },
+  {
+   "id": "doc-2",
+   "name": "Buffer Request",
+   "type": "Brief",
+   "note": "100 m flood buffer around a pump station."
+  },
+  {
+   "id": "doc-3",
+   "name": "Layer Metadata",
+   "type": "Metadata",
+   "note": "Parcels in one coordinate system, flood data in another."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "gis-1-scale",
+   "type": "numeric",
+   "title": "Map Scale",
+   "prompt": "On a 1:5,000 map a feature is 4 cm long. What is the real length (m)?",
+   "answer": 200,
+   "tolerance": 1,
+   "unit": "m",
+   "xp": 30,
+   "workingNote": "4 cm x 5,000 = 20,000 cm = 200 m.",
+   "reasoning": "Scale converts map to ground distance.",
+   "tip": "Convert units carefully.",
+   "mistake": "Forgetting cm to m conversion gives 20,000 m.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "gis-2-buffer",
+   "type": "numeric",
+   "title": "Buffer Area",
+   "prompt": "A 100 m radius buffer. What is the area in m² (round to nearest unit)?",
+   "answer": 31416,
+   "tolerance": 10,
+   "unit": "m²",
+   "xp": 35,
+   "workingNote": "pi x 100² = 31,416.",
+   "reasoning": "Buffer area is pi r².",
+   "tip": "Use projected coordinates in metres.",
+   "mistake": "Buffering in degrees gives meaningless results.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "gis-3-crs",
+   "type": "mcq",
+   "title": "Coordinate Systems",
+   "prompt": "Parcels and flood data use different coordinate systems. What should you do before analysis?",
+   "options": [
+    "Overlay as is",
+    "Hope it works",
+    "Reproject both to a common projected CRS suitable for measurement",
+    "Delete one layer"
+   ],
+   "correctIndex": 2,
+   "xp": 40,
+   "reasoning": "Mismatched CRS misaligns layers and distorts measurements.",
+   "tip": "Check the CRS of every layer.",
+   "mistake": "Overlaying without reprojection gives offsets of hundreds of metres.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "gis-4-join",
+   "type": "mcq",
+   "title": "Spatial Join",
+   "prompt": "What does a spatial join do?",
+   "options": [
+    "Merges files by name",
+    "Transfers attributes between layers based on location",
+    "Deletes duplicates",
+    "Changes colours"
+   ],
+   "correctIndex": 1,
+   "xp": 35,
+   "reasoning": "Location, not a key, links the records.",
+   "tip": "Define the spatial relationship.",
+   "mistake": "Confusing it with an attribute join gives wrong results.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "gis-5-parcels",
+   "type": "excel-upload",
+   "title": "Parcel Areas (Excel)",
+   "prompt": "Area in m² (D = B x C) and in hectares (E = D / 10000). Upload for checking.",
+   "xp": 60,
+   "template": {
+    "fileName": "Parcels-Template.xlsx",
+    "sheetName": "Parcels",
+    "headers": [
+     "Parcel",
+     "Length (m)",
+     "Width (m)",
+     "Area (m2)",
+     "Area (ha)"
+    ],
+    "rows": [
+     [
+      "P1",
+      "120",
+      "80",
+      "",
+      ""
+     ],
+     [
+      "P2",
+      "200",
+      "150",
+      "",
+      ""
+     ],
+     [
+      "P3",
+      "75",
+      "60",
+      "",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 9600,
+     "tolerance": 1,
+     "label": "P1 area"
+    },
+    {
+     "cell": "D3",
+     "expected": 30000,
+     "tolerance": 1,
+     "label": "P2 area"
+    },
+    {
+     "cell": "D4",
+     "expected": 4500,
+     "tolerance": 1,
+     "label": "P3 area"
+    },
+    {
+     "cell": "E2",
+     "expected": 0.96,
+     "tolerance": 0.01,
+     "label": "P1 ha"
+    },
+    {
+     "cell": "E3",
+     "expected": 3,
+     "tolerance": 0.01,
+     "label": "P2 ha"
+    },
+    {
+     "cell": "E4",
+     "expected": 0.45,
+     "tolerance": 0.01,
+     "label": "P3 ha"
+    }
+   ],
+   "reasoning": "One hectare is 10,000 m².",
+   "tip": "Check unit conversions.",
+   "mistake": "Mixing m² and ha is a common error.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "gis-6-explain",
+   "type": "text",
+   "title": "Planner Explanation",
+   "prompt": "Write a 3-5 sentence explanation of how you identified parcels in the flood buffer.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "I reprojected the parcel and flood layers to a single metric coordinate system, created a 100 m buffer around the pump station (about 3.14 hectares) and ran a spatial join to flag parcels that intersect it. Data accuracy is limited by the source scale, so parcels near the edge should be verified on site. I documented the sources, projection and date so the analysis can be repeated.",
+   "reasoning": "A good explanation covers method, limits and reproducibility.",
+   "tip": "Method, limits, record.",
+   "mistake": "Maps without lineage can't be defended.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Shifted Map",
+  "background": "A city overlaid parcels and flood zones in different coordinate systems. Layers were offset by 140 m and 60 homes were wrongly told they were safe.",
+  "client": "Municipality",
+  "budget": "Re-notification and compensation costs",
+  "timeline": "Found after a flood",
+  "challenges": "CRS wasn't checked.",
+  "constraints": "The mismatch wasn't visible at city scale.",
+  "questions": [
+   "Why wasn't the error visible?",
+   "What check would have caught it?",
+   "How should metadata be used?"
+  ],
+  "solution": "Terra introduced mandatory CRS checks and a metadata sign-off before any analysis.",
+  "lessonsLearned": "Never assume a coordinate system."
+ },
+ "quiz": [
+  {
+   "q": "Scale 1:5,000 means:",
+   "options": [
+    "1 cm = 5 m",
+    "1 cm = 500 m",
+    "1 cm = 5 km",
+    "1 cm = 50 m"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Buffer area is:",
+   "options": [
+    "pi x r²",
+    "2 x pi x r",
+    "r²",
+    "pi x d"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "A spatial join links by:",
+   "options": [
+    "Name only",
+    "Colour",
+    "Date",
+    "Location"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Before overlay:",
+   "options": [
+    "Skip it",
+    "Delete layers",
+    "Check the CRS",
+    "Add colours"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "CRS mismatch",
+    "Rain",
+    "No map",
+    "Low budget"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which data quality issue worries you most?",
+   "How do you tell a planner about accuracy?",
+   "What would you document?"
+  ]
+ },
+ "certificate": {
+  "name": "GIS Specialist — Spatial Analysis & Data Quality",
+  "nameAz": "CİS Mütəxəssisi — Məkan Təhlili və Data Keyfiyyəti",
+  "totalXp": 255
+ }
+}

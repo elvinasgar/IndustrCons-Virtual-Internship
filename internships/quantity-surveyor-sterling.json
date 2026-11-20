@@ -1,0 +1,282 @@
+{
+ "id": "quantity-surveyor-sterling",
+ "title": "Quantity Surveyor",
+ "companyId": "sterling-cost",
+ "category": "Quantity Surveying",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "QS-101",
+ "skills": [
+  "Measurement",
+  "Bill of Quantities",
+  "Variation Valuation"
+ ],
+ "companyIntro": {
+  "name": "Sterling Cost & Contracts",
+  "country": "United Kingdom",
+  "founded": 1999,
+  "mission": "Control cost, time and contract risk on major construction projects.",
+  "culture": "Every figure traces to a measurement or a rate. Notices are served on time, in writing.",
+  "projects": [
+   "Hospital Cost Plan",
+   "Rail Depot Contract Administration",
+   "Port Terminal Programme"
+  ]
+ },
+ "projectBackground": {
+  "name": "Hospital Cost Plan — New Diagnostic Block",
+  "client": "City Hospital Trust",
+  "location": "London, on-site",
+  "budget": "Construction budget: £100,000 (package under review)",
+  "timeline": "Cost report due Friday",
+  "context": "The package cost plan needs verification and the contractor has submitted a variation claim."
+ },
+ "manager": {
+  "name": "Helen Marsh",
+  "role": "Associate Director, Sterling Cost & Contracts",
+  "note": "Every figure traces to a quantity and a rate. If I can't see your working, it's an opinion."
+ },
+ "assignment": {
+  "title": "Verify the cost plan and value the variation",
+  "brief": "Measure concrete, build up the cost plan, price a BoQ in Excel and value variations."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Drawing Extract",
+   "type": "Drawing",
+   "note": "Slab 12 m x 8 m x 0.2 m thick; concrete £140 per m³; waste 7%."
+  },
+  {
+   "id": "doc-2",
+   "name": "Cost Build-up",
+   "type": "Estimate",
+   "note": "Base cost £100,000; preliminaries 12%; contingency 5% on the subtotal."
+  },
+  {
+   "id": "doc-3",
+   "name": "Variation Instruction",
+   "type": "Contract Document",
+   "note": "Omit 200 m² at £25; add 150 m² at £40."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "qs-1-vol",
+   "type": "numeric",
+   "title": "Concrete Volume with Waste",
+   "prompt": "Slab 12 x 8 x 0.2 m with 7% waste. What is the ordered volume (m³, 2 decimals)?",
+   "answer": 20.54,
+   "tolerance": 0.05,
+   "unit": "m³",
+   "xp": 35,
+   "workingNote": "12 x 8 x 0.2 = 19.2 m³; x 1.07 = 20.54 m³.",
+   "reasoning": "Measure net, then add allowances explicitly.",
+   "tip": "State allowances separately.",
+   "mistake": "Burying waste in the rate hides it.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "qs-2-total",
+   "type": "numeric",
+   "title": "Cost Plan Total",
+   "prompt": "Base £100,000; preliminaries 12% of base; contingency 5% on (base + preliminaries). What is the total (£)?",
+   "answer": 117600,
+   "tolerance": 10,
+   "unit": "GBP",
+   "xp": 40,
+   "workingNote": "100,000 + 12,000 = 112,000; + 5,600 = 117,600.",
+   "reasoning": "Percentages build on the right subtotal.",
+   "tip": "Document the basis of each add-on.",
+   "mistake": "Applying 5% to base only gives £117,000.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "qs-3-var",
+   "type": "numeric",
+   "title": "Variation Value",
+   "prompt": "Omit 200 m² at £25 and add 150 m² at £40. What is the net variation (£, positive = addition)?",
+   "answer": 1000,
+   "tolerance": 10,
+   "unit": "GBP",
+   "xp": 40,
+   "workingNote": "150 x 40 - 200 x 25 = 6,000 - 5,000 = +1,000.",
+   "reasoning": "Variation = additions less omissions at contract rates.",
+   "tip": "Value using contract rates where applicable.",
+   "mistake": "Netting areas before pricing is wrong.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "qs-4-boq",
+   "type": "mcq",
+   "title": "Purpose of a BoQ",
+   "prompt": "What is a Bill of Quantities for?",
+   "options": [
+    "Marketing the building",
+    "Replacing drawings",
+    "Giving all bidders the same measured quantities to price",
+    "Setting the programme"
+   ],
+   "correctIndex": 2,
+   "xp": 30,
+   "reasoning": "A BoQ ensures comparable bids.",
+   "tip": "Describe items precisely.",
+   "mistake": "Unclear items cause disputes.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "qs-5-boq",
+   "type": "excel-upload",
+   "title": "Priced BoQ (Excel)",
+   "prompt": "Amount (D = B x C) for each item. Upload for checking.",
+   "xp": 60,
+   "template": {
+    "fileName": "BoQ-Template.xlsx",
+    "sheetName": "BoQ",
+    "headers": [
+     "Item",
+     "Quantity",
+     "Rate (GBP)",
+     "Amount (GBP)"
+    ],
+    "rows": [
+     [
+      "Excavation (m3)",
+      "450",
+      "18",
+      ""
+     ],
+     [
+      "Concrete (m3)",
+      "120",
+      "140",
+      ""
+     ],
+     [
+      "Reinforcement (t)",
+      "9",
+      "950",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 8100,
+     "tolerance": 1,
+     "label": "Excavation"
+    },
+    {
+     "cell": "D3",
+     "expected": 16800,
+     "tolerance": 1,
+     "label": "Concrete"
+    },
+    {
+     "cell": "D4",
+     "expected": 8550,
+     "tolerance": 1,
+     "label": "Reinforcement"
+    }
+   ],
+   "reasoning": "Amounts are quantity x rate.",
+   "tip": "Check units match the rate basis.",
+   "mistake": "Wrong units cause large errors.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "qs-6-report",
+   "type": "text",
+   "title": "Cost Report",
+   "prompt": "Write a 3-5 sentence cost report note.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "The package cost plan totals £117,600: £100,000 base, £12,000 preliminaries and £5,600 contingency. The variation instruction is a net addition of £1,000 valued at contract rates. Concrete quantities include a 7% waste allowance (20.54 m³). I recommend retaining contingency until the foundation design is finalised and reporting any further variations monthly.",
+   "reasoning": "A good cost report states totals, basis, variations and recommendations.",
+   "tip": "Total, basis, change, action.",
+   "mistake": "Reporting totals without basis loses trust.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Unrecorded Variations",
+  "background": "A contractor delivered many small changes without written instructions. At the end, claims of £640,000 were disputed and the project ended in adjudication.",
+  "client": "Hospital client",
+  "budget": "£640,000 dispute",
+  "timeline": "Final account",
+  "challenges": "Variations weren't recorded or valued as they happened.",
+  "constraints": "Verbal instructions on site.",
+  "questions": [
+   "Why did this become a dispute?",
+   "How should variations be recorded?",
+   "How would you value them?"
+  ],
+  "solution": "Sterling introduced a variation register and requirement for written instruction and valuation within 14 days.",
+  "lessonsLearned": "Record and value changes as they occur."
+ },
+ "quiz": [
+  {
+   "q": "Net variation equals:",
+   "options": [
+    "Additions plus omissions",
+    "Omissions only",
+    "Additions less omissions",
+    "Rates only"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "A BoQ gives bidders:",
+   "options": [
+    "Different drawings",
+    "Equal quantities to price",
+    "No data",
+    "Opinions"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Contingency is applied to:",
+   "options": [
+    "Nothing",
+    "Rates",
+    "The correct subtotal",
+    "Drawings"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Waste allowances should be:",
+   "options": [
+    "Hidden",
+    "Ignored",
+    "Stated separately",
+    "Doubled"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "The case study dispute arose because:",
+   "options": [
+    "Variations weren't recorded",
+    "No drawings",
+    "Low prices",
+    "Fast work"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "How do you handle a verbal instruction?",
+   "Which quantity would you re-measure?",
+   "How do you explain a cost increase to a client?"
+  ]
+ },
+ "certificate": {
+  "name": "Quantity Surveyor — Measurement, BoQ & Variations",
+  "nameAz": "Kəmiyyət Mütəxəssisi (QS) — Ölçü, BoQ və Variasiyalar",
+  "totalXp": 255
+ }
+}

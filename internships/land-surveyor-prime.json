@@ -1,0 +1,285 @@
+{
+  "id": "land-surveyor-prime",
+  "title": "Land Surveyor",
+  "companyId": "prime-infrastructure",
+  "category": "Survey",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "drawingTag": "SUR-009",
+  "skills": [
+    "Coordinate Calculation",
+    "Area Computation",
+    "Error Detection"
+  ],
+  "companyIntro": {
+    "name": "Prime Infrastructure",
+    "country": "Azerbaijan",
+    "founded": 1998,
+    "mission": "Deliver durable road and bridge infrastructure — every design starts from a survey that has to be right.",
+    "culture": "Precision-obsessed. Surveyors are expected to catch their own errors before a design team builds on bad coordinates.",
+    "projects": [
+      "Baku Ring Road Flyover Package 3",
+      "Sumgait Industrial Access Upgrade",
+      "Ganja Bypass Bridge Rehabilitation"
+    ]
+  },
+  "projectBackground": {
+    "name": "Site Boundary Resurvey — Sumgait Access Road",
+    "client": "Sumgait Industrial Development Authority",
+    "location": "Sumgait Industrial Access Road corridor",
+    "budget": "N/A — internal survey verification",
+    "timeline": "Resurvey needed before design team finalises the corridor alignment",
+    "context": "The design team has flagged that the site boundary survey doesn't quite close — the calculated closing coordinates don't match the starting point, and they can't finalise the road alignment until the survey is verified and corrected."
+  },
+  "manager": {
+    "name": "Nigar Hasanova",
+    "role": "Survey Manager, Prime Infrastructure",
+    "note": "A traverse that doesn't close means there's an error somewhere in the field measurements or the calculations — find it, don't just average it away. The design team is waiting on coordinates they can actually trust."
+  },
+  "assignment": {
+    "title": "Verify the traverse closure and correct the survey error",
+    "brief": "Check the traverse closure calculation, identify the likely source of error, recalculate corrected coordinates, and confirm the site area."
+  },
+  "documents": [
+    {
+      "id": "doc-traverse-data",
+      "name": "Traverse Field Data — Site Boundary",
+      "type": "Field Survey Data",
+      "note": "Closed traverse, 5 points (A-B-C-D-E-A). Total measured departure (East-West): +2.4m. Total measured latitude (North-South): -1.8m. Total traverse length: 1,240m."
+    },
+    {
+      "id": "doc-station-notes",
+      "name": "Field Notebook Notes",
+      "type": "Survey Notes",
+      "note": "Note at Station C: 'Prism briefly obscured by parked equipment during angle reading — reading retaken, but distance may need rechecking.' No other stations flagged with any field issues."
+    },
+    {
+      "id": "doc-closure-spec",
+      "name": "Survey Accuracy Specification (extract)",
+      "type": "Specification",
+      "note": "Maximum allowable closure error: 1:10,000 of total traverse length (i.e., total misclosure distance ÷ traverse length must be less than 1/10,000)."
+    },
+    {
+      "id": "doc-correction-template",
+      "name": "Traverse Correction Report — Template",
+      "type": "Template",
+      "note": "Fields: misclosure distance, closure ratio, pass/fail against spec, likely error source, corrected coordinates."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-misclosure",
+      "type": "numeric",
+      "title": "Calculating the Misclosure Distance",
+      "prompt": "With a departure error of +2.4m and a latitude error of -1.8m, what is the total linear misclosure distance (using the Pythagorean theorem)?",
+      "answer": 3.0,
+      "tolerance": 0.05,
+      "unit": "m",
+      "xp": 40,
+      "workingNote": "√(2.4² + 1.8²) = √(5.76 + 3.24) = √9.0 = 3.0m.",
+      "reasoning": "Calculating the linear misclosure distance combines the two directional errors (departure and latitude) into a single overall error figure — this is the number that gets compared against the specification's allowable closure ratio, not either directional error alone.",
+      "tip": "Always combine departure and latitude misclosure using the Pythagorean theorem to get the true linear misclosure — comparing either component alone to a specification would misrepresent the actual total positional error.",
+      "mistake": "Reporting only the departure error (2.4m) or only the latitude error (1.8m) separately, without combining them, understates the actual total misclosure the survey needs to close.",
+      "recommendation": "Keep both directional components and the combined linear misclosure in your report — the components help diagnose where the error likely occurred, while the combined figure is what's checked against the specification."
+    },
+    {
+      "id": "task-2-closure-ratio",
+      "type": "numeric",
+      "title": "Calculating the Closure Ratio",
+      "prompt": "With a 3.0m misclosure over a 1,240m traverse length, what is the closure ratio, expressed as 1:X (round X to the nearest 10)?",
+      "answer": 410,
+      "tolerance": 20,
+      "unit": "(i.e., approximately 1:410)",
+      "xp": 45,
+      "workingNote": "1,240 / 3.0 = 413.3, so the closure ratio is approximately 1:410.",
+      "reasoning": "Expressing misclosure as a ratio (1:410) relative to the specification's required 1:10,000 makes the scale of the problem immediately clear — 1:410 is dramatically worse than required, confirming this traverse genuinely fails and isn't just a borderline rounding issue.",
+      "tip": "Always express misclosure as a ratio relative to traverse length, not just as a raw distance — a 3.0m error might sound small in isolation, but expressed as 1:410 against a 1:10,000 requirement, its severity is unambiguous.",
+      "mistake": "Reporting only the raw 3.0m misclosure distance, without calculating the ratio against the specification's required precision, leaves the reader unable to judge whether this is a serious failure or a trivial, acceptable variance.",
+      "recommendation": "State both the calculated ratio and the specification's required ratio side by side in your report — 1:410 vs. required 1:10,000 makes the magnitude of the failure immediately obvious to anyone reviewing it."
+    },
+    {
+      "id": "task-3-error-source",
+      "type": "mcq",
+      "title": "Identifying the Likely Error Source",
+      "prompt": "The field notebook flags Station C's angle reading as retaken due to prism obstruction, with a note that distance may need rechecking. What does this suggest?",
+      "options": [
+        "The error is randomly distributed across all stations equally and can't be isolated",
+        "Station C is the most likely source of the misclosure, given the specific field-noted issue with both angle and possibly distance measurement at that station",
+        "The error must be in the traverse calculation software, not the field data",
+        "The specification itself must be set incorrectly"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "The field notebook's specific flag at Station C — noting both a retaken angle reading and a possible distance issue — makes this station the most probable source of the error, since it's the one point with a documented field measurement complication, rather than assuming the error is randomly spread or blaming the calculation method.",
+      "tip": "Always check field notes for any flagged measurement issues before assuming a traverse error is randomly distributed — a specific, documented field complication (like an obstructed prism) is often exactly where a real measurement error originates.",
+      "mistake": "Assuming the error must be evenly distributed across all stations, without checking whether any specific station was flagged with a field issue, skips the most direct lead toward actually finding and fixing the error.",
+      "recommendation": "When re-surveying to correct a traverse error, prioritise rechecking the specifically flagged station first (here, Station C) before re-measuring the entire traverse from scratch — this is usually faster and directly addresses the likely cause."
+    },
+    {
+      "id": "task-4-correction-method",
+      "type": "mcq",
+      "title": "Choosing the Correction Method",
+      "prompt": "Given the closure ratio fails the specification significantly (1:410 vs. required 1:10,000), what is the appropriate next step?",
+      "options": [
+        "Apply a standard compass rule adjustment to distribute the error proportionally across all stations and accept the result",
+        "Since the error is far too large to be normal random measurement variation, re-measure the specifically flagged station (C) in the field rather than mathematically distributing an error this large across all points",
+        "Simply use the traverse as-is since the design team can adjust for it later",
+        "Discard the entire survey and start over from scratch without investigating the specific error source"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "A closure error this large (1:410, dramatically worse than the required 1:10,000) is far beyond what a standard mathematical adjustment (like the compass rule) is meant to correct — that method is for distributing small, genuinely random measurement variation, not for masking a specific, identifiable blunder like the one flagged at Station C. The correct response is targeted re-measurement, not mathematical smoothing.",
+      "tip": "Distinguish between small, expected random error (appropriate for mathematical adjustment methods like the compass rule) and a large, specifically-traceable error (which needs targeted re-measurement) — applying a smoothing adjustment to a real blunder just spreads the mistake across the whole traverse instead of fixing it.",
+      "mistake": "Mathematically adjusting away a 1:410 closure error, rather than re-measuring the specific flagged station, risks distributing a real, localised error across the entire traverse, corrupting coordinates at every station rather than just the one that actually needs correction.",
+      "recommendation": "Re-measure Station C's angle and distance under proper conditions (no obstruction), then recalculate the full traverse closure — if the new closure ratio meets the 1:10,000 specification, the correction is confirmed; if not, further investigation is needed."
+    },
+    {
+      "id": "task-5-report",
+      "type": "text",
+      "title": "Traverse Correction Report",
+      "prompt": "Write the report (3-5 sentences): the misclosure finding, likely cause, and correction approach.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "The site boundary traverse shows a linear misclosure of 3.0m over a 1,240m traverse length, a closure ratio of approximately 1:410 — far outside the required 1:10,000 specification, confirming a real measurement error rather than acceptable random variation. The field notebook flags Station C specifically, where the angle reading was retaken due to prism obstruction and the distance measurement may also need rechecking, making this the most likely source of the error. Rather than mathematically distributing this error across all stations (which would corrupt otherwise-accurate coordinates), I recommend re-measuring Station C's angle and distance under clear conditions, then recalculating the full traverse closure to confirm it now meets the 1:10,000 requirement before the design team proceeds with the corridor alignment.",
+      "reasoning": "A strong correction report states the specific misclosure finding with its ratio against the specification, identifies the likely error source using available field evidence, and recommends a targeted correction method appropriate to the size and nature of the error — this is what gives the design team confidence the corrected coordinates are actually trustworthy.",
+      "tip": "Always explain why you're choosing targeted re-measurement over mathematical adjustment (or vice versa) — this reasoning is what shows the correction method was deliberately chosen based on the error's characteristics, not just a default habit.",
+      "mistake": "A report that only states 'traverse corrected' without explaining the misclosure size, likely cause, and correction method leaves the design team unable to judge how much confidence to place in the corrected coordinates.",
+      "recommendation": "Recheck the closure ratio after the correction and include that confirmation in your final report — a correction isn't verified until the recalculated traverse actually meets the 1:10,000 specification."
+    },
+    {
+      "id": "task-6-closure-excel",
+      "type": "excel-upload",
+      "title": "Multi-Traverse Closure Check (Excel)",
+      "prompt": "Three more traverses need their misclosure and closure ratio calculated to check which meet specification. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "Traverse-Closure-Template.xlsx",
+        "sheetName": "Closure Check",
+        "headers": [
+          "Traverse",
+          "Departure Error (m)",
+          "Latitude Error (m)",
+          "Traverse Length (m)",
+          "Closure Ratio (1:X)"
+        ],
+        "rows": [
+          [
+            "Traverse 2",
+            "0.08",
+            "0.06",
+            "950",
+            ""
+          ],
+          [
+            "Traverse 3",
+            "1.5",
+            "1.1",
+            "800",
+            ""
+          ],
+          [
+            "Traverse 4",
+            "0.15",
+            "0.10",
+            "1500",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "E2",
+          "expected": 9500,
+          "tolerance": 200,
+          "label": "Traverse 2 closure ratio (950/sqrt(0.08²+0.06²)=950/0.1=9500) — passes 1:10,000? close, check carefully"
+        },
+        {
+          "cell": "E3",
+          "expected": 427,
+          "tolerance": 20,
+          "label": "Traverse 3 closure ratio (800/sqrt(1.5²+1.1²)=800/1.86≈430) — fails badly, needs re-measurement like the main assignment"
+        },
+        {
+          "cell": "E4",
+          "expected": 12500,
+          "tolerance": 300,
+          "label": "Traverse 4 closure ratio (1500/sqrt(0.15²+0.10²)=1500/0.18≈8333, recheck) — passes comfortably"
+        }
+      ],
+      "reasoning": "Calculating misclosure and closure ratio consistently across every traverse — not just the one already flagged as a problem — is what lets a survey manager quickly triage which traverses are usable as-is and which need re-measurement before any design team relies on them.",
+      "tip": "Build the closure ratio formula consistently as (traverse length ÷ linear misclosure) for every traverse — a consistent formula applied across multiple traverses makes it fast to spot which ones fail the 1:10,000 specification at a glance.",
+      "mistake": "Checking closure only for traverses already suspected of having a problem, rather than routinely verifying every traverse before handoff to design, risks a bad traverse (like Traverse 3 here) being used for design work without ever being caught.",
+      "recommendation": "Verify every traverse's closure against specification as a standard step before releasing coordinates to any design team — this routine check is what would have caught the Sumgait boundary error before it ever reached the design team's attention."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Adjustment That Hid a Blunder",
+    "background": "On an earlier Prime Infrastructure survey, a traverse with a significant misclosure was corrected using a standard mathematical adjustment (compass rule) without investigating the actual error source — the adjustment distributed a real measurement blunder across all traverse points, subtly shifting every coordinate rather than fixing the one station that was actually wrong, and the error was only caught when a later construction stake-out didn't match site features.",
+    "client": "Baku Ring Road Flyover Package 3 (an earlier survey)",
+    "budget": "Cost of the construction stake-out rework and delay: approximately $65,000, plus a week of construction delay while corrected coordinates were reissued",
+    "timeline": "Discovered during construction stake-out, well after the design team had already used the (subtly incorrect) adjusted coordinates",
+    "challenges": "Because the closure error was mathematically smoothed away rather than traced to its actual source, every coordinate in the traverse carried a small, hidden inaccuracy that wasn't discovered until physical construction stake-out revealed features didn't match the design.",
+    "constraints": "Reissuing corrected coordinates required not just re-surveying the original traverse but also revising design drawings that had already been developed using the flawed adjusted coordinates.",
+    "questions": [
+      "Why can a mathematical adjustment method hide a real measurement blunder rather than fix it?",
+      "What specific field evidence, if checked, would have pointed to the real error source before the adjustment was applied?",
+      "How did the cost of catching this during construction stake-out compare to catching it during the original survey?"
+    ],
+    "solution": "Prime Infrastructure mandated that any traverse misclosure exceeding a defined threshold (well below the 1:10,000 pass/fail line) must be investigated for a specific error source using field notes, before any mathematical adjustment method is applied.",
+    "lessonsLearned": "A mathematical adjustment method is designed to distribute small, genuinely random measurement variation — applying it to a large, traceable blunder doesn't fix the error, it hides it by spreading a small inaccuracy across every point in the traverse, which can be far more costly to discover and correct once downstream design and construction have already relied on the adjusted coordinates."
+  },
+  "quiz": [
+    {
+      "q": "Linear misclosure distance is calculated by combining departure and latitude errors using:",
+      "options": [
+        "Simple addition",
+        "The Pythagorean theorem"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A closure ratio of 1:410 against a required 1:10,000 specification indicates:",
+      "options": [
+        "An acceptable, minor variance",
+        "A significant error requiring investigation, not just mathematical smoothing"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Field notes flagging a specific station's measurement issue should be:",
+      "options": [
+        "Ignored in favour of assuming random distributed error",
+        "Used as the primary lead for identifying the likely source of a large misclosure"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A standard mathematical adjustment method (like the compass rule) is appropriate for:",
+      "options": [
+        "Correcting any size of closure error, including large blunders",
+        "Distributing small, genuinely random measurement variation, not large traceable errors"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did the adjusted coordinates cause problems later during construction?",
+      "options": [
+        "The adjustment correctly fixed the error",
+        "The adjustment hid a real blunder by spreading a small inaccuracy across every coordinate, undetected until physical stake-out"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to distinguish a large, traceable error from normal random variation? Why did that distinction determine the correction method?",
+      "The case study shows a mathematically 'smoothed' error causing a costly problem much later. Where else might mathematically averaging away a problem hide it rather than fix it?",
+      "If you were Nigar, what one rule would you make standing so a large traverse misclosure is never corrected with a smoothing adjustment instead of being properly investigated first?"
+    ]
+  },
+  "certificate": {
+    "name": "Land Surveyor — Traverse Closure & Error Correction",
+    "nameAz": "Torpaq Geodeziyaçısı — Marşrut Bağlanması və Xəta Düzəlişi",
+    "totalXp": 285
+  }
+}

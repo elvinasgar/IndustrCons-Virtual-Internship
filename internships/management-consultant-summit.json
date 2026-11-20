@@ -1,0 +1,294 @@
+{
+ "id": "management-consultant-summit",
+ "title": "Management Consultant",
+ "companyId": "summit-advisory",
+ "category": "Consulting",
+ "difficulty": "Advanced",
+ "durationHours": 8,
+ "drawingTag": "CON-081",
+ "skills": [
+  "Market Sizing",
+  "Structured Problem Solving",
+  "Executive Communication"
+ ],
+ "companyIntro": {
+  "name": "Summit Advisory",
+  "country": "United Kingdom",
+  "founded": 2006,
+  "mission": "Help leadership teams make better decisions with structured thinking and evidence.",
+  "culture": "Answer first, then prove it. Every slide earns its place and every number has a source.",
+  "projects": [
+   "Market Entry Strategy",
+   "Cost Transformation Programme",
+   "Founder Accelerator"
+  ]
+ },
+ "projectBackground": {
+  "name": "Market Entry Strategy — Home Energy App",
+  "client": "Norden Energy",
+  "location": "London, remote",
+  "budget": "Fee: £240,000",
+  "timeline": "Steering committee in two weeks",
+  "context": "Norden is considering a home-energy app for 2 million households. The CEO wants an answer, not a report."
+ },
+ "manager": {
+  "name": "Alexandra Pryce",
+  "role": "Engagement Partner, Summit Advisory",
+  "note": "Answer first. If I need to read three pages to find your recommendation, you've already lost the room."
+ },
+ "assignment": {
+  "title": "Recommend whether and how to enter",
+  "brief": "Size the market, quantify savings, rank options in Excel and write the executive summary."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Market Data",
+   "type": "Research",
+   "note": "2,000,000 target households; 15% expected adoption; €120 annual revenue per user."
+  },
+  {
+   "id": "doc-2",
+   "name": "Cost Base Extract",
+   "type": "Financials",
+   "note": "Revenue €50M; costs €46M; target 3% cost reduction."
+  },
+  {
+   "id": "doc-3",
+   "name": "Options Long-List",
+   "type": "Workshop Notes",
+   "note": "Three entry options scored on impact, feasibility and risk."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "con-1-mece",
+   "type": "mcq",
+   "title": "Structuring",
+   "prompt": "Which structure is MECE for 'why did profit fall'?",
+   "options": [
+    "A list of ideas in random order",
+    "Everything the team thinks of",
+    "Only the CEO's favourite cause",
+    "Revenue decline versus cost increase, then break each down"
+   ],
+   "correctIndex": 3,
+   "xp": 35,
+   "reasoning": "Mutually exclusive, collectively exhaustive structures avoid gaps and overlap.",
+   "tip": "Draw the tree before analysing.",
+   "mistake": "Unstructured lists miss causes and double count.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "con-2-size",
+   "type": "numeric",
+   "title": "Market Size",
+   "prompt": "2,000,000 households x 15% adoption x €120 per year. What is the annual market size (€)?",
+   "answer": 36000000,
+   "tolerance": 10000,
+   "unit": "EUR per year",
+   "xp": 40,
+   "workingNote": "2,000,000 x 0.15 x 120 = 36,000,000.",
+   "reasoning": "Top-down sizing multiplies population, adoption and price.",
+   "tip": "Sanity-check with a second method.",
+   "mistake": "Skipping adoption assumes everyone buys.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "con-3-savings",
+   "type": "numeric",
+   "title": "Cost Savings",
+   "prompt": "Costs are €46M and a 3% reduction is targeted. What is the saving (€)?",
+   "answer": 1380000,
+   "tolerance": 5000,
+   "unit": "EUR",
+   "xp": 40,
+   "workingNote": "46,000,000 x 0.03 = 1,380,000. Profit rises from €4.0M to €5.38M.",
+   "reasoning": "Savings apply to the cost base, not revenue.",
+   "tip": "Show before and after profit.",
+   "mistake": "Applying 3% to revenue overstates the saving.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "con-4-hyp",
+   "type": "multiselect",
+   "title": "Hypothesis-Driven Approach",
+   "prompt": "Select steps of a hypothesis-driven approach.",
+   "options": [
+    "Collect all data first before thinking",
+    "Identify the analyses that would prove or disprove it",
+    "Update the hypothesis as evidence arrives",
+    "Avoid committing to any view",
+    "State an initial answer to test"
+   ],
+   "correctIndices": [
+    1,
+    2,
+    4
+   ],
+   "xp": 40,
+   "reasoning": "Starting with a hypothesis focuses work.",
+   "tip": "Be willing to be wrong early.",
+   "mistake": "Boil-the-ocean analysis wastes weeks.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "con-5-score",
+   "type": "excel-upload",
+   "title": "Options Scoring (Excel)",
+   "prompt": "Weighted score in column E = B x 0.5 + C x 0.3 + D x 0.2 for each option. Upload for checking.",
+   "xp": 65,
+   "template": {
+    "fileName": "Options-Template.xlsx",
+    "sheetName": "Options",
+    "headers": [
+     "Option",
+     "Impact (50%)",
+     "Feasibility (30%)",
+     "Low Risk (20%)",
+     "Weighted Score"
+    ],
+    "rows": [
+     [
+      "Build in-house",
+      "8",
+      "6",
+      "4",
+      ""
+     ],
+     [
+      "Partner with a utility",
+      "6",
+      "9",
+      "7",
+      ""
+     ],
+     [
+      "Acquire a start-up",
+      "9",
+      "5",
+      "3",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "E2",
+     "expected": 6.6,
+     "tolerance": 0.01,
+     "label": "Build in-house"
+    },
+    {
+     "cell": "E3",
+     "expected": 7.1,
+     "tolerance": 0.01,
+     "label": "Partner"
+    },
+    {
+     "cell": "E4",
+     "expected": 6.6,
+     "tolerance": 0.01,
+     "label": "Acquire"
+    }
+   ],
+   "reasoning": "Weighted scoring makes trade-offs explicit and debatable.",
+   "tip": "Agree weights before scoring.",
+   "mistake": "Scoring first and then choosing weights fixes the result.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "con-6-exec",
+   "type": "text",
+   "title": "Executive Summary",
+   "prompt": "Write a 3-5 sentence answer-first summary for the CEO.",
+   "minLength": 130,
+   "xp": 60,
+   "modelAnswer": "We recommend entering through a partnership with a utility. The market is about €36M a year (2M households, 15% adoption, €120 each) and the partnership option scores highest at 7.1 against 6.6 for building or acquiring. It lowers risk and speeds launch, and the cost programme adds €1.38M of profit to help fund it. The decision needed today is approval to open partner talks; the main risk is partner dependence, which we propose to limit with a two-year review clause.",
+   "reasoning": "A good executive summary states the recommendation first, then the 2-3 numbers that justify it and the decision required.",
+   "tip": "Answer, evidence, risk, ask.",
+   "mistake": "Burying the answer wastes the executive's attention.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The 120-Page Report",
+  "background": "A consulting team delivered a 120-page report with the recommendation on page 97. The client missed the market window while debating the analysis.",
+  "client": "Retail client",
+  "budget": "Estimated £2M of missed revenue",
+  "timeline": "Decision delayed three months",
+  "challenges": "No clear answer-first storyline.",
+  "constraints": "Team feared being wrong.",
+  "questions": [
+   "Why did the report fail?",
+   "How would you restructure it?",
+   "How do you balance rigour and speed?"
+  ],
+  "solution": "Summit adopted the pyramid principle for all deliverables: answer, key arguments, then evidence.",
+  "lessonsLearned": "Lead with the answer."
+ },
+ "quiz": [
+  {
+   "q": "MECE means:",
+   "options": [
+    "Many examples, clear evidence",
+    "Money, energy, customers, efficiency",
+    "No overlaps, no gaps",
+    "None of these"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Market size is built from:",
+   "options": [
+    "Opinion",
+    "Budget only",
+    "Staff count",
+    "Population, adoption and price"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "A hypothesis-driven approach:",
+   "options": [
+    "Avoids answers",
+    "Starts with a testable answer",
+    "Collects all data first",
+    "Follows the client's wish"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Weights should be agreed:",
+   "options": [
+    "Before scoring",
+    "After scoring",
+    "Never",
+    "By the junior"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "The answer was buried",
+    "Too short",
+    "Wrong colours",
+    "No data"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which assumption in your sizing would you test first?",
+   "How do you handle a client who dislikes your answer?",
+   "What would you cut from a long report?"
+  ]
+ },
+ "certificate": {
+  "name": "Management Consultant — Structuring & Recommendation",
+  "nameAz": "İdarəetmə Məsləhətçisi — Strukturlaşdırma və Tövsiyə",
+  "totalXp": 280
+ }
+}

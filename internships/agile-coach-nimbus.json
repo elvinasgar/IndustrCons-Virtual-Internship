@@ -1,0 +1,289 @@
+{
+  "id": "agile-coach-nimbus",
+  "title": "Agile Project Management Specialist",
+  "companyId": "nimbus-digital",
+  "category": "Agile & Scrum",
+  "difficulty": "Intermediate",
+  "durationHours": 6,
+  "drawingTag": "AGILE-022",
+  "skills": [
+    "Kanban",
+    "Velocity Analysis",
+    "Continuous Improvement"
+  ],
+  "companyIntro": {
+    "name": "Nimbus Digital",
+    "country": "Germany",
+    "founded": 2016,
+    "mission": "Ship reliable software for mid-market clients without the chaos of ad-hoc project management.",
+    "culture": "Sprint-disciplined and blameless-retro focused. People are expected to raise blockers loudly and early.",
+    "projects": [
+      "Meridian Client Portal Rebuild",
+      "Nimbus Internal Analytics Suite",
+      "Fintra Payments Integration"
+    ]
+  },
+  "projectBackground": {
+    "name": "Nimbus Support Engineering — Kanban Flow",
+    "client": "Internal support engineering team",
+    "location": "Remote-first, EU time zones",
+    "budget": "N/A — internal team capacity",
+    "timeline": "Ongoing Kanban flow, reviewing this week",
+    "context": "The support engineering team's Kanban board shows wildly inconsistent cycle time — some tickets resolve in hours, others sit for three weeks. Leadership wants to know why flow is so unpredictable."
+  },
+  "manager": {
+    "name": "Tomasz Nowak",
+    "role": "Engineering Director, Nimbus Digital",
+    "note": "Our throughput numbers look fine on average, but 'on average' is hiding something. Find out what's actually happening to the tickets that take three weeks, not just the ones that go fast."
+  },
+  "assignment": {
+    "title": "Diagnose the inconsistent cycle time and propose a flow fix",
+    "brief": "Analyze the cycle time data and WIP limits, find what's actually causing the long-tail tickets, and propose a Kanban policy change to stabilize flow."
+  },
+  "documents": [
+    {
+      "id": "doc-cycletime",
+      "name": "Cycle Time Report — Last 60 Days",
+      "type": "Flow Data",
+      "note": "Median cycle time: 1.2 days. 90th percentile: 21 days. No WIP limit currently enforced on the 'In Progress' column, which currently holds 34 tickets."
+    },
+    {
+      "id": "doc-board-snapshot",
+      "name": "Kanban Board Snapshot",
+      "type": "Board Data",
+      "note": "Backlog: 60. In Progress: 34 (no limit set). Review: 8. Done: 210 (30-day count)."
+    },
+    {
+      "id": "doc-blocked-tags",
+      "name": "Blocked Ticket Tag Report",
+      "type": "Flow Data",
+      "note": "11 of the 34 in-progress tickets are tagged 'blocked' — 8 of those have been blocked for 10+ days waiting on a third-party vendor response, with no follow-up logged."
+    },
+    {
+      "id": "doc-policy-template",
+      "name": "Kanban Policy Update — Template",
+      "type": "Template",
+      "note": "Fields: policy change, rationale, WIP limit, expected impact on cycle time."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-bimodal",
+      "type": "mcq",
+      "title": "Reading the Cycle Time Distribution",
+      "prompt": "Median cycle time is 1.2 days but the 90th percentile is 21 days. What does this gap suggest?",
+      "options": [
+        "The team is inconsistent and needs to work harder across the board",
+        "Most tickets flow quickly, but a distinct subset gets stuck for a very different reason — the average hides two very different behaviors",
+        "The data must be wrong since medians and percentiles shouldn't differ this much",
+        "Ticket volume is too high overall"
+      ],
+      "correctIndex": 1,
+      "xp": 35,
+      "reasoning": "A huge gap between median and 90th percentile is a classic sign of two different populations of work mixed on one board — fast-flowing normal tickets and a separate, stuck subset with a distinct blocking cause, not one team behaving inconsistently.",
+      "tip": "Whenever median and tail percentiles diverge sharply, look for a subset of items with a different flow pattern rather than treating it as one team performing inconsistently.",
+      "mistake": "Averaging cycle time across all tickets and reacting to 'the average is fine' hides exactly the long-tail problem that's actually costing the most delay.",
+      "recommendation": "Always report cycle time as a distribution (median + 90th percentile), not just an average — it's what reveals a bimodal problem like this one."
+    },
+    {
+      "id": "task-2-rootcause",
+      "type": "mcq",
+      "title": "Finding the Long-Tail Cause",
+      "prompt": "8 of 11 blocked tickets have been stuck 10+ days waiting on a third-party vendor with no follow-up logged. What does this suggest?",
+      "options": [
+        "The vendor is always this slow and nothing can be done",
+        "Blocked tickets are not being actively followed up on once tagged, letting them sit indefinitely without escalation",
+        "The team should stop working with this vendor entirely",
+        "This is unrelated to the cycle time problem"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "The absence of any logged follow-up on tickets blocked for over a week points to a process gap — items get tagged blocked and then effectively forgotten, rather than being actively chased, which is what's driving the long tail.",
+      "tip": "A 'blocked' tag should trigger an active follow-up cadence, not just a passive wait — check whether blocked items have a follow-up date, not just a blocked label.",
+      "mistake": "Treating a blocked tag as the end of the process (rather than the start of an active follow-up) is how tickets silently age for weeks.",
+      "recommendation": "Add a mandatory follow-up date to any ticket blocked more than 3 days — it's what turns passive waiting into active unblocking."
+    },
+    {
+      "id": "task-3-wip",
+      "type": "numeric",
+      "title": "WIP Limit Calculation",
+      "prompt": "If the team has 6 engineers and best practice suggests a WIP limit of roughly 1.5x headcount for the In Progress column, what WIP limit should replace the current unlimited column?",
+      "answer": 9,
+      "tolerance": 0,
+      "unit": "tickets",
+      "xp": 45,
+      "workingNote": "6 x 1.5 = 9.",
+      "reasoning": "A WIP limit close to team capacity (here, 9 vs. the current 34) forces tickets to be finished or actively unblocked before new ones start, which is what prevents long-tail accumulation.",
+      "tip": "Sizing a WIP limit to roughly 1.5x headcount is a common, defensible starting point — it allows some buffer without permitting unlimited parallel work in progress.",
+      "mistake": "Leaving a column unlimited (like the current 34-ticket In Progress column) removes the pressure that would otherwise force blocked items to be resolved before new work starts.",
+      "recommendation": "Introduce the WIP limit gradually and monitor cycle time weekly — if blocked tickets don't get actively resolved, a WIP limit alone will just create a backlog bottleneck instead of fixing flow."
+    },
+    {
+      "id": "task-4-policy",
+      "type": "multiselect",
+      "title": "Kanban Policy Changes",
+      "prompt": "Select every policy change worth implementing to fix the long-tail problem.",
+      "options": [
+        "Set a WIP limit of 9 on the In Progress column",
+        "Require a follow-up date on any ticket blocked more than 3 days",
+        "Simply hide blocked tickets from the board so they don't affect metrics",
+        "Add a daily check of tickets blocked 7+ days to the team's standup",
+        "Fire the vendor immediately without further discussion"
+      ],
+      "correctIndices": [
+        0,
+        1,
+        3
+      ],
+      "xp": 50,
+      "reasoning": "A WIP limit, mandatory follow-up dates on blocked items, and a standing daily check of aging blocked tickets are all genuine flow-improving policies. Hiding blocked tickets from metrics doesn't fix anything, it just obscures the problem, and firing a vendor is a drastic, unilateral step disproportionate to a process gap.",
+      "tip": "Combine a WIP limit with an active blocked-ticket follow-up habit — a WIP limit alone doesn't fix blocked tickets, it just makes the team feel the pain of them sooner, which should prompt the follow-up habit.",
+      "mistake": "Adjusting metrics reporting to hide a problem (rather than fixing the underlying process) is a common but counterproductive reaction to being asked to explain a bad number.",
+      "recommendation": "Review blocked-ticket aging weekly with the team, not just once as a one-time fix — sustained attention is what prevents the pattern from recurring."
+    },
+    {
+      "id": "task-5-writeup",
+      "type": "text",
+      "title": "Flow Diagnosis Write-up",
+      "prompt": "Write a short diagnosis (3-5 sentences): the pattern found, its cause, and your proposed fix.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "Cycle time shows a bimodal pattern: a median of 1.2 days masks a 90th percentile of 21 days, driven almost entirely by tickets blocked on third-party vendor responses with no active follow-up process. Of 34 in-progress tickets, 11 are blocked, and 8 of those have sat for 10+ days without any logged follow-up attempt. I recommend introducing a WIP limit of 9 on the In Progress column and requiring a follow-up date on any ticket blocked more than 3 days, reviewed daily in standup. This should surface stuck tickets for active escalation rather than letting them silently age, which is what's actually driving the long cycle time tail.",
+      "reasoning": "A strong flow diagnosis states the pattern (bimodal, not uniform), its specific cause (unfollowed blocked tickets), and a concrete two-part fix — this is what turns a vague 'flow is inconsistent' complaint into an actionable process change.",
+      "tip": "Always tie a proposed fix directly to the diagnosed cause — a WIP limit alone wouldn't fix unfollowed blocked tickets, which is why both parts of the fix are needed together.",
+      "mistake": "A diagnosis that only states 'flow is inconsistent' without identifying the specific mechanism (blocked tickets aging without follow-up) doesn't give the team anything actionable to change.",
+      "recommendation": "Revisit the cycle time distribution 4-6 weeks after implementing the fix to confirm the 90th percentile has actually come down, not just that the median still looks fine."
+    },
+    {
+      "id": "task-6-flow-excel",
+      "type": "excel-upload",
+      "title": "Cycle Time Percentile Tracker (Excel)",
+      "prompt": "Three more team boards need their median-vs-90th-percentile gap calculated to check for the same bimodal pattern. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "Cycle-Time-Template.xlsx",
+        "sheetName": "Cycle Time",
+        "headers": [
+          "Team",
+          "Median (days)",
+          "90th Percentile (days)",
+          "Gap (90th - Median)"
+        ],
+        "rows": [
+          [
+            "Platform Team",
+            "2.1",
+            "4.5",
+            ""
+          ],
+          [
+            "Data Team",
+            "1.0",
+            "18.0",
+            ""
+          ],
+          [
+            "Mobile Team",
+            "3.0",
+            "6.0",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 2.4,
+          "tolerance": 0.1,
+          "label": "Platform Team gap (4.5-2.1, small gap — healthy flow)"
+        },
+        {
+          "cell": "D3",
+          "expected": 17.0,
+          "tolerance": 0.1,
+          "label": "Data Team gap (18.0-1.0, large gap — likely a similar hidden blocked-ticket problem)"
+        },
+        {
+          "cell": "D4",
+          "expected": 3.0,
+          "tolerance": 0.1,
+          "label": "Mobile Team gap (6.0-3.0, moderate gap — worth monitoring)"
+        }
+      ],
+      "reasoning": "Calculating this gap consistently across every team is what reveals which teams have a healthy, uniform flow (small gap, like Platform) versus a hidden long-tail problem (large gap, like Data) that deserves the same investigation just completed for support engineering.",
+      "tip": "A gap above roughly 5-10x the median is worth investigating as a likely sign of unfollowed blockers, similar to what was found here — use this tracker as a standing early-warning signal across teams.",
+      "mistake": "Looking only at median cycle time across teams can make a team with a serious long-tail problem (like Data Team here) look just as healthy as a team with genuinely consistent flow.",
+      "recommendation": "Run this comparison monthly across all teams — it's a fast way to spot which team most needs a blocked-ticket process review next."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Metric That Hid the Real Problem",
+    "background": "On an earlier Nimbus team, weekly flow reports only showed average cycle time, which looked consistently acceptable for months while a growing subset of vendor-blocked tickets silently aged in the background, eventually surfacing as a major client-facing SLA breach.",
+    "client": "Nimbus Internal Analytics Suite — internal team",
+    "budget": "Client SLA penalty triggered: $15,000, plus reputational cost of the breach",
+    "timeline": "4 months of hidden long-tail accumulation before the SLA breach forced a review",
+    "challenges": "Because the reported average always looked fine, nobody investigated the distribution underneath it until a specific ticket's delay actually breached a contractual SLA.",
+    "constraints": "Rebuilding trust in the team's own reported metrics took several months of transparently reporting the full distribution, not just the average, after the breach.",
+    "questions": [
+      "Why can an average metric hide a real, worsening problem for months?",
+      "What earlier metric would have caught this before an SLA breach occurred?",
+      "How does reporting a distribution instead of a single average change what a team notices?"
+    ],
+    "solution": "Nimbus mandated that all team flow reports include the 90th percentile alongside the median, specifically because averages alone had already once hidden a costly problem.",
+    "lessonsLearned": "An average is often the least informative number for spotting an emerging problem — a distribution (median and tail percentiles together) reveals patterns that a single summary statistic can hide for months."
+  },
+  "quiz": [
+    {
+      "q": "A large gap between median and 90th percentile cycle time usually indicates:",
+      "options": [
+        "Random inconsistency across the whole team",
+        "A distinct subset of items with a different flow problem, often blocked items"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Blocked tickets with no follow-up process tend to:",
+      "options": [
+        "Resolve themselves eventually without issue",
+        "Age indefinitely, driving the long tail of cycle time"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A reasonable starting WIP limit for a column is often calculated as:",
+      "options": [
+        "Unlimited, to maximize throughput",
+        "Roughly 1.5x the team's headcount"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Reporting only average cycle time risks:",
+      "options": [
+        "Nothing, averages are always sufficient",
+        "Hiding a worsening long-tail problem for months, as in the case study"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "The most effective fix for aging blocked tickets combines:",
+      "options": [
+        "A WIP limit alone, with no follow-up process",
+        "A WIP limit with mandatory follow-up dates and active review of aging blocked items"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task showed you that an average can hide two very different underlying patterns? What made the bimodal pattern visible?",
+      "The case study shows a hidden metric problem accumulating for 4 months before an SLA breach forced a review. Where else might an average obscure a growing problem?",
+      "If you were Tomasz, what one metric would you add to every team's weekly report so this pattern is caught early next time?"
+    ]
+  },
+  "certificate": {
+    "name": "Agile Project Management Specialist — Kanban Flow Diagnosis",
+    "nameAz": "Agile Layihə İdarəetməsi Mütəxəssisi — Kanban Axını Diaqnostikası",
+    "totalXp": 285
+  }
+}

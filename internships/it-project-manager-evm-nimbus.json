@@ -1,0 +1,316 @@
+{
+ "id": "it-project-manager-evm-nimbus",
+ "title": "IT Project Manager — Budget, Risk & EVM",
+ "companyId": "nimbus-digital",
+ "category": "IT Project Management",
+ "difficulty": "Advanced",
+ "durationHours": 7,
+ "drawingTag": "ITPM-077",
+ "skills": [
+  "Earned Value Management",
+  "Risk Management",
+  "Status Reporting"
+ ],
+ "companyIntro": {
+  "name": "Nimbus Digital",
+  "country": "Germany",
+  "founded": 2016,
+  "mission": "Ship reliable software for mid-market clients without the chaos of ad-hoc project management.",
+  "culture": "Sprint-disciplined and blameless-retro focused. People here are expected to raise blockers loudly and early.",
+  "projects": [
+   "Meridian Client Portal Rebuild",
+   "Nimbus Internal Analytics Suite",
+   "Fintra Payments Integration"
+  ]
+ },
+ "projectBackground": {
+  "name": "Meridian Client Portal Rebuild",
+  "client": "Meridian Logistics",
+  "location": "Berlin, remote",
+  "budget": "BAC (budget at completion): €1,000,000",
+  "timeline": "Steering committee on Friday",
+  "context": "The portal is behind schedule and over budget. The sponsor wants a forecast and a recovery plan."
+ },
+ "manager": {
+  "name": "Julia Hoffmann",
+  "role": "VP of Product, Nimbus Digital",
+  "note": "Don't tell me it's amber. Tell me how far behind, how much over and what you'll do about it."
+ },
+ "assignment": {
+  "title": "Forecast and recover the portal project",
+  "brief": "Compute CPI and EAC, analyse three work packages in Excel, choose risk responses and write the steering committee update."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Project Status",
+   "type": "Report",
+   "note": "Planned value €400,000; earned value €360,000; actual cost €450,000."
+  },
+  {
+   "id": "doc-2",
+   "name": "Work Package Data",
+   "type": "Table",
+   "note": "Three packages with PV, EV and AC."
+  },
+  {
+   "id": "doc-3",
+   "name": "Risk Register",
+   "type": "Register",
+   "note": "Top risk: third-party integration delay."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "itpm-1-cpi",
+   "type": "numeric",
+   "title": "Cost Performance Index",
+   "prompt": "EV is €360,000 and AC is €450,000. What is CPI?",
+   "answer": 0.8,
+   "tolerance": 0.01,
+   "unit": "CPI",
+   "xp": 40,
+   "workingNote": "360,000 / 450,000 = 0.80.",
+   "reasoning": "CPI under 1 means over budget.",
+   "tip": "CPI = EV / AC.",
+   "mistake": "Dividing AC by EV inverts the meaning.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "itpm-2-eac",
+   "type": "numeric",
+   "title": "Estimate at Completion",
+   "prompt": "BAC is €1,000,000 and CPI is 0.8. Assuming current efficiency continues, what is EAC (€)?",
+   "answer": 1250000,
+   "tolerance": 1000,
+   "unit": "EUR",
+   "xp": 45,
+   "workingNote": "EAC = BAC / CPI = 1,000,000 / 0.8 = 1,250,000.",
+   "reasoning": "If performance continues, the final cost is BAC divided by CPI.",
+   "tip": "State the assumption behind EAC.",
+   "mistake": "Adding the overrun to BAC assumes recovery of efficiency.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "itpm-3-risk",
+   "type": "mcq",
+   "title": "Risk Response",
+   "prompt": "A key integration vendor may deliver late. Which is a mitigation?",
+   "options": [
+    "Hope for the best",
+    "Agree an early-delivery milestone and prepare a fallback integration",
+    "Hide the risk",
+    "Blame the vendor later"
+   ],
+   "correctIndex": 1,
+   "xp": 40,
+   "reasoning": "Mitigation reduces probability or impact before the risk occurs.",
+   "tip": "Assign an owner and a trigger.",
+   "mistake": "Passive acceptance without a plan is not a response.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "itpm-4-recovery",
+   "type": "multiselect",
+   "title": "Recovery Options",
+   "prompt": "Select realistic recovery options.",
+   "options": [
+    "Ask the team to work unpaid overtime indefinitely",
+    "Hide variance from the sponsor",
+    "De-scope low-value features",
+    "Re-baseline scope with the sponsor",
+    "Add a time-boxed spike to resolve the integration risk"
+   ],
+   "correctIndices": [
+    2,
+    3,
+    4
+   ],
+   "xp": 45,
+   "reasoning": "Recovery needs transparency, scope control and risk reduction.",
+   "tip": "Negotiate trade-offs openly.",
+   "mistake": "Burn-out and hiding variance destroy trust.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "itpm-5-evm",
+   "type": "excel-upload",
+   "title": "EVM by Work Package (Excel)",
+   "prompt": "Calculate CPI (E = C / D) and SPI (F = C / B) for each work package and upload.",
+   "xp": 70,
+   "template": {
+    "fileName": "EVM-Template.xlsx",
+    "sheetName": "EVM",
+    "headers": [
+     "Work Package",
+     "PV (EUR)",
+     "EV (EUR)",
+     "AC (EUR)",
+     "CPI",
+     "SPI"
+    ],
+    "rows": [
+     [
+      "Design",
+      "100",
+      "90",
+      "100",
+      "",
+      ""
+     ],
+     [
+      "Build",
+      "200",
+      "200",
+      "160",
+      "",
+      ""
+     ],
+     [
+      "Integration",
+      "150",
+      "120",
+      "180",
+      "",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "E2",
+     "expected": 0.9,
+     "tolerance": 0.01,
+     "label": "Design CPI"
+    },
+    {
+     "cell": "F2",
+     "expected": 0.9,
+     "tolerance": 0.01,
+     "label": "Design SPI"
+    },
+    {
+     "cell": "E3",
+     "expected": 1.25,
+     "tolerance": 0.01,
+     "label": "Build CPI"
+    },
+    {
+     "cell": "F3",
+     "expected": 1.0,
+     "tolerance": 0.01,
+     "label": "Build SPI"
+    },
+    {
+     "cell": "E4",
+     "expected": 0.667,
+     "tolerance": 0.01,
+     "label": "Integration CPI"
+    },
+    {
+     "cell": "F4",
+     "expected": 0.8,
+     "tolerance": 0.01,
+     "label": "Integration SPI"
+    }
+   ],
+   "reasoning": "Work-package EVM shows where the project is actually in trouble: Integration.",
+   "tip": "Look for the worst package, not the average.",
+   "mistake": "Reporting only project-level CPI hides the problem area.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "itpm-6-update",
+   "type": "text",
+   "title": "Steering Update",
+   "prompt": "Write a 3-5 sentence update to the steering committee.",
+   "minLength": 110,
+   "xp": 60,
+   "modelAnswer": "The project is 10% behind schedule (SPI 0.9) and 20% over cost (CPI 0.8). If efficiency continues, the forecast cost is €1.25M against a €1.0M budget. The main driver is the Integration package (CPI 0.67, SPI 0.8). We propose de-scoping two low-value features and a time-boxed spike with the vendor to resolve the integration risk. We ask the committee to approve the revised plan and decide by Friday.",
+   "reasoning": "A good update states variance, forecast, cause, plan and the decision needed.",
+   "tip": "Variance, forecast, cause, plan, ask.",
+   "mistake": "Colour ratings alone don't help decisions.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Green Project That Wasn't",
+  "background": "A project reported green for six months using task-completion percentages. EVM later showed CPI 0.7; the overrun was found when the budget ran out.",
+  "client": "Financial services client",
+  "budget": "€400,000 overrun",
+  "timeline": "Found at budget exhaustion",
+  "challenges": "Status was reported by tasks done, not value earned.",
+  "constraints": "No cost data in status reports.",
+  "questions": [
+   "Why did task completion mislead?",
+   "What would EVM have shown?",
+   "How should status be reported?"
+  ],
+  "solution": "Nimbus required CPI, SPI and EAC in every status report.",
+  "lessonsLearned": "Measure value earned against cost, not activity."
+ },
+ "quiz": [
+  {
+   "q": "CPI equals:",
+   "options": [
+    "EV / AC",
+    "AC / EV",
+    "PV / EV",
+    "BAC / AC"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "EAC at current efficiency:",
+   "options": [
+    "BAC x CPI",
+    "BAC / CPI",
+    "AC / BAC",
+    "PV / EV"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "SPI below 1 means:",
+   "options": [
+    "Ahead",
+    "Behind schedule",
+    "Over budget",
+    "On time"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "A mitigation:",
+   "options": [
+    "Ignores the risk",
+    "Hides it",
+    "Reduces probability or impact",
+    "Transfers blame"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "The case study overrun was hidden because:",
+   "options": [
+    "Teams were large",
+    "Sprints were long",
+    "Status ignored cost data",
+    "Budget was big"
+   ],
+   "correctIndex": 2
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "How do you tell a sponsor bad news?",
+   "Which metric would you watch weekly?",
+   "What would make you re-baseline?"
+  ]
+ },
+ "certificate": {
+  "name": "IT Project Manager — Budget, Risk & EVM",
+  "nameAz": "İT Layihə Meneceri — Büdcə, Risk və EVM",
+  "totalXp": 300
+ }
+}

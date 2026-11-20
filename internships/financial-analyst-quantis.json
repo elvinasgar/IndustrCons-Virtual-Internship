@@ -1,0 +1,290 @@
+{
+ "id": "financial-analyst-quantis",
+ "title": "Financial Analyst (FP&A)",
+ "companyId": "quantis-capital",
+ "category": "Finance & Planning",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "FIN-061",
+ "skills": [
+  "Variance Analysis",
+  "Financial Forecasting",
+  "Scenario Modelling"
+ ],
+ "companyIntro": {
+  "name": "Quantis Capital",
+  "country": "Switzerland",
+  "founded": 2008,
+  "mission": "Give mid-sized businesses institutional-grade financial planning, credit and compliance discipline.",
+  "culture": "Numbers must tie out and every assumption must be written down. Analysts are expected to defend their model line by line.",
+  "projects": [
+   "Orion SaaS Reforecast",
+   "Meridian Credit Facility Review",
+   "Alpine Retail Bank AML Uplift"
+  ]
+ },
+ "projectBackground": {
+  "name": "Orion SaaS Reforecast",
+  "client": "Orion product line (internal FP&A)",
+  "location": "Zurich, remote",
+  "budget": "Annual revenue plan: $4.8M",
+  "timeline": "Reforecast due before the quarterly board pack",
+  "context": "Orion's first-half results missed plan. The CFO wants an honest reforecast with the drivers explained, not a plug number."
+ },
+ "manager": {
+  "name": "Marta Keller",
+  "role": "Head of FP&A, Quantis Capital",
+  "note": "Don't give me a number without the driver behind it. If revenue is down, tell me whether it's price, volume or mix — and what you'd assume for the second half."
+ },
+ "assignment": {
+  "title": "Explain the miss and rebuild the second-half forecast",
+  "brief": "Calculate margin and variances, model three scenarios in Excel, and write a short CFO memo with a recommended case."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Orion H1 Management Accounts",
+   "type": "Financial Statement",
+   "note": "Revenue $4.8M annualised run-rate base; cost of goods sold $1.92M for the same period."
+  },
+  {
+   "id": "doc-2",
+   "name": "Budget vs Actual — Units and Price",
+   "type": "Variance Report",
+   "note": "Budget 10,000 units at $50; actual 9,000 units at $52."
+  },
+  {
+   "id": "doc-3",
+   "name": "Scenario Assumptions Sheet",
+   "type": "Planning Template",
+   "note": "Base revenue $2,000,000 with downside, base and upside growth rates to apply."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "fa-1-margin",
+   "type": "numeric",
+   "title": "Gross Margin",
+   "prompt": "Orion revenue is $4,800,000 and cost of goods sold is $1,920,000. What is the gross margin percentage?",
+   "answer": 60,
+   "tolerance": 0.5,
+   "unit": "% gross margin",
+   "xp": 35,
+   "workingNote": "(4,800,000 - 1,920,000) / 4,800,000 = 60%.",
+   "reasoning": "Gross margin is gross profit divided by revenue; the $2.88M gross profit over $4.8M revenue gives 60%.",
+   "tip": "State margin as a percentage of revenue, never of cost.",
+   "mistake": "Dividing gross profit by cost of goods sold gives mark-up (150%), which is a different measure.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "fa-2-volume-var",
+   "type": "numeric",
+   "title": "Volume Variance",
+   "prompt": "Budget was 10,000 units at $50. Actual was 9,000 units at $52. What is the sales volume variance in dollars (negative = adverse)?",
+   "answer": -50000,
+   "tolerance": 100,
+   "unit": "USD (adverse shown negative)",
+   "xp": 45,
+   "workingNote": "(9,000 - 10,000) x $50 = -$50,000. Price variance = ($52 - $50) x 9,000 = +$18,000. Net = -$32,000.",
+   "reasoning": "Volume variance values the unit shortfall at budget price: 1,000 fewer units x $50 = $50,000 adverse. The favourable $18,000 price variance only partly offsets it.",
+   "tip": "Always split a revenue variance into price and volume before explaining it.",
+   "mistake": "Reporting only the net -$32,000 hides that volume is the real problem and price is masking it.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "fa-3-forecast-method",
+   "type": "mcq",
+   "title": "Choosing a Forecast Approach",
+   "prompt": "H1 actuals missed plan because customer sign-ups slowed. Which reforecast approach is most defensible?",
+   "options": [
+    "Rebuild the second-half forecast from drivers (sign-ups, price, churn) using actuals to date, and show the assumptions",
+    "Multiply the original budget by H1 actual/budget ratio and call it done",
+    "Keep the original budget unchanged to protect the board's confidence",
+    "Add a flat 10% to H2 to recover the shortfall"
+   ],
+   "correctIndex": 0,
+   "xp": 40,
+   "reasoning": "A driver-based reforecast uses what actuals revealed and exposes assumptions to challenge; scaling or hoping hides the cause.",
+   "tip": "Forecast from drivers, not from totals.",
+   "mistake": "Simply scaling the budget or forcing recovery assumes the cause of the miss disappears by itself.",
+   "recommendation": "Label every assumption with its source and owner."
+  },
+  {
+   "id": "fa-4-assumptions",
+   "type": "multiselect",
+   "title": "Assumptions to Flag",
+   "prompt": "Select every assumption that should be explicitly documented in the reforecast.",
+   "options": [
+    "Sales hiring plan and ramp time",
+    "Expected monthly customer churn rate",
+    "Last year's weather",
+    "The CFO's preferred outcome",
+    "Price increase timing and customer response"
+   ],
+   "correctIndices": [
+    0,
+    1,
+    4
+   ],
+   "xp": 45,
+   "reasoning": "Churn, pricing and sales capacity are material drivers that stakeholders can challenge. Preferences and irrelevant factors are not assumptions.",
+   "tip": "If an assumption moves revenue materially, write it down.",
+   "mistake": "Leaving key drivers implicit makes a forecast impossible to review or defend.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "fa-5-scenarios",
+   "type": "excel-upload",
+   "title": "Scenario Model (Excel)",
+   "prompt": "Base revenue is $2,000,000. Project next-year revenue under three growth rates in column D (Projected Revenue = Base x (1 + Growth)). Download the template, complete it, and upload.",
+   "xp": 60,
+   "template": {
+    "fileName": "Scenario-Template.xlsx",
+    "sheetName": "Scenarios",
+    "headers": [
+     "Scenario",
+     "Base Revenue (USD)",
+     "Growth Rate",
+     "Projected Revenue (USD)"
+    ],
+    "rows": [
+     [
+      "Downside",
+      "2000000",
+      "-0.03",
+      ""
+     ],
+     [
+      "Base",
+      "2000000",
+      "0.05",
+      ""
+     ],
+     [
+      "Upside",
+      "2000000",
+      "0.08",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 1940000,
+     "tolerance": 5,
+     "label": "Downside 2,000,000 x 0.97"
+    },
+    {
+     "cell": "D3",
+     "expected": 2100000,
+     "tolerance": 5,
+     "label": "Base 2,000,000 x 1.05"
+    },
+    {
+     "cell": "D4",
+     "expected": 2160000,
+     "tolerance": 5,
+     "label": "Upside 2,000,000 x 1.08"
+    }
+   ],
+   "reasoning": "A scenario table lets the CFO see the range of outcomes; the formula should reference the inputs so it can be flexed.",
+   "tip": "Use formulas referencing input cells, not typed results.",
+   "mistake": "Hard-coded results break the moment an assumption changes.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "fa-6-memo",
+   "type": "text",
+   "title": "CFO Memo",
+   "prompt": "Write a 3-5 sentence memo to the CFO explaining the miss and recommending which scenario to plan on.",
+   "minLength": 150,
+   "xp": 60,
+   "modelAnswer": "Orion missed plan mainly on volume: 9,000 units against 10,000 budgeted cost $50,000, partly offset by a $18,000 favourable price variance, for a net adverse $32,000. The cause is slower sign-ups, not pricing. I recommend planning on the base case (+5% growth, $2.10M) with the downside ($1.94M) as the funding floor, and revisiting the sales ramp assumption monthly. If sign-ups recover faster than churn, the upside is credible but should not be committed in the board plan.",
+   "reasoning": "A strong memo names the driver, quantifies it, recommends one case and states what would change the view.",
+   "tip": "Lead with the conclusion, then the driver, then the ask.",
+   "mistake": "A memo that lists numbers without a recommendation leaves the CFO to do the analyst's job.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Forecast Nobody Updated",
+  "background": "A planning team kept a twelve-month forecast built in January even as sign-ups slowed. By Q3 the company missed its cash target by 14% and had to freeze hiring.",
+  "client": "Mid-size software client",
+  "budget": "Cash shortfall required an emergency credit line",
+  "timeline": "Gap discovered at Q3 close",
+  "challenges": "The forecast still assumed January growth rates and was only compared to actuals at quarter-end.",
+  "constraints": "No one owned the assumptions, so no one noticed they were stale.",
+  "questions": [
+   "Why did a static annual forecast mislead the business?",
+   "What cadence would have caught the slowdown earlier?",
+   "Who should own each driver assumption?"
+  ],
+  "solution": "Quantis moved the client to a monthly rolling forecast with named owners for each driver and a variance trigger at 5%.",
+  "lessonsLearned": "A forecast is only as good as the freshness of its drivers; schedule the review, name the owners and set triggers."
+ },
+ "quiz": [
+  {
+   "q": "Volume variance is calculated by valuing the unit difference at:",
+   "options": [
+    "Actual price per unit",
+    "Average market price",
+    "Budget price per unit",
+    "Cost per unit"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "A driver-based forecast is built from:",
+   "options": [
+    "Last year's total plus a flat percentage",
+    "The CEO's target",
+    "Random scenarios",
+    "Operational drivers such as units, price and churn"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Gross margin is:",
+   "options": [
+    "COGS / Revenue",
+    "Revenue / COGS",
+    "Revenue - Operating expenses",
+    "(Revenue - COGS) / Revenue"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Scenario analysis is useful because it:",
+   "options": [
+    "Removes uncertainty",
+    "Replaces the budget",
+    "Shows the range of outcomes and what would drive each",
+    "Guarantees the base case"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "In the case study, the forecast failed mainly because:",
+   "options": [
+    "Its assumptions were stale and unowned",
+    "The software was faulty",
+    "Revenue was too high",
+    "Taxes changed"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which variance did you find hardest to explain without sounding defensive? What helped?",
+   "Where in your own work do stale assumptions hide?",
+   "If you owned the reforecast, which driver would you review weekly and why?"
+  ]
+ },
+ "certificate": {
+  "name": "Financial Analyst (FP&A) — Variance & Scenario Modelling",
+  "nameAz": "Maliyyə Analitiki (FP&A) — Fərq və Ssenari Modelləşdirməsi",
+  "totalXp": 285
+ }
+}
