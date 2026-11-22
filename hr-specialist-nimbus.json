@@ -1,0 +1,284 @@
+{
+  "id": "hr-specialist-nimbus",
+  "title": "HR Specialist",
+  "companyId": "nimbus-digital",
+  "category": "Human Resources",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "drawingTag": "HR-014",
+  "skills": [
+    "Policy Interpretation",
+    "Conflict Resolution",
+    "Documentation"
+  ],
+  "companyIntro": {
+    "name": "Nimbus Digital",
+    "country": "Germany",
+    "founded": 2016,
+    "mission": "Ship reliable software for mid-market clients without the chaos of ad-hoc management — including how people issues are handled.",
+    "culture": "Fair and process-driven. HR is expected to apply policy consistently, not case-by-case based on who's more senior.",
+    "projects": [
+      "Meridian Client Portal Rebuild",
+      "Nimbus Internal Analytics Suite",
+      "Fintra Payments Integration"
+    ]
+  },
+  "projectBackground": {
+    "name": "Squad Atlas — Workplace Conflict Escalation",
+    "client": "Internal HR case",
+    "location": "Remote-first, EU time zones",
+    "budget": "N/A — internal HR case",
+    "timeline": "Response expected this week",
+    "context": "Two developers on the same squad have escalated a conflict to HR — one says the other has been dismissive and exclusionary in code reviews, the other says they're just being direct and the complaint is oversensitive. Both are strong performers and the squad lead wants this resolved without losing either of them."
+  },
+  "manager": {
+    "name": "Petra Schmidt",
+    "role": "Head of People, Nimbus Digital",
+    "note": "This is exactly the kind of case where being fair matters more than being fast. I don't want a decision that just favors whoever's more senior or louder — I want it based on what actually happened and what our policy says about workplace conduct."
+  },
+  "assignment": {
+    "title": "Investigate and resolve the code review conduct complaint",
+    "brief": "Review both accounts and the actual code review comments, determine whether policy was breached, and issue a fair resolution that protects both the complainant and the squad's working relationship."
+  },
+  "documents": [
+    {
+      "id": "doc-complaint-hr",
+      "name": "Complaint Statement — Developer A",
+      "type": "HR Complaint",
+      "note": "States that Developer B's code review comments are consistently harsh in tone ('this is wrong,' 'did you even test this') without constructive suggestions, making them reluctant to submit code for review."
+    },
+    {
+      "id": "doc-response-hr",
+      "name": "Response Statement — Developer B",
+      "type": "HR Response",
+      "note": "States they are simply being direct and efficient, that code quality matters more than tone, and that the complaint is an oversensitive reaction to normal technical feedback."
+    },
+    {
+      "id": "doc-review-excerpts",
+      "name": "Actual Code Review Comment Log (last 6 weeks)",
+      "type": "Evidence Log",
+      "note": "Review of 22 comments from Developer B to Developer A: 14 are purely critical with no constructive suggestion ('this is wrong'), 8 include both criticism and a specific suggested fix. No comments contain personal remarks or language directed at the person rather than the code."
+    },
+    {
+      "id": "doc-conduct-policy",
+      "name": "Workplace Conduct Policy (extract)",
+      "type": "Policy Document",
+      "note": "Feedback should be specific, actionable, and focused on the work — a pattern of unconstructive criticism without actionable suggestions, even without personal remarks, is addressed as a coaching issue rather than a conduct violation."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-classify-hr",
+      "type": "mcq",
+      "title": "Classifying the Complaint",
+      "prompt": "Based on the policy and comment log, is this a conduct policy violation or a coaching issue?",
+      "options": [
+        "A serious conduct violation requiring formal discipline, since any complaint about tone is automatically a violation",
+        "A coaching issue — the comments show a pattern of unconstructive feedback (64% purely critical with no suggestion) but no personal remarks or language targeting the person, which the policy specifically distinguishes from a conduct violation",
+        "Not a real issue at all, since Developer B says they're just being direct",
+        "Immediate termination is required per standard practice"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "The policy specifically distinguishes unconstructive-but-professional feedback (a coaching issue) from personal remarks or conduct targeting the individual (a violation) — the evidence shows a real pattern (64% purely critical, no constructive suggestion) but no personal language, placing this squarely in the coaching category per the policy's own definition.",
+      "tip": "Always check the specific policy definition before classifying a complaint — 'harsh feedback with no personal remarks' and 'personal conduct targeting an individual' are often explicitly different categories with different appropriate responses, not the same thing at different severities.",
+      "mistake": "Treating every workplace friction complaint as either 'not a real issue' or 'a serious violation,' without checking whether it fits a specific coaching category the policy defines, skips the classification step that determines the appropriate, proportionate response.",
+      "recommendation": "Quote the specific policy definition in your resolution documentation — it's what makes clear this classification was based on written policy criteria, not a subjective judgment call, which protects both parties' trust in the process."
+    },
+    {
+      "id": "task-2-pattern-calc",
+      "type": "numeric",
+      "title": "Quantifying the Pattern",
+      "prompt": "Of 22 code review comments, 14 are purely critical without constructive suggestions. What percentage does this represent?",
+      "answer": 63.6,
+      "tolerance": 0.5,
+      "unit": "%",
+      "xp": 40,
+      "workingNote": "14/22 x 100 = 63.6%.",
+      "reasoning": "Quantifying the pattern (rather than relying on 'it feels like most comments are unconstructive') is what makes the finding defensible and specific — 63.6% is a concrete figure that supports the coaching conversation, rather than a vague impression either party could dispute.",
+      "tip": "Always calculate a specific percentage when evidence supports a pattern-based finding — a number like 63.6% is far more useful in a coaching conversation than a vague 'often' or 'usually,' both for clarity and for defensibility if challenged.",
+      "mistake": "Relying on a general impression of the comment log ('seems like a lot of harsh comments') without calculating the actual proportion makes the finding easier to dispute and harder to act on specifically.",
+      "recommendation": "Use this same percentage calculation method for any future review of a similar pattern — it's what turns a subjective complaint into an objective, actionable finding."
+    },
+    {
+      "id": "task-3-resolution-hr",
+      "type": "multiselect",
+      "title": "Resolution Actions",
+      "prompt": "Select every action appropriate for resolving this case.",
+      "options": [
+        "Coach Developer B specifically on providing actionable suggestions alongside critical feedback, referencing the 63.6% pattern found",
+        "Formally discipline Developer B as if this were a conduct policy violation",
+        "Acknowledge Developer A's complaint was heard and taken seriously, with a clear explanation of the classification and resolution",
+        "Dismiss the complaint entirely since Developer B claims they're 'just being direct'",
+        "Check in with both developers after a few weeks to confirm the coaching has actually changed the review pattern"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        4
+      ],
+      "xp": 45,
+      "reasoning": "Appropriate resolution actions coach the specific pattern found, ensure the complainant feels heard with a clear explanation of the outcome, and verify the coaching actually changes behavior over time. Formal discipline is disproportionate for a coaching-category issue per the policy's own definition, and dismissing the complaint ignores a clearly quantified real pattern in the evidence.",
+      "tip": "Always follow up after a coaching intervention to confirm the pattern actually changed — a coaching conversation without any later verification risks the same pattern quietly continuing.",
+      "mistake": "Disciplining a coaching-category issue as if it were a conduct violation is disproportionate and can damage trust in the fairness of the HR process for future cases.",
+      "recommendation": "Document both the classification reasoning and the resolution clearly for both parties — this transparency is what makes a fair-but-not-severe outcome feel like genuine resolution rather than the complaint being brushed aside."
+    },
+    {
+      "id": "task-4-coaching-note",
+      "type": "text",
+      "title": "Coaching Conversation Notes",
+      "prompt": "Write the notes (3-5 sentences) for your coaching conversation with Developer B.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "Reviewed the last 6 weeks of your code review comments to Developer A: 14 of 22 (63.6%) were purely critical without a specific suggested fix, which the workplace conduct policy identifies as a coaching-level pattern, distinct from any conduct violation — no personal remarks were found, and this is not a disciplinary matter. Going forward, please include a specific suggested improvement alongside critical feedback where possible (e.g., 'this approach has a race condition — consider using a lock here' rather than 'this is wrong'), since this maintains code quality standards while giving the recipient something actionable to act on. We'll check in again in 4 weeks to see how the review pattern has evolved, and I want to be clear this conversation is about the pattern in the data, not a judgment on your technical standards, which remain valued.",
+      "reasoning": "Effective coaching notes cite the specific evidence and pattern found, are explicit that this isn't a disciplinary matter, give a concrete example of the desired change, and set a follow-up checkpoint — this combination makes the conversation feel like genuine development rather than a veiled reprimand.",
+      "tip": "Always give a specific before/after example of the desired feedback style (not just 'be more constructive') — a concrete example is what actually helps someone change a habitual communication pattern.",
+      "mistake": "A coaching conversation that only says 'be nicer' without the specific data pattern and a concrete example of better feedback gives the person little to actually act on differently.",
+      "recommendation": "Reassure the person that code quality standards remain valued even as tone is coached — this is what prevents the coaching from being misread as 'stop giving critical feedback altogether,' which would be the wrong lesson."
+    },
+    {
+      "id": "task-5-response-to-complainant",
+      "type": "text",
+      "title": "Response to the Complainant",
+      "prompt": "Write your response (3-5 sentences) to Developer A, explaining the outcome.",
+      "minLength": 40,
+      "xp": 45,
+      "modelAnswer": "Thank you for bringing this forward — I reviewed the code review comment history directly and found a real pattern: 63.6% of the comments to you lacked a constructive suggestion alongside the critical feedback, which is a legitimate concern worth addressing. Per our workplace conduct policy, this falls into a coaching category rather than a conduct violation, since there were no personal remarks involved, and I've had a direct coaching conversation with Developer B about providing more actionable feedback going forward. I'll check back with you in a few weeks to see whether review comments feel more constructive, and please don't hesitate to raise it again if the pattern doesn't improve.",
+      "reasoning": "A good response to a complainant confirms the complaint was taken seriously and actually investigated (not just heard), explains the outcome and its basis honestly, and commits to a follow-up — this combination is what maintains trust in the HR process even when the outcome is coaching rather than formal discipline.",
+      "tip": "Always tell the complainant the specific evidence found (63.6% pattern), not just 'we looked into it' — specificity demonstrates the investigation was real and thorough, not a token review.",
+      "mistake": "A vague response ('we've addressed it') without explaining the classification or evidence can leave a complainant unsure whether their concern was actually taken seriously or just dismissed quietly.",
+      "recommendation": "Explicitly invite the complainant to raise the issue again if the pattern doesn't improve — it signals the resolution is a genuine first step, not a final closing of the conversation regardless of outcome."
+    },
+    {
+      "id": "task-6-pattern-excel",
+      "type": "excel-upload",
+      "title": "Multi-Case Feedback Pattern Tracker (Excel)",
+      "prompt": "Three more employee feedback patterns need their unconstructive-comment percentage calculated. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 55,
+      "template": {
+        "fileName": "Feedback-Pattern-Template.xlsx",
+        "sheetName": "Patterns",
+        "headers": [
+          "Reviewer",
+          "Total Comments",
+          "Purely Critical (no suggestion)",
+          "Unconstructive %"
+        ],
+        "rows": [
+          [
+            "Reviewer C",
+            "30",
+            "9",
+            ""
+          ],
+          [
+            "Reviewer D",
+            "18",
+            "15",
+            ""
+          ],
+          [
+            "Reviewer E",
+            "25",
+            "5",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 30.0,
+          "tolerance": 0.5,
+          "label": "Reviewer C (9/30, moderate — likely no action needed)"
+        },
+        {
+          "cell": "D3",
+          "expected": 83.3,
+          "tolerance": 0.5,
+          "label": "Reviewer D (15/18, very high — priority coaching case)"
+        },
+        {
+          "cell": "D4",
+          "expected": 20.0,
+          "tolerance": 0.5,
+          "label": "Reviewer E (5/25, low — healthy feedback pattern)"
+        }
+      ],
+      "reasoning": "Calculating this percentage consistently across every reviewer, not just the one already flagged, is what lets HR prioritize coaching attention on Reviewer D (83.3%, the clear outlier) rather than treating every reviewer's feedback style as equally concerning.",
+      "tip": "Use a consistent percentage threshold (e.g., above 50-60%) to flag reviewers who may need a coaching conversation — this turns a subjective sense of 'harsh feedback' into an objective, comparable metric across the team.",
+      "mistake": "Reacting to individual complaints one at a time, without periodically calculating this pattern across all reviewers, can miss a reviewer with a genuinely concerning pattern (like Reviewer D) who simply hasn't been the subject of a formal complaint yet.",
+      "recommendation": "Consider a periodic, proactive review of this pattern across all frequent code reviewers, not just reactively after a complaint — it can catch and coach a pattern before it escalates into a formal HR case."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Complaint Resolved by Seniority, Not Evidence",
+    "background": "On an earlier Nimbus case, a similar conduct complaint was resolved in favor of the more senior, longer-tenured employee without a direct review of the actual evidence (chat logs, code review comments) — the complainant, a newer but talented employee, left the company within two months, citing a feeling that the process wasn't actually fair.",
+    "client": "Fintra Payments Integration — internal squad",
+    "budget": "Cost of the departure: recruiting and onboarding a replacement, estimated at 3 months of reduced squad productivity",
+    "timeline": "Complaint resolved within a week, employee departure followed within 2 months",
+    "challenges": "Because the resolution leaned on seniority and reputation rather than a direct review of the actual evidence, the complainant reasonably felt the outcome was predetermined rather than genuinely investigated.",
+    "constraints": "The departure of a talented employee, combined with the reputational effect on how seriously other employees trusted the HR complaint process, cost far more than the time an actual evidence review would have taken.",
+    "questions": [
+      "Why does resolving a complaint based on seniority rather than direct evidence undermine trust in the process, even if the outcome happens to be correct?",
+      "What specific step, if taken, would have made the resolution more defensible?",
+      "How does an employee's confidence in a fair process affect retention, beyond just the outcome of one specific case?"
+    ],
+    "solution": "Nimbus mandated that any workplace conduct complaint must include a direct review of the actual underlying evidence (messages, code reviews, documented interactions) before any resolution, regardless of the parties' relative seniority or tenure.",
+    "lessonsLearned": "A complaint resolution that leans on who's more senior or established, rather than a direct review of the actual evidence, risks being — and being perceived as — unfair, even when the ultimate outcome might have been correct; the credibility of the process depends on demonstrably examining the real record."
+  },
+  "quiz": [
+    {
+      "q": "A pattern of harsh but non-personal feedback, per policy, is typically classified as:",
+      "options": [
+        "A conduct policy violation requiring discipline",
+        "A coaching issue, distinct from a conduct violation"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Quantifying a feedback pattern (e.g., 63.6% unconstructive) rather than describing it vaguely is useful because:",
+      "options": [
+        "It has no real benefit over a general impression",
+        "It makes the finding specific, defensible, and actionable for a coaching conversation"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A coaching conversation about feedback style should include:",
+      "options": [
+        "Only a general instruction to 'be nicer'",
+        "A specific data pattern and a concrete example of the desired improved feedback"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A response to a complainant should:",
+      "options": [
+        "Vaguely state the issue was 'addressed' without detail",
+        "Explain the specific evidence found, the classification, and next steps, with an invitation to follow up"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did resolving a complaint based on seniority rather than evidence damage trust?",
+      "options": [
+        "The outcome was factually wrong",
+        "The complainant reasonably felt the process was predetermined rather than genuinely investigated, regardless of the outcome"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to quantify a pattern rather than rely on a general impression? How did that number change the conversation?",
+      "The case study shows a complaint resolved on seniority rather than evidence, leading to a valued employee's departure. Where else might skipping a direct evidence review undermine trust even if the final decision happens to be right?",
+      "If you were Petra, what one rule would you make standing so a complaint resolution is never based on who's more senior, only on the evidence?"
+    ]
+  },
+  "certificate": {
+    "name": "HR Specialist — Conduct Investigation & Coaching Resolution",
+    "nameAz": "İnsan Resursları Mütəxəssisi — Davranış Araşdırması",
+    "totalXp": 275
+  }
+}

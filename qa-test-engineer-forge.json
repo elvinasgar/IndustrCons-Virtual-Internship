@@ -1,0 +1,247 @@
+{
+ "id": "qa-test-engineer-forge",
+ "title": "QA / Software Test Engineer",
+ "companyId": "forge-software",
+ "category": "Quality Assurance",
+ "difficulty": "Beginner",
+ "durationHours": 6,
+ "drawingTag": "QA-072",
+ "skills": [
+  "Test Design",
+  "Defect Reporting",
+  "Quality Metrics"
+ ],
+ "companyIntro": {
+  "name": "Forge Software",
+  "country": "Poland",
+  "founded": 2012,
+  "mission": "Build maintainable software for product companies, with quality designed in rather than tested in.",
+  "culture": "Small pull requests, honest code review, and blameless debugging. Nobody ships what they cannot explain.",
+  "projects": [
+   "Parcelwise Order API",
+   "Forge Design System",
+   "Merchant Dashboard Rebuild"
+  ]
+ },
+ "projectBackground": {
+  "name": "Parcelwise Signup Release",
+  "client": "Parcelwise Logistics",
+  "location": "Warsaw, remote",
+  "budget": "Test effort: 60 hours",
+  "timeline": "Release candidate Friday",
+  "context": "The signup form accepts ages 18 to 65. The last release shipped with a boundary bug and customers noticed."
+ },
+ "manager": {
+  "name": "Marek Zielinski",
+  "role": "QA Lead, Forge Software",
+  "note": "Tests are only useful if someone else can reproduce them. Be specific."
+ },
+ "assignment": {
+  "title": "Test the signup release",
+  "brief": "Choose boundary tests, compute coverage and defect density, and write a reproducible bug report."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Requirements",
+   "type": "Spec",
+   "note": "Age must be between 18 and 65 inclusive."
+  },
+  {
+   "id": "doc-2",
+   "name": "Test Results",
+   "type": "Report",
+   "note": "180 of 240 planned test cases executed."
+  },
+  {
+   "id": "doc-3",
+   "name": "Defect Log",
+   "type": "Log",
+   "note": "24 defects found in 12 thousand lines of code."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "qa-1-boundary",
+   "type": "mcq",
+   "title": "Boundary Values",
+   "prompt": "Valid ages are 18 to 65 inclusive. Which set best tests the boundaries?",
+   "options": [
+    "17, 18, 65, 66",
+    "20, 30, 40, 50",
+    "0, 100",
+    "18, 19, 20"
+   ],
+   "correctIndex": 0,
+   "xp": 40,
+   "reasoning": "Boundary testing checks values on and next to each limit.",
+   "tip": "Test just below, on and just above each boundary.",
+   "mistake": "Mid-range values rarely find boundary bugs.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "qa-2-density",
+   "type": "numeric",
+   "title": "Defect Density",
+   "prompt": "24 defects were found in 12 KLOC (thousand lines of code). What is the defect density per KLOC?",
+   "answer": 2,
+   "tolerance": 0.05,
+   "unit": "defects per KLOC",
+   "xp": 30,
+   "workingNote": "24 / 12 = 2.",
+   "reasoning": "Density normalises defects by size.",
+   "tip": "Compare density across releases.",
+   "mistake": "Raw counts mislead when code size differs.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "qa-3-coverage",
+   "type": "numeric",
+   "title": "Execution Coverage",
+   "prompt": "180 of 240 planned test cases were executed. What percentage of planned tests ran?",
+   "answer": 75,
+   "tolerance": 0.5,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "180 / 240 = 75%.",
+   "reasoning": "Execution coverage shows progress against the plan.",
+   "tip": "Report what was not run and why.",
+   "mistake": "Reporting only passes hides unexecuted tests.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "qa-4-report",
+   "type": "multiselect",
+   "title": "Bug Report Fields",
+   "prompt": "Select the fields a good bug report includes.",
+   "options": [
+    "Environment and version",
+    "Expected and actual result",
+    "A joke",
+    "Steps to reproduce",
+    "The tester's opinion of the developer"
+   ],
+   "correctIndices": [
+    0,
+    1,
+    3
+   ],
+   "xp": 45,
+   "reasoning": "Reproducibility needs steps, expectation and environment.",
+   "tip": "Write it so a stranger can reproduce it.",
+   "mistake": "Missing steps cause 'cannot reproduce' loops.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "qa-5-regression",
+   "type": "mcq",
+   "title": "Regression Testing",
+   "prompt": "After a bug fix, why run regression tests?",
+   "options": [
+    "To test the fix only",
+    "To confirm existing behaviour still works",
+    "To skip planning",
+    "To increase scope randomly"
+   ],
+   "correctIndex": 1,
+   "xp": 35,
+   "reasoning": "Fixes can break unrelated functionality.",
+   "tip": "Automate regression for high-risk areas.",
+   "mistake": "Skipping regression ships new defects.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "qa-6-summary",
+   "type": "text",
+   "title": "Test Summary",
+   "prompt": "Write a 3-5 sentence test summary for the release manager.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "We executed 180 of 240 planned tests (75%) and found 24 defects, a density of 2 per KLOC. The age boundary at 65 accepted 66, which is a high severity defect and blocks release. Sixty tests remain, mostly payment edge cases; I recommend completing them before go or no-go. Regression tests on signup passed after the fix.",
+   "reasoning": "A good summary has status, key risk, what's left and a recommendation.",
+   "tip": "Status, risk, remaining, recommendation.",
+   "mistake": "Reporting only totals hides the decision-relevant defect.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Boundary Bug",
+  "background": "A promotion allowed ages 18-65 but accepted 66. Eight thousand users signed up outside the target, voiding an insurer's coverage and costing £60,000.",
+  "client": "Insurance client",
+  "budget": "£60,000",
+  "timeline": "Found by customers",
+  "challenges": "Tests used typical values only.",
+  "constraints": "Boundary tests were not in the plan.",
+  "questions": [
+   "Why do boundaries hide bugs?",
+   "What tests would you add?",
+   "How do you make them routine?"
+  ],
+  "solution": "Forge added boundary tests to the standard test template.",
+  "lessonsLearned": "Test the edges; that's where defects live."
+ },
+ "quiz": [
+  {
+   "q": "Boundary tests use:",
+   "options": [
+    "Values at and beside limits",
+    "Random values only",
+    "Large values only",
+    "Zero only"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Defect density is:",
+   "options": [
+    "Defects per day",
+    "Tests per defect",
+    "Lines per hour",
+    "Defects per size"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Regression tests check:",
+   "options": [
+    "New features only",
+    "Documentation",
+    "Existing behaviour still works",
+    "Pricing"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Bug reports need:",
+   "options": [
+    "Steps to reproduce",
+    "Opinions",
+    "Jokes",
+    "Nothing"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Case study bug was missed because:",
+   "options": [
+    "No QA staff",
+    "Slow servers",
+    "Boundary values weren't tested",
+    "Wrong colour"
+   ],
+   "correctIndex": 2
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "How do you decide what to test first?",
+   "What makes a bug report useful?",
+   "When would you block a release?"
+  ]
+ },
+ "certificate": {
+  "name": "QA / Software Test Engineer — Test Design & Reporting",
+  "nameAz": "QA / Proqram Test Mühəndisi — Test Dizaynı və Hesabat",
+  "totalXp": 230
+ }
+}

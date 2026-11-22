@@ -1,0 +1,232 @@
+{
+ "id": "it-service-desk-itil-nimbus",
+ "title": "IT Support & Service Desk (ITIL)",
+ "companyId": "nimbus-digital",
+ "category": "IT Support",
+ "difficulty": "Beginner",
+ "durationHours": 5,
+ "drawingTag": "ITS-079",
+ "skills": [
+  "Incident Management",
+  "SLA Management",
+  "User Communication"
+ ],
+ "companyIntro": {
+  "name": "Nimbus Digital",
+  "country": "Germany",
+  "founded": 2016,
+  "mission": "Ship reliable software for mid-market clients without the chaos of ad-hoc project management.",
+  "culture": "Sprint-disciplined and blameless-retro focused. People here are expected to raise blockers loudly and early.",
+  "projects": [
+   "Meridian Client Portal Rebuild",
+   "Nimbus Internal Analytics Suite",
+   "Fintra Payments Integration"
+  ]
+ },
+ "projectBackground": {
+  "name": "Service Desk Operations",
+  "client": "Nimbus Digital internal IT",
+  "location": "Berlin, remote",
+  "budget": "Support budget: €40,000 per quarter",
+  "timeline": "Daily queue review",
+  "context": "Email is down for a department while a password reset queue grows and an SLA report is due."
+ },
+ "manager": {
+  "name": "Jonas Weber",
+  "role": "IT Operations Manager, Nimbus Digital",
+  "note": "Users don't care about root cause, they care about being back to work. Fix first, find the cause afterwards."
+ },
+ "assignment": {
+  "title": "Clear the queue and keep users informed",
+  "brief": "Prioritise by impact and urgency, calculate SLA compliance and write a clear user update."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Ticket Queue",
+   "type": "Queue",
+   "note": "Email outage (50 users), password reset (1 user), printer jam (1 user)."
+  },
+  {
+   "id": "doc-2",
+   "name": "SLA Report",
+   "type": "Report",
+   "note": "180 of 200 tickets resolved within SLA."
+  },
+  {
+   "id": "doc-3",
+   "name": "Problem Record",
+   "type": "Record",
+   "note": "Repeated email outages after nightly patching."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "its-1-priority",
+   "type": "mcq",
+   "title": "Prioritisation",
+   "prompt": "Which ticket is highest priority?",
+   "options": [
+    "Email outage affecting 50 users",
+    "A single printer jam",
+    "A password reset for one user",
+    "A colour change request"
+   ],
+   "correctIndex": 0,
+   "xp": 35,
+   "reasoning": "Priority comes from impact and urgency.",
+   "tip": "Impact x urgency.",
+   "mistake": "First-in first-out ignores business impact.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "its-2-sla",
+   "type": "numeric",
+   "title": "SLA Compliance",
+   "prompt": "180 of 200 tickets were resolved within SLA. What is SLA compliance?",
+   "answer": 90,
+   "tolerance": 0.5,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "180 / 200 = 90%.",
+   "reasoning": "SLA compliance measures promises kept.",
+   "tip": "Track by priority too.",
+   "mistake": "Averaging resolution time hides breaches.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "its-3-problem",
+   "type": "mcq",
+   "title": "Incident vs Problem",
+   "prompt": "Repeated email outages after nightly patching should be handled as:",
+   "options": [
+    "Separate unrelated incidents only",
+    "A problem record to find and fix the root cause",
+    "Ignored",
+    "Closed as user error"
+   ],
+   "correctIndex": 1,
+   "xp": 40,
+   "reasoning": "Problem management removes recurring causes.",
+   "tip": "Link incidents to problems.",
+   "mistake": "Fixing symptoms only repeats incidents.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "its-4-ticket",
+   "type": "multiselect",
+   "title": "Good Ticket Handling",
+   "prompt": "Select good practices.",
+   "options": [
+    "Record clear steps taken",
+    "Update the user at agreed intervals",
+    "Close tickets without confirming",
+    "Link related incidents",
+    "Use jargon with users"
+   ],
+   "correctIndices": [
+    0,
+    1,
+    3
+   ],
+   "xp": 40,
+   "reasoning": "Documentation and communication make support reliable.",
+   "tip": "Confirm resolution with the user.",
+   "mistake": "Closing without confirmation reopens tickets.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "its-5-update",
+   "type": "text",
+   "title": "User Update",
+   "prompt": "Write a 3-4 sentence update to the affected email users.",
+   "minLength": 90,
+   "xp": 45,
+   "modelAnswer": "We're aware that email is unavailable for the Finance department and are working to restore it. The cause appears linked to last night's patch; engineers are rolling it back. We expect service back within 45 minutes and will update you at 10:30. In the meantime you can use the web mail address sent separately. Thank you for your patience.",
+   "reasoning": "A good update acknowledges, explains simply, gives a time and a workaround.",
+   "tip": "Acknowledge, explain, time, workaround.",
+   "mistake": "Technical jargon or silence frustrates users.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Outage Nobody Explained",
+  "background": "Email failed for four hours and users heard nothing. Staff made workarounds that exposed data, and complaints reached the CEO.",
+  "client": "Internal IT",
+  "budget": "Lost productivity and a security review",
+  "timeline": "Single incident",
+  "challenges": "No communication plan.",
+  "constraints": "Engineers focused only on fixing.",
+  "questions": [
+   "Why did silence cause harm?",
+   "What should the first message include?",
+   "Who communicates?"
+  ],
+  "solution": "Nimbus assigned an incident communicator and updates every 30 minutes.",
+  "lessonsLearned": "Communication is part of the fix."
+ },
+ "quiz": [
+  {
+   "q": "Priority depends on:",
+   "options": [
+    "Arrival time only",
+    "Impact and urgency",
+    "Seniority only",
+    "Colour"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "SLA compliance is:",
+   "options": [
+    "Tickets / agents",
+    "Within-SLA tickets / total",
+    "Time / tickets",
+    "Users / days"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "A problem record targets:",
+   "options": [
+    "One user",
+    "A printer",
+    "Colour",
+    "Root cause of repeated incidents"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Updates should:",
+   "options": [
+    "Be rare",
+    "Use jargon",
+    "Be regular and clear",
+    "Be hidden"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "In the case study complaints grew because:",
+   "options": [
+    "Users heard nothing",
+    "Fast fixes",
+    "Small queue",
+    "Clear updates"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "How do you stay calm with an angry user?",
+   "What would you automate on a service desk?",
+   "How do you decide to raise a problem record?"
+  ]
+ },
+ "certificate": {
+  "name": "IT Support & Service Desk (ITIL) — Incident & SLA Management",
+  "nameAz": "İT Dəstək və Servis Desk (ITIL) — Insident və SLA İdarəsi",
+  "totalXp": 190
+ }
+}

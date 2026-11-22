@@ -1,0 +1,297 @@
+{
+  "id": "geotechnical-engineer-prime",
+  "title": "Geotechnical Engineer",
+  "companyId": "prime-infrastructure",
+  "category": "Geotechnical",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "GEO-014",
+  "skills": [
+    "Soil Classification",
+    "Foundation Design Logic",
+    "Bearing Capacity Calculation"
+  ],
+  "companyIntro": {
+    "name": "Prime Infrastructure",
+    "country": "Azerbaijan",
+    "founded": 1998,
+    "mission": "Deliver durable road and bridge infrastructure — foundations are only as good as the ground investigation behind them.",
+    "culture": "Methodical and evidence-driven. Geotechnical engineers are expected to let the borehole data decide the foundation type, not the schedule.",
+    "projects": [
+      "Baku Ring Road Flyover Package 3",
+      "Sumgait Industrial Access Upgrade",
+      "Ganja Bypass Bridge Rehabilitation"
+    ]
+  },
+  "projectBackground": {
+    "name": "Flyover Pier Foundation — Geotechnical Assessment",
+    "client": "Azerbaijan State Roads Agency",
+    "location": "Ring Road Package 3, Pier P-14",
+    "budget": "N/A — geotechnical design input",
+    "timeline": "Foundation type decision due this week, ahead of piling contractor mobilisation",
+    "context": "Borehole results for Pier P-14 have just come back, and they don't match the assumption the preliminary design was based on — the piling contractor is due to mobilise in 10 days, and the foundation type needs confirming before they do."
+  },
+  "manager": {
+    "name": "Farid Aliyev",
+    "role": "Project Civil Engineer, Prime Infrastructure",
+    "note": "The preliminary design assumed a shallow spread footing would work here, based on the boreholes from 200m away at Pier P-12. This borehole is telling a different story. Read it properly before we commit the piling contractor to the wrong foundation."
+  },
+  "assignment": {
+    "title": "Determine the correct foundation type for Pier P-14",
+    "brief": "Interpret the borehole log and SPT data, calculate the bearing capacity, and confirm whether a shallow footing is still viable or a piled foundation is required."
+  },
+  "documents": [
+    {
+      "id": "doc-borehole-log",
+      "name": "Borehole Log — Pier P-14 (BH-14)",
+      "type": "Geotechnical Report",
+      "note": "0-2m: soft clay fill. 2-6m: loose silty sand, SPT N-value 6-9. 6-12m: dense sand, SPT N-value 32-40. Groundwater table at 1.8m below ground level."
+    },
+    {
+      "id": "doc-p12-comparison",
+      "name": "Borehole Log — Pier P-12 (BH-12, 200m away, used for preliminary design)",
+      "type": "Geotechnical Report",
+      "note": "0-2m: firm clay. 2-8m: dense sand, SPT N-value 28-35 throughout. Groundwater table at 4.5m below ground level — notably deeper and denser than BH-14."
+    },
+    {
+      "id": "doc-spec-bearing",
+      "name": "Foundation Design Specification (extract)",
+      "type": "Specification",
+      "note": "Shallow spread footings permitted only where competent bearing strata (SPT N ≥ 25) is found within 3m of founding level, with groundwater at least 2m below founding level. Otherwise, piled foundation to competent strata required."
+    },
+    {
+      "id": "doc-foundation-template",
+      "name": "Foundation Type Decision Memo — Template",
+      "type": "Template",
+      "note": "Fields: borehole finding, comparison to design assumption, specification check, recommended foundation type, risk if not actioned."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-compare",
+      "type": "mcq",
+      "title": "Comparing the Two Boreholes",
+      "prompt": "BH-14 shows loose silty sand (SPT 6-9) from 2-6m with groundwater at 1.8m, while BH-12 (used for preliminary design) shows dense sand (SPT 28-35) with groundwater at 4.5m. What does this tell you?",
+      "options": [
+        "The two boreholes are close enough that BH-12's design assumption still applies to P-14",
+        "Ground conditions vary significantly between the two pier locations — P-14 has much weaker, shallower-groundwater conditions that the preliminary design never accounted for",
+        "BH-14 must be a testing error since it disagrees with BH-12",
+        "Groundwater depth is irrelevant to foundation design"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "The two boreholes, despite being only 200m apart, show materially different subsurface conditions — BH-14's loose sand and shallow groundwater are a genuinely different geotechnical situation from BH-12's dense sand and deep groundwater, meaning the preliminary design's assumption (based on BH-12) cannot simply be extended to Pier P-14 without re-checking against P-14's own actual data.",
+      "tip": "Never assume a single borehole represents an entire site — ground conditions can change meaningfully over short distances, especially near old drainage channels, fill areas, or variable deposition, and each pier's foundation should be checked against its own nearest borehole.",
+      "mistake": "Assuming 200m is 'close enough' for two boreholes to represent the same conditions, without checking the actual data, is a common and potentially serious error — this exact assumption is what led to the preliminary design being based on the wrong information for P-14.",
+      "recommendation": "Always plot borehole locations against pier positions on the site plan and confirm which borehole is actually representative of each specific foundation before finalising a foundation type — proximity alone doesn't guarantee similarity."
+    },
+    {
+      "id": "task-2-spec-check",
+      "type": "mcq",
+      "title": "Applying the Specification Test",
+      "prompt": "Per the specification, shallow footings require SPT N ≥ 25 within 3m of founding level and groundwater at least 2m below founding level. Does BH-14 meet this test?",
+      "options": [
+        "Yes, since dense sand (SPT 32-40) does exist deeper in the borehole",
+        "No — within the likely founding level range, BH-14 shows loose sand (SPT 6-9) and groundwater at only 1.8m, both failing the specification's requirements for a shallow footing",
+        "The specification doesn't apply to pier foundations",
+        "Yes, since the deepest layer meets both criteria"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "The specification's shallow-footing criteria must be met at the founding level itself (typically within the upper few metres where a spread footing would actually sit), not at some arbitrary deeper layer — BH-14's loose sand and shallow groundwater at the relevant depth range clearly fail both specification tests, even though denser sand exists much deeper.",
+      "tip": "Always apply specification criteria at the actual relevant depth (founding level), not to whichever layer in the borehole happens to satisfy the numbers — a competent layer 6-12m down doesn't help a shallow footing that would found much higher up.",
+      "mistake": "Citing the deep dense sand layer (SPT 32-40) as satisfying the specification, when a shallow footing would never actually reach that depth, misapplies the specification and could lead to approving an inadequate foundation.",
+      "recommendation": "When checking a specification's depth-based criteria, always state which specific layer and depth range you're checking against — this makes the compliance check traceable and defensible if reviewed later."
+    },
+    {
+      "id": "task-3-bearing-calc",
+      "type": "numeric",
+      "title": "Estimated Safe Bearing Capacity",
+      "prompt": "Using a simplified correlation (safe bearing capacity in kPa ≈ SPT N-value x 12) for the loose sand layer at founding level (SPT N=7, mid-range of 6-9), what is the estimated safe bearing capacity?",
+      "answer": 84,
+      "tolerance": 5,
+      "unit": "kPa",
+      "xp": 50,
+      "workingNote": "7 x 12 = 84 kPa.",
+      "reasoning": "Calculating the specific estimated bearing capacity (84 kPa) from the actual SPT data gives a concrete number to compare against the structural load requirement — this is what turns 'the soil seems weak' into a defensible, quantified engineering finding.",
+      "tip": "Always convert SPT N-values into an estimated bearing capacity using an appropriate correlation before making a foundation type recommendation — a qualitative sense of 'loose sand' isn't sufficient for an engineering decision that a piling contractor will act on.",
+      "mistake": "Skipping the bearing capacity calculation and going straight from 'the SPT values look low' to 'we need piles' is a reasonable instinct but leaves the recommendation without the quantified justification a design review would expect.",
+      "recommendation": "State the correlation formula and its limitations explicitly when reporting an estimated bearing capacity — simplified SPT correlations are a preliminary screening tool, and a final design would typically require a more detailed geotechnical calculation."
+    },
+    {
+      "id": "task-4-recommendation-options",
+      "type": "multiselect",
+      "title": "Foundation Options",
+      "prompt": "Given the findings, select every action that's part of a sound recommendation.",
+      "options": [
+        "Recommend a piled foundation to the competent dense sand layer found at 6-12m depth",
+        "Proceed with the shallow footing as originally planned to avoid delaying the piling contractor's mobilisation",
+        "Flag the discrepancy between BH-12 and BH-14 to the design team, since other piers near P-14 may share the same risk",
+        "Request confirmation of the pile design parameters (capacity, length) from the structural designer based on the dense layer found at 6-12m",
+        "Ignore the groundwater finding since it's not directly related to bearing capacity"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        3
+      ],
+      "xp": 55,
+      "reasoning": "A sound recommendation proposes piling to the competent layer found deeper in the borehole, flags that nearby piers may share the same undetected risk (since the original design assumption was based on a single non-representative borehole), and requests the structural designer confirm pile parameters against the actual ground data. Proceeding with the original shallow footing plan ignores a confirmed specification failure, and dismissing the groundwater finding ignores a real factor affecting both bearing capacity and construction feasibility (excavation, dewatering).",
+      "tip": "When one pier's borehole reveals conditions different from what the design assumed, always check whether nearby piers share the same design basis and might carry the same undetected risk — a single borehole discrepancy is rarely isolated to just one location.",
+      "mistake": "Proceeding with an inadequate foundation type to protect a contractor mobilisation schedule risks a much more serious and expensive problem (foundation settlement or failure) than the cost of a short delay to confirm the correct foundation type.",
+      "recommendation": "Always pass confirmed ground data to the structural designer for their own pile capacity calculation — a geotechnical engineer identifies the ground conditions and appropriate foundation type category, while the structural designer confirms the specific pile size, length, and capacity."
+    },
+    {
+      "id": "task-5-memo",
+      "type": "text",
+      "title": "Foundation Type Decision Memo",
+      "prompt": "Write the memo (3-5 sentences): the borehole finding, specification check, and recommendation.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "Borehole BH-14 at Pier P-14 shows loose silty sand (SPT N 6-9) at the likely founding depth with groundwater at 1.8m, materially different from BH-12 (200m away, used for the preliminary design), which showed dense sand and deeper groundwater. Per the foundation specification, shallow footings require SPT N ≥ 25 and groundwater at least 2m below founding level — BH-14 fails both criteria at founding depth, with an estimated safe bearing capacity of only approximately 84 kPa in the loose sand layer. I recommend a piled foundation to the competent dense sand layer found at 6-12m depth (SPT N 32-40), and request the structural designer confirm pile capacity and length against this data before the piling contractor's mobilisation in 10 days. I also recommend checking whether other piers near P-14 relied on the same BH-12 assumption and may carry the same undetected risk.",
+      "reasoning": "A strong decision memo states the specific borehole finding, checks it explicitly against the specification's numeric criteria, and gives a clear foundation type recommendation with the next required step (structural confirmation) — this is what lets the project move forward on solid ground, literally and procedurally, within the tight mobilisation timeline.",
+      "tip": "Always state the specific specification criteria checked and whether they passed or failed, not just a general conclusion — 'shallow footing is unsuitable' is a conclusion; showing exactly which numeric thresholds failed is the evidence supporting it.",
+      "mistake": "A memo that recommends piling without referencing the specific specification thresholds and borehole values leaves the recommendation harder to verify or defend if challenged by the contractor or client under schedule pressure.",
+      "recommendation": "Flag the timeline risk explicitly (10 days to piling mobilisation) in the memo — it signals the urgency of getting structural confirmation quickly, without compromising on the correct foundation decision itself."
+    },
+    {
+      "id": "task-6-spt-excel",
+      "type": "excel-upload",
+      "title": "Multi-Pier SPT Bearing Capacity Check (Excel)",
+      "prompt": "Three more piers need their estimated bearing capacity calculated from SPT data to check which ones may need piling. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "SPT-Bearing-Template.xlsx",
+        "sheetName": "Bearing Capacity",
+        "headers": [
+          "Pier",
+          "SPT N-Value at Founding Depth",
+          "Estimated Bearing Capacity (kPa, N x 12)",
+          "Meets Shallow Footing Threshold? (Y/N, need N≥25)"
+        ],
+        "rows": [
+          [
+            "P-15",
+            "28",
+            "",
+            ""
+          ],
+          [
+            "P-16",
+            "14",
+            "",
+            ""
+          ],
+          [
+            "P-17",
+            "30",
+            "",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "C2",
+          "expected": 336,
+          "tolerance": 5,
+          "label": "P-15 bearing capacity (28x12)"
+        },
+        {
+          "cell": "D2",
+          "expected": "Y",
+          "tolerance": 0,
+          "label": "P-15 meets threshold (N=28 ≥ 25)"
+        },
+        {
+          "cell": "C3",
+          "expected": 168,
+          "tolerance": 5,
+          "label": "P-16 bearing capacity (14x12)"
+        },
+        {
+          "cell": "D3",
+          "expected": "N",
+          "tolerance": 0,
+          "label": "P-16 fails threshold (N=14 < 25) — likely needs piling like P-14"
+        }
+      ],
+      "reasoning": "Calculating bearing capacity and checking the threshold consistently across every pier — not just the one already flagged — is what identifies P-16 as another pier likely needing piling, before the piling contractor mobilises rather than after a costly on-site surprise.",
+      "tip": "Apply the same SPT correlation and threshold check to every pier on the project as a standing screening step, not just piers where a problem has already been noticed — ground conditions can vary pier to pier even along a single structure.",
+      "mistake": "Checking only the pier that already triggered a concern, without screening the rest of the structure's piers the same way, risks missing another pier (like P-16 here) with a similarly inadequate shallow-footing condition.",
+      "recommendation": "Present this full pier-by-pier screening to the structural designer and piling contractor together before mobilisation — it's what lets the piling scope be finalised once, rather than being revised pier by pier as problems are discovered during construction."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Borehole 200 Metres Away",
+    "background": "On an earlier Prime Infrastructure project, a preliminary design assumed uniform ground conditions across an entire embankment based on a single borehole at one end — a pier at the far end, founded on undetected soft ground, settled differentially after construction, requiring an expensive underpinning remediation.",
+    "client": "Ganja Bypass Bridge Rehabilitation (an earlier phase)",
+    "budget": "Underpinning remediation cost: approximately $420,000, plus a multi-month closure of one traffic lane during repair",
+    "timeline": "Settlement became visible 8 months after opening to traffic; remediation took 3 months",
+    "challenges": "Because the original design relied on a single borehole assumed representative of the whole site, the localised soft ground condition at the affected pier was never identified before construction, and only became apparent once real structural settlement occurred.",
+    "constraints": "The remediation required staged jacking and underpinning of the affected pier while maintaining partial traffic flow, a far more complex and costly undertaking than additional geotechnical investigation would have been before construction.",
+    "questions": [
+      "Why can ground conditions vary significantly even across what seems like a single, continuous site?",
+      "What specific investigation practice would have caught the soft ground before construction?",
+      "How does the cost of additional boreholes compare to the cost of remediation after a foundation problem is discovered post-construction?"
+    ],
+    "solution": "Prime Infrastructure mandated a minimum of one borehole per major foundation element (not one per site or per structure), specifically to prevent a single non-representative borehole from being extrapolated across multiple foundations.",
+    "lessonsLearned": "Ground conditions can vary meaningfully over distances that seem short on a site plan, and extrapolating one borehole's findings across multiple foundation locations is a common but genuinely risky shortcut — the cost of additional geotechnical investigation before construction is almost always far lower than the cost of remediating a foundation problem discovered after the structure is built."
+  },
+  "quiz": [
+    {
+      "q": "Two boreholes 200m apart showing materially different soil and groundwater conditions means:",
+      "options": [
+        "The preliminary design based on one can safely apply to both",
+        "Each foundation location should be checked against its own representative borehole data"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A specification's shallow-footing bearing criteria should be checked against:",
+      "options": [
+        "Any layer in the borehole that happens to meet the numbers",
+        "The specific layer at the actual founding depth"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Converting SPT N-values to an estimated bearing capacity is useful because:",
+      "options": [
+        "It has no real engineering value",
+        "It quantifies soil strength into a specific, comparable number for the foundation decision"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When one pier's borehole reveals a foundation problem, it's important to also:",
+      "options": [
+        "Assume no other piers are affected",
+        "Check whether nearby piers relied on the same potentially non-representative borehole assumption"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, what caused the costly post-construction settlement?",
+      "options": [
+        "A single borehole's findings were extrapolated across the whole site, missing localised soft ground at one pier",
+        "The concrete used was substandard",
+        "The bridge design itself was flawed",
+        "There was no borehole investigation at all"
+      ],
+      "correctIndex": 0
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to check a specification's numeric criteria at the specific relevant depth, rather than anywhere favourable in the borehole? Why did that precision matter?",
+      "The case study shows a single borehole's assumption extrapolated across a site, missing a costly localised problem. Where else might extrapolating from limited data to a broader situation carry real risk?",
+      "If you were Farid, what one rule would you make standing so a foundation type is never confirmed based on a borehole from a different pier location?"
+    ]
+  },
+  "certificate": {
+    "name": "Geotechnical Engineer — Foundation Assessment & Bearing Capacity",
+    "nameAz": "Geotexniki Mühəndis — Təməl Qiymətləndirməsi",
+    "totalXp": 305
+  }
+}

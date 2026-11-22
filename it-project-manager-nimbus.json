@@ -1,0 +1,294 @@
+{
+  "id": "it-project-manager-nimbus",
+  "title": "IT Project Manager",
+  "companyId": "nimbus-digital",
+  "category": "IT Project Management",
+  "difficulty": "Intermediate",
+  "durationHours": 8,
+  "drawingTag": "PMO-027 / PHASE 2",
+  "skills": [
+    "Risk Assessment",
+    "Stakeholder Management",
+    "Scheduling"
+  ],
+  "companyIntro": {
+    "name": "Nimbus Digital",
+    "country": "Germany",
+    "founded": 2016,
+    "mission": "Ship reliable software for mid-market clients without the chaos of ad-hoc project management.",
+    "culture": "Direct with clients about risk, early. IT Project Managers are expected to surface a problem the week it appears, not the week before go-live.",
+    "projects": [
+      "Meridian Client Portal Rebuild",
+      "Nimbus Internal Analytics Suite",
+      "Fintra Payments Integration"
+    ]
+  },
+  "projectBackground": {
+    "name": "Fintra Payments Integration — Phase 2",
+    "client": "Fintra Financial Services",
+    "location": "Remote delivery, client based in Frankfurt",
+    "budget": "€1.2M (Phase 2 — payment gateway integration)",
+    "timeline": "16 weeks, currently in week 9, go-live contractually fixed for week 16",
+    "context": "The third-party payment gateway vendor has just announced their sandbox API will undergo a breaking change in 3 weeks, requiring integration rework. The client's go-live date is contractually fixed and tied to a marketing campaign — it cannot move."
+  },
+  "manager": {
+    "name": "Marcus Weber",
+    "role": "Head of Client Delivery, Nimbus Digital",
+    "note": "The go-live date is not moving — the client has a marketing campaign locked to it. I need to know today whether this vendor API change actually threatens week 16, and if it does, what we're doing about it. Don't wait until it's a crisis to tell me."
+  },
+  "assignment": {
+    "title": "Assess and mitigate the vendor API breaking change risk",
+    "brief": "Assess the schedule risk from the vendor's breaking API change, evaluate mitigation options, update the risk register, and communicate the plan to the client without alarming them unnecessarily."
+  },
+  "documents": [
+    {
+      "id": "doc-vendor-notice",
+      "name": "Vendor Notice — Sandbox API Breaking Change",
+      "type": "Correspondence",
+      "note": "Payment gateway vendor announces a breaking change to their authentication flow in 3 weeks, affecting all integrations; production cutover of the new flow is mandatory within 6 weeks of the sandbox change."
+    },
+    {
+      "id": "doc-integration-schedule",
+      "name": "Integration Work Schedule (extract)",
+      "type": "Schedule",
+      "note": "Current integration work is 70% complete against the old auth flow. Estimated rework effort for the new flow: 2 developer-weeks, based on the vendor's migration guide."
+    },
+    {
+      "id": "doc-risk-register",
+      "name": "Project Risk Register (extract)",
+      "type": "Risk Register",
+      "note": "Risk R-05 'Third-party API instability' was logged at Low (Likelihood: Unlikely=2, Severity: Moderate=3, Score=6) with no contingency time allocated in the schedule."
+    },
+    {
+      "id": "doc-client-comms-template",
+      "name": "Client Status Update — Template",
+      "type": "Template",
+      "note": "Fields: current status, risk identified, impact assessment, mitigation plan, confidence in go-live date."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-risk-rerate",
+      "type": "mcq",
+      "title": "Re-Rating the Risk",
+      "prompt": "Risk R-05 was logged at Low (Score 6) before this vendor notice. Now that the breaking change has actually been announced with a firm date, how should this risk be treated?",
+      "options": [
+        "Leave it at Low, since the original assessment was reasonable at the time",
+        "Re-rate it immediately — the risk has moved from a future possibility to a confirmed event with a specific date and required rework, and contingency needs allocating now",
+        "Remove it from the register since it's no longer a 'risk', it's already happening",
+        "Wait until closer to the vendor's change date to reassess"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "A risk that has moved from 'might happen' to 'confirmed, with a specific date and known rework effort' needs immediate re-rating and contingency allocation — waiting to reassess, or treating it as unchanged from its original speculative rating, both delay the exact planning response this new information demands.",
+      "tip": "Treat a vendor's formal notice of a breaking change as an immediate trigger for risk re-assessment, not a routine update to note for later — the earlier the re-rating happens, the more schedule options remain available.",
+      "mistake": "Leaving a risk's rating unchanged after a defining event (like a firm vendor announcement) just because 'that's what it was originally rated' ignores that the entire basis for the original rating has changed.",
+      "recommendation": "Build a habit of immediately re-opening and re-rating any risk register entry the moment new information confirms or changes its likelihood — don't wait for a scheduled risk review if the information is time-sensitive."
+    },
+    {
+      "id": "task-2-impact",
+      "type": "numeric",
+      "title": "Schedule Impact Assessment",
+      "prompt": "2 developer-weeks of rework is needed, and the team has 1.5 developer-weeks of existing schedule float before week 16. What is the net schedule shortfall (in developer-weeks)?",
+      "answer": 0.5,
+      "tolerance": 0,
+      "unit": "developer-weeks",
+      "xp": 45,
+      "workingNote": "2 - 1.5 = 0.5 developer-weeks of shortfall not currently covered by existing float.",
+      "reasoning": "Calculating the net shortfall (required rework minus available float) is what turns a vague 'this might be a problem' into a specific, actionable planning question — a 0.5 developer-week gap is a very different conversation than an un-quantified 'might be tight'.",
+      "tip": "Always net a new risk's required effort against currently available float before escalating — if float fully covers it, the risk may not need urgent client communication at all; if it doesn't, the shortfall itself becomes the concrete thing to solve.",
+      "mistake": "Treating the full rework estimate (2 developer-weeks) as the impact, without netting off existing float, overstates the problem and can trigger an unnecessarily alarming client conversation.",
+      "recommendation": "Present schedule risk to leadership as a net figure with its components shown (required effort, available float, resulting gap) — this is what lets Marcus and the client both understand exactly how much of a problem this really is, not just that a problem exists."
+    },
+    {
+      "id": "task-3-mitigation",
+      "type": "multiselect",
+      "title": "Mitigation Options",
+      "prompt": "Given a 0.5 developer-week shortfall against a fixed go-live date, select every option worth genuinely evaluating.",
+      "options": [
+        "Add a short-term contractor for the specific rework task to close the 0.5-week gap",
+        "Ask the client to move their marketing campaign, since it's their problem to solve",
+        "Deprioritize a lower-value, non-critical feature currently in the same sprint to free up 0.5 developer-weeks",
+        "Ignore the gap and hope the rework goes faster than estimated",
+        "Check whether the vendor's 6-week production cutover deadline gives slightly more flexibility than assumed, since only the sandbox change is in 3 weeks"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        4
+      ],
+      "xp": 55,
+      "reasoning": "Genuine mitigation options include adding short-term capacity, deprioritizing lower-value scope to free up time, and double-checking whether the actual hard deadline (production cutover) is less immediate than the sandbox change date. Asking the client to move a fixed, externally-committed marketing campaign isn't a realistic option to lead with, and hoping the estimate is wrong isn't a mitigation strategy at all.",
+      "tip": "Before treating every deadline in a vendor notice as equally urgent, check which one is the actual hard constraint — here, the sandbox change is in 3 weeks, but production cutover isn't required for 6, which may reduce the effective time pressure if the team can work against the new flow before the sandbox forces the issue.",
+      "mistake": "Jumping to 'we need more time from the client' as a first option, without first checking internal mitigation options (capacity, reprioritization) or re-reading the vendor notice carefully for the actual hard deadline, tends to unnecessarily strain the client relationship.",
+      "recommendation": "Always exhaust internal mitigation options and re-verify the true hard deadline before considering any request that shifts burden onto the client — it preserves trust and is usually where the actual solution is found anyway."
+    },
+    {
+      "id": "task-4-client-comms",
+      "type": "text",
+      "title": "Client Status Update",
+      "prompt": "Write the client status update (3-5 sentences): the risk, its actual impact after assessment, and your mitigation plan and confidence in the go-live date.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "The payment gateway vendor has announced a breaking authentication change with a sandbox deadline in 3 weeks and a production cutover deadline in 6 weeks; our integration work requires approximately 2 developer-weeks of rework to adopt the new flow. After accounting for existing schedule float, this leaves a 0.5 developer-week gap, which we are closing by deprioritizing a non-critical reporting enhancement originally scheduled for this sprint and adding short-term contractor capacity for the specific rework task. We remain confident in the week 16 go-live date, and given the vendor's 6-week production cutover deadline (versus the 3-week sandbox deadline), we have more schedule flexibility on this than the initial notice suggested. We'll confirm rework completion in next week's status update.",
+      "reasoning": "A strong client update names the risk precisely, gives the assessed impact (not just the raw vendor notice), states a specific mitigation plan, and gives a clear confidence statement on the date that matters most to the client — this is what reassures a client without either hiding the issue or overstating its severity.",
+      "tip": "Always end a risk-related client update with an explicit confidence statement on the deadline that matters to them — clients remember whether you were clear about the date, more than the technical details of the risk itself.",
+      "mistake": "Either omitting a real risk from client communication (to avoid seeming behind) or over-alarming the client with unmitigated raw impact numbers are both worse than a calm, specific update showing the risk was assessed and is being actively managed.",
+      "recommendation": "Practice writing risk communications that lead with reassurance backed by specifics, not just reassurance alone — 'we're confident because X, Y, Z' is far more credible to a client than 'don't worry, we've got this.'"
+    },
+    {
+      "id": "task-5-register-update",
+      "type": "text",
+      "title": "Risk Register Update Entry",
+      "prompt": "Write the risk register update (3-5 sentences): new rating, mitigation actions taken, and residual risk after mitigation.",
+      "minLength": 40,
+      "xp": 45,
+      "modelAnswer": "Risk R-05 (Third-party API instability) is re-rated from Low (Score 6) to Medium (Score 12; Likelihood: Confirmed=4, Severity: Moderate=3) following the vendor's breaking change notice, given a confirmed 2 developer-week rework requirement against a 6-week hard production deadline. Mitigation: one non-critical feature deprioritized and short-term contractor capacity added, closing the 0.5 developer-week shortfall against existing float. Residual risk: Low — remaining exposure is limited to the vendor's migration guide proving incomplete or inaccurate, which would require a follow-up assessment once rework begins. This entry will be reviewed again once the sandbox migration is tested, ahead of the production cutover deadline.",
+      "reasoning": "A complete risk register update states the new rating with its basis, the specific mitigation actions taken, and any residual risk remaining after mitigation — this is what makes the register a living, useful planning tool rather than a static log nobody revisits.",
+      "tip": "Always state residual risk after mitigation, not just the mitigation itself — a risk that's been addressed but not eliminated (like relying on a vendor's migration guide being accurate) still deserves a follow-up trigger point.",
+      "mistake": "Closing out a risk register entry as 'resolved' once a mitigation plan exists, without naming what could still go wrong, risks a false sense of security if the mitigation itself turns out to be incomplete.",
+      "recommendation": "Set an explicit follow-up trigger (like 'review once sandbox migration is tested') for any risk still carrying residual exposure — it's what ensures the register gets revisited at the right moment, rather than relying on memory."
+    },
+    {
+      "id": "task-6-schedule-excel",
+      "type": "excel-upload",
+      "title": "Multi-Risk Schedule Buffer Tracker (Excel)",
+      "prompt": "Three more active risks need their schedule impact netted against available float the same way. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "Schedule-Buffer-Template.xlsx",
+        "sheetName": "Risk Buffer",
+        "headers": [
+          "Risk",
+          "Required Effort (dev-weeks)",
+          "Available Float (dev-weeks)",
+          "Net Shortfall (dev-weeks)"
+        ],
+        "rows": [
+          [
+            "Third-Party Auth Library Deprecation",
+            "1.5",
+            "2.0",
+            ""
+          ],
+          [
+            "Client-Side Requirements Change",
+            "3.0",
+            "1.0",
+            ""
+          ],
+          [
+            "QA Environment Instability",
+            "0.8",
+            "0.8",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": -0.5,
+          "tolerance": 0,
+          "label": "Auth Library risk (1.5-2.0, a surplus not a shortfall)"
+        },
+        {
+          "cell": "D3",
+          "expected": 2.0,
+          "tolerance": 0,
+          "label": "Requirements Change risk (3.0-1.0, genuine 2.0 dev-week shortfall)"
+        },
+        {
+          "cell": "D4",
+          "expected": 0,
+          "tolerance": 0,
+          "label": "QA Environment risk (0.8-0.8, exactly covered)"
+        }
+      ],
+      "reasoning": "Calculating net shortfall consistently across every active risk — including ones where float actually exceeds required effort (a negative 'shortfall', meaning surplus) — is what gives an IT Project Manager a true, prioritized picture of where real schedule exposure exists across the whole project, not just the one risk currently in focus.",
+      "tip": "Don't floor a shortfall calculation at zero — a negative result (surplus) is meaningful information showing that risk has more than enough buffer, which matters when deciding where to reallocate contingency from if another risk needs it.",
+      "mistake": "Treating every risk as equally urgent without calculating each one's actual net shortfall can misdirect attention toward a risk that's already comfortably covered by float while a genuinely under-covered risk (like the Requirements Change here) gets less scrutiny than it needs.",
+      "recommendation": "Maintain this net-shortfall view across the full active risk register, updated whenever effort estimates or float changes — it's what lets you reallocate a surplus from one risk (like the Auth Library one) to cover a genuine gap elsewhere, rather than requesting new contingency for every individual risk."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Risk That Was Assessed Too Late",
+    "background": "On an earlier Nimbus project, a similar third-party API breaking change notice was received but treated as a routine vendor email rather than an immediate risk re-assessment trigger — by the time its schedule impact was actually calculated, only 5 days remained before the vendor's cutover deadline, leaving no time for a considered mitigation plan.",
+    "client": "An earlier client integration project",
+    "budget": "Emergency contractor cost to meet the deadline: €38,000, roughly triple the cost of a planned mitigation",
+    "timeline": "Vendor notice received with 4 weeks' lead time; risk assessment only happened in the final week",
+    "challenges": "Because there was so little time left once the risk was actually assessed, the only viable mitigation was expensive emergency contractor capacity at a premium rate, rather than the more considered options (reprioritization, planned capacity addition) that would have been available with earlier assessment.",
+    "constraints": "The compressed timeline also meant less rigorous testing of the migrated integration than would normally be standard, adding a quality risk on top of the schedule pressure.",
+    "questions": [
+      "Why does the time between receiving a risk notice and assessing its impact matter so much, even if the deadline itself doesn't change?",
+      "What specific habit would ensure a vendor notice is never treated as 'routine' when it could be a real risk trigger?",
+      "How did assessing the risk late end up compounding into a second risk (rushed testing)?"
+    ],
+    "solution": "Nimbus introduced a standing rule that any vendor or third-party notice mentioning a breaking change, deprecation, or deadline must trigger a risk re-assessment within 48 hours of receipt, regardless of how far away the deadline seems.",
+    "lessonsLearned": "The value of early risk assessment isn't just about the deadline itself — it's about how many mitigation options remain available the earlier you act. A risk assessed with 4 weeks of runway has cheap, considered options; the same risk assessed with 5 days often only has expensive, rushed ones."
+  },
+  "quiz": [
+    {
+      "q": "A risk register entry rated 'Low' before a vendor confirms a breaking change with a firm date should be:",
+      "options": [
+        "Left unchanged since the original rating was reasonable at the time",
+        "Immediately re-rated and re-assessed for schedule impact",
+        "Deleted since it's no longer a future risk",
+        "Only revisited at the next scheduled risk review"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Required rework is 2 developer-weeks; available float is 1.5 developer-weeks. The net shortfall is:",
+      "options": [
+        "2 developer-weeks",
+        "0.5 developer-weeks",
+        "3.5 developer-weeks",
+        "There is no shortfall"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When a vendor notice lists multiple deadlines (e.g., sandbox change vs. production cutover), an IT Project Manager should:",
+      "options": [
+        "Treat the earliest date as the only one that matters",
+        "Identify which deadline is the actual hard constraint, since this affects real available time",
+        "Ignore the later deadline entirely",
+        "Assume both deadlines are equally binding without checking"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A risk register update should include, after mitigation is applied:",
+      "options": [
+        "Nothing further, mitigation closes the risk",
+        "The residual risk remaining, with a follow-up trigger if appropriate",
+        "Only the original risk rating, unchanged",
+        "A note that the risk no longer needs tracking"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did a routine-seeming vendor notice end up costing triple the expected mitigation cost?",
+      "options": [
+        "The vendor changed the deadline unfairly",
+        "The notice wasn't assessed as a real risk until only 5 days remained, eliminating cheaper mitigation options",
+        "The team refused to work on it",
+        "There was no actual cost increase"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to calculate a specific net number (shortfall, impact) rather than relying on a general sense that 'this seems risky'? Why did the specific number change the response?",
+      "The case study shows early assessment giving cheap options and late assessment giving only expensive ones, for the exact same underlying risk. Where else might timing of assessment matter more than the risk itself?",
+      "If you were Marcus, what one rule would you make standing so a vendor notice is never treated as 'just an email' again?"
+    ]
+  },
+  "certificate": {
+    "name": "IT Project Manager — Vendor Risk & Schedule Recovery",
+    "nameAz": "İT Layihə Meneceri — Təchizatçı Riski və Cədvəl Bərpası",
+    "totalXp": 305
+  }
+}
