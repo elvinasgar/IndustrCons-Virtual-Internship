@@ -1,0 +1,244 @@
+{
+ "id": "recruiter-talent-acquisition-people-first",
+ "title": "Recruiter (Talent Acquisition)",
+ "companyId": "people-first-partners",
+ "category": "Recruitment",
+ "difficulty": "Beginner",
+ "durationHours": 6,
+ "drawingTag": "REC-120",
+ "skills": [
+  "Hiring Metrics",
+  "Structured Interviewing",
+  "Fair Selection"
+ ],
+ "companyIntro": {
+  "name": "People First Partners",
+  "country": "Poland",
+  "founded": 2010,
+  "mission": "Make hiring, pay and employee relations fair, compliant and efficient.",
+  "culture": "Fair process, accurate records. People decisions are documented and explainable.",
+  "projects": [
+   "Graduate Hiring Programme",
+   "Payroll Consolidation",
+   "Pay Equity Review"
+  ]
+ },
+ "projectBackground": {
+  "name": "Graduate Hiring Programme",
+  "client": "Atlas Manufacturing (client)",
+  "location": "Warsaw, remote",
+  "budget": "Recruitment budget: €30,000",
+  "timeline": "Quarterly review",
+  "context": "Roles are taking too long to fill and good candidates decline. The client wants a fix without lowering standards."
+ },
+ "manager": {
+  "name": "Agnieszka Nowak",
+  "role": "Head of Talent, People First Partners",
+  "note": "Speed and fairness aren't opposites. Show me the funnel and how you keep it consistent."
+ },
+ "assignment": {
+  "title": "Speed up hiring fairly",
+  "brief": "Calculate hiring metrics, choose interview methods, reduce bias and write a candidate message."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Time-to-Hire",
+   "type": "Report",
+   "note": "Three recent hires took 30, 42 and 36 days."
+  },
+  {
+   "id": "doc-2",
+   "name": "Offers",
+   "type": "Report",
+   "note": "24 offers; 18 accepted."
+  },
+  {
+   "id": "doc-3",
+   "name": "Costs",
+   "type": "Finance",
+   "note": "Internal cost 12,000; external cost 18,000; 20 hires."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "rec-1-tth",
+   "type": "numeric",
+   "title": "Average Time-to-Hire",
+   "prompt": "Hires took 30, 42 and 36 days. What is the average?",
+   "answer": 36,
+   "tolerance": 0.2,
+   "unit": "days",
+   "xp": 30,
+   "workingNote": "(30 + 42 + 36) / 3 = 36.",
+   "reasoning": "Average shows the typical speed.",
+   "tip": "Also report the median.",
+   "mistake": "Using the longest case only skews the picture.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rec-2-accept",
+   "type": "numeric",
+   "title": "Offer Acceptance Rate",
+   "prompt": "24 offers; 18 accepted. What is acceptance (%)?",
+   "answer": 75,
+   "tolerance": 0.5,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "18 / 24 = 75%.",
+   "reasoning": "Declines cost time and money.",
+   "tip": "Ask decliners why.",
+   "mistake": "Not tracking reasons leaves the problem unfixed.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rec-3-cph",
+   "type": "numeric",
+   "title": "Cost per Hire",
+   "prompt": "Internal 12,000 + external 18,000 for 20 hires. What is cost per hire?",
+   "answer": 1500,
+   "tolerance": 5,
+   "unit": "currency units",
+   "xp": 35,
+   "workingNote": "30,000 / 20 = 1,500.",
+   "reasoning": "Include all costs.",
+   "tip": "Compare channels.",
+   "mistake": "Counting only agency fees understates cost.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rec-4-struct",
+   "type": "mcq",
+   "title": "Structured Interviews",
+   "prompt": "Why use structured interviews?",
+   "options": [
+    "Same questions and scoring make comparison fairer and more predictive",
+    "They are faster to write only",
+    "They sound formal",
+    "They avoid records"
+   ],
+   "correctIndex": 0,
+   "xp": 35,
+   "reasoning": "Structure improves fairness and validity.",
+   "tip": "Score against criteria.",
+   "mistake": "Unstructured chats favour similar-to-me candidates.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rec-5-bias",
+   "type": "multiselect",
+   "title": "Reducing Bias",
+   "prompt": "Select practices that reduce bias.",
+   "options": [
+    "Use a diverse panel and written scoring",
+    "Define job criteria before screening",
+    "Use anonymised first-round screening where possible",
+    "Skip documentation",
+    "Hire on gut feeling"
+   ],
+   "correctIndices": [
+    0,
+    1,
+    2
+   ],
+   "xp": 40,
+   "reasoning": "Criteria and process limit bias.",
+   "tip": "Record reasons for decisions.",
+   "mistake": "Gut feeling repeats past patterns.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rec-6-msg",
+   "type": "text",
+   "title": "Candidate Message",
+   "prompt": "Write a 3-5 sentence rejection message that is respectful and useful.",
+   "minLength": 90,
+   "xp": 45,
+   "modelAnswer": "Thank you for taking the time to interview for the graduate analyst role. After careful comparison against the role criteria we have decided to move forward with another candidate. Your case presentation was a clear strength, and if you'd like, I can share brief feedback on the areas we'd suggest developing. We will keep your details with your permission for future roles.",
+   "reasoning": "A good message is timely, respectful and offers feedback.",
+   "tip": "Thanks, decision, strength, next step.",
+   "mistake": "Silence harms your employer brand.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Candidate Who Never Heard Back",
+  "background": "A company left finalists waiting three weeks with no message. Half withdrew and several posted negative reviews.",
+  "client": "Large employer",
+  "budget": "Lost candidates and reputation",
+  "timeline": "Quarterly review",
+  "challenges": "No communication standards.",
+  "constraints": "Recruiters were overloaded.",
+  "questions": [
+   "Why did candidates drop out?",
+   "What standard would you set?",
+   "How would you measure it?"
+  ],
+  "solution": "People First introduced a 48-hour update standard.",
+  "lessonsLearned": "Communicate every stage."
+ },
+ "quiz": [
+  {
+   "q": "Cost per hire:",
+   "options": [
+    "Hires / cost",
+    "Salary",
+    "Fees",
+    "Total cost / hires"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Acceptance rate:",
+   "options": [
+    "Accepted / offers",
+    "Offers / accepted",
+    "Hires",
+    "Cost"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Structured interviews use:",
+   "options": [
+    "Different questions",
+    "The same questions",
+    "None",
+    "Gut feel"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Bias is reduced by:",
+   "options": [
+    "Gut feel",
+    "Clear criteria",
+    "Rumours",
+    "Secrecy"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "No updates to candidates",
+    "High pay",
+    "Fast hiring",
+    "Few jobs"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which metric would you fix first?",
+   "How do you keep interviews fair?",
+   "How do you give feedback kindly?"
+  ]
+ },
+ "certificate": {
+  "name": "Recruiter (Talent Acquisition) — Metrics & Fair Selection",
+  "nameAz": "İşə Götürmə Mütəxəssisi — Göstəricilər və Ədalətli Seçim",
+  "totalXp": 215
+ }
+}

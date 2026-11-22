@@ -1,0 +1,287 @@
+{
+ "id": "store-manager-nova",
+ "title": "Store Manager",
+ "companyId": "nova-retail",
+ "category": "Retail Operations",
+ "difficulty": "Beginner",
+ "durationHours": 6,
+ "drawingTag": "STR-115",
+ "skills": [
+  "Retail KPIs",
+  "Labour Scheduling",
+  "Shrinkage Control"
+ ],
+ "companyIntro": {
+  "name": "Nova Retail Group",
+  "country": "United Kingdom",
+  "founded": 1998,
+  "mission": "Run stores and online shops that customers return to and shareholders can rely on.",
+  "culture": "Numbers on Monday, action by Tuesday. Every KPI has an owner and a weekly review.",
+  "projects": [
+   "Store Network Refresh",
+   "Online Marketplace Launch",
+   "Loyalty Programme Redesign"
+  ]
+ },
+ "projectBackground": {
+  "name": "Store Network Refresh — Riverside Store",
+  "client": "Nova Retail Group",
+  "location": "Manchester, on-site",
+  "budget": "Weekly sales: €900,000 (stage data)",
+  "timeline": "Weekly review on Monday",
+  "context": "Riverside is under its profit target. Head office wants to know where the money leaks."
+ },
+ "manager": {
+  "name": "Claire Whitfield",
+  "role": "Regional Director, Nova Retail Group",
+  "note": "Numbers on Monday, action by Tuesday. Tell me the KPI, the cause and your fix."
+ },
+ "assignment": {
+  "title": "Find the leaks in the store",
+  "brief": "Calculate sales per m², labour %, shrinkage, check departments in Excel and write the weekly report."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Store Data",
+   "type": "Report",
+   "note": "Sales €900,000 over 600 m²; labour €108,000; stock loss 2.4% of sales."
+  },
+  {
+   "id": "doc-2",
+   "name": "Department Table",
+   "type": "Table",
+   "note": "Three departments with sales and labour."
+  },
+  {
+   "id": "doc-3",
+   "name": "Rota",
+   "type": "Schedule",
+   "note": "Peak hours understaffed; quiet hours overstaffed."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "str-1-density",
+   "type": "numeric",
+   "title": "Sales Density",
+   "prompt": "Sales €900,000 over 600 m². What is sales per m² (€)?",
+   "answer": 1500,
+   "tolerance": 5,
+   "unit": "EUR per m²",
+   "xp": 30,
+   "workingNote": "900,000 / 600 = 1,500.",
+   "reasoning": "Sales density compares store productivity.",
+   "tip": "Benchmark against similar stores.",
+   "mistake": "Comparing total sales of different-sized stores misleads.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "str-2-labour",
+   "type": "numeric",
+   "title": "Labour Cost %",
+   "prompt": "Labour cost €108,000 on sales €900,000. What is labour % of sales?",
+   "answer": 12,
+   "tolerance": 0.2,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "108,000 / 900,000 = 12%.",
+   "reasoning": "Labour % is a core KPI.",
+   "tip": "Schedule to demand.",
+   "mistake": "Cutting hours at peak loses sales.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "str-3-shrink",
+   "type": "numeric",
+   "title": "Shrinkage Loss",
+   "prompt": "Stock loss is 2.4% of €900,000 sales. What is the loss (€)?",
+   "answer": 21600,
+   "tolerance": 50,
+   "unit": "EUR",
+   "xp": 35,
+   "workingNote": "900,000 x 0.024 = 21,600.",
+   "reasoning": "Shrink hits profit directly.",
+   "tip": "Split by cause: theft, error, damage.",
+   "mistake": "Treating shrink as unavoidable hides fixable causes.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "str-4-shrink",
+   "type": "multiselect",
+   "title": "Reducing Shrink",
+   "prompt": "Select actions that reduce shrinkage.",
+   "options": [
+    "Clear receiving checks",
+    "Skip receiving checks",
+    "Ignore damaged stock",
+    "Cycle counts on high-risk items",
+    "Staff awareness and visible deterrents"
+   ],
+   "correctIndices": [
+    0,
+    3,
+    4
+   ],
+   "xp": 35,
+   "reasoning": "Control receiving, counts and deterrence.",
+   "tip": "Measure by category.",
+   "mistake": "Skipping checks lets errors become losses.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "str-5-dept",
+   "type": "excel-upload",
+   "title": "Department Labour % (Excel)",
+   "prompt": "Labour % in column D = C / B x 100.",
+   "xp": 55,
+   "template": {
+    "fileName": "Dept-Template.xlsx",
+    "sheetName": "Dept",
+    "headers": [
+     "Department",
+     "Sales (EUR)",
+     "Labour (EUR)",
+     "Labour %"
+    ],
+    "rows": [
+     [
+      "Grocery",
+      "500000",
+      "55000",
+      ""
+     ],
+     [
+      "Apparel",
+      "250000",
+      "40000",
+      ""
+     ],
+     [
+      "Electronics",
+      "150000",
+      "12000",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 11,
+     "tolerance": 0.1,
+     "label": "Grocery"
+    },
+    {
+     "cell": "D3",
+     "expected": 16,
+     "tolerance": 0.1,
+     "label": "Apparel"
+    },
+    {
+     "cell": "D4",
+     "expected": 8,
+     "tolerance": 0.1,
+     "label": "Electronics"
+    }
+   ],
+   "reasoning": "Apparel's labour % is the outlier.",
+   "tip": "Check the rota for that department.",
+   "mistake": "Averaging hides the outlier.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "str-6-report",
+   "type": "text",
+   "title": "Weekly Report",
+   "prompt": "Write a 3-5 sentence weekly report to head office.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "Sales were €900,000, €1,500 per m², with labour at 12% of sales. Shrinkage cost €21,600 (2.4%); we are adding cycle counts on electronics and a receiving check. Apparel labour is 16% against 11% in grocery, so I am moving two hours from quiet mornings to Saturday peak. I will report the impact next Monday.",
+   "reasoning": "A good report gives KPIs, causes and actions.",
+   "tip": "KPI, cause, action, follow-up.",
+   "mistake": "Numbers without actions are just history.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Quiet Leak",
+  "background": "A store lost 3.5% of sales to shrink for a year. Most of it was supplier delivery errors never checked at receiving.",
+  "client": "Retail client",
+  "budget": "€310,000 annual loss",
+  "timeline": "Annual stock count",
+  "challenges": "Deliveries were signed without counting.",
+  "constraints": "Focus was on shoplifting.",
+  "questions": [
+   "Why was the cause missed?",
+   "What control would help?",
+   "How would you measure it?"
+  ],
+  "solution": "Nova introduced blind receiving counts and weekly variance reports.",
+  "lessonsLearned": "Check what comes in."
+ },
+ "quiz": [
+  {
+   "q": "Sales density is:",
+   "options": [
+    "Area / sales",
+    "Sales x area",
+    "Labour",
+    "Sales / area"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Labour % is:",
+   "options": [
+    "Labour / sales",
+    "Sales / labour",
+    "Labour x sales",
+    "Cost"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Shrink includes:",
+   "options": [
+    "Only theft",
+    "Only profit",
+    "Theft, error and damage",
+    "Only tax"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Receiving checks reduce:",
+   "options": [
+    "Sales",
+    "Supplier errors",
+    "Staff",
+    "Space"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "The case study lost because:",
+   "options": [
+    "No shoplifting",
+    "Deliveries weren't checked",
+    "Strong sales",
+    "Few staff"
+   ],
+   "correctIndex": 1
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which KPI would you watch daily?",
+   "How do you schedule for peaks?",
+   "How do you talk to staff about shrink?"
+  ]
+ },
+ "certificate": {
+  "name": "Store Manager — KPIs, Labour & Shrinkage",
+  "nameAz": "Mağaza Meneceri — KPI, Əmək və İtkilər",
+  "totalXp": 235
+ }
+}

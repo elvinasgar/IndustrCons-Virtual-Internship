@@ -1,0 +1,244 @@
+{
+ "id": "railway-engineer-vertex",
+ "title": "Railway Engineer",
+ "companyId": "vertex-infrastructure",
+ "category": "Railway Engineering",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "RLY-104",
+ "skills": [
+  "Curve Cant",
+  "Braking & Capacity",
+  "Possession Safety"
+ ],
+ "companyIntro": {
+  "name": "Vertex Infrastructure",
+  "country": "Norway",
+  "founded": 1994,
+  "mission": "Design and deliver bridges and railways that last a century and cost less to keep.",
+  "culture": "Load paths, tolerances and inspection records are non-negotiable. Every assumption is checked by a second engineer.",
+  "projects": [
+   "Fjord Crossing Viaduct",
+   "Regional Rail Upgrade",
+   "Depot Electrification"
+  ]
+ },
+ "projectBackground": {
+  "name": "Regional Rail Upgrade — Curve Realignment",
+  "client": "Regional Rail Authority",
+  "location": "Oslo, on-site",
+  "budget": "Programme budget: NOK 220M",
+  "timeline": "Possession booked in four weeks",
+  "context": "A curve is being realigned for 100 km/h. The timetable team wants more trains per hour."
+ },
+ "manager": {
+  "name": "Ingrid Solberg",
+  "role": "Head of Rail, Vertex Infrastructure",
+  "note": "Trains don't forgive approximations. Calculate, then check, then plan how nobody gets hurt doing it."
+ },
+ "assignment": {
+  "title": "Design the curve and plan the possession",
+  "brief": "Calculate cant, braking distance and capacity, then plan a safe possession."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Curve Data",
+   "type": "Alignment",
+   "note": "Speed 100 km/h; radius 800 m."
+  },
+  {
+   "id": "doc-2",
+   "name": "Braking Data",
+   "type": "Vehicle Spec",
+   "note": "Speed 30 m/s; deceleration 0.9 m/s²."
+  },
+  {
+   "id": "doc-3",
+   "name": "Timetable Data",
+   "type": "Planning",
+   "note": "Minimum headway 4 minutes."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "rly-1-cant",
+   "type": "numeric",
+   "title": "Equilibrium Cant",
+   "prompt": "C = 11.8 x V² / R (V in km/h, R in m, C in mm). V = 100, R = 800. What is C (mm)?",
+   "answer": 147.5,
+   "tolerance": 1,
+   "unit": "mm",
+   "xp": 40,
+   "workingNote": "11.8 x 10,000 / 800 = 147.5.",
+   "reasoning": "Cant balances centrifugal effect for passenger comfort.",
+   "tip": "Apply the cant limit and deficiency rules.",
+   "mistake": "Using R in km gives nonsense.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rly-2-brake",
+   "type": "numeric",
+   "title": "Braking Distance",
+   "prompt": "s = v² / (2a). v = 30 m/s, a = 0.9 m/s². What is s (m)?",
+   "answer": 500,
+   "tolerance": 2,
+   "unit": "m",
+   "xp": 35,
+   "workingNote": "900 / 1.8 = 500.",
+   "reasoning": "Distance grows with the square of speed.",
+   "tip": "Use service, not emergency, deceleration for planning.",
+   "mistake": "Using speed in km/h without converting is wrong.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rly-3-cap",
+   "type": "numeric",
+   "title": "Line Capacity",
+   "prompt": "Headway is 4 minutes. How many trains per hour per direction?",
+   "answer": 15,
+   "tolerance": 0,
+   "unit": "trains per hour",
+   "xp": 30,
+   "workingNote": "60 / 4 = 15.",
+   "reasoning": "Capacity is limited by headway.",
+   "tip": "Compare to the timetable demand.",
+   "mistake": "Ignoring dwell time overstates capacity.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rly-4-ballast",
+   "type": "mcq",
+   "title": "Ballast",
+   "prompt": "What is one main role of ballast?",
+   "options": [
+    "Distribute load and provide drainage and track stability",
+    "Decoration",
+    "Blocking signals",
+    "Cooling rails"
+   ],
+   "correctIndex": 0,
+   "xp": 30,
+   "reasoning": "Ballast spreads loads and keeps track geometry.",
+   "tip": "Maintain profile and cleanliness.",
+   "mistake": "Fouled ballast causes track faults.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rly-5-poss",
+   "type": "multiselect",
+   "title": "Possession Safety",
+   "prompt": "Select elements of a safe track possession.",
+   "options": [
+    "Verbal-only plan",
+    "Working without protection if it is short",
+    "Protection against approaching trains",
+    "Named person in charge",
+    "Briefing and sign-on of all staff"
+   ],
+   "correctIndices": [
+    2,
+    3,
+    4
+   ],
+   "xp": 45,
+   "reasoning": "Possessions need protection, control and communication.",
+   "tip": "No protection, no work.",
+   "mistake": "Short jobs are where accidents happen.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rly-6-plan",
+   "type": "text",
+   "title": "Possession Plan",
+   "prompt": "Write a 3-5 sentence summary of the possession plan.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "The possession runs 01:00-05:00 Saturday with the line blocked and protected by signals and track circuit clips at both ends. A named Person in Charge will brief all staff and sign them on; work stops 30 minutes before handback for inspection. The realigned curve will have 147.5 mm equilibrium cant and be speed-limited until geometry is verified. Handback requires sign-off by the Engineering Supervisor.",
+   "reasoning": "A good plan gives times, protection, responsibilities and handback.",
+   "tip": "Time, protection, person, handback.",
+   "mistake": "Plans without handback checks create incidents.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Unprotected Gang",
+  "background": "A short track job was done without protection. A train passed and a worker was seriously injured.",
+  "client": "Regional rail operator",
+  "budget": "Serious injury and regulator action",
+  "timeline": "Single incident",
+  "challenges": "'It's only ten minutes' attitude.",
+  "constraints": "No planned protection.",
+  "questions": [
+   "Why did short jobs skip protection?",
+   "How should protection be planned?",
+   "What culture change is needed?"
+  ],
+  "solution": "Vertex made protection planning mandatory for every job regardless of length.",
+  "lessonsLearned": "No protection, no work."
+ },
+ "quiz": [
+  {
+   "q": "Braking distance uses:",
+   "options": [
+    "v² / 2a",
+    "v / a",
+    "a / v",
+    "v x a"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Capacity per hour equals:",
+   "options": [
+    "Headway x 60",
+    "60 / headway",
+    "Speed",
+    "Cant"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Cant balances:",
+   "options": [
+    "Centrifugal effect",
+    "Wind",
+    "Noise",
+    "Cost"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Possession needs:",
+   "options": [
+    "Protection and a person in charge",
+    "Luck",
+    "Speed",
+    "Silence"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "The case study injury happened because:",
+   "options": [
+    "Long possession",
+    "New rails",
+    "Strong signals",
+    "No protection for a short job"
+   ],
+   "correctIndex": 3
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "What would you check first on cant?",
+   "How would you challenge a 'quick job' request?",
+   "How do you test the plan?"
+  ]
+ },
+ "certificate": {
+  "name": "Railway Engineer — Cant, Braking & Possessions",
+  "nameAz": "Dəmir Yolu Mühəndisi — Kant, Əyləc və Yol Bağlanması",
+  "totalXp": 235
+ }
+}

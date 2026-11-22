@@ -1,0 +1,282 @@
+{
+ "id": "retail-merchandiser-nova",
+ "title": "Retail Merchandiser & Category Manager",
+ "companyId": "nova-retail",
+ "category": "Merchandising",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "MER-116",
+ "skills": [
+  "Gross Margin",
+  "Markdown Planning",
+  "Stock Turn"
+ ],
+ "companyIntro": {
+  "name": "Nova Retail Group",
+  "country": "United Kingdom",
+  "founded": 1998,
+  "mission": "Run stores and online shops that customers return to and shareholders can rely on.",
+  "culture": "Numbers on Monday, action by Tuesday. Every KPI has an owner and a weekly review.",
+  "projects": [
+   "Store Network Refresh",
+   "Online Marketplace Launch",
+   "Loyalty Programme Redesign"
+  ]
+ },
+ "projectBackground": {
+  "name": "Store Network Refresh — Grocery Category Review",
+  "client": "Nova Retail Group",
+  "location": "Manchester, remote",
+  "budget": "Category sales: €900,000",
+  "timeline": "Range review next week",
+  "context": "The beverages and snacks ranges are overstocked. You must decide what to cut and what to mark down."
+ },
+ "manager": {
+  "name": "Claire Whitfield",
+  "role": "Head of Trading, Nova Retail Group",
+  "note": "Space is money. Every product earns its place on margin and turn."
+ },
+ "assignment": {
+  "title": "Fix the category",
+  "brief": "Calculate margin, markdown effect and turns, compare categories in Excel and recommend range changes."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Product Data",
+   "type": "Table",
+   "note": "Selling price €50; cost €32."
+  },
+  {
+   "id": "doc-2",
+   "name": "Markdown Plan",
+   "type": "Plan",
+   "note": "Item priced at €80, cost €48; 25% markdown proposed."
+  },
+  {
+   "id": "doc-3",
+   "name": "Inventory Data",
+   "type": "Report",
+   "note": "COGS €1,200,000; average inventory €200,000."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "mer-1-gm",
+   "type": "numeric",
+   "title": "Gross Margin %",
+   "prompt": "Selling price €50, cost €32. What is gross margin (%)?",
+   "answer": 36,
+   "tolerance": 0.2,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "(50 - 32) / 50 = 36%.",
+   "reasoning": "Margin is on selling price.",
+   "tip": "Don't confuse with mark-up.",
+   "mistake": "Mark-up is 56%, a different number.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mer-2-md",
+   "type": "numeric",
+   "title": "Margin After Markdown",
+   "prompt": "An item at €80 is marked down 25% (to €60); cost €48. What is the margin after markdown (%)?",
+   "answer": 20,
+   "tolerance": 0.2,
+   "unit": "%",
+   "xp": 40,
+   "workingNote": "(60 - 48) / 60 = 20%.",
+   "reasoning": "Markdowns cut margin sharply.",
+   "tip": "Calculate before approving.",
+   "mistake": "Assuming margin is unchanged is wrong.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mer-3-turn",
+   "type": "numeric",
+   "title": "Stock Turn",
+   "prompt": "COGS €1,200,000 and average inventory €200,000. What is the stock turn?",
+   "answer": 6,
+   "tolerance": 0.05,
+   "unit": "turns per year",
+   "xp": 35,
+   "workingNote": "1,200,000 / 200,000 = 6.",
+   "reasoning": "Turn shows how fast stock sells.",
+   "tip": "Compare to category norms.",
+   "mistake": "Using sales instead of COGS overstates turn.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mer-4-plano",
+   "type": "mcq",
+   "title": "Planogram",
+   "prompt": "What is the main purpose of a planogram?",
+   "options": [
+    "Decoration",
+    "To place products on shelves to maximise sales and availability",
+    "Staff scheduling",
+    "Pricing laws"
+   ],
+   "correctIndex": 1,
+   "xp": 30,
+   "reasoning": "Layout drives sales.",
+   "tip": "Review with sales data.",
+   "mistake": "Ignoring data keeps slow items in prime spots.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mer-5-cat",
+   "type": "excel-upload",
+   "title": "Category Margin (Excel)",
+   "prompt": "Gross margin % in column D = (B - C) / B x 100.",
+   "xp": 60,
+   "template": {
+    "fileName": "Category-Template.xlsx",
+    "sheetName": "Category",
+    "headers": [
+     "Category",
+     "Sales (EUR)",
+     "COGS (EUR)",
+     "Gross Margin %"
+    ],
+    "rows": [
+     [
+      "Dairy",
+      "300000",
+      "240000",
+      ""
+     ],
+     [
+      "Snacks",
+      "200000",
+      "130000",
+      ""
+     ],
+     [
+      "Beverages",
+      "400000",
+      "300000",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 20,
+     "tolerance": 0.1,
+     "label": "Dairy"
+    },
+    {
+     "cell": "D3",
+     "expected": 35,
+     "tolerance": 0.1,
+     "label": "Snacks"
+    },
+    {
+     "cell": "D4",
+     "expected": 25,
+     "tolerance": 0.1,
+     "label": "Beverages"
+    }
+   ],
+   "reasoning": "Snacks earn the best margin; dairy the lowest.",
+   "tip": "Balance margin and traffic.",
+   "mistake": "Cutting low-margin traffic drivers hurts overall sales.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mer-6-rec",
+   "type": "text",
+   "title": "Range Recommendation",
+   "prompt": "Write a 3-5 sentence range recommendation.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "Snacks deliver a 35% margin and should keep prime shelf space, while dairy at 20% is a traffic driver we retain but price carefully. Overstocked beverages (25% margin) should be reduced by delisting the two slowest SKUs and marking down the rest by no more than 25%, which still leaves a 20% margin. Stock turn of 6 is acceptable but should rise to 7 by month three.",
+   "reasoning": "A good recommendation uses margin and turn to decide and sets a target.",
+   "tip": "Margin, turn, action, target.",
+   "mistake": "Cutting by gut feel loses customers.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Markdown Spiral",
+  "background": "A retailer discounted slow lines by 50% every month. Margin fell 6 points and customers waited for sales.",
+  "client": "Retail client",
+  "budget": "€2M margin loss",
+  "timeline": "One year",
+  "challenges": "No markdown plan or buy discipline.",
+  "constraints": "Buying exceeded demand.",
+  "questions": [
+   "Why did markdowns grow?",
+   "What would you change upstream?",
+   "How would you plan markdowns?"
+  ],
+  "solution": "Nova introduced buy-to-sell planning and capped markdown steps.",
+  "lessonsLearned": "Fix the buy, not just the price."
+ },
+ "quiz": [
+  {
+   "q": "Margin is:",
+   "options": [
+    "Cost / price",
+    "Price / cost",
+    "(Price - cost) / price",
+    "Profit"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Turn is:",
+   "options": [
+    "COGS / average inventory",
+    "Sales / space",
+    "Cost / price",
+    "Margin"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Markdown reduces:",
+   "options": [
+    "Margin",
+    "Cost",
+    "Sales tax",
+    "Space"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "A planogram:",
+   "options": [
+    "Hires staff",
+    "Plans shelf layout",
+    "Sets rent",
+    "Pays tax"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Buying exceeded demand",
+    "Strong sales",
+    "Low rent",
+    "New stores"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which SKU would you cut first?",
+   "How deep can you mark down?",
+   "What does a healthy turn look like?"
+  ]
+ },
+ "certificate": {
+  "name": "Retail Merchandiser & Category Manager — Margin & Turns",
+  "nameAz": "Pərakəndə Merçendayzer və Kateqoriya Meneceri — Marja və Dövriyyə",
+  "totalXp": 245
+ }
+}

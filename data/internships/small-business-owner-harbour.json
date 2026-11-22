@@ -1,0 +1,309 @@
+{
+ "id": "small-business-owner-harbour",
+ "title": "Small Business Owner",
+ "companyId": "harbour-street-ventures",
+ "category": "Entrepreneurship",
+ "difficulty": "Beginner",
+ "durationHours": 6,
+ "drawingTag": "SBO-118",
+ "skills": [
+  "Break-Even",
+  "Pricing & Margin",
+  "Cash Protection"
+ ],
+ "companyIntro": {
+  "name": "Harbour Street Ventures",
+  "country": "Canada",
+  "founded": 2012,
+  "mission": "Help small business owners and franchisees make money, not just stay busy.",
+  "culture": "Know your numbers weekly. Cash is the scoreboard.",
+  "projects": [
+   "Neighbourhood Cafe Programme",
+   "Franchise Evaluation Service",
+   "Micro-Business Bootcamp"
+  ]
+ },
+ "projectBackground": {
+  "name": "Neighbourhood Cafe Programme — Corner Cafe",
+  "client": "Corner Cafe (owner-run)",
+  "location": "Toronto, on-site",
+  "budget": "Monthly fixed costs: 6,000",
+  "timeline": "Owner review next Monday",
+  "context": "The cafe is busy but the owner never has cash. You are asked to show where the money goes."
+ },
+ "manager": {
+  "name": "Maya Chen",
+  "role": "Programme Lead, Harbour Street Ventures",
+  "note": "Busy isn't profitable. Know your break-even and your best-margin products."
+ },
+ "assignment": {
+  "title": "Make the cafe profitable",
+  "brief": "Calculate break-even and profit, compare product margins in Excel, protect cash and write the owner's plan."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Cost Data",
+   "type": "Sheet",
+   "note": "Fixed costs 6,000 a month; average price 12; variable cost 7."
+  },
+  {
+   "id": "doc-2",
+   "name": "Sales Data",
+   "type": "POS",
+   "note": "About 1,500 units a month."
+  },
+  {
+   "id": "doc-3",
+   "name": "Menu",
+   "type": "Table",
+   "note": "Coffee, sandwich and cake prices and variable costs."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "sbo-1-be",
+   "type": "numeric",
+   "title": "Break-Even Units",
+   "prompt": "Fixed costs 6,000; price 12; variable cost 7. What is break-even (units)?",
+   "answer": 1200,
+   "tolerance": 1,
+   "unit": "units",
+   "xp": 35,
+   "workingNote": "6,000 / (12 - 7) = 1,200.",
+   "reasoning": "Break-even = fixed / unit margin.",
+   "tip": "Know it by heart.",
+   "mistake": "Ignoring variable cost makes break-even wrong.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "sbo-2-profit",
+   "type": "numeric",
+   "title": "Monthly Profit",
+   "prompt": "At 1,500 units a month (price 12, variable 7, fixed 6,000). What is profit?",
+   "answer": 1500,
+   "tolerance": 5,
+   "unit": "currency units",
+   "xp": 35,
+   "workingNote": "5 x 1,500 - 6,000 = 1,500.",
+   "reasoning": "Profit = unit margin x volume - fixed costs.",
+   "tip": "Check at low, base and high volumes.",
+   "mistake": "Using revenue as profit is the classic mistake.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "sbo-3-margin",
+   "type": "numeric",
+   "title": "Margin %",
+   "prompt": "Price 12, variable cost 7. What is the unit margin (%)?",
+   "answer": 41.67,
+   "tolerance": 0.1,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "5 / 12 = 41.67%.",
+   "reasoning": "Margin % is on price.",
+   "tip": "Compare products by margin.",
+   "mistake": "Confusing margin with mark-up misprices.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "sbo-4-cash",
+   "type": "multiselect",
+   "title": "Protecting Cash",
+   "prompt": "Select practices that protect cash.",
+   "options": [
+    "Ignore bills until due",
+    "Weekly cash forecast",
+    "Negotiate supplier terms and avoid overstocking",
+    "Separate business and personal accounts",
+    "Spend all takings daily"
+   ],
+   "correctIndices": [
+    1,
+    2,
+    3
+   ],
+   "xp": 35,
+   "reasoning": "Cash discipline keeps businesses alive.",
+   "tip": "Look 13 weeks ahead.",
+   "mistake": "Mixing accounts hides problems.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "sbo-5-mix",
+   "type": "excel-upload",
+   "title": "Product Margins (Excel)",
+   "prompt": "Unit margin in column D = B - C; margin % in column E = D / B x 100.",
+   "xp": 60,
+   "template": {
+    "fileName": "Menu-Template.xlsx",
+    "sheetName": "Menu",
+    "headers": [
+     "Product",
+     "Price",
+     "Variable Cost",
+     "Unit Margin",
+     "Margin %"
+    ],
+    "rows": [
+     [
+      "Coffee",
+      "3.5",
+      "1.0",
+      "",
+      ""
+     ],
+     [
+      "Sandwich",
+      "6.0",
+      "3.6",
+      "",
+      ""
+     ],
+     [
+      "Cake",
+      "4.5",
+      "1.8",
+      "",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 2.5,
+     "tolerance": 0.02,
+     "label": "Coffee margin"
+    },
+    {
+     "cell": "E2",
+     "expected": 71.43,
+     "tolerance": 0.1,
+     "label": "Coffee %"
+    },
+    {
+     "cell": "D3",
+     "expected": 2.4,
+     "tolerance": 0.02,
+     "label": "Sandwich margin"
+    },
+    {
+     "cell": "E3",
+     "expected": 40,
+     "tolerance": 0.1,
+     "label": "Sandwich %"
+    },
+    {
+     "cell": "D4",
+     "expected": 2.7,
+     "tolerance": 0.02,
+     "label": "Cake margin"
+    },
+    {
+     "cell": "E4",
+     "expected": 60,
+     "tolerance": 0.1,
+     "label": "Cake %"
+    }
+   ],
+   "reasoning": "Coffee has the best percentage; cake the best absolute margin.",
+   "tip": "Push high-margin items.",
+   "mistake": "Judging by sales volume alone hides low margin.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "sbo-6-plan",
+   "type": "text",
+   "title": "Owner's Plan",
+   "prompt": "Write a 3-5 sentence plan for the owner.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "You need 1,200 units a month to break even and sell about 1,500, which gives a 1,500 profit. Coffee earns a 71% margin and cake 60%, so we will train staff to offer a cake with every coffee. Sandwich margin is only 40%; I suggest raising the price by 0.50. Open a weekly cash forecast and pay suppliers on agreed terms to protect cash.",
+   "reasoning": "A good plan uses the numbers to propose price, mix and cash actions.",
+   "tip": "Numbers, mix, price, cash.",
+   "mistake": "Working harder without the numbers rarely fixes profit.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: Busy but Broke",
+  "background": "A cafe was full every day but closed after a year. The owner never priced the sandwiches against ingredient cost.",
+  "client": "Local cafe",
+  "budget": "Closure and personal debt",
+  "timeline": "One year",
+  "challenges": "No unit costing.",
+  "constraints": "Pricing copied the competitor.",
+  "questions": [
+   "Why did a busy cafe fail?",
+   "What number was missing?",
+   "How would you price?"
+  ],
+  "solution": "Harbour Street teaches unit costing and weekly cash checks.",
+  "lessonsLearned": "Know the margin on every product."
+ },
+ "quiz": [
+  {
+   "q": "Break-even equals:",
+   "options": [
+    "Variable / price",
+    "Fixed / unit margin",
+    "Profit",
+    "Sales"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Profit equals:",
+   "options": [
+    "Revenue",
+    "Margin x volume - fixed",
+    "Sales - tax",
+    "Cost"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Margin % is:",
+   "options": [
+    "Margin / price",
+    "Price / margin",
+    "Cost / price",
+    "Fixed"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "A cash forecast looks:",
+   "options": [
+    "Weeks ahead",
+    "Back only",
+    "Never",
+    "Yearly only"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "No unit costing",
+    "Low traffic",
+    "High margin",
+    "No rent"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which product would you promote and why?",
+   "How would you explain break-even to a friend?",
+   "What would you check weekly?"
+  ]
+ },
+ "certificate": {
+  "name": "Small Business Owner — Break-Even, Margin & Cash",
+  "nameAz": "Kiçik Biznes Sahibi — Zərərsizlik, Marja və Nağd Pul",
+  "totalXp": 245
+ }
+}

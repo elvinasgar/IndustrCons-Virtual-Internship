@@ -1,0 +1,291 @@
+{
+ "id": "payroll-specialist-people-first",
+ "title": "Payroll Specialist",
+ "companyId": "people-first-partners",
+ "category": "Payroll",
+ "difficulty": "Intermediate",
+ "durationHours": 6,
+ "drawingTag": "PAY-121",
+ "skills": [
+  "Gross-to-Net",
+  "Employer Cost",
+  "Payroll Controls"
+ ],
+ "companyIntro": {
+  "name": "People First Partners",
+  "country": "Poland",
+  "founded": 2010,
+  "mission": "Make hiring, pay and employee relations fair, compliant and efficient.",
+  "culture": "Fair process, accurate records. People decisions are documented and explainable.",
+  "projects": [
+   "Graduate Hiring Programme",
+   "Payroll Consolidation",
+   "Pay Equity Review"
+  ]
+ },
+ "projectBackground": {
+  "name": "Payroll Consolidation",
+  "client": "Atlas Manufacturing (client)",
+  "location": "Warsaw, remote",
+  "budget": "Payroll budget: €15,000 per month for service",
+  "timeline": "Payroll closes in three days",
+  "context": "Two payroll systems are being merged. Errors in last month's pay led to complaints."
+ },
+ "manager": {
+  "name": "Agnieszka Nowak",
+  "role": "Head of Payroll, People First Partners",
+  "note": "People live on their pay. Get it right, on time, with a trail."
+ },
+ "assignment": {
+  "title": "Run the payroll accurately",
+  "brief": "Compute net pay, employer cost and overtime, complete the payroll table in Excel and set controls."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Pay Rates",
+   "type": "Policy",
+   "note": "Income tax 18%; employee social 7%; employer social 15%."
+  },
+  {
+   "id": "doc-2",
+   "name": "Overtime Sheet",
+   "type": "Timesheet",
+   "note": "Six hours at 1.5x; base €20 per hour."
+  },
+  {
+   "id": "doc-3",
+   "name": "Complaint Log",
+   "type": "Log",
+   "note": "Three employees paid late or incorrectly."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "pay-1-net",
+   "type": "numeric",
+   "title": "Net Pay",
+   "prompt": "Gross €4,000; tax 18%; employee social 7%. What is net pay (€)?",
+   "answer": 3000,
+   "tolerance": 2,
+   "unit": "EUR",
+   "xp": 35,
+   "workingNote": "4,000 - 720 - 280 = 3,000.",
+   "reasoning": "Net = gross less deductions.",
+   "tip": "Check rates annually.",
+   "mistake": "Applying tax to net double-deducts.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pay-2-cost",
+   "type": "numeric",
+   "title": "Employer Cost",
+   "prompt": "Gross €4,000 plus employer social 15%. What is total employer cost (€)?",
+   "answer": 4600,
+   "tolerance": 2,
+   "unit": "EUR",
+   "xp": 35,
+   "workingNote": "4,000 + 600 = 4,600.",
+   "reasoning": "Employer cost exceeds gross.",
+   "tip": "Budget on total cost.",
+   "mistake": "Budgeting on gross underestimates cost.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pay-3-ot",
+   "type": "numeric",
+   "title": "Overtime",
+   "prompt": "Base €20/hour, 6 hours at 1.5x. What is overtime pay (€)?",
+   "answer": 180,
+   "tolerance": 1,
+   "unit": "EUR",
+   "xp": 30,
+   "workingNote": "20 x 1.5 x 6 = 180.",
+   "reasoning": "Apply the correct multiplier.",
+   "tip": "Approve overtime before payroll.",
+   "mistake": "Paying base rate underpays.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pay-4-ctrl",
+   "type": "multiselect",
+   "title": "Payroll Controls",
+   "prompt": "Select good controls.",
+   "options": [
+    "No audit trail",
+    "Reconciliation of payroll to ledger",
+    "Separation between those who set up and those who approve pay",
+    "One person does everything",
+    "Change reports reviewed before each run"
+   ],
+   "correctIndices": [
+    1,
+    2,
+    4
+   ],
+   "xp": 40,
+   "reasoning": "Controls prevent fraud and error.",
+   "tip": "Review exceptions.",
+   "mistake": "Single-person payroll is a fraud risk.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pay-5-table",
+   "type": "excel-upload",
+   "title": "Payroll Table (Excel)",
+   "prompt": "Tax (C = B x 0.18), employee social (D = B x 0.07), net pay (E = B - C - D).",
+   "xp": 60,
+   "template": {
+    "fileName": "Payroll-Template.xlsx",
+    "sheetName": "Payroll",
+    "headers": [
+     "Employee",
+     "Gross",
+     "Income Tax",
+     "Employee Social",
+     "Net Pay"
+    ],
+    "rows": [
+     [
+      "Anna",
+      "4000",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Ben",
+      "3000",
+      "",
+      "",
+      ""
+     ],
+     [
+      "Cara",
+      "5500",
+      "",
+      "",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "E2",
+     "expected": 3000,
+     "tolerance": 1,
+     "label": "Anna net"
+    },
+    {
+     "cell": "E3",
+     "expected": 2250,
+     "tolerance": 1,
+     "label": "Ben net"
+    },
+    {
+     "cell": "E4",
+     "expected": 4125,
+     "tolerance": 1,
+     "label": "Cara net"
+    }
+   ],
+   "reasoning": "Net pay is about 75% of gross at these rates.",
+   "tip": "Reconcile to bank file.",
+   "mistake": "Typing numbers instead of formulas causes errors.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pay-6-reply",
+   "type": "text",
+   "title": "Payslip Query Reply",
+   "prompt": "Write a 3-5 sentence reply to an employee who says their pay is short.",
+   "minLength": 90,
+   "xp": 45,
+   "modelAnswer": "Thank you for raising this. I have checked your payslip: your gross pay of €4,000 was reduced by income tax of €720 and employee social contributions of €280, giving net pay of €3,000. I could not find overtime for last week; please send the approved timesheet and I will include it in this month's run if confirmed. I will reply by end of day tomorrow.",
+   "reasoning": "A good reply explains the calculation and states the next step and date.",
+   "tip": "Explain, check, ask, date.",
+   "mistake": "Vague replies cause escalation.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Ghost Employee",
+  "background": "A payroll clerk added a former employee and paid £90,000 to a personal account over two years. No one reconciled headcount to payroll.",
+  "client": "Manufacturing client",
+  "budget": "£90,000 fraud",
+  "timeline": "Found by audit",
+  "challenges": "No segregation of duties.",
+  "constraints": "Monthly reports were not reviewed.",
+  "questions": [
+   "Why wasn't it detected?",
+   "What control would help?",
+   "How often should you reconcile?"
+  ],
+  "solution": "People First introduced headcount reconciliation and dual approval.",
+  "lessonsLearned": "Reconcile and segregate."
+ },
+ "quiz": [
+  {
+   "q": "Net pay is:",
+   "options": [
+    "Gross + tax",
+    "Gross - deductions",
+    "Gross",
+    "Tax"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Employer cost includes:",
+   "options": [
+    "Only gross",
+    "Nothing",
+    "Bonus only",
+    "Employer social"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Overtime uses:",
+   "options": [
+    "A multiplier",
+    "No rate",
+    "Random",
+    "Minimum wage"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Controls include:",
+   "options": [
+    "One person",
+    "None",
+    "Cash",
+    "Segregation of duties"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "The case study lost because:",
+   "options": [
+    "Strong controls",
+    "No reconciliation",
+    "Small staff",
+    "Good audit"
+   ],
+   "correctIndex": 1
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which control would you add first?",
+   "How do you fix a payroll error?",
+   "What do you check before payroll closes?"
+  ]
+ },
+ "certificate": {
+  "name": "Payroll Specialist — Gross-to-Net & Controls",
+  "nameAz": "Əmək Haqqı Mütəxəssisi — Brutdan Nete və Nəzarətlər",
+  "totalXp": 245
+ }
+}
