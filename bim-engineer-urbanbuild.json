@@ -1,0 +1,311 @@
+{
+  "id": "bim-engineer-urbanbuild",
+  "title": "BIM Engineer",
+  "companyId": "urbanbuild-engineering",
+  "category": "BIM Engineer",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "BIM-090 / REV.A",
+  "skills": [
+    "Drawing Interpretation",
+    "Shop Drawing Review",
+    "Communication"
+  ],
+  "companyIntro": {
+    "name": "UrbanBuild Engineering",
+    "country": "Poland",
+    "founded": 2011,
+    "mission": "Bring Scandinavian-style design coordination discipline to fast-growing urban infill projects — the model is the single source of truth, and every drawing issued should trace back to it correctly.",
+    "culture": "Model-first and standards-obsessed. BIM engineers are expected to catch when a 2D drawing extract has drifted from what the live 3D model actually shows.",
+    "projects": [
+      "Wisła Riverside Mixed-Use",
+      "Krakow Transit Interchange",
+      "Solaris Office Campus"
+    ]
+  },
+  "projectBackground": {
+    "name": "Wisła Riverside Mixed-Use — Model Coordination",
+    "client": "Wisła Development Partners",
+    "location": "Riverside District, Warsaw",
+    "budget": "$52M (podium and tower structure package)",
+    "timeline": "40 weeks, currently in week 18 (tower structure modelling)",
+    "context": "A structural steel connection detail was updated directly in a 2D shop drawing by the fabricator's drafter to resolve a fit-up issue on site, but the change was never fed back into the master BIM model — the model and the as-built condition are now out of sync, and other trades are still coordinating against the outdated model."
+  },
+  "manager": {
+    "name": "Tomasz Wroński",
+    "role": "BIM Manager, UrbanBuild Engineering",
+    "note": "If the model doesn't reflect what's actually being built, everyone downstream — MEP, facade, even the client's asset management team eventually — is coordinating against a fiction. Find where this has happened and get the model updated before more trades build on top of the wrong version."
+  },
+  "assignment": {
+    "title": "Reconcile the model against the as-built connection change",
+    "brief": "Identify where the shop drawing's connection revision diverges from the master model, assess what else in the model depends on the outdated version, update the model, and communicate the change to affected disciplines."
+  },
+  "documents": [
+    {
+      "id": "doc-model-export",
+      "name": "Master BIM Model Export — Connection Detail, Grid C-4, Level 6",
+      "type": "BIM Model Extract",
+      "note": "Shows the original bolted end-plate connection as designed, unchanged since issue for construction."
+    },
+    {
+      "id": "doc-shop-drawing-revised",
+      "name": "Fabricator Shop Drawing — Revised On-Site (marked up)",
+      "type": "Shop Drawing",
+      "note": "Hand-marked revision shows the end-plate connection rotated 90 degrees to resolve a clash with an adjacent beam during on-site fit-up — approved verbally by the site structural engineer but never formally reissued."
+    },
+    {
+      "id": "doc-mep-model",
+      "name": "MEP Model — Level 6 Ceiling Zone",
+      "type": "BIM Model Extract",
+      "note": "MEP ductwork routing was coordinated against the original (unrotated) connection geometry, with 40mm clearance assumed at this location based on that geometry."
+    },
+    {
+      "id": "doc-model-update-log",
+      "name": "Model Update Log — Template",
+      "type": "Template",
+      "note": "Fields: element affected, change description, source of change, model version updated, disciplines notified."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-discrepancy",
+      "type": "mcq",
+      "title": "Identifying the Model-Reality Gap",
+      "prompt": "Comparing the master model export to the fabricator's marked-up shop drawing, what is the core problem?",
+      "options": [
+        "There is no problem — verbal approval from the site engineer is sufficient without a model update",
+        "The as-built connection was rotated 90 degrees on site to resolve a clash, but this change was never fed back into the master BIM model, so the model no longer matches what was actually built",
+        "The shop drawing is wrong and should be ignored in favour of the model",
+        "This only matters for record-keeping, not for any live coordination"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "A verbally-approved on-site fit-up change is a real, legitimate change to the as-built structure, but if it's never captured back in the master model, the model becomes actively wrong — not just outdated in a paperwork sense, but describing a physical condition that no longer exists, which any trade still coordinating against that model is unknowingly relying on.",
+      "tip": "Treat verbal site approvals as valid construction changes that still require formal model and drawing updates — the approval makes the physical change legitimate, but doesn't substitute for updating the single source of truth other disciplines rely on.",
+      "mistake": "Assuming a verbally-approved field fix doesn't need to flow back into the model, since 'it's already built and approved', ignores that the model's entire value depends on it matching reality for everyone still designing or coordinating against it.",
+      "recommendation": "Any site-approved deviation from the model, however minor it seems, should trigger an immediate model update flag — the size of the physical change doesn't determine how much downstream coordination might depend on that specific detail being accurate."
+    },
+    {
+      "id": "task-2-impact",
+      "type": "mcq",
+      "title": "Downstream Impact Assessment",
+      "prompt": "The MEP model assumed 40mm clearance at this location based on the original (unrotated) connection geometry. What does the 90-degree rotation of the connection most likely mean for that clearance assumption?",
+      "options": [
+        "The clearance assumption is definitely still valid since MEP wasn't directly involved in the connection change",
+        "The clearance needs to be re-checked against the rotated connection's actual geometry — a 90-degree rotation can change which direction the connection plate projects into the ceiling void",
+        "Clearance only matters for connections that weren't approved verbally",
+        "No re-check is needed since the rotation was a minor field fix"
+      ],
+      "correctIndex": 1,
+      "xp": 50,
+      "reasoning": "A 90-degree rotation of a connection plate can change which direction it projects into available space — an assumption calculated against the original orientation cannot be assumed valid for a materially different geometry without re-checking. This is exactly the kind of downstream dependency that a model-reality gap creates for other disciplines who don't even know the geometry changed.",
+      "tip": "Whenever a structural connection geometry changes, explicitly ask 'what did another discipline design against the old geometry' before assuming their existing coordination still holds — clearances, routing, and support locations are all commonly calculated against the specific orientation that just changed.",
+      "mistake": "Assuming an unrelated discipline's design 'shouldn't be affected' by a structural field change, without actually checking their specific coordination assumptions, is how a small, reasonable field fix turns into an unplanned MEP clash discovered much later.",
+      "recommendation": "Whenever you update the model for a field change, explicitly check every other discipline's model elements in the immediate vicinity for assumptions that may no longer hold — this is a core part of a BIM engineer's coordination responsibility, not an optional extra step."
+    },
+    {
+      "id": "task-3-update-log",
+      "type": "text",
+      "title": "Model Update Log Entry",
+      "prompt": "Write the model update log entry (3-5 sentences): what changed, the source of the change, what was updated, and who needs to be notified.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "The beam-column connection at Grid C-4, Level 6 has been updated in the master model to reflect a 90-degree rotation of the end-plate connection, made during on-site fit-up to resolve a clash with an adjacent beam and verbally approved by the site structural engineer on [date]. Source: fabricator's hand-marked shop drawing revision, cross-checked against the site structural engineer's verbal confirmation, with a formal shop drawing reissue requested from the fabricator to close out the paper trail. The MEP model's Level 6 ceiling zone ductwork, which assumed 40mm clearance based on the original connection orientation, needs re-verification against the rotated geometry before any further ductwork installation proceeds at this location. Notified: MEP coordinator and site MEP foreman, given active ductwork installation is scheduled in this zone within the next two weeks.",
+      "reasoning": "A complete model update log entry documents not just what changed in the model, but the actual source and approval basis for the change, and proactively identifies who else needs to know because their own work depends on the changed geometry — this is what prevents the exact kind of silent downstream impact this task started with.",
+      "tip": "Always name the specific discipline and reason they need to be notified, not just 'notify relevant parties' — 'MEP coordinator, because their ductwork clearance assumption may no longer hold' is far more likely to get prompt, correct attention than a generic notification.",
+      "mistake": "Updating the model silently without an explicit notification step assumes other disciplines will notice the change themselves next time they open the model — in practice, this is exactly how outdated coordination assumptions persist undetected.",
+      "recommendation": "Build 'who does this affect and why' into every model update log entry as a mandatory field, not an optional note — it turns model maintenance into active coordination rather than passive record-keeping."
+    },
+    {
+      "id": "task-4-communication",
+      "type": "multiselect",
+      "title": "Communicating the Change",
+      "prompt": "Select every appropriate action for notifying the MEP team about this model change.",
+      "options": [
+        "Send a specific notification naming the exact location, the geometry change, and the clearance assumption that needs re-checking",
+        "Simply update the model and assume the MEP team will notice next time they open it",
+        "Flag the change in the next scheduled monthly design meeting, three weeks away",
+        "Contact the MEP coordinator directly given ductwork installation is scheduled within two weeks",
+        "Update the model's revision history, which the MEP team can reference if they choose to check it"
+      ],
+      "correctIndices": [
+        0,
+        3
+      ],
+      "xp": 45,
+      "reasoning": "Given the imminent ductwork installation timeline (within two weeks), the change needs direct, immediate communication naming the specific issue — a specific notification and direct contact with the MEP coordinator are appropriate. Passive approaches (assuming they'll notice, waiting for a distant scheduled meeting, or relying on someone choosing to check revision history) don't match the urgency of an active installation timeline.",
+      "tip": "Match your communication method to the actual urgency of the underlying work — a passive update method (revision history, waiting for the next meeting) is fine for a change with months of lead time, but wrong for one affecting installation happening in two weeks.",
+      "mistake": "Treating every model update with the same passive communication approach, regardless of how soon the affected work is scheduled, is how urgent coordination gaps slip through even when the model itself has technically been kept accurate.",
+      "recommendation": "When logging a model update, always note the affected discipline's nearest upcoming activity date — it's what should determine whether a passive log entry is sufficient or an active, direct notification is required."
+    },
+    {
+      "id": "task-5-standards",
+      "type": "mcq",
+      "title": "Model Standards & Traceability",
+      "prompt": "Going forward, what single process change would best prevent this kind of model-reality gap from recurring?",
+      "options": [
+        "Ban all verbal site approvals of field changes entirely",
+        "Require that any field change affecting the model, however approved on site, is formally logged and fed back into the model within a defined timeframe (e.g. 48 hours) as a standing procedure",
+        "Only update the model at the end of each project phase",
+        "Rely on each discipline to independently notice discrepancies when they happen to check"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "Banning verbal approvals entirely isn't realistic for fast-moving site fit-up issues, and infrequent or passive model updates leave exactly the gap that caused this problem — a defined, mandatory turnaround time for feeding field changes back into the model closes the gap while still allowing practical, fast site decision-making to continue.",
+      "tip": "A good process fix addresses the actual failure point (the change never flowed back to the model) rather than the symptom (the model was wrong) — banning field flexibility entirely would slow down legitimate site problem-solving without actually guaranteeing the model stays current.",
+      "mistake": "Proposing an overly restrictive fix (banning verbal approvals) in reaction to one incident often creates new friction in legitimate site decision-making without addressing the real root cause, which is the missing feedback loop back to the model.",
+      "recommendation": "Whenever recommending a process fix after an incident, aim for the version that closes the specific gap with the least disruption to legitimate day-to-day work — a defined update turnaround time does this better than a blanket restriction."
+    },
+    {
+      "id": "task-6-clearance-excel",
+      "type": "excel-upload",
+      "title": "Post-Change Clearance Re-Check (Excel)",
+      "prompt": "Three more MEP elements near the changed connection need their clearance re-verified against the new geometry. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "Clearance-Recheck-Template.xlsx",
+        "sheetName": "Clearance",
+        "headers": [
+          "MEP Element",
+          "Original Clearance (mm)",
+          "New Connection Projection (mm)",
+          "Remaining Clearance (mm)",
+          "Adequate? (min. 25mm required)"
+        ],
+        "rows": [
+          [
+            "Supply Duct Run A",
+            "40",
+            "22",
+            "",
+            ""
+          ],
+          [
+            "Sprinkler Branch Line",
+            "55",
+            "35",
+            "",
+            ""
+          ],
+          [
+            "Cable Tray",
+            "30",
+            "28",
+            "",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 18,
+          "tolerance": 0,
+          "label": "Remaining clearance — Supply Duct Run A (40-22)"
+        },
+        {
+          "cell": "E2",
+          "expected": "N",
+          "tolerance": 0,
+          "label": "Supply Duct Run A adequacy (18mm < 25mm required)"
+        },
+        {
+          "cell": "D4",
+          "expected": 2,
+          "tolerance": 0,
+          "label": "Remaining clearance — Cable Tray (30-28)"
+        },
+        {
+          "cell": "E4",
+          "expected": "N",
+          "tolerance": 0,
+          "label": "Cable Tray adequacy (2mm < 25mm required)"
+        }
+      ],
+      "reasoning": "Re-checking every nearby MEP element against the new connection projection — not just the one that prompted the investigation — is what a thorough model reconciliation requires; here, two of the three elements now have inadequate clearance and need active resolution, which would have gone undetected without this systematic re-check.",
+      "tip": "Build the adequacy check as remaining clearance compared against the minimum required, as an explicit formula — this ensures every element is judged consistently rather than relying on someone's visual sense of whether a gap 'looks tight'.",
+      "mistake": "Re-checking only the specific element that triggered the original investigation, while assuming 'nearby' elements are probably fine, is how a geometry change ends up causing a second, later-discovered clash in an element nobody thought to re-verify.",
+      "recommendation": "Whenever a structural geometry change is confirmed, systematically re-check every MEP or other discipline's element within the affected zone, not just the one that raised the initial flag — this is exactly the kind of thorough reconciliation a BIM engineer's coordination role exists to provide."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Model That Was Technically Up To Date",
+    "background": "On an earlier UrbanBuild project, a BIM engineer updated the master model promptly after every formally submitted revision, but a series of small, verbally-approved site fit-up changes over several months were never captured as formal revisions at all — the model was 'up to date' relative to the paper trail, but had quietly drifted from as-built reality across a dozen small connections.",
+    "client": "Solaris Office Campus",
+    "budget": "Facade coordination rework cost: $67,000 after multiple small clearance assumptions proved invalid",
+    "timeline": "Discovered when facade installation hit unexpected clearance issues at several locations simultaneously",
+    "challenges": "Because the drift had accumulated from many small, individually reasonable field decisions rather than one clear event, there was no single point where the problem could have been caught with a normal review process.",
+    "constraints": "Reconstructing what had actually changed on site required physically re-surveying multiple locations, since no single record captured all the verbal approvals that had accumulated over the months.",
+    "questions": [
+      "Why can a model be 'technically up to date' relative to formal revisions while still being wrong?",
+      "What process gap allowed months of small verbal approvals to go uncaptured?",
+      "How does this connect to why even small field changes need a defined feedback path back into the model?"
+    ],
+    "solution": "UrbanBuild implemented a standing rule that any site-approved field change, however small or verbally approved, must be logged in a simple field-change register within 48 hours, which the BIM team then reviews weekly specifically to catch model updates that formal revision tracking alone would miss.",
+    "lessonsLearned": "A model being current relative to its own formal revision history isn't the same as the model matching physical reality — small, verbally-approved field decisions accumulate exactly like the ones that caused this project's drift, and a model maintenance process needs an explicit capture path for these, not just for formally reissued drawings."
+  },
+  "quiz": [
+    {
+      "q": "A connection change is verbally approved and built on site but never fed back into the master model. This means:",
+      "options": [
+        "No action is needed since the change was properly approved on site",
+        "The model now describes a physical condition that no longer exists, creating risk for anyone still coordinating against it",
+        "The shop drawing should be considered invalid instead",
+        "This only matters for record-keeping purposes"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When a structural connection's geometry changes, other disciplines' existing coordination assumptions (like MEP clearances) should be:",
+      "options": [
+        "Assumed to still be valid unless someone complains",
+        "Explicitly re-checked against the new geometry, since orientation changes can affect available space differently",
+        "Ignored, since MEP wasn't involved in the structural change",
+        "Only re-checked if the change was formally documented"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Communicating a model update to another discipline should be:",
+      "options": [
+        "Always the same passive method regardless of timing",
+        "Matched to the urgency of the affected discipline's nearest upcoming activity",
+        "Left to the other discipline to notice on their own, always",
+        "Only done at the end of each project phase"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did the model drift despite being 'up to date' on formal revisions?",
+      "options": [
+        "The BIM engineer was negligent about formal revisions",
+        "Small, verbally-approved field changes accumulated without any formal capture process feeding them back into the model",
+        "The model software was faulty",
+        "There were no field changes at all"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "The best process fix for recurring model-reality gaps from field changes is:",
+      "options": [
+        "Banning all verbal site approvals",
+        "A defined, mandatory turnaround time for feeding any field change back into the model, regardless of how it was approved",
+        "Updating the model only once per project phase",
+        "Relying on each discipline to independently notice discrepancies"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task showed you that a model can be technically current on paper while still being wrong in reality? What closed that specific gap?",
+      "The case study shows small, individually reasonable field decisions accumulating into a $67,000 problem. Where else might many small, reasonable choices add up to a bigger issue than any one of them alone?",
+      "If you were Tomasz, what one rule would you make mandatory so a field change is never more than 48 hours away from being reflected in the model?"
+    ]
+  },
+  "certificate": {
+    "name": "BIM Engineer — Model Reconciliation & Coordination",
+    "nameAz": "BIM Mühəndisi — Model Uzlaşdırması və Koordinasiya",
+    "totalXp": 285
+  }
+}

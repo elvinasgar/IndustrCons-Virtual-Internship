@@ -1,0 +1,316 @@
+{
+ "id": "credit-risk-analyst-quantis",
+ "title": "Credit Risk Analyst",
+ "companyId": "quantis-capital",
+ "category": "Risk & Credit",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "RSK-065",
+ "skills": [
+  "Credit Analysis",
+  "Debt Service Coverage",
+  "Covenant Monitoring"
+ ],
+ "companyIntro": {
+  "name": "Quantis Capital",
+  "country": "Switzerland",
+  "founded": 2008,
+  "mission": "Give mid-sized businesses institutional-grade financial planning, credit and compliance discipline.",
+  "culture": "Numbers must tie out and every assumption must be written down. Analysts are expected to defend their model line by line.",
+  "projects": [
+   "Orion SaaS Reforecast",
+   "Meridian Credit Facility Review",
+   "Alpine Retail Bank AML Uplift"
+  ]
+ },
+ "projectBackground": {
+  "name": "Meridian Credit Facility Review",
+  "client": "Meridian Logistics Ltd",
+  "location": "Zurich, remote",
+  "budget": "Facility requested: €700,000",
+  "timeline": "Credit committee in one week",
+  "context": "Meridian wants a term loan secured on a warehouse. Cash flow has been volatile and a covenant breach is possible."
+ },
+ "manager": {
+  "name": "Jonas Brandt",
+  "role": "Head of Credit, Quantis Capital",
+  "note": "The committee wants one clear recommendation and the three numbers that justify it. Tell me what could go wrong, not only what looks good."
+ },
+ "assignment": {
+  "title": "Recommend whether and how to lend",
+  "brief": "Compute coverage and collateral ratios, rank three borrowers in Excel and write a short credit recommendation with conditions."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Borrower Financials",
+   "type": "Financial Data",
+   "note": "EBITDA €1,440,000; annual debt service €1,200,000."
+  },
+  {
+   "id": "doc-2",
+   "name": "Collateral Valuation",
+   "type": "Valuation Report",
+   "note": "Warehouse valued at €1,000,000; requested loan €700,000."
+  },
+  {
+   "id": "doc-3",
+   "name": "Draft Covenant Package",
+   "type": "Term Sheet",
+   "note": "Proposed minimum DSCR and maximum leverage covenants."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "cra-1-dscr",
+   "type": "numeric",
+   "title": "Debt Service Coverage Ratio",
+   "prompt": "EBITDA is €1,440,000 and annual debt service is €1,200,000. What is the DSCR?",
+   "answer": 1.2,
+   "tolerance": 0.01,
+   "unit": "x (times)",
+   "xp": 40,
+   "workingNote": "1,440,000 / 1,200,000 = 1.20.",
+   "reasoning": "DSCR shows how many times operating cash covers debt payments; below 1.0 means debt cannot be serviced.",
+   "tip": "Define DSCR consistently with the covenant definition.",
+   "mistake": "Using net profit instead of EBITDA changes the ratio materially.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cra-2-ltv",
+   "type": "numeric",
+   "title": "Loan-to-Value",
+   "prompt": "The loan is €700,000 against collateral valued at €1,000,000. What is the LTV percentage?",
+   "answer": 70,
+   "tolerance": 0.5,
+   "unit": "% LTV",
+   "xp": 35,
+   "workingNote": "700,000 / 1,000,000 = 70%.",
+   "reasoning": "LTV measures how much of the collateral value is lent; higher LTV means less cushion.",
+   "tip": "Ask what haircut applies in a forced sale.",
+   "mistake": "Ignoring forced-sale value overstates the security.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cra-3-fivecs",
+   "type": "mcq",
+   "title": "Credit Assessment Framework",
+   "prompt": "Which set is the classic framework for assessing a borrower?",
+   "options": [
+    "Character, capacity, capital, collateral and conditions",
+    "Cost, cash, culture, clients and competition",
+    "Revenue, margin, growth, tax and dividends",
+    "Brand, price, product, place and promotion"
+   ],
+   "correctIndex": 0,
+   "xp": 35,
+   "reasoning": "The five Cs cover willingness to pay, ability to repay, equity cushion, security and the environment.",
+   "tip": "Use all five, not just collateral.",
+   "mistake": "Relying on collateral alone ignores whether the borrower can actually repay.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cra-4-covenants",
+   "type": "multiselect",
+   "title": "Covenant Design",
+   "prompt": "Select sensible financial covenants for this facility.",
+   "options": [
+    "Requirement to use a named supplier",
+    "Maximum Debt/EBITDA of 4.0x",
+    "Maximum number of staff holidays",
+    "Regular delivery of management accounts",
+    "Minimum DSCR of 1.20x tested quarterly"
+   ],
+   "correctIndices": [
+    1,
+    3,
+    4
+   ],
+   "xp": 45,
+   "reasoning": "Financial covenants should be measurable, tied to repayment capacity and monitored regularly.",
+   "tip": "A covenant you cannot measure is not a covenant.",
+   "mistake": "Non-financial restrictions unrelated to risk create friction without protection.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cra-5-rank",
+   "type": "excel-upload",
+   "title": "Borrower Ranking (Excel)",
+   "prompt": "Calculate Debt/EBITDA (E = C / B) and DSCR (F = B / D) for the three borrowers and upload.",
+   "xp": 65,
+   "template": {
+    "fileName": "Credit-Ranking.xlsx",
+    "sheetName": "Ranking",
+    "headers": [
+     "Borrower",
+     "EBITDA (EUR)",
+     "Total Debt (EUR)",
+     "Annual Debt Service (EUR)",
+     "Debt/EBITDA",
+     "DSCR"
+    ],
+    "rows": [
+     [
+      "Alpha",
+      "1000000",
+      "3000000",
+      "800000",
+      "",
+      ""
+     ],
+     [
+      "Beta",
+      "900000",
+      "4500000",
+      "1000000",
+      "",
+      ""
+     ],
+     [
+      "Gamma",
+      "800000",
+      "1200000",
+      "400000",
+      "",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "E2",
+     "expected": 3.0,
+     "tolerance": 0.01,
+     "label": "Alpha leverage"
+    },
+    {
+     "cell": "F2",
+     "expected": 1.25,
+     "tolerance": 0.01,
+     "label": "Alpha DSCR"
+    },
+    {
+     "cell": "E3",
+     "expected": 5.0,
+     "tolerance": 0.01,
+     "label": "Beta leverage"
+    },
+    {
+     "cell": "F3",
+     "expected": 0.9,
+     "tolerance": 0.01,
+     "label": "Beta DSCR"
+    },
+    {
+     "cell": "E4",
+     "expected": 1.5,
+     "tolerance": 0.01,
+     "label": "Gamma leverage"
+    },
+    {
+     "cell": "F4",
+     "expected": 2.0,
+     "tolerance": 0.01,
+     "label": "Gamma DSCR"
+    }
+   ],
+   "reasoning": "Ranking borrowers on both leverage and coverage shows who can carry more debt and who is already stretched.",
+   "tip": "Beta's DSCR below 1.0 is a decline signal.",
+   "mistake": "Looking only at leverage misses cash-flow stress.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cra-6-memo",
+   "type": "text",
+   "title": "Credit Recommendation",
+   "prompt": "Write a 3-5 sentence credit recommendation for Meridian (DSCR 1.20x, LTV 70%).",
+   "minLength": 130,
+   "xp": 60,
+   "modelAnswer": "I recommend approval subject to conditions. Meridian's DSCR of 1.20x covers debt service but leaves limited headroom, and the 70% LTV is acceptable provided the warehouse valuation is independently confirmed. I propose a quarterly minimum DSCR covenant of 1.15x, delivery of monthly management accounts and a cash sweep if DSCR falls below 1.10x. The key risk is volatile cash flow, so a debt service reserve account equal to three months is advised. If the covenants are not agreed, I would reduce the facility size.",
+   "reasoning": "A credit memo recommends a decision, cites the key ratios, identifies the main risk and proposes mitigants.",
+   "tip": "Decision, evidence, risk, mitigants.",
+   "mistake": "Presenting ratios without a decision leaves the committee to guess.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Covenant Nobody Monitored",
+  "background": "A lender approved a facility with a DSCR covenant but never tracked it. The borrower breached for three quarters before anyone noticed, and recovery cost was far higher than early intervention would have been.",
+  "client": "Regional lender",
+  "budget": "Loss of 22% of principal",
+  "timeline": "Breach discovered after default",
+  "challenges": "Covenant compliance reports were not received or reviewed.",
+  "constraints": "No owner was assigned to monitoring.",
+  "questions": [
+   "Why is a covenant useless without monitoring?",
+   "What process would have flagged the breach?",
+   "Who should own monitoring?"
+  ],
+  "solution": "Quantis introduced a quarterly covenant dashboard with automatic escalation after a missed submission.",
+  "lessonsLearned": "Credit risk is managed after approval too; monitor, escalate and document."
+ },
+ "quiz": [
+  {
+   "q": "DSCR equals:",
+   "options": [
+    "Operating cash flow / debt service",
+    "Debt / equity",
+    "Profit / revenue",
+    "Assets / liabilities"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "A DSCR below 1.0 means:",
+   "options": [
+    "The loan is safe",
+    "Collateral is high",
+    "Leverage is low",
+    "Cash flow does not cover debt service"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "LTV is:",
+   "options": [
+    "Collateral / loan",
+    "Debt / EBITDA",
+    "Profit / sales",
+    "Loan / collateral value"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Covenants should be:",
+   "options": [
+    "Vague",
+    "Measurable and monitored",
+    "Optional",
+    "Hidden"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "In the case study the loss happened because:",
+   "options": [
+    "Rates fell",
+    "Covenant compliance was never monitored",
+    "The loan was small",
+    "The borrower was foreign"
+   ],
+   "correctIndex": 1
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which ratio would worry you most and why?",
+   "What early-warning signal would you add?",
+   "How do you explain a decline to a relationship manager?"
+  ]
+ },
+ "certificate": {
+  "name": "Credit Risk Analyst — Coverage, Collateral & Covenants",
+  "nameAz": "Kredit Risk Analitiki — Əhatə, Girov və Kovenantlar",
+  "totalXp": 280
+ }
+}

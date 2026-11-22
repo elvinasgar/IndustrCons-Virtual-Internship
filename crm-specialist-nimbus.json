@@ -1,0 +1,286 @@
+{
+  "id": "crm-specialist-nimbus",
+  "title": "CRM Specialist",
+  "companyId": "nimbus-digital",
+  "category": "Customer Systems",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "drawingTag": "CRM-019",
+  "skills": [
+    "Data Hygiene",
+    "Segmentation",
+    "Pipeline Reporting"
+  ],
+  "companyIntro": {
+    "name": "Nimbus Digital",
+    "country": "Germany",
+    "founded": 2016,
+    "mission": "Ship reliable software for mid-market clients without the chaos of ad-hoc project management — including how client data itself is managed.",
+    "culture": "Data-quality-conscious. CRM specialists are expected to question a report's numbers, not just relay them.",
+    "projects": [
+      "Meridian Client Portal Rebuild",
+      "Nimbus Internal Analytics Suite",
+      "Fintra Payments Integration"
+    ]
+  },
+  "projectBackground": {
+    "name": "Sales Pipeline Report — Leadership Review",
+    "client": "Internal CRM system",
+    "location": "Remote-first, EU time zones",
+    "budget": "N/A — internal data quality project",
+    "timeline": "Leadership review this week",
+    "context": "Leadership has noticed the sales pipeline report shows wildly different total values week to week, sometimes swinging by hundreds of thousands of euros with no clear explanation, undermining confidence in the number."
+  },
+  "manager": {
+    "name": "Lukas Richter",
+    "role": "VP of Sales, Nimbus Digital",
+    "note": "I can't run the business on a pipeline number that swings by €300,000 for no reason anyone can explain. Find out if this is a data problem or a real change in the business, and fix whichever one it actually is."
+  },
+  "assignment": {
+    "title": "Diagnose the pipeline reporting instability and clean the underlying data",
+    "brief": "Audit the CRM data behind the pipeline report, identify what's causing the instability, clean up the data quality issue, and rebuild a trustworthy segmentation and reporting view."
+  },
+  "documents": [
+    {
+      "id": "doc-pipeline-history",
+      "name": "Pipeline Report — Last 6 Weeks",
+      "type": "Report Data",
+      "note": "Total pipeline value has ranged from €1.2M to €1.9M week to week, with several large individual deals appearing and disappearing from the 'active' total between weeks."
+    },
+    {
+      "id": "doc-data-audit",
+      "name": "CRM Data Quality Audit — Deal Records",
+      "type": "Data Audit",
+      "note": "140 of 620 active deal records (22.6%) have no updated close date, meaning they default to an auto-generated date far in the past or future depending on when the record was created, causing them to randomly fall in or out of the 'this quarter' filter used for the pipeline report."
+    },
+    {
+      "id": "doc-segment-rules",
+      "name": "Current Pipeline Segmentation Rules",
+      "type": "CRM Configuration",
+      "note": "Pipeline report filters deals by 'expected close date within current quarter' — but does not require this field to have been manually confirmed, allowing stale auto-generated dates to count."
+    },
+    {
+      "id": "doc-cleanup-template",
+      "name": "Data Cleanup & Segmentation Fix — Template",
+      "type": "Template",
+      "note": "Fields: data quality issue, affected record count, cleanup action, revised segmentation rule."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-dataquality-pct",
+      "type": "numeric",
+      "title": "Quantifying the Data Quality Issue",
+      "prompt": "140 of 620 active deal records lack a confirmed close date. What percentage of active records does this represent?",
+      "answer": 22.6,
+      "tolerance": 0.2,
+      "unit": "%",
+      "xp": 40,
+      "workingNote": "140/620 x 100 = 22.6%.",
+      "reasoning": "Quantifying the scale of the data quality issue (nearly a quarter of all active records) is what confirms this is a significant, systemic problem worth fixing at the segmentation rule level, not a handful of stray records to clean up manually.",
+      "tip": "Always calculate the percentage of affected records, not just the raw count — 140 sounds like it could be a minor cleanup task, but 22.6% of the active pipeline is a substantial, structural data quality problem.",
+      "mistake": "Treating 140 affected records as a small manual fix, without recognizing they represent nearly a quarter of the active pipeline, underestimates how much this issue is actually driving the reported instability.",
+      "recommendation": "Report this percentage directly to leadership alongside the pipeline swings — it's the number that explains why the report has been unreliable, not just that some records need updating."
+    },
+    {
+      "id": "task-2-rootcause-crm",
+      "type": "mcq",
+      "title": "Connecting Cause to Symptom",
+      "prompt": "Deals with unconfirmed close dates default to auto-generated dates that can fall randomly in or out of 'this quarter.' How does this explain the pipeline swings?",
+      "options": [
+        "It's unrelated — the swings must reflect real changes in the business each week",
+        "As auto-generated dates for these 140+ records randomly fall in or out of the current-quarter filter from week to week (e.g., as records are re-saved), large deal values swing in and out of the reported pipeline total, explaining the instability without any real underlying business change",
+        "Sales reps are manually falsifying the pipeline numbers",
+        "The CRM software itself has a random number generator bug"
+      ],
+      "correctIndex": 1,
+      "xp": 50,
+      "reasoning": "Since the filter depends on a close date field that many records never had manually confirmed, and auto-generated dates can shift or be re-evaluated as records are touched, deals randomly cross in and out of the 'current quarter' filter — explaining exactly the kind of large, unexplained week-to-week swings leadership is seeing, without any real change in the underlying business.",
+      "tip": "When a reported number is unstable in a way that doesn't match real business activity, check whether the underlying filter or segmentation rule depends on a data field that isn't reliably populated — instability from bad filtering criteria is very different from instability from real business change.",
+      "mistake": "Assuming pipeline swings reflect real weekly business changes, without checking whether the reporting filter itself is unreliable, can lead leadership to make decisions based on essentially random noise rather than real signal.",
+      "recommendation": "Whenever a report shows unexplained volatility, check the specific field(s) driving its filter or segmentation logic for a data completeness problem — this is often a faster and more likely explanation than a real, volatile underlying business pattern."
+    },
+    {
+      "id": "task-3-cleanup-options",
+      "type": "multiselect",
+      "title": "Cleanup and Fix Options",
+      "prompt": "Select every action worth including in the fix.",
+      "options": [
+        "Require sales reps to manually confirm close dates on all active deals, correcting the 140 flagged records",
+        "Change the segmentation rule to only count deals with a manually confirmed close date as part of the quarterly pipeline total",
+        "Simply average the last 6 weeks of reported totals and present that as 'the number' going forward",
+        "Add a validation rule preventing new deals from being saved without a close date confirmation, to prevent recurrence",
+        "Delete all 140 affected records from the CRM entirely"
+      ],
+      "correctIndices": [
+        0,
+        1,
+        3
+      ],
+      "xp": 50,
+      "reasoning": "Genuine fixes correct the existing bad data (confirming close dates), fix the segmentation rule to require confirmed dates going forward, and add a validation rule to prevent new unconfirmed records from entering the pipeline in the future. Averaging past unreliable numbers doesn't fix the underlying data problem, it just smooths over an already-unreliable metric, and deleting records destroys real deal data rather than correcting it.",
+      "tip": "Combine a data cleanup (fixing existing records) with a forward-looking system fix (validation rule preventing new bad records) — cleaning the current data without preventing recurrence just means the same problem reappears with new deals.",
+      "mistake": "Averaging an already-unreliable series of numbers to produce a 'smoothed' figure doesn't address why the underlying number was unreliable in the first place — it just makes the unreliability less visually obvious.",
+      "recommendation": "Prioritize the validation rule (preventing new unconfirmed records) as the most durable part of the fix — it's what stops this exact problem from recurring every time new deals are added to the CRM."
+    },
+    {
+      "id": "task-4-cleanup-writeup",
+      "type": "text",
+      "title": "Data Cleanup & Fix Write-up",
+      "prompt": "Write the write-up (3-5 sentences): the issue found, its scale, and your fix.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "Investigation found that 140 of 620 active deal records (22.6%) lack a manually confirmed close date, defaulting instead to auto-generated dates that can fall randomly in or out of the 'current quarter' filter used for the pipeline report — this fully explains the €300,000+ weekly swings, which reflect data instability rather than real changes in the business. Fix: sales reps are being asked to manually confirm close dates on all 140 flagged deals this week, the segmentation rule is being updated to only count deals with a confirmed close date toward the quarterly pipeline total, and a validation rule is being added to prevent any new deal from being saved without a confirmed close date. Going forward, the pipeline report should reflect real business changes only, not data quality noise, and I recommend a monthly audit of unconfirmed-date records to catch any recurrence early.",
+      "reasoning": "A strong write-up quantifies the scale of the issue, explains specifically how it produced the observed symptom (pipeline swings), and proposes both a cleanup of existing bad data and a forward-looking prevention measure — this combination is what restores leadership's trust in the reported number.",
+      "tip": "Always explicitly connect the data quality finding to the originally reported symptom (the swings) — showing the mechanism, not just noting a data problem exists, is what makes leadership confident the actual root cause has been found.",
+      "mistake": "Fixing the current 140 records without also changing the segmentation rule and adding validation leaves the door open for new deals to reintroduce the exact same instability within weeks.",
+      "recommendation": "Propose a recurring audit cadence (e.g., monthly) for unconfirmed-date records — a one-time cleanup without ongoing monitoring risks the same data quality issue slowly re-accumulating."
+    },
+    {
+      "id": "task-5-recalc",
+      "type": "numeric",
+      "title": "Recalculating True Pipeline Value",
+      "prompt": "If removing the 140 unconfirmed-date deals (worth a combined €410,000) from a currently reported €1.9M pipeline total gives the true confirmed pipeline value, what is that corrected figure?",
+      "answer": 1490000,
+      "tolerance": 5000,
+      "unit": "EUR",
+      "xp": 45,
+      "workingNote": "€1,900,000 - €410,000 = €1,490,000.",
+      "reasoning": "Calculating the corrected, confirmed pipeline figure (removing the unreliable records) is what gives leadership a trustworthy number to actually use for decision-making this week, rather than waiting for the full cleanup process to complete before reporting anything reliable.",
+      "tip": "When a data quality fix is still in progress, always calculate and report the currently reliable subset of the number (here, confirmed deals only) rather than either using the full unreliable figure or waiting silently until the entire cleanup is finished.",
+      "mistake": "Continuing to report the full €1.9M figure while acknowledging it includes unreliable records, without calculating what the reliable portion actually is, leaves leadership without any trustworthy number to act on in the meantime.",
+      "recommendation": "Report both the interim reliable figure and the ongoing cleanup timeline together — it gives leadership something to act on now while being transparent that the full picture will firm up as remaining records are confirmed."
+    },
+    {
+      "id": "task-6-crm-excel",
+      "type": "excel-upload",
+      "title": "Segment Data Quality Tracker (Excel)",
+      "prompt": "Three more pipeline segments need their unconfirmed-date percentage calculated to prioritize cleanup effort. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "CRM-DataQuality-Template.xlsx",
+        "sheetName": "Data Quality",
+        "headers": [
+          "Segment",
+          "Total Active Deals",
+          "Unconfirmed Close Date",
+          "Unconfirmed %"
+        ],
+        "rows": [
+          [
+            "Enterprise",
+            "85",
+            "10",
+            ""
+          ],
+          [
+            "Mid-Market",
+            "240",
+            "95",
+            ""
+          ],
+          [
+            "SMB",
+            "180",
+            "20",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 11.8,
+          "tolerance": 0.5,
+          "label": "Enterprise unconfirmed % (10/85)"
+        },
+        {
+          "cell": "D3",
+          "expected": 39.6,
+          "tolerance": 0.5,
+          "label": "Mid-Market unconfirmed % (95/240, the highest — priority for cleanup)"
+        },
+        {
+          "cell": "D4",
+          "expected": 11.1,
+          "tolerance": 0.5,
+          "label": "SMB unconfirmed % (20/180)"
+        }
+      ],
+      "reasoning": "Calculating this percentage across every pipeline segment, not just the overall total already investigated, reveals Mid-Market has by far the worst data quality (39.6%) and should be prioritized for the confirmed-date cleanup and rep outreach first.",
+      "tip": "Rank segments by their unconfirmed-date percentage when planning a data cleanup rollout — it's what tells you where to focus rep outreach first for the fastest overall improvement in report reliability.",
+      "mistake": "Treating all segments as equally affected, without calculating each one's specific percentage, risks spreading cleanup effort evenly when one segment (Mid-Market here) actually needs urgent, focused attention.",
+      "recommendation": "Use this segment breakdown to communicate targeted cleanup requests to specific sales teams — a Mid-Market-specific reminder about confirming close dates will likely be more effective than a single generic company-wide request."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Report Leadership Stopped Trusting",
+    "background": "On an earlier Nimbus quarter, a different CRM report showed similarly unexplained volatility for two consecutive quarters before anyone investigated the underlying data — by the time the cause was found (an identical unconfirmed-date filtering issue in a different segment), leadership had already stopped using the report for planning, relying instead on informal verbal updates from sales reps.",
+    "client": "Meridian Client Portal Rebuild — internal reporting",
+    "budget": "Cost of lost reporting credibility: two quarters of planning based on informal, less rigorous verbal updates instead of the CRM system built specifically for this purpose",
+    "timeline": "Two quarters of unexplained volatility before the underlying data issue was investigated and understood",
+    "challenges": "Because the volatility was assumed to reflect real, if confusing, business dynamics rather than a data quality problem, nobody questioned the reporting mechanism itself until confidence in the number had already eroded.",
+    "constraints": "Rebuilding trust in the CRM's pipeline reporting took several consecutive quarters of demonstrated stability before leadership fully returned to using it for planning decisions.",
+    "questions": [
+      "Why might unexplained volatility in a report be assumed to reflect real business dynamics rather than a data quality issue?",
+      "What earlier investigation would have caught this before leadership stopped trusting the report?",
+      "How long did it take to rebuild trust once the actual cause was found and fixed?"
+    ],
+    "solution": "Nimbus mandated a standing monthly data quality audit of the fields underlying every major CRM report, specifically to catch this kind of filtering instability before it erodes report credibility over multiple quarters.",
+    "lessonsLearned": "Once a leadership team stops trusting a report due to unexplained volatility, rebuilding that trust takes far longer than the original investigation would have — proactively auditing the data quality behind key reports is what prevents an under-investigated instability from quietly costing a system its credibility over several quarters."
+  },
+  "quiz": [
+    {
+      "q": "Unexplained volatility in a pipeline report, without a clear business explanation, should first prompt:",
+      "options": [
+        "Acceptance that the business itself is simply volatile",
+        "An audit of the data quality and filtering logic behind the report"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A segmentation filter based on an inconsistently populated data field (like close date) can cause:",
+      "options": [
+        "Perfectly stable, reliable reporting",
+        "Records randomly falling in or out of the filter, producing unexplained swings in the reported total"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "The most durable fix for a recurring data quality issue combines:",
+      "options": [
+        "Cleaning existing bad data only, with no prevention measure",
+        "Cleaning existing data and adding a validation rule to prevent new bad records"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "While a data cleanup is still in progress, it's most useful to:",
+      "options": [
+        "Report nothing until the cleanup is fully complete",
+        "Calculate and report the currently reliable subset of the figure, alongside the cleanup timeline"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, what was the cost of not investigating unexplained report volatility sooner?",
+      "options": [
+        "No real cost occurred",
+        "Leadership stopped trusting the report and relied on less rigorous verbal updates for two quarters"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to connect a data quality finding directly to the originally reported symptom? Why did showing that mechanism matter?",
+      "The case study shows a report losing leadership's trust after two quarters of unexplained volatility. Where else might unexplained inconsistency in a number erode trust long before anyone investigates the actual cause?",
+      "If you were Lukas, what one standing practice would you require so a report's data quality is checked before volatility ever reaches leadership's attention?"
+    ]
+  },
+  "certificate": {
+    "name": "CRM Specialist — Pipeline Data Quality & Segmentation",
+    "nameAz": "CRM Mütəxəssisi — Məlumat Keyfiyyəti və Seqmentasiya",
+    "totalXp": 300
+  }
+}

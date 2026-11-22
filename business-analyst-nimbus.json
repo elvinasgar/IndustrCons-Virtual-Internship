@@ -1,0 +1,289 @@
+{
+  "id": "business-analyst-nimbus",
+  "title": "Business Analyst",
+  "companyId": "nimbus-digital",
+  "category": "Business Analysis",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "BA-018",
+  "skills": [
+    "Process Mapping",
+    "Requirements Documentation",
+    "Gap Analysis"
+  ],
+  "companyIntro": {
+    "name": "Nimbus Digital",
+    "country": "Germany",
+    "founded": 2016,
+    "mission": "Ship reliable software for mid-market clients — starting with actually understanding what the client's process really is, not what they say it is.",
+    "culture": "Detail-oriented and client-facing. Business analysts are expected to catch a requirements gap before it becomes a development rework cost.",
+    "projects": [
+      "Meridian Client Portal Rebuild",
+      "Nimbus Internal Analytics Suite",
+      "Fintra Payments Integration"
+    ]
+  },
+  "projectBackground": {
+    "name": "Meridian Client Portal — Requirements Gap Investigation",
+    "client": "Meridian Retail Group (client)",
+    "location": "Remote discovery workshops, client site visit",
+    "budget": "N/A — requirements phase",
+    "timeline": "Requirements sign-off due in 5 days, before development sprint planning",
+    "context": "The client's stated requirements for the new returns-processing feature don't match what the actual current process looks like when you observe it — there's a manual approval step nobody mentioned in the requirements workshops, and it needs to be resolved before development starts building the wrong thing."
+  },
+  "manager": {
+    "name": "Sofia Bauer",
+    "role": "Head of Delivery, Nimbus Digital",
+    "note": "This is exactly why we don't just take a client's requirements document at face value. Go find out what the real process is, compare it to what's written down, and get the gap resolved before the developers start building against the wrong assumptions."
+  },
+  "assignment": {
+    "title": "Resolve the requirements gap before development sign-off",
+    "brief": "Map the actual current returns process, compare it against the documented requirements, identify the gap, and get it resolved with the client before sprint planning locks in the wrong scope."
+  },
+  "documents": [
+    {
+      "id": "doc-requirements-doc",
+      "name": "Signed Requirements Document — Returns Processing Feature",
+      "type": "Requirements Document",
+      "note": "States: 'Customer submits return request online; system automatically approves returns under $50 and routes returns over $50 to a manager for approval.' No mention of any other approval step."
+    },
+    {
+      "id": "doc-process-observation",
+      "name": "Process Observation Notes — Client Site Visit",
+      "type": "Field Notes",
+      "note": "Observed that even automatically-approved returns under $50 are currently being manually double-checked by a supervisor before the refund is processed, due to a past fraud incident — this step exists in the real current process but isn't documented anywhere or mentioned in requirements workshops."
+    },
+    {
+      "id": "doc-stakeholder-interview",
+      "name": "Stakeholder Interview — Returns Team Supervisor",
+      "type": "Interview Notes",
+      "note": "Supervisor confirms: 'We started manually checking all returns after a fraud incident 8 months ago. It's not official policy, we just started doing it and never stopped, even for the small ones the system would auto-approve.'"
+    },
+    {
+      "id": "doc-gap-template",
+      "name": "Requirements Gap Report — Template",
+      "type": "Template",
+      "note": "Fields: documented requirement, observed actual process, gap description, recommended resolution, client decision needed."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-identify-gap",
+      "type": "mcq",
+      "title": "Identifying the Requirements Gap",
+      "prompt": "The requirements document says returns under $50 are auto-approved, but observation shows a manual supervisor check happens for all returns regardless of value. What does this represent?",
+      "options": [
+        "A documentation formatting issue with no functional significance",
+        "A genuine requirements gap — the documented process omits a real, currently-practiced manual approval step that the new system needs to account for one way or another",
+        "Evidence that the observation notes are inaccurate",
+        "An issue that can be ignored since it's not official policy"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "This is a genuine and functionally significant requirements gap — the documented requirement describes an auto-approval process that doesn't actually match current practice, where every return (including small ones) undergoes a real, if informal, manual check. If development builds strictly to the documented requirement, the new system would remove a control the business is actually relying on, whether or not it's officially documented.",
+      "tip": "Always treat a mismatch between documented requirements and directly observed actual practice as a real gap requiring resolution, not a minor discrepancy to note and move past — building to the documented version when it doesn't match reality risks delivering a system that breaks an actual business control.",
+      "mistake": "Dismissing the gap because the manual check 'isn't official policy' misses that informal-but-consistently-practiced controls are still real business behaviour the new system needs to account for, whether it's ultimately built in or consciously decided against.",
+      "recommendation": "When observation contradicts documentation, always trace back to why the discrepancy exists (here, an informal post-fraud practice) — understanding the reason is what informs whether the gap should be closed by updating the requirement or by changing the actual process."
+    },
+    {
+      "id": "task-2-root-cause-ba",
+      "type": "mcq",
+      "title": "Understanding Why the Gap Exists",
+      "prompt": "The supervisor explains the manual check started informally after a fraud incident 8 months ago and was never formalized. What does this tell you about the gap's origin?",
+      "options": [
+        "The requirements workshop simply forgot to mention an established official process",
+        "The manual check is an informal, undocumented workaround that emerged after a specific incident — exactly the kind of real process that requirements gathering based only on official documentation or workshop discussion can miss entirely",
+        "The supervisor is not a reliable source of information",
+        "This detail is irrelevant to resolving the requirements gap"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "The gap exists precisely because the manual check was never formalized into official policy or documentation — it emerged organically as a team response to a real incident, meaning nobody would have thought to mention it in a requirements workshop discussing 'the process' in the abstract. This is exactly why direct process observation, not just interviews about stated policy, is a necessary requirements-gathering method.",
+      "tip": "Understand why an undocumented gap exists (an informal post-incident workaround, in this case) — it directly informs the resolution options: formalize the practice into the new system, or make a conscious decision to discontinue it, rather than accidentally omitting it either way.",
+      "mistake": "Assuming stakeholders will always accurately describe 'the process' from memory in a workshop, without direct observation to verify, is a common way informal-but-real practices like this one get missed during requirements gathering.",
+      "recommendation": "Always pair stakeholder interviews with direct process observation during discovery — informal workarounds that emerged organically, like this one, are exactly the kind of detail that observation catches and interview-only discovery often misses."
+    },
+    {
+      "id": "task-3-resolution-options",
+      "type": "multiselect",
+      "title": "Gap Resolution Options",
+      "prompt": "Select every option worth presenting to the client for resolving this gap.",
+      "options": [
+        "Build the system exactly as documented (auto-approve under $50), formally discontinuing the manual check as part of the new system's rollout",
+        "Formalize the manual check into the new system's workflow for all returns, replacing the informal post-fraud practice with an official, documented approval step",
+        "Silently build in the manual check without telling the client, assuming it's obviously the right call",
+        "Ignore the discrepancy and proceed with development exactly as documented, without raising it to the client at all",
+        "Present both options to the client with the trade-offs (processing speed vs. fraud control) and let them make an informed decision"
+      ],
+      "correctIndices": [
+        0,
+        1,
+        4
+      ],
+      "xp": 50,
+      "reasoning": "Legitimate resolution paths include formally discontinuing the informal check (if the client decides it's no longer needed), formalizing it into the new system (if the client wants to keep the control), or presenting both options with their trade-offs for an informed client decision. Silently building in a major process change without informing the client, or proceeding with the documented requirement while knowingly ignoring a real gap, are both irresponsible ways to handle a requirements discrepancy this significant.",
+      "tip": "When documented requirements and observed reality genuinely conflict on something with real business risk implications (like a fraud control), present the client with the specific trade-off and let them make the call — this is their business risk decision to make, not a technical judgment call to make silently on their behalf.",
+      "mistake": "Proceeding with development exactly as documented, despite direct field evidence contradicting it, risks delivering a system that removes a real fraud control the client didn't consciously choose to remove — this could have real financial and reputational consequences for the client.",
+      "recommendation": "Document the client's final decision (and their stated reasoning) clearly in the requirements gap report — this record protects both the analyst and the client if the decision is ever questioned later, especially given the fraud-related context."
+    },
+    {
+      "id": "task-4-gap-report",
+      "type": "text",
+      "title": "Requirements Gap Report",
+      "prompt": "Write the report (3-5 sentences): the documented requirement, the observed gap, and your recommended resolution path.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "The signed requirements document states returns under $50 are automatically approved by the system, but on-site observation and a supervisor interview confirm that all returns, regardless of value, currently undergo an informal manual check by a supervisor — a practice that began after a fraud incident 8 months ago and was never formalized or mentioned in requirements workshops. This represents a genuine gap: building strictly to the documented requirement would remove a real, currently-practiced fraud control without the client having consciously decided to do so. I recommend presenting the client with two options — formalizing the manual check as an official approval step in the new system for all returns, or consciously discontinuing it in favour of full automation under $50 — along with the relevant trade-off (processing speed and staff time vs. fraud control), and documenting their decision before sprint planning locks in the final scope.",
+      "reasoning": "A strong gap report states the documented requirement, the specific observed discrepancy with its evidence source, and a clear recommended resolution path with the real trade-off named — this is what lets the client make an informed decision quickly, within the tight 5-day sign-off window, rather than the gap silently becoming a costly rework after development has already started.",
+      "tip": "Always cite the specific evidence source (site observation, supervisor interview) behind a gap finding — it's what makes a requirements gap report credible and actionable, rather than reading as the analyst's personal assumption.",
+      "mistake": "A gap report that only flags 'a discrepancy exists' without a specific recommended resolution path and trade-off leaves the client without enough information to make a timely decision within a tight sign-off deadline.",
+      "recommendation": "Escalate this specific gap immediately, given the 5-day sign-off deadline — a genuine, business-risk-relevant gap like this one shouldn't wait for a routine review cycle when development sprint planning is imminent."
+    },
+    {
+      "id": "task-5-client-question",
+      "type": "text",
+      "title": "Client Decision Request",
+      "prompt": "Write the message (3-5 sentences) to the client requesting their decision on the two resolution options before the sign-off deadline.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "During process observation, we found that your team currently performs a manual supervisor check on all returns, including those under $50 that the documented requirements specify for automatic approval — this appears to be an informal practice that began after a fraud incident roughly 8 months ago and was never formally documented. Before we finalize requirements for development, we need your decision: should the new system formalize this manual check as an official step for all returns, or should we proceed with full automation under $50 as originally documented, consciously retiring the informal check? The trade-off is processing speed and reduced staff workload (automation) versus the additional fraud control your team has been informally relying on since the incident — we'd like your decision by [date] to keep the development sprint planning on schedule.",
+      "reasoning": "A strong client decision request states the specific finding, frames the two options with their real trade-off clearly, and requests a decision by a specific date tied to the actual schedule constraint — this is what gets a timely, informed answer rather than an open-ended question that risks stalling sprint planning.",
+      "tip": "Always tie a requirements decision request to the specific schedule consequence (sprint planning date) — it conveys real urgency without needing to sound alarmist, and helps the client prioritize responding quickly.",
+      "mistake": "Asking an open-ended question without clearly framing the two specific options and their trade-off risks a delayed or incomplete client response, which is especially costly given the tight 5-day sign-off window.",
+      "recommendation": "Offer to schedule a short call if the client would prefer to discuss rather than respond in writing — a decision involving a real fraud-control trade-off sometimes benefits from a conversation rather than an asynchronous written reply."
+    },
+    {
+      "id": "task-6-gap-excel",
+      "type": "excel-upload",
+      "title": "Multi-Feature Gap Severity Tracker (Excel)",
+      "prompt": "Three more features need their requirements-vs-observation gaps rated by severity to prioritize resolution before sign-off. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "Gap-Severity-Template.xlsx",
+        "sheetName": "Gap Tracker",
+        "headers": [
+          "Feature",
+          "Business Risk if Unresolved (1-5)",
+          "Development Rework Cost if Unresolved (1-5)",
+          "Combined Severity Score"
+        ],
+        "rows": [
+          [
+            "Order Cancellation Flow",
+            "4",
+            "3",
+            ""
+          ],
+          [
+            "Email Notification Wording",
+            "1",
+            "1",
+            ""
+          ],
+          [
+            "Inventory Sync Timing",
+            "5",
+            "4",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 12,
+          "tolerance": 0,
+          "label": "Order Cancellation combined severity (4x3)"
+        },
+        {
+          "cell": "D3",
+          "expected": 1,
+          "tolerance": 0,
+          "label": "Email Notification combined severity (1x1) — low priority, can be resolved informally"
+        },
+        {
+          "cell": "D4",
+          "expected": 20,
+          "tolerance": 0,
+          "label": "Inventory Sync combined severity (5x4) — highest priority, needs urgent resolution before sign-off"
+        }
+      ],
+      "reasoning": "Scoring every identified gap by combined business risk and rework cost — not just addressing gaps in the order they're discovered — is what lets a business analyst correctly prioritize the Inventory Sync gap (severity 20) ahead of the much lower-stakes Email Notification wording issue (severity 1) within a tight sign-off window.",
+      "tip": "Build a combined severity score (risk x rework cost) for every identified gap, rather than treating all gaps as equally urgent — this ensures limited time before sign-off goes to the highest-stakes issues first.",
+      "mistake": "Addressing gaps in the order they happen to be discovered, rather than by calculated severity, risks spending scarce pre-sign-off time on a low-stakes wording issue while a high-severity gap like Inventory Sync Timing doesn't get the urgent attention it needs.",
+      "recommendation": "Present this severity-ranked gap list to the client as a single prioritized set of decisions needed, rather than as separate individual requests — it helps them understand which decisions are truly urgent versus which can be resolved more casually."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Requirement That Was Taken at Face Value",
+    "background": "On an earlier Nimbus project, a business analyst built requirements entirely from workshop discussions without any direct process observation — an undocumented manual reconciliation step, similar to the one found in this internship's case, was missed entirely, and the gap wasn't discovered until user acceptance testing, well after development had already built and tested against the incomplete requirement.",
+    "client": "Fintra Payments Integration — an earlier discovery phase",
+    "budget": "Cost of the late-discovered gap: approximately 3 weeks of rework, redevelopment, and retesting after UAT",
+    "timeline": "Gap discovered during user acceptance testing, roughly 10 weeks after the original (incomplete) requirements sign-off",
+    "challenges": "Because requirements were gathered solely from what stakeholders described in workshops, without direct observation of the actual process, an informal step nobody thought to mention went completely undocumented until real users tested the system against their actual daily practice.",
+    "constraints": "The rework required re-opening a supposedly closed requirements phase, re-planning affected sprints, and re-testing the affected feature, all considerably more disruptive than the observation-based discovery step that would have caught it originally.",
+    "questions": [
+      "Why can workshop-based requirements gathering alone miss real, informal process steps that direct observation would catch?",
+      "What specific discovery method, used earlier, would have caught this gap before development started?",
+      "How did the cost of catching the gap at UAT compare to catching it during initial discovery?"
+    ],
+    "solution": "Nimbus mandated that requirements discovery for any client-facing process must include direct process observation (not just stakeholder interviews or workshops) before requirements are signed off, specifically because informal, undocumented practices are common and workshop discussion alone often misses them.",
+    "lessonsLearned": "Stakeholders describing a process from memory in a workshop will often describe the official or intended version, not necessarily every informal step that has organically become part of actual daily practice — direct observation is what catches the gap between the two, and catching it during discovery is far cheaper than catching it after development has already built against an incomplete requirement."
+  },
+  "quiz": [
+    {
+      "q": "A mismatch between documented requirements and directly observed actual practice should be treated as:",
+      "options": [
+        "A minor documentation issue to ignore",
+        "A genuine gap requiring investigation and resolution before development proceeds"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "An informal process step that emerged after a specific incident and was never formally documented is:",
+      "options": [
+        "Something requirements workshops would reliably catch",
+        "Exactly the kind of detail that direct process observation catches but workshop-only discovery often misses"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When documented requirements and real practice conflict on something with real business risk, the best approach is:",
+      "options": [
+        "Build to the documented version without telling the client",
+        "Present the client with the specific trade-off and let them make an informed decision"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A gap report should include:",
+      "options": [
+        "Just the observation, without a specific recommended resolution",
+        "The specific gap, its evidence source, and a recommended resolution path with the relevant trade-off"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why was the gap not discovered until user acceptance testing?",
+      "options": [
+        "Requirements were gathered only from workshop discussion, without direct process observation to catch the informal, undocumented step",
+        "The developers ignored the requirements entirely",
+        "There was no gap, UAT found an unrelated issue",
+        "The client refused to participate in discovery"
+      ],
+      "correctIndex": 0
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to trust direct observation over documented requirements when the two conflicted? What made the observation more reliable in this case?",
+      "The case study shows a workshop-only discovery process missing a real gap until much later, at greater cost. Where else might relying only on what people say (rather than what actually happens) miss something important?",
+      "If you were Sofia, what one rule would you make standing so requirements discovery always includes direct observation, not just stakeholder interviews?"
+    ]
+  },
+  "certificate": {
+    "name": "Business Analyst — Requirements Gap Analysis & Process Observation",
+    "nameAz": "Biznes Analitiki — Tələblərin Boşluq Təhlili",
+    "totalXp": 300
+  }
+}

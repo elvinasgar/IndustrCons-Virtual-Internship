@@ -1,0 +1,247 @@
+{
+ "id": "devops-engineer-cumulus",
+ "title": "DevOps Engineer",
+ "companyId": "cumulus-cloud",
+ "category": "DevOps",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "DOP-073",
+ "skills": [
+  "CI/CD Pipelines",
+  "Incident Response",
+  "Reliability Metrics"
+ ],
+ "companyIntro": {
+  "name": "Cumulus Cloud Partners",
+  "country": "Ireland",
+  "founded": 2015,
+  "mission": "Run customers' systems on the cloud reliably, securely and without surprise bills.",
+  "culture": "Automate the second time you do anything. Every incident ends with a written blameless review.",
+  "projects": [
+   "Fintra Platform Migration",
+   "Zero-Downtime Release Pipeline",
+   "Cost Optimisation Programme"
+  ]
+ },
+ "projectBackground": {
+  "name": "Zero-Downtime Release Pipeline",
+  "client": "Fintra Payments",
+  "location": "Dublin, remote",
+  "budget": "Programme budget: €60,000",
+  "timeline": "Pipeline live before peak trading",
+  "context": "Releases are frequent but 15% cause incidents and recovery is slow and manual."
+ },
+ "manager": {
+  "name": "Aoife Brennan",
+  "role": "Platform Lead, Cumulus Cloud Partners",
+  "note": "Speed without stability isn't speed. Show me the numbers and what we change because of them."
+ },
+ "assignment": {
+  "title": "Improve release safety",
+  "brief": "Compute DORA-style metrics, choose pipeline gates, handle a failed deploy and write the review."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Deployment History",
+   "type": "Metrics",
+   "note": "40 deployments last month; 6 caused incidents."
+  },
+  {
+   "id": "doc-2",
+   "name": "Incident Log",
+   "type": "Log",
+   "note": "Three incidents lasting 30, 90 and 60 minutes."
+  },
+  {
+   "id": "doc-3",
+   "name": "Pipeline Definition",
+   "type": "Config",
+   "note": "Build, unit tests, deploy to production."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "dop-1-cfr",
+   "type": "numeric",
+   "title": "Change Failure Rate",
+   "prompt": "Last month there were 40 deployments and 6 caused incidents. What is the change failure rate?",
+   "answer": 15,
+   "tolerance": 0.5,
+   "unit": "%",
+   "xp": 35,
+   "workingNote": "6 / 40 = 15%.",
+   "reasoning": "Change failure rate is failed changes over total changes.",
+   "tip": "Track it each month.",
+   "mistake": "Counting incidents without deployments loses context.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "dop-2-mttr",
+   "type": "numeric",
+   "title": "Mean Time to Recover",
+   "prompt": "Three incidents lasted 30, 90 and 60 minutes. What is MTTR in minutes?",
+   "answer": 60,
+   "tolerance": 0.5,
+   "unit": "minutes",
+   "xp": 35,
+   "workingNote": "(30 + 90 + 60) / 3 = 60.",
+   "reasoning": "MTTR averages restoration time.",
+   "tip": "Reduce with rollback automation.",
+   "mistake": "Using the longest incident only skews the picture.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "dop-3-rollback",
+   "type": "mcq",
+   "title": "Failed Deployment",
+   "prompt": "A deploy increases errors sharply. What is the first action?",
+   "options": [
+    "Debug in production first",
+    "Wait and watch",
+    "Roll back to the last known good version, then investigate",
+    "Delete logs"
+   ],
+   "correctIndex": 2,
+   "xp": 40,
+   "reasoning": "Restore service first, then find the cause.",
+   "tip": "Make rollback one command.",
+   "mistake": "Debugging live prolongs the outage.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "dop-4-gates",
+   "type": "multiselect",
+   "title": "Pipeline Gates",
+   "prompt": "Select gates to add to the pipeline.",
+   "options": [
+    "Canary or staged rollout",
+    "Security scanning of dependencies",
+    "Automated integration tests",
+    "Manual deploy by email",
+    "Skip tests on Fridays"
+   ],
+   "correctIndices": [
+    0,
+    1,
+    2
+   ],
+   "xp": 45,
+   "reasoning": "Automated quality and safe rollout reduce failures.",
+   "tip": "Gate on tests, security and staging.",
+   "mistake": "Skipping tests increases failure rate.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "dop-5-iac",
+   "type": "mcq",
+   "title": "Configuration Drift",
+   "prompt": "Production was changed by hand and now differs from code. What is the fix?",
+   "options": [
+    "Manage infrastructure as code and reconcile the drift",
+    "Document it in chat",
+    "Ignore it",
+    "Delete the code"
+   ],
+   "correctIndex": 0,
+   "xp": 40,
+   "reasoning": "IaC keeps environments reproducible.",
+   "tip": "No manual changes to production.",
+   "mistake": "Hand edits make environments unreproducible.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "dop-6-pir",
+   "type": "text",
+   "title": "Blameless Review",
+   "prompt": "Write a 3-5 sentence blameless post-incident summary.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "A deployment on Tuesday introduced a configuration error that caused payment failures for 60 minutes. The pipeline lacked an integration test for the new setting and rollback required manual steps. We have added the test, automated rollback and a canary stage. No individual is at fault; the system allowed an unsafe change to reach production. We'll review the metrics in two weeks.",
+   "reasoning": "A blameless review states timeline, causes in the system, actions and follow-up.",
+   "tip": "Facts, system causes, actions, follow-up.",
+   "mistake": "Blaming a person hides the systemic fix.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: Friday Night Deploy",
+  "background": "A team pushed a change on Friday evening with no rollback plan. The outage ran twelve hours and cost the client €250,000 in lost sales.",
+  "client": "Payments client",
+  "budget": "€250,000 lost sales",
+  "timeline": "Overnight outage",
+  "challenges": "No staged rollout or automated rollback.",
+  "constraints": "Release timing pressure.",
+  "questions": [
+   "Why was recovery slow?",
+   "What release policy would you set?",
+   "How do you prevent pressure shortcuts?"
+  ],
+  "solution": "Cumulus introduced canary releases, automated rollback and a no-risky-Friday policy.",
+  "lessonsLearned": "Make safe the easy path."
+ },
+ "quiz": [
+  {
+   "q": "Change failure rate is:",
+   "options": [
+    "Failed changes / total changes",
+    "Incidents / hours",
+    "Tests / builds",
+    "Users / servers"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "MTTR is:",
+   "options": [
+    "Mean time to release",
+    "Max time",
+    "Minimum cost",
+    "Mean time to recover"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "First action on bad deploy:",
+   "options": [
+    "Debug live",
+    "Wait",
+    "Delete logs",
+    "Roll back"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "IaC helps by:",
+   "options": [
+    "Slowing teams",
+    "Making infrastructure reproducible",
+    "Replacing testing",
+    "Removing logs"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "The case study outage lasted long because:",
+   "options": [
+    "Too many users",
+    "No automated rollback",
+    "Slow disks",
+    "Wrong logo"
+   ],
+   "correctIndex": 1
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which metric would you present to leadership and why?",
+   "How do you keep reviews blameless?",
+   "What would you automate first?"
+  ]
+ },
+ "certificate": {
+  "name": "DevOps Engineer — Release Safety & Reliability",
+  "nameAz": "DevOps Mühəndisi — Release Təhlükəsizliyi və Etibarlılıq",
+  "totalXp": 250
+ }
+}

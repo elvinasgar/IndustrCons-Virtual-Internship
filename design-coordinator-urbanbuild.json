@@ -1,0 +1,297 @@
+{
+  "id": "design-coordinator-urbanbuild",
+  "title": "Design Coordinator",
+  "companyId": "urbanbuild-engineering",
+  "category": "Design Coordinator",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "DC-055 / REV.C",
+  "skills": [
+    "Shop Drawing Review",
+    "Communication",
+    "RFI"
+  ],
+  "companyIntro": {
+    "name": "UrbanBuild Engineering",
+    "country": "Poland",
+    "founded": 2011,
+    "mission": "Bring Scandinavian-style design coordination discipline to fast-growing urban infill projects — a coordinated model is worth more than any single discipline's perfect drawing.",
+    "culture": "Cross-disciplinary and meeting-heavy by design. Design coordinators are the ones expected to notice when two consultants have each done correct work that doesn't fit together.",
+    "projects": [
+      "Wisła Riverside Mixed-Use",
+      "Krakow Transit Interchange",
+      "Solaris Office Campus"
+    ]
+  },
+  "projectBackground": {
+    "name": "Krakow Transit Interchange — Concourse Level",
+    "client": "Krakow Municipal Transit Authority",
+    "location": "Krakow Central Transit Hub",
+    "budget": "$38M (concourse and MEP integration package)",
+    "timeline": "36 weeks, currently in week 16 (concourse ceiling coordination)",
+    "context": "The architectural reflected ceiling plan, structural drawings, and mechanical ductwork drawings for the concourse level have all been issued independently and are now being coordinated together for the first time ahead of construction — several conflicts have already surfaced in the federated model."
+  },
+  "manager": {
+    "name": "Aleksandra Nowicka",
+    "role": "Design Manager, UrbanBuild Engineering",
+    "note": "Each consultant will tell you their own drawing is correct — and they're usually right, in isolation. Your job this week is finding where three individually correct drawings don't actually fit together as one buildable ceiling."
+  },
+  "assignment": {
+    "title": "Coordinate the concourse ceiling zone, Levels 1",
+    "brief": "Review the federated model conflict report, identify the real coordination issues versus false positives, decide who needs to resolve each one, and issue the coordination meeting minutes with clear actions."
+  },
+  "documents": [
+    {
+      "id": "doc-conflict-report",
+      "name": "Federated Model Conflict Report — Concourse Ceiling Zone",
+      "type": "Clash Report",
+      "note": "Auto-generated report flags 14 conflicts between architectural ceiling elements, structural beams, and mechanical ductwork in the 400mm ceiling void."
+    },
+    {
+      "id": "doc-rcp",
+      "name": "Architectural Reflected Ceiling Plan (extract)",
+      "type": "Architectural Drawing",
+      "note": "Linear light fixtures run continuously along Grid Line 7, requiring a clear 150mm depth zone at ceiling level."
+    },
+    {
+      "id": "doc-duct-drawing",
+      "name": "Mechanical Ductwork Drawing (extract)",
+      "type": "Mechanical Drawing",
+      "note": "A 600mm x 300mm supply duct crosses Grid Line 7 at the same location as the linear light fixture run, within the same 400mm ceiling void."
+    },
+    {
+      "id": "doc-minutes-template",
+      "name": "Coordination Meeting Minutes — Template",
+      "type": "Template",
+      "note": "Fields: issue, discipline(s) involved, discussion, resolution/action, responsible party, due date."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-triage",
+      "type": "multiselect",
+      "title": "Conflict Triage",
+      "prompt": "The 14 flagged conflicts include some that are genuine coordination issues and some that are false positives from the clash detection software (e.g., a ceiling tile grid line touching a sprinkler head bracket with 20mm of actual clearance, misread as a clash). Select every characteristic of a genuine coordination issue worth escalating to a meeting.",
+      "options": [
+        "Two elements requiring the same physical space with no possible adjustment within the ceiling void",
+        "Two elements shown in different colours in the 3D model viewer",
+        "An element from one discipline that would need significant redesign or rerouting from another discipline to resolve",
+        "A software-flagged 'clash' where the elements have adequate real clearance once actual dimensions are checked",
+        "An issue where no single discipline can resolve it by itself without coordination input from the others"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        4
+      ],
+      "xp": 45,
+      "reasoning": "Genuine coordination issues involve real physical space conflicts, cross-disciplinary redesign needs, or situations requiring multiple parties to jointly resolve — these are worth a meeting. Differences in model viewer colour coding are irrelevant to actual conflicts, and a clash flagged by software that turns out to have real clearance once checked is a false positive that shouldn't consume meeting time.",
+      "tip": "Always triage an automated clash report before a coordination meeting, not during it — walking into a meeting with 14 unfiltered clashes wastes the group's time on false positives and dilutes attention from the real issues.",
+      "mistake": "A common coordination mistake is treating every software-flagged clash as equally real and escalating all of them, which trains meeting attendees to tune out clash reports altogether after a few meetings full of non-issues.",
+      "recommendation": "Build a habit of pre-checking each flagged clash's actual dimensions against the model before the meeting — this single triage step is often what separates an effective, focused coordination meeting from a two-hour session that resolves nothing."
+    },
+    {
+      "id": "task-2-realconflict",
+      "type": "mcq",
+      "title": "Identifying the Real Conflict",
+      "prompt": "The linear light fixture (needs 150mm depth) and the supply duct (600mm x 300mm) both occupy the same location on Grid Line 7, within a 400mm ceiling void. What does this tell you?",
+      "options": [
+        "There's no real conflict since both elements are individually correctly designed",
+        "There is a genuine space conflict — the duct alone (300mm) plus the light fixture's needed 150mm exceeds the available 400mm void depth",
+        "The conflict is only cosmetic and doesn't affect construction",
+        "The architectural drawing is simply wrong and needs no further discussion"
+      ],
+      "correctIndex": 1,
+      "xp": 50,
+      "reasoning": "Both elements are individually well-designed by their own discipline, but together they require more depth (300mm duct + 150mm light fixture = 450mm) than the available 400mm ceiling void provides — this is exactly the kind of conflict that only shows up when disciplines are coordinated together, since neither drawing alone reveals it.",
+      "tip": "When two elements individually fit their own discipline's requirements but together exceed available space, the issue isn't that either drawing is 'wrong' — it's that the combined solution needs a resolution neither discipline can reach alone, which is precisely why design coordination exists as its own function.",
+      "mistake": "Blaming one discipline's drawing as 'the problem' when a genuine multi-discipline space conflict is found is unproductive and usually inaccurate — the real issue is that the combined solution wasn't checked together earlier in the design process.",
+      "recommendation": "When you find a genuine space conflict like this, bring both disciplines into the same conversation rather than asking each one separately to explain their drawing — the solution (rerouting the duct, relocating the fixture, or reducing the void requirement) usually needs input from both to find the best option."
+    },
+    {
+      "id": "task-3-rfi",
+      "type": "text",
+      "title": "Coordination RFI",
+      "prompt": "Write the RFI (3-5 sentences) to the mechanical and lighting designers jointly: describe the conflict, ask for their input on resolution options, and state the urgency.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "At Grid Line 7 in the concourse ceiling zone, the mechanical supply duct (600mm x 300mm) and the architectural linear light fixture run (requiring 150mm clear depth) together require 450mm of ceiling void depth, exceeding the available 400mm. Please advise whether the duct can be reduced in depth (e.g., a flatter profile duct) or rerouted at this specific grid line, or alternatively whether the light fixture run can be interrupted or relocated around the duct crossing without compromising the architectural lighting design intent. This is holding up ceiling coordination sign-off for the whole concourse zone, so a response within 5 working days would let us finalise the federated model before the ceiling package goes to tender.",
+      "reasoning": "A useful coordination RFI names the exact conflict location and dimensions, asks both affected disciplines a specific resolvable question rather than just describing the problem, and states the broader consequence (holding up the whole zone's sign-off) to convey appropriate urgency.",
+      "tip": "When a conflict involves two disciplines, address the RFI to both together rather than sending separate RFIs — this encourages a joint solution rather than each discipline proposing changes to the other's work without direct conversation.",
+      "mistake": "Sending separate, single-discipline RFIs for a conflict that genuinely requires input from both parties often results in two independent, incompatible proposed fixes, requiring a second round of coordination to reconcile them.",
+      "recommendation": "For any conflict affecting a shared physical zone like a ceiling void, always request a joint response or a short joint call rather than accepting two separate written answers — combined space problems are usually solved faster in direct conversation than through sequential written RFIs."
+    },
+    {
+      "id": "task-4-priority",
+      "type": "mcq",
+      "title": "Coordination Priority",
+      "prompt": "Beyond the Grid Line 7 issue, the conflict report shows several other flagged items in zones not scheduled for construction for another 8 weeks. How should these be prioritised relative to the Grid Line 7 issue?",
+      "options": [
+        "All 14 issues should be treated with identical urgency regardless of construction timing",
+        "Grid Line 7 should be prioritised for immediate resolution since it affects imminent work, while the later-zone issues can be scheduled into upcoming coordination meetings with appropriate lead time",
+        "Only the Grid Line 7 issue matters; the others should be closed without review",
+        "Later-zone issues should be prioritised since there's more time to think about them"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "Coordination priority should follow construction sequence urgency — an issue affecting work starting imminently needs faster resolution than one in a zone with 8 weeks of lead time, though the latter still needs to be tracked and resolved before it becomes urgent itself, not simply closed without review.",
+      "tip": "Use the construction programme, not just the conflict report's own ordering, to prioritise which coordination issues get addressed first — a clash report has no inherent sense of urgency, that context has to come from the schedule.",
+      "mistake": "Treating every flagged conflict as equally urgent leads to either rushing decisions on issues that had plenty of lead time, or delaying genuinely urgent issues while attention is spread too thin across everything at once.",
+      "recommendation": "Tag every coordination issue with its relevant construction start date when logging it, not just its discovery date — this makes prioritisation an objective sort rather than a subjective judgment call each time."
+    },
+    {
+      "id": "task-5-minutes",
+      "type": "text",
+      "title": "Coordination Meeting Minutes",
+      "prompt": "Write the minutes entry (3-5 sentences) for the Grid Line 7 issue: the issue, who's involved, the discussion outcome, and the agreed action with owner and date.",
+      "minLength": 40,
+      "xp": 45,
+      "modelAnswer": "Issue: ceiling void conflict at Grid Line 7 between the mechanical supply duct (600mm x 300mm) and the architectural linear light fixture run (150mm required depth), combined depth of 450mm exceeding the 400mm available void. Discussion: mechanical engineer confirmed a flatter-profile duct (250mm) is available for this run at a marginal cost increase; lighting designer confirmed the fixture can accept the resulting 150mm clearance without design change. Agreed action: mechanical engineer to issue a revised duct detail using the 250mm profile duct at Grid Line 7 by [date, 1 week], to be re-checked in the federated model before the ceiling package proceeds to tender.",
+      "reasoning": "Good coordination minutes record the issue precisely enough that someone who wasn't in the meeting can understand it, capture the actual technical discussion (not just 'discussed'), and end with a specific, owned, dated action — this is what makes minutes an enforceable record rather than a vague summary.",
+      "tip": "Always name a specific responsible party and a specific date for every coordination action — 'to be resolved' without an owner and date tends to silently slip through subsequent meetings unresolved.",
+      "mistake": "Minutes that record 'issue discussed, to be followed up' without a specific technical resolution and named owner are one of the most common reasons the same coordination issue reappears in the following meeting, unresolved.",
+      "recommendation": "Track open coordination actions across meetings in a single running log with due dates, not just within each meeting's own minutes — this is what actually surfaces an action that's been quietly missed for several meetings in a row."
+    },
+    {
+      "id": "task-6-clash-excel",
+      "type": "excel-upload",
+      "title": "Clash Triage Log (Excel)",
+      "prompt": "Three more flagged clashes need triaging — check the actual clearance against the required clearance and flag genuine vs. false positive. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 60,
+      "template": {
+        "fileName": "Clash-Triage-Template.xlsx",
+        "sheetName": "Triage",
+        "headers": [
+          "Clash ID",
+          "Required Clearance (mm)",
+          "Actual Clearance (mm)",
+          "Genuine Conflict? (Y/N)"
+        ],
+        "rows": [
+          [
+            "CL-004",
+            "50",
+            "65",
+            ""
+          ],
+          [
+            "CL-005",
+            "100",
+            "40",
+            ""
+          ],
+          [
+            "CL-006",
+            "25",
+            "10",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": "N",
+          "tolerance": 0,
+          "label": "CL-004 (65mm actual exceeds 50mm required — false positive)"
+        },
+        {
+          "cell": "D3",
+          "expected": "Y",
+          "tolerance": 0,
+          "label": "CL-005 (40mm actual is less than 100mm required — genuine conflict)"
+        },
+        {
+          "cell": "D4",
+          "expected": "Y",
+          "tolerance": 0,
+          "label": "CL-006 (10mm actual is less than 25mm required — genuine conflict)"
+        }
+      ],
+      "reasoning": "A clash is only genuine when actual clearance is less than required clearance — CL-004 actually has more clearance than required despite being auto-flagged, making it a false positive, while CL-005 and CL-006 both have insufficient actual clearance and are genuine conflicts needing resolution.",
+      "tip": "Build the genuine-conflict flag as a direct comparison formula (actual less than required) rather than manually judging each row — this removes any inconsistency in how 'close' clashes get triaged from item to item.",
+      "mistake": "A common triage mistake is assuming every software-flagged item is genuine without checking the actual versus required clearance numbers, which wastes coordination meeting time on non-issues like CL-004.",
+      "recommendation": "Run this exact clearance-comparison triage on every clash report before a coordination meeting, every time — it's a simple, mechanical check that consistently separates real problems from clash-detection noise."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Meeting That Discussed Nothing Real",
+    "background": "On an earlier UrbanBuild project, a design coordinator brought an unfiltered clash report of 40 items to a coordination meeting with all disciplines present — 34 turned out to be false positives once checked, and the meeting ran long without resolving any of the 6 genuine issues, which then had to be rescheduled for the following week.",
+    "client": "Solaris Office Campus",
+    "budget": "No direct cost, but a one-week delay in ceiling coordination sign-off, and reduced attendee engagement in subsequent coordination meetings",
+    "timeline": "One wasted 2-hour meeting with senior representatives from four disciplines, followed by a second meeting the following week to actually resolve the genuine issues",
+    "challenges": "Several senior consultants who had cleared their schedules for the meeting left without their actual issues addressed, and visibly de-prioritised the following week's rescheduled meeting as a result.",
+    "constraints": "Rebuilding attendee engagement for coordination meetings took several sessions of consistently well-triaged agendas before senior consultants began treating them as worth prioritising again.",
+    "questions": [
+      "Why does an untriaged clash report waste more than just meeting time?",
+      "What single step would have turned this into a productive 30-minute meeting instead of a wasted 2-hour one?",
+      "How does meeting discipline affect whether people take future coordination meetings seriously?"
+    ],
+    "solution": "UrbanBuild introduced a mandatory pre-meeting triage step for every design coordinator, requiring genuine conflicts to be separated from false positives and each genuine issue tagged with construction urgency, before any clash report is used as a meeting agenda.",
+    "lessonsLearned": "An automated clash report is raw data, not a meeting agenda — the coordinator's real value is in the triage step that separates genuine, urgent issues from noise, and skipping that step doesn't just waste one meeting, it erodes how seriously people take every coordination meeting afterward."
+  },
+  "quiz": [
+    {
+      "q": "Two elements from different disciplines are each individually correctly designed, but together exceed available ceiling void space. This means:",
+      "options": [
+        "One of the drawings must be wrong",
+        "Neither drawing is wrong individually, but the combined solution needs cross-disciplinary resolution",
+        "There's no real issue since each drawing is correct",
+        "Only the architect needs to resolve it"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A clash detection tool flags an item where actual clearance (65mm) exceeds required clearance (50mm). This is:",
+      "options": [
+        "A genuine conflict requiring urgent action",
+        "A false positive — sufficient clearance actually exists",
+        "Impossible to determine without a meeting",
+        "Always genuine regardless of the numbers"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "How should coordination issues be prioritised across a project?",
+      "options": [
+        "All issues get identical priority regardless of timing",
+        "By construction sequence urgency, using the programme to judge which issues are more time-critical",
+        "By whichever discipline complains loudest",
+        "In the order the clash software lists them"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, what was the root cause of the wasted 2-hour meeting?",
+      "options": [
+        "The disciplines involved were unqualified",
+        "An unfiltered clash report with mostly false positives was used directly as the meeting agenda",
+        "There were too few attendees",
+        "The meeting room double-booked"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Good coordination meeting minutes should always include:",
+      "options": [
+        "A general summary with no specific actions",
+        "A specific technical resolution with a named responsible party and a due date",
+        "Just a list of attendees",
+        "Only issues that remain unresolved"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to separate a genuine conflict from a false positive? What made the difference clear?",
+      "The case study shows an untriaged report damaging trust in the coordination process itself, beyond just wasting one meeting. Where else might poor preparation cost more than the meeting time it wastes?",
+      "If you were Aleksandra, what one triage step would you make non-negotiable before any clash report becomes a meeting agenda?"
+    ]
+  },
+  "certificate": {
+    "name": "Design Coordinator — Clash Triage & Coordination",
+    "nameAz": "Dizayn Koordinatoru — Kolliziya Təhlili və Koordinasiya",
+    "totalXp": 290
+  }
+}

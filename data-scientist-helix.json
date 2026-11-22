@@ -1,0 +1,247 @@
+{
+ "id": "data-scientist-helix",
+ "title": "Data Scientist",
+ "companyId": "helix-data-labs",
+ "category": "Data Science",
+ "difficulty": "Intermediate",
+ "durationHours": 8,
+ "drawingTag": "DS-067",
+ "skills": [
+  "Model Evaluation",
+  "Experiment Analysis",
+  "Data Leakage Detection"
+ ],
+ "companyIntro": {
+  "name": "Helix Data Labs",
+  "country": "Netherlands",
+  "founded": 2014,
+  "mission": "Turn messy business data into decisions people can trust and models that survive production.",
+  "culture": "Evidence over opinion. A result is not a result until someone else can reproduce it.",
+  "projects": [
+   "Customer Churn Platform",
+   "Retail Demand Forecasting",
+   "Helix Experimentation Hub"
+  ]
+ },
+ "projectBackground": {
+  "name": "Customer Churn Platform",
+  "client": "Retail subscription client",
+  "location": "Amsterdam, remote",
+  "budget": "Project budget: €120,000",
+  "timeline": "Model review before launch",
+  "context": "A churn model reports 98% accuracy, but the retention team cannot reproduce the gain. A new retention offer has also been A/B tested."
+ },
+ "manager": {
+  "name": "Lars de Vries",
+  "role": "Lead Data Scientist, Helix Data Labs",
+  "note": "If a number looks too good, assume it's wrong until proven otherwise. I want you to explain what the model does and what it doesn't."
+ },
+ "assignment": {
+  "title": "Validate the churn model and the offer experiment",
+  "brief": "Detect leakage, compute precision, recall and F1, evaluate the A/B lift and write a plain-language summary."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Model Evaluation Report",
+   "type": "Report",
+   "note": "98% accuracy; the base churn rate is 2%."
+  },
+  {
+   "id": "doc-2",
+   "name": "Confusion Matrix",
+   "type": "Table",
+   "note": "TP 80, FP 20, FN 40."
+  },
+  {
+   "id": "doc-3",
+   "name": "A/B Test Results",
+   "type": "Experiment",
+   "note": "Control 400 conversions of 10,000; variant 460 of 10,000."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "ds-1-leakage",
+   "type": "mcq",
+   "title": "Spotting Leakage",
+   "prompt": "A model uses 'cancellation_date' as a feature to predict cancellation. This is:",
+   "options": [
+    "Good feature engineering",
+    "Normalisation",
+    "Regularisation",
+    "Data leakage — the feature contains the outcome"
+   ],
+   "correctIndex": 3,
+   "xp": 35,
+   "reasoning": "Leakage gives unrealistic performance because information from the future or the target is included.",
+   "tip": "Ask: would this be available at prediction time?",
+   "mistake": "Leaky features inflate scores and fail in production.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ds-2-imbalance",
+   "type": "mcq",
+   "title": "Accuracy Paradox",
+   "prompt": "Churn is 2% of customers. A model predicts 'no churn' for everyone and scores 98% accuracy. What does this show?",
+   "options": [
+    "The model is excellent",
+    "Churn is easy to predict",
+    "Accuracy is misleading on imbalanced data; use precision, recall or F1",
+    "The data is too small"
+   ],
+   "correctIndex": 2,
+   "xp": 40,
+   "reasoning": "With rare events, accuracy can be high while the model is useless.",
+   "tip": "Choose metrics that match the business cost.",
+   "mistake": "Reporting accuracy alone hides a useless model.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ds-3-f1",
+   "type": "numeric",
+   "title": "F1 Score",
+   "prompt": "Using TP 80, FP 20, FN 40, compute the F1 score (round to 3 decimals).",
+   "answer": 0.727,
+   "tolerance": 0.01,
+   "unit": "F1 (0-1)",
+   "xp": 50,
+   "workingNote": "Precision = 80/100 = 0.800; recall = 80/120 = 0.667; F1 = 2 x 0.8 x 0.667 / (0.8 + 0.667) = 0.727.",
+   "reasoning": "F1 balances precision and recall, which matters when both false alarms and misses cost money.",
+   "tip": "Compute precision and recall first.",
+   "mistake": "Averaging precision and recall arithmetically gives 0.733, not F1.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ds-4-lift",
+   "type": "numeric",
+   "title": "Relative Lift",
+   "prompt": "Control converted at 4.0% (400/10,000) and the variant at 4.6% (460/10,000). What is the relative lift?",
+   "answer": 15,
+   "tolerance": 0.5,
+   "unit": "% relative lift",
+   "xp": 40,
+   "workingNote": "(4.6 - 4.0) / 4.0 = 15%.",
+   "reasoning": "Relative lift is the change over the control rate; the absolute difference is 0.6 percentage points.",
+   "tip": "Report absolute and relative effects with a confidence interval.",
+   "mistake": "Quoting 0.6% as the lift mixes percentage points and percent.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ds-5-ab",
+   "type": "multiselect",
+   "title": "A/B Test Validity",
+   "prompt": "Select checks required before trusting the A/B result.",
+   "options": [
+    "Pre-defined sample size and duration",
+    "Stop as soon as the variant looks better",
+    "Use only users who converted",
+    "Check for sample ratio mismatch",
+    "Randomised assignment of users"
+   ],
+   "correctIndices": [
+    0,
+    3,
+    4
+   ],
+   "xp": 45,
+   "reasoning": "Validity needs randomisation, planned sample size and sanity checks; peeking and selection bias invalidate results.",
+   "tip": "Pre-register the plan.",
+   "mistake": "Stopping early or filtering on the outcome inflates false positives.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ds-6-summary",
+   "type": "text",
+   "title": "Stakeholder Summary",
+   "prompt": "Write a 3-5 sentence summary for the retention team: what the model can do, what the offer test shows and what you recommend.",
+   "minLength": 140,
+   "xp": 60,
+   "modelAnswer": "The model's 98% accuracy is misleading because only 2% of customers churn; its F1 score is 0.73, so it finds most churners but with some false alarms. A leaked cancellation feature inflated earlier numbers and has been removed. The retention offer lifted conversion from 4.0% to 4.6%, a 15% relative improvement, though we should confirm the confidence interval before rollout. I recommend launching the offer to a larger randomised group and using the model to prioritise customers, with monthly monitoring for drift.",
+   "reasoning": "A good summary translates metrics into decisions and states uncertainty.",
+   "tip": "Conclusion, evidence, caveat, next step.",
+   "mistake": "Technical jargon without a recommendation is not useful to stakeholders.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Model That Only Worked in the Notebook",
+  "background": "A model scored 0.95 AUC in testing but failed in production. A feature had been computed using data available only after the customer had left.",
+  "client": "E-commerce client",
+  "budget": "Retention campaign wasted €300,000",
+  "timeline": "Found two months after launch",
+  "challenges": "The feature pipeline used future data during training.",
+  "constraints": "No time-aware validation was used.",
+  "questions": [
+   "How did leakage inflate performance?",
+   "What validation would have exposed it?",
+   "How can feature availability be checked?"
+  ],
+  "solution": "Helix introduced time-based validation and a feature availability review before any model sign-off.",
+  "lessonsLearned": "If it wouldn't exist at prediction time, it can't be a feature."
+ },
+ "quiz": [
+  {
+   "q": "Leakage means:",
+   "options": [
+    "Overfitting only",
+    "Missing data",
+    "Slow training",
+    "The model sees information it won't have at prediction time"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "For rare events prefer:",
+   "options": [
+    "Accuracy only",
+    "Precision, recall or F1",
+    "Row count",
+    "Mean"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "F1 is:",
+   "options": [
+    "Arithmetic mean",
+    "Harmonic mean of precision and recall",
+    "Sum",
+    "Maximum"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "A/B tests require:",
+   "options": [
+    "Peeking",
+    "Selecting converters only",
+    "No control",
+    "Random assignment"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "In the case study failure was due to:",
+   "options": [
+    "Small team",
+    "Leaked future data",
+    "Slow servers",
+    "Wrong colour"
+   ],
+   "correctIndex": 1
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which result in this project would you distrust first?",
+   "How do you explain uncertainty to non-technical colleagues?",
+   "What would make you refuse to ship a model?"
+  ]
+ },
+ "certificate": {
+  "name": "Data Scientist — Model Validation & Experimentation",
+  "nameAz": "Data Alimi — Model Doğrulaması və Eksperiment",
+  "totalXp": 270
+ }
+}
