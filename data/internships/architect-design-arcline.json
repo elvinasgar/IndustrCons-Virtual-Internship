@@ -1,0 +1,282 @@
+{
+ "id": "architect-design-arcline",
+ "title": "Architect (Design Development)",
+ "companyId": "arcline-architects",
+ "category": "Architecture",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "ARC-106",
+ "skills": [
+  "Area Efficiency",
+  "Planning Metrics",
+  "Egress & Stairs"
+ ],
+ "companyIntro": {
+  "name": "Arcline Architects",
+  "country": "Italy",
+  "founded": 2007,
+  "mission": "Design buildings people love to use and that regulators can approve first time.",
+  "culture": "Concept with discipline: every beautiful idea must survive area schedules, codes and costs.",
+  "projects": [
+   "Mixed-Use Quarter",
+   "Residential Tower",
+   "Community Library"
+  ]
+ },
+ "projectBackground": {
+  "name": "Residential Tower — Block B",
+  "client": "Verdant Developments",
+  "location": "Milan, remote",
+  "budget": "Construction budget: €18M",
+  "timeline": "Planning submission in three weeks",
+  "context": "The client wants more sellable area without breaking the plot ratio or fire egress rules."
+ },
+ "manager": {
+  "name": "Giulia Ferri",
+  "role": "Design Director, Arcline Architects",
+  "note": "A good design is generous and legal. Show me the efficiency, the ratio and that people can get out."
+ },
+ "assignment": {
+  "title": "Optimise the tower layout",
+  "brief": "Compute efficiency, plot ratio and stair risers, total the unit mix in Excel and write the design statement."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Area Schedule",
+   "type": "Table",
+   "note": "GFA 5,000 m²; net internal area 3,750 m²; plot 2,000 m²."
+  },
+  {
+   "id": "doc-2",
+   "name": "Section",
+   "type": "Drawing",
+   "note": "Floor-to-floor height 3.3 m; riser 165 mm."
+  },
+  {
+   "id": "doc-3",
+   "name": "Unit Mix",
+   "type": "Brief",
+   "note": "Studios, 1-bed and 2-bed units with counts and sizes."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "arc-1-eff",
+   "type": "numeric",
+   "title": "Efficiency",
+   "prompt": "NIA 3,750 m² and GFA 5,000 m². What is the efficiency (%)?",
+   "answer": 75,
+   "tolerance": 0.5,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "3,750 / 5,000 = 75%.",
+   "reasoning": "Efficiency shows how much area is sellable.",
+   "tip": "Typical towers target 75-85%.",
+   "mistake": "Dividing by NIA inverts the measure.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "arc-2-far",
+   "type": "numeric",
+   "title": "Plot Ratio",
+   "prompt": "GFA 5,000 m² on a plot of 2,000 m². What is the plot ratio?",
+   "answer": 2.5,
+   "tolerance": 0.02,
+   "unit": "ratio",
+   "xp": 30,
+   "workingNote": "5,000 / 2,000 = 2.5.",
+   "reasoning": "Plot ratio is capped by planning.",
+   "tip": "Check measurement rules with the authority.",
+   "mistake": "Excluding areas that count adds risk.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "arc-3-risers",
+   "type": "numeric",
+   "title": "Stair Risers",
+   "prompt": "Floor-to-floor 3.3 m with riser 165 mm. How many risers per storey?",
+   "answer": 20,
+   "tolerance": 0,
+   "unit": "risers",
+   "xp": 35,
+   "workingNote": "3,300 / 165 = 20.",
+   "reasoning": "Equal risers keep stairs safe.",
+   "tip": "Check going and headroom too.",
+   "mistake": "Unequal risers cause trips.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "arc-4-egress",
+   "type": "mcq",
+   "title": "Egress",
+   "prompt": "Why do tall residential buildings need more than one escape route?",
+   "options": [
+    "Aesthetics",
+    "So occupants can escape if one route is blocked by fire or smoke",
+    "Marketing",
+    "Cost"
+   ],
+   "correctIndex": 1,
+   "xp": 40,
+   "reasoning": "Redundancy protects life.",
+   "tip": "Follow the fire strategy.",
+   "mistake": "One escape route is a single point of failure.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "arc-5-mix",
+   "type": "excel-upload",
+   "title": "Unit Mix (Excel)",
+   "prompt": "Total area in column D = B x C for each type.",
+   "xp": 60,
+   "template": {
+    "fileName": "Mix-Template.xlsx",
+    "sheetName": "Mix",
+    "headers": [
+     "Type",
+     "Count",
+     "Area each (m2)",
+     "Total (m2)"
+    ],
+    "rows": [
+     [
+      "Studio",
+      "20",
+      "35",
+      ""
+     ],
+     [
+      "1-bed",
+      "30",
+      "55",
+      ""
+     ],
+     [
+      "2-bed",
+      "15",
+      "80",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 700,
+     "tolerance": 1,
+     "label": "Studio"
+    },
+    {
+     "cell": "D3",
+     "expected": 1650,
+     "tolerance": 1,
+     "label": "1-bed"
+    },
+    {
+     "cell": "D4",
+     "expected": 1200,
+     "tolerance": 1,
+     "label": "2-bed"
+    }
+   ],
+   "reasoning": "Total of 3,550 m² against the 3,750 m² NIA leaves 200 m² to check.",
+   "tip": "Reconcile to the area schedule.",
+   "mistake": "Unreconciled schedules cause errors at sale.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "arc-6-statement",
+   "type": "text",
+   "title": "Design Statement",
+   "prompt": "Write a 3-5 sentence design statement for planning.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "Block B delivers 65 homes in a tower with 75% efficiency and a plot ratio of 2.5, within policy. A generous entrance and shared garden create a clear arrival and amenity for residents. Two protected stairs and a firefighting lift provide safe egress. Materials respond to the neighbourhood with a brick base and lighter upper floors.",
+   "reasoning": "A good statement ties design intent to metrics and compliance.",
+   "tip": "Idea, metrics, safety, context.",
+   "mistake": "Pretty words without metrics don't win approval.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Plan That Failed Fire Review",
+  "background": "A tower design was approved by the client but failed fire review because only one stair was provided. Redesign cost 8% of floor area.",
+  "client": "Residential developer",
+  "budget": "€1.2M redesign and delay",
+  "timeline": "Fire review stage",
+  "challenges": "Egress was left until late.",
+  "constraints": "Design focused on views and efficiency.",
+  "questions": [
+   "Why was egress left late?",
+   "How would you bring it forward?",
+   "Who should own it?"
+  ],
+  "solution": "Arcline involves the fire engineer at concept stage.",
+  "lessonsLearned": "Design with safety from day one."
+ },
+ "quiz": [
+  {
+   "q": "Efficiency is:",
+   "options": [
+    "GFA / NIA",
+    "NIA x GFA",
+    "GFA only",
+    "NIA / GFA"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Plot ratio is:",
+   "options": [
+    "GFA / plot area",
+    "Plot / GFA",
+    "NIA / plot",
+    "Height"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Risers = height /",
+   "options": [
+    "Going",
+    "Riser height",
+    "Width",
+    "Area"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Two stairs provide:",
+   "options": [
+    "Decoration",
+    "Cost",
+    "Redundant escape",
+    "Noise"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Egress was left late",
+    "Wrong colours",
+    "Good views",
+    "Low cost"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which constraint shapes your design most?",
+   "How would you reconcile area schedules?",
+   "What do you say to a client who wants more area?"
+  ]
+ },
+ "certificate": {
+  "name": "Architect (Design Development) — Metrics & Egress",
+  "nameAz": "Memar (Layihənin İnkişafı) — Göstəricilər və Evakuasiya",
+  "totalXp": 245
+ }
+}

@@ -1,0 +1,282 @@
+{
+ "id": "compensation-benefits-analyst-people-first",
+ "title": "Compensation & Benefits Analyst",
+ "companyId": "people-first-partners",
+ "category": "Compensation & Benefits",
+ "difficulty": "Intermediate",
+ "durationHours": 6,
+ "drawingTag": "CNB-122",
+ "skills": [
+  "Compa-Ratio",
+  "Pay Equity",
+  "Total Reward"
+ ],
+ "companyIntro": {
+  "name": "People First Partners",
+  "country": "Poland",
+  "founded": 2010,
+  "mission": "Make hiring, pay and employee relations fair, compliant and efficient.",
+  "culture": "Fair process, accurate records. People decisions are documented and explainable.",
+  "projects": [
+   "Graduate Hiring Programme",
+   "Payroll Consolidation",
+   "Pay Equity Review"
+  ]
+ },
+ "projectBackground": {
+  "name": "Pay Equity Review",
+  "client": "Atlas Manufacturing (client)",
+  "location": "Warsaw, remote",
+  "budget": "Budget for adjustments: €120,000",
+  "timeline": "Board paper in two weeks",
+  "context": "Employees say pay is unfair. The board asks for facts and a plan."
+ },
+ "manager": {
+  "name": "Agnieszka Nowak",
+  "role": "Reward Lead, People First Partners",
+  "note": "Pay decisions must be explainable. Show me the range, the market and the gap."
+ },
+ "assignment": {
+  "title": "Test and fix pay fairness",
+  "brief": "Calculate compa-ratio, range position and pay gap, assess employees in Excel and write the recommendation."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Pay Range",
+   "type": "Policy",
+   "note": "Range 48,000 to 72,000; midpoint 60,000."
+  },
+  {
+   "id": "doc-2",
+   "name": "Employee",
+   "type": "Record",
+   "note": "Salary 52,000."
+  },
+  {
+   "id": "doc-3",
+   "name": "Gender Pay",
+   "type": "Report",
+   "note": "Women average 54,000; men average 60,000."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "cnb-1-compa",
+   "type": "numeric",
+   "title": "Compa-Ratio",
+   "prompt": "Salary 52,000 and range midpoint 60,000. What is the compa-ratio (3 decimals)?",
+   "answer": 0.867,
+   "tolerance": 0.005,
+   "unit": "ratio",
+   "xp": 35,
+   "workingNote": "52,000 / 60,000 = 0.867.",
+   "reasoning": "Compa-ratio compares pay to the midpoint.",
+   "tip": "1.0 means at midpoint.",
+   "mistake": "Dividing midpoint by salary inverts it.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cnb-2-pen",
+   "type": "numeric",
+   "title": "Range Penetration",
+   "prompt": "Range 48,000-72,000; salary 52,000. What is range penetration (%)?",
+   "answer": 16.67,
+   "tolerance": 0.1,
+   "unit": "%",
+   "xp": 35,
+   "workingNote": "(52 - 48) / (72 - 48) = 16.67%.",
+   "reasoning": "Penetration shows position within the range.",
+   "tip": "Use it for progression planning.",
+   "mistake": "Using the midpoint instead gives a different measure.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cnb-3-gap",
+   "type": "numeric",
+   "title": "Pay Gap",
+   "prompt": "Women average 54,000; men 60,000. What is the pay gap (%) relative to men?",
+   "answer": 10,
+   "tolerance": 0.1,
+   "unit": "%",
+   "xp": 35,
+   "workingNote": "(60,000 - 54,000) / 60,000 = 10%.",
+   "reasoning": "Gap shows average difference, not equal pay for like work.",
+   "tip": "Analyse by role and level too.",
+   "mistake": "Confusing pay gap with equal pay claims.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cnb-4-bench",
+   "type": "mcq",
+   "title": "Market Benchmarking",
+   "prompt": "Why benchmark pay against the market?",
+   "options": [
+    "To copy competitors blindly",
+    "To make sure pay is competitive and defensible",
+    "To cut all pay",
+    "To avoid reviews"
+   ],
+   "correctIndex": 1,
+   "xp": 30,
+   "reasoning": "Benchmarks give evidence.",
+   "tip": "Use multiple sources.",
+   "mistake": "Single-source benchmarks mislead.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cnb-5-compa",
+   "type": "excel-upload",
+   "title": "Compa-Ratio Table (Excel)",
+   "prompt": "Compa-ratio in column D = B / C.",
+   "xp": 55,
+   "template": {
+    "fileName": "Compa-Template.xlsx",
+    "sheetName": "Compa",
+    "headers": [
+     "Employee",
+     "Salary",
+     "Midpoint",
+     "Compa-Ratio"
+    ],
+    "rows": [
+     [
+      "Employee 1",
+      "52000",
+      "60000",
+      ""
+     ],
+     [
+      "Employee 2",
+      "66000",
+      "60000",
+      ""
+     ],
+     [
+      "Employee 3",
+      "45000",
+      "50000",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 0.867,
+     "tolerance": 0.005,
+     "label": "Employee 1"
+    },
+    {
+     "cell": "D3",
+     "expected": 1.1,
+     "tolerance": 0.005,
+     "label": "Employee 2"
+    },
+    {
+     "cell": "D4",
+     "expected": 0.9,
+     "tolerance": 0.005,
+     "label": "Employee 3"
+    }
+   ],
+   "reasoning": "Employee 1 and 3 sit below midpoint.",
+   "tip": "Check performance before adjusting.",
+   "mistake": "Adjusting everyone below midpoint ignores performance.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cnb-6-rec",
+   "type": "text",
+   "title": "Pay Recommendation",
+   "prompt": "Write a 3-5 sentence recommendation to the board.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "The average gender pay gap is 10% and several employees sit below 0.90 compa-ratio. I recommend a role-by-role equal pay analysis before any adjustment, then a targeted budget of €120,000 for justified adjustments. Employee 1 at 0.867 should be reviewed first, considering performance. We will publish the pay principles and report progress to the board in six months.",
+   "reasoning": "A good recommendation separates analysis, action, budget and communication.",
+   "tip": "Analyse, adjust, budget, communicate.",
+   "mistake": "Across-the-board raises don't fix inequity.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Quiet Pay Gap",
+  "background": "A company found a 22% gap between similar roles after a whistle-blower. Back pay and legal costs exceeded €900,000.",
+  "client": "Industrial client",
+  "budget": "€900,000",
+  "timeline": "Legal claim",
+  "challenges": "Pay decisions were ad hoc.",
+  "constraints": "No ranges or reviews.",
+  "questions": [
+   "Why did the gap persist?",
+   "What process would prevent it?",
+   "How would you communicate?"
+  ],
+  "solution": "People First introduced pay ranges and annual equity reviews.",
+  "lessonsLearned": "Fair pay needs ranges and reviews."
+ },
+ "quiz": [
+  {
+   "q": "Compa-ratio is:",
+   "options": [
+    "Midpoint / salary",
+    "Salary x midpoint",
+    "Bonus",
+    "Salary / midpoint"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Range penetration:",
+   "options": [
+    "(Salary - min)/(max - min)",
+    "Min / max",
+    "Salary / max",
+    "Salary"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Pay gap compares:",
+   "options": [
+    "Individuals only",
+    "Group averages",
+    "Titles",
+    "Bonuses"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Benchmarking uses:",
+   "options": [
+    "Guesses",
+    "Rumours",
+    "Market data",
+    "Silence"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "The case study cost because:",
+   "options": [
+    "Pay was ad hoc",
+    "Strong policy",
+    "Low pay",
+    "Small teams"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which number would you trust least?",
+   "How do you explain pay to an employee?",
+   "What would you do first about the gap?"
+  ]
+ },
+ "certificate": {
+  "name": "Compensation & Benefits Analyst — Ranges & Pay Equity",
+  "nameAz": "Kompensasiya və Müavinətlər Analitiki — Diapazonlar və Ödəniş Bərabərliyi",
+  "totalXp": 245
+ }
+}

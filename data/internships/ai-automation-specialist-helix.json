@@ -1,0 +1,247 @@
+{
+ "id": "ai-automation-specialist-helix",
+ "title": "AI Automation Specialist",
+ "companyId": "helix-data-labs",
+ "category": "Process Automation",
+ "difficulty": "Intermediate",
+ "durationHours": 6,
+ "drawingTag": "AUT-112",
+ "skills": [
+  "Automation ROI",
+  "Process Selection",
+  "Error Handling"
+ ],
+ "companyIntro": {
+  "name": "Helix Data Labs",
+  "country": "Netherlands",
+  "founded": 2014,
+  "mission": "Turn messy business data into decisions people can trust and models that survive production.",
+  "culture": "Evidence over opinion. A result is not a result until someone else can reproduce it.",
+  "projects": [
+   "Customer Churn Platform",
+   "Retail Demand Forecasting",
+   "Helix Experimentation Hub"
+  ]
+ },
+ "projectBackground": {
+  "name": "Invoice Processing Automation",
+  "client": "Retail client finance team",
+  "location": "Amsterdam, remote",
+  "budget": "Build budget: €9,000",
+  "timeline": "Decision at next steering meeting",
+  "context": "Finance keys 800 supplier invoices a month. The CFO wants to know whether automation pays back and what happens when it fails."
+ },
+ "manager": {
+  "name": "Eva Jansen",
+  "role": "Automation Lead, Helix Data Labs",
+  "note": "Automate boring and repeatable work, and design the failure path before the happy path."
+ },
+ "assignment": {
+  "title": "Build the business case and the safety net",
+  "brief": "Calculate saved hours and payback, choose the process, design error handling and monitoring, and write a runbook."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Process Data",
+   "type": "Time Study",
+   "note": "12 minutes per invoice; 800 invoices a month; automation covers 70%."
+  },
+  {
+   "id": "doc-2",
+   "name": "Cost Data",
+   "type": "Budget",
+   "note": "Build €9,000; labour €25 per hour."
+  },
+  {
+   "id": "doc-3",
+   "name": "Error Log",
+   "type": "Pilot",
+   "note": "Failures from unreadable scans and unknown suppliers."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "aut-1-hours",
+   "type": "numeric",
+   "title": "Hours Saved",
+   "prompt": "12 minutes x 800 invoices x 70% automated. How many hours are saved per month?",
+   "answer": 112,
+   "tolerance": 1,
+   "unit": "hours",
+   "xp": 35,
+   "workingNote": "12 x 800 x 0.7 = 6,720 min = 112 h.",
+   "reasoning": "Convert minutes to hours.",
+   "tip": "Measure the baseline first.",
+   "mistake": "Using 100% coverage overstates savings.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aut-2-payback",
+   "type": "numeric",
+   "title": "Payback",
+   "prompt": "Saved value: 112 h x €25 = €2,800 a month. Build cost €9,000. What is the payback in months?",
+   "answer": 3.21,
+   "tolerance": 0.05,
+   "unit": "months",
+   "xp": 40,
+   "workingNote": "9,000 / 2,800 = 3.21.",
+   "reasoning": "Payback tells when the investment is recovered.",
+   "tip": "Include maintenance cost.",
+   "mistake": "Ignoring maintenance flatters ROI.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aut-3-select",
+   "type": "mcq",
+   "title": "Process Selection",
+   "prompt": "Which process is the best automation candidate?",
+   "options": [
+    "Rare, judgement-heavy and changing",
+    "High volume, rule-based, stable and well documented",
+    "One-off",
+    "Politically sensitive"
+   ],
+   "correctIndex": 1,
+   "xp": 35,
+   "reasoning": "Stable repeatable processes pay back.",
+   "tip": "Fix the process before automating.",
+   "mistake": "Automating a broken process automates the waste.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aut-4-error",
+   "type": "mcq",
+   "title": "Error Handling",
+   "prompt": "An unreadable scan arrives. What should the automation do?",
+   "options": [
+    "Guess the values",
+    "Delete it",
+    "Route it to a human queue with the reason, never guess",
+    "Retry forever"
+   ],
+   "correctIndex": 2,
+   "xp": 40,
+   "reasoning": "Failures must be visible and recoverable.",
+   "tip": "Design the exception queue.",
+   "mistake": "Silent guessing creates wrong payments.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aut-5-monitor",
+   "type": "multiselect",
+   "title": "Monitoring",
+   "prompt": "Select monitoring to put in place.",
+   "options": [
+    "Ignore it until users complain",
+    "An audit log of every action",
+    "Alerts for failure rate spikes",
+    "Disable logging",
+    "Daily count of processed vs rejected invoices"
+   ],
+   "correctIndices": [
+    1,
+    2,
+    4
+   ],
+   "xp": 35,
+   "reasoning": "Monitoring catches silent failure.",
+   "tip": "Review exceptions weekly.",
+   "mistake": "No monitoring means silent damage.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aut-6-runbook",
+   "type": "text",
+   "title": "Runbook",
+   "prompt": "Write a 3-5 sentence runbook for the on-call analyst.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "If the failure rate exceeds 10% in an hour, pause the automation and check the supplier list and scan quality. Send failed invoices to the human exception queue with the error reason and record the incident. Do not reprocess without checking for duplicates. Report the cause and fix to the finance lead the same day.",
+   "reasoning": "A good runbook gives thresholds, actions, safeguards and reporting.",
+   "tip": "Threshold, action, safeguard, report.",
+   "mistake": "Retrying without checking duplicates causes double payments.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Bot That Paid Twice",
+  "background": "An automation re-ran after a timeout and paid 300 invoices twice. Recovery took two months.",
+  "client": "Finance client",
+  "budget": "€210,000 duplicate payments",
+  "timeline": "One weekend incident",
+  "challenges": "No duplicate check or idempotency.",
+  "constraints": "No monitoring of payment counts.",
+  "questions": [
+   "Why did the retry cause duplicates?",
+   "What check would prevent it?",
+   "What alert would catch it?"
+  ],
+  "solution": "Helix added duplicate detection and payment-count alerts.",
+  "lessonsLearned": "Make automations safe to re-run."
+ },
+ "quiz": [
+  {
+   "q": "Saved hours use:",
+   "options": [
+    "Cost only",
+    "Staff count",
+    "Colour",
+    "Volume x time x coverage"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Payback equals:",
+   "options": [
+    "Saving / cost",
+    "Cost x saving",
+    "Hours",
+    "Build cost / monthly saving"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Good candidates are:",
+   "options": [
+    "Rule-based and stable",
+    "Rare",
+    "Changing",
+    "Political"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Failures should go to:",
+   "options": [
+    "Trash",
+    "A human queue",
+    "Guess",
+    "Loop"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "The case study lost money because:",
+   "options": [
+    "Retries paid twice",
+    "Fast bots",
+    "Low volume",
+    "No invoices"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which process in your life would you automate first?",
+   "How do you make a bot safe to re-run?",
+   "What would you monitor daily?"
+  ]
+ },
+ "certificate": {
+  "name": "AI Automation Specialist — ROI & Safe Automation",
+  "nameAz": "AI Avtomatlaşdırma Mütəxəssisi — ROI və Təhlükəsiz Avtomatlaşdırma",
+  "totalXp": 235
+ }
+}

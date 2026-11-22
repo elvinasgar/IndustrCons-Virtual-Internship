@@ -1,0 +1,250 @@
+{
+ "id": "ai-governance-analyst-kestrel",
+ "title": "AI Governance & Ethics Analyst",
+ "companyId": "kestrel-law-tax",
+ "category": "AI Governance",
+ "difficulty": "Advanced",
+ "durationHours": 7,
+ "drawingTag": "AIG-111",
+ "skills": [
+  "Risk Classification",
+  "Bias Testing",
+  "Human Oversight"
+ ],
+ "companyIntro": {
+  "name": "Kestrel Law & Tax",
+  "country": "United Kingdom",
+  "founded": 2003,
+  "mission": "Give businesses clear legal and tax answers they can act on.",
+  "culture": "Precision in wording, plain English to clients. Risk is named, priced and mitigated.",
+  "projects": [
+   "Supplier Contract Review",
+   "Group Tax Compliance",
+   "Commercial Lease Programme"
+  ]
+ },
+ "projectBackground": {
+  "name": "AI Governance Review — Candidate Screening Tool",
+  "client": "Orbis Staffing",
+  "location": "London, remote",
+  "budget": "Review fee: £30,000",
+  "timeline": "Report before procurement sign-off",
+  "context": "Orbis wants to buy an AI tool that ranks job applicants. The board asks whether it is safe and lawful to use."
+ },
+ "manager": {
+  "name": "Rachel Osei",
+  "role": "Partner, Kestrel Law & Tax",
+  "note": "Say what the law and ethics require, in plain words, and what evidence would satisfy a regulator."
+ },
+ "assignment": {
+  "title": "Assess the screening tool",
+  "brief": "Classify risk, calculate the impact ratio, define oversight and data rules and write the assessment."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Vendor Statement",
+   "type": "Document",
+   "note": "Tool ranks CVs and auto-rejects the bottom 40%."
+  },
+  {
+   "id": "doc-2",
+   "name": "Selection Data",
+   "type": "Audit",
+   "note": "Group A selected 100 of 200 (50%); Group B 45 of 150 (30%)."
+  },
+  {
+   "id": "doc-3",
+   "name": "Data Inventory",
+   "type": "Register",
+   "note": "Tool ingests CV, photo and social media profile."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "aig-1-risk",
+   "type": "mcq",
+   "title": "Risk Classification",
+   "prompt": "A tool that screens job applicants is generally treated as:",
+   "options": [
+    "Minimal risk",
+    "Not regulated",
+    "A game",
+    "High-risk AI requiring strict controls"
+   ],
+   "correctIndex": 3,
+   "xp": 40,
+   "reasoning": "Employment decisions affect rights and livelihoods.",
+   "tip": "Check the applicable AI regulation.",
+   "mistake": "Treating it as low-risk skips mandatory controls.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aig-2-ratio",
+   "type": "numeric",
+   "title": "Impact Ratio",
+   "prompt": "Group A selection rate 50%; Group B selection rate 30%. What is the impact ratio B/A?",
+   "answer": 0.6,
+   "tolerance": 0.01,
+   "unit": "ratio",
+   "xp": 45,
+   "workingNote": "30 / 50 = 0.60 (below the 0.8 four-fifths guideline).",
+   "reasoning": "A ratio below 0.8 signals possible adverse impact.",
+   "tip": "Investigate causes, don't just report.",
+   "mistake": "Ignoring the ratio ignores discrimination risk.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aig-3-oversight",
+   "type": "mcq",
+   "title": "Human Oversight",
+   "prompt": "The tool auto-rejects 40% of applicants. What control is needed?",
+   "options": [
+    "Meaningful human review before final rejection",
+    "None",
+    "Faster rejection",
+    "Hide the criteria"
+   ],
+   "correctIndex": 0,
+   "xp": 40,
+   "reasoning": "Important decisions need real human oversight.",
+   "tip": "Reviewers must be able to override.",
+   "mistake": "Rubber-stamp oversight isn't oversight.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aig-4-docs",
+   "type": "multiselect",
+   "title": "Documentation",
+   "prompt": "Select documents to require from the vendor.",
+   "options": [
+    "Bias testing results by group",
+    "A verbal assurance",
+    "Logging and an appeal process",
+    "Description of training data and its limitations",
+    "Marketing brochure only"
+   ],
+   "correctIndices": [
+    0,
+    2,
+    3
+   ],
+   "xp": 40,
+   "reasoning": "Evidence beats assurances.",
+   "tip": "Ask for test results.",
+   "mistake": "Accepting claims without evidence is risk.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aig-5-min",
+   "type": "mcq",
+   "title": "Data Minimisation",
+   "prompt": "The tool ingests photos and social media. What principle applies?",
+   "options": [
+    "Collect everything",
+    "Collect photos always",
+    "Collect only data necessary and relevant to the job",
+    "Collect for later use"
+   ],
+   "correctIndex": 2,
+   "xp": 35,
+   "reasoning": "Minimisation protects candidates and reduces risk.",
+   "tip": "Remove unnecessary inputs.",
+   "mistake": "Extra data creates bias and breach risk.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aig-6-assess",
+   "type": "text",
+   "title": "Assessment Summary",
+   "prompt": "Write a 3-5 sentence assessment summary for the board.",
+   "minLength": 120,
+   "xp": 55,
+   "modelAnswer": "The screening tool is a high-risk AI system. Selection data shows an impact ratio of 0.60, below the 0.8 guideline, so we cannot recommend deployment without further investigation. Automatic rejection of 40% of applicants should be replaced by human review, and photo and social media inputs removed under data minimisation. We recommend procurement only after the vendor provides bias testing, documentation and an appeal process.",
+   "reasoning": "A good assessment states risk level, evidence, conditions and the decision.",
+   "tip": "Risk, evidence, conditions, decision.",
+   "mistake": "A yes without conditions is irresponsible.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Recruiter That Preferred One Profile",
+  "background": "A recruitment algorithm trained on past hires down-ranked applicants from certain backgrounds. The company withdrew it after journalists exposed the pattern.",
+  "client": "Large employer",
+  "budget": "Reputational damage and legal claims",
+  "timeline": "Public exposure",
+  "challenges": "Bias was never tested before launch.",
+  "constraints": "Historical data carried historical bias.",
+  "questions": [
+   "Why did the model discriminate?",
+   "What test would reveal it?",
+   "Who is accountable?"
+  ],
+  "solution": "Kestrel requires pre-deployment bias tests and human review of rejections.",
+  "lessonsLearned": "Test for bias before and after deployment."
+ },
+ "quiz": [
+  {
+   "q": "Hiring AI is usually:",
+   "options": [
+    "Minimal risk",
+    "Exempt",
+    "A toy",
+    "High-risk"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Impact ratio below 0.8 signals:",
+   "options": [
+    "Fairness",
+    "Possible adverse impact",
+    "Nothing",
+    "A bonus"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Human oversight must be:",
+   "options": [
+    "Symbolic",
+    "Absent",
+    "Hidden",
+    "Meaningful"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Data minimisation means:",
+   "options": [
+    "Collect all",
+    "Delete laws",
+    "Collect only what's needed",
+    "Hide data"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Bias wasn't tested",
+    "Staff were few",
+    "Prices fell",
+    "No data"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "What evidence would convince you a tool is fair?",
+   "Who should be accountable for an AI decision?",
+   "How do you explain a 0.6 ratio to a non-lawyer?"
+  ]
+ },
+ "certificate": {
+  "name": "AI Governance & Ethics Analyst — Risk, Bias & Oversight",
+  "nameAz": "AI İdarəetmə və Etika Analitiki — Risk, Qərəz və Nəzarət",
+  "totalXp": 255
+ }
+}

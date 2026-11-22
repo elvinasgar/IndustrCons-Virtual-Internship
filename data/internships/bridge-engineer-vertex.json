@@ -1,0 +1,282 @@
+{
+ "id": "bridge-engineer-vertex",
+ "title": "Bridge Engineer",
+ "companyId": "vertex-infrastructure",
+ "category": "Bridge Engineering",
+ "difficulty": "Advanced",
+ "durationHours": 8,
+ "drawingTag": "BRG-103",
+ "skills": [
+  "Bending Moment & Stress",
+  "Thermal Movement",
+  "Bridge Inspection"
+ ],
+ "companyIntro": {
+  "name": "Vertex Infrastructure",
+  "country": "Norway",
+  "founded": 1994,
+  "mission": "Design and deliver bridges and railways that last a century and cost less to keep.",
+  "culture": "Load paths, tolerances and inspection records are non-negotiable. Every assumption is checked by a second engineer.",
+  "projects": [
+   "Fjord Crossing Viaduct",
+   "Regional Rail Upgrade",
+   "Depot Electrification"
+  ]
+ },
+ "projectBackground": {
+  "name": "Fjord Crossing Viaduct — Approach Spans",
+  "client": "County Road Authority",
+  "location": "Oslo, remote",
+  "budget": "Package value: NOK 85M",
+  "timeline": "Design check due in two weeks",
+  "context": "The approach spans are being verified before tender. The checker has queried stress, expansion and scour."
+ },
+ "manager": {
+  "name": "Ingrid Solberg",
+  "role": "Chief Bridge Engineer, Vertex Infrastructure",
+  "note": "A bridge has to be right the first time. Show the load path, the number and the margin."
+ },
+ "assignment": {
+  "title": "Verify the approach span design",
+  "brief": "Calculate moment, stress and thermal movement, check spans in Excel, answer the scour question and write the check note."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Span Data",
+   "type": "Calculation Note",
+   "note": "Simply supported 12 m span; uniform load 20 kN/m; section modulus 4,500,000 mm³."
+  },
+  {
+   "id": "doc-2",
+   "name": "Deck Data",
+   "type": "Drawing Note",
+   "note": "Continuous deck length 60 m; temperature range 40 K; steel expansion 12e-6 per K."
+  },
+  {
+   "id": "doc-3",
+   "name": "Inspection Report",
+   "type": "Report",
+   "note": "Erosion around pier 2 foundation noted after floods."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "brg-1-moment",
+   "type": "numeric",
+   "title": "Maximum Bending Moment",
+   "prompt": "Simply supported span L = 12 m with uniform load w = 20 kN/m. M = wL²/8. What is M (kNm)?",
+   "answer": 360,
+   "tolerance": 1,
+   "unit": "kNm",
+   "xp": 35,
+   "workingNote": "20 x 12² / 8 = 360.",
+   "reasoning": "Mid-span moment governs bending.",
+   "tip": "Check units: kN/m and m.",
+   "mistake": "Using wL² / 4 doubles the moment.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "brg-2-stress",
+   "type": "numeric",
+   "title": "Bending Stress",
+   "prompt": "M = 360 kNm and section modulus Z = 4,500,000 mm³. What is stress M/Z (MPa)?",
+   "answer": 80,
+   "tolerance": 1,
+   "unit": "MPa",
+   "xp": 40,
+   "workingNote": "360 x 10^6 / 4.5 x 10^6 = 80.",
+   "reasoning": "Stress is moment over section modulus.",
+   "tip": "Convert kNm to Nmm.",
+   "mistake": "Mixing kNm with mm³ gives a result 1,000x off.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "brg-3-thermal",
+   "type": "numeric",
+   "title": "Thermal Movement",
+   "prompt": "Deck 60 m long, ΔT 40 K, α = 12e-6 per K. ΔL = α x L x ΔT. What is ΔL (mm)?",
+   "answer": 28.8,
+   "tolerance": 0.2,
+   "unit": "mm",
+   "xp": 40,
+   "workingNote": "12e-6 x 60,000 mm x 40 = 28.8.",
+   "reasoning": "Movement must be accommodated by bearings and joints.",
+   "tip": "Design joints for the full range.",
+   "mistake": "Ignoring thermal movement cracks the deck or bearings.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "brg-4-scour",
+   "type": "mcq",
+   "title": "Scour",
+   "prompt": "Erosion is found around a pier foundation after floods. The main concern is:",
+   "options": [
+    "Scour undermining the foundation and risking collapse",
+    "Cosmetic damage",
+    "Paint loss",
+    "Noise"
+   ],
+   "correctIndex": 0,
+   "xp": 40,
+   "reasoning": "Scour is a leading cause of bridge failures.",
+   "tip": "Inspect after every major flood.",
+   "mistake": "Treating erosion as cosmetic can lead to collapse.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "brg-5-spans",
+   "type": "excel-upload",
+   "title": "Span Moment Table (Excel)",
+   "prompt": "Maximum moment M = w x L^2 / 8 in column D for each span.",
+   "xp": 60,
+   "template": {
+    "fileName": "Spans-Template.xlsx",
+    "sheetName": "Spans",
+    "headers": [
+     "Span",
+     "Length (m)",
+     "Load w (kN/m)",
+     "Moment (kNm)"
+    ],
+    "rows": [
+     [
+      "S1",
+      "8",
+      "15",
+      ""
+     ],
+     [
+      "S2",
+      "10",
+      "18",
+      ""
+     ],
+     [
+      "S3",
+      "14",
+      "12",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 120,
+     "tolerance": 0.5,
+     "label": "S1"
+    },
+    {
+     "cell": "D3",
+     "expected": 225,
+     "tolerance": 0.5,
+     "label": "S2"
+    },
+    {
+     "cell": "D4",
+     "expected": 294,
+     "tolerance": 0.5,
+     "label": "S3"
+    }
+   ],
+   "reasoning": "S3 has the largest moment despite the lowest load: length is squared.",
+   "tip": "Rank spans by moment to find the critical one.",
+   "mistake": "Judging by load alone picks the wrong span.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "brg-6-note",
+   "type": "text",
+   "title": "Check Note",
+   "prompt": "Write a 3-5 sentence design check note for the checker.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "The 12 m span moment is 360 kNm and the stress is 80 MPa, which is within the allowable limit for the section. Thermal movement over the 60 m deck is 28.8 mm and the expansion joints are specified for at least 35 mm. The pier 2 erosion indicates scour risk; I recommend a scour assessment, riprap protection and inspection after every flood. All results are subject to independent checking.",
+   "reasoning": "A good check note gives the numbers, the margin and the open risk.",
+   "tip": "Number, margin, risk, action.",
+   "mistake": "A note with no open risks is not credible.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Flood That Moved the Pier",
+  "background": "A river bridge failed after a flood because scour removed the soil beneath a pier. The post-flood inspection had been postponed.",
+  "client": "Road authority",
+  "budget": "NOK 140M replacement",
+  "timeline": "Failure after flooding",
+  "challenges": "Scour was not part of the inspection plan.",
+  "constraints": "Budget cuts delayed inspection.",
+  "questions": [
+   "Why was scour missed?",
+   "What inspection trigger would you set?",
+   "How can foundations be protected?"
+  ],
+  "solution": "Vertex added flood-triggered inspections and riprap protection to its standards.",
+  "lessonsLearned": "Water is the bridge's biggest enemy; inspect after floods."
+ },
+ "quiz": [
+  {
+   "q": "Simply supported moment:",
+   "options": [
+    "wL",
+    "wL²/8",
+    "wL²/2",
+    "w/L"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Stress equals:",
+   "options": [
+    "Z / M",
+    "M / Z",
+    "M x Z",
+    "M"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Thermal movement uses:",
+   "options": [
+    "alpha x L x deltaT",
+    "alpha / L",
+    "L / T",
+    "Z"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Scour is:",
+   "options": [
+    "Paint loss",
+    "Erosion at foundations",
+    "Noise",
+    "Traffic"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Scour wasn't inspected",
+    "Steel was cheap",
+    "Spans were short",
+    "Roads were new"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which calculation would you ask a second engineer to check?",
+   "How would you plan post-flood inspections?",
+   "What margin would you require?"
+  ]
+ },
+ "certificate": {
+  "name": "Bridge Engineer — Spans, Movement & Scour",
+  "nameAz": "Körpü Mühəndisi — Aşırımlar, Hərəkət və Yuyulma",
+  "totalXp": 270
+ }
+}

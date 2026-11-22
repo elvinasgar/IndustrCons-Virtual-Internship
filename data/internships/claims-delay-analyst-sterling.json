@@ -1,0 +1,247 @@
+{
+ "id": "claims-delay-analyst-sterling",
+ "title": "Construction Claims & Delay Analyst",
+ "companyId": "sterling-cost",
+ "category": "Construction Claims",
+ "difficulty": "Advanced",
+ "durationHours": 8,
+ "drawingTag": "CLM-108",
+ "skills": [
+  "Delay Analysis",
+  "Prolongation Costs",
+  "Claim Notices"
+ ],
+ "companyIntro": {
+  "name": "Sterling Cost & Contracts",
+  "country": "United Kingdom",
+  "founded": 1999,
+  "mission": "Control cost, time and contract risk on major construction projects.",
+  "culture": "Every figure traces to a measurement or a rate. Notices are served on time, in writing.",
+  "projects": [
+   "Hospital Cost Plan",
+   "Rail Depot Contract Administration",
+   "Port Terminal Programme"
+  ]
+ },
+ "projectBackground": {
+  "name": "Rail Depot Contract Administration — Claim Review",
+  "client": "Metro Rail Authority",
+  "location": "Birmingham, on-site",
+  "budget": "Claim value: £420,000",
+  "timeline": "Response due within 28 days",
+  "context": "The contractor claims 21 days of delay and lost productivity after late design information."
+ },
+ "manager": {
+  "name": "Helen Marsh",
+  "role": "Director, Sterling Cost & Contracts",
+  "note": "A claim is a story proved by records. Show cause, effect, notice and quantum."
+ },
+ "assignment": {
+  "title": "Assess the contractor's claim",
+  "brief": "Quantify prolongation and productivity loss, apply contract principles and write the assessment."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Delay Notice",
+   "type": "Letter",
+   "note": "Contractor claims 21 days of delay; daily preliminaries £4,200."
+  },
+  {
+   "id": "doc-2",
+   "name": "Productivity Records",
+   "type": "Log",
+   "note": "Unaffected 12 m² per hour; affected 9 m² per hour."
+  },
+  {
+   "id": "doc-3",
+   "name": "Contract Clause",
+   "type": "Contract",
+   "note": "Notice within 14 days of the event."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "clm-1-prol",
+   "type": "numeric",
+   "title": "Prolongation Cost",
+   "prompt": "21 days of delay with daily preliminaries of £4,200. What is the claimed cost (£)?",
+   "answer": 88200,
+   "tolerance": 10,
+   "unit": "GBP",
+   "xp": 35,
+   "workingNote": "21 x 4,200 = 88,200.",
+   "reasoning": "Prolongation is time-related cost.",
+   "tip": "Check rates against the contract.",
+   "mistake": "Claiming profit on time-related cost may not be allowed.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "clm-2-mile",
+   "type": "numeric",
+   "title": "Productivity Loss (Measured Mile)",
+   "prompt": "Unaffected output 12 m²/h; affected 9 m²/h. What is the loss (%)?",
+   "answer": 25,
+   "tolerance": 0.5,
+   "unit": "%",
+   "xp": 40,
+   "workingNote": "(12 - 9) / 12 = 25%.",
+   "reasoning": "The measured mile compares affected with unaffected work.",
+   "tip": "Use comparable activities.",
+   "mistake": "Comparing with a planned rate only is weaker evidence.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "clm-3-concurrent",
+   "type": "mcq",
+   "title": "Concurrent Delay",
+   "prompt": "Employer and contractor delays occur at the same time on the critical path. Common approach?",
+   "options": [
+    "Time extension may be granted but costs usually not for the concurrent period",
+    "Full costs always",
+    "No time at all",
+    "Automatic penalty"
+   ],
+   "correctIndex": 0,
+   "xp": 40,
+   "reasoning": "Concurrent delay often gives time, not money.",
+   "tip": "Check the contract wording.",
+   "mistake": "Assuming full cost claims inflates quantum.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "clm-4-notice",
+   "type": "mcq",
+   "title": "Notice",
+   "prompt": "The clause requires notice within 14 days of the event. Notice was given on day 30. What follows?",
+   "options": [
+    "Always valid",
+    "The claim may be time-barred depending on the clause and law",
+    "Always fail",
+    "Doesn't matter"
+   ],
+   "correctIndex": 1,
+   "xp": 35,
+   "reasoning": "Notice provisions can be conditions precedent.",
+   "tip": "Check clause and jurisdiction.",
+   "mistake": "Ignoring notice terms ruins good claims.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "clm-5-evidence",
+   "type": "multiselect",
+   "title": "Claim Evidence",
+   "prompt": "Select useful evidence for a delay claim.",
+   "options": [
+    "Programme with critical path analysis",
+    "Records of instructions and late information",
+    "Memory of site staff months later",
+    "Contemporaneous daily records",
+    "Unsigned notes"
+   ],
+   "correctIndices": [
+    0,
+    1,
+    3
+   ],
+   "xp": 45,
+   "reasoning": "Contemporaneous records are strongest.",
+   "tip": "Keep records at the time.",
+   "mistake": "Reconstructed evidence is attacked.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "clm-6-assess",
+   "type": "text",
+   "title": "Assessment Summary",
+   "prompt": "Write a 3-5 sentence assessment summary.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "The contractor claims 21 days at £4,200 per day (£88,200). The critical path analysis supports 14 days caused by late design information, so I assess time at 14 days. Notice was given on day 18 against a 14-day requirement; the clause is not clearly a condition precedent, so entitlement is recommended subject to legal advice. Productivity loss of 25% requires better records before it can be accepted.",
+   "reasoning": "A good assessment separates entitlement, time and cost.",
+   "tip": "Entitlement, time, cost, evidence.",
+   "mistake": "Accepting totals without analysis is risky.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Claim With No Records",
+  "background": "A contractor lost most of a £2M claim because daily records and instructions were not kept. The tribunal accepted only what documents proved.",
+  "client": "Infrastructure client",
+  "budget": "£1.6M claim rejected",
+  "timeline": "Arbitration",
+  "challenges": "Records were incomplete.",
+  "constraints": "No document control.",
+  "questions": [
+   "Why did the claim fail?",
+   "What records matter?",
+   "How would you improve?"
+  ],
+  "solution": "Sterling requires contemporaneous records and monthly programme updates.",
+  "lessonsLearned": "Records win claims."
+ },
+ "quiz": [
+  {
+   "q": "Prolongation is:",
+   "options": [
+    "Time-related cost",
+    "Material cost",
+    "Profit",
+    "Tax"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Measured mile compares:",
+   "options": [
+    "Distance",
+    "Cost",
+    "Time",
+    "Affected vs unaffected"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Concurrent delay often gives:",
+   "options": [
+    "Money only",
+    "Nothing",
+    "Penalty",
+    "Time but not money"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Notice clauses are:",
+   "options": [
+    "Important and strict",
+    "Irrelevant",
+    "Optional",
+    "Decorative"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Records were missing",
+    "Prices",
+    "Weather",
+    "No contract"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which evidence would you ask for first?",
+   "How do you explain concurrent delay simply?",
+   "What would you do about missing records?"
+  ]
+ },
+ "certificate": {
+  "name": "Construction Claims & Delay Analyst — Quantum & Entitlement",
+  "nameAz": "Tikinti İddiaları və Gecikmə Analitiki — Məbləğ və Hüquq",
+  "totalXp": 250
+ }
+}

@@ -1,0 +1,244 @@
+{
+ "id": "ai-product-manager-nimbus",
+ "title": "AI Product Manager",
+ "companyId": "nimbus-digital",
+ "category": "AI Product Management",
+ "difficulty": "Advanced",
+ "durationHours": 7,
+ "drawingTag": "AIM-110",
+ "skills": [
+  "AI Business Case",
+  "Precision & Review Rates",
+  "Launch Guardrails"
+ ],
+ "companyIntro": {
+  "name": "Nimbus Digital",
+  "country": "Germany",
+  "founded": 2016,
+  "mission": "Ship reliable software for mid-market clients without the chaos of ad-hoc project management.",
+  "culture": "Sprint-disciplined and blameless-retro focused. People here are expected to raise blockers loudly and early.",
+  "projects": [
+   "Meridian Client Portal Rebuild",
+   "Nimbus Internal Analytics Suite",
+   "Fintra Payments Integration"
+  ]
+ },
+ "projectBackground": {
+  "name": "Fintra Payments — Ticket Triage AI",
+  "client": "Fintra Payments",
+  "location": "Berlin, remote",
+  "budget": "AI run cost: €3,500 per month",
+  "timeline": "Go/no-go in two weeks",
+  "context": "Support wants an AI triage tool. Engineering wants to ship; compliance has concerns."
+ },
+ "manager": {
+  "name": "Julia Hoffmann",
+  "role": "VP of Product, Nimbus Digital",
+  "note": "AI features fail on trust, not on demos. Show me the value, the error rate and what happens when it's wrong."
+ },
+ "assignment": {
+  "title": "Make the go/no-go case",
+  "brief": "Compute net saving, review volume and precision, choose guardrails and write the launch recommendation."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Volume Data",
+   "type": "Report",
+   "note": "5,000 tickets a month; 4 minutes saved per ticket; €30 per hour."
+  },
+  {
+   "id": "doc-2",
+   "name": "Confidence Policy",
+   "type": "Design",
+   "note": "18% of tickets go to human review."
+  },
+  {
+   "id": "doc-3",
+   "name": "Pilot Results",
+   "type": "Eval",
+   "note": "90 true positives and 30 false positives on urgent-ticket flagging."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "aim-1-net",
+   "type": "numeric",
+   "title": "Net Monthly Saving",
+   "prompt": "5,000 tickets x 4 minutes saved at €30/hour, less €3,500 AI cost. What is the net saving (€)?",
+   "answer": 6500,
+   "tolerance": 100,
+   "unit": "EUR",
+   "xp": 45,
+   "workingNote": "20,000 min = 333.3 h x 30 = 10,000; 10,000 - 3,500 = 6,500.",
+   "reasoning": "Net value must include run cost.",
+   "tip": "Include review time too.",
+   "mistake": "Ignoring AI cost overstates benefit.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aim-2-review",
+   "type": "numeric",
+   "title": "Human Review Volume",
+   "prompt": "18% of 5,000 tickets go to human review. How many tickets?",
+   "answer": 900,
+   "tolerance": 1,
+   "unit": "tickets",
+   "xp": 30,
+   "workingNote": "5,000 x 0.18 = 900.",
+   "reasoning": "Human review is a real cost and safety layer.",
+   "tip": "Staff for it.",
+   "mistake": "Assuming zero review is unrealistic.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aim-3-prec",
+   "type": "numeric",
+   "title": "Precision",
+   "prompt": "90 true positives and 30 false positives. What is precision (%)?",
+   "answer": 75,
+   "tolerance": 0.5,
+   "unit": "%",
+   "xp": 35,
+   "workingNote": "90 / (90 + 30) = 75%.",
+   "reasoning": "Precision shows how often a flag is right.",
+   "tip": "Choose the metric to match harm.",
+   "mistake": "Reporting accuracy alone hides false alarms.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aim-4-when",
+   "type": "mcq",
+   "title": "When Not to Use AI",
+   "prompt": "When is AI probably the wrong tool?",
+   "options": [
+    "When a simple rule handles the case reliably and errors are costly",
+    "When data exists",
+    "When the team is curious",
+    "When competitors use AI"
+   ],
+   "correctIndex": 0,
+   "xp": 40,
+   "reasoning": "Use the simplest reliable approach.",
+   "tip": "Start with a baseline.",
+   "mistake": "AI for AI's sake adds risk.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aim-5-guard",
+   "type": "multiselect",
+   "title": "Launch Guardrails",
+   "prompt": "Select guardrails before launch.",
+   "options": [
+    "Clear user notice that AI is used",
+    "Human review for low-confidence cases",
+    "Hide the AI from users",
+    "Monitoring and a kill switch",
+    "Launch to everyone at once"
+   ],
+   "correctIndices": [
+    0,
+    1,
+    3
+   ],
+   "xp": 45,
+   "reasoning": "Guardrails limit harm and build trust.",
+   "tip": "Plan the rollback.",
+   "mistake": "Full launch without a kill switch is reckless.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "aim-6-rec",
+   "type": "text",
+   "title": "Launch Recommendation",
+   "prompt": "Write a 3-5 sentence launch recommendation.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "I recommend a staged launch to 20% of tickets. The business case nets €6,500 a month after AI costs, and the urgent-ticket flag has 75% precision, which is acceptable with human review of the 18% low-confidence cases (900 tickets). Guardrails include monitoring, a kill switch and customer notice. We will expand if precision stays above 75% for four weeks and complaints don't rise.",
+   "reasoning": "A good recommendation quantifies value, risk and gates expansion on evidence.",
+   "tip": "Value, quality, guardrails, gate.",
+   "mistake": "A launch without exit criteria isn't a plan.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The AI That Lied Politely",
+  "background": "A bank launched an AI assistant that confidently gave wrong fee information. Complaints rose and the feature was withdrawn after three weeks.",
+  "client": "Retail bank",
+  "budget": "Regulatory scrutiny and withdrawal",
+  "timeline": "Three weeks after launch",
+  "challenges": "No accuracy gate or human fallback.",
+  "constraints": "Launched on demo quality.",
+  "questions": [
+   "Why did trust collapse?",
+   "What gate would you set?",
+   "How should errors be handled?"
+  ],
+  "solution": "Nimbus requires accuracy gates, fallback and monitoring for every AI feature.",
+  "lessonsLearned": "Gate launches on evidence."
+ },
+ "quiz": [
+  {
+   "q": "Net saving includes:",
+   "options": [
+    "Run cost",
+    "Only savings",
+    "Only costs",
+    "Marketing"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Precision is:",
+   "options": [
+    "TP / (TP + FP)",
+    "TP / FN",
+    "FP / TP",
+    "Cost"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Guardrails include:",
+   "options": [
+    "Hype",
+    "Review and kill switch",
+    "Nothing",
+    "Speed"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "AI is wrong when:",
+   "options": [
+    "Data exists",
+    "Staff is curious",
+    "Everyone uses it",
+    "A simple rule works reliably"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "No accuracy gate or fallback",
+    "Low price",
+    "No users",
+    "Good staff"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which metric would you set as the launch gate?",
+   "How do you explain AI limits to users?",
+   "When would you kill the feature?"
+  ]
+ },
+ "certificate": {
+  "name": "AI Product Manager — Value, Quality & Guardrails",
+  "nameAz": "AI Məhsul Meneceri — Dəyər, Keyfiyyət və Qoruyucular",
+  "totalXp": 250
+ }
+}
