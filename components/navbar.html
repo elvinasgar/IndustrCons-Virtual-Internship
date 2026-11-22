@@ -1,3 +1,30 @@
+<style>
+/* Mobile navigation fix: dropdown sits under the bar at full width (was a flex item pushed off-screen) + bottom tab bar */
+.mobile-nav{ position:absolute; top:100%; left:0; right:0; z-index:99; max-height:calc(100vh - var(--nav-h) - 8px); overflow-y:auto; box-shadow:0 18px 32px -16px rgba(15,23,42,.25); }
+.mobile-nav a{ display:flex; align-items:center; gap:14px; padding:16px 20px; font-size:1rem; min-height:54px; color:var(--ink); }
+.mobile-nav a.active{ color:var(--blue); background:color-mix(in srgb, var(--blue) 8%, transparent); font-weight:700; }
+.mobile-nav .mn-ic{ font-size:1.25rem; width:26px; text-align:center; }
+.mobile-tabbar{ display:none; }
+@media (max-width:900px){
+  body{ padding-bottom:76px; }
+  .mobile-tabbar{
+    display:grid; grid-template-columns:repeat(4,1fr); position:fixed; left:0; right:0; bottom:0; z-index:98;
+    background:var(--surface); border-top:1px solid var(--line); padding:6px 4px calc(6px + env(safe-area-inset-bottom));
+    box-shadow:0 -8px 24px -14px rgba(15,23,42,.25);
+  }
+  .mobile-tabbar a{ display:flex; flex-direction:column; align-items:center; gap:2px; padding:6px 2px; font-size:.7rem; font-weight:600; color:var(--ink-soft); border-radius:10px; line-height:1.2; text-align:center; }
+  .mobile-tabbar a .tb-ic{ font-size:1.35rem; line-height:1; }
+  .mobile-tabbar a.active{ color:var(--blue); background:color-mix(in srgb, var(--blue) 10%, transparent); }
+}
+@media (max-width:640px){
+  /* compact filter bar so the cards appear right below the title on phones */
+  .grid[style*="2fr 1fr 1fr 1fr auto"]{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:10px !important; }
+  .grid[style*="2fr 1fr 1fr 1fr auto"] > :first-child, .grid[style*="2fr 1fr 1fr 1fr auto"] > :last-child{ grid-column:1 / -1; }
+  .grid[style*="2fr 1fr 1fr 1fr auto"] .field label{ font-size:.78rem; margin-bottom:4px; }
+  .grid[style*="2fr 1fr 1fr 1fr auto"] select, .grid[style*="2fr 1fr 1fr 1fr auto"] input{ min-height:44px; }
+}
+@media print{ .mobile-tabbar{ display:none !important; } body{ padding-bottom:0 !important; } }
+</style>
 <header class="navbar">
   <div class="container">
     <a href="index.html" class="nav-logo">
@@ -26,11 +53,18 @@
     </div>
   </div>
   <nav id="mobileNav" class="mobile-nav" aria-label="Mobile" hidden>
-    <a href="internships.html" data-i18n="nav.internships">Internships</a>
-    <a href="tracks.html" data-i18n="nav.tracks">Professional Tracks</a>
-    <a href="microsims.html" data-i18n="nav.microsims">Micro Simulations</a>
-    <a href="index.html#companies" data-i18n="nav.companies">Companies</a>
-    <a href="resources.html" data-i18n="nav.resources">Resources</a>
-    <a href="dashboard.html" data-i18n="nav.dashboard">Dashboard</a>
+    <a href="internships.html" data-nav="internships"><span class="mn-ic">🎓</span><span data-i18n="nav.internships">Internships</span></a>
+    <a href="tracks.html" data-nav="tracks"><span class="mn-ic">💼</span><span data-i18n="nav.tracks">Professional Tracks</span></a>
+    <a href="microsims.html" data-nav="microsims"><span class="mn-ic">⚡</span><span data-i18n="nav.microsims">Micro Simulations</span></a>
+    <a href="index.html#companies"><span class="mn-ic">🏢</span><span data-i18n="nav.companies">Companies</span></a>
+    <a href="resources.html" data-nav="resources"><span class="mn-ic">📚</span><span data-i18n="nav.resources">Resources</span></a>
+    <a href="dashboard.html" data-nav="dashboard"><span class="mn-ic">📊</span><span data-i18n="nav.dashboard">Dashboard</span></a>
   </nav>
 </header>
+
+<nav class="mobile-tabbar" aria-label="Quick navigation">
+  <a href="internships.html" data-nav="internships"><span class="tb-ic">🎓</span><span data-i18n="nav.internships">Internships</span></a>
+  <a href="tracks.html" data-nav="tracks"><span class="tb-ic">💼</span><span data-i18n="nav.tracksShort">Tracks</span></a>
+  <a href="microsims.html" data-nav="microsims"><span class="tb-ic">⚡</span><span data-i18n="nav.microsimsShort">Micro Sims</span></a>
+  <a href="dashboard.html" data-nav="dashboard"><span class="tb-ic">📊</span><span data-i18n="nav.dashboard">Dashboard</span></a>
+</nav>

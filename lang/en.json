@@ -8,7 +8,9 @@
     "start": "Start Free",
     "signIn": "Sign In",
     "tracks": "Professional Tracks",
-    "microsims": "Micro Simulations"
+    "microsims": "Micro Simulations",
+    "tracksShort": "Tracks",
+    "microsimsShort": "Micro Sims"
   },
   "hero": {
     "eyebrow": "Virtual Internship Platform · AEC Industry",
@@ -90,7 +92,9 @@
     "leaderboard": "Leaderboard",
     "achievements": "Achievements",
     "settings": "Settings",
-    "help": "Help Center"
+    "help": "Help Center",
+    "tracks": "Professional Tracks",
+    "microsims": "Micro Simulations"
   },
   "dashboard": {
     "welcome": "Welcome back",

@@ -8,7 +8,9 @@
     "start": "Pulsuz Başla",
     "signIn": "Daxil ol",
     "tracks": "Peşə Yolları",
-    "microsims": "Sürətli Simulyasiyalar"
+    "microsims": "Sürətli Simulyasiyalar",
+    "tracksShort": "Peşələr",
+    "microsimsShort": "Simulyasiya"
   },
   "hero": {
     "eyebrow": "Virtual Təcrübə Platforması · AEC Sənayesi",
@@ -90,7 +92,9 @@
     "leaderboard": "Liderlər Cədvəli",
     "achievements": "Nailiyyətlər",
     "settings": "Tənzimləmələr",
-    "help": "Yardım Mərkəzi"
+    "help": "Yardım Mərkəzi",
+    "tracks": "Peşə Yolları",
+    "microsims": "Sürətli Simulyasiyalar"
   },
   "dashboard": {
     "welcome": "Yenidən xoş gəldiniz",
