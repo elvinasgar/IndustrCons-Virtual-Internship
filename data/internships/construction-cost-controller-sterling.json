@@ -1,0 +1,308 @@
+{
+ "id": "construction-cost-controller-sterling",
+ "title": "Construction Cost Controller",
+ "companyId": "sterling-cost",
+ "category": "Cost Control",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "CCC-107",
+ "skills": [
+  "Earned Value",
+  "Forecast at Completion",
+  "Retention & Cash Flow"
+ ],
+ "companyIntro": {
+  "name": "Sterling Cost & Contracts",
+  "country": "United Kingdom",
+  "founded": 1999,
+  "mission": "Control cost, time and contract risk on major construction projects.",
+  "culture": "Every figure traces to a measurement or a rate. Notices are served on time, in writing.",
+  "projects": [
+   "Hospital Cost Plan",
+   "Rail Depot Contract Administration",
+   "Port Terminal Programme"
+  ]
+ },
+ "projectBackground": {
+  "name": "Port Terminal Programme — Warehouse Package",
+  "client": "Harbour Authority",
+  "location": "London, on-site",
+  "budget": "Budget (BAC): £2,000,000",
+  "timeline": "Monthly cost report Friday",
+  "context": "The warehouse package is 40% complete but costs are running ahead. The PM needs a forecast, not a feeling."
+ },
+ "manager": {
+  "name": "Helen Marsh",
+  "role": "Associate Director, Sterling Cost & Contracts",
+  "note": "Cost control is forecasting. Tell me where we'll end up and what I can still do about it."
+ },
+ "assignment": {
+  "title": "Forecast the final cost",
+  "brief": "Compute earned value, CPI, EAC, retention; build the package report in Excel and write the alert."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Cost Status",
+   "type": "Report",
+   "note": "BAC £2,000,000; spent £900,000; 40% complete."
+  },
+  {
+   "id": "doc-2",
+   "name": "Certificate",
+   "type": "Payment",
+   "note": "Interim certificate £400,000; retention 5%."
+  },
+  {
+   "id": "doc-3",
+   "name": "Package Data",
+   "type": "Table",
+   "note": "Three packages with budget, spend and progress."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "ccc-1-cpi",
+   "type": "numeric",
+   "title": "CPI",
+   "prompt": "Earned value = 40% of £2,000,000 = £800,000; spent £900,000. What is CPI?",
+   "answer": 0.89,
+   "tolerance": 0.01,
+   "unit": "CPI",
+   "xp": 35,
+   "workingNote": "800,000 / 900,000 = 0.889.",
+   "reasoning": "CPI below 1 is over budget.",
+   "tip": "Report CPI by package.",
+   "mistake": "Dividing spend by earned value inverts it.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ccc-2-eac",
+   "type": "numeric",
+   "title": "Estimate at Completion",
+   "prompt": "BAC £2,000,000 and CPI 0.889 (800/900). What is EAC (£)?",
+   "answer": 2250000,
+   "tolerance": 5000,
+   "unit": "GBP",
+   "xp": 40,
+   "workingNote": "2,000,000 / 0.8889 = 2,250,000.",
+   "reasoning": "EAC projects final cost at current efficiency.",
+   "tip": "State the assumption.",
+   "mistake": "Adding only the overspend so far underestimates.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ccc-3-ret",
+   "type": "numeric",
+   "title": "Retention",
+   "prompt": "Interim certificate £400,000 with 5% retention. How much is retained (£)?",
+   "answer": 20000,
+   "tolerance": 10,
+   "unit": "GBP",
+   "xp": 30,
+   "workingNote": "400,000 x 0.05 = 20,000.",
+   "reasoning": "Retention secures completion and defects.",
+   "tip": "Track release dates.",
+   "mistake": "Forgetting retention overstates cash received.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ccc-4-commit",
+   "type": "mcq",
+   "title": "Committed Cost",
+   "prompt": "What is 'committed cost'?",
+   "options": [
+    "Money legally committed through orders and subcontracts, even if not yet spent",
+    "Money already paid",
+    "Estimated profit",
+    "Contingency"
+   ],
+   "correctIndex": 0,
+   "xp": 35,
+   "reasoning": "Forecasts must include commitments.",
+   "tip": "Review commitments with procurement.",
+   "mistake": "Reporting only spend hides future costs.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ccc-5-pkg",
+   "type": "excel-upload",
+   "title": "Package Cost Report (Excel)",
+   "prompt": "Earned = B x D (column E); CPI = E / C (column F).",
+   "xp": 65,
+   "template": {
+    "fileName": "Packages-Template.xlsx",
+    "sheetName": "Packages",
+    "headers": [
+     "Package",
+     "Budget (GBP)",
+     "Spent (GBP)",
+     "% Complete",
+     "Earned (GBP)",
+     "CPI"
+    ],
+    "rows": [
+     [
+      "Civil",
+      "800000",
+      "400000",
+      "0.5",
+      "",
+      ""
+     ],
+     [
+      "MEP",
+      "600000",
+      "300000",
+      "0.4",
+      "",
+      ""
+     ],
+     [
+      "Finishes",
+      "400000",
+      "100000",
+      "0.3",
+      "",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "E2",
+     "expected": 400000,
+     "tolerance": 10,
+     "label": "Civil earned"
+    },
+    {
+     "cell": "F2",
+     "expected": 1,
+     "tolerance": 0.01,
+     "label": "Civil CPI"
+    },
+    {
+     "cell": "E3",
+     "expected": 240000,
+     "tolerance": 10,
+     "label": "MEP earned"
+    },
+    {
+     "cell": "F3",
+     "expected": 0.8,
+     "tolerance": 0.01,
+     "label": "MEP CPI"
+    },
+    {
+     "cell": "E4",
+     "expected": 120000,
+     "tolerance": 10,
+     "label": "Finishes earned"
+    },
+    {
+     "cell": "F4",
+     "expected": 1.2,
+     "tolerance": 0.01,
+     "label": "Finishes CPI"
+    }
+   ],
+   "reasoning": "MEP is the problem package at 0.8.",
+   "tip": "Look past the project average.",
+   "mistake": "Averages hide the failing package.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ccc-6-alert",
+   "type": "text",
+   "title": "Cost Alert",
+   "prompt": "Write a 3-5 sentence cost alert to the PM.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "Project CPI is 0.89, forecasting a final cost of £2.25M against a £2.0M budget, a £250,000 overrun. MEP is the main driver at CPI 0.80. I recommend a review of MEP productivity and variations, and a decision on contingency by Friday. We will re-forecast weekly until CPI recovers above 0.95.",
+   "reasoning": "A good alert gives the forecast, the driver and the decision needed.",
+   "tip": "Forecast, driver, ask.",
+   "mistake": "Alerts without a driver can't be acted on.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Surprise Overrun",
+  "background": "A project reported 'on budget' until month 18, then revealed a £1.4M overrun. Commitments were not included in the forecasts.",
+  "client": "Port client",
+  "budget": "£1.4M overrun",
+  "timeline": "Late revelation",
+  "challenges": "Cost reports showed spend only.",
+  "constraints": "No commitment tracking.",
+  "questions": [
+   "Why was the overrun late?",
+   "What should be reported?",
+   "How often?"
+  ],
+  "solution": "Sterling requires commitment-based forecasts monthly.",
+  "lessonsLearned": "Report commitments, not just spend."
+ },
+ "quiz": [
+  {
+   "q": "CPI equals:",
+   "options": [
+    "Earned / actual",
+    "Actual / earned",
+    "Budget / spend",
+    "Profit"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "EAC = BAC /",
+   "options": [
+    "SPI",
+    "Profit",
+    "CPI",
+    "Cost"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Retention is:",
+   "options": [
+    "A bonus",
+    "Money held back",
+    "A tax",
+    "A fee"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Committed cost is:",
+   "options": [
+    "Paid only",
+    "Legal commitments",
+    "Profit",
+    "Risk"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Commitments weren't tracked",
+    "Prices fell",
+    "No budget",
+    "No staff"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which package would you investigate first?",
+   "How do you challenge an optimistic forecast?",
+   "What would you report weekly?"
+  ]
+ },
+ "certificate": {
+  "name": "Construction Cost Controller — CPI & Forecasting",
+  "nameAz": "Tikinti Xərc Nəzarətçisi — CPI və Proqnoz",
+  "totalXp": 255
+ }
+}

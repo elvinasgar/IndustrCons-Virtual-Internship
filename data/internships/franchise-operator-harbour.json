@@ -1,0 +1,244 @@
+{
+ "id": "franchise-operator-harbour",
+ "title": "Franchise Operator",
+ "companyId": "harbour-street-ventures",
+ "category": "Franchising",
+ "difficulty": "Intermediate",
+ "durationHours": 6,
+ "drawingTag": "FRN-119",
+ "skills": [
+  "Franchise Economics",
+  "Payback Analysis",
+  "Due Diligence"
+ ],
+ "companyIntro": {
+  "name": "Harbour Street Ventures",
+  "country": "Canada",
+  "founded": 2012,
+  "mission": "Help small business owners and franchisees make money, not just stay busy.",
+  "culture": "Know your numbers weekly. Cash is the scoreboard.",
+  "projects": [
+   "Neighbourhood Cafe Programme",
+   "Franchise Evaluation Service",
+   "Micro-Business Bootcamp"
+  ]
+ },
+ "projectBackground": {
+  "name": "Franchise Evaluation Service — Quick Burger Franchise",
+  "client": "Prospective franchisee",
+  "location": "Toronto, remote",
+  "budget": "Total investment: 180,000",
+  "timeline": "Decision in two weeks",
+  "context": "A prospective franchisee is excited by the brand but hasn't checked the numbers. You advise on the deal."
+ },
+ "manager": {
+  "name": "Maya Chen",
+  "role": "Head of Franchise Advisory, Harbour Street Ventures",
+  "note": "A franchise is a business you rent. Know what you pay, what you keep and how long it takes to get your money back."
+ },
+ "assignment": {
+  "title": "Advise the prospective franchisee",
+  "brief": "Calculate fees, payback and occupancy ratio, check due diligence and write a decision memo."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Franchise Terms",
+   "type": "Disclosure",
+   "note": "Initial fee 40,000; royalty 6% of sales; marketing fund 2%."
+  },
+  {
+   "id": "doc-2",
+   "name": "Forecast",
+   "type": "Plan",
+   "note": "Annual sales 500,000; operating profit after fees 45,000; rent 60,000."
+  },
+  {
+   "id": "doc-3",
+   "name": "Franchisor Information",
+   "type": "Document",
+   "note": "Disclosure document lists 40% of units closed in three years."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "frn-1-fees",
+   "type": "numeric",
+   "title": "Annual Fees",
+   "prompt": "Annual sales 500,000; royalty 6% and marketing fund 2%. What are the annual ongoing fees?",
+   "answer": 40000,
+   "tolerance": 50,
+   "unit": "currency units",
+   "xp": 35,
+   "workingNote": "500,000 x 8% = 40,000.",
+   "reasoning": "Ongoing fees come off the top line.",
+   "tip": "Fees on sales, not on profit.",
+   "mistake": "Forgetting the marketing fund understates cost.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "frn-2-payback",
+   "type": "numeric",
+   "title": "Payback Period",
+   "prompt": "Total investment 180,000; annual operating profit after fees 45,000. What is the payback (years)?",
+   "answer": 4,
+   "tolerance": 0.05,
+   "unit": "years",
+   "xp": 35,
+   "workingNote": "180,000 / 45,000 = 4.",
+   "reasoning": "Payback shows time to recover cash.",
+   "tip": "Compare to the agreement term.",
+   "mistake": "Ignoring ramp-up overstates early profit.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "frn-3-occ",
+   "type": "numeric",
+   "title": "Occupancy Cost",
+   "prompt": "Rent 60,000 on sales 500,000. What is occupancy cost (%)?",
+   "answer": 12,
+   "tolerance": 0.2,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "60,000 / 500,000 = 12%.",
+   "reasoning": "High occupancy squeezes margin.",
+   "tip": "Compare to the brand's guidance.",
+   "mistake": "Ignoring rent growth is risky.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "frn-4-fdd",
+   "type": "mcq",
+   "title": "Disclosure Document",
+   "prompt": "Why is the franchise disclosure document important?",
+   "options": [
+    "It is advertising",
+    "It is optional",
+    "It's only for lawyers",
+    "It gives the franchisor's fees, obligations, litigation and unit performance"
+   ],
+   "correctIndex": 3,
+   "xp": 35,
+   "reasoning": "Disclosure supports an informed decision.",
+   "tip": "Read it with an adviser.",
+   "mistake": "Skipping it hides unit closures.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "frn-5-dd",
+   "type": "multiselect",
+   "title": "Due Diligence",
+   "prompt": "Select due diligence steps.",
+   "options": [
+    "Check territory rights and exit terms",
+    "Rely on brochures",
+    "Skip legal advice",
+    "Review closures and litigation history",
+    "Speak to current and former franchisees"
+   ],
+   "correctIndices": [
+    0,
+    3,
+    4
+   ],
+   "xp": 40,
+   "reasoning": "Independent checks beat sales claims.",
+   "tip": "Ask former franchisees why they left.",
+   "mistake": "Only talking to happy franchisees is biased.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "frn-6-memo",
+   "type": "text",
+   "title": "Decision Memo",
+   "prompt": "Write a 3-5 sentence decision memo.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "The deal costs 180,000 and, after 40,000 in annual fees, returns 45,000 a year, a four-year payback with 12% occupancy cost. The disclosure shows 40% of units closed within three years, which is a serious warning. I recommend not signing until you speak to former franchisees, confirm territory protection and negotiate an exit clause. If closures are explained and exits are fair, the deal may be acceptable.",
+   "reasoning": "A good memo weighs the numbers against the warning signs and sets conditions.",
+   "tip": "Numbers, warning, conditions.",
+   "mistake": "Enthusiasm isn't due diligence.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Closed Units",
+  "background": "A buyer ignored the disclosure's 38% closure rate. Two years later the unit closed and the family lost their savings.",
+  "client": "Franchisee",
+  "budget": "Loss of 150,000 savings",
+  "timeline": "Unit closure",
+  "challenges": "Due diligence was skipped.",
+  "constraints": "Sales presentation was persuasive.",
+  "questions": [
+   "Why was the warning ignored?",
+   "Who should have been asked?",
+   "What exit terms matter?"
+  ],
+  "solution": "Harbour Street requires calls with three former franchisees before any advice.",
+  "lessonsLearned": "Ask those who left."
+ },
+ "quiz": [
+  {
+   "q": "Ongoing fees are charged on:",
+   "options": [
+    "Profit",
+    "Rent",
+    "Staff",
+    "Sales"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Payback equals:",
+   "options": [
+    "Profit / investment",
+    "Sales",
+    "Fees",
+    "Investment / annual profit"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Disclosure shows:",
+   "options": [
+    "Ads",
+    "Nothing",
+    "Fees and performance",
+    "Gossip"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Due diligence includes:",
+   "options": [
+    "Brochures only",
+    "Talking to former franchisees",
+    "Nothing",
+    "Guessing"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Warnings were ignored",
+    "Strong brand",
+    "Low rent",
+    "Weather"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which number worries you most?",
+   "Who would you call before signing?",
+   "What exit terms would you ask for?"
+  ]
+ },
+ "certificate": {
+  "name": "Franchise Operator — Economics & Due Diligence",
+  "nameAz": "Françayzinq Operatoru — İqtisadiyyat və Lazımi Araşdırma",
+  "totalXp": 230
+ }
+}

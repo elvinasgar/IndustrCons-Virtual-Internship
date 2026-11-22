@@ -1,0 +1,236 @@
+{
+ "id": "ecommerce-manager-nova",
+ "title": "E-commerce Manager",
+ "companyId": "nova-retail",
+ "category": "E-commerce",
+ "difficulty": "Intermediate",
+ "durationHours": 6,
+ "drawingTag": "ECM-117",
+ "skills": [
+  "Conversion & AOV",
+  "Cart Abandonment",
+  "Advertising Return"
+ ],
+ "companyIntro": {
+  "name": "Nova Retail Group",
+  "country": "United Kingdom",
+  "founded": 1998,
+  "mission": "Run stores and online shops that customers return to and shareholders can rely on.",
+  "culture": "Numbers on Monday, action by Tuesday. Every KPI has an owner and a weekly review.",
+  "projects": [
+   "Store Network Refresh",
+   "Online Marketplace Launch",
+   "Loyalty Programme Redesign"
+  ]
+ },
+ "projectBackground": {
+  "name": "Online Marketplace Launch — Nova Direct",
+  "client": "Nova Retail Group",
+  "location": "London, remote",
+  "budget": "Monthly marketing budget: €9,000",
+  "timeline": "Trading review on Thursday",
+  "context": "Traffic is up but sales aren't. The board asks where the funnel breaks and whether the ads pay."
+ },
+ "manager": {
+  "name": "Claire Whitfield",
+  "role": "Head of Digital, Nova Retail Group",
+  "note": "Traffic is vanity, conversion is sanity. Show me where we lose people and what it costs."
+ },
+ "assignment": {
+  "title": "Fix the funnel",
+  "brief": "Calculate conversion, AOV, abandonment and ROAS, interpret an A/B test and write the trading note."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Traffic and Orders",
+   "type": "Analytics",
+   "note": "60,000 sessions; 1,800 orders; revenue €135,000."
+  },
+  {
+   "id": "doc-2",
+   "name": "Cart Data",
+   "type": "Analytics",
+   "note": "7,000 carts created; 1,800 purchased."
+  },
+  {
+   "id": "doc-3",
+   "name": "Ad Report",
+   "type": "Dashboard",
+   "note": "Ad spend €9,000; revenue attributed €31,500."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "ecm-1-conv",
+   "type": "numeric",
+   "title": "Conversion Rate",
+   "prompt": "1,800 orders from 60,000 sessions. What is conversion (%)?",
+   "answer": 3,
+   "tolerance": 0.05,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "1,800 / 60,000 = 3%.",
+   "reasoning": "Conversion shows funnel effectiveness.",
+   "tip": "Segment by device.",
+   "mistake": "Using users instead of sessions changes the rate.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ecm-2-aov",
+   "type": "numeric",
+   "title": "Average Order Value",
+   "prompt": "Revenue €135,000 from 1,800 orders. What is AOV (€)?",
+   "answer": 75,
+   "tolerance": 0.5,
+   "unit": "EUR",
+   "xp": 30,
+   "workingNote": "135,000 / 1,800 = 75.",
+   "reasoning": "AOV lifts revenue without more traffic.",
+   "tip": "Test bundles and free-shipping thresholds.",
+   "mistake": "Chasing traffic only ignores order value.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ecm-3-aband",
+   "type": "numeric",
+   "title": "Cart Abandonment",
+   "prompt": "7,000 carts created and 1,800 purchased. What is abandonment (%)?",
+   "answer": 74.3,
+   "tolerance": 0.3,
+   "unit": "%",
+   "xp": 35,
+   "workingNote": "1 - 1,800 / 7,000 = 74.3%.",
+   "reasoning": "Most carts are abandoned; find why.",
+   "tip": "Check shipping cost surprises.",
+   "mistake": "Treating abandonment as unavoidable loses revenue.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ecm-4-roas",
+   "type": "numeric",
+   "title": "ROAS",
+   "prompt": "Ad spend €9,000 and attributed revenue €31,500. What is ROAS?",
+   "answer": 3.5,
+   "tolerance": 0.05,
+   "unit": "x",
+   "xp": 35,
+   "workingNote": "31,500 / 9,000 = 3.5.",
+   "reasoning": "ROAS must exceed break-even given margin.",
+   "tip": "Compare to margin, not just 1.0.",
+   "mistake": "A ROAS of 3.5 with 25% margin loses money.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ecm-5-ab",
+   "type": "mcq",
+   "title": "A/B Test",
+   "prompt": "Variant B converts 3.3% against 3.0% for A after one day. What should you do?",
+   "options": [
+    "Ship B now",
+    "Wait for the planned sample size and check significance",
+    "Ship A",
+    "Stop testing"
+   ],
+   "correctIndex": 1,
+   "xp": 40,
+   "reasoning": "Early results are noisy.",
+   "tip": "Pre-define sample size.",
+   "mistake": "Peeking inflates false wins.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ecm-6-note",
+   "type": "text",
+   "title": "Trading Note",
+   "prompt": "Write a 3-5 sentence trading note to the board.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "Conversion is 3.0% with an AOV of €75, but 74.3% of carts are abandoned, mostly at the shipping cost step. Ads return 3.5x revenue, which is profitable only if gross margin exceeds about 29%, so we need to verify margin. Next week we test a free-shipping threshold of €80 to lift AOV and cut abandonment. We'll decide after the full planned sample.",
+   "reasoning": "A good note gives the key rates, the leak, margin check and next test.",
+   "tip": "Rates, leak, check, test.",
+   "mistake": "Reporting ROAS without margin misleads.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Shipping Surprise",
+  "background": "A shop added shipping costs only at the last checkout step. Abandonment hit 82% until costs were shown earlier.",
+  "client": "Online retailer",
+  "budget": "Lost sales of €500,000",
+  "timeline": "One quarter",
+  "challenges": "Costs were hidden until late.",
+  "constraints": "No funnel step analysis.",
+  "questions": [
+   "Why did people abandon?",
+   "How would you show costs?",
+   "What would you test?"
+  ],
+  "solution": "Nova shows shipping on the product page and tests thresholds.",
+  "lessonsLearned": "No surprises at checkout."
+ },
+ "quiz": [
+  {
+   "q": "Conversion equals:",
+   "options": [
+    "Sessions / orders",
+    "Orders / sessions",
+    "Revenue",
+    "Cost"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "AOV equals:",
+   "options": [
+    "Orders / revenue",
+    "Traffic",
+    "Revenue / orders",
+    "Profit"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "ROAS equals:",
+   "options": [
+    "Revenue / ad spend",
+    "Spend / revenue",
+    "Profit",
+    "Margin"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "A/B tests need:",
+   "options": [
+    "Peeking",
+    "One day",
+    "Planned sample size",
+    "No control"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "The case study lost because:",
+   "options": [
+    "Low traffic",
+    "Shipping cost shown late",
+    "Good prices",
+    "No ads"
+   ],
+   "correctIndex": 1
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which funnel step would you fix first?",
+   "How do you know ads are profitable?",
+   "When do you stop an A/B test?"
+  ]
+ },
+ "certificate": {
+  "name": "E-commerce Manager — Funnel, AOV & ROAS",
+  "nameAz": "E-ticarət Meneceri — Voronka, AOV və ROAS",
+  "totalXp": 225
+ }
+}

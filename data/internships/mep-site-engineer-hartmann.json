@@ -1,0 +1,290 @@
+{
+ "id": "mep-site-engineer-hartmann",
+ "title": "MEP Site Engineer",
+ "companyId": "hartmann-process",
+ "category": "MEP & Building Services",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "MEP-105",
+ "skills": [
+  "Duct & Pipe Sizing",
+  "Pressure Testing",
+  "Commissioning"
+ ],
+ "companyIntro": {
+  "name": "Hartmann Process Engineering",
+  "country": "Germany",
+  "founded": 1988,
+  "mission": "Engineer process and building services systems that run safely and efficiently.",
+  "culture": "Heat and mass balances first, opinions second. Design basis documents are mandatory.",
+  "projects": [
+   "Gas Processing Debottleneck",
+   "Hospital HVAC Retrofit",
+   "Refinery Utility Upgrade"
+  ]
+ },
+ "projectBackground": {
+  "name": "Hospital HVAC Retrofit — Level 3 Services",
+  "client": "City Hospital Trust",
+  "location": "Hamburg, on-site",
+  "budget": "Package value: €4.2M",
+  "timeline": "Handover in eight weeks",
+  "context": "Services above the ceiling are congested. Testing and commissioning must finish before the ward reopens."
+ },
+ "manager": {
+  "name": "Dieter Hartmann",
+  "role": "MEP Manager, Hartmann Process Engineering",
+  "note": "Coordinate before you install. Testing isn't a formality, it's the evidence."
+ },
+ "assignment": {
+  "title": "Coordinate, test and commission the services",
+  "brief": "Calculate velocities and test pressure, check ducts in Excel, resolve a clash and describe commissioning order."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Pipe Data",
+   "type": "Datasheet",
+   "note": "Flow 20 L/s; internal diameter 0.1 m; working pressure 8 bar."
+  },
+  {
+   "id": "doc-2",
+   "name": "Duct Schedule",
+   "type": "Schedule",
+   "note": "Three ducts with flow and cross-section."
+  },
+  {
+   "id": "doc-3",
+   "name": "Clash Report",
+   "type": "Model Output",
+   "note": "A duct clashes with a chilled water pipe above the corridor."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "mep-1-vel",
+   "type": "numeric",
+   "title": "Pipe Velocity",
+   "prompt": "Flow 20 L/s (0.02 m³/s) in a 0.1 m internal diameter pipe. What is the velocity (m/s)?",
+   "answer": 2.55,
+   "tolerance": 0.05,
+   "unit": "m/s",
+   "xp": 35,
+   "workingNote": "Area = pi x 0.1² / 4 = 0.007854 m²; v = 0.02 / 0.007854 = 2.55.",
+   "reasoning": "Velocity affects noise and erosion.",
+   "tip": "Check against the design limit.",
+   "mistake": "Using radius in the area formula quarters the area.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mep-2-test",
+   "type": "numeric",
+   "title": "Test Pressure",
+   "prompt": "Test pressure is 1.5 x working pressure. Working pressure is 8 bar. What is test pressure (bar)?",
+   "answer": 12,
+   "tolerance": 0.1,
+   "unit": "bar",
+   "xp": 30,
+   "workingNote": "8 x 1.5 = 12.",
+   "reasoning": "Test above working pressure to prove integrity.",
+   "tip": "Follow the specified test procedure.",
+   "mistake": "Testing at working pressure doesn't prove margin.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mep-3-order",
+   "type": "mcq",
+   "title": "Commissioning Order",
+   "prompt": "Which order is correct for a water system?",
+   "options": [
+    "Commission, then flush",
+    "Test before installing",
+    "Skip flushing",
+    "Flush and clean, then pressure test, then balance and commission"
+   ],
+   "correctIndex": 3,
+   "xp": 40,
+   "reasoning": "Debris must be removed before testing and balancing.",
+   "tip": "Document each stage.",
+   "mistake": "Skipping flushing damages valves and pumps.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mep-4-clash",
+   "type": "multiselect",
+   "title": "Clash Resolution",
+   "prompt": "Select good ways to resolve the duct and pipe clash.",
+   "options": [
+    "Raise an RFI and agree a revised route with the designer",
+    "Ignore until finishes",
+    "Cut the duct on site and hide it",
+    "Check the ceiling height and access after rerouting",
+    "Update the coordination model and drawings"
+   ],
+   "correctIndices": [
+    0,
+    3,
+    4
+   ],
+   "xp": 40,
+   "reasoning": "Clashes are solved on the model and drawings first.",
+   "tip": "Coordinate access as well as space.",
+   "mistake": "Site fixes without records cause maintenance problems.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mep-5-duct",
+   "type": "excel-upload",
+   "title": "Duct Velocity (Excel)",
+   "prompt": "Velocity in column D = B / C (m/s).",
+   "xp": 55,
+   "template": {
+    "fileName": "Duct-Template.xlsx",
+    "sheetName": "Ducts",
+    "headers": [
+     "Duct",
+     "Flow (m3/s)",
+     "Area (m2)",
+     "Velocity (m/s)"
+    ],
+    "rows": [
+     [
+      "D1",
+      "1.2",
+      "0.4",
+      ""
+     ],
+     [
+      "D2",
+      "0.9",
+      "0.25",
+      ""
+     ],
+     [
+      "D3",
+      "2.0",
+      "0.5",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 3,
+     "tolerance": 0.02,
+     "label": "D1"
+    },
+    {
+     "cell": "D3",
+     "expected": 3.6,
+     "tolerance": 0.02,
+     "label": "D2"
+    },
+    {
+     "cell": "D4",
+     "expected": 4,
+     "tolerance": 0.02,
+     "label": "D3"
+    }
+   ],
+   "reasoning": "D3 has the highest velocity — a noise risk.",
+   "tip": "Flag any duct above the limit.",
+   "mistake": "Averaging hides the noisy duct.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mep-6-rfi",
+   "type": "text",
+   "title": "RFI",
+   "prompt": "Write a 3-5 sentence RFI about the clash.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "RFI 042: On Level 3 the supply duct (600 x 400) clashes with the chilled water pipe (DN100) above the corridor at grid C-4. Please confirm whether the pipe can be lowered by 150 mm or the duct rerouted, keeping a minimum ceiling height of 2.4 m and maintenance access. Installation of this section is on hold; reply required within three working days to protect the programme.",
+   "reasoning": "A good RFI states location, issue, options, constraints and a response date.",
+   "tip": "Where, what, options, deadline.",
+   "mistake": "Vague RFIs get vague answers.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Unflushed System",
+  "background": "A chilled water system was pressure tested but not flushed. Debris blocked control valves and the ward reopened three weeks late.",
+  "client": "Hospital client",
+  "budget": "€320,000 rework and delay",
+  "timeline": "Found during commissioning",
+  "challenges": "Flushing was seen as optional.",
+  "constraints": "Test certificates focused on pressure only.",
+  "questions": [
+   "Why did debris cause a delay?",
+   "What order should be enforced?",
+   "What record should be kept?"
+  ],
+  "solution": "Hartmann made flush certificates a hold point before testing.",
+  "lessonsLearned": "Clean, test, balance, in that order."
+ },
+ "quiz": [
+  {
+   "q": "Test pressure is:",
+   "options": [
+    "Equal to working",
+    "1.5 x working",
+    "Half",
+    "Zero"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Pipe velocity uses:",
+   "options": [
+    "Q / A",
+    "A / Q",
+    "Q x A",
+    "D"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Order is:",
+   "options": [
+    "Commission, flush",
+    "Test only",
+    "Random",
+    "Flush, test, commission"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "RFIs should include:",
+   "options": [
+    "Rumours",
+    "Nothing",
+    "Opinions",
+    "Location and a deadline"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "The case study was late because:",
+   "options": [
+    "Flushing was skipped",
+    "Cold weather",
+    "Good pumps",
+    "Many staff"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which clash would you resolve first?",
+   "What records do you keep during testing?",
+   "How do you protect handover dates?"
+  ]
+ },
+ "certificate": {
+  "name": "MEP Site Engineer — Coordination, Testing & Commissioning",
+  "nameAz": "MEP Şahə Mühəndisi — Koordinasiya, Test və Sazlama",
+  "totalXp": 250
+ }
+}

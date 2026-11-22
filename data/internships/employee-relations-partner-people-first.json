@@ -1,0 +1,244 @@
+{
+ "id": "employee-relations-partner-people-first",
+ "title": "Employee Relations & HR Business Partner",
+ "companyId": "people-first-partners",
+ "category": "Employee Relations",
+ "difficulty": "Intermediate",
+ "durationHours": 6,
+ "drawingTag": "EMR-123",
+ "skills": [
+  "HR Metrics",
+  "Grievance Handling",
+  "Fair Investigation"
+ ],
+ "companyIntro": {
+  "name": "People First Partners",
+  "country": "Poland",
+  "founded": 2010,
+  "mission": "Make hiring, pay and employee relations fair, compliant and efficient.",
+  "culture": "Fair process, accurate records. People decisions are documented and explainable.",
+  "projects": [
+   "Graduate Hiring Programme",
+   "Payroll Consolidation",
+   "Pay Equity Review"
+  ]
+ },
+ "projectBackground": {
+  "name": "Workforce Health Check — Halden Logistics",
+  "client": "Halden Logistics Ltd",
+  "location": "London, remote",
+  "budget": "Fee: £18,000",
+  "timeline": "Report to the leadership team",
+  "context": "Turnover is rising and a grievance has been raised against a supervisor. Leadership wants facts and a fair process."
+ },
+ "manager": {
+  "name": "Agnieszka Nowak",
+  "role": "Head of HR Partnering, People First Partners",
+  "note": "People problems need data and fairness. Show me the numbers and the process you will follow."
+ },
+ "assignment": {
+  "title": "Diagnose and respond",
+  "brief": "Calculate absence, turnover and engagement, handle a grievance fairly and write the outcome."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Workforce Data",
+   "type": "HRIS",
+   "note": "120 employees; 360 absence days; 240 working days a year."
+  },
+  {
+   "id": "doc-2",
+   "name": "Leavers",
+   "type": "Report",
+   "note": "18 leavers in the year."
+  },
+  {
+   "id": "doc-3",
+   "name": "Engagement Survey",
+   "type": "Survey",
+   "note": "78 of 120 responses positive."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "emr-1-abs",
+   "type": "numeric",
+   "title": "Absence Rate",
+   "prompt": "360 days lost; 120 employees x 240 working days. What is the absence rate (%)?",
+   "answer": 1.25,
+   "tolerance": 0.02,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "360 / 28,800 = 1.25%.",
+   "reasoning": "Rate = days lost / days available.",
+   "tip": "Compare by team.",
+   "mistake": "Counting days without the base is meaningless.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "emr-2-turn",
+   "type": "numeric",
+   "title": "Turnover",
+   "prompt": "18 leavers; average headcount 120. What is turnover (%)?",
+   "answer": 15,
+   "tolerance": 0.2,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "18 / 120 = 15%.",
+   "reasoning": "Turnover shows retention health.",
+   "tip": "Split regretted vs unregretted.",
+   "mistake": "Using end headcount only skews the rate.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "emr-3-eng",
+   "type": "numeric",
+   "title": "Engagement Score",
+   "prompt": "78 of 120 responses were positive. What is the score (%)?",
+   "answer": 65,
+   "tolerance": 0.5,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "78 / 120 = 65%.",
+   "reasoning": "Engagement shows sentiment.",
+   "tip": "Act on the lowest drivers.",
+   "mistake": "Surveys without action reduce trust.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "emr-4-grievance",
+   "type": "mcq",
+   "title": "Handling a Grievance",
+   "prompt": "What is the right first step for a formal grievance?",
+   "options": [
+    "Acknowledge it, appoint an impartial investigator and follow the procedure",
+    "Ignore it",
+    "Ask the supervisor to resolve it alone",
+    "Dismiss it as gossip"
+   ],
+   "correctIndex": 0,
+   "xp": 40,
+   "reasoning": "Impartial process protects everyone.",
+   "tip": "Keep records.",
+   "mistake": "Letting the accused investigate is unfair.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "emr-5-fair",
+   "type": "multiselect",
+   "title": "Fair Investigation",
+   "prompt": "Select principles of a fair investigation.",
+   "options": [
+    "Share findings widely",
+    "Decide before interviewing",
+    "Decide on evidence and give reasons",
+    "Hear all parties and witnesses",
+    "Keep confidentiality where possible"
+   ],
+   "correctIndices": [
+    2,
+    3,
+    4
+   ],
+   "xp": 40,
+   "reasoning": "Fairness requires evidence and impartiality.",
+   "tip": "Document every step.",
+   "mistake": "Pre-judging invalidates the outcome.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "emr-6-outcome",
+   "type": "text",
+   "title": "Outcome Letter",
+   "prompt": "Write a 3-5 sentence grievance outcome letter.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "Thank you for raising your grievance. An impartial manager interviewed you, the supervisor and two witnesses and reviewed the rota records. The evidence supports part of your complaint: shift changes were made without notice. We will require written notice of changes and provide coaching for the supervisor. You have the right to appeal within five working days.",
+   "reasoning": "A good outcome letter states the process, findings, actions and appeal right.",
+   "tip": "Process, finding, action, appeal.",
+   "mistake": "Outcomes without reasons feel unfair.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Unheard Grievance",
+  "background": "A grievance sat for two months without response. The employee resigned and claimed constructive dismissal.",
+  "client": "Logistics client",
+  "budget": "£140,000 claim",
+  "timeline": "Tribunal",
+  "challenges": "No grievance procedure followed.",
+  "constraints": "Manager avoided conflict.",
+  "questions": [
+   "Why did the case escalate?",
+   "What timescale would you set?",
+   "How can HR support managers?"
+  ],
+  "solution": "People First set a 5-day acknowledgement standard and trained managers.",
+  "lessonsLearned": "Respond quickly and fairly."
+ },
+ "quiz": [
+  {
+   "q": "Absence rate uses:",
+   "options": [
+    "Days lost only",
+    "Headcount",
+    "Days lost / days available",
+    "Pay"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Turnover is:",
+   "options": [
+    "Headcount / leavers",
+    "Pay",
+    "Hires",
+    "Leavers / average headcount"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "A grievance needs:",
+   "options": [
+    "Silence",
+    "Speed only",
+    "An impartial process",
+    "Secrecy"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Fair investigations:",
+   "options": [
+    "Hear all parties",
+    "Hear one side",
+    "Skip evidence",
+    "Decide first"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "The grievance wasn't handled",
+    "Strong HR",
+    "Low absence",
+    "Good pay"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "How do you stay neutral under pressure?",
+   "Which metric concerns you most?",
+   "How would you support a manager?"
+  ]
+ },
+ "certificate": {
+  "name": "Employee Relations & HR Business Partner — Metrics & Fair Process",
+  "nameAz": "İşçi Münasibətləri və HR Biznes Tərəfdaşı — Göstəricilər və Ədalətli Prosedur",
+  "totalXp": 220
+ }
+}

@@ -1,0 +1,247 @@
+{
+ "id": "data-protection-officer-kestrel",
+ "title": "Data Protection Officer (GDPR)",
+ "companyId": "kestrel-law-tax",
+ "category": "Data Protection",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "DPO-114",
+ "skills": [
+  "Breach Response",
+  "Lawful Basis",
+  "DPIA"
+ ],
+ "companyIntro": {
+  "name": "Kestrel Law & Tax",
+  "country": "United Kingdom",
+  "founded": 2003,
+  "mission": "Give businesses clear legal and tax answers they can act on.",
+  "culture": "Precision in wording, plain English to clients. Risk is named, priced and mitigated.",
+  "projects": [
+   "Supplier Contract Review",
+   "Group Tax Compliance",
+   "Commercial Lease Programme"
+  ]
+ },
+ "projectBackground": {
+  "name": "Data Breach Response — Alder Health Clinics",
+  "client": "Alder Health Clinics",
+  "location": "London, remote",
+  "budget": "Retainer: £12,000",
+  "timeline": "Notification clock is running",
+  "context": "A laptop with patient records was stolen. The clinic must decide what to report and to whom."
+ },
+ "manager": {
+  "name": "Rachel Osei",
+  "role": "Partner, Kestrel Law & Tax",
+  "note": "The clock starts when you become aware. Be fast, accurate and documented."
+ },
+ "assignment": {
+  "title": "Manage the breach and strengthen compliance",
+  "brief": "Apply deadlines, estimate exposure, choose lawful basis, spot DPIA triggers and draft the notification."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Incident Report",
+   "type": "Report",
+   "note": "12,500 records on a stolen laptop; 8% contain health data."
+  },
+  {
+   "id": "doc-2",
+   "name": "Turnover",
+   "type": "Finance",
+   "note": "Annual turnover €300 million."
+  },
+  {
+   "id": "doc-3",
+   "name": "New Project",
+   "type": "Proposal",
+   "note": "Clinic plans to analyse health data with a new AI tool."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "dpo-1-72",
+   "type": "mcq",
+   "title": "Notification Deadline",
+   "prompt": "Within how long must a personal data breach normally be notified to the regulator?",
+   "options": [
+    "30 days",
+    "One year",
+    "72 hours after becoming aware, where there is a risk to individuals",
+    "Never"
+   ],
+   "correctIndex": 2,
+   "xp": 40,
+   "reasoning": "The 72-hour clock starts on awareness.",
+   "tip": "Record when you became aware.",
+   "mistake": "Waiting for full investigation misses the deadline.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "dpo-2-fine",
+   "type": "numeric",
+   "title": "Maximum Fine",
+   "prompt": "Maximum fine is the higher of €20M or 4% of turnover. Turnover is €300M. What is the cap (€ millions)?",
+   "answer": 20,
+   "tolerance": 0.1,
+   "unit": "EUR millions",
+   "xp": 40,
+   "workingNote": "4% of 300M = 12M; higher of 20M and 12M is 20M.",
+   "reasoning": "The higher figure applies.",
+   "tip": "Explain exposure in plain terms.",
+   "mistake": "Using 4% alone gives 12M, which is wrong.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "dpo-3-special",
+   "type": "numeric",
+   "title": "Special Category Records",
+   "prompt": "8% of 12,500 records contain health data. How many records?",
+   "answer": 1000,
+   "tolerance": 1,
+   "unit": "records",
+   "xp": 30,
+   "workingNote": "12,500 x 0.08 = 1,000.",
+   "reasoning": "Health data is special category data.",
+   "tip": "Quantify to judge risk.",
+   "mistake": "Treating all records alike underestimates harm.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "dpo-4-basis",
+   "type": "mcq",
+   "title": "Lawful Basis",
+   "prompt": "Which is a lawful basis for processing patient data for care?",
+   "options": [
+    "Marketing",
+    "Curiosity",
+    "Social media",
+    "Provision of healthcare with a suitable condition for health data"
+   ],
+   "correctIndex": 3,
+   "xp": 35,
+   "reasoning": "Basis and condition must both exist.",
+   "tip": "Document the basis.",
+   "mistake": "Using consent for everything can be wrong.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "dpo-5-dpia",
+   "type": "multiselect",
+   "title": "DPIA Triggers",
+   "prompt": "Select reasons a DPIA is required for the new AI project.",
+   "options": [
+    "Profiling that affects individuals",
+    "New technology",
+    "Cheap software",
+    "Small team",
+    "Large-scale processing of health data"
+   ],
+   "correctIndices": [
+    0,
+    1,
+    4
+   ],
+   "xp": 40,
+   "reasoning": "High-risk processing needs a DPIA.",
+   "tip": "Do it before launch.",
+   "mistake": "Skipping DPIA is a compliance failure.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "dpo-6-notify",
+   "type": "text",
+   "title": "Regulator Notification",
+   "prompt": "Write a 3-5 sentence breach notification summary.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "On 12 November a laptop containing 12,500 patient records, of which 1,000 include health data, was stolen from a clinic vehicle. The device was password-protected but not encrypted. We became aware on 12 November and are notifying within 72 hours. Affected individuals are being informed, and encryption of all devices has been ordered. A DPO contact is provided for queries.",
+   "reasoning": "A good notification states facts, numbers, timing, mitigation and a contact.",
+   "tip": "What, how many, when, fix, contact.",
+   "mistake": "Late or vague notifications increase penalties.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Unencrypted Laptop",
+  "background": "A hospital lost an unencrypted laptop and delayed notifying for three weeks. The regulator fined it for both lack of encryption and late notice.",
+  "client": "Healthcare provider",
+  "budget": "£750,000 fine",
+  "timeline": "Regulator investigation",
+  "challenges": "No encryption policy and slow escalation.",
+  "constraints": "Staff didn't know whom to tell.",
+  "questions": [
+   "Why was notice late?",
+   "What control would reduce risk?",
+   "Who should own breach response?"
+  ],
+  "solution": "Kestrel built a breach playbook with a 24-hour internal escalation rule.",
+  "lessonsLearned": "Encrypt devices and escalate fast."
+ },
+ "quiz": [
+  {
+   "q": "The breach notice deadline is:",
+   "options": [
+    "72 hours",
+    "30 days",
+    "1 year",
+    "Never"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Max fine is:",
+   "options": [
+    "Lower",
+    "€1",
+    "None",
+    "Higher of €20M or 4%"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Health data is:",
+   "options": [
+    "Public",
+    "Unprotected",
+    "Special category",
+    "Free"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "DPIA is for:",
+   "options": [
+    "Everything",
+    "Nothing",
+    "High-risk processing",
+    "Hardware"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "The case study was fined for:",
+   "options": [
+    "No encryption and late notice",
+    "Low turnover",
+    "No staff",
+    "Weather"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "What would you do in the first hour of a breach?",
+   "How do you explain GDPR to a doctor?",
+   "What is the DPO's role?"
+  ]
+ },
+ "certificate": {
+  "name": "Data Protection Officer (GDPR) — Breach & Compliance",
+  "nameAz": "Məlumatların Mühafizəsi Məsul Şəxsi (GDPR) — Pozuntu və Uyğunluq",
+  "totalXp": 240
+ }
+}

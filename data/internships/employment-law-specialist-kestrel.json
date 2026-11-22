@@ -1,0 +1,244 @@
+{
+ "id": "employment-law-specialist-kestrel",
+ "title": "Employment & Labour Law Specialist",
+ "companyId": "kestrel-law-tax",
+ "category": "Employment Law",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "ELW-113",
+ "skills": [
+  "Notice & Termination",
+  "Holiday & Overtime Pay",
+  "Fair Process"
+ ],
+ "companyIntro": {
+  "name": "Kestrel Law & Tax",
+  "country": "United Kingdom",
+  "founded": 2003,
+  "mission": "Give businesses clear legal and tax answers they can act on.",
+  "culture": "Precision in wording, plain English to clients. Risk is named, priced and mitigated.",
+  "projects": [
+   "Supplier Contract Review",
+   "Group Tax Compliance",
+   "Commercial Lease Programme"
+  ]
+ },
+ "projectBackground": {
+  "name": "Workforce Restructure — Halden Logistics",
+  "client": "Halden Logistics Ltd",
+  "location": "London, remote",
+  "budget": "Fee: £22,000",
+  "timeline": "Consultation starts in two weeks",
+  "context": "Halden plans to reduce headcount and has also received an overtime pay query from a driver."
+ },
+ "manager": {
+  "name": "Rachel Osei",
+  "role": "Partner, Kestrel Law & Tax",
+  "note": "Process matters as much as outcome. If it isn't fair and documented, it isn't safe."
+ },
+ "assignment": {
+  "title": "Advise on notice, pay and process",
+  "brief": "Calculate notice, holiday and overtime, advise on fair dismissal and redundancy, and write the advice letter."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Employee Record",
+   "type": "HR File",
+   "note": "Employee with six years' service; 28 days annual holiday; leaves after 5 months of the year."
+  },
+  {
+   "id": "doc-2",
+   "name": "Pay Query",
+   "type": "Email",
+   "note": "Overtime 8 hours at 1.5x; base €15 per hour."
+  },
+  {
+   "id": "doc-3",
+   "name": "Restructure Plan",
+   "type": "Document",
+   "note": "Eight roles at risk; selection criteria undefined."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "elw-1-notice",
+   "type": "numeric",
+   "title": "Statutory Notice",
+   "prompt": "Statutory notice is 1 week per full year of service (max 12). Six years' service. How many weeks?",
+   "answer": 6,
+   "tolerance": 0,
+   "unit": "weeks",
+   "xp": 30,
+   "workingNote": "6 years = 6 weeks.",
+   "reasoning": "Check contract for longer notice.",
+   "tip": "Use the more generous of contract and statute.",
+   "mistake": "Using one week regardless of service is wrong.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "elw-2-holiday",
+   "type": "numeric",
+   "title": "Accrued Holiday",
+   "prompt": "28 days a year; employee leaves after 5 months. How many days have accrued (2 decimals)?",
+   "answer": 11.67,
+   "tolerance": 0.05,
+   "unit": "days",
+   "xp": 35,
+   "workingNote": "28 x 5 / 12 = 11.67.",
+   "reasoning": "Holiday accrues pro rata.",
+   "tip": "Deduct days already taken.",
+   "mistake": "Paying the full 28 days overpays.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "elw-3-ot",
+   "type": "numeric",
+   "title": "Overtime Pay",
+   "prompt": "Base €15/hour, overtime at 1.5x, 8 hours. What is the overtime pay (€)?",
+   "answer": 180,
+   "tolerance": 1,
+   "unit": "EUR",
+   "xp": 30,
+   "workingNote": "15 x 1.5 x 8 = 180.",
+   "reasoning": "Check the contract and law for rates.",
+   "tip": "Keep time records.",
+   "mistake": "Paying at base rate underpays.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "elw-4-fair",
+   "type": "mcq",
+   "title": "Fair Dismissal",
+   "prompt": "Which approach to dismissal is safest?",
+   "options": [
+    "A fair reason, a fair procedure and a right of appeal",
+    "Immediate dismissal by email",
+    "Dismiss without reason",
+    "Dismiss after rumours"
+   ],
+   "correctIndex": 0,
+   "xp": 40,
+   "reasoning": "Fair reason plus fair process reduces claims.",
+   "tip": "Document each step.",
+   "mistake": "Skipping process makes dismissals unfair.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "elw-5-redund",
+   "type": "multiselect",
+   "title": "Fair Redundancy",
+   "prompt": "Select elements of a fair redundancy process.",
+   "options": [
+    "Genuine business reason",
+    "Objective selection criteria applied consistently",
+    "No notice",
+    "Pick people you dislike",
+    "Consultation and consideration of alternatives"
+   ],
+   "correctIndices": [
+    0,
+    1,
+    4
+   ],
+   "xp": 40,
+   "reasoning": "Redundancy needs reason, criteria and consultation.",
+   "tip": "Define criteria before selecting.",
+   "mistake": "Undefined criteria invite discrimination claims.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "elw-6-letter",
+   "type": "text",
+   "title": "Advice Letter",
+   "prompt": "Write a 3-5 sentence advice summary for the client.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "Halden may proceed with redundancies only with a genuine business reason, objective selection criteria set before choosing individuals, and consultation on alternatives. The departing employee with six years' service is owed six weeks' notice and 11.67 days' accrued holiday. The overtime query is valid: 8 hours at 1.5x equals €180 and should be paid. We recommend we draft the selection matrix and consultation plan this week.",
+   "reasoning": "A good letter answers the questions asked and states the next step.",
+   "tip": "Answer, number, risk, next step.",
+   "mistake": "Legal answers without next steps leave clients stuck.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Email Dismissal",
+  "background": "An employer dismissed a long-serving employee by text message after a rumour. A tribunal found it unfair and awarded 18 months' pay.",
+  "client": "Logistics client",
+  "budget": "Tribunal award and costs",
+  "timeline": "Tribunal hearing",
+  "challenges": "No investigation or appeal.",
+  "constraints": "Decision was emotional.",
+  "questions": [
+   "Why was it unfair?",
+   "What process was missing?",
+   "How would you document?"
+  ],
+  "solution": "Kestrel introduced a dismissal checklist: investigation, hearing, decision, appeal.",
+  "lessonsLearned": "Process protects both sides."
+ },
+ "quiz": [
+  {
+   "q": "Notice usually depends on:",
+   "options": [
+    "Colour",
+    "Salary only",
+    "Mood",
+    "Service length"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Accrued holiday is:",
+   "options": [
+    "Full",
+    "None",
+    "Random",
+    "Pro rata"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Fair dismissal needs:",
+   "options": [
+    "Speed",
+    "Secrecy",
+    "Reason and procedure",
+    "Text only"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Selection criteria should be:",
+   "options": [
+    "Objective",
+    "Secret",
+    "Personal",
+    "Random"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "The case study lost because:",
+   "options": [
+    "Low pay",
+    "No fair process",
+    "Many staff",
+    "Weather"
+   ],
+   "correctIndex": 1
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which step of fair process is most often skipped?",
+   "How do you explain a hard decision to a manager?",
+   "What records would you keep?"
+  ]
+ },
+ "certificate": {
+  "name": "Employment & Labour Law Specialist — Notice, Pay & Fair Process",
+  "nameAz": "Əmək Hüququ Mütəxəssisi — Xəbərdarlıq, Ödəniş və Ədalətli Prosedur",
+  "totalXp": 230
+ }
+}
