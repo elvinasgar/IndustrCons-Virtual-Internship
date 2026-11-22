@@ -1,0 +1,247 @@
+{
+ "id": "procurement-tender-specialist-tradewind",
+ "title": "Procurement & Tender Specialist",
+ "companyId": "tradewind-supply",
+ "category": "Procurement",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "PRC-083",
+ "skills": [
+  "Tender Evaluation",
+  "Total Cost of Ownership",
+  "Supplier Risk"
+ ],
+ "companyIntro": {
+  "name": "Tradewind Supply Partners",
+  "country": "Turkey",
+  "founded": 2005,
+  "mission": "Source the right goods at the right total cost, fairly and on time.",
+  "culture": "Fair process, documented decisions. If you cannot justify an award in writing, you cannot make it.",
+  "projects": [
+   "Regional Tender Framework",
+   "Supplier Consolidation",
+   "Materials Sourcing Programme"
+  ]
+ },
+ "projectBackground": {
+  "name": "Regional Materials Tender",
+  "client": "Atlas Manufacturing (client)",
+  "location": "Istanbul, remote",
+  "budget": "Contract value: €1.0M",
+  "timeline": "Award decision in 10 days",
+  "context": "Two suppliers bid. One is cheaper per unit but has higher freight and defect rates."
+ },
+ "manager": {
+  "name": "Selin Demir",
+  "role": "Head of Procurement, Tradewind Supply Partners",
+  "note": "The cheapest price is not the cheapest supplier. Show me total cost and a fair process I can defend to an auditor."
+ },
+ "assignment": {
+  "title": "Evaluate the tender and recommend an award",
+  "brief": "Compute total cost, apply fair evaluation rules, handle a conflict of interest and write the recommendation."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Supplier A Bid",
+   "type": "Bid",
+   "note": "€100 per unit for 1,000 units; freight €4,000; 2% defect rate."
+  },
+  {
+   "id": "doc-2",
+   "name": "Supplier B Bid",
+   "type": "Bid",
+   "note": "€95 per unit for 1,000 units; freight €9,000; 5% defect rate."
+  },
+  {
+   "id": "doc-3",
+   "name": "Evaluation Criteria",
+   "type": "Policy",
+   "note": "Weighting agreed before bids opened."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "prc-1-tcoa",
+   "type": "numeric",
+   "title": "Total Cost Supplier A",
+   "prompt": "Supplier A: 1,000 units at €100, freight €4,000, plus rework of 2% of units valued at €100 each. What is total cost (€)?",
+   "answer": 106000,
+   "tolerance": 100,
+   "unit": "EUR",
+   "xp": 35,
+   "workingNote": "100,000 + 4,000 + (0.02 x 1,000 x 100 = 2,000) = 106,000.",
+   "reasoning": "Total cost includes freight and quality cost.",
+   "tip": "Price + freight + quality + risk.",
+   "mistake": "Comparing unit price alone misleads.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "prc-2-diff",
+   "type": "numeric",
+   "title": "Cost Difference",
+   "prompt": "Supplier B: 95,000 + 9,000 freight + 5% rework (€5,000) = €109,000. How much cheaper is Supplier A than B (€)?",
+   "answer": 3000,
+   "tolerance": 50,
+   "unit": "EUR",
+   "xp": 35,
+   "workingNote": "109,000 - 106,000 = 3,000.",
+   "reasoning": "The 'cheaper' unit price loses once all costs are included.",
+   "tip": "Show both totals side by side.",
+   "mistake": "Awarding on unit price costs the client €3,000.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "prc-3-fair",
+   "type": "mcq",
+   "title": "Fair Evaluation",
+   "prompt": "How should evaluation criteria be handled?",
+   "options": [
+    "Fix and publish weights before opening bids and apply them to all bidders equally",
+    "Adjust weights after seeing the bids",
+    "Favour known suppliers",
+    "Keep criteria secret from evaluators"
+   ],
+   "correctIndex": 0,
+   "xp": 40,
+   "reasoning": "Pre-agreed criteria protect fairness and defensibility.",
+   "tip": "No criteria changes after bids open.",
+   "mistake": "Changing criteria afterwards invites legal challenge.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "prc-4-coi",
+   "type": "mcq",
+   "title": "Conflict of Interest",
+   "prompt": "An evaluator discovers a relative owns one bidder. What is correct?",
+   "options": [
+    "Say nothing and score honestly",
+    "Score the other bidder lower",
+    "Delete the declaration",
+    "Declare it immediately and step away from evaluating that bid"
+   ],
+   "correctIndex": 3,
+   "xp": 40,
+   "reasoning": "Conflicts must be declared to protect integrity.",
+   "tip": "Declare early; let procurement decide.",
+   "mistake": "Silence can taint the award.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "prc-5-docs",
+   "type": "multiselect",
+   "title": "Tender Documents",
+   "prompt": "Select what a good tender pack includes.",
+   "options": [
+    "Verbal changes to scope",
+    "Clear specification",
+    "Contract terms and deadlines",
+    "Hidden criteria",
+    "Evaluation criteria and weights"
+   ],
+   "correctIndices": [
+    1,
+    2,
+    4
+   ],
+   "xp": 40,
+   "reasoning": "Clarity gives comparable bids.",
+   "tip": "Answer all clarifications to every bidder.",
+   "mistake": "Verbal changes favour some bidders.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "prc-6-award",
+   "type": "text",
+   "title": "Award Recommendation",
+   "prompt": "Write a 3-5 sentence award recommendation.",
+   "minLength": 120,
+   "xp": 55,
+   "modelAnswer": "I recommend awarding to Supplier A. Its total cost is €106,000 against €109,000 for Supplier B once freight and a 2% versus 5% defect rate are included, and its quality record lowers delivery risk. The evaluation followed the weights agreed before bids opened and no conflicts of interest were declared. Contract terms should include a quality clause with rework at the supplier's cost. B can be retained as a secondary source for resilience.",
+   "reasoning": "A good award recommendation compares total cost, cites the process and mitigates risk.",
+   "tip": "Cost, process, risk, terms.",
+   "mistake": "An unreasoned award is hard to defend.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Cheapest Bid",
+  "background": "A buyer awarded a €1.2M contract to the lowest price. Late deliveries and defects added €280,000 in cost and a production stoppage.",
+  "client": "Industrial client",
+  "budget": "€280,000 additional cost",
+  "timeline": "Over the contract year",
+  "challenges": "Only unit price was evaluated.",
+  "constraints": "No supplier risk assessment.",
+  "questions": [
+   "Why did the cheapest bid cost more?",
+   "What criteria would you add?",
+   "How do you manage supplier risk?"
+  ],
+  "solution": "Tradewind adopted total-cost evaluation with quality and delivery scoring.",
+  "lessonsLearned": "Evaluate total cost and risk, not price alone."
+ },
+ "quiz": [
+  {
+   "q": "TCO includes:",
+   "options": [
+    "Price only",
+    "Brand",
+    "Colour",
+    "Price, freight and quality cost"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Criteria weights are fixed:",
+   "options": [
+    "After",
+    "Never",
+    "By the winner",
+    "Before bids open"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "A conflict of interest must be:",
+   "options": [
+    "Hidden",
+    "Ignored",
+    "Deleted",
+    "Declared"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "A tender pack includes:",
+   "options": [
+    "Opinions",
+    "Secrets",
+    "Rumours",
+    "Specification and criteria"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "In the case study costs rose because:",
+   "options": [
+    "Bids were late",
+    "Too many bidders",
+    "Only price was evaluated",
+    "No contract"
+   ],
+   "correctIndex": 2
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which cost was easiest to overlook?",
+   "How do you keep a tender fair under pressure?",
+   "When would you reject the lowest bid?"
+  ]
+ },
+ "certificate": {
+  "name": "Procurement & Tender Specialist — Evaluation & Award",
+  "nameAz": "Satınalma və Tender Mütəxəssisi — Qiymətləndirmə və Qərar",
+  "totalXp": 245
+ }
+}

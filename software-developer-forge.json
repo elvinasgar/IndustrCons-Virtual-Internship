@@ -1,0 +1,247 @@
+{
+ "id": "software-developer-forge",
+ "title": "Software Developer (Backend)",
+ "companyId": "forge-software",
+ "category": "Software Development",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "SWE-070",
+ "skills": [
+  "Debugging",
+  "Code Review",
+  "API Design"
+ ],
+ "companyIntro": {
+  "name": "Forge Software",
+  "country": "Poland",
+  "founded": 2012,
+  "mission": "Build maintainable software for product companies, with quality designed in rather than tested in.",
+  "culture": "Small pull requests, honest code review, and blameless debugging. Nobody ships what they cannot explain.",
+  "projects": [
+   "Parcelwise Order API",
+   "Forge Design System",
+   "Merchant Dashboard Rebuild"
+  ]
+ },
+ "projectBackground": {
+  "name": "Parcelwise Order API",
+  "client": "Parcelwise Logistics",
+  "location": "Warsaw, remote",
+  "budget": "Sprint budget: 120 developer-hours",
+  "timeline": "Fix due before peak season",
+  "context": "The orders endpoint takes 12 seconds to list orders and sometimes shows duplicates on page boundaries."
+ },
+ "manager": {
+  "name": "Piotr Nowak",
+  "role": "Engineering Manager, Forge Software",
+  "note": "Explain the cause, not just the patch. A fix without a reason will come back."
+ },
+ "assignment": {
+  "title": "Diagnose and fix the orders API",
+  "brief": "Count queries, calculate pagination, choose the right HTTP semantics, review a PR and write a clear bug summary."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Slow Request Trace",
+   "type": "Log",
+   "note": "200 orders listed; one query for orders, then one customer query per order."
+  },
+  {
+   "id": "doc-2",
+   "name": "Pagination Spec",
+   "type": "Document",
+   "note": "1,037 records; page size 50."
+  },
+  {
+   "id": "doc-3",
+   "name": "Pull Request #214",
+   "type": "Code Review",
+   "note": "Adds retry on payment creation without idempotency key."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "swe-1-nplus1",
+   "type": "numeric",
+   "title": "N+1 Queries",
+   "prompt": "The endpoint fetches 200 orders, then queries the customer for each order. How many queries run in total?",
+   "answer": 201,
+   "tolerance": 0,
+   "unit": "queries",
+   "xp": 35,
+   "workingNote": "1 + 200 = 201.",
+   "reasoning": "One query for the list plus one per row is the N+1 pattern.",
+   "tip": "Use joins or batched queries.",
+   "mistake": "Missing N+1 leads to performance collapse as data grows.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "swe-2-pages",
+   "type": "numeric",
+   "title": "Pagination",
+   "prompt": "1,037 records with page size 50. How many pages are needed?",
+   "answer": 21,
+   "tolerance": 0,
+   "unit": "pages",
+   "xp": 30,
+   "workingNote": "1,037 / 50 = 20.74, rounded up to 21.",
+   "reasoning": "Always round up for pages.",
+   "tip": "Test the last partial page.",
+   "mistake": "Rounding down loses the final records.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "swe-3-idempotent",
+   "type": "mcq",
+   "title": "Retries and Payments",
+   "prompt": "The PR adds automatic retries to create a payment. What must be included?",
+   "options": [
+    "A longer timeout only",
+    "An idempotency key so retries don't charge twice",
+    "Silent catch of errors",
+    "Random delays"
+   ],
+   "correctIndex": 1,
+   "xp": 45,
+   "reasoning": "Retries on non-idempotent actions risk duplicates unless a key makes them safe.",
+   "tip": "Make retried operations idempotent.",
+   "mistake": "Blind retries cause double charges.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "swe-4-pagination-bug",
+   "type": "mcq",
+   "title": "Duplicates on Page Boundaries",
+   "prompt": "Duplicates appear when new orders arrive between page requests using OFFSET. What is the better approach?",
+   "options": [
+    "Cursor (keyset) pagination on a stable sort key",
+    "Increase page size",
+    "Remove sorting",
+    "Cache for a day"
+   ],
+   "correctIndex": 0,
+   "xp": 40,
+   "reasoning": "Offset shifts as data changes; keyset anchors to a value.",
+   "tip": "Sort by a unique stable key.",
+   "mistake": "Offset pagination on changing data returns duplicates and gaps.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "swe-5-review",
+   "type": "multiselect",
+   "title": "PR Review Checklist",
+   "prompt": "Select what a good reviewer checks.",
+   "options": [
+    "Author's seniority",
+    "Error handling and logging",
+    "Number of comments left",
+    "Tests cover the behaviour and edge cases",
+    "Security and data validation"
+   ],
+   "correctIndices": [
+    1,
+    3,
+    4
+   ],
+   "xp": 45,
+   "reasoning": "Review evaluates behaviour, safety and maintainability, not the author.",
+   "tip": "Review the change, not the person.",
+   "mistake": "Rubber-stamping misses defects.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "swe-6-bug",
+   "type": "text",
+   "title": "Bug Summary",
+   "prompt": "Write a 3-5 sentence summary of the slow endpoint for the ticket.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "The orders endpoint ran 201 queries for 200 orders because customers were loaded one by one (N+1). This caused a 12 second response under load. I replaced it with a single joined query and added an index on orders.customer_id, which reduced the response to under 300 ms in staging. A regression test now fails if the query count exceeds three. I also switched pagination to a cursor to stop duplicates.",
+   "reasoning": "A good summary has cause, fix, evidence and prevention.",
+   "tip": "Cause, fix, proof, guard.",
+   "mistake": "A fix without a test often returns.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Double Charge",
+  "background": "A payment service retried failed requests without an idempotency key. During a network blip 1,900 customers were charged twice; refunds and support cost €90,000.",
+  "client": "Payments client",
+  "budget": "€90,000 plus reputational damage",
+  "timeline": "One weekend incident",
+  "challenges": "Retries were added to improve reliability but made operations unsafe.",
+  "constraints": "No test simulated duplicate requests.",
+  "questions": [
+   "Why are retries dangerous without idempotency?",
+   "How would you test for it?",
+   "What belongs in design review?"
+  ],
+  "solution": "Forge required idempotency keys on every write endpoint and added a duplicate-request test.",
+  "lessonsLearned": "Reliability changes need safety analysis."
+ },
+ "quiz": [
+  {
+   "q": "N+1 means:",
+   "options": [
+    "One query plus one per row",
+    "Needs plus one",
+    "Nine plus one",
+    "None"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Idempotent operations:",
+   "options": [
+    "Are always fast",
+    "Give the same result if repeated",
+    "Cannot fail",
+    "Change every time"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Keyset pagination:",
+   "options": [
+    "Uses a stable key",
+    "Uses random sort",
+    "Uses page numbers only",
+    "Disables sorting"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Code review focuses on:",
+   "options": [
+    "The author",
+    "The time",
+    "The change",
+    "The editor"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Case study double charge happened due to:",
+   "options": [
+    "Low CPU",
+    "Retries without idempotency",
+    "A typo in CSS",
+    "Slow disks"
+   ],
+   "correctIndex": 1
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which bug was hardest to see in the trace?",
+   "How do you review code kindly but rigorously?",
+   "What tests would you add first?"
+  ]
+ },
+ "certificate": {
+  "name": "Software Developer (Backend) — Debugging & API Design",
+  "nameAz": "Proqram Tərtibatçısı (Backend) — Debaq və API Dizaynı",
+  "totalXp": 245
+ }
+}

@@ -1,0 +1,286 @@
+{
+  "id": "supply-chain-analyst-meridian",
+  "title": "Supply Chain Analyst",
+  "companyId": "meridian-freight-group",
+  "category": "Supply Chain",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "SC-041",
+  "skills": [
+    "Demand Forecasting",
+    "Supplier Risk",
+    "Inventory Optimization"
+  ],
+  "companyIntro": {
+    "name": "Meridian Freight Group",
+    "country": "Netherlands",
+    "founded": 2005,
+    "mission": "Keep goods moving reliably across a fragmented, multi-carrier European logistics network.",
+    "culture": "Detail-obsessed and calm under disruption — a stockout is a puzzle to solve, not a crisis to panic over.",
+    "projects": [
+      "Rotterdam-Warsaw Corridor Optimization",
+      "Cold Chain Expansion Project",
+      "Warehouse Automation Pilot"
+    ]
+  },
+  "projectBackground": {
+    "name": "Nordvik Electronics — Q3 Stockout Investigation",
+    "client": "Nordvik Electronics (retail client)",
+    "location": "Warsaw Distribution Center",
+    "budget": "N/A — client account analysis",
+    "timeline": "This week, ahead of Q4 planning",
+    "context": "A key SKU stocked out twice in Q3, causing lost sales the client is unhappy about. Before Q4 safety stock levels are set, the client wants to know why the current forecasting approach failed and what will actually prevent a repeat."
+  },
+  "manager": {
+    "name": "Bram Jansen",
+    "role": "Supply Chain Director, Meridian Freight Group",
+    "note": "The client's already asking whether we know what we're doing. I need the actual reason this stocked out, in numbers, and a safety stock recommendation I can defend — not just 'we'll order more next time.'"
+  },
+  "assignment": {
+    "title": "Investigate the Q3 stockout and recommend Q4 safety stock",
+    "brief": "Analyze demand variability and lead time data, calculate an appropriate safety stock level, and explain to the client why the current approach failed."
+  },
+  "documents": [
+    {
+      "id": "doc-demand-data",
+      "name": "SKU EL-2290 Weekly Demand — Last 12 Weeks",
+      "type": "Demand Data",
+      "note": "Average weekly demand: 220 units. Standard deviation of weekly demand: 85 units — notably high and volatile relative to the average."
+    },
+    {
+      "id": "doc-leadtime-data",
+      "name": "Supplier Lead Time Record",
+      "type": "Lead Time Data",
+      "note": "Average supplier lead time: 3 weeks. Lead time has ranged from 2 to 5 weeks over the past year, with no current buffer built into ordering."
+    },
+    {
+      "id": "doc-current-policy",
+      "name": "Current Safety Stock Policy",
+      "type": "Policy Document",
+      "note": "Current safety stock is a flat 200 units regardless of demand variability or lead time — set two years ago and never revisited."
+    },
+    {
+      "id": "doc-client-question",
+      "name": "Client Question — Q3 Stockout",
+      "type": "Correspondence",
+      "note": "Client asks specifically: 'Your safety stock was 200 units, close to a week of average demand — why wasn't that enough, twice?'"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-cv",
+      "type": "numeric",
+      "title": "Coefficient of Variation",
+      "prompt": "What is the coefficient of variation (standard deviation / average x 100) for weekly demand on this SKU?",
+      "answer": 38.6,
+      "tolerance": 0.5,
+      "unit": "%",
+      "xp": 40,
+      "workingNote": "85 / 220 x 100 = 38.6%.",
+      "reasoning": "A coefficient of variation around 38-39% indicates quite high demand volatility relative to the average — this is the specific number that explains why a flat, un-adjusted safety stock policy is inadequate for this SKU.",
+      "tip": "Always calculate coefficient of variation before setting safety stock — a high CV (generally above 25-30%) signals that demand volatility itself, not just average demand, must directly inform the safety stock level.",
+      "mistake": "Setting safety stock based only on average demand, without accounting for how volatile that demand actually is, systematically underprotects against genuinely variable-demand SKUs like this one.",
+      "recommendation": "Report CV alongside average demand for every SKU under safety stock review — it's the number that reveals which SKUs need the most protection relative to their own demand pattern, not just their volume."
+    },
+    {
+      "id": "task-2-explain-failure",
+      "type": "mcq",
+      "title": "Explaining the Stockout to the Client",
+      "prompt": "The client asks why a 200-unit safety stock (close to a week of average demand) wasn't enough, twice. What is the accurate explanation?",
+      "options": [
+        "200 units should have been more than enough; the stockouts were bad luck",
+        "The flat 200-unit policy didn't account for this SKU's high demand volatility (38.6% CV) or the lead time variability (2-5 weeks), both of which require more protection than a simple 'about a week of average demand' rule of thumb",
+        "The client ordered too little themselves",
+        "Demand forecasting is inherently unreliable and nothing could have prevented this"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "The accurate, defensible explanation is that the flat safety stock policy was never actually calculated against this SKU's specific demand volatility and lead time variability — both of which are unusually high here — rather than attributing the stockouts to bad luck or blaming the client.",
+      "tip": "When explaining a stockout to a client, always connect it to the specific volatility and lead time data, not a vague 'demand is unpredictable' — a data-backed explanation is both more credible and points directly to the fix.",
+      "mistake": "Attributing a stockout to 'bad luck' when the actual policy never accounted for measurable demand and lead time variability avoids taking ownership of a fixable process gap.",
+      "recommendation": "Always be ready to show the client the specific numbers (CV, lead time range) behind a stockout explanation — it demonstrates the problem is understood and fixable, not just unfortunate."
+    },
+    {
+      "id": "task-3-safetystock",
+      "type": "numeric",
+      "title": "Safety Stock Calculation",
+      "prompt": "Using a standard safety stock formula (Z-score for 95% service level ≈ 1.65) x demand standard deviation x square root of average lead time in weeks (√3 ≈ 1.73), what safety stock level is recommended?",
+      "answer": 243,
+      "tolerance": 10,
+      "unit": "units",
+      "xp": 55,
+      "workingNote": "1.65 x 85 x 1.73 ≈ 242.6, rounds to approximately 243 units.",
+      "reasoning": "This formula properly accounts for both demand volatility (85 units std dev) and lead time (3 weeks) together, producing a specific, defensible safety stock figure well above the current flat 200-unit policy — directly explaining why 200 was insufficient.",
+      "tip": "Always use a formula that combines demand variability and lead time together (not just one or the other) when calculating safety stock for a volatile SKU — either factor alone would understate the required buffer.",
+      "mistake": "Using a flat, round-number safety stock policy (like 200 units) without running the actual formula for a specific SKU's volatility and lead time is a common but risky shortcut, especially for high-CV items like this one.",
+      "recommendation": "Recalculate this safety stock figure whenever a SKU's demand pattern or lead time changes materially — a safety stock level calculated once and never revisited (like the 200-unit policy here) becomes stale exactly when it matters most."
+    },
+    {
+      "id": "task-4-recommendations",
+      "type": "multiselect",
+      "title": "Q4 Recommendations",
+      "prompt": "Select every recommendation worth including in the Q4 safety stock plan for this client.",
+      "options": [
+        "Update safety stock to approximately 243 units based on the calculated formula",
+        "Review and update safety stock formulas for all SKUs, not just this one, since the flat policy likely affects others too",
+        "Promise the client zero stockouts are now guaranteed forever",
+        "Set a recurring quarterly review of safety stock levels as demand patterns evolve",
+        "Blame the previous analyst for setting the flat policy two years ago"
+      ],
+      "correctIndices": [
+        0,
+        1,
+        3
+      ],
+      "xp": 50,
+      "reasoning": "A sound recommendation set updates this SKU's safety stock with the calculated figure, extends the same review to other SKUs likely affected by the same flat-policy gap, and establishes an ongoing review cadence. Promising zero stockouts is dishonest and unsustainable, and blaming a previous analyst is unproductive and doesn't address the actual process gap.",
+      "tip": "When you find one SKU affected by a stale, un-calculated policy, always check whether the same gap affects other SKUs — a systemic policy gap rarely affects just the one item that happened to stock out and get noticed.",
+      "mistake": "Framing a fix as solving only the specific SKU that failed, without checking for the same gap elsewhere, leaves other SKUs exposed to the identical risk that just caused this client complaint.",
+      "recommendation": "Build a recurring safety stock review into the standard account management cadence — this is what prevents a policy from going stale for two years again, as happened here."
+    },
+    {
+      "id": "task-5-client-response",
+      "type": "text",
+      "title": "Client Response Memo",
+      "prompt": "Write the response to the client (3-5 sentences): the actual cause, the corrected approach, and your confidence going into Q4.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "The Q3 stockouts occurred because our safety stock policy for SKU EL-2290 was a flat 200 units, set two years ago without accounting for this specific SKU's demand volatility (a 38.6% coefficient of variation, notably high) or its lead time range (2-5 weeks). Using a formula that properly incorporates both factors, the recommended safety stock is approximately 243 units, which we're implementing for Q4. We're also reviewing safety stock levels across your other SKUs to check for the same gap, since a flat, un-recalculated policy likely affects more than just this one item. Going into Q4, I'm confident this data-driven approach substantially reduces stockout risk for this SKU, and we'll review it quarterly going forward rather than letting it go stale again.",
+      "reasoning": "A strong client response takes ownership of the actual cause without deflecting blame, presents the specific corrected number and its basis, and extends the fix to check for the same issue elsewhere — this combination is what rebuilds a client's confidence after a service failure.",
+      "tip": "Always state a specific confidence level tied to the corrected data-driven approach, rather than either overpromising perfection or vaguely hoping the issue won't recur — 'substantially reduces risk' is honest and still reassuring.",
+      "mistake": "A response that fixes only the specific complained-about SKU, without checking for the same systemic gap elsewhere, leaves the door open for the client to discover another stockout on a different item and lose confidence again.",
+      "recommendation": "Always propose a recurring review cadence in any client-facing fix — it signals the problem won't be allowed to go stale again, which is often what a client actually wants to hear most."
+    },
+    {
+      "id": "task-6-safetystock-excel",
+      "type": "excel-upload",
+      "title": "Multi-SKU Safety Stock Tracker (Excel)",
+      "prompt": "Three more SKUs need their safety stock calculated the same way. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "Safety-Stock-Template.xlsx",
+        "sheetName": "Safety Stock",
+        "headers": [
+          "SKU",
+          "Demand Std Dev",
+          "Lead Time (weeks)",
+          "Recommended Safety Stock (Z=1.65)"
+        ],
+        "rows": [
+          [
+            "EL-1180",
+            "40",
+            "2",
+            ""
+          ],
+          [
+            "EL-3350",
+            "110",
+            "4",
+            ""
+          ],
+          [
+            "EL-4420",
+            "25",
+            "3",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 93.3,
+          "tolerance": 2,
+          "label": "EL-1180 (1.65 x 40 x sqrt(2)=1.41)"
+        },
+        {
+          "cell": "D3",
+          "expected": 363.0,
+          "tolerance": 5,
+          "label": "EL-3350 (1.65 x 110 x sqrt(4)=2.0)"
+        },
+        {
+          "cell": "D4",
+          "expected": 71.5,
+          "tolerance": 2,
+          "label": "EL-4420 (1.65 x 25 x sqrt(3)=1.73)"
+        }
+      ],
+      "reasoning": "Applying the same safety stock formula consistently across every SKU, not just the one that stocked out, is what turns this from a one-off client apology into a genuinely improved account-wide inventory policy.",
+      "tip": "Build the safety stock formula as Z x demand-std-dev x sqrt(lead-time-weeks) consistently for every SKU — this is what replaces a stale flat policy with one that actually reflects each item's real volatility and lead time.",
+      "mistake": "Continuing to apply a flat safety stock number across SKUs with very different volatility and lead time profiles (compare EL-3350's 363 units to EL-4420's 71.5) is exactly the gap that caused this client's original complaint.",
+      "recommendation": "Re-run this full SKU safety stock review whenever quarterly demand or lead time data updates — a policy calculated once and left unchanged for two years is what created this problem in the first place."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Flat Policy That Fit No One",
+    "background": "On an earlier Meridian account, a single flat safety stock percentage was applied across an entire client's SKU portfolio for convenience — some low-volatility SKUs carried far more safety stock than needed (tying up working capital), while high-volatility SKUs like this one carried far too little, causing recurring stockouts specifically on the most variable items.",
+    "client": "An earlier retail client account",
+    "budget": "Estimated excess working capital tied up in over-stocked low-volatility SKUs: €140,000; concurrent stockout cost on under-stocked high-volatility SKUs: €65,000 in lost sales",
+    "timeline": "Ongoing for over a year before a full account review caught the pattern",
+    "challenges": "Because the flat policy was applied uniformly, both problems (excess stock on stable SKUs, stockouts on volatile ones) existed simultaneously and were only caught when someone finally analyzed CV per SKU rather than applying one blanket rule.",
+    "constraints": "Correcting the policy required recalculating safety stock individually for the client's entire SKU portfolio, a significant one-time analysis effort that could have been avoided by never applying a flat rule in the first place.",
+    "questions": [
+      "Why does a single flat safety stock rule fail differently for high- and low-volatility SKUs simultaneously?",
+      "What analysis would have caught both problems (excess and shortage) at the same time?",
+      "How does this connect to why per-SKU calculation, not portfolio-wide averaging, is the right approach?"
+    ],
+    "solution": "Meridian mandated that safety stock be calculated per-SKU using each item's own demand volatility and lead time data, banning flat percentage-based policies applied across a whole portfolio.",
+    "lessonsLearned": "A single flat safety stock rule applied across many SKUs with different volatility profiles doesn't just risk stockouts on the most variable items — it simultaneously ties up unnecessary capital in the most stable ones, making the case for per-SKU calculation a capital efficiency issue as much as a stockout prevention one."
+  },
+  "quiz": [
+    {
+      "q": "Coefficient of variation for demand is calculated as:",
+      "options": [
+        "Standard deviation divided by average, x 100",
+        "Average divided by standard deviation"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "q": "A high coefficient of variation (e.g., 38.6%) for a SKU indicates:",
+      "options": [
+        "Low, predictable demand needing little safety stock",
+        "High demand volatility requiring more safety stock protection relative to average demand"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Safety stock formulas should account for:",
+      "options": [
+        "Average demand only",
+        "Both demand volatility and lead time together"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A flat safety stock policy applied across an entire SKU portfolio tends to:",
+      "options": [
+        "Work equally well for all SKUs",
+        "Under-protect volatile SKUs while over-stocking stable ones simultaneously"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When explaining a stockout to a client, the most credible approach is to:",
+      "options": [
+        "Attribute it to bad luck",
+        "Connect it to specific volatility and lead time data, showing the actual cause and fix"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to calculate a specific number (CV, safety stock) rather than relying on a rule of thumb like 'about a week of demand'? Why did the specific calculation matter?",
+      "The case study shows one flat policy causing both stockouts and excess capital tie-up at the same time. Where else might a single uniform rule fail two different groups simultaneously in opposite ways?",
+      "If you were Bram, what one standing rule would you set so a safety stock policy is never left unrecalculated for two years again?"
+    ]
+  },
+  "certificate": {
+    "name": "Supply Chain Analyst — Demand Variability & Safety Stock",
+    "nameAz": "Təchizat Zənciri Analitiki — Tələb Dəyişkənliyi və Təhlükəsizlik Ehtiyatı",
+    "totalXp": 305
+  }
+}

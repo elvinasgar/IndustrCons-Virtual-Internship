@@ -1,0 +1,304 @@
+{
+ "id": "mechanical-design-engineer-atlas",
+ "title": "Mechanical Design Engineer",
+ "companyId": "atlas-manufacturing",
+ "category": "Mechanical Engineering",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "MEC-091",
+ "skills": [
+  "Stress Analysis",
+  "Factor of Safety",
+  "Design Verification"
+ ],
+ "companyIntro": {
+  "name": "Atlas Manufacturing",
+  "country": "South Korea",
+  "founded": 1999,
+  "mission": "World-class manufacturing discipline — every defect has a root cause, and every root cause gets fixed once, not patched repeatedly.",
+  "culture": "Lean-first and data-driven. Line staff and engineers alike are expected to know their process' current defect rate from memory.",
+  "projects": [
+   "Precision Components Line 4 Upgrade",
+   "Atlas EV Battery Housing Plant",
+   "Regional Distribution Hub"
+  ]
+ },
+ "projectBackground": {
+  "name": "Hydraulic Press Frame Redesign",
+  "client": "Atlas internal engineering",
+  "location": "Busan, on-site",
+  "budget": "Design budget: ₩80M",
+  "timeline": "Design review in two weeks",
+  "context": "A field failure cracked a bolt on a press frame. The design must be re-verified before production resumes."
+ },
+ "manager": {
+  "name": "Hyun-woo Choi",
+  "role": "Chief Mechanical Engineer, Atlas Manufacturing",
+  "note": "Show the load, the area, the stress and the margin. If the safety factor is below target, say so and fix it."
+ },
+ "assignment": {
+  "title": "Re-verify the press frame design",
+  "brief": "Calculate stress and safety factor, check a pressure vessel, verify three joints in Excel and write the design justification."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Load Case",
+   "type": "Calculation Note",
+   "note": "Bolt load 50 kN on an area of 400 mm²; yield strength 250 MPa."
+  },
+  {
+   "id": "doc-2",
+   "name": "Vessel Data",
+   "type": "Drawing Note",
+   "note": "Internal pressure 2 MPa; radius 500 mm; wall thickness 10 mm."
+  },
+  {
+   "id": "doc-3",
+   "name": "Joint Schedule",
+   "type": "Table",
+   "note": "Three joints with loads and tensile areas."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "mec-1-stress",
+   "type": "numeric",
+   "title": "Bolt Stress",
+   "prompt": "A 50 kN load acts on an area of 400 mm². What is the stress (MPa)?",
+   "answer": 125,
+   "tolerance": 1,
+   "unit": "MPa",
+   "xp": 35,
+   "workingNote": "50,000 N / 400 mm² = 125 MPa.",
+   "reasoning": "Stress is force over area.",
+   "tip": "Keep units consistent (N and mm²).",
+   "mistake": "Using kN with mm² gives a number 1,000x too small.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mec-2-sf",
+   "type": "numeric",
+   "title": "Factor of Safety",
+   "prompt": "Yield strength is 250 MPa and working stress is 125 MPa. What is the factor of safety?",
+   "answer": 2,
+   "tolerance": 0.02,
+   "unit": "x",
+   "xp": 30,
+   "workingNote": "250 / 125 = 2.0.",
+   "reasoning": "Safety factor is capacity over demand.",
+   "tip": "Compare to the code target.",
+   "mistake": "Quoting stress alone says nothing about margin.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mec-3-hoop",
+   "type": "numeric",
+   "title": "Hoop Stress",
+   "prompt": "A thin-walled vessel: pressure 2 MPa, radius 500 mm, thickness 10 mm. Hoop stress = P x r / t. What is it (MPa)?",
+   "answer": 100,
+   "tolerance": 1,
+   "unit": "MPa",
+   "xp": 40,
+   "workingNote": "2 x 500 / 10 = 100 MPa.",
+   "reasoning": "Hoop stress governs thin cylinders.",
+   "tip": "Check against allowable stress.",
+   "mistake": "Using diameter instead of radius doubles the result.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mec-4-fatigue",
+   "type": "mcq",
+   "title": "Fatigue",
+   "prompt": "A bolt that sees millions of load cycles at stress below yield cracked. What is the likely cause?",
+   "options": [
+    "Static overload only",
+    "Paint thickness",
+    "Wrong colour",
+    "Fatigue from cyclic loading"
+   ],
+   "correctIndex": 3,
+   "xp": 40,
+   "reasoning": "Cyclic loads can cause failure below yield.",
+   "tip": "Check fatigue for rotating or cyclic parts.",
+   "mistake": "Static checks alone miss fatigue.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mec-5-joints",
+   "type": "excel-upload",
+   "title": "Joint Verification (Excel)",
+   "prompt": "Stress (D = B x 1000 / C, MPa) and factor of safety (E = 250 / D) for each joint. Upload for checking.",
+   "xp": 65,
+   "template": {
+    "fileName": "Joints-Template.xlsx",
+    "sheetName": "Joints",
+    "headers": [
+     "Joint",
+     "Load (kN)",
+     "Area (mm2)",
+     "Stress (MPa)",
+     "Safety Factor"
+    ],
+    "rows": [
+     [
+      "J1",
+      "30",
+      "300",
+      "",
+      ""
+     ],
+     [
+      "J2",
+      "60",
+      "400",
+      "",
+      ""
+     ],
+     [
+      "J3",
+      "45",
+      "150",
+      "",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 100,
+     "tolerance": 0.5,
+     "label": "J1 stress"
+    },
+    {
+     "cell": "D3",
+     "expected": 150,
+     "tolerance": 0.5,
+     "label": "J2 stress"
+    },
+    {
+     "cell": "D4",
+     "expected": 300,
+     "tolerance": 0.5,
+     "label": "J3 stress"
+    },
+    {
+     "cell": "E2",
+     "expected": 2.5,
+     "tolerance": 0.02,
+     "label": "J1 SF"
+    },
+    {
+     "cell": "E3",
+     "expected": 1.667,
+     "tolerance": 0.02,
+     "label": "J2 SF"
+    },
+    {
+     "cell": "E4",
+     "expected": 0.833,
+     "tolerance": 0.02,
+     "label": "J3 SF"
+    }
+   ],
+   "reasoning": "J3's safety factor is below 1 — it will yield.",
+   "tip": "Flag any joint under the target factor.",
+   "mistake": "Averaging safety factors hides the failing joint.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mec-6-just",
+   "type": "text",
+   "title": "Design Justification",
+   "prompt": "Write a 3-5 sentence justification of the redesign.",
+   "minLength": 120,
+   "xp": 55,
+   "modelAnswer": "Joint J3 carries 45 kN on only 150 mm², giving 300 MPa against a 250 MPa yield (safety factor 0.83), which explains the field failure. I propose increasing the bolt size to raise the area to at least 400 mm², giving stress of about 112 MPa and a safety factor above 2. The cyclic load requires a fatigue check, so I recommend rolled threads and a pre-load specification. The vessel hoop stress of 100 MPa is within allowable limits.",
+   "reasoning": "A good justification names the root cause, the corrective change and the check.",
+   "tip": "Cause, fix, verification.",
+   "mistake": "Replacing a bolt without calculation repeats the failure.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Undersized Bolt",
+  "background": "A press frame used bolts sized by 'what we used last time'. Under cyclic load they fatigued and a frame cracked, stopping the line for three weeks.",
+  "client": "Industrial client",
+  "budget": "₩600M lost production",
+  "timeline": "Field failure",
+  "challenges": "No calculation was required for 'repeat' designs.",
+  "constraints": "Reuse assumed conditions were identical.",
+  "questions": [
+   "Why was repeat design risky?",
+   "What calculation was missing?",
+   "How would you prevent this?"
+  ],
+  "solution": "Atlas introduced a mandatory calculation check for every load-bearing joint.",
+  "lessonsLearned": "Repeat designs still need verification."
+ },
+ "quiz": [
+  {
+   "q": "Stress equals:",
+   "options": [
+    "Area / force",
+    "Force / area",
+    "Force x area",
+    "Pressure only"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Safety factor is:",
+   "options": [
+    "Demand / capacity",
+    "Capacity / demand",
+    "Weight",
+    "Cost"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Fatigue is caused by:",
+   "options": [
+    "Paint",
+    "Static weight only",
+    "Colour",
+    "Cyclic loading"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Hoop stress uses:",
+   "options": [
+    "P x t / r",
+    "r / t",
+    "P / r",
+    "P x r / t"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "No calculation for repeat design",
+    "Bad welding only",
+    "Low price",
+    "No bolts"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which joint worried you first and why?",
+   "What safety factor would you target?",
+   "How do you check a design you didn't create?"
+  ]
+ },
+ "certificate": {
+  "name": "Mechanical Design Engineer — Stress & Safety Factor",
+  "nameAz": "Mexanika Layihə Mühəndisi — Gərginlik və Təhlükəsizlik Əmsalı",
+  "totalXp": 265
+ }
+}

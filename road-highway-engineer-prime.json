@@ -1,0 +1,289 @@
+{
+  "id": "road-highway-engineer-prime",
+  "title": "Road & Highway Engineer",
+  "companyId": "prime-infrastructure",
+  "category": "Road & Highway",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "RD-022",
+  "skills": [
+    "Earthworks Balance",
+    "Pavement Design Logic",
+    "Cross-Section Analysis"
+  ],
+  "companyIntro": {
+    "name": "Prime Infrastructure",
+    "country": "Azerbaijan",
+    "founded": 1998,
+    "mission": "Deliver durable road and bridge infrastructure that performs under real traffic loading and real climate.",
+    "culture": "Methodical and cost-conscious. Road engineers are expected to balance cut and fill on paper before a single truck moves material.",
+    "projects": [
+      "Baku Ring Road Flyover Package 3",
+      "Sumgait Industrial Access Upgrade",
+      "Ganja Bypass Bridge Rehabilitation"
+    ]
+  },
+  "projectBackground": {
+    "name": "Sumgait Access Road — Earthworks Balance & Pavement Confirmation",
+    "client": "Sumgait Industrial Development Authority",
+    "location": "Sumgait Industrial Access Road, Ch. 2+000 to 4+500",
+    "budget": "Earthworks budget: minimise import/export haulage cost",
+    "timeline": "Cross-section review this week, ahead of earthworks contractor pricing",
+    "context": "The corridor's cross-sections show significant cut in one section and significant fill in another — the client wants to know whether material can be balanced on-site (moved from cut to fill) or whether import/export haulage is unavoidable, since haulage is the single largest cost variable in the earthworks package."
+  },
+  "manager": {
+    "name": "Farid Aliyev",
+    "role": "Project Civil Engineer, Prime Infrastructure",
+    "note": "Every cubic metre we can move from the cut section to the fill section instead of hauling in new material is real money saved. Work out the actual balance before the earthworks contractor prices this — don't let them assume it's all import."
+  },
+  "assignment": {
+    "title": "Calculate the earthworks balance and confirm pavement build-up",
+    "brief": "Calculate cut and fill volumes across the corridor, determine whether the site balances or requires import/export, and confirm the pavement layer thicknesses meet the design traffic loading."
+  },
+  "documents": [
+    {
+      "id": "doc-cross-sections",
+      "name": "Cross-Section Volume Summary — Ch. 2+000 to 4+500",
+      "type": "Earthworks Data",
+      "note": "Ch. 2+000-3+200 (1,200m): net cut, average cross-sectional cut area 18 m². Ch. 3+200-4+500 (1,300m): net fill, average cross-sectional fill area 14 m²."
+    },
+    {
+      "id": "doc-shrinkage-factor",
+      "name": "Geotechnical Shrinkage/Bulking Note",
+      "type": "Geotechnical Report",
+      "note": "Cut material (silty clay) shrinks approximately 10% in volume when re-compacted as fill, due to compaction of natural voids — this must be accounted for when balancing cut volume against fill volume requirement."
+    },
+    {
+      "id": "doc-traffic-loading",
+      "name": "Pavement Design Traffic Data",
+      "type": "Design Data",
+      "note": "Design traffic loading: 8 million standard axles (MSA) over the design life, classified as medium-heavy traffic per the pavement design specification."
+    },
+    {
+      "id": "doc-pavement-spec-road",
+      "name": "Pavement Design Specification (extract)",
+      "type": "Specification",
+      "note": "For medium-heavy traffic (5-10 MSA): minimum total pavement thickness 650mm, comprising 150mm surface/base asphalt, 200mm base course, 300mm sub-base."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-cutvolume",
+      "type": "numeric",
+      "title": "Cut Volume Calculation",
+      "prompt": "For the cut section (1,200m length, 18 m² average cross-sectional area), what is the total cut volume?",
+      "answer": 21600,
+      "tolerance": 100,
+      "unit": "m³",
+      "xp": 40,
+      "workingNote": "1,200m x 18 m² = 21,600 m³.",
+      "reasoning": "Calculating cut volume as length x average cross-sectional area is the standard earthworks take-off method — this gives the raw excavated volume before any shrinkage adjustment is applied for its use as compacted fill elsewhere.",
+      "tip": "Always keep raw cut volume (as excavated) separate from adjusted volume (as compacted fill) in your calculations — conflating the two before applying the shrinkage factor would produce an incorrect balance.",
+      "mistake": "Skipping straight to a 'balanced' volume without first calculating the raw cut volume makes it impossible to verify the shrinkage adjustment was applied correctly, or to cross-check the figure against the contractor's own take-off later.",
+      "recommendation": "Keep this raw cut volume documented as a clearly labelled intermediate figure in your earthworks report — it's what a reviewer or the contractor would check first if they wanted to verify your balance calculation."
+    },
+    {
+      "id": "task-2-fillrequired",
+      "type": "numeric",
+      "title": "Fill Volume Required",
+      "prompt": "For the fill section (1,300m length, 14 m² average cross-sectional area), what is the total fill volume required (as compacted fill)?",
+      "answer": 18200,
+      "tolerance": 100,
+      "unit": "m³",
+      "xp": 40,
+      "workingNote": "1,300m x 14 m² = 18,200 m³.",
+      "reasoning": "This is the volume of compacted fill actually needed in the fill section — it's the target figure the available cut material (after shrinkage adjustment) needs to be compared against to determine whether the site balances.",
+      "tip": "Calculate the fill requirement the same straightforward way (length x cross-sectional area) as the cut volume — both figures need to be on a comparable, clearly-stated basis before any adjustment or comparison is made.",
+      "mistake": "Confusing the fill requirement (compacted, in-place volume) with the cut volume (as-excavated, before shrinkage) without clearly labelling which is which is a common source of earthworks balance errors.",
+      "recommendation": "State clearly that this fill figure is 'as compacted, in place' — it's the figure the shrinkage-adjusted cut volume must be compared against, not the raw cut volume directly."
+    },
+    {
+      "id": "task-3-shrinkage-adjust",
+      "type": "numeric",
+      "title": "Applying the Shrinkage Factor",
+      "prompt": "Given the cut material shrinks 10% when re-compacted as fill, what is the usable compacted fill volume available from the 21,600 m³ of cut material?",
+      "answer": 19440,
+      "tolerance": 100,
+      "unit": "m³",
+      "xp": 50,
+      "workingNote": "21,600 m³ x (1 - 0.10) = 21,600 x 0.90 = 19,440 m³.",
+      "reasoning": "Applying the shrinkage factor converts the raw excavated cut volume into the actual usable compacted volume once placed as fill — this is the critical adjustment that determines whether the site genuinely balances, since raw cut and required fill aren't directly comparable without it.",
+      "tip": "Always apply the material's specific shrinkage or bulking factor before comparing cut volume to fill requirement — treating 1 m³ of excavated material as automatically equal to 1 m³ of compacted fill ignores a real, often significant volume change during compaction.",
+      "mistake": "Comparing the raw 21,600 m³ cut volume directly against the 18,200 m³ fill requirement without applying the 10% shrinkage factor would incorrectly suggest a larger surplus than actually exists once the material is compacted as fill.",
+      "recommendation": "Confirm the shrinkage factor is specific to the actual cut material type (silty clay here) — different soil types shrink or bulk by different amounts, and using a generic assumption instead of the geotechnical report's specific figure risks a meaningfully wrong balance."
+    },
+    {
+      "id": "task-4-balance-conclusion",
+      "type": "mcq",
+      "title": "Determining the Balance Outcome",
+      "prompt": "With 19,440 m³ of usable compacted fill available from cut, against an 18,200 m³ fill requirement, what does this tell you?",
+      "options": [
+        "The site requires significant import of additional fill material",
+        "The site has a small surplus of approximately 1,240 m³ of cut material after meeting the fill requirement — the corridor essentially balances on-site, with a modest surplus requiring disposal or use elsewhere on the project",
+        "The calculation shows the site is short by 1,240 m³",
+        "No conclusion can be drawn without further data"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "19,440 m³ available against 18,200 m³ required leaves a surplus of approximately 1,240 m³ — this means the corridor essentially self-balances, avoiding the cost of importing fill material, with only a modest surplus of cut material to manage (either used elsewhere on the project or exported), which is a very different and far more favourable cost outcome than assuming the fill section requires imported material.",
+      "tip": "Always state the balance outcome as a specific surplus or shortfall figure (here, a 1,240 m³ surplus) rather than a general 'it roughly balances' — the specific number is what the earthworks contractor needs to price haulage and disposal accurately.",
+      "mistake": "Assuming the site requires import without actually calculating the shrinkage-adjusted balance would lead to unnecessarily pricing and budgeting for imported fill material that the project doesn't actually need.",
+      "recommendation": "Present this balance finding to the earthworks contractor before they price the package — it directly affects whether they need to budget for import haulage, export haulage, or neither, which is normally the largest cost variable in an earthworks package."
+    },
+    {
+      "id": "task-5-pavement-check",
+      "type": "mcq",
+      "title": "Confirming Pavement Thickness",
+      "prompt": "The design traffic loading is 8 MSA, and the specification requires 650mm total pavement thickness (150mm surface/base asphalt + 200mm base course + 300mm sub-base) for medium-heavy traffic (5-10 MSA). Does 8 MSA fall within this category?",
+      "options": [
+        "No, 8 MSA requires a different, lighter pavement category",
+        "Yes, 8 MSA falls within the 5-10 MSA medium-heavy traffic band, so the 650mm total pavement build-up specified is the correct design to confirm for this corridor",
+        "MSA has no bearing on pavement thickness",
+        "The pavement thickness should be reduced since 8 is close to the lower bound of the range"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "8 MSA falls squarely within the specification's 5-10 MSA medium-heavy traffic band, confirming the 650mm total pavement build-up (150mm surface/base + 200mm base course + 300mm sub-base) is the correct specification to apply and confirm for this corridor — there's no need to look at a different traffic category or adjust the thickness within the band.",
+      "tip": "Always confirm which specific traffic loading band a design's MSA value falls into before referencing a pavement thickness specification — using the wrong band's thickness (even if close) either under-designs or over-specifies the pavement.",
+      "mistake": "Assuming a value near the edge of a traffic band (like 8 MSA within a 5-10 MSA range) should be treated differently or reduced, without the specification actually calling for graduated thickness within a band, misapplies how these specifications are typically structured.",
+      "recommendation": "Document which specific traffic band the corridor's design MSA falls into in your pavement confirmation memo — it's the direct evidence justifying the specified layer thicknesses if questioned later."
+    },
+    {
+      "id": "task-6-cutfill-excel",
+      "type": "excel-upload",
+      "title": "Multi-Section Cut/Fill Balance (Excel)",
+      "prompt": "Three more corridor sections need their cut/fill balance calculated with the same shrinkage adjustment. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "CutFill-Balance-Template.xlsx",
+        "sheetName": "Balance",
+        "headers": [
+          "Section",
+          "Length (m)",
+          "Cross-Section Area (m²)",
+          "Cut or Fill",
+          "Volume (m³, raw)"
+        ],
+        "rows": [
+          [
+            "Ch 4+500-5+200",
+            "700",
+            "12",
+            "Cut",
+            ""
+          ],
+          [
+            "Ch 5+200-6+000",
+            "800",
+            "16",
+            "Fill",
+            ""
+          ],
+          [
+            "Ch 6+000-6+800",
+            "800",
+            "20",
+            "Cut",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "E2",
+          "expected": 8400,
+          "tolerance": 50,
+          "label": "Ch 4+500-5+200 cut volume (700x12)"
+        },
+        {
+          "cell": "E3",
+          "expected": 12800,
+          "tolerance": 50,
+          "label": "Ch 5+200-6+000 fill required (800x16)"
+        },
+        {
+          "cell": "E4",
+          "expected": 16000,
+          "tolerance": 50,
+          "label": "Ch 6+000-6+800 cut volume (800x20)"
+        }
+      ],
+      "reasoning": "Calculating raw cut and fill volumes consistently across every corridor section — not just the section already analysed — is what builds the complete earthworks balance picture the earthworks contractor needs to price the entire project accurately, not just one segment.",
+      "tip": "Keep every section's cut or fill classification and raw volume in a single running table — this is what lets you sum total cut against total fill (after shrinkage adjustment) across the whole corridor, not just section by section in isolation.",
+      "mistake": "Analysing only the first flagged section's balance, without extending the same calculation to the rest of the corridor, leaves the earthworks contractor to guess at the overall project balance rather than price against a complete, verified figure.",
+      "recommendation": "Once all sections are calculated, sum total cut and total shrinkage-adjusted fill requirement across the entire corridor — this project-wide balance figure, not just one section's, is what ultimately determines the earthworks package's real haulage cost."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Balance That Ignored Shrinkage",
+    "background": "On an earlier Prime Infrastructure road package, an earthworks balance was calculated comparing raw cut volume directly against fill requirement without applying the material's shrinkage factor — the project appeared to balance on paper, but once compaction shrinkage was accounted for during construction, a real shortfall emerged, requiring an expensive late-stage import of fill material at a much higher unit cost than if planned from the start.",
+    "client": "Ganja Bypass Bridge Rehabilitation (an earlier earthworks package)",
+    "budget": "Late-stage import cost: approximately $95,000 higher than it would have been if planned and tendered with the correct balance from the start",
+    "timeline": "Shortfall discovered mid-construction, roughly 60% through the earthworks package",
+    "challenges": "Because the original balance calculation didn't apply the cut material's specific shrinkage factor, the paper balance looked adequate when it actually wasn't — the gap only became apparent once real compacted volumes fell short of the fill requirement on site.",
+    "constraints": "Sourcing and importing the shortfall mid-construction, under time pressure with the earthworks contractor already mobilised, meant paying a premium rate rather than the competitively tendered rate that planned import would have achieved.",
+    "questions": [
+      "Why does ignoring a material's shrinkage factor make an earthworks balance look better on paper than it actually is?",
+      "What specific calculation step, if included from the start, would have caught this before construction began?",
+      "How did the cost of correcting the shortfall mid-construction compare to planning for it from the start?"
+    ],
+    "solution": "Prime Infrastructure mandated that every earthworks balance calculation must explicitly state and apply the relevant material's shrinkage or bulking factor, sourced from the geotechnical report, before being used for contractor pricing or project budgeting.",
+    "lessonsLearned": "Comparing raw cut volume directly against fill requirement, without applying the specific material's shrinkage factor, produces an earthworks balance that looks more favourable on paper than it will actually be once material is compacted in the field — this gap, if undetected until construction, tends to be far more expensive to correct than if it had been properly calculated from the start."
+  },
+  "quiz": [
+    {
+      "q": "Cut volume is calculated as:",
+      "options": [
+        "Length divided by cross-sectional area",
+        "Length multiplied by average cross-sectional area"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A material's shrinkage factor should be applied to convert:",
+      "options": [
+        "Fill requirement into cut volume",
+        "Raw excavated cut volume into usable compacted fill volume"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "If usable compacted fill volume exceeds the fill requirement, this indicates:",
+      "options": [
+        "The site requires fill import",
+        "The site has a surplus and essentially balances on-site, avoiding import cost"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A pavement thickness specification should be confirmed against:",
+      "options": [
+        "Any convenient traffic loading band",
+        "The specific traffic loading band (MSA) that the corridor's design traffic actually falls into"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did an apparently balanced earthworks calculation lead to a costly late-stage import?",
+      "options": [
+        "The shrinkage factor wasn't applied, so the paper balance looked adequate when it actually wasn't once compaction was accounted for",
+        "The design traffic loading was miscalculated",
+        "The contractor stole material from the site",
+        "There was no earthworks balance calculated at all"
+      ],
+      "correctIndex": 0
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to apply a specific adjustment factor (shrinkage) before comparing two volumes? Why would skipping that step have produced a misleading result?",
+      "The case study shows an earthworks balance that looked adequate on paper but wasn't once a real-world adjustment factor was properly accounted for. Where else might an unadjusted, 'paper' calculation look fine while missing a real-world factor that later causes a costly surprise?",
+      "If you were Farid, what one rule would you make standing so an earthworks balance can never be used for contractor pricing without the shrinkage factor explicitly applied?"
+    ]
+  },
+  "certificate": {
+    "name": "Road & Highway Engineer — Earthworks Balance & Pavement Confirmation",
+    "nameAz": "Yol Mühəndisi — Torpaq İşləri Balansı və Örtük Təsdiqi",
+    "totalXp": 280
+  }
+}

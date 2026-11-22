@@ -1,0 +1,222 @@
+{
+  "id": "public-relations-specialist-beacon",
+  "title": "Public Relations Specialist",
+  "companyId": "beacon-communications",
+  "category": "Public Relations",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "drawingTag": "PR-018",
+  "skills": [
+    "Crisis Messaging",
+    "Media Relations",
+    "Stakeholder Communication"
+  ],
+  "companyIntro": {
+    "name": "Beacon Communications",
+    "country": "United States",
+    "founded": 2008,
+    "mission": "Help clients say the right thing, to the right audience, especially when it's hardest to do so.",
+    "culture": "Fast-moving and calm under media pressure. PR specialists are expected to have a draft ready before the news cycle moves on.",
+    "projects": [
+      "Client Product Recall Response",
+      "Regional Brand Launch Campaign",
+      "Annual Sustainability Report Rollout"
+    ]
+  },
+  "projectBackground": {
+    "name": "Client Product Recall — Same-Day Response",
+    "client": "Home appliance client (mid-size manufacturer)",
+    "location": "Client crisis response, same day",
+    "budget": "N/A — reputational crisis response",
+    "timeline": "Statement needed within hours",
+    "context": "A client's kitchen appliance has been linked to 3 reports of overheating, and a local news outlet is preparing a story for this evening. The client wants to minimize reputational damage but is nervous about admitting fault before their own internal investigation is complete."
+  },
+  "manager": {
+    "name": "Naomi Clarke",
+    "role": "Senior Account Director, Beacon Communications",
+    "note": "The story is running tonight whether we respond or not. Our only choice is whether our client's voice is in it or not, and whether that voice sounds accountable or defensive. Get me a draft in the next hour."
+  },
+  "assignment": {
+    "title": "Draft the crisis statement before the evening news cycle",
+    "brief": "Draft a same-day public statement that acknowledges the reports responsibly without prematurely admitting unconfirmed fault, and prepare talking points for a possible reporter call."
+  },
+  "documents": [
+    {
+      "id": "doc-incident-reports",
+      "name": "Internal Incident Reports — 3 Overheating Cases",
+      "type": "Incident Log",
+      "note": "3 confirmed customer reports of overheating in the last 30 days out of approximately 40,000 units sold; no injuries reported. Internal engineering investigation is underway but not yet concluded."
+    },
+    {
+      "id": "doc-reporter-inquiry",
+      "name": "Reporter Inquiry Email",
+      "type": "Media Inquiry",
+      "note": "Local news reporter asks: 'Can you confirm reports of overheating? What is the company doing about it? Is a recall planned?'"
+    },
+    {
+      "id": "doc-legal-guidance",
+      "name": "Legal Guidance Note",
+      "type": "Internal Memo",
+      "note": "Legal advises: do not admit fault or confirm a specific defect before the engineering investigation concludes, but acknowledge the reports and describe active steps being taken."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-tone",
+      "type": "mcq",
+      "title": "Choosing the Right Tone",
+      "prompt": "Legal advises not admitting unconfirmed fault, but the client wants to minimize damage. What tone should the statement strike?",
+      "options": [
+        "Deny any issue exists until the investigation is fully complete",
+        "Acknowledge the reports directly, describe the active investigation and immediate safety steps being taken, without confirming an unconfirmed specific cause — an accountable but not premature tone",
+        "Admit full fault immediately to appear maximally transparent",
+        "Decline to respond to the reporter at all"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "The right tone acknowledges what's actually known (3 reports, an active investigation, safety steps) without confirming an unconfirmed cause — this satisfies both the legal constraint (not admitting unconfirmed fault) and the reputational need (sounding accountable, not evasive or defensive).",
+      "tip": "A crisis statement can be both legally careful and genuinely accountable at the same time — acknowledging what's known and what's being done, without confirming what isn't yet established, is the balance to aim for.",
+      "mistake": "Denying an issue exists, when 3 reports and a reporter inquiry already exist, risks looking evasive or dishonest if the story runs anyway — silence or denial in an active news cycle rarely reads as confident, it reads as hiding something.",
+      "recommendation": "Always separate what is confirmed (the reports exist, an investigation is underway) from what is not yet confirmed (the specific cause or extent) in the statement's language — this precision is what allows honesty without overcommitting to an unconfirmed conclusion."
+    },
+    {
+      "id": "task-2-statement",
+      "type": "text",
+      "title": "Draft Public Statement",
+      "prompt": "Write the public statement (3-5 sentences) for release before the evening news cycle.",
+      "minLength": 40,
+      "xp": 55,
+      "modelAnswer": "We are aware of reports involving overheating in a small number of units, and the safety of our customers is our absolute priority. We have launched an immediate internal investigation and are in direct contact with the customers who reported the issue to ensure their safety and address their concerns. Out of an abundance of caution, we are also reviewing our quality processes for this product line while the investigation continues, and we will share updates as soon as findings are confirmed. We take any safety concern seriously and are committed to full transparency as we learn more.",
+      "reasoning": "A well-crafted crisis statement acknowledges the specific issue directly, describes concrete active steps (not vague reassurance), and commits to follow-up transparency — this combination is what reads as accountable and organized rather than defensive or evasive, without confirming anything not yet actually established.",
+      "tip": "Use concrete, specific action language ('launched an investigation,' 'in direct contact with affected customers') rather than vague reassurance ('we're looking into it') — specificity is what makes a statement sound genuinely accountable rather than like a generic crisis-communications template.",
+      "mistake": "A statement that either denies the issue or over-promises a resolution before the investigation concludes both create real risk — denial can look dishonest if the story runs anyway, and premature promises can be contradicted by the actual findings later.",
+      "recommendation": "Keep a copy of this statement's specific claims (what was said to be underway) and ensure the company actually follows through on them — a crisis statement's credibility depends entirely on whether its described actions actually happen afterward."
+    },
+    {
+      "id": "task-3-talkingpoints",
+      "type": "multiselect",
+      "title": "Reporter Call Talking Points",
+      "prompt": "Select every talking point appropriate if the client's spokesperson gets a live reporter call before the investigation concludes.",
+      "options": [
+        "We are aware of 3 reports of overheating and take them extremely seriously",
+        "We can confirm the exact defect and are announcing a full recall right now",
+        "We have an active investigation underway and are in direct contact with the affected customers",
+        "No comment, and hang up if pressed for details",
+        "We will share findings and any necessary next steps as soon as the investigation concludes"
+      ],
+      "correctIndices": [
+        0,
+        2,
+        4
+      ],
+      "xp": 45,
+      "reasoning": "Appropriate talking points acknowledge the known facts (3 reports), describe the active response (investigation, customer contact), and commit to future transparency — all without confirming an unconfirmed defect or recall decision. Confirming a specific defect or recall prematurely could be factually wrong and legally risky, while 'no comment' in an active story usually reads as evasive and can worsen coverage.",
+      "tip": "Prepare specific, approved talking points in advance of any live reporter interaction during a crisis — improvising under pressure risks either over-committing to unconfirmed facts or sounding evasively unprepared.",
+      "mistake": "A 'no comment' response to a reporter actively working a story, especially one who has already reached out directly, often gets reported as refusing to address a legitimate safety concern, which typically reads worse than a careful, honest acknowledgment.",
+      "recommendation": "Rehearse these talking points with the spokesperson before any live call — the goal is that they sound natural and confident, not like they're reading from a legal disclaimer."
+    },
+    {
+      "id": "task-4-followup",
+      "type": "mcq",
+      "title": "Planning the Follow-Up",
+      "prompt": "The investigation concludes 5 days later, confirming a manufacturing defect in a specific batch. What should happen next?",
+      "options": [
+        "Say nothing further since the initial statement already addressed the topic",
+        "Issue a follow-up statement confirming the specific finding, the affected batch, and the concrete remedy (e.g., recall or repair), following through on the original commitment to share findings once confirmed",
+        "Deny the finding to avoid further negative coverage",
+        "Wait to see if any reporter asks before saying anything"
+      ],
+      "correctIndex": 1,
+      "xp": 45,
+      "reasoning": "The follow-up statement should confirm the finding and, critically, the same commitment to transparency made in the original statement — issuing a specific, concrete follow-up (not waiting to be asked) is what makes the original 'we'll share findings' commitment credible rather than an empty promise.",
+      "tip": "Always follow through publicly on a transparency commitment made during a crisis — the original statement's credibility depends on the follow-up actually happening as promised.",
+      "mistake": "Waiting for a reporter to ask, rather than proactively issuing the follow-up, risks looking like the company only discloses information when forced to, undermining the accountable tone established in the original statement.",
+      "recommendation": "Prepare the follow-up statement's structure (finding, affected scope, remedy) as soon as the investigation concludes, so it can be issued promptly rather than delayed while it's drafted from scratch."
+    },
+    {
+      "id": "task-5-riskcalc",
+      "type": "numeric",
+      "title": "Assessing the Scale of the Issue",
+      "prompt": "3 reports occurred out of approximately 40,000 units sold. What is the reported incident rate, as a percentage?",
+      "answer": 0.0075,
+      "tolerance": 0.001,
+      "unit": "%",
+      "xp": 40,
+      "workingNote": "3/40,000 x 100 = 0.0075%.",
+      "reasoning": "Calculating the actual incident rate (a very small percentage) provides useful context for the statement and for internal risk assessment — it doesn't change the need to take each report seriously, but it does inform whether language like 'a small number of units' versus 'a widespread problem' is more accurate.",
+      "tip": "When communicating about a safety issue, calculate the actual incident rate relative to units sold — this helps calibrate accurate language (e.g., 'a small number of reports') without either minimizing genuine safety concerns or overstating the scale of the issue.",
+      "mistake": "Failing to calculate the actual rate, and instead reacting only to the raw count of 3 reports, can lead to language that either overstates the issue's prevalence or, conversely, to internally underestimating a problem that could still be a genuine and serious safety issue regardless of its low rate.",
+      "recommendation": "Use this rate calculation for internal risk assessment discussions with the client, not necessarily as the headline of the public statement — the public statement should focus on accountability and action, not lead with a rate calculation that could read as minimizing the concern."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Statement That Over-Promised",
+    "background": "On an earlier Beacon client crisis, a rushed statement promised 'a full recall within 48 hours' before the engineering investigation had actually confirmed the defect or scope — when the investigation took longer and the recall scope changed, the client was accused of backtracking on their own public promise, compounding the reputational damage beyond the original incident.",
+    "client": "An earlier appliance client crisis",
+    "budget": "Extended negative coverage cycle from the perceived 'broken promise,' beyond what the original incident alone would have generated",
+    "timeline": "48-hour promise made same-day; investigation actually took 10 days and produced a different recall scope than initially implied",
+    "challenges": "Because the statement's specific promise (timeline and scope) was made before the facts were actually confirmed, the eventual outcome not matching that promise became its own separate news story about credibility.",
+    "constraints": "Repairing the credibility damage from the broken promise took longer and required more communications effort than managing the original incident would have alone.",
+    "questions": [
+      "Why is promising a specific timeline or outcome before an investigation concludes risky, even if it feels reassuring in the moment?",
+      "What language would have committed to transparency without committing to a specific, unconfirmed outcome?",
+      "How did the 'broken promise' story end up costing more reputational ground than the original incident?"
+    ],
+    "solution": "Beacon Communications instituted a rule that crisis statements may commit to a process and a timeframe for updates, but never to a specific unconfirmed outcome (like a recall scope or exact timeline) before the underlying investigation is complete.",
+    "lessonsLearned": "A crisis statement that promises a specific, unconfirmed outcome to sound reassuring in the moment risks a second, self-inflicted reputational story if reality doesn't match the promise — committing to a transparent process and update timeline, without promising a specific unconfirmed result, is what protects credibility through the full length of an unfolding crisis."
+  },
+  "quiz": [
+    {
+      "q": "A crisis statement should ideally:",
+      "options": [
+        "Deny the issue exists until fully investigated",
+        "Acknowledge known facts and active response steps, without confirming an unconfirmed cause or outcome"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Responding to a reporter's inquiry with 'no comment' during an active story typically:",
+      "options": [
+        "Is seen as a strong, protective response",
+        "Often reads as evasive and can worsen coverage of the story"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Calculating the actual incident rate (e.g., 0.0075%) relative to units sold is useful for:",
+      "options": [
+        "Nothing, only the raw count matters",
+        "Calibrating accurate language about scale, for internal assessment and careful public communication"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Once an investigation concludes, the appropriate next step is to:",
+      "options": [
+        "Say nothing further since the initial statement covered it",
+        "Issue a follow-up confirming the finding and the concrete remedy, following through on the original commitment to share updates"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why did the 'broken promise' cause more damage than the original incident?",
+      "options": [
+        "The original incident was actually resolved quickly",
+        "A specific, unconfirmed outcome and timeline had been promised, and reality not matching it became its own separate credibility story"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to balance legal caution with sounding genuinely accountable? What language achieved that balance?",
+      "The case study shows an over-promised statement causing more damage than the original incident. Where else might a reassuring but unconfirmed promise backfire worse than a more careful, honest statement would have?",
+      "If you were Naomi, what one rule would you set so a crisis statement never promises a specific, unconfirmed outcome again?"
+    ]
+  },
+  "certificate": {
+    "name": "Public Relations Specialist — Crisis Statement & Media Response",
+    "nameAz": "İctimaiyyətlə Əlaqələr Mütəxəssisi — Böhran Bəyanatı",
+    "totalXp": 225
+  }
+}

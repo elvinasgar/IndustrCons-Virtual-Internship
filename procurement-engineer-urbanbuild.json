@@ -1,0 +1,310 @@
+{
+  "id": "procurement-engineer-urbanbuild",
+  "title": "Procurement Engineer",
+  "companyId": "urbanbuild-engineering",
+  "category": "Procurement Engineer",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "drawingTag": "PROC-027 / REV.A",
+  "skills": [
+    "Procurement",
+    "Material Selection",
+    "Cost Estimation"
+  ],
+  "companyIntro": {
+    "name": "UrbanBuild Engineering",
+    "country": "Poland",
+    "founded": 2011,
+    "mission": "Bring Scandinavian-style design coordination discipline to fast-growing urban infill projects, including how materials are sourced and compared, not just how they're detailed.",
+    "culture": "Data-driven procurement — every material substitution or supplier choice is compared on a like-for-like basis before a decision is made, not just on headline price.",
+    "projects": [
+      "Wisła Riverside Mixed-Use",
+      "Krakow Transit Interchange",
+      "Solaris Office Campus"
+    ]
+  },
+  "projectBackground": {
+    "name": "Solaris Office Campus — Facade Package",
+    "client": "Solaris Real Estate Group",
+    "location": "Solaris Business District, Warsaw",
+    "budget": "$18.4M (facade and glazing package)",
+    "timeline": "30 weeks, currently in week 9 (facade supplier selection)",
+    "context": "Three facade panel suppliers have submitted quotes for the aluminium composite panel (ACP) system. Their quotes differ in unit price, lead time, and panel specification (fire rating core type), and the procurement decision needs to balance cost against a specification requirement that isn't negotiable."
+  },
+  "manager": {
+    "name": "Piotr Nowak",
+    "role": "Procurement Manager, UrbanBuild Engineering",
+    "note": "Don't just hand me the cheapest quote — one of these three suppliers is offering a panel core that doesn't meet our fire rating requirement. If we miss that and it gets ordered, it's a facade replacement problem, not a paperwork problem."
+  },
+  "assignment": {
+    "title": "Evaluate and recommend a facade panel supplier",
+    "brief": "Compare the three ACP supplier quotes against the project's fire rating specification and budget, calculate the true landed cost including lead time risk, and issue a procurement recommendation."
+  },
+  "documents": [
+    {
+      "id": "doc-facade-spec",
+      "name": "Facade Specification (extract)",
+      "type": "Specification",
+      "note": "ACP core must be FR (fire-retardant) rated minimum, per local building code for buildings over 18m height. Solaris Office Campus is 34m. Standard PE (polyethylene) core is not permitted at this height."
+    },
+    {
+      "id": "doc-quote-a",
+      "name": "Supplier A Quote — Nordic Panels",
+      "type": "Quote",
+      "note": "FR-core ACP, $86/m², lead time 10 weeks, 4,200 m² required."
+    },
+    {
+      "id": "doc-quote-b",
+      "name": "Supplier B Quote — EuroClad Systems",
+      "type": "Quote",
+      "note": "Standard PE-core ACP, $61/m², lead time 6 weeks, 4,200 m² required. Does not meet the FR-core specification for this building height."
+    },
+    {
+      "id": "doc-quote-c",
+      "name": "Supplier C Quote — Baltic Facade Co.",
+      "type": "Quote",
+      "note": "FR-core ACP, $79/m², lead time 14 weeks, 4,200 m² required."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1-spec-screen",
+      "type": "mcq",
+      "title": "Specification Screening",
+      "prompt": "Based on the facade specification and building height, which supplier(s) can be considered for this project at all, before comparing price?",
+      "options": [
+        "All three — price is the only factor that matters at procurement stage",
+        "Supplier A and Supplier C only — Supplier B's PE-core panel doesn't meet the FR-core requirement for a 34m building",
+        "Supplier B only, since it's the cheapest option",
+        "None — all three need re-quoting"
+      ],
+      "correctIndex": 1,
+      "xp": 40,
+      "reasoning": "Supplier B's standard PE-core panel does not meet the FR-core specification required for buildings over 18m — Solaris Office Campus is 34m, well above that threshold. A quote that doesn't meet a non-negotiable life-safety specification should be screened out before any cost comparison happens, regardless of how attractive its price is.",
+      "tip": "Always apply hard specification and code requirements as a pass/fail screen before comparing price — mixing a non-compliant option into a cost comparison risks it winning purely on price despite being technically unacceptable.",
+      "mistake": "A common and dangerous procurement mistake is comparing all quotes on price first and treating specification compliance as a secondary check — this can result in a genuinely cheaper but non-compliant option looking most attractive on a spreadsheet before anyone catches the compliance issue.",
+      "recommendation": "Build every procurement comparison with the hard compliance screen as the very first column, before price or lead time — a supplier should not even appear in a cost comparison table if it fails a mandatory specification."
+    },
+    {
+      "id": "task-2-cost",
+      "type": "numeric",
+      "title": "Total Package Cost Comparison",
+      "prompt": "For Supplier A (FR-core, $86/m², 4,200 m²), what is the total panel cost (USD)?",
+      "answer": 361200,
+      "tolerance": 0,
+      "unit": "USD",
+      "xp": 45,
+      "workingNote": "4,200 m² x $86/m² = $361,200.",
+      "reasoning": "Total package cost for a facade panel order is simply area multiplied by unit rate — this is the baseline figure before layering in lead time risk, freight, or installation cost differences between suppliers.",
+      "tip": "Always calculate total cost for every compliant supplier before making a recommendation — a per-square-metre rate alone doesn't tell you the actual budget impact of choosing one supplier over another.",
+      "mistake": "Comparing suppliers only on their per-unit rate without calculating the total package cost can obscure the actual dollar difference at project scale, which is what a budget holder actually needs to see.",
+      "recommendation": "Present total cost alongside unit rate in every procurement recommendation — stakeholders react very differently to '$7/m² more expensive' versus 'an additional $29,400' even though they're the same fact."
+    },
+    {
+      "id": "task-3-tradeoff",
+      "type": "multiselect",
+      "title": "Cost, Lead Time & Risk Trade-off",
+      "prompt": "Comparing the two compliant suppliers (A: $86/m², 10 weeks; C: $79/m², 14 weeks), select every factor that should genuinely influence the recommendation.",
+      "options": [
+        "Supplier C is cheaper per m², saving $29,400 on the total package versus Supplier A",
+        "Supplier C's 14-week lead time is 4 weeks longer, which needs checking against the facade installation start date on the programme",
+        "Supplier A's logo is more recognisable in the industry",
+        "If the facade installation start date has less than 4 weeks of float against a 14-week lead time, Supplier C's saving could be outweighed by delay costs elsewhere on the project",
+        "Whichever supplier the procurement engineer has used before on unrelated projects"
+      ],
+      "correctIndices": [
+        0,
+        1,
+        3
+      ],
+      "xp": 55,
+      "reasoning": "The genuine trade-off is cost savings versus schedule risk: Supplier C saves money per unit but takes 4 weeks longer, and whether that's actually a good trade depends on whether the project's schedule has enough float to absorb the longer lead time. Brand recognition and personal familiarity with a supplier are not valid procurement criteria when a specification-compliant, cost/schedule comparison is available.",
+      "tip": "Never evaluate a cheaper-but-slower supplier purely on unit cost — convert the lead time difference into a schedule risk question ('do we have 4 weeks of float here?') before deciding whether the saving is actually worth taking.",
+      "mistake": "A common procurement mistake is recommending the cheaper option based on unit price alone, without checking whether the longer lead time could trigger a schedule delay whose cost (labour standing time, liquidated damages exposure) exceeds the material cost saving.",
+      "recommendation": "Always request the current facade installation float from the project's planning engineer before finalising a supplier recommendation involving a lead time trade-off — this single data point often decides the recommendation."
+    },
+    {
+      "id": "task-4-landed-cost",
+      "type": "numeric",
+      "title": "Delay Risk Cost Check",
+      "prompt": "If the programme has only 1 week of float before facade installation, and every week of facade delay costs the project $12,000 in standing labour costs, what is the effective delay-risk cost of choosing Supplier C over Supplier A (3 weeks of float shortfall x $12,000)?",
+      "answer": 36000,
+      "tolerance": 0,
+      "unit": "USD",
+      "xp": 50,
+      "workingNote": "Supplier C is 4 weeks longer than Supplier A; with only 1 week of float, 3 weeks are unabsorbed = 3 x $12,000 = $36,000 of delay-risk cost.",
+      "reasoning": "Converting an unabsorbed lead-time gap into a dollar figure using a known delay cost rate is what makes a cost/schedule trade-off genuinely comparable — $36,000 of delay-risk cost against a $29,400 material saving means Supplier C is not actually the cheaper choice once schedule risk is priced in.",
+      "tip": "Whenever a 'cheaper' option involves a longer lead time, always calculate the delay-risk cost using the project's actual float and delay cost rate — a saving that looks attractive in isolation can flip to a net loss once schedule risk is priced in.",
+      "mistake": "Recommending the lower-priced quote without pricing the schedule risk is a common procurement error that looks financially sound on paper but can cost the project more overall once the delay materialises.",
+      "recommendation": "In your final recommendation, always show both numbers side by side — the material cost saving and the delay-risk cost — so decision-makers can see clearly whether a 'cheaper' option is actually cheaper once both are combined."
+    },
+    {
+      "id": "task-5-recommendation",
+      "type": "text",
+      "title": "Procurement Recommendation Memo",
+      "prompt": "Write your recommendation (3-5 sentences): which supplier, why (including the screened-out supplier and the cost/schedule trade-off), and the net financial conclusion.",
+      "minLength": 40,
+      "xp": 50,
+      "modelAnswer": "Supplier B is screened out entirely, as its standard PE-core panel does not meet the FR-core fire rating specification required for this 34m building. Between the two compliant suppliers, Supplier C offers a $29,400 lower total package cost ($331,800 vs. $361,200) but a 4-week longer lead time; given the programme currently shows only 1 week of float before facade installation, the resulting 3-week unabsorbed delay carries an estimated $36,000 in standing labour cost, which outweighs Supplier C's material saving. I recommend proceeding with Supplier A (Nordic Panels) at $361,200, as the shorter 10-week lead time avoids a net cost that is actually higher than Supplier C's headline price once realistic delay risk is included.",
+      "reasoning": "A complete procurement recommendation states which options were screened out and why, quantifies the real trade-off between the remaining options, and reaches a clear net conclusion — this is what lets a decision-maker act on the recommendation without redoing the analysis themselves.",
+      "tip": "Always state the net financial conclusion explicitly ('Supplier A is actually cheaper once delay risk is included') rather than just presenting two numbers and letting the reader do the comparison — a recommendation should recommend, not just inform.",
+      "mistake": "A common weak recommendation lists the options and their pros/cons without converting everything to a common basis (total net cost) and stating a clear final answer, which pushes the actual decision back onto the reader.",
+      "recommendation": "Keep a personal habit of never recommending a 'cheaper' option without first checking it against the project's current schedule float — this single check has likely saved procurement engineers more money than any negotiation tactic."
+    },
+    {
+      "id": "task-6-procurement-excel",
+      "type": "excel-upload",
+      "title": "Supplier Comparison Matrix (Excel)",
+      "prompt": "Build out the full supplier comparison for three more material categories the same way — screening compliance, then calculating total cost and delay-risk cost. Download the template, complete it in Excel, then upload it for automatic checking.",
+      "xp": 65,
+      "template": {
+        "fileName": "Supplier-Comparison-Template.xlsx",
+        "sheetName": "Comparison",
+        "headers": [
+          "Material",
+          "Unit Rate (USD/unit)",
+          "Quantity",
+          "Total Cost (USD)",
+          "Lead Time Gap (Weeks)",
+          "Delay-Risk Cost (USD, at $12,000/wk unabsorbed)"
+        ],
+        "rows": [
+          [
+            "Curtain Wall Mullions",
+            "145",
+            "1200",
+            "",
+            "2",
+            ""
+          ],
+          [
+            "Insulated Glazing Units",
+            "210",
+            "950",
+            "",
+            "0",
+            ""
+          ],
+          [
+            "Roofing Membrane",
+            "34",
+            "3600",
+            "",
+            "5",
+            ""
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "cell": "D2",
+          "expected": 174000,
+          "tolerance": 0,
+          "label": "Total cost — Curtain Wall Mullions (145 x 1200)"
+        },
+        {
+          "cell": "D3",
+          "expected": 199500,
+          "tolerance": 0,
+          "label": "Total cost — Insulated Glazing Units (210 x 950)"
+        },
+        {
+          "cell": "D4",
+          "expected": 122400,
+          "tolerance": 0,
+          "label": "Total cost — Roofing Membrane (34 x 3600)"
+        },
+        {
+          "cell": "F5",
+          "expected": 60000,
+          "tolerance": 0,
+          "label": "Delay-risk cost — Roofing Membrane, assuming 1 week float (5-1=4 weeks unabsorbed x 12,000)"
+        }
+      ],
+      "reasoning": "Applying the same total-cost and delay-risk-cost logic consistently across every material category, not just the one flagged as urgent, is what makes a procurement comparison matrix genuinely useful for the whole project rather than a one-off analysis.",
+      "tip": "Keep the delay-risk cost formula consistent as (lead time gap minus available float) x weekly rate, floored at zero when there's no unabsorbed gap — a material with zero lead time gap should show zero delay-risk cost, not a negative or blank value.",
+      "mistake": "A common spreadsheet mistake is forgetting to floor a delay-risk calculation at zero, producing a nonsensical negative 'risk cost' when a material actually has enough float to absorb its lead time comfortably.",
+      "recommendation": "Maintain this comparison matrix as a live, standing project document, updated every time a new supplier quote or programme date changes — procurement decisions age quickly as schedules shift."
+    }
+  ],
+  "caseStudy": {
+    "title": "Case Study: The Panel That Passed on Price, Failed on Code",
+    "background": "On an earlier UrbanBuild project, a procurement engineer recommended a facade panel supplier based on the lowest total cost across a comparison spreadsheet, without an explicit compliance screening step — the winning quote's PE-core panel did not meet the project's fire rating requirement, which wasn't caught until the building inspector reviewed submittals months later.",
+    "client": "Krakow Transit Interchange — public infrastructure client",
+    "budget": "Facade replacement cost after rejection: $410,000, plus 3 months of schedule delay",
+    "timeline": "Discovered during code compliance submittal review, after the panels had already been ordered and partially delivered",
+    "challenges": "Because the panels had already been fabricated and partially shipped, cancelling the order meant absorbing a cancellation fee on top of sourcing and re-ordering compliant panels from scratch, well behind the original programme.",
+    "constraints": "The building inspector's finding was non-negotiable — no variance or waiver was available for fire-core requirements at this building height, meaning the only path forward was full replacement.",
+    "questions": [
+      "Why is a pure cost comparison dangerous without an explicit compliance screening step first?",
+      "What single addition to the comparison spreadsheet would have caught this before the order was placed?",
+      "Whose responsibility is it to verify code compliance before a procurement recommendation is finalised, not after?"
+    ],
+    "solution": "UrbanBuild introduced a mandatory compliance screening column as the first step in every material comparison spreadsheet template, with a rule that no supplier failing a hard specification or code requirement can be included in the cost comparison at all, regardless of price.",
+    "lessonsLearned": "Cost comparisons are only meaningful among options that are actually usable — screening for hard compliance requirements must happen before any price comparison, not as an afterthought once a 'winning' quote has already been identified on cost grounds alone."
+  },
+  "quiz": [
+    {
+      "q": "A supplier's quote doesn't meet a mandatory fire rating specification for the building height. It should be:",
+      "options": [
+        "Included in the price comparison since it's the cheapest",
+        "Screened out before any cost comparison, regardless of price",
+        "Used only if the project needs to save money",
+        "Approved with a note for future review"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "When one compliant supplier is cheaper but has a longer lead time, the correct procurement approach is to:",
+      "options": [
+        "Always choose the cheaper option regardless of lead time",
+        "Convert the unabsorbed lead-time gap into a delay-risk cost and compare it against the price saving",
+        "Ignore lead time entirely in procurement decisions",
+        "Choose based on which supplier is more well-known"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "Delay-risk cost in this exercise is calculated as:",
+      "options": [
+        "Lead time gap alone, in weeks",
+        "(Lead time gap minus available float) x weekly delay cost rate, floored at zero",
+        "Total material cost divided by lead time",
+        "A fixed percentage of the quote value"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "In the case study, why couldn't the non-compliant panel issue be resolved with a waiver?",
+      "options": [
+        "A waiver was available but nobody applied for it",
+        "Fire-core requirements at this building height had no available variance or waiver path",
+        "The client refused to consider any waiver",
+        "Waivers are always available for procurement issues"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "q": "A complete procurement recommendation should include:",
+      "options": [
+        "Only the lowest price option",
+        "Which options were screened out and why, the quantified cost/schedule trade-off, and a clear net conclusion",
+        "A list of all supplier contact details",
+        "Just the lead times, without cost figures"
+      ],
+      "correctIndex": 1
+    }
+  ],
+  "reflection": {
+    "prompts": [
+      "Which task required you to screen out an option before comparing cost at all? Why does the order of these two steps matter so much?",
+      "The case study shows a cost-optimal choice turning into a $410,000 mistake because compliance wasn't checked first. Where else might optimizing for the wrong first criterion lead to a worse outcome overall?",
+      "If you were Piotr, what one line would you add to every procurement comparison template so this specific failure mode can never happen again?"
+    ]
+  },
+  "certificate": {
+    "name": "Procurement Engineer — Supplier Evaluation & Cost Analysis",
+    "nameAz": "Təchizat Mühəndisi — Təchizatçı Qiymətləndirməsi və Xərc Təhlili",
+    "totalXp": 305
+  }
+}
