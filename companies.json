@@ -1,0 +1,408 @@
+[
+  {
+    "id": "nimbus-digital",
+    "name": "Nimbus Digital",
+    "country": "Germany",
+    "founded": 2016,
+    "mission": "Ship reliable software for mid-market clients without the chaos of ad-hoc project management.",
+    "culture": "Sprint-disciplined and blameless-retro focused. People here are expected to raise blockers loudly and early.",
+    "projects": [
+      "Meridian Client Portal Rebuild",
+      "Nimbus Internal Analytics Suite",
+      "Fintra Payments Integration"
+    ],
+    "color": "#005BAA"
+  },
+  {
+    "id": "atlas-manufacturing",
+    "name": "Atlas Manufacturing",
+    "country": "South Korea",
+    "founded": 1999,
+    "mission": "World-class manufacturing discipline — every defect has a root cause, and every root cause gets fixed once, not patched repeatedly.",
+    "culture": "Lean-first and data-driven. Line staff and engineers alike are expected to know their process' current defect rate from memory.",
+    "projects": [
+      "Precision Components Line 4 Upgrade",
+      "Atlas EV Battery Housing Plant",
+      "Regional Distribution Hub"
+    ],
+    "color": "#005BAA"
+  },
+  {
+    "id": "meridian-freight-group",
+    "name": "Meridian Freight Group",
+    "country": "Netherlands",
+    "founded": 2005,
+    "mission": "Keep goods moving reliably across a fragmented, multi-carrier European logistics network.",
+    "culture": "Detail-obsessed and calm under disruption — a delayed shipment is a puzzle to solve, not a crisis to panic over.",
+    "projects": [
+      "Rotterdam-Warsaw Corridor Optimization",
+      "Cold Chain Expansion Project",
+      "Warehouse Automation Pilot"
+    ],
+    "color": "#005BAA"
+  },
+  {
+    "id": "verde-hospitality-group",
+    "name": "Verde Hospitality Group",
+    "country": "Italy",
+    "founded": 2012,
+    "mission": "Consistently excellent guest experience across a growing group of restaurants, without losing what makes each one distinct.",
+    "culture": "Fast-paced and guest-obsessed. Managers and chefs are expected to make good calls under real dinner-service pressure.",
+    "projects": [
+      "Verde Trattoria Relaunch",
+      "Riviera Rooftop Restaurant Opening",
+      "Group-Wide Menu Standardization"
+    ],
+    "color": "#005BAA"
+  },
+  {
+    "id": "ledger-and-co",
+    "name": "Ledger & Co.",
+    "country": "United Kingdom",
+    "founded": 1988,
+    "mission": "Accurate, defensible financial reporting for mid-sized clients — no shortcuts, no surprises at audit time.",
+    "culture": "Precise and process-driven. Accountants here are expected to explain any number they report, not just produce it.",
+    "projects": [
+      "Q3 Multi-Client Reconciliation Cycle",
+      "Internal Controls Modernization",
+      "SME Audit Readiness Program"
+    ],
+    "color": "#005BAA"
+  },
+  {
+    "id": "beacon-communications",
+    "name": "Beacon Communications",
+    "country": "United States",
+    "founded": 2008,
+    "mission": "Help clients say the right thing, to the right audience, especially when it's hardest to do so.",
+    "culture": "Fast-moving and calm under media pressure. PR specialists are expected to have a draft ready before the news cycle moves on.",
+    "projects": [
+      "Client Product Recall Response",
+      "Regional Brand Launch Campaign",
+      "Annual Sustainability Report Rollout"
+    ],
+    "color": "#005BAA"
+  },
+  {
+    "id": "lumen-learning-group",
+    "name": "Lumen Learning Group",
+    "country": "Canada",
+    "founded": 2014,
+    "mission": "Design training and education programs that actually change what people can do, not just what they've sat through.",
+    "culture": "Evidence-based and learner-centered. Program managers are expected to redesign based on completion data, not instinct.",
+    "projects": [
+      "Corporate Onboarding Redesign",
+      "Regional Teacher Training Rollout",
+      "Certification Program Overhaul"
+    ],
+    "color": "#005BAA"
+  },
+  {
+    "id": "quantis-capital",
+    "name": "Quantis Capital",
+    "country": "Switzerland",
+    "founded": 2008,
+    "mission": "Give mid-sized businesses institutional-grade financial planning, credit and compliance discipline.",
+    "culture": "Numbers must tie out and every assumption must be written down. Analysts are expected to defend their model line by line.",
+    "projects": [
+      "Orion SaaS Reforecast",
+      "Meridian Credit Facility Review",
+      "Alpine Retail Bank AML Uplift"
+    ],
+    "color": "#0F766E"
+  },
+  {
+    "id": "helix-data-labs",
+    "name": "Helix Data Labs",
+    "country": "Netherlands",
+    "founded": 2014,
+    "mission": "Turn messy business data into decisions people can trust and models that survive production.",
+    "culture": "Evidence over opinion. A result is not a result until someone else can reproduce it.",
+    "projects": [
+      "Customer Churn Platform",
+      "Retail Demand Forecasting",
+      "Helix Experimentation Hub"
+    ],
+    "color": "#7C3AED"
+  },
+  {
+    "id": "forge-software",
+    "name": "Forge Software",
+    "country": "Poland",
+    "founded": 2012,
+    "mission": "Build maintainable software for product companies, with quality designed in rather than tested in.",
+    "culture": "Small pull requests, honest code review, and blameless debugging. Nobody ships what they cannot explain.",
+    "projects": [
+      "Parcelwise Order API",
+      "Forge Design System",
+      "Merchant Dashboard Rebuild"
+    ],
+    "color": "#EA580C"
+  },
+  {
+    "id": "cumulus-cloud",
+    "name": "Cumulus Cloud Partners",
+    "country": "Ireland",
+    "founded": 2015,
+    "mission": "Run customers' systems on the cloud reliably, securely and without surprise bills.",
+    "culture": "Automate the second time you do anything. Every incident ends with a written blameless review.",
+    "projects": [
+      "Fintra Platform Migration",
+      "Zero-Downtime Release Pipeline",
+      "Cost Optimisation Programme"
+    ],
+    "color": "#0284C7"
+  },
+  {
+    "id": "sentinel-security",
+    "name": "Sentinel Security Operations",
+    "country": "Estonia",
+    "founded": 2013,
+    "mission": "Detect, contain and learn from cyber incidents faster than attackers can move.",
+    "culture": "Calm under pressure, precise in notes. If it is not logged it did not happen.",
+    "projects": [
+      "24/7 SOC for Retail Group",
+      "Phishing Resilience Programme",
+      "Ransomware Readiness Review"
+    ],
+    "color": "#B91C1C"
+  },
+  {
+    "id": "pixel-pine-studio",
+    "name": "Pixel & Pine Studio",
+    "country": "Portugal",
+    "founded": 2017,
+    "mission": "Design digital products that real people can actually use on the first try.",
+    "culture": "Test with users early and often. Opinions are hypotheses until a user confirms them.",
+    "projects": [
+      "Wellbeing App Redesign",
+      "Checkout Flow Optimisation",
+      "Public Service Portal"
+    ],
+    "color": "#059669"
+  },
+  {
+    "id": "summit-advisory",
+    "name": "Summit Advisory",
+    "country": "United Kingdom",
+    "founded": 2006,
+    "mission": "Help leadership teams make better decisions with structured thinking and evidence.",
+    "culture": "Answer first, then prove it. Every slide earns its place and every number has a source.",
+    "projects": [
+      "Market Entry Strategy",
+      "Cost Transformation Programme",
+      "Founder Accelerator"
+    ],
+    "color": "#1D4ED8"
+  },
+  {
+    "id": "tradewind-supply",
+    "name": "Tradewind Supply Partners",
+    "country": "Turkey",
+    "founded": 2005,
+    "mission": "Source the right goods at the right total cost, fairly and on time.",
+    "culture": "Fair process, documented decisions. If you cannot justify an award in writing, you cannot make it.",
+    "projects": [
+      "Regional Tender Framework",
+      "Supplier Consolidation",
+      "Materials Sourcing Programme"
+    ],
+    "color": "#B45309"
+  },
+  {
+    "id": "northwind-commercial",
+    "name": "Northwind Commercial",
+    "country": "Sweden",
+    "founded": 2011,
+    "mission": "Grow B2B revenue through honest selling and disciplined pipeline management.",
+    "culture": "Customers first, forecasts honest. A deal is only real when the buyer has a reason and a date.",
+    "projects": [
+      "Enterprise Pipeline Rebuild",
+      "Channel Partner Programme",
+      "Account Growth Plan"
+    ],
+    "color": "#0E7490"
+  },
+  {
+    "id": "kestrel-law-tax",
+    "name": "Kestrel Law & Tax",
+    "country": "United Kingdom",
+    "founded": 2003,
+    "mission": "Give businesses clear legal and tax answers they can act on.",
+    "culture": "Precision in wording, plain English to clients. Risk is named, priced and mitigated.",
+    "projects": [
+      "Supplier Contract Review",
+      "Group Tax Compliance",
+      "Commercial Lease Programme"
+    ],
+    "color": "#6D28D9"
+  },
+  {
+    "id": "bastion-insurance",
+    "name": "Bastion Insurance Group",
+    "country": "Germany",
+    "founded": 1991,
+    "mission": "Price and underwrite risk fairly so claims can always be paid.",
+    "culture": "Data-led, conservative on assumptions, transparent on exclusions.",
+    "projects": [
+      "SME Property Portfolio",
+      "Cyber Cover Launch",
+      "Claims Analytics"
+    ],
+    "color": "#9F1239"
+  },
+  {
+    "id": "voltara-energy",
+    "name": "Voltara Energy",
+    "country": "Spain",
+    "founded": 2010,
+    "mission": "Design and build reliable electrical and renewable energy assets.",
+    "culture": "Safety and calculation discipline. Every design carries its assumptions and a check.",
+    "projects": [
+      "120 MW Solar Park",
+      "Substation Upgrade",
+      "Industrial Microgrid"
+    ],
+    "color": "#CA8A04"
+  },
+  {
+    "id": "hartmann-process",
+    "name": "Hartmann Process Engineering",
+    "country": "Germany",
+    "founded": 1988,
+    "mission": "Engineer process and building services systems that run safely and efficiently.",
+    "culture": "Heat and mass balances first, opinions second. Design basis documents are mandatory.",
+    "projects": [
+      "Gas Processing Debottleneck",
+      "Hospital HVAC Retrofit",
+      "Refinery Utility Upgrade"
+    ],
+    "color": "#475569"
+  },
+  {
+    "id": "greenfield-sustainability",
+    "name": "Greenfield Sustainability",
+    "country": "Denmark",
+    "founded": 2014,
+    "mission": "Measure and reduce environmental impact with credible, auditable data.",
+    "culture": "No claim without evidence. Boundaries, factors and sources are always stated.",
+    "projects": [
+      "Corporate Carbon Footprint",
+      "Supplier ESG Programme",
+      "Green Building Certification"
+    ],
+    "color": "#15803D"
+  },
+  {
+    "id": "terra-spatial",
+    "name": "Terra Spatial",
+    "country": "Netherlands",
+    "founded": 2012,
+    "mission": "Turn location data into decisions for infrastructure and cities.",
+    "culture": "Coordinate systems are never assumed. Data lineage and accuracy are documented.",
+    "projects": [
+      "Utility Network Mapping",
+      "Flood Risk Atlas",
+      "Site Selection Platform"
+    ],
+    "color": "#0F766E"
+  },
+  {
+    "id": "sterling-cost",
+    "name": "Sterling Cost & Contracts",
+    "country": "United Kingdom",
+    "founded": 1999,
+    "mission": "Control cost, time and contract risk on major construction projects.",
+    "culture": "Every figure traces to a measurement or a rate. Notices are served on time, in writing.",
+    "projects": [
+      "Hospital Cost Plan",
+      "Rail Depot Contract Administration",
+      "Port Terminal Programme"
+    ],
+    "color": "#92400E"
+  },
+  {
+    "id": "civica-facilities",
+    "name": "Civica Facilities Management",
+    "country": "United Arab Emirates",
+    "founded": 2009,
+    "mission": "Keep buildings safe, comfortable and cost-effective throughout their life.",
+    "culture": "Preventive over reactive. Every asset has an owner, a schedule and a record.",
+    "projects": [
+      "Corporate Campus FM",
+      "Hospital Maintenance Contract",
+      "Mall Energy Programme"
+    ],
+    "color": "#0369A1"
+  },
+  {
+    "id": "vertex-infrastructure",
+    "name": "Vertex Infrastructure",
+    "country": "Norway",
+    "founded": 1994,
+    "mission": "Design and deliver bridges and railways that last a century and cost less to keep.",
+    "culture": "Load paths, tolerances and inspection records are non-negotiable. Every assumption is checked by a second engineer.",
+    "projects": [
+      "Fjord Crossing Viaduct",
+      "Regional Rail Upgrade",
+      "Depot Electrification"
+    ],
+    "color": "#1E3A8A"
+  },
+  {
+    "id": "arcline-architects",
+    "name": "Arcline Architects",
+    "country": "Italy",
+    "founded": 2007,
+    "mission": "Design buildings people love to use and that regulators can approve first time.",
+    "culture": "Concept with discipline: every beautiful idea must survive area schedules, codes and costs.",
+    "projects": [
+      "Mixed-Use Quarter",
+      "Residential Tower",
+      "Community Library"
+    ],
+    "color": "#7C2D12"
+  },
+  {
+    "id": "nova-retail",
+    "name": "Nova Retail Group",
+    "country": "United Kingdom",
+    "founded": 1998,
+    "mission": "Run stores and online shops that customers return to and shareholders can rely on.",
+    "culture": "Numbers on Monday, action by Tuesday. Every KPI has an owner and a weekly review.",
+    "projects": [
+      "Store Network Refresh",
+      "Online Marketplace Launch",
+      "Loyalty Programme Redesign"
+    ],
+    "color": "#BE185D"
+  },
+  {
+    "id": "people-first-partners",
+    "name": "People First Partners",
+    "country": "Poland",
+    "founded": 2010,
+    "mission": "Make hiring, pay and employee relations fair, compliant and efficient.",
+    "culture": "Fair process, accurate records. People decisions are documented and explainable.",
+    "projects": [
+      "Graduate Hiring Programme",
+      "Payroll Consolidation",
+      "Pay Equity Review"
+    ],
+    "color": "#C2410C"
+  },
+  {
+    "id": "harbour-street-ventures",
+    "name": "Harbour Street Ventures",
+    "country": "Canada",
+    "founded": 2012,
+    "mission": "Help small business owners and franchisees make money, not just stay busy.",
+    "culture": "Know your numbers weekly. Cash is the scoreboard.",
+    "projects": [
+      "Neighbourhood Cafe Programme",
+      "Franchise Evaluation Service",
+      "Micro-Business Bootcamp"
+    ],
+    "color": "#0F766E"
+  }
+]
