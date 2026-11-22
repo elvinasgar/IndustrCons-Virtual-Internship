@@ -1,0 +1,250 @@
+{
+ "id": "sql-data-analyst-helix",
+ "title": "SQL Data Analyst",
+ "companyId": "helix-data-labs",
+ "category": "Data & Analytics",
+ "difficulty": "Beginner",
+ "durationHours": 6,
+ "drawingTag": "SQL-068",
+ "skills": [
+  "SQL Joins",
+  "Aggregation",
+  "Data Quality Checks"
+ ],
+ "companyIntro": {
+  "name": "Helix Data Labs",
+  "country": "Netherlands",
+  "founded": 2014,
+  "mission": "Turn messy business data into decisions people can trust and models that survive production.",
+  "culture": "Evidence over opinion. A result is not a result until someone else can reproduce it.",
+  "projects": [
+   "Customer Churn Platform",
+   "Retail Demand Forecasting",
+   "Helix Experimentation Hub"
+  ]
+ },
+ "projectBackground": {
+  "name": "Retail Demand Reporting",
+  "client": "Retail client",
+  "location": "Amsterdam, remote",
+  "budget": "N/A — internal analytics",
+  "timeline": "Report due before Monday's trading meeting",
+  "context": "The weekly revenue report shows a 20% jump nobody can explain. You suspect the SQL behind it."
+ },
+ "manager": {
+  "name": "Anouk Visser",
+  "role": "Analytics Lead, Helix Data Labs",
+  "note": "A query that runs is not a query that's right. Check the row counts before you trust the totals."
+ },
+ "assignment": {
+  "title": "Find why revenue is inflated",
+  "brief": "Reason about joins and row counts, find the cause of the inflated total and explain the fix."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Customers Table",
+   "type": "Schema",
+   "note": "3 customers: C1 has 2 orders, C2 has 3 orders, C3 has none."
+  },
+  {
+   "id": "doc-2",
+   "name": "Orders Table",
+   "type": "Schema",
+   "note": "Each order has one customer_id; order_items link to orders."
+  },
+  {
+   "id": "doc-3",
+   "name": "Weekly Revenue Query",
+   "type": "SQL",
+   "note": "Joins customers, orders and order_items then sums order total."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "sql-1-leftjoin",
+   "type": "mcq",
+   "title": "Which Join?",
+   "prompt": "You need every customer, including those with no orders. Which join do you use from customers to orders?",
+   "options": [
+    "INNER JOIN",
+    "CROSS JOIN only",
+    "LEFT JOIN customers to orders",
+    "RIGHT JOIN from orders to customers without checking"
+   ],
+   "correctIndex": 2,
+   "xp": 30,
+   "reasoning": "A LEFT JOIN keeps all rows from the left table even without matches.",
+   "tip": "Choose the join by which table must keep all its rows.",
+   "mistake": "INNER JOIN silently drops customers with no orders.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "sql-2-rows",
+   "type": "numeric",
+   "title": "Row Count After Left Join",
+   "prompt": "C1 has 2 orders, C2 has 3 and C3 has none. How many rows does customers LEFT JOIN orders return?",
+   "answer": 6,
+   "tolerance": 0,
+   "unit": "rows",
+   "xp": 35,
+   "workingNote": "2 + 3 + 1 (C3 with NULL) = 6.",
+   "reasoning": "Each matching order creates a row; a customer without orders still yields one row with NULLs.",
+   "tip": "Predict row counts before running the query.",
+   "mistake": "Counting only orders (5) forgets the unmatched customer.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "sql-3-nomatch",
+   "type": "mcq",
+   "title": "Customers Without Orders",
+   "prompt": "Which pattern finds customers with no orders?",
+   "options": [
+    "INNER JOIN and WHERE orders.id IS NULL",
+    "GROUP BY customer without joining",
+    "LEFT JOIN orders and WHERE orders.id IS NULL",
+    "SELECT DISTINCT from orders"
+   ],
+   "correctIndex": 2,
+   "xp": 40,
+   "reasoning": "After a left join, unmatched rows have NULL in the right table.",
+   "tip": "IS NULL on a right-table key identifies non-matches.",
+   "mistake": "An inner join cannot return unmatched rows.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "sql-4-having",
+   "type": "mcq",
+   "title": "WHERE vs HAVING",
+   "prompt": "You want customers whose total spend is above 500. Where does the condition go?",
+   "options": [
+    "HAVING SUM(amount) > 500 after GROUP BY",
+    "WHERE SUM(amount) > 500",
+    "ORDER BY SUM(amount) > 500",
+    "LIMIT 500"
+   ],
+   "correctIndex": 0,
+   "xp": 35,
+   "reasoning": "WHERE filters rows before grouping; HAVING filters groups after aggregation.",
+   "tip": "Aggregates cannot appear in WHERE.",
+   "mistake": "Using WHERE with an aggregate raises an error or filters the wrong thing.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "sql-5-fanout",
+   "type": "multiselect",
+   "title": "Why Revenue Is Inflated",
+   "prompt": "Select likely causes of an inflated revenue total after joining orders to order_items.",
+   "options": [
+    "Duplicate rows from a one-to-many join",
+    "Summing a header-level value at line level",
+    "Selecting too few columns",
+    "Order total repeated once per item row",
+    "Using ORDER BY"
+   ],
+   "correctIndices": [
+    0,
+    1,
+    3
+   ],
+   "xp": 45,
+   "reasoning": "Joining a header to line items repeats header values; summing them multiplies revenue.",
+   "tip": "Aggregate at the right grain.",
+   "mistake": "Summing header fields at line level is the classic fan-out error.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "sql-6-explain",
+   "type": "text",
+   "title": "Explain the Fix",
+   "prompt": "In 3-4 sentences explain why revenue was inflated and how to correct the query.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "The query joined orders to order_items and then summed the order total, so each order's total was repeated for every item row, inflating revenue. To fix it, sum the line-level amount (quantity x price) from order_items, or aggregate order totals in a subquery before joining. I would verify by comparing the new total with the order table total and checking row counts at each join.",
+   "reasoning": "A good explanation names the grain problem, gives the fix and a validation step.",
+   "tip": "Fix, then verify with a reconciliation.",
+   "mistake": "Changing the query without reconciling leaves the risk unproven.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The 20% Jump That Wasn't",
+  "background": "A dashboard showed 20% revenue growth for a week. Finance later found a join fan-out; true growth was 3%. Marketing had already increased spend.",
+  "client": "Retail client",
+  "budget": "€150,000 extra marketing spend",
+  "timeline": "Discovered at month-end reconciliation",
+  "challenges": "No one compared dashboard totals to the finance ledger.",
+  "constraints": "Reports were not reconciled.",
+  "questions": [
+   "How did the join cause inflated totals?",
+   "What check would have caught it?",
+   "Who should own reconciliation?"
+  ],
+  "solution": "Helix added a reconciliation test to every revenue report comparing totals with the finance system.",
+  "lessonsLearned": "Reconcile every report to a trusted source before sharing."
+ },
+ "quiz": [
+  {
+   "q": "A LEFT JOIN keeps:",
+   "options": [
+    "Only matches",
+    "Only the right table",
+    "Nothing",
+    "All rows from the left table"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "HAVING filters:",
+   "options": [
+    "Rows before grouping",
+    "Columns",
+    "Groups after aggregation",
+    "Indexes"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "A fan-out is caused by:",
+   "options": [
+    "Missing indexes",
+    "Slow disks",
+    "Typos",
+    "One-to-many joins repeating values"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "To find non-matches:",
+   "options": [
+    "INNER JOIN",
+    "GROUP BY",
+    "LEFT JOIN with IS NULL",
+    "LIMIT"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "In the case study growth was overstated due to:",
+   "options": [
+    "Inflation",
+    "A join fan-out",
+    "Price rise",
+    "New product"
+   ],
+   "correctIndex": 1
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which join mistake is easiest to make?",
+   "How do you sanity-check a number before sharing?",
+   "What tests would you automate?"
+  ]
+ },
+ "certificate": {
+  "name": "SQL Data Analyst — Joins, Aggregation & Data Quality",
+  "nameAz": "SQL Data Analitiki — Join, Aqreqasiya və Data Keyfiyyəti",
+  "totalXp": 235
+ }
+}

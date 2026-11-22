@@ -1,0 +1,250 @@
+{
+ "id": "frontend-developer-forge",
+ "title": "Frontend Web Developer",
+ "companyId": "forge-software",
+ "category": "Software Development",
+ "difficulty": "Beginner",
+ "durationHours": 6,
+ "drawingTag": "FE-071",
+ "skills": [
+  "Responsive Layout",
+  "Web Accessibility",
+  "Page Performance"
+ ],
+ "companyIntro": {
+  "name": "Forge Software",
+  "country": "Poland",
+  "founded": 2012,
+  "mission": "Build maintainable software for product companies, with quality designed in rather than tested in.",
+  "culture": "Small pull requests, honest code review, and blameless debugging. Nobody ships what they cannot explain.",
+  "projects": [
+   "Parcelwise Order API",
+   "Forge Design System",
+   "Merchant Dashboard Rebuild"
+  ]
+ },
+ "projectBackground": {
+  "name": "Merchant Dashboard Rebuild",
+  "client": "Parcelwise Logistics",
+  "location": "Warsaw, remote",
+  "budget": "Sprint budget: 80 developer-hours",
+  "timeline": "Release in two weeks",
+  "context": "Merchants report the dashboard is unusable on phones and screen readers cannot read the forms."
+ },
+ "manager": {
+  "name": "Kasia Wrona",
+  "role": "Frontend Lead, Forge Software",
+  "note": "Half our users are on phones. If it only works on your laptop, it doesn't work."
+ },
+ "assignment": {
+  "title": "Make the dashboard work for everyone",
+  "brief": "Diagnose viewport, accessibility and performance issues and write a bug report."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Mobile Screenshot",
+   "type": "Image Note",
+   "note": "Layout overflows horizontally; text tiny."
+  },
+  {
+   "id": "doc-2",
+   "name": "Accessibility Audit",
+   "type": "Report",
+   "note": "Inputs without labels, images without alt text, focus not visible."
+  },
+  {
+   "id": "doc-3",
+   "name": "Performance Trace",
+   "type": "Lighthouse Note",
+   "note": "Hero image 1.2 MB on a 4 Mbps connection."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "fe-1-viewport",
+   "type": "mcq",
+   "title": "Mobile Basics",
+   "prompt": "The page looks zoomed-out on phones. Which tag is missing?",
+   "options": [
+    "A bigger font",
+    "Another stylesheet only",
+    "A favicon",
+    "meta viewport with width=device-width"
+   ],
+   "correctIndex": 3,
+   "xp": 30,
+   "reasoning": "Without the viewport meta the browser renders at desktop width and scales down.",
+   "tip": "Design mobile-first.",
+   "mistake": "Fixing font size alone doesn't solve layout scaling.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "fe-2-download",
+   "type": "numeric",
+   "title": "Download Time",
+   "prompt": "A 1.2 MB image downloads on a 4 Mbps connection. About how many seconds (1 byte = 8 bits; 1.2 MB = 9.6 Mb)?",
+   "answer": 2.4,
+   "tolerance": 0.1,
+   "unit": "seconds",
+   "xp": 35,
+   "workingNote": "9.6 Mb / 4 Mbps = 2.4 s.",
+   "reasoning": "Convert megabytes to megabits before dividing by the bandwidth.",
+   "tip": "Compress and lazy-load large images.",
+   "mistake": "Forgetting the factor of 8 underestimates time by 8x.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "fe-3-alt",
+   "type": "mcq",
+   "title": "Images",
+   "prompt": "Which is the right treatment for a meaningful product image?",
+   "options": [
+    "Empty alt",
+    "alt='image'",
+    "Descriptive alt text",
+    "No alt but a title"
+   ],
+   "correctIndex": 2,
+   "xp": 30,
+   "reasoning": "Alt text lets screen readers convey meaning; decorative images use empty alt.",
+   "tip": "Describe purpose, not appearance only.",
+   "mistake": "Generic alt text gives no information.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "fe-4-a11y",
+   "type": "multiselect",
+   "title": "Accessibility Fixes",
+   "prompt": "Select fixes that improve accessibility.",
+   "options": [
+    "Keep a visible keyboard focus style",
+    "Don't rely on colour alone to convey errors",
+    "Associate a label with every input",
+    "Remove the focus outline",
+    "Use placeholder instead of labels"
+   ],
+   "correctIndices": [
+    0,
+    1,
+    2
+   ],
+   "xp": 45,
+   "reasoning": "Labels, focus and non-colour cues are core requirements.",
+   "tip": "Test with keyboard only.",
+   "mistake": "Removing focus outlines locks out keyboard users.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "fe-5-cls",
+   "type": "mcq",
+   "title": "Layout Shift",
+   "prompt": "Content jumps as images load. What reduces it?",
+   "options": [
+    "Use larger fonts",
+    "Delay all CSS",
+    "Set image width and height or aspect-ratio",
+    "Remove images"
+   ],
+   "correctIndex": 2,
+   "xp": 40,
+   "reasoning": "Reserved space prevents layout shift.",
+   "tip": "Reserve space for late content.",
+   "mistake": "Ignoring it hurts usability and metrics.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "fe-6-bug",
+   "type": "text",
+   "title": "Bug Report",
+   "prompt": "Write a 3-5 sentence bug report for the mobile layout issue.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "On phones under 400 px the dashboard overflows horizontally because the grid has fixed three columns and there is no viewport meta. Expected: single-column layout with readable text. Steps: open the dashboard on a 390 px viewport. I propose adding the viewport meta, switching to a responsive grid with a media query and compressing the hero image from 1.2 MB. Accessibility fixes for labels will follow in a separate change.",
+   "reasoning": "A good bug report has context, expected result, steps and a proposal.",
+   "tip": "What, expected, steps, proposal.",
+   "mistake": "Vague reports waste time.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Form Nobody Could Use",
+  "background": "A checkout form lacked labels; screen-reader users could not complete purchases. A complaint triggered a legal review and a rebuild.",
+  "client": "E-commerce client",
+  "budget": "Rebuild cost plus legal fees",
+  "timeline": "Complaint after launch",
+  "challenges": "Accessibility was not part of the definition of done.",
+  "constraints": "No automated or manual audit existed.",
+  "questions": [
+   "Why does missing labels block users?",
+   "How could this be caught earlier?",
+   "Who owns accessibility?"
+  ],
+  "solution": "Forge added accessibility checks to the definition of done and CI.",
+  "lessonsLearned": "Accessibility is part of quality, not an extra."
+ },
+ "quiz": [
+  {
+   "q": "Viewport meta:",
+   "options": [
+    "Adds colours",
+    "Speeds the CPU",
+    "Tells browsers to use device width",
+    "Hides images"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Alt text:",
+   "options": [
+    "Is optional always",
+    "Describes an image for assistive technology",
+    "Is a tooltip",
+    "Is a caption only"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Layout shift is reduced by:",
+   "options": [
+    "Reserving space",
+    "Delaying CSS",
+    "Hiding content",
+    "Bigger servers"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Labels:",
+   "options": [
+    "Replace inputs",
+    "Associate text with inputs",
+    "Decorate forms",
+    "Are optional"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Accessibility was not in the definition of done",
+    "No CSS",
+    "Too many users",
+    "Bad logo"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "What would you test first on a phone?",
+   "How would you convince a team to prioritise accessibility?",
+   "Which performance fix gives the most benefit?"
+  ]
+ },
+ "certificate": {
+  "name": "Frontend Web Developer — Responsive, Accessible & Fast",
+  "nameAz": "Frontend Veb Tərtibatçı — Responsiv, Əlçatan və Sürətli",
+  "totalXp": 230
+ }
+}

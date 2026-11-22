@@ -1,0 +1,244 @@
+{
+ "id": "oil-gas-process-engineer-hartmann",
+ "title": "Oil & Gas Process Engineer",
+ "companyId": "hartmann-process",
+ "category": "Oil & Gas",
+ "difficulty": "Advanced",
+ "durationHours": 8,
+ "drawingTag": "PRO-095",
+ "skills": [
+  "Mass Balance",
+  "Line Sizing",
+  "Process Safety (HAZOP)"
+ ],
+ "companyIntro": {
+  "name": "Hartmann Process Engineering",
+  "country": "Germany",
+  "founded": 1988,
+  "mission": "Engineer process and building services systems that run safely and efficiently.",
+  "culture": "Heat and mass balances first, opinions second. Design basis documents are mandatory.",
+  "projects": [
+   "Gas Processing Debottleneck",
+   "Hospital HVAC Retrofit",
+   "Refinery Utility Upgrade"
+  ]
+ },
+ "projectBackground": {
+  "name": "Gas Processing Debottleneck",
+  "client": "Northsea Gas Operations",
+  "location": "Hamburg, remote",
+  "budget": "Study budget: €200,000",
+  "timeline": "Design basis review in two weeks",
+  "context": "A separator train is limiting production. The team must verify balances, line velocity and pump duty before proposing changes."
+ },
+ "manager": {
+  "name": "Dieter Hartmann",
+  "role": "Head of Process, Hartmann Process Engineering",
+  "note": "Close the balance before you do anything else. If it doesn't close, the data's wrong."
+ },
+ "assignment": {
+  "title": "Verify the debottleneck design basis",
+  "brief": "Close the mass balance, check velocity and pump power, and record a HAZOP finding."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Mass Balance",
+   "type": "Process Data",
+   "note": "Feed 100 t/h; gas outlet 62 t/h; liquid outlet unknown."
+  },
+  {
+   "id": "doc-2",
+   "name": "Line Data",
+   "type": "Datasheet",
+   "note": "Flow 0.2 m³/s in a 0.3 m internal diameter pipe."
+  },
+  {
+   "id": "doc-3",
+   "name": "Pump Data",
+   "type": "Datasheet",
+   "note": "Density 1,000 kg/m³; flow 0.05 m³/s; head 40 m."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "pro-1-mass",
+   "type": "numeric",
+   "title": "Mass Balance",
+   "prompt": "Feed is 100 t/h and gas outlet is 62 t/h. What must the liquid outlet be (t/h) for the balance to close?",
+   "answer": 38,
+   "tolerance": 0.1,
+   "unit": "t/h",
+   "xp": 35,
+   "workingNote": "100 - 62 = 38.",
+   "reasoning": "In = out at steady state.",
+   "tip": "If a balance doesn't close, check the data.",
+   "mistake": "Assuming losses hides instrument errors.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pro-2-vel",
+   "type": "numeric",
+   "title": "Line Velocity",
+   "prompt": "Flow 0.2 m³/s in a 0.3 m diameter pipe. What is the velocity (m/s)?",
+   "answer": 2.83,
+   "tolerance": 0.05,
+   "unit": "m/s",
+   "xp": 40,
+   "workingNote": "Area = pi x 0.3² / 4 = 0.0707 m²; v = 0.2 / 0.0707 = 2.83.",
+   "reasoning": "Velocity limits erosion and noise.",
+   "tip": "Compare to the line sizing criterion.",
+   "mistake": "Using radius instead of diameter quadruples area errors.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pro-3-pump",
+   "type": "numeric",
+   "title": "Hydraulic Power",
+   "prompt": "P = rho x g x Q x H. Density 1,000 kg/m³, Q 0.05 m³/s, head 40 m, g 9.81. What is power (kW)?",
+   "answer": 19.62,
+   "tolerance": 0.1,
+   "unit": "kW",
+   "xp": 40,
+   "workingNote": "1,000 x 9.81 x 0.05 x 40 = 19,620 W = 19.62 kW.",
+   "reasoning": "Hydraulic power is before efficiency.",
+   "tip": "Divide by efficiency for shaft power.",
+   "mistake": "Quoting hydraulic power as motor size undersizes.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pro-4-hazop",
+   "type": "mcq",
+   "title": "HAZOP Guide Word",
+   "prompt": "In a HAZOP the guide word 'No/Less' applied to flow asks:",
+   "options": [
+    "What happens if there is no or low flow?",
+    "What is the colour?",
+    "Who is the supervisor?",
+    "Is it cheap?"
+   ],
+   "correctIndex": 0,
+   "xp": 35,
+   "reasoning": "Guide words prompt deviations to examine.",
+   "tip": "Think cause, consequence, safeguard.",
+   "mistake": "Skipping deviations leaves hazards unexamined.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pro-5-lop",
+   "type": "multiselect",
+   "title": "Layers of Protection",
+   "prompt": "Select independent protection layers.",
+   "options": [
+    "Safety instrumented system",
+    "Relief valve",
+    "Process alarm with operator response",
+    "A written reminder only",
+    "A hope that nothing fails"
+   ],
+   "correctIndices": [
+    0,
+    1,
+    2
+   ],
+   "xp": 45,
+   "reasoning": "Independent layers reduce risk.",
+   "tip": "Layers must be independent.",
+   "mistake": "Counting the same device twice overstates safety.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "pro-6-find",
+   "type": "text",
+   "title": "HAZOP Finding",
+   "prompt": "Write a 3-5 sentence HAZOP finding for 'no flow' to the separator.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "Deviation: no flow from the liquid outlet. Causes include a closed valve or pump trip; consequence is high level in the separator and liquid carry-over to the compressor. Safeguards: high-level alarm and a trip. Recommendation: confirm the trip is independent of the level controller and add a periodic proof test. Action owner: instrument engineer.",
+   "reasoning": "A good HAZOP finding lists deviation, cause, consequence, safeguard and action.",
+   "tip": "Cause, consequence, safeguard, action.",
+   "mistake": "Findings without owners aren't closed.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Balance That Didn't Close",
+  "background": "A project ignored a 6% mass balance gap. A flow meter was mis-scaled and the separator was undersized, requiring a costly retrofit.",
+  "client": "Gas operator",
+  "budget": "€3M retrofit",
+  "timeline": "Found at commissioning",
+  "challenges": "The gap was dismissed as measurement noise.",
+  "constraints": "No data validation.",
+  "questions": [
+   "Why is a gap important?",
+   "How would you investigate?",
+   "What should be documented?"
+  ],
+  "solution": "Hartmann requires balance closure within 2% before design freeze.",
+  "lessonsLearned": "Don't design on data that doesn't close."
+ },
+ "quiz": [
+  {
+   "q": "Mass balance states:",
+   "options": [
+    "In is greater",
+    "Out is zero",
+    "Nothing",
+    "In equals out at steady state"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Hydraulic power uses:",
+   "options": [
+    "Q / H",
+    "rho x g x Q x H",
+    "H / rho",
+    "g only"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "HAZOP examines:",
+   "options": [
+    "Costs",
+    "Staffing",
+    "Colours",
+    "Deviations from design intent"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Layers of protection must be:",
+   "options": [
+    "Identical",
+    "Independent",
+    "Hidden",
+    "Unnecessary"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "A balance gap was ignored",
+    "Pumps were small",
+    "Pipes were short",
+    "Gas was cheap"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "What would you check first if the balance didn't close?",
+   "How do you decide a safeguard is independent?",
+   "What belongs in a design basis?"
+  ]
+ },
+ "certificate": {
+  "name": "Oil & Gas Process Engineer — Balances & Process Safety",
+  "nameAz": "Neft və Qaz Proses Mühəndisi — Balans və Proses Təhlükəsizliyi",
+  "totalXp": 250
+ }
+}

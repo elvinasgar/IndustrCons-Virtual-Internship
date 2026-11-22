@@ -1,0 +1,244 @@
+{
+ "id": "operations-manager-atlas",
+ "title": "Operations Manager",
+ "companyId": "atlas-manufacturing",
+ "category": "Operations",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "OPS-082",
+ "skills": [
+  "OEE & Capacity",
+  "Takt Time",
+  "Bottleneck Management"
+ ],
+ "companyIntro": {
+  "name": "Atlas Manufacturing",
+  "country": "South Korea",
+  "founded": 1999,
+  "mission": "World-class manufacturing discipline — every defect has a root cause, and every root cause gets fixed once, not patched repeatedly.",
+  "culture": "Lean-first and data-driven. Line staff and engineers alike are expected to know their process' current defect rate from memory.",
+  "projects": [
+   "Precision Components Line 4 Upgrade",
+   "Atlas EV Battery Housing Plant",
+   "Regional Distribution Hub"
+  ]
+ },
+ "projectBackground": {
+  "name": "Line 3 Performance Recovery",
+  "client": "Atlas internal operations",
+  "location": "Busan, on-site",
+  "budget": "Improvement budget: ₩120M",
+  "timeline": "Targets due by month-end",
+  "context": "Line 3 misses its weekly output. Management wants to know where the lost capacity actually goes."
+ },
+ "manager": {
+  "name": "Min-jun Park",
+  "role": "Plant Operations Director, Atlas Manufacturing",
+  "note": "Don't tell me the line is slow; tell me which losses are costing us units and which we can fix first."
+ },
+ "assignment": {
+  "title": "Find and recover the lost capacity",
+  "brief": "Calculate OEE, utilisation and takt, identify the bottleneck and write a shift plan."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Line 3 Metrics",
+   "type": "Dashboard",
+   "note": "Availability 90%, performance 95%, quality 98%."
+  },
+  {
+   "id": "doc-2",
+   "name": "Demand and Capacity",
+   "type": "Plan",
+   "note": "Weekly demand 4,800 units; capacity 6,000."
+  },
+  {
+   "id": "doc-3",
+   "name": "Shift Schedule",
+   "type": "Roster",
+   "note": "450 productive minutes per day; daily demand 225 units."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "ops-1-oee",
+   "type": "numeric",
+   "title": "OEE",
+   "prompt": "Availability 90%, performance 95%, quality 98%. What is OEE (%)?",
+   "answer": 83.8,
+   "tolerance": 0.3,
+   "unit": "% OEE",
+   "xp": 40,
+   "workingNote": "0.90 x 0.95 x 0.98 = 0.8379.",
+   "reasoning": "OEE multiplies the three loss categories.",
+   "tip": "Report each factor, not just OEE.",
+   "mistake": "Averaging the factors gives 94.3%, which is wrong.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ops-2-util",
+   "type": "numeric",
+   "title": "Capacity Utilisation",
+   "prompt": "Weekly demand is 4,800 units and capacity is 6,000. What is utilisation (%)?",
+   "answer": 80,
+   "tolerance": 0.5,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "4,800 / 6,000 = 80%.",
+   "reasoning": "Utilisation shows headroom.",
+   "tip": "Utilisation above 85% hurts flexibility.",
+   "mistake": "Running at 100% leaves no room for variation.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ops-3-takt",
+   "type": "numeric",
+   "title": "Takt Time",
+   "prompt": "450 productive minutes per day and 225 units of daily demand. What is takt time in minutes per unit?",
+   "answer": 2,
+   "tolerance": 0.02,
+   "unit": "minutes per unit",
+   "xp": 35,
+   "workingNote": "450 / 225 = 2.",
+   "reasoning": "Takt is the pace needed to meet demand.",
+   "tip": "Compare takt to cycle time per station.",
+   "mistake": "Using total shift time including breaks understates takt.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ops-4-bottleneck",
+   "type": "mcq",
+   "title": "Bottleneck",
+   "prompt": "Where should improvement effort go first?",
+   "options": [
+    "At the fastest station",
+    "Wherever it's cheapest",
+    "At the bottleneck station that limits the whole line",
+    "At the office"
+   ],
+   "correctIndex": 2,
+   "xp": 40,
+   "reasoning": "Output is limited by the constraint; improving elsewhere changes nothing.",
+   "tip": "Find the constraint first.",
+   "mistake": "Improving non-bottlenecks creates inventory, not output.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ops-5-loss",
+   "type": "multiselect",
+   "title": "Reducing Downtime",
+   "prompt": "Select actions that reduce availability losses.",
+   "options": [
+    "Introduce preventive maintenance",
+    "Reduce operator training",
+    "Ignore small stops",
+    "Standardise changeover procedures",
+    "Record stop reasons by category"
+   ],
+   "correctIndices": [
+    0,
+    3,
+    4
+   ],
+   "xp": 40,
+   "reasoning": "Understanding and attacking stops raises availability.",
+   "tip": "Track stop reasons.",
+   "mistake": "Ignoring small stops hides cumulative loss.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ops-6-plan",
+   "type": "text",
+   "title": "Shift Plan",
+   "prompt": "Write a 3-5 sentence plan for the next shift to recover capacity.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "Next shift we focus on the packing station, the constraint, with a 2 minute takt target. We will standardise the changeover with a checklist and record every stop over two minutes by reason. Preventive maintenance on the packing sealer moves to the start of the shift. Output, OEE and top three stop reasons will be reviewed at the end of shift.",
+   "reasoning": "A good plan targets the constraint, names actions and measures results.",
+   "tip": "Constraint, actions, measures.",
+   "mistake": "Spreading effort thinly across the line yields no gain.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Fast Machine",
+  "background": "A plant bought a faster filling machine, but output didn't change. Packing, the true bottleneck, couldn't keep up and inventory built up.",
+  "client": "Food manufacturer",
+  "budget": "₩300M wasted investment",
+  "timeline": "Seen after commissioning",
+  "challenges": "No constraint analysis was done.",
+  "constraints": "Improvement was bought, not analysed.",
+  "questions": [
+   "Why did output not increase?",
+   "What analysis would have helped?",
+   "How should investment be justified?"
+  ],
+  "solution": "Atlas required a constraint study before any capital request.",
+  "lessonsLearned": "Improve the constraint, not the convenient."
+ },
+ "quiz": [
+  {
+   "q": "OEE equals:",
+   "options": [
+    "Sum of the three",
+    "Average",
+    "Availability x performance x quality",
+    "Max"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Takt time is:",
+   "options": [
+    "Demand / time",
+    "Available time / demand",
+    "Cycle time",
+    "Cost"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Utilisation of 80% means:",
+   "options": [
+    "Demand is 80% of capacity",
+    "80% defects",
+    "80% profit",
+    "80% staff"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "The bottleneck:",
+   "options": [
+    "Limits total output",
+    "Is fastest",
+    "Is irrelevant",
+    "Is cheapest"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "In the case study output didn't rise because:",
+   "options": [
+    "Machines were slow",
+    "No demand",
+    "The bottleneck was elsewhere",
+    "No staff"
+   ],
+   "correctIndex": 2
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which loss would you tackle first?",
+   "How do you explain OEE to operators?",
+   "How do you justify an improvement budget?"
+  ]
+ },
+ "certificate": {
+  "name": "Operations Manager — OEE, Takt & Constraints",
+  "nameAz": "Əməliyyat Meneceri — OEE, Takt və Məhdudiyyətlər",
+  "totalXp": 240
+ }
+}

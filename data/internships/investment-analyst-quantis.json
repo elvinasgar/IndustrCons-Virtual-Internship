@@ -1,0 +1,312 @@
+{
+ "id": "investment-analyst-quantis",
+ "title": "Investment Analyst",
+ "companyId": "quantis-capital",
+ "category": "Investment Analysis",
+ "difficulty": "Advanced",
+ "durationHours": 8,
+ "drawingTag": "INV-087",
+ "skills": [
+  "Discounted Cash Flow",
+  "Valuation Multiples",
+  "Investment Recommendation"
+ ],
+ "companyIntro": {
+  "name": "Quantis Capital",
+  "country": "Switzerland",
+  "founded": 2008,
+  "mission": "Give mid-sized businesses institutional-grade financial planning, credit and compliance discipline.",
+  "culture": "Numbers must tie out and every assumption must be written down. Analysts are expected to defend their model line by line.",
+  "projects": [
+   "Orion SaaS Reforecast",
+   "Meridian Credit Facility Review",
+   "Alpine Retail Bank AML Uplift"
+  ]
+ },
+ "projectBackground": {
+  "name": "Equity Research — Northern Packaging plc",
+  "client": "Quantis investment committee",
+  "location": "Zurich, remote",
+  "budget": "Position size: CHF 5M",
+  "timeline": "Committee on Thursday",
+  "context": "Northern Packaging trades at 15x earnings. Is it fairly valued against peers and its cash flows?"
+ },
+ "manager": {
+  "name": "Jonas Brandt",
+  "role": "Head of Investments, Quantis Capital",
+  "note": "I need a view, a valuation range and what would make you wrong."
+ },
+ "assignment": {
+  "title": "Value Northern Packaging and recommend",
+  "brief": "Discount cash flows, compute multiples, compare peers in Excel and write the recommendation."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Forecast Cash Flows",
+   "type": "Model",
+   "note": "Free cash flow: 100, 110 and 121 over three years; discount rate 10%."
+  },
+  {
+   "id": "doc-2",
+   "name": "Market Data",
+   "type": "Market",
+   "note": "Price 45; EPS 3; market cap 800; debt 300; cash 100; EBITDA 125."
+  },
+  {
+   "id": "doc-3",
+   "name": "Peer Table",
+   "type": "Comps",
+   "note": "Three peers with price, EPS, EV and EBITDA."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "inv-1-pv",
+   "type": "numeric",
+   "title": "Present Value",
+   "prompt": "Discount cash flows of 100 (year 1), 110 (year 2) and 121 (year 3) at 10%. What is the total present value?",
+   "answer": 272.7,
+   "tolerance": 0.5,
+   "unit": "currency units",
+   "xp": 45,
+   "workingNote": "100/1.1 + 110/1.21 + 121/1.331 = 90.91 + 90.91 + 90.91 = 272.73.",
+   "reasoning": "DCF values future cash at today's money.",
+   "tip": "Show the discount factors.",
+   "mistake": "Summing undiscounted cash gives 331, which overstates value.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "inv-2-pe",
+   "type": "numeric",
+   "title": "P/E Ratio",
+   "prompt": "Share price 45 and EPS 3. What is the P/E?",
+   "answer": 15,
+   "tolerance": 0.1,
+   "unit": "x",
+   "xp": 30,
+   "workingNote": "45 / 3 = 15.",
+   "reasoning": "P/E compares price to earnings.",
+   "tip": "Compare to peers and growth.",
+   "mistake": "A low P/E is not automatically cheap.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "inv-3-ev",
+   "type": "numeric",
+   "title": "EV/EBITDA",
+   "prompt": "Market cap 800, debt 300, cash 100, EBITDA 125. What is EV/EBITDA?",
+   "answer": 8,
+   "tolerance": 0.05,
+   "unit": "x",
+   "xp": 45,
+   "workingNote": "EV = 800 + 300 - 100 = 1,000; 1,000/125 = 8.0.",
+   "reasoning": "EV includes debt less cash.",
+   "tip": "Use consistent EBITDA definitions.",
+   "mistake": "Using market cap alone ignores leverage.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "inv-4-sens",
+   "type": "mcq",
+   "title": "Discount Rate Sensitivity",
+   "prompt": "A small rise in the discount rate cuts value sharply for a long-duration business. Why?",
+   "options": [
+    "Cash flows disappear",
+    "Distant cash flows are discounted more heavily",
+    "Taxes rise",
+    "Revenue falls"
+   ],
+   "correctIndex": 1,
+   "xp": 40,
+   "reasoning": "Value of later cash is more sensitive to the rate.",
+   "tip": "Always run a sensitivity table.",
+   "mistake": "A single-point estimate hides the range.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "inv-5-comps",
+   "type": "excel-upload",
+   "title": "Peer Multiples (Excel)",
+   "prompt": "Calculate P/E (D = B / C) and EV/EBITDA (G = E / F) for the three peers and upload.",
+   "xp": 70,
+   "template": {
+    "fileName": "Comps-Template.xlsx",
+    "sheetName": "Comps",
+    "headers": [
+     "Company",
+     "Share Price",
+     "EPS",
+     "P/E",
+     "EV",
+     "EBITDA",
+     "EV/EBITDA"
+    ],
+    "rows": [
+     [
+      "Alpha Pack",
+      "30",
+      "2",
+      "",
+      "900",
+      "100",
+      ""
+     ],
+     [
+      "Beta Pack",
+      "48",
+      "3",
+      "",
+      "1600",
+      "160",
+      ""
+     ],
+     [
+      "Gamma Pack",
+      "20",
+      "2.5",
+      "",
+      "500",
+      "125",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 15,
+     "tolerance": 0.05,
+     "label": "Alpha P/E"
+    },
+    {
+     "cell": "D3",
+     "expected": 16,
+     "tolerance": 0.05,
+     "label": "Beta P/E"
+    },
+    {
+     "cell": "D4",
+     "expected": 8,
+     "tolerance": 0.05,
+     "label": "Gamma P/E"
+    },
+    {
+     "cell": "G2",
+     "expected": 9,
+     "tolerance": 0.05,
+     "label": "Alpha EV/EBITDA"
+    },
+    {
+     "cell": "G3",
+     "expected": 10,
+     "tolerance": 0.05,
+     "label": "Beta EV/EBITDA"
+    },
+    {
+     "cell": "G4",
+     "expected": 4,
+     "tolerance": 0.05,
+     "label": "Gamma EV/EBITDA"
+    }
+   ],
+   "reasoning": "Peer multiples frame whether the target looks cheap or expensive.",
+   "tip": "Compare like with like.",
+   "mistake": "Mixing different year earnings misleads.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "inv-6-rec",
+   "type": "text",
+   "title": "Recommendation",
+   "prompt": "Write a 3-5 sentence recommendation on Northern Packaging.",
+   "minLength": 120,
+   "xp": 60,
+   "modelAnswer": "I recommend a hold. At 15x earnings and 8x EV/EBITDA the shares trade in line with peers (9x, 10x, 4x), and the DCF of about 273 on three years of cash flow supports the current price only if growth continues. The main risk is a higher discount rate or weaker volume, which would cut value materially. I would add on a pullback toward 12x earnings, and revisit after the next results.",
+   "reasoning": "A good recommendation gives a view, valuation evidence, key risk and a trigger.",
+   "tip": "View, evidence, risk, trigger.",
+   "mistake": "A number without a view isn't a recommendation.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Cheap Stock",
+  "background": "An analyst bought a company at 6x earnings because it looked cheap. A debt-heavy balance sheet and falling margins meant earnings collapsed and the shares halved.",
+  "client": "Equity fund",
+  "budget": "50% loss on the position",
+  "timeline": "Over 12 months",
+  "challenges": "Only P/E was used; leverage ignored.",
+  "constraints": "No sensitivity analysis.",
+  "questions": [
+   "Why was P/E misleading?",
+   "Which measure would you add?",
+   "What risks were missed?"
+  ],
+  "solution": "Quantis requires EV-based multiples, a balance sheet check and a downside case for every recommendation.",
+  "lessonsLearned": "Cheap can be cheap for a reason."
+ },
+ "quiz": [
+  {
+   "q": "DCF discounts:",
+   "options": [
+    "Past profits",
+    "Taxes",
+    "Prices",
+    "Future cash flows to today"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "P/E equals:",
+   "options": [
+    "EPS / price",
+    "Price / EPS",
+    "EV / EBITDA",
+    "Cash / debt"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "EV equals:",
+   "options": [
+    "Market cap only",
+    "Debt only",
+    "Market cap + debt - cash",
+    "Cash only"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Higher discount rate:",
+   "options": [
+    "Lowers value",
+    "Raises value",
+    "No effect",
+    "Cancels cash"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "The case study lost money because:",
+   "options": [
+    "Leverage was ignored",
+    "Taxes fell",
+    "Prices rose",
+    "Shares split"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which assumption drives your valuation most?",
+   "What would prove your recommendation wrong?",
+   "How do you pick peers?"
+  ]
+ },
+ "certificate": {
+  "name": "Investment Analyst — Valuation & Recommendation",
+  "nameAz": "İnvestisiya Analitiki — Qiymətləndirmə və Tövsiyə",
+  "totalXp": 290
+ }
+}

@@ -1,0 +1,311 @@
+{
+ "id": "maintenance-reliability-engineer-atlas",
+ "title": "Maintenance & Reliability Engineer",
+ "companyId": "atlas-manufacturing",
+ "category": "Maintenance & Reliability",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "MRE-094",
+ "skills": [
+  "MTBF & Availability",
+  "Preventive Maintenance",
+  "Criticality Analysis"
+ ],
+ "companyIntro": {
+  "name": "Atlas Manufacturing",
+  "country": "South Korea",
+  "founded": 1999,
+  "mission": "World-class manufacturing discipline — every defect has a root cause, and every root cause gets fixed once, not patched repeatedly.",
+  "culture": "Lean-first and data-driven. Line staff and engineers alike are expected to know their process' current defect rate from memory.",
+  "projects": [
+   "Precision Components Line 4 Upgrade",
+   "Atlas EV Battery Housing Plant",
+   "Regional Distribution Hub"
+  ]
+ },
+ "projectBackground": {
+  "name": "Pump Reliability Programme",
+  "client": "Atlas internal maintenance",
+  "location": "Busan, on-site",
+  "budget": "Programme budget: ₩50M",
+  "timeline": "Plan due next month",
+  "context": "Unplanned pump failures are the biggest cause of downtime. Maintenance asks where to focus first."
+ },
+ "manager": {
+  "name": "Soo-jin Han",
+  "role": "Reliability Manager, Atlas Manufacturing",
+  "note": "Don't maintain everything equally. Find what fails, what it costs and what you can prevent."
+ },
+ "assignment": {
+  "title": "Target the worst pumps",
+  "brief": "Compute MTBF and availability, rank assets in Excel, choose strategies and write the maintenance recommendation."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Failure Data",
+   "type": "CMMS Extract",
+   "note": "2,400 operating hours with 6 failures on one pump; average repair 8 hours."
+  },
+  {
+   "id": "doc-2",
+   "name": "Asset Register",
+   "type": "Register",
+   "note": "Three pumps with hours, failures and repair times."
+  },
+  {
+   "id": "doc-3",
+   "name": "Cost Data",
+   "type": "Finance",
+   "note": "Planned maintenance £2,000; unplanned failure £15,000."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "mre-1-mtbf",
+   "type": "numeric",
+   "title": "MTBF",
+   "prompt": "A pump ran 2,400 hours with 6 failures. What is MTBF (hours)?",
+   "answer": 400,
+   "tolerance": 1,
+   "unit": "hours",
+   "xp": 30,
+   "workingNote": "2,400 / 6 = 400.",
+   "reasoning": "MTBF is operating time over failures.",
+   "tip": "Use operating, not calendar, hours.",
+   "mistake": "Using calendar hours inflates MTBF.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mre-2-avail",
+   "type": "numeric",
+   "title": "Availability",
+   "prompt": "MTBF is 400 h and MTTR is 8 h. Availability = MTBF/(MTBF+MTTR). What is it (%)?",
+   "answer": 98.04,
+   "tolerance": 0.05,
+   "unit": "%",
+   "xp": 35,
+   "workingNote": "400 / 408 = 98.04%.",
+   "reasoning": "Availability combines how often and how long.",
+   "tip": "Report with MTTR.",
+   "mistake": "MTBF alone doesn't show downtime.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mre-3-strategy",
+   "type": "mcq",
+   "title": "Maintenance Strategy",
+   "prompt": "A pump has random failures and low-cost spare. A critical pump has wear that vibration monitoring can detect. Best strategy for the critical pump?",
+   "options": [
+    "Run to failure",
+    "Replace weekly",
+    "Ignore it",
+    "Condition-based maintenance using vibration monitoring"
+   ],
+   "correctIndex": 3,
+   "xp": 40,
+   "reasoning": "Condition-based maintenance acts on evidence of deterioration.",
+   "tip": "Match strategy to failure mode.",
+   "mistake": "Time-based replacement wastes useful life.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mre-4-cost",
+   "type": "mcq",
+   "title": "Cost Logic",
+   "prompt": "A planned repair costs £2,000 and a failure £15,000. A failure is expected twice a year without it. What does it suggest?",
+   "options": [
+    "Do nothing",
+    "Preventive maintenance is cost-effective",
+    "Buy more spares only",
+    "Close the plant"
+   ],
+   "correctIndex": 1,
+   "xp": 35,
+   "reasoning": "Expected failure cost of £30,000 exceeds prevention cost.",
+   "tip": "Compare expected costs.",
+   "mistake": "Ignoring failure cost underinvests.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mre-5-assets",
+   "type": "excel-upload",
+   "title": "Asset Reliability (Excel)",
+   "prompt": "MTBF (E = B / C) and availability % (F = E / (E + D) x 100). Upload for checking.",
+   "xp": 65,
+   "template": {
+    "fileName": "Assets-Template.xlsx",
+    "sheetName": "Assets",
+    "headers": [
+     "Asset",
+     "Operating Hours",
+     "Failures",
+     "MTTR (h)",
+     "MTBF (h)",
+     "Availability (%)"
+    ],
+    "rows": [
+     [
+      "Pump P1",
+      "3000",
+      "5",
+      "6",
+      "",
+      ""
+     ],
+     [
+      "Pump P2",
+      "2000",
+      "8",
+      "10",
+      "",
+      ""
+     ],
+     [
+      "Pump P3",
+      "1500",
+      "3",
+      "4",
+      "",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "E2",
+     "expected": 600,
+     "tolerance": 0.5,
+     "label": "P1 MTBF"
+    },
+    {
+     "cell": "E3",
+     "expected": 250,
+     "tolerance": 0.5,
+     "label": "P2 MTBF"
+    },
+    {
+     "cell": "E4",
+     "expected": 500,
+     "tolerance": 0.5,
+     "label": "P3 MTBF"
+    },
+    {
+     "cell": "F2",
+     "expected": 99.01,
+     "tolerance": 0.05,
+     "label": "P1 availability"
+    },
+    {
+     "cell": "F3",
+     "expected": 96.15,
+     "tolerance": 0.05,
+     "label": "P2 availability"
+    },
+    {
+     "cell": "F4",
+     "expected": 99.21,
+     "tolerance": 0.05,
+     "label": "P3 availability"
+    }
+   ],
+   "reasoning": "P2 is the worst performer: lowest MTBF and availability.",
+   "tip": "Rank by impact on production.",
+   "mistake": "Treating all pumps alike wastes effort.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "mre-6-rec",
+   "type": "text",
+   "title": "Maintenance Recommendation",
+   "prompt": "Write a 3-5 sentence recommendation on where to focus first.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "Pump P2 has the lowest MTBF (250 h) and availability (96.15%), so it deserves the first reliability review: root cause analysis of its 8 failures and a vibration monitoring trial. P1 and P3 can stay on current preventive schedules. With failures costing £15,000 against £2,000 planned work, prevention pays back quickly. I will report MTBF and availability monthly to confirm the improvement.",
+   "reasoning": "A good recommendation ranks assets, proposes actions and justifies with cost.",
+   "tip": "Rank, action, justification.",
+   "mistake": "Treating every asset alike spreads effort too thin.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Fix-It-Again Pump",
+  "background": "A pump failed every two months and was repaired each time without root cause analysis. A bearing misalignment was finally found after 14 failures and £210,000 of downtime.",
+  "client": "Industrial client",
+  "budget": "£210,000",
+  "timeline": "Over two years",
+  "challenges": "Repairs were treated as the end of the job.",
+  "constraints": "No failure analysis.",
+  "questions": [
+   "Why did failures repeat?",
+   "What would you do after the second failure?",
+   "How should repeat failures be flagged?"
+  ],
+  "solution": "Atlas triggered mandatory root cause analysis after any repeat failure within 90 days.",
+  "lessonsLearned": "Fix causes, not symptoms."
+ },
+ "quiz": [
+  {
+   "q": "MTBF is:",
+   "options": [
+    "Operating time / failures",
+    "Failures / time",
+    "Repair time",
+    "Cost"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Availability uses:",
+   "options": [
+    "Cost only",
+    "Staff",
+    "Colour",
+    "MTBF and MTTR"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Condition-based maintenance acts on:",
+   "options": [
+    "Evidence of deterioration",
+    "The calendar only",
+    "Rumours",
+    "Budget"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Repeat failures need:",
+   "options": [
+    "More paint",
+    "Silence",
+    "Root cause analysis",
+    "A bigger budget"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Root cause was never found",
+    "Parts were cheap",
+    "Staff were few",
+    "Pumps were new"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which asset would you attack first and why?",
+   "How do you decide between preventive and condition-based?",
+   "What data would you collect?"
+  ]
+ },
+ "certificate": {
+  "name": "Maintenance & Reliability Engineer — Availability & Strategy",
+  "nameAz": "Texniki Xidmət və Etibarlılıq Mühəndisi — Hazırlıq və Strategiya",
+  "totalXp": 260
+ }
+}
