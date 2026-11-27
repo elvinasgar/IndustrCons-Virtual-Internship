@@ -1,0 +1,288 @@
+{
+ "id": "ip-trademark-specialist-lexora",
+ "title": "IP & Trademark Specialist",
+ "companyId": "lexora-ip",
+ "category": "Intellectual Property",
+ "difficulty": "Intermediate",
+ "durationHours": 6,
+ "drawingTag": "IPL-129",
+ "skills": [
+  "Royalty Calculation",
+  "Trademark Strength",
+  "Clearance Search"
+ ],
+ "companyIntro": {
+  "name": "Lexora IP Advisors",
+  "country": "Netherlands",
+  "founded": 2009,
+  "mission": "Protect and license brands and inventions so clients earn from what they create.",
+  "culture": "Deadlines are law. File early, record everything, license with clear terms.",
+  "projects": [
+   "Global Trademark Portfolio",
+   "Technology Licensing Deal",
+   "Brand Enforcement Programme"
+  ]
+ },
+ "projectBackground": {
+  "name": "Technology Licensing Deal — Zorvix",
+  "client": "Zorvix Ltd",
+  "location": "Amsterdam, remote",
+  "budget": "Licence value: up to 150,000 per year",
+  "timeline": "Term sheet in two weeks",
+  "context": "Zorvix licenses its brand to distributors and has received a complaint about a similar mark. You support both. (Educational scenario, not legal advice.)"
+ },
+ "manager": {
+  "name": "Sofia van Dijk",
+  "role": "Head of IP, Lexora IP Advisors",
+  "note": "Deadlines are law. Protect the brand early and write licences so nobody argues about the money."
+ },
+ "assignment": {
+  "title": "Protect and license the brand",
+  "brief": "Compute royalties and renewal budgets, judge mark strength, build a royalty statement and reply to an infringement complaint."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Licence Terms",
+   "type": "Agreement",
+   "note": "Royalty 5% of net sales; minimum guarantee 120,000 a year."
+  },
+  {
+   "id": "doc-2",
+   "name": "Portfolio",
+   "type": "List",
+   "note": "40 marks to renew at 350 each; agent fee 15%."
+  },
+  {
+   "id": "doc-3",
+   "name": "Complaint",
+   "type": "Letter",
+   "note": "Competitor claims 'Zorvyx' is confusingly similar."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "ipl-1-roy",
+   "type": "numeric",
+   "title": "Royalty Payable",
+   "prompt": "Net sales 2,000,000 at 5%, with a minimum guarantee of 120,000. What is the royalty payable?",
+   "answer": 120000,
+   "tolerance": 100,
+   "unit": "currency units",
+   "xp": 40,
+   "workingNote": "5% x 2,000,000 = 100,000, below the 120,000 minimum, so 120,000 is payable.",
+   "reasoning": "Minimum guarantees protect the licensor.",
+   "tip": "Read how shortfalls are treated.",
+   "mistake": "Paying only the percentage ignores the minimum.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ipl-2-renew",
+   "type": "numeric",
+   "title": "Renewal Budget",
+   "prompt": "40 marks at 350 each, plus a 15% agent fee. What is the total?",
+   "answer": 16100,
+   "tolerance": 5,
+   "unit": "currency units",
+   "xp": 30,
+   "workingNote": "40 x 350 = 14,000; x 1.15 = 16,100.",
+   "reasoning": "Budget renewals early.",
+   "tip": "Calendar deadlines.",
+   "mistake": "Missing a renewal can lose the right.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ipl-3-clear",
+   "type": "mcq",
+   "title": "Clearance Search",
+   "prompt": "Why run a clearance search before filing a trademark?",
+   "options": [
+    "To pay lower fees",
+    "To skip examination",
+    "To avoid renewal",
+    "To find conflicting marks and reduce refusal or infringement risk"
+   ],
+   "correctIndex": 3,
+   "xp": 35,
+   "reasoning": "Search lowers risk.",
+   "tip": "Search similar goods and sounds.",
+   "mistake": "Filing without searching risks costly disputes.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ipl-4-strong",
+   "type": "multiselect",
+   "title": "Strong Marks",
+   "prompt": "Select strong trademark candidates.",
+   "options": [
+    "Arbitrary word used unrelated to the goods",
+    "Purely descriptive phrase",
+    "Generic word for the goods",
+    "Coined word such as 'Zorvix'"
+   ],
+   "correctIndices": [
+    0,
+    3
+   ],
+   "xp": 35,
+   "reasoning": "Distinctive marks are easier to protect.",
+   "tip": "Avoid describing the product.",
+   "mistake": "Descriptive marks are often refused.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ipl-5-stmt",
+   "type": "excel-upload",
+   "title": "Royalty Statement (Excel)",
+   "prompt": "Royalty in column D = net sales x rate % / 100.",
+   "xp": 55,
+   "template": {
+    "fileName": "Royalty-Template.xlsx",
+    "sheetName": "Statement",
+    "headers": [
+     "Licensee",
+     "Net Sales",
+     "Rate %",
+     "Royalty"
+    ],
+    "rows": [
+     [
+      "Licensee A",
+      "800000",
+      "5",
+      ""
+     ],
+     [
+      "Licensee B",
+      "1500000",
+      "4",
+      ""
+     ],
+     [
+      "Licensee C",
+      "400000",
+      "6",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 40000,
+     "tolerance": 1,
+     "label": "Licensee A"
+    },
+    {
+     "cell": "D3",
+     "expected": 60000,
+     "tolerance": 1,
+     "label": "Licensee B"
+    },
+    {
+     "cell": "D4",
+     "expected": 24000,
+     "tolerance": 1,
+     "label": "Licensee C"
+    }
+   ],
+   "reasoning": "Total royalties are 124,000.",
+   "tip": "Check each rate against its contract.",
+   "mistake": "Applying one rate to all licensees misstates income.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "ipl-6-reply",
+   "type": "text",
+   "title": "Reply to Complaint",
+   "prompt": "Write a 3-5 sentence reply to an infringement complaint that does not admit liability.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "Thank you for your letter of 10 November. We have reviewed the marks and do not agree that 'Zorvyx' is confusingly similar to our client's registered mark, but we take the concern seriously. We propose a call to discuss the goods, markets and any coexistence terms. This letter is written without prejudice and without admission of liability. Please respond by 24 November.",
+   "reasoning": "A good reply is measured, preserves the position and invites dialogue.",
+   "tip": "Acknowledge, position, propose, deadline.",
+   "mistake": "Admitting liability too early weakens the position.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Missed Renewal",
+  "background": "A company forgot to renew its main trademark. A competitor filed first and the company paid 400,000 to buy back the rights.",
+  "client": "Brand owner",
+  "budget": "400,000",
+  "timeline": "One filing",
+  "challenges": "No renewal calendar.",
+  "constraints": "Rights were held by different teams.",
+  "questions": [
+   "Why was it missed?",
+   "What system prevents it?",
+   "Who should own deadlines?"
+  ],
+  "solution": "Lexora introduced a central docket with 12-month reminders.",
+  "lessonsLearned": "Docket every deadline."
+ },
+ "quiz": [
+  {
+   "q": "Minimum guarantee:",
+   "options": [
+    "Floor on royalty",
+    "Maximum",
+    "Tax",
+    "Fee"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Strong marks are:",
+   "options": [
+    "Distinctive",
+    "Descriptive",
+    "Generic",
+    "Common"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Clearance is:",
+   "options": [
+    "Filing",
+    "Searching for conflicts",
+    "Selling",
+    "Renewing"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Renewals need:",
+   "options": [
+    "Luck",
+    "Silence",
+    "Delay",
+    "A docket"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "The case study lost because:",
+   "options": [
+    "Low fees",
+    "The renewal was missed",
+    "Strong team",
+    "Good law"
+   ],
+   "correctIndex": 1
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "How would you protect a new brand?",
+   "What would you check in a licence?",
+   "How do you reply to a demand letter?"
+  ]
+ },
+ "certificate": {
+  "name": "IP & Trademark Specialist — Royalties & Brand Protection",
+  "nameAz": "Əqli Mülkiyyət və Əmtəə Nişanı Mütəxəssisi — Royalti və Marka Mühafizəsi",
+  "totalXp": 245
+ }
+}

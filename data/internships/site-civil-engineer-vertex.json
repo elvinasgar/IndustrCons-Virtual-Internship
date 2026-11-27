@@ -1,0 +1,282 @@
+{
+ "id": "site-civil-engineer-vertex",
+ "title": "Site Civil Engineer",
+ "companyId": "vertex-infrastructure",
+ "category": "Site Engineering",
+ "difficulty": "Beginner",
+ "durationHours": 6,
+ "drawingTag": "CSE-125",
+ "skills": [
+  "Quantities & Concrete",
+  "Earthworks",
+  "Site Quality Control"
+ ],
+ "companyIntro": {
+  "name": "Vertex Infrastructure",
+  "country": "Norway",
+  "founded": 1994,
+  "mission": "Design and deliver bridges and railways that last a century and cost less to keep.",
+  "culture": "Load paths, tolerances and inspection records are non-negotiable. Every assumption is checked by a second engineer.",
+  "projects": [
+   "Fjord Crossing Viaduct",
+   "Regional Rail Upgrade",
+   "Depot Electrification"
+  ]
+ },
+ "projectBackground": {
+  "name": "Regional Depot Building — Foundations",
+  "client": "Regional Transport Authority",
+  "location": "Oslo, on-site",
+  "budget": "Foundation package: 1,800,000",
+  "timeline": "Pour next Tuesday",
+  "context": "You support the site manager on foundations. Quantities and quality records must be right before pours."
+ },
+ "manager": {
+  "name": "Ingrid Solberg",
+  "role": "Site Manager, Vertex Infrastructure",
+  "note": "Right quantity, right quality, written down. If it's not recorded it didn't happen."
+ },
+ "assignment": {
+  "title": "Control quantities and quality on site",
+  "brief": "Calculate concrete and haulage, check cube results in Excel and write a non-conformance report."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Drawings",
+   "type": "Drawing",
+   "note": "Slab 20 m x 12 m x 0.25 m; excavation 30 m x 10 m x 2.5 m."
+  },
+  {
+   "id": "doc-2",
+   "name": "Earthworks Notes",
+   "type": "Spec",
+   "note": "Bulking factor 25%; trucks carry 10 m3 loose."
+  },
+  {
+   "id": "doc-3",
+   "name": "Test Results",
+   "type": "Lab",
+   "note": "Three 150 mm cubes crushed at 28 days."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "cse-1-conc",
+   "type": "numeric",
+   "title": "Concrete Order",
+   "prompt": "Slab 20 m x 12 m x 0.25 m, with 5% waste allowance. What volume should you order (m3)?",
+   "answer": 63,
+   "tolerance": 0.2,
+   "unit": "m3",
+   "xp": 30,
+   "workingNote": "20 x 12 x 0.25 = 60; x 1.05 = 63.",
+   "reasoning": "Order slightly over to avoid shortfall.",
+   "tip": "Check formwork dimensions.",
+   "mistake": "Ordering exact volume risks a cold joint.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cse-2-bulk",
+   "type": "numeric",
+   "title": "Loose Volume",
+   "prompt": "Excavating 30 m x 10 m x 2.5 m with 25% bulking. What is the loose volume to haul (m3)?",
+   "answer": 937.5,
+   "tolerance": 1,
+   "unit": "m3",
+   "xp": 35,
+   "workingNote": "750 x 1.25 = 937.5.",
+   "reasoning": "Soil expands when excavated.",
+   "tip": "Use the specified factor.",
+   "mistake": "Hauling bank volume underestimates trucks.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cse-3-trucks",
+   "type": "numeric",
+   "title": "Truck Loads",
+   "prompt": "Each truck carries 10 m3 loose. How many loads for 937.5 m3 (round up)?",
+   "answer": 94,
+   "tolerance": 0.5,
+   "unit": "loads",
+   "xp": 30,
+   "workingNote": "937.5 / 10 = 93.75, rounded up to 94.",
+   "reasoning": "Round up to whole loads.",
+   "tip": "Plan return trips.",
+   "mistake": "Rounding down leaves soil on site.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cse-4-slump",
+   "type": "mcq",
+   "title": "Slump Test",
+   "prompt": "What does a slump test check?",
+   "options": [
+    "Final strength",
+    "Workability of fresh concrete",
+    "Steel size",
+    "Soil moisture"
+   ],
+   "correctIndex": 1,
+   "xp": 30,
+   "reasoning": "Slump shows consistency before placing.",
+   "tip": "Test each delivery.",
+   "mistake": "Slump does not measure strength.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cse-5-cube",
+   "type": "excel-upload",
+   "title": "Cube Strength (Excel)",
+   "prompt": "Strength in column D (N/mm2) = load (kN) x 1000 / area (mm2).",
+   "xp": 55,
+   "template": {
+    "fileName": "Cube-Template.xlsx",
+    "sheetName": "Cubes",
+    "headers": [
+     "Cube",
+     "Load (kN)",
+     "Area (mm2)",
+     "Strength (N/mm2)"
+    ],
+    "rows": [
+     [
+      "Cube 1",
+      "765",
+      "22500",
+      ""
+     ],
+     [
+      "Cube 2",
+      "810",
+      "22500",
+      ""
+     ],
+     [
+      "Cube 3",
+      "720",
+      "22500",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 34,
+     "tolerance": 0.1,
+     "label": "Cube 1"
+    },
+    {
+     "cell": "D3",
+     "expected": 36,
+     "tolerance": 0.1,
+     "label": "Cube 2"
+    },
+    {
+     "cell": "D4",
+     "expected": 32,
+     "tolerance": 0.1,
+     "label": "Cube 3"
+    }
+   ],
+   "reasoning": "Average strength is 34 N/mm2.",
+   "tip": "Compare to the specified grade.",
+   "mistake": "Mixing kN and N gives values 1,000 times off.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cse-6-ncr",
+   "type": "text",
+   "title": "Non-Conformance Report",
+   "prompt": "Write a 3-5 sentence non-conformance report for cover to reinforcement found at 25 mm against a 40 mm specification.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "During pre-pour inspection of foundation F3 on Monday, cover to the bottom reinforcement measured 25 mm against the 40 mm specified. The pour was stopped and the area isolated. Spacers will be replaced and the reinforcement re-inspected before release. I recommend a toolbox talk on spacer use and a recheck of adjacent foundations.",
+   "reasoning": "A good NCR states what, where, the requirement, the action and prevention.",
+   "tip": "What, where, spec, action, prevention.",
+   "mistake": "Vague reports delay fixes.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Short Cover",
+  "background": "A slab was poured with 20 mm cover instead of 40 mm. Cores later showed corrosion risk and a 300,000 repair.",
+  "client": "Contractor",
+  "budget": "300,000 repair",
+  "timeline": "After handover",
+  "challenges": "No cover check before pour.",
+  "constraints": "Rushed inspection.",
+  "questions": [
+   "Why was it missed?",
+   "What check would prevent it?",
+   "Who signs off?"
+  ],
+  "solution": "Vertex added cover meters and sign-offs before every pour.",
+  "lessonsLearned": "Check before you pour."
+ },
+ "quiz": [
+  {
+   "q": "Bulking means:",
+   "options": [
+    "Soil shrinks",
+    "Concrete sets",
+    "Soil expands when dug",
+    "Steel bends"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Concrete volume:",
+   "options": [
+    "L + W",
+    "Area",
+    "Weight",
+    "L x W x depth"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Cube strength:",
+   "options": [
+    "Area / load",
+    "Load x area",
+    "Load / area",
+    "Slump"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Slump measures:",
+   "options": [
+    "Strength",
+    "Cover",
+    "Workability",
+    "Cost"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Cover wasn't checked",
+    "Weather",
+    "Strong design",
+    "Low cost"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "What would you check before every pour?",
+   "How do you record a problem?",
+   "When do you stop work?"
+  ]
+ },
+ "certificate": {
+  "name": "Site Civil Engineer — Quantities & Quality",
+  "nameAz": "Sahə Mülki Mühəndisi — Həcmlər və Keyfiyyət",
+  "totalXp": 230
+ }
+}

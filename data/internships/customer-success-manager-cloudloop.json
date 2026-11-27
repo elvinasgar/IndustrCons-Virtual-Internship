@@ -1,0 +1,282 @@
+{
+ "id": "customer-success-manager-cloudloop",
+ "title": "Customer Success Manager",
+ "companyId": "cloudloop-saas",
+ "category": "Customer Success",
+ "difficulty": "Intermediate",
+ "durationHours": 6,
+ "drawingTag": "CSM-130",
+ "skills": [
+  "Churn & NRR",
+  "Customer Lifetime Value",
+  "Health Scoring"
+ ],
+ "companyIntro": {
+  "name": "CloudLoop Software",
+  "country": "United States",
+  "founded": 2016,
+  "mission": "Make customers successful so they renew, expand and recommend us.",
+  "culture": "Retention is a team sport. Health scores drive action, not reports.",
+  "projects": [
+   "Enterprise Onboarding Revamp",
+   "Renewal Risk Programme",
+   "Customer Health Scoring"
+  ]
+ },
+ "projectBackground": {
+  "name": "Renewal Risk Programme",
+  "client": "CloudLoop Software",
+  "location": "Austin, remote",
+  "budget": "Book of business: 250,000 ARR",
+  "timeline": "Renewals in 60 days",
+  "context": "Several accounts look unhappy and renewals are close. Leadership wants a forecast and a save plan."
+ },
+ "manager": {
+  "name": "Rachel Kim",
+  "role": "VP Customer Success, CloudLoop Software",
+  "note": "Don't wait for the renewal call. Watch health, talk early, and show value."
+ },
+ "assignment": {
+  "title": "Save and grow accounts",
+  "brief": "Calculate churn, NRR and LTV, weight the renewal pipeline in Excel and write a renewal-risk plan."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Customer Base",
+   "type": "Report",
+   "note": "500 customers at the start of the year; 25 lost."
+  },
+  {
+   "id": "doc-2",
+   "name": "MRR Movement",
+   "type": "Report",
+   "note": "Start MRR 100,000; expansion 12,000; contraction 3,000; churn 5,000."
+  },
+  {
+   "id": "doc-3",
+   "name": "Unit Economics",
+   "type": "Sheet",
+   "note": "ARPA 200 a month; gross margin 80%; monthly churn 2%."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "csm-1-churn",
+   "type": "numeric",
+   "title": "Customer Churn",
+   "prompt": "500 customers at the start; 25 lost. What is churn (%)?",
+   "answer": 5,
+   "tolerance": 0.05,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "25 / 500 = 5%.",
+   "reasoning": "Churn shows retention.",
+   "tip": "Segment by cohort.",
+   "mistake": "Mixing new and old customers distorts churn.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "csm-2-nrr",
+   "type": "numeric",
+   "title": "Net Revenue Retention",
+   "prompt": "Start MRR 100,000; expansion 12,000; contraction 3,000; churn 5,000. What is NRR (%)?",
+   "answer": 104,
+   "tolerance": 0.2,
+   "unit": "%",
+   "xp": 40,
+   "workingNote": "(100,000 + 12,000 - 3,000 - 5,000) / 100,000 = 104%.",
+   "reasoning": "NRR above 100% means growth from existing customers.",
+   "tip": "Exclude new customers.",
+   "mistake": "Including new sales inflates NRR.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "csm-3-ltv",
+   "type": "numeric",
+   "title": "Customer Lifetime Value",
+   "prompt": "ARPA 200 a month, gross margin 80%, monthly churn 2%. What is LTV?",
+   "answer": 8000,
+   "tolerance": 10,
+   "unit": "currency units",
+   "xp": 35,
+   "workingNote": "200 x 0.8 / 0.02 = 8,000.",
+   "reasoning": "LTV guides how much to spend on retention.",
+   "tip": "Compare with acquisition cost.",
+   "mistake": "Using revenue instead of margin overstates LTV.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "csm-4-health",
+   "type": "mcq",
+   "title": "Health Score",
+   "prompt": "What is a good health score built from?",
+   "options": [
+    "Only the contract date",
+    "Only price",
+    "Usage, adoption, support and sentiment signals",
+    "Only the rep's opinion"
+   ],
+   "correctIndex": 2,
+   "xp": 30,
+   "reasoning": "Multiple signals predict risk.",
+   "tip": "Validate against past churn.",
+   "mistake": "One signal misses at-risk accounts.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "csm-5-pipe",
+   "type": "excel-upload",
+   "title": "Weighted Renewals (Excel)",
+   "prompt": "Weighted ARR in column D = ARR x probability % / 100.",
+   "xp": 55,
+   "template": {
+    "fileName": "Renewal-Template.xlsx",
+    "sheetName": "Renewals",
+    "headers": [
+     "Account",
+     "ARR",
+     "Renewal Probability %",
+     "Weighted ARR"
+    ],
+    "rows": [
+     [
+      "Acme",
+      "120000",
+      "90",
+      ""
+     ],
+     [
+      "Beta",
+      "80000",
+      "60",
+      ""
+     ],
+     [
+      "Gamma",
+      "50000",
+      "30",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 108000,
+     "tolerance": 1,
+     "label": "Acme"
+    },
+    {
+     "cell": "D3",
+     "expected": 48000,
+     "tolerance": 1,
+     "label": "Beta"
+    },
+    {
+     "cell": "D4",
+     "expected": 15000,
+     "tolerance": 1,
+     "label": "Gamma"
+    }
+   ],
+   "reasoning": "Weighted renewals total 171,000 of 250,000.",
+   "tip": "Focus on Beta and Gamma.",
+   "mistake": "Treating all renewals as certain overstates the forecast.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "csm-6-plan",
+   "type": "text",
+   "title": "Renewal-Risk Plan",
+   "prompt": "Write a 3-5 sentence renewal-risk plan.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "Expected renewals are 171,000 of 250,000, so 79,000 is at risk, mainly Beta at 60% and Gamma at 30%. For Beta we will hold an executive call this week to review usage and unmet needs, and for Gamma we will offer a training session and a trial of the missing feature. We will track health scores weekly and reforecast before the renewal date. Our NRR of 104% shows expansion can offset some loss.",
+   "reasoning": "A good plan quantifies risk, names actions and sets a review cadence.",
+   "tip": "Risk, actions, cadence.",
+   "mistake": "Plans without owners and dates don't happen.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Silent Account",
+  "background": "A large customer stopped logging in for six weeks. No one noticed until the renewal call, when they said they had already chosen a competitor.",
+  "client": "SaaS vendor",
+  "budget": "180,000 ARR lost",
+  "timeline": "Renewal",
+  "challenges": "No usage monitoring.",
+  "constraints": "CSM covered too many accounts.",
+  "questions": [
+   "Why was it missed?",
+   "What signal would have warned you?",
+   "How would you intervene?"
+  ],
+  "solution": "CloudLoop added usage alerts and a 90-day renewal playbook.",
+  "lessonsLearned": "Watch usage, act early."
+ },
+ "quiz": [
+  {
+   "q": "Churn is:",
+   "options": [
+    "Gained / lost",
+    "Lost / starting customers",
+    "Revenue",
+    "Cost"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "NRR above 100% means:",
+   "options": [
+    "Shrinkage",
+    "Existing customers grew",
+    "No change",
+    "New sales"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "LTV uses:",
+   "options": [
+    "Margin and churn",
+    "Only revenue",
+    "Only price",
+    "Staff"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Health scores use:",
+   "options": [
+    "One metric",
+    "Several signals",
+    "Gut only",
+    "Date"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "The case study lost because:",
+   "options": [
+    "Strong team",
+    "Usage was not monitored",
+    "Low price",
+    "Good product"
+   ],
+   "correctIndex": 1
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which account would you call first?",
+   "How do you ask for a renewal?",
+   "What would you do if usage drops?"
+  ]
+ },
+ "certificate": {
+  "name": "Customer Success Manager — Churn, NRR & Renewals",
+  "nameAz": "Müştəri Uğuru Meneceri — Churn, NRR və Yenilənmələr",
+  "totalXp": 245
+ }
+}

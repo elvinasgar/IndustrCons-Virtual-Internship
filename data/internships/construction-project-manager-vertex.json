@@ -1,0 +1,287 @@
+{
+ "id": "construction-project-manager-vertex",
+ "title": "Construction Project Manager",
+ "companyId": "vertex-infrastructure",
+ "category": "Construction Management",
+ "difficulty": "Advanced",
+ "durationHours": 8,
+ "drawingTag": "CPM-124",
+ "skills": [
+  "Earned Value",
+  "Retention & Cash Flow",
+  "Change Control"
+ ],
+ "companyIntro": {
+  "name": "Vertex Infrastructure",
+  "country": "Norway",
+  "founded": 1994,
+  "mission": "Design and deliver bridges and railways that last a century and cost less to keep.",
+  "culture": "Load paths, tolerances and inspection records are non-negotiable. Every assumption is checked by a second engineer.",
+  "projects": [
+   "Fjord Crossing Viaduct",
+   "Regional Rail Upgrade",
+   "Depot Electrification"
+  ]
+ },
+ "projectBackground": {
+  "name": "Regional Depot Building",
+  "client": "Regional Transport Authority",
+  "location": "Oslo, on-site",
+  "budget": "Contract sum: 12,000,000",
+  "timeline": "Month 6 of 14",
+  "context": "Progress is behind and costs are above plan. The client wants an honest forecast and a recovery plan."
+ },
+ "manager": {
+  "name": "Ingrid Solberg",
+  "role": "Delivery Director, Vertex Infrastructure",
+  "note": "Tell the client early, with numbers. Forecast, causes, recovery, and what you need from them."
+ },
+ "assignment": {
+  "title": "Control the project",
+  "brief": "Calculate retention, SPI, forecast at completion, apply change control, price variations in Excel and report to the client."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Contract Terms",
+   "type": "Contract",
+   "note": "Retention 4% of certified value; contract sum 12,000,000."
+  },
+  {
+   "id": "doc-2",
+   "name": "Cost Report",
+   "type": "Report",
+   "note": "BAC 12,000,000; planned value 3,000,000; earned value 2,700,000; actual cost 3,375,000."
+  },
+  {
+   "id": "doc-3",
+   "name": "Variation Requests",
+   "type": "Register",
+   "note": "Three client-requested changes awaiting pricing."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "cpm-1-ret",
+   "type": "numeric",
+   "title": "Retention",
+   "prompt": "Retention is 4% of a certified value of 12,000,000. What is the retention amount?",
+   "answer": 480000,
+   "tolerance": 100,
+   "unit": "currency units",
+   "xp": 30,
+   "workingNote": "12,000,000 x 4% = 480,000.",
+   "reasoning": "Retention protects the client until defects are fixed.",
+   "tip": "Track release dates.",
+   "mistake": "Forgetting retention overstates cash coming in.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cpm-2-spi",
+   "type": "numeric",
+   "title": "Schedule Performance Index",
+   "prompt": "Earned value is 2,700,000 and planned value 3,000,000. What is SPI?",
+   "answer": 0.9,
+   "tolerance": 0.01,
+   "unit": "ratio",
+   "xp": 35,
+   "workingNote": "2,700,000 / 3,000,000 = 0.9.",
+   "reasoning": "SPI below 1 means behind schedule.",
+   "tip": "Pair it with the critical path.",
+   "mistake": "SPI alone can hide critical-path delay.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cpm-3-eac",
+   "type": "numeric",
+   "title": "Estimate at Completion",
+   "prompt": "BAC is 12,000,000; EV 2,700,000; actual cost 3,375,000. Assuming the current cost performance continues, what is EAC (BAC / CPI)?",
+   "answer": 15000000,
+   "tolerance": 50000,
+   "unit": "currency units",
+   "xp": 45,
+   "workingNote": "CPI = 2,700,000 / 3,375,000 = 0.8; EAC = 12,000,000 / 0.8 = 15,000,000.",
+   "reasoning": "EAC shows where cost is heading.",
+   "tip": "State the assumption behind it.",
+   "mistake": "Reporting BAC as the forecast hides overruns.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cpm-4-change",
+   "type": "multiselect",
+   "title": "Change Control",
+   "prompt": "Select good change control practices.",
+   "options": [
+    "Updating the baseline after approval",
+    "Start work on a verbal instruction",
+    "Client approval before work starts",
+    "Absorb changes silently",
+    "Written variation request with cost and time impact"
+   ],
+   "correctIndices": [
+    0,
+    2,
+    4
+   ],
+   "xp": 40,
+   "reasoning": "Unapproved changes become unpaid work.",
+   "tip": "Record every instruction.",
+   "mistake": "Verbal instructions rarely get paid.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cpm-5-var",
+   "type": "excel-upload",
+   "title": "Variation Pricing (Excel)",
+   "prompt": "Value in column D = quantity x rate.",
+   "xp": 60,
+   "template": {
+    "fileName": "Variation-Template.xlsx",
+    "sheetName": "Variations",
+    "headers": [
+     "Item",
+     "Quantity",
+     "Rate",
+     "Value"
+    ],
+    "rows": [
+     [
+      "Extra excavation (m3)",
+      "400",
+      "25",
+      ""
+     ],
+     [
+      "Additional rebar (t)",
+      "12",
+      "900",
+      ""
+     ],
+     [
+      "Waterproofing (m2)",
+      "1500",
+      "18",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 10000,
+     "tolerance": 1,
+     "label": "Excavation"
+    },
+    {
+     "cell": "D3",
+     "expected": 10800,
+     "tolerance": 1,
+     "label": "Rebar"
+    },
+    {
+     "cell": "D4",
+     "expected": 27000,
+     "tolerance": 1,
+     "label": "Waterproofing"
+    }
+   ],
+   "reasoning": "Total variations are 47,800.",
+   "tip": "Attach build-ups to each.",
+   "mistake": "Lump sums without build-ups get challenged.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "cpm-6-report",
+   "type": "text",
+   "title": "Client Progress Report",
+   "prompt": "Write a 3-5 sentence progress report to the client.",
+   "minLength": 120,
+   "xp": 60,
+   "modelAnswer": "At month six the project is behind schedule, with an SPI of 0.90, and over cost, with a CPI of 0.80, giving a forecast of 15,000,000 against the 12,000,000 budget if nothing changes. The main drivers are late design information and ground conditions. We propose a recovery plan with added crews on the critical path and a decision on three pending variations worth 47,800. We need approval of these within seven days to protect the completion date.",
+   "reasoning": "A good report gives indices, forecast, causes, plan and the client's decision needed.",
+   "tip": "Numbers, causes, plan, ask.",
+   "mistake": "Hiding bad news delays the fix.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Silent Overrun",
+  "background": "A project reported 'on track' for eight months while CPI slid to 0.78. The client learned of a 22% overrun only at month nine.",
+  "client": "Public client",
+  "budget": "Overrun of 6.1M",
+  "timeline": "Month 9 audit",
+  "challenges": "Reports used planned cost, not forecast.",
+  "constraints": "Manager feared client reaction.",
+  "questions": [
+   "Why did reports hide the problem?",
+   "What metric should have triggered action?",
+   "How would you tell the client?"
+  ],
+  "solution": "Vertex requires earned value reports monthly and forecast reviews with the client.",
+  "lessonsLearned": "Report the forecast, not the hope."
+ },
+ "quiz": [
+  {
+   "q": "SPI below 1 means:",
+   "options": [
+    "Ahead",
+    "Behind schedule",
+    "On budget",
+    "Over budget"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "EAC with CPI:",
+   "options": [
+    "BAC x CPI",
+    "BAC - EV",
+    "BAC / CPI",
+    "AC"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Retention is:",
+   "options": [
+    "Profit",
+    "Held until defects period ends",
+    "Tax",
+    "Bonus"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Variations need:",
+   "options": [
+    "Verbal OK",
+    "No record",
+    "Delay",
+    "Written approval"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Forecast was not reported",
+    "Weather",
+    "Low cost",
+    "Strong team"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which index worries you more, SPI or CPI?",
+   "How do you tell a client bad news?",
+   "What would you cut to recover time?"
+  ]
+ },
+ "certificate": {
+  "name": "Construction Project Manager — Cost, Schedule & Change Control",
+  "nameAz": "İnşaat Layihə Meneceri — Xərc, Cədvəl və Dəyişikliklərin İdarəsi",
+  "totalXp": 270
+ }
+}

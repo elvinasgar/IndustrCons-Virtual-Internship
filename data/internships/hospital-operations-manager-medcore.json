@@ -1,0 +1,282 @@
+{
+ "id": "hospital-operations-manager-medcore",
+ "title": "Hospital Operations Manager",
+ "companyId": "medcore-health",
+ "category": "Healthcare Operations",
+ "difficulty": "Intermediate",
+ "durationHours": 6,
+ "drawingTag": "HOM-126",
+ "skills": [
+  "Bed Occupancy",
+  "Length of Stay",
+  "Nurse Staffing"
+ ],
+ "companyIntro": {
+  "name": "MedCore Health Partners",
+  "country": "Germany",
+  "founded": 2005,
+  "mission": "Help hospitals use beds, staff and time so patients are treated safely and promptly.",
+  "culture": "Patient safety first, then flow, then cost. Every metric has a clinical owner.",
+  "projects": [
+   "Hospital Flow Programme",
+   "Ward Staffing Review",
+   "Discharge Improvement"
+  ]
+ },
+ "projectBackground": {
+  "name": "Hospital Flow Programme — City General",
+  "client": "City General Hospital",
+  "location": "Munich, on-site",
+  "budget": "Programme fee: 85,000",
+  "timeline": "Report to the COO",
+  "context": "Emergency patients wait for beds and elective surgery is cancelled. The COO wants facts and a flow plan."
+ },
+ "manager": {
+  "name": "Dr. Lena Brandt",
+  "role": "Director of Operations, MedCore Health Partners",
+  "note": "Safe flow beats full wards. Show me occupancy, stay and staffing and what you'd change first."
+ },
+ "assignment": {
+  "title": "Fix patient flow",
+  "brief": "Calculate occupancy, length of stay and staffing, compare wards in Excel and write the bed management plan."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Bed Data",
+   "type": "Report",
+   "note": "240 beds; average 204 occupied."
+  },
+  {
+   "id": "doc-2",
+   "name": "Activity",
+   "type": "Report",
+   "note": "18,000 patient days; 3,600 discharges."
+  },
+  {
+   "id": "doc-3",
+   "name": "Staffing",
+   "type": "Roster",
+   "note": "Night shift: 48 patients and 8 nurses; target 1:5."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "hom-1-occ",
+   "type": "numeric",
+   "title": "Bed Occupancy",
+   "prompt": "240 beds with an average of 204 occupied. What is occupancy (%)?",
+   "answer": 85,
+   "tolerance": 0.2,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "204 / 240 = 85%.",
+   "reasoning": "Very high occupancy hurts flow and safety.",
+   "tip": "Many systems aim below 85%.",
+   "mistake": "Chasing 100% leaves no buffer for emergencies.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "hom-2-alos",
+   "type": "numeric",
+   "title": "Average Length of Stay",
+   "prompt": "18,000 patient days and 3,600 discharges. What is ALOS (days)?",
+   "answer": 5,
+   "tolerance": 0.05,
+   "unit": "days",
+   "xp": 30,
+   "workingNote": "18,000 / 3,600 = 5.",
+   "reasoning": "ALOS shows how fast patients move through.",
+   "tip": "Compare by specialty.",
+   "mistake": "Averaging across specialties hides outliers.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "hom-3-nurses",
+   "type": "numeric",
+   "title": "Nurses Required",
+   "prompt": "48 patients at a 1:5 nurse ratio. How many nurses are needed (round up)?",
+   "answer": 10,
+   "tolerance": 0.1,
+   "unit": "nurses",
+   "xp": 35,
+   "workingNote": "48 / 5 = 9.6, rounded up to 10.",
+   "reasoning": "Staffing ratios protect safety.",
+   "tip": "Add skill mix and breaks.",
+   "mistake": "Rounding down breaches the ratio.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "hom-4-readm",
+   "type": "mcq",
+   "title": "Readmission Rate",
+   "prompt": "What does a 30-day readmission rate measure?",
+   "options": [
+    "Patients waiting for beds",
+    "Staff turnover",
+    "Patients who return to hospital within 30 days of discharge",
+    "Bed cleaning time"
+   ],
+   "correctIndex": 2,
+   "xp": 30,
+   "reasoning": "High readmissions can signal early or poor discharge.",
+   "tip": "Track by condition.",
+   "mistake": "Treating all readmissions as failures ignores planned returns.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "hom-5-ward",
+   "type": "excel-upload",
+   "title": "Ward Occupancy (Excel)",
+   "prompt": "Occupancy % in column D = occupied / beds x 100.",
+   "xp": 55,
+   "template": {
+    "fileName": "Ward-Template.xlsx",
+    "sheetName": "Wards",
+    "headers": [
+     "Ward",
+     "Beds",
+     "Occupied",
+     "Occupancy %"
+    ],
+    "rows": [
+     [
+      "Medical",
+      "80",
+      "72",
+      ""
+     ],
+     [
+      "Surgical",
+      "60",
+      "45",
+      ""
+     ],
+     [
+      "ICU",
+      "20",
+      "19",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 90,
+     "tolerance": 0.2,
+     "label": "Medical"
+    },
+    {
+     "cell": "D3",
+     "expected": 75,
+     "tolerance": 0.2,
+     "label": "Surgical"
+    },
+    {
+     "cell": "D4",
+     "expected": 95,
+     "tolerance": 0.2,
+     "label": "ICU"
+    }
+   ],
+   "reasoning": "ICU and Medical are over-stretched; Surgical has room.",
+   "tip": "Move discharge earlier in the day.",
+   "mistake": "Reallocating beds without clinical input is unsafe.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "hom-6-plan",
+   "type": "text",
+   "title": "Bed Management Plan",
+   "prompt": "Write a 3-5 sentence bed management plan for the COO.",
+   "minLength": 110,
+   "xp": 55,
+   "modelAnswer": "Overall occupancy is 85% but ICU runs at 95% and Medical at 90%, which delays emergency admissions. Average stay is 5 days, so we will start discharge planning at admission and move discharges earlier in the day. Night shifts need 10 nurses for 48 patients to meet the 1:5 ratio, two more than rostered. We will review flow metrics weekly and escalate if ICU stays above 90% for three days.",
+   "reasoning": "A good plan identifies the constraint, the action, staffing and review triggers.",
+   "tip": "Constraint, action, staffing, review.",
+   "mistake": "Plans without owners don't happen.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Midday Discharge",
+  "background": "A hospital discharged most patients after 4pm. Emergency patients waited in corridors every morning until beds opened.",
+  "client": "Public hospital",
+  "budget": "Daily bed blocks",
+  "timeline": "Quarter",
+  "challenges": "Discharges were late in the day.",
+  "constraints": "Pharmacy and transport delays.",
+  "questions": [
+   "Why did beds open late?",
+   "What would move discharge earlier?",
+   "Who needs to be involved?"
+  ],
+  "solution": "MedCore introduced a pre-noon discharge target and ward huddles.",
+  "lessonsLearned": "Discharge early, plan from admission."
+ },
+ "quiz": [
+  {
+   "q": "Occupancy is:",
+   "options": [
+    "Beds / occupied",
+    "Occupied / beds",
+    "Staff",
+    "Cost"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "ALOS is:",
+   "options": [
+    "Beds / days",
+    "Patient days / discharges",
+    "Cost",
+    "Staff"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "A 1:5 ratio means:",
+   "options": [
+    "Five nurses",
+    "None",
+    "One doctor",
+    "One nurse for five patients"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Readmission is:",
+   "options": [
+    "First visit",
+    "Return within 30 days",
+    "Surgery",
+    "Stay"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Late discharges",
+    "Few patients",
+    "Many beds",
+    "Good staff"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which ward would you act on first?",
+   "How do you protect safety when beds are tight?",
+   "Who must agree on discharge changes?"
+  ]
+ },
+ "certificate": {
+  "name": "Hospital Operations Manager — Flow, Stay & Staffing",
+  "nameAz": "Xəstəxana Əməliyyat Meneceri — Axın, Müddət və Kadr",
+  "totalXp": 235
+ }
+}

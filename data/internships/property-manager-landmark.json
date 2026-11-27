@@ -1,0 +1,287 @@
+{
+ "id": "property-manager-landmark",
+ "title": "Property Manager",
+ "companyId": "landmark-realty",
+ "category": "Property Management",
+ "difficulty": "Beginner",
+ "durationHours": 6,
+ "drawingTag": "PRM-128",
+ "skills": [
+  "Occupancy & Collections",
+  "Maintenance Prioritisation",
+  "Tenant Communication"
+ ],
+ "companyIntro": {
+  "name": "Landmark Realty Partners",
+  "country": "Australia",
+  "founded": 2003,
+  "mission": "Invest in and manage property with discipline on income, risk and tenants.",
+  "culture": "Underwrite conservatively, collect rent on time, fix what matters first.",
+  "projects": [
+   "Office Portfolio Acquisition",
+   "Residential Block Management",
+   "Retail Centre Refresh"
+  ]
+ },
+ "projectBackground": {
+  "name": "Residential Block Management — Parkside Court",
+  "client": "Landmark Realty Partners",
+  "location": "Sydney, on-site",
+  "budget": "Monthly rent due: 80,000",
+  "timeline": "Owner report monthly",
+  "context": "Arrears are rising and repairs are slow. The owner wants a grip on collections and maintenance."
+ },
+ "manager": {
+  "name": "Daniel Reeves",
+  "role": "Head of Asset Management, Landmark Realty Partners",
+  "note": "Collect early, fix fast, communicate kindly and in writing."
+ },
+ "assignment": {
+  "title": "Stabilise the block",
+  "brief": "Calculate occupancy and collections, price vacancy, prioritise repairs, build the rent roll in Excel and write an arrears letter."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Unit Mix",
+   "type": "Report",
+   "note": "50 units; 46 occupied."
+  },
+  {
+   "id": "doc-2",
+   "name": "Collections",
+   "type": "Ledger",
+   "note": "Rent due 80,000; collected 74,400."
+  },
+  {
+   "id": "doc-3",
+   "name": "Rent Roll",
+   "type": "Ledger",
+   "note": "Three units with partial or no payment."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "prm-1-occ",
+   "type": "numeric",
+   "title": "Occupancy",
+   "prompt": "46 of 50 units are occupied. What is occupancy (%)?",
+   "answer": 92,
+   "tolerance": 0.2,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "46 / 50 = 92%.",
+   "reasoning": "Occupancy drives income.",
+   "tip": "Track vacancy days.",
+   "mistake": "Counting leased but vacant units overstates it.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "prm-2-coll",
+   "type": "numeric",
+   "title": "Collection Rate",
+   "prompt": "Rent due 80,000; collected 74,400. What is the collection rate (%)?",
+   "answer": 93,
+   "tolerance": 0.2,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "74,400 / 80,000 = 93%.",
+   "reasoning": "Collections show tenant health.",
+   "tip": "Follow up from day 1.",
+   "mistake": "Waiting weeks lets arrears grow.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "prm-3-vac",
+   "type": "numeric",
+   "title": "Lost Rent",
+   "prompt": "A unit rented at 1,500 a month is vacant for 45 days (30-day month). What is the lost rent?",
+   "answer": 2250,
+   "tolerance": 5,
+   "unit": "currency units",
+   "xp": 30,
+   "workingNote": "1,500 / 30 x 45 = 2,250.",
+   "reasoning": "Vacancy has a cost.",
+   "tip": "Turn units quickly.",
+   "mistake": "Ignoring turnover time understates cost.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "prm-4-emerg",
+   "type": "multiselect",
+   "title": "Emergency Repairs",
+   "prompt": "Select repairs that must be treated as emergencies.",
+   "options": [
+    "Burst pipe flooding a unit",
+    "No heating in winter",
+    "Scuffed paint",
+    "Squeaky door",
+    "Gas smell"
+   ],
+   "correctIndices": [
+    0,
+    1,
+    4
+   ],
+   "xp": 35,
+   "reasoning": "Safety and habitability come first.",
+   "tip": "Have an on-call contractor.",
+   "mistake": "Treating all requests alike delays the urgent ones.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "prm-5-roll",
+   "type": "excel-upload",
+   "title": "Rent Roll (Excel)",
+   "prompt": "Balance in column D = rent due - paid.",
+   "xp": 55,
+   "template": {
+    "fileName": "RentRoll-Template.xlsx",
+    "sheetName": "RentRoll",
+    "headers": [
+     "Unit",
+     "Rent Due",
+     "Paid",
+     "Balance"
+    ],
+    "rows": [
+     [
+      "101",
+      "1500",
+      "1500",
+      ""
+     ],
+     [
+      "102",
+      "1600",
+      "800",
+      ""
+     ],
+     [
+      "103",
+      "1400",
+      "0",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 0,
+     "tolerance": 1,
+     "label": "Unit 101"
+    },
+    {
+     "cell": "D3",
+     "expected": 800,
+     "tolerance": 1,
+     "label": "Unit 102"
+    },
+    {
+     "cell": "D4",
+     "expected": 1400,
+     "tolerance": 1,
+     "label": "Unit 103"
+    }
+   ],
+   "reasoning": "Two units have arrears totalling 2,200.",
+   "tip": "Contact tenants within three days.",
+   "mistake": "Aggregating hides which units are late.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "prm-6-letter",
+   "type": "text",
+   "title": "Arrears Letter",
+   "prompt": "Write a 3-5 sentence polite arrears letter.",
+   "minLength": 90,
+   "xp": 45,
+   "modelAnswer": "Dear tenant, our records show a balance of 800 outstanding on your rent for this month. We understand circumstances can change, so please contact us by Friday to arrange payment or discuss a plan. If we do not hear from you, we will have to follow the formal arrears process set out in your lease. Thank you for your prompt attention.",
+   "reasoning": "A good letter states the amount, offers help, sets a date and the next step.",
+   "tip": "Amount, offer, date, next step.",
+   "mistake": "Threats without an offer escalate conflict.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Slow Boiler",
+  "background": "A boiler failure was logged as routine and fixed after nine days. Tenants withheld rent and the owner lost two months of income.",
+  "client": "Residential owner",
+  "budget": "Two months of rent",
+  "timeline": "Winter",
+  "challenges": "No emergency triage.",
+  "constraints": "Contractor availability.",
+  "questions": [
+   "Why was it routine?",
+   "How would you triage?",
+   "How would you communicate?"
+  ],
+  "solution": "Landmark introduced triage categories and on-call cover.",
+  "lessonsLearned": "Triage first, then fix."
+ },
+ "quiz": [
+  {
+   "q": "Occupancy is:",
+   "options": [
+    "Units / rent",
+    "Occupied / total units",
+    "Rent / units",
+    "Staff"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Collection rate is:",
+   "options": [
+    "Due / collected",
+    "Paid",
+    "Units",
+    "Collected / due"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Emergencies include:",
+   "options": [
+    "Scuffed paint",
+    "Gas smell",
+    "A squeak",
+    "Decor"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Arrears letters should:",
+   "options": [
+    "Threaten only",
+    "Be vague",
+    "Offer a plan",
+    "Be late"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Boiler wasn't triaged",
+    "Cheap rent",
+    "Full building",
+    "Strong team"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "How do you triage repairs?",
+   "How do you speak with a tenant in arrears?",
+   "What would you report to the owner?"
+  ]
+ },
+ "certificate": {
+  "name": "Property Manager — Occupancy, Collections & Maintenance",
+  "nameAz": "Əmlak Meneceri — Doluluq, Yığım və Təmir",
+  "totalXp": 225
+ }
+}

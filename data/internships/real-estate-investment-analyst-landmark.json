@@ -1,0 +1,279 @@
+{
+ "id": "real-estate-investment-analyst-landmark",
+ "title": "Real Estate Investment Analyst",
+ "companyId": "landmark-realty",
+ "category": "Real Estate Investment",
+ "difficulty": "Intermediate",
+ "durationHours": 7,
+ "drawingTag": "REA-127",
+ "skills": [
+  "Net Operating Income",
+  "Cap Rate & Valuation",
+  "Debt Cover"
+ ],
+ "companyIntro": {
+  "name": "Landmark Realty Partners",
+  "country": "Australia",
+  "founded": 2003,
+  "mission": "Invest in and manage property with discipline on income, risk and tenants.",
+  "culture": "Underwrite conservatively, collect rent on time, fix what matters first.",
+  "projects": [
+   "Office Portfolio Acquisition",
+   "Residential Block Management",
+   "Retail Centre Refresh"
+  ]
+ },
+ "projectBackground": {
+  "name": "Office Portfolio Acquisition — Harbour Tower",
+  "client": "Landmark Realty Partners",
+  "location": "Sydney, remote",
+  "budget": "Asking price: 9,000,000",
+  "timeline": "Investment committee on Friday",
+  "context": "The committee wants a view on whether the asking price is justified by income and whether the loan is safe."
+ },
+ "manager": {
+  "name": "Daniel Reeves",
+  "role": "Head of Acquisitions, Landmark Realty Partners",
+  "note": "Price the income, not the story. Show NOI, yield and debt cover."
+ },
+ "assignment": {
+  "title": "Underwrite the acquisition",
+  "brief": "Calculate NOI, cap rate, value and DSCR, compare properties in Excel and write the memo."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Rent Roll",
+   "type": "Rent roll",
+   "note": "Gross potential rent 1,200,000; vacancy allowance 5%."
+  },
+  {
+   "id": "doc-2",
+   "name": "Operating Costs",
+   "type": "Budget",
+   "note": "Operating expenses 420,000."
+  },
+  {
+   "id": "doc-3",
+   "name": "Loan Terms",
+   "type": "Term sheet",
+   "note": "Annual debt service 540,000."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "rea-1-noi",
+   "type": "numeric",
+   "title": "Net Operating Income",
+   "prompt": "Gross rent 1,200,000; 5% vacancy; operating expenses 420,000. What is NOI?",
+   "answer": 720000,
+   "tolerance": 500,
+   "unit": "currency units",
+   "xp": 40,
+   "workingNote": "1,200,000 x 0.95 = 1,140,000; minus 420,000 = 720,000.",
+   "reasoning": "NOI is income after vacancy and operating costs, before debt.",
+   "tip": "Use realistic vacancy.",
+   "mistake": "Using gross rent overstates value.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rea-2-cap",
+   "type": "numeric",
+   "title": "Cap Rate",
+   "prompt": "NOI 720,000 on a price of 9,000,000. What is the cap rate (%)?",
+   "answer": 8,
+   "tolerance": 0.05,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "720,000 / 9,000,000 = 8%.",
+   "reasoning": "Cap rate is the income yield on price.",
+   "tip": "Compare to market.",
+   "mistake": "Quoting cap rate on gross rent misleads.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rea-3-val",
+   "type": "numeric",
+   "title": "Value at Market Cap Rate",
+   "prompt": "At a market cap rate of 7.5%, what is the property's value?",
+   "answer": 9600000,
+   "tolerance": 10000,
+   "unit": "currency units",
+   "xp": 35,
+   "workingNote": "720,000 / 0.075 = 9,600,000.",
+   "reasoning": "Value = NOI / cap rate.",
+   "tip": "Test sensitivity of +/- 0.5%.",
+   "mistake": "A small cap rate change moves value a lot.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rea-4-dscr",
+   "type": "numeric",
+   "title": "Debt Service Cover",
+   "prompt": "NOI 720,000; annual debt service 540,000. What is DSCR?",
+   "answer": 1.33,
+   "tolerance": 0.01,
+   "unit": "ratio",
+   "xp": 35,
+   "workingNote": "720,000 / 540,000 = 1.33.",
+   "reasoning": "Lenders usually need DSCR above 1.2-1.3.",
+   "tip": "Stress rent and rate changes.",
+   "mistake": "DSCR just above the covenant is fragile.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rea-5-comp",
+   "type": "excel-upload",
+   "title": "Property Comparison (Excel)",
+   "prompt": "Cap rate % in column D = NOI / price x 100.",
+   "xp": 55,
+   "template": {
+    "fileName": "Property-Template.xlsx",
+    "sheetName": "Properties",
+    "headers": [
+     "Property",
+     "NOI",
+     "Price",
+     "Cap Rate %"
+    ],
+    "rows": [
+     [
+      "Property A",
+      "450000",
+      "6000000",
+      ""
+     ],
+     [
+      "Property B",
+      "330000",
+      "5500000",
+      ""
+     ],
+     [
+      "Property C",
+      "520000",
+      "6500000",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 7.5,
+     "tolerance": 0.05,
+     "label": "A"
+    },
+    {
+     "cell": "D3",
+     "expected": 6,
+     "tolerance": 0.05,
+     "label": "B"
+    },
+    {
+     "cell": "D4",
+     "expected": 8,
+     "tolerance": 0.05,
+     "label": "C"
+    }
+   ],
+   "reasoning": "Property C has the highest yield; B is the lowest.",
+   "tip": "Compare risk, not just yield.",
+   "mistake": "Highest yield can mean highest risk.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "rea-6-memo",
+   "type": "text",
+   "title": "Investment Memo",
+   "prompt": "Write a 3-5 sentence investment memo.",
+   "minLength": 120,
+   "xp": 60,
+   "modelAnswer": "The asking price of 9,000,000 implies an 8% cap rate on a stable NOI of 720,000, and at a 7.5% market cap rate the value is about 9,600,000, so the price looks reasonable. Debt service cover of 1.33 is acceptable but thin if vacancy rises. I recommend proceeding subject to confirming lease expiries and negotiating a lower rate or longer interest-only period. A downside case with 10% vacancy should be reviewed before final approval.",
+   "reasoning": "A good memo links price to income, tests risk and sets conditions.",
+   "tip": "Price, value, risk, conditions.",
+   "mistake": "Memos without a downside case are one-sided.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Empty Tower",
+  "background": "A buyer paid a 6% cap rate for an office on a lease expiring in a year. The tenant left, NOI halved and the loan covenant broke.",
+  "client": "Investor",
+  "budget": "Value loss of 40%",
+  "timeline": "18 months",
+  "challenges": "Lease expiry risk ignored.",
+  "constraints": "Seller's rent roll looked strong.",
+  "questions": [
+   "Why was the yield misleading?",
+   "What should have been checked?",
+   "How would you structure the deal?"
+  ],
+  "solution": "Landmark now models lease expiry and downtime in every underwriting.",
+  "lessonsLearned": "Underwrite the leases, not the headline."
+ },
+ "quiz": [
+  {
+   "q": "NOI is:",
+   "options": [
+    "Income minus debt",
+    "Price",
+    "Rent",
+    "Income minus operating costs"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "Cap rate is:",
+   "options": [
+    "Price / NOI",
+    "NOI / price",
+    "Rent",
+    "Debt"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "Value equals:",
+   "options": [
+    "NOI x cap",
+    "NOI / cap rate",
+    "Price",
+    "Debt"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "DSCR is:",
+   "options": [
+    "Debt / NOI",
+    "Price",
+    "Rent",
+    "NOI / debt service"
+   ],
+   "correctIndex": 3
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Lease expiry was ignored",
+    "Low rate",
+    "Strong tenant",
+    "High rent"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "Which number would you stress first?",
+   "How low can DSCR go safely?",
+   "What would make you walk away?"
+  ]
+ },
+ "certificate": {
+  "name": "Real Estate Investment Analyst — NOI, Cap Rate & DSCR",
+  "nameAz": "Daşınmaz Əmlak İnvestisiya Analitiki — NOI, Cap Rate və DSCR",
+  "totalXp": 255
+ }
+}

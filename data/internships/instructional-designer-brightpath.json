@@ -1,0 +1,290 @@
+{
+ "id": "instructional-designer-brightpath",
+ "title": "Instructional Designer",
+ "companyId": "brightpath-learning",
+ "category": "Learning & Development",
+ "difficulty": "Beginner",
+ "durationHours": 6,
+ "drawingTag": "ISD-131",
+ "skills": [
+  "Learning Objectives",
+  "Training Evaluation",
+  "Item Analysis"
+ ],
+ "companyIntro": {
+  "name": "BrightPath Learning",
+  "country": "United Kingdom",
+  "founded": 2011,
+  "mission": "Design training that changes what people do at work, not just what they know.",
+  "culture": "Start from the performance problem. Measure behaviour, not smiles.",
+  "projects": [
+   "Onboarding Academy",
+   "Compliance Refresh",
+   "Leadership Programme Redesign"
+  ]
+ },
+ "projectBackground": {
+  "name": "Onboarding Academy",
+  "client": "Orbit Logistics (client)",
+  "location": "London, remote",
+  "budget": "Programme cost: 42,000",
+  "timeline": "Board review in six weeks",
+  "context": "New hires take months to become productive. The client wants onboarding that changes performance and can prove it."
+ },
+ "manager": {
+  "name": "Hannah Cole",
+  "role": "Head of Learning Design, BrightPath Learning",
+  "note": "Start with the performance problem. Then design, then measure what people do differently."
+ },
+ "assignment": {
+  "title": "Design and evaluate the programme",
+  "brief": "Calculate completion and ROI, write objectives, analyse assessment items in Excel and write a redesign note."
+ },
+ "documents": [
+  {
+   "id": "doc-1",
+   "name": "Enrolment Data",
+   "type": "LMS",
+   "note": "600 enrolled; 420 completed."
+  },
+  {
+   "id": "doc-2",
+   "name": "Benefit Estimate",
+   "type": "Finance",
+   "note": "Estimated benefit 90,000; total cost 42,000."
+  },
+  {
+   "id": "doc-3",
+   "name": "Assessment Data",
+   "type": "LMS",
+   "note": "Three questions answered by 200 learners."
+  }
+ ],
+ "tasks": [
+  {
+   "id": "isd-1-comp",
+   "type": "numeric",
+   "title": "Completion Rate",
+   "prompt": "600 enrolled; 420 completed. What is the completion rate (%)?",
+   "answer": 70,
+   "tolerance": 0.2,
+   "unit": "%",
+   "xp": 30,
+   "workingNote": "420 / 600 = 70%.",
+   "reasoning": "Completion is a basic engagement measure.",
+   "tip": "Look at where learners drop.",
+   "mistake": "Completion alone doesn't prove learning.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "isd-2-roi",
+   "type": "numeric",
+   "title": "Training ROI",
+   "prompt": "Benefit 90,000; cost 42,000. What is ROI (%)?",
+   "answer": 114.3,
+   "tolerance": 0.3,
+   "unit": "%",
+   "xp": 40,
+   "workingNote": "(90,000 - 42,000) / 42,000 = 114.3%.",
+   "reasoning": "ROI compares net benefit with cost.",
+   "tip": "State how benefit was estimated.",
+   "mistake": "Using unsupported benefit figures damages credibility.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "isd-3-kirk",
+   "type": "mcq",
+   "title": "Kirkpatrick Level 3",
+   "prompt": "What does Kirkpatrick Level 3 evaluate?",
+   "options": [
+    "Behaviour change on the job",
+    "Learner satisfaction",
+    "Test scores only",
+    "Course cost"
+   ],
+   "correctIndex": 0,
+   "xp": 35,
+   "reasoning": "Level 3 shows transfer to work.",
+   "tip": "Use manager observation.",
+   "mistake": "Satisfaction surveys alone don't show performance.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "isd-4-obj",
+   "type": "multiselect",
+   "title": "Learning Objectives",
+   "prompt": "Select features of good learning objectives.",
+   "options": [
+    "Describe learner performance",
+    "List topics to be covered",
+    "Use 'understand' or 'appreciate'",
+    "Use measurable verbs such as 'calculate'",
+    "Link to the assessment"
+   ],
+   "correctIndices": [
+    0,
+    3,
+    4
+   ],
+   "xp": 35,
+   "reasoning": "Objectives guide design and assessment.",
+   "tip": "Write them from the learner's view.",
+   "mistake": "Topic lists aren't objectives.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "isd-5-item",
+   "type": "excel-upload",
+   "title": "Item Analysis (Excel)",
+   "prompt": "Pass % in column D = correct / attempts x 100.",
+   "xp": 55,
+   "template": {
+    "fileName": "Item-Template.xlsx",
+    "sheetName": "Items",
+    "headers": [
+     "Question",
+     "Attempts",
+     "Correct",
+     "Pass %"
+    ],
+    "rows": [
+     [
+      "Q1",
+      "200",
+      "180",
+      ""
+     ],
+     [
+      "Q2",
+      "200",
+      "110",
+      ""
+     ],
+     [
+      "Q3",
+      "200",
+      "150",
+      ""
+     ]
+    ]
+   },
+   "checks": [
+    {
+     "cell": "D2",
+     "expected": 90,
+     "tolerance": 0.2,
+     "label": "Q1"
+    },
+    {
+     "cell": "D3",
+     "expected": 55,
+     "tolerance": 0.2,
+     "label": "Q2"
+    },
+    {
+     "cell": "D4",
+     "expected": 75,
+     "tolerance": 0.2,
+     "label": "Q3"
+    }
+   ],
+   "reasoning": "Q2 is the hardest; it may be unclear or poorly taught.",
+   "tip": "Review distractors.",
+   "mistake": "Assuming low scores are always learner failure ignores poor questions.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  },
+  {
+   "id": "isd-6-note",
+   "type": "text",
+   "title": "Course Redesign Note",
+   "prompt": "Write a 3-5 sentence course redesign note.",
+   "minLength": 100,
+   "xp": 50,
+   "modelAnswer": "Completion is 70% and ROI is an estimated 114%, but Question 2 has only a 55% pass rate, which suggests the content or the question is unclear. I propose rewriting the objective behind Q2 in measurable terms, adding a short practice scenario, and rewriting the question if the content is sound. We will measure on-the-job behaviour at 60 days with manager feedback. The redesign will be piloted with one cohort first.",
+   "reasoning": "A good note uses data to propose changes and a way to evaluate them.",
+   "tip": "Data, change, evaluation, pilot.",
+   "mistake": "Changing everything at once hides what worked.",
+   "recommendation": "Write down your reasoning and the evidence behind it so a reviewer can verify your conclusion quickly."
+  }
+ ],
+ "caseStudy": {
+  "title": "Case Study: The Happy Sheets",
+  "background": "A course scored 4.8/5 on satisfaction but managers saw no change in performance. The programme was cancelled after a year.",
+  "client": "Corporate client",
+  "budget": "42,000 programme",
+  "timeline": "Year one",
+  "challenges": "Evaluation stopped at Level 1.",
+  "constraints": "No performance baseline.",
+  "questions": [
+   "Why was the course cancelled?",
+   "What should be measured?",
+   "How would you design Level 3?"
+  ],
+  "solution": "BrightPath adds baseline metrics and 60-day manager checks to every course.",
+  "lessonsLearned": "Measure behaviour, not smiles."
+ },
+ "quiz": [
+  {
+   "q": "Completion is:",
+   "options": [
+    "Enrolled / completed",
+    "Completed / enrolled",
+    "Cost",
+    "Score"
+   ],
+   "correctIndex": 1
+  },
+  {
+   "q": "ROI is:",
+   "options": [
+    "(Benefit - cost) / cost",
+    "Cost / benefit",
+    "Benefit",
+    "Cost"
+   ],
+   "correctIndex": 0
+  },
+  {
+   "q": "Level 3 measures:",
+   "options": [
+    "Reaction",
+    "Cost",
+    "Behaviour",
+    "Attendance"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "Good objectives are:",
+   "options": [
+    "Vague",
+    "Long",
+    "Measurable",
+    "Silent"
+   ],
+   "correctIndex": 2
+  },
+  {
+   "q": "The case study failed because:",
+   "options": [
+    "Only satisfaction was measured",
+    "Low scores",
+    "Great results",
+    "No data"
+   ],
+   "correctIndex": 0
+  }
+ ],
+ "reflection": {
+  "prompts": [
+   "What problem would you ask first?",
+   "How would you measure behaviour change?",
+   "What would you cut from a long course?"
+  ]
+ },
+ "certificate": {
+  "name": "Instructional Designer — Objectives & Evaluation",
+  "nameAz": "Tədris Dizayneri — Məqsədlər və Qiymətləndirmə",
+  "totalXp": 245
+ }
+}
