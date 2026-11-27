@@ -79,7 +79,8 @@
     "privacy": "Privacy Policy",
     "disclaimer": "Trademark Disclaimer",
     "rights": "All rights reserved.",
-    "founder": "Founded by Elvin Asgarov."
+    "founder": "Founded by Elvin Asgarov.",
+    "verify": "Verify a credential"
   },
   "sidebar": {
     "dashboard": "Dashboard",
