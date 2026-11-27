@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verify Credential — IndustrCons</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css">
+<link rel="stylesheet" href="css/components.css?v=2">
+<style>
+.vf{max-width:640px;margin:0 auto}
+.vf-res{padding:22px;border-radius:16px;border:2px solid var(--line);background:var(--surface)}
+.vf-ok{border-color:#16a34a}.vf-bad{border-color:#dc2626}.vf-na{border-color:#f59e0b}
+.vf-res h2{margin:0 0 6px}
+.vf-row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line-soft);font-size:.95rem}
+.vf-row span:first-child{color:var(--ink-soft)}.vf-row span:last-child{text-align:right;word-break:break-word;font-weight:600}
+.vf-note{font-size:.84rem;color:var(--ink-soft);margin-top:18px;line-height:1.5}
+</style>
+</head>
+<body data-page="verify">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="navbarInclude"></div>
+<main id="main" class="section-tight"><div class="container"><div class="vf">
+ <h1 id="vTitle" style="font-size:var(--step-3)"></h1>
+ <p id="vLead" style="color:var(--ink-soft)"></p>
+ <div id="vOut" class="vf-res" style="margin:18px 0"></div>
+ <div class="card" style="padding:16px">
+  <label for="vLink" id="vLblLink" style="font-weight:600"></label>
+  <input id="vLink" type="url" style="width:100%;margin:8px 0" placeholder="https://…/verify.html?c=IRE3-…">
+  <button class="btn btn-primary" id="vBtn"></button>
+ </div>
+ <p class="vf-note" id="vNote"></p>
+</div></div></main>
+<div id="footerInclude"></div>
+<script src="js/i18n.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/main.js"></script>
+<script src="js/verify-core.js"></script>
+<script>
+(function(){
+ const UI={en:{title:'Verify a credential',lead:'Scan the QR code on an IndustrCons IRE-3 credential, or paste its verification link below.',
+  lbl:'Verification link',btn:'Check',ok:'Credential data is intact',okd:'The details below match the checksum printed in this credential\'s QR code.',
+  bad:'Does not match',badd:'The details do not match the checksum. The name, date, programme or number may have been changed.',
+  na:'Nothing to check yet',nad:'Open this page by scanning a credential QR code, or paste a verification link below.',
+  f:{c:'Credential no.',n:'Name',t:'Programme',co:'Company',d:'Completed',ck:'Checksum'},unk:'Unknown programme (not in catalogue)',
+  note:'What this check does: it confirms that the details in the link were not altered after the credential was generated. It cannot prove that a person actually completed the simulation, because this version has no central register. IndustrCons credentials are practice-simulation credentials, not accredited qualifications. A register-based check is planned for a later version.'},
+  az:{title:'Sertifikatın yoxlanılması',lead:'IndustrCons IRE-3 sertifikatındakı QR kodu oxudun və ya doğrulama linkini aşağıya yapışdırın.',
+  lbl:'Doğrulama linki',btn:'Yoxla',ok:'Sertifikat məlumatları dəyişməyib',okd:'Aşağıdakı məlumatlar bu sertifikatın QR kodundakı yoxlama kodu ilə üst-üstə düşür.',
+  bad:'Uyğun gəlmir',badd:'Məlumatlar yoxlama kodu ilə üst-üstə düşmür. Ad, tarix, proqram və ya nömrə dəyişdirilmiş ola bilər.',
+  na:'Hələ yoxlanılacaq məlumat yoxdur',nad:'Bu səhifəni sertifikatdakı QR kodu oxudaraq açın və ya doğrulama linkini aşağıya yapışdırın.',
+  f:{c:'Sertifikat №',n:'Ad',t:'Proqram',co:'Şirkət',d:'Tamamlanma',ck:'Yoxlama kodu'},unk:'Naməlum proqram (kataloqda yoxdur)',
+  note:'Bu yoxlama nə edir: linkdəki məlumatların sertifikat yaradıldıqdan sonra dəyişdirilmədiyini təsdiqləyir. Mərkəzi reyestr olmadığı üçün şəxsin simulyasiyanı həqiqətən bitirdiyini sübut edə bilməz. IndustrCons sertifikatları təcrübə-simulyasiya sertifikatlarıdır, akkreditasiya olunmuş ixtisas deyil. Reyestr əsaslı yoxlama sonrakı versiyada planlaşdırılıb.'}};
+ const $=id=>document.getElementById(id);let lang='en',cat={},cur=location.search;
+ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+ function fmt(d){if(!/^\d{8}$/.test(d))return d;const y=+d.slice(0,4),m=+d.slice(4,6)-1,dd=+d.slice(6);
+  const AZM=['yanvar','fevral','mart','aprel','may','iyun','iyul','avqust','sentyabr','oktyabr','noyabr','dekabr'];
+  return lang==='az'?`${dd} ${AZM[m]} ${y}`:new Date(y,m,dd).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}
+ function render(){const t=UI[lang];$('vTitle').textContent=t.title;document.title=t.title+' — IndustrCons';$('vLead').textContent=t.lead;$('vLblLink').textContent=t.lbl;$('vBtn').textContent=t.btn;$('vNote').textContent=t.note;
+  const f=IC.verify.parse(cur);const o=$('vOut');
+  if(!f.c||!f.k){o.className='vf-res vf-na';o.innerHTML=`<h2>ℹ️ ${t.na}</h2><p>${t.nad}</p>`;return}
+  const okFmt=/^IRE3-\d{4}-[A-Z0-9]{6}$/.test(f.c)&&/^\d{8}$/.test(f.d)&&f.d.slice(0,4)===f.c.split('-')[1];
+  const ok=okFmt&&IC.verify.sign(f)===f.k;const p=cat[f.t];
+  const row=(a,b)=>`<div class="vf-row"><span>${a}</span><span>${esc(b)}</span></div>`;
+  o.className='vf-res '+(ok?'vf-ok':'vf-bad');
+  o.innerHTML=`<h2>${ok?'✅':'❌'} ${ok?t.ok:t.bad}</h2><p>${ok?t.okd:t.badd}</p>`+row(t.f.c,f.c)+row(t.f.n,f.n)+row(t.f.t,p?p.title:t.unk)+(p?row(t.f.co,p.company):'')+row(t.f.d,fmt(f.d))+row(t.f.ck,f.k)}
+ async function init(){
+  try{lang=localStorage.getItem('ic_lang')||(navigator.language||'en').slice(0,2)}catch(e){} if(!UI[lang])lang='en';
+  try{const [a,b]=await Promise.all(['data/tracks/index.json','data/internships/index.json'].map(u=>fetch(u,{cache:'no-store'}).then(r=>r.json())));[...a,...b].forEach(x=>cat[x.id]=x)}catch(e){}
+  render();
+  $('vBtn').onclick=()=>{try{const u=new URL($('vLink').value.trim());cur=u.search}catch(e){cur='?'+$('vLink').value.trim().replace(/^.*\?/,'')}render()};
+  if(window.IC&&IC.i18n)IC.i18n.onChange(l=>{if(UI[l]&&l!==lang){lang=l;render()}});
+ }
+ init();
+})();
+</script>
+</body>
+</html>
