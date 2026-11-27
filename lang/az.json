@@ -10,7 +10,8 @@
     "tracks": "Peşə Yolları",
     "microsims": "Sürətli Simulyasiyalar",
     "tracksShort": "Peşələr",
-    "microsimsShort": "Simulyasiya"
+    "microsimsShort": "Simulyasiya",
+    "career": "Karyera Bələdçisi"
   },
   "hero": {
     "eyebrow": "Virtual Təcrübə Platforması · AEC Sənayesi",
@@ -94,7 +95,8 @@
     "settings": "Tənzimləmələr",
     "help": "Yardım Mərkəzi",
     "tracks": "Peşə Yolları",
-    "microsims": "Sürətli Simulyasiyalar"
+    "microsims": "Sürətli Simulyasiyalar",
+    "career": "Karyera Bələdçisi"
   },
   "dashboard": {
     "welcome": "Yenidən xoş gəldiniz",

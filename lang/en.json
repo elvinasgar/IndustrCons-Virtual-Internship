@@ -10,7 +10,8 @@
     "tracks": "Professional Tracks",
     "microsims": "Micro Simulations",
     "tracksShort": "Tracks",
-    "microsimsShort": "Micro Sims"
+    "microsimsShort": "Micro Sims",
+    "career": "Career Guide"
   },
   "hero": {
     "eyebrow": "Virtual Internship Platform · AEC Industry",
@@ -94,7 +95,8 @@
     "settings": "Settings",
     "help": "Help Center",
     "tracks": "Professional Tracks",
-    "microsims": "Micro Simulations"
+    "microsims": "Micro Simulations",
+    "career": "Career Guide"
   },
   "dashboard": {
     "welcome": "Welcome back",
