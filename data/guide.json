@@ -1,0 +1,1272 @@
+{
+ "stages": [
+  {
+   "id": "entry",
+   "icon": "🌱",
+   "name": {
+    "en": "Entry level / Student",
+    "az": "Başlanğıc səviyyə / Tələbə"
+   },
+   "years": {
+    "en": "0 years of paid experience",
+    "az": "Əmək təcrübəsi yoxdur"
+   },
+   "difficulty": "Beginner",
+   "summary": {
+    "en": "You are learning the language of a field and proving you can learn fast. Employers hire potential, attitude and basic skills.",
+    "az": "Sahənin dilini öyrənir və tez öyrənə biləcəyini göstərirsiniz. İşəgötürənlər potensial, münasibət və baza bacarıqlara baxır."
+   },
+   "expect": [
+    {
+     "en": "Reliable, curious, follows instructions",
+     "az": "Məsuliyyətli, maraqlı, göstərişlərə əməl edən"
+    },
+    {
+     "en": "Basic tools: Excel, writing, one field-specific tool",
+     "az": "Baza alətlər: Excel, yazı, sahəyə aid bir alət"
+    },
+    {
+     "en": "Evidence of learning: projects, simulations, internships",
+     "az": "Öyrəndiyinin sübutu: layihələr, simulyasiyalar, təcrübə"
+    }
+   ],
+   "do": [
+    {
+     "en": "Complete 2–3 beginner simulations in one field and keep the certificates",
+     "az": "Bir sahədə 2–3 başlanğıc simulyasiyanı bitirin və sertifikatları saxlayın"
+    },
+    {
+     "en": "Build a one-page CV with outcomes, not duties",
+     "az": "Vəzifə yox, nəticələrlə dolu 1 səhifəlik CV hazırlayın"
+    },
+    {
+     "en": "Ask three people in the field for a 15-minute chat",
+     "az": "Sahədən üç nəfərdən 15 dəqiqəlik söhbət xahiş edin"
+    }
+   ],
+   "mistakes": [
+    {
+     "en": "Applying to everything with the same CV",
+     "az": "Hər yerə eyni CV ilə müraciət etmək"
+    },
+    {
+     "en": "Waiting for 'perfect' experience before starting",
+     "az": "'Mükəmməl' təcrübə gözləyib başlamamaq"
+    }
+   ],
+   "next": {
+    "en": "Junior: first job or internship where you own small tasks.",
+    "az": "Junior: kiçik tapşırıqlara sahib çıxdığınız ilk iş və ya təcrübə."
+   }
+  },
+  {
+   "id": "junior",
+   "icon": "🌿",
+   "name": {
+    "en": "Junior",
+    "az": "Junior"
+   },
+   "years": {
+    "en": "Typically 0–2 years",
+    "az": "Adətən 0–2 il"
+   },
+   "difficulty": "Beginner",
+   "summary": {
+    "en": "You do defined tasks with guidance. The goal is accuracy, speed and learning how the business really works.",
+    "az": "Müəyyən tapşırıqları rəhbərliklə yerinə yetirirsiniz. Məqsəd dəqiqlik, sürət və biznesin real işləməsini anlamaqdır."
+   },
+   "expect": [
+    {
+     "en": "Deliver correct work on time with review",
+     "az": "Vaxtında və düzgün iş təhvili (yoxlama ilə)"
+    },
+    {
+     "en": "Ask good questions, accept feedback",
+     "az": "Yaxşı sual vermək, rəyi qəbul etmək"
+    },
+    {
+     "en": "Document what you do",
+     "az": "Etdiyinizi sənədləşdirmək"
+    }
+   ],
+   "do": [
+    {
+     "en": "Keep a log of results (numbers saved, errors prevented)",
+     "az": "Nəticələrin jurnalını aparın (qənaət olunan rəqəmlər, qarşısı alınan səhvlər)"
+    },
+    {
+     "en": "Master the core tool of your field (Excel, SQL, CAD, ERP…)",
+     "az": "Sahənizin əsas alətini mənimsəyin (Excel, SQL, CAD, ERP…)"
+    },
+    {
+     "en": "Find a mentor and meet monthly",
+     "az": "Mentor tapın və ayda bir görüşün"
+    }
+   ],
+   "mistakes": [
+    {
+     "en": "Hiding mistakes instead of flagging them early",
+     "az": "Səhvləri tez bildirmək əvəzinə gizlətmək"
+    },
+    {
+     "en": "Staying only on routine tasks",
+     "az": "Yalnız rutin işlərdə qalmaq"
+    }
+   ],
+   "next": {
+    "en": "Mid-level: you work independently and others rely on your output.",
+    "az": "Mid: müstəqil işləyirsiniz və başqaları sizin nəticənizə arxalanır."
+   }
+  },
+  {
+   "id": "mid",
+   "icon": "🌳",
+   "name": {
+    "en": "Mid-level",
+    "az": "Mid-level"
+   },
+   "years": {
+    "en": "Typically 2–5 years",
+    "az": "Adətən 2–5 il"
+   },
+   "difficulty": "Intermediate",
+   "summary": {
+    "en": "You own work end to end, handle ambiguity and start influencing how things are done. This is where many people choose a direction.",
+    "az": "İşə başdan sona sahib çıxır, qeyri-müəyyənliyi idarə edir və işin necə görüləcəyinə təsir etməyə başlayırsınız. Çoxları istiqaməti burada seçir."
+   },
+   "expect": [
+    {
+     "en": "Independent delivery with minimal supervision",
+     "az": "Minimal nəzarətlə müstəqil icra"
+    },
+    {
+     "en": "Explain the 'why' behind numbers and decisions",
+     "az": "Rəqəm və qərarların 'niyəsini' izah etmək"
+    },
+    {
+     "en": "Help juniors and improve a process",
+     "az": "Junior-lara kömək və prosesi yaxşılaşdırmaq"
+    }
+   ],
+   "do": [
+    {
+     "en": "Choose: deeper specialist, people/project leadership, or a bridge to a new field",
+     "az": "Seçin: dərin mütəxəssis, insan/layihə rəhbərliyi, yaxud yeni sahəyə körpü"
+    },
+    {
+     "en": "Take one cross-team project",
+     "az": "Komandalararası bir layihə götürün"
+    },
+    {
+     "en": "Complete intermediate simulations and a professional certification relevant to your path",
+     "az": "Orta səviyyəli simulyasiyaları və yolunuza uyğun peşəkar sertifikatı tamamlayın"
+    }
+   ],
+   "mistakes": [
+    {
+     "en": "Becoming the 'go-to' for everything without delegating",
+     "az": "Hər şeyin 'ünvanı' olub heç nəyi həvalə etməmək"
+    },
+    {
+     "en": "Ignoring communication and stakeholder skills",
+     "az": "Kommunikasiya və maraqlı tərəflərlə işi nəzərə almamaq"
+    }
+   ],
+   "next": {
+    "en": "Senior: you are trusted with the hardest problems and with others' growth.",
+    "az": "Senior: ən çətin problemlərdə və başqalarının inkişafında sizə etibar olunur."
+   }
+  },
+  {
+   "id": "senior",
+   "icon": "🏔️",
+   "name": {
+    "en": "Senior specialist",
+    "az": "Senior mütəxəssis"
+   },
+   "years": {
+    "en": "Typically 5–8+ years",
+    "az": "Adətən 5–8+ il"
+   },
+   "difficulty": "Advanced",
+   "summary": {
+    "en": "You solve ambiguous, high-impact problems, set standards and mentor. Your judgement matters more than your speed.",
+    "az": "Qeyri-müəyyən və yüksək təsirli problemləri həll edir, standart qoyur və mentorluq edirsiniz. Qərarınız sürətinizdən vacibdir."
+   },
+   "expect": [
+    {
+     "en": "Own outcomes, not just tasks",
+     "az": "Tapşırıq yox, nəticəyə sahib çıxmaq"
+    },
+    {
+     "en": "Anticipate risks and trade-offs",
+     "az": "Riskləri və kompromisləri öncədən görmək"
+    },
+    {
+     "en": "Teach and set quality standards",
+     "az": "Öyrətmək və keyfiyyət standartı qoymaq"
+    }
+   ],
+   "do": [
+    {
+     "en": "Publish or present your method (internal talk, article, checklist)",
+     "az": "Metodunuzu paylaşın (daxili çıxış, məqalə, çek-list)"
+    },
+    {
+     "en": "Decide: stay expert (principal) or move into management",
+     "az": "Qərar verin: ekspert (principal) qalmaq, yoxsa menecmentə keçmək"
+    },
+    {
+     "en": "Complete advanced simulations to stay sharp",
+     "az": "Formada qalmaq üçün irəli səviyyəli simulyasiyaları bitirin"
+    }
+   ],
+   "mistakes": [
+    {
+     "en": "Doing instead of enabling others",
+     "az": "Başqalarını imkanlandırmaq əvəzinə özü etmək"
+    },
+    {
+     "en": "Stopping learning because you are 'senior'",
+     "az": "'Senior' olduğu üçün öyrənməyi dayandırmaq"
+    }
+   ],
+   "next": {
+    "en": "Lead / Project Manager: results through other people and a plan.",
+    "az": "Lead / Layihə Meneceri: nəticə başqaları vasitəsilə və plan əsasında."
+   }
+  },
+  {
+   "id": "lead",
+   "icon": "🧭",
+   "name": {
+    "en": "Team lead / Project manager",
+    "az": "Komanda lideri / Layihə meneceri"
+   },
+   "years": {
+    "en": "Typically 4–10 years, varies",
+    "az": "Adətən 4–10 il, dəyişir"
+   },
+   "difficulty": "Advanced",
+   "summary": {
+    "en": "You are measured by what your team or project delivers. Scope, time, cost, risk and people become your daily work.",
+    "az": "Komandanın və ya layihənin nəticəsi ilə ölçülürsünüz. Əhatə, vaxt, xərc, risk və insanlar gündəlik işinizə çevrilir."
+   },
+   "expect": [
+    {
+     "en": "Plan, forecast and report honestly",
+     "az": "Planlamaq, proqnozlaşdırmaq və dürüst hesabat vermək"
+    },
+    {
+     "en": "Manage stakeholders, change and conflict",
+     "az": "Maraqlı tərəfləri, dəyişikliyi və münaqişəni idarə etmək"
+    },
+    {
+     "en": "Develop and give feedback to your people",
+     "az": "İnsanlarınızı inkişaf etdirmək və rəy vermək"
+    }
+   ],
+   "do": [
+    {
+     "en": "Learn earned value, risk registers and change control",
+     "az": "Qazanılmış dəyər, risk reyestri və dəyişikliyə nəzarəti öyrənin"
+    },
+    {
+     "en": "Practise the hard conversations: bad news, scope, performance",
+     "az": "Çətin söhbətləri məşq edin: pis xəbər, əhatə, performans"
+    },
+    {
+     "en": "Get a recognised project or leadership credential if your sector values it",
+     "az": "Sektorunuz dəyər verirsə, tanınmış layihə və ya liderlik sertifikatı alın"
+    }
+   ],
+   "mistakes": [
+    {
+     "en": "Staying the best doer instead of leading",
+     "az": "Rəhbərlik əvəzinə ən yaxşı icraçı qalmaq"
+    },
+    {
+     "en": "Reporting hope instead of forecast",
+     "az": "Proqnoz əvəzinə ümid hesabat vermək"
+    }
+   ],
+   "next": {
+    "en": "Head of function / Director: strategy, budgets and organisation design.",
+    "az": "Şöbə rəhbəri / Direktor: strategiya, büdcə və təşkilati dizayn."
+   }
+  },
+  {
+   "id": "director",
+   "icon": "🚀",
+   "name": {
+    "en": "Head / Director / Founder",
+    "az": "Rəhbər / Direktor / Təsisçi"
+   },
+   "years": {
+    "en": "Typically 10+ years",
+    "az": "Adətən 10+ il"
+   },
+   "difficulty": "Advanced",
+   "summary": {
+    "en": "You set direction, allocate money and people, and are accountable for the whole result. Founders do this from day one.",
+    "az": "İstiqamət müəyyənləşdirir, pul və insanları bölüşdürür, bütün nəticəyə cavabdehsiniz. Təsisçilər bunu ilk gündən edir."
+   },
+   "expect": [
+    {
+     "en": "Clear strategy and priorities",
+     "az": "Aydın strategiya və prioritetlər"
+    },
+    {
+     "en": "Financial and people judgement",
+     "az": "Maliyyə və insan münasibətlərində qərarverməsi"
+    },
+    {
+     "en": "Build leaders below you",
+     "az": "Özünüzdən aşağıda liderlər yetişdirmək"
+    }
+   ],
+   "do": [
+    {
+     "en": "Study finance, negotiation and strategy beyond your field",
+     "az": "Sahənizdən kənar maliyyə, danışıq və strategiyanı öyrənin"
+    },
+    {
+     "en": "Build a network of peers",
+     "az": "Həmkarlardan ibarət şəbəkə qurun"
+    },
+    {
+     "en": "Mentor the next generation",
+     "az": "Növbəti nəsli mentorluq edin"
+    }
+   ],
+   "mistakes": [
+    {
+     "en": "Losing touch with real work",
+     "az": "Real işlə əlaqəni itirmək"
+    },
+    {
+     "en": "Avoiding hard decisions",
+     "az": "Çətin qərarlardan qaçmaq"
+    }
+   ],
+   "next": {
+    "en": "Board roles, advisory work or building new ventures.",
+    "az": "İdarə heyəti, məsləhətçilik və ya yeni təşəbbüslər qurmaq."
+   }
+  }
+ ],
+ "paths": [
+  {
+   "id": "specialist",
+   "icon": "🔬",
+   "name": {
+    "en": "Deep specialist",
+    "az": "Dərin mütəxəssis"
+   },
+   "desc": {
+    "en": "Become the expert others consult. Ladder: junior → mid → senior → principal/expert.",
+    "az": "Başqalarının müraciət etdiyi ekspert olun. Pillə: junior → mid → senior → principal/ekspert."
+   },
+   "fits": {
+    "en": "You love craft, solving hard problems and depth.",
+    "az": "Sənətkarlığı, çətin problem həllini və dərinliyi sevirsinizsə."
+   },
+   "tracks": [
+    "structural-engineer-caspian",
+    "data-scientist-helix",
+    "cybersecurity-analyst-sentinel",
+    "tax-specialist-kestrel"
+   ]
+  },
+  {
+   "id": "manager",
+   "icon": "🧭",
+   "name": {
+    "en": "Project / people manager",
+    "az": "Layihə / insan meneceri"
+   },
+   "desc": {
+    "en": "Lead delivery and teams. Ladder: senior → coordinator → project manager → programme/department head.",
+    "az": "Layihə və komandalara rəhbərlik edin. Pillə: senior → koordinator → layihə meneceri → proqram/şöbə rəhbəri."
+   },
+   "fits": {
+    "en": "You like planning, people and responsibility for results.",
+    "az": "Planlaşdırma, insanlar və nəticə məsuliyyəti xoşunuza gəlirsə."
+   },
+   "tracks": [
+    "it-project-manager-nimbus",
+    "project-manager-skyline",
+    "construction-project-manager-vertex",
+    "scrum-master-nimbus",
+    "leadership-fundamentals-atlas"
+   ]
+  },
+  {
+   "id": "consult",
+   "icon": "🧩",
+   "name": {
+    "en": "Consultant / advisor",
+    "az": "Məsləhətçi / Advayzer"
+   },
+   "desc": {
+    "en": "Solve problems across clients. Needs strong structure, communication and a chosen niche.",
+    "az": "Müxtəlif müştərilər üçün problemləri həll edin. Güclü struktur, kommunikasiya və seçilmiş nişa tələb edir."
+   },
+   "fits": {
+    "en": "You like variety and explaining complex things simply.",
+    "az": "Müxtəlifliyi və mürəkkəb şeyləri sadə izah etməyi sevirsinizsə."
+   },
+   "tracks": [
+    "management-consultant-summit",
+    "business-analyst-nimbus",
+    "esg-analyst-greenfield"
+   ]
+  },
+  {
+   "id": "founder",
+   "icon": "🚀",
+   "name": {
+    "en": "Founder / business owner",
+    "az": "Təsisçi / biznes sahibi"
+   },
+   "desc": {
+    "en": "Build your own business. Needs money discipline, selling and resilience — often after learning a trade first.",
+    "az": "Öz biznesinizi qurun. Pul intizamı, satış və dözümlülük tələb edir — çox vaxt əvvəl peşəni öyrənmək lazımdır."
+   },
+   "fits": {
+    "en": "You accept uncertainty and like building from nothing.",
+    "az": "Qeyri-müəyyənliyi qəbul edir və sıfırdan qurmağı sevirsinizsə."
+   },
+   "tracks": [
+    "startup-founder-summit",
+    "small-business-owner-harbour",
+    "franchise-operator-harbour",
+    "sales-business-development-northwind"
+   ]
+  }
+ ],
+ "fields": [
+  {
+   "id": "construction",
+   "icon": "🏗️",
+   "name": {
+    "en": "Construction & Engineering",
+    "az": "İnşaat və Mühəndislik"
+   },
+   "desc": {
+    "en": "Sites, structures, services and cost. Strong demand for people who can plan and control.",
+    "az": "Sahə, konstruksiya, mühəndislik sistemləri və xərc. Planlaşdırıb nəzarət edə bilənlərə tələb güclüdür."
+   },
+   "tracks": [
+    "site-engineer-atlas",
+    "civil-engineer-prime",
+    "site-civil-engineer-vertex",
+    "structural-engineer-caspian",
+    "geotechnical-engineer-prime",
+    "land-surveyor-prime",
+    "road-highway-engineer-prime",
+    "bim-engineer-urbanbuild",
+    "hse-engineer-nova",
+    "qaqc-engineer-prime",
+    "estimator-delta",
+    "contract-engineer-skyline",
+    "project-engineer-urbanbuild",
+    "project-manager-skyline",
+    "construction-manager-atlas",
+    "quantity-surveyor-sterling",
+    "planning-engineer-primavera-sterling",
+    "mep-site-engineer-hartmann",
+    "bridge-engineer-vertex",
+    "railway-engineer-vertex",
+    "architect-design-arcline",
+    "construction-cost-controller-sterling",
+    "claims-delay-analyst-sterling",
+    "construction-project-manager-vertex",
+    "hvac-design-engineer-hartmann",
+    "electrical-design-engineer-voltara",
+    "mechanical-design-engineer-atlas"
+   ]
+  },
+  {
+   "id": "finance",
+   "icon": "💶",
+   "name": {
+    "en": "Finance, Accounting & Audit",
+    "az": "Maliyyə, Mühasibat və Audit"
+   },
+   "desc": {
+    "en": "Numbers, control and decisions. A common base for many other careers.",
+    "az": "Rəqəmlər, nəzarət və qərarlar. Digər karyeraların ümumi bazasıdır."
+   },
+   "tracks": [
+    "accountant-acca-ledger",
+    "acca-financial-reporting-ledger",
+    "audit-associate-ledger",
+    "financial-analyst-quantis",
+    "treasury-analyst-quantis",
+    "investment-analyst-quantis",
+    "tax-specialist-kestrel",
+    "credit-risk-analyst-quantis",
+    "aml-compliance-analyst-quantis"
+   ]
+  },
+  {
+   "id": "data",
+   "icon": "📊",
+   "name": {
+    "en": "Data & AI",
+    "az": "Data və Süni İntellekt"
+   },
+   "desc": {
+    "en": "Turn data into decisions; use and govern AI responsibly.",
+    "az": "Datanı qərara çevirin; süni intellektdən məsuliyyətlə istifadə edin və idarə edin."
+   },
+   "tracks": [
+    "data-analyst-nimbus",
+    "sql-data-analyst-helix",
+    "data-scientist-helix",
+    "ml-engineer-helix",
+    "prompt-engineer-helix",
+    "ai-automation-specialist-helix",
+    "ai-product-manager-nimbus",
+    "ai-governance-analyst-kestrel"
+   ]
+  },
+  {
+   "id": "tech",
+   "icon": "💻",
+   "name": {
+    "en": "Software & IT",
+    "az": "Proqram və İT"
+   },
+   "desc": {
+    "en": "Build, test, run and secure software and systems.",
+    "az": "Proqram və sistemləri qurun, test edin, işlədin və qoruyun."
+   },
+   "tracks": [
+    "software-developer-forge",
+    "frontend-developer-forge",
+    "qa-test-engineer-forge",
+    "devops-engineer-cumulus",
+    "cloud-solutions-cumulus",
+    "cybersecurity-analyst-sentinel",
+    "it-service-desk-itil-nimbus",
+    "ui-ux-designer-pixel"
+   ]
+  },
+  {
+   "id": "pm",
+   "icon": "🧭",
+   "name": {
+    "en": "Project, Product & Analysis",
+    "az": "Layihə, Məhsul və Analiz"
+   },
+   "desc": {
+    "en": "Connect people, requirements and delivery. Natural next step for many specialists.",
+    "az": "İnsanları, tələbləri və icranı birləşdirin. Bir çox mütəxəssis üçün təbii növbəti addım."
+   },
+   "tracks": [
+    "it-project-manager-nimbus",
+    "it-project-manager-evm-nimbus",
+    "construction-project-manager-vertex",
+    "scrum-master-nimbus",
+    "agile-coach-nimbus",
+    "product-manager-nimbus",
+    "product-owner-nimbus",
+    "business-analyst-nimbus",
+    "it-business-analyst-nimbus"
+   ]
+  },
+  {
+   "id": "ops",
+   "icon": "🏭",
+   "name": {
+    "en": "Operations & Supply Chain",
+    "az": "Əməliyyat və Təchizat Zənciri"
+   },
+   "desc": {
+    "en": "Make things and move them efficiently.",
+    "az": "Məhsulu səmərəli istehsal edin və daşıyın."
+   },
+   "tracks": [
+    "operations-manager-atlas",
+    "logistics-coordinator-meridian",
+    "supply-chain-analyst-meridian",
+    "procurement-tender-specialist-tradewind",
+    "procurement-engineer-tradewind",
+    "lean-six-sigma-greenbelt-atlas",
+    "lean-manufacturing-tps-atlas",
+    "production-planning-atlas",
+    "production-qaqc-atlas",
+    "production-hse-atlas",
+    "production-field-engineer-atlas",
+    "maintenance-reliability-engineer-atlas"
+   ]
+  },
+  {
+   "id": "business",
+   "icon": "💼",
+   "name": {
+    "en": "Business, Sales & Entrepreneurship",
+    "az": "Biznes, Satış və Sahibkarlıq"
+   },
+   "desc": {
+    "en": "Win customers, run a business, or build your own.",
+    "az": "Müştəri qazanın, biznes idarə edin və ya özünüzünkünü qurun."
+   },
+   "tracks": [
+    "management-consultant-summit",
+    "sales-business-development-northwind",
+    "startup-founder-summit",
+    "small-business-owner-harbour",
+    "franchise-operator-harbour",
+    "customer-success-manager-cloudloop",
+    "crm-specialist-nimbus"
+   ]
+  },
+  {
+   "id": "people",
+   "icon": "⚖️",
+   "name": {
+    "en": "People, HR & Law",
+    "az": "İnsan Resursları və Hüquq"
+   },
+   "desc": {
+    "en": "Hire, pay, protect and advise people and organisations.",
+    "az": "İnsanları və təşkilatları işə götürün, ödəyin, qoruyun və məsləhət verin."
+   },
+   "tracks": [
+    "hr-specialist-nimbus",
+    "recruiter-talent-acquisition-people-first",
+    "payroll-specialist-people-first",
+    "compensation-benefits-analyst-people-first",
+    "employee-relations-partner-people-first",
+    "employment-law-specialist-kestrel",
+    "contract-specialist-kestrel",
+    "data-protection-officer-kestrel",
+    "ip-trademark-specialist-lexora",
+    "insurance-underwriter-bastion"
+   ]
+  },
+  {
+   "id": "service",
+   "icon": "🏬",
+   "name": {
+    "en": "Retail, Hospitality & Property",
+    "az": "Pərakəndə, Qonaqpərvərlik və Əmlak"
+   },
+   "desc": {
+    "en": "Customer-facing operations where numbers meet service.",
+    "az": "Rəqəmlərin xidmətlə qovuşduğu müştəri yönümlü əməliyyatlar."
+   },
+   "tracks": [
+    "store-manager-nova",
+    "retail-merchandiser-nova",
+    "ecommerce-manager-nova",
+    "restaurant-manager-verde",
+    "chef-culinary-verde",
+    "facility-manager-civica",
+    "property-manager-landmark",
+    "real-estate-investment-analyst-landmark",
+    "hospital-operations-manager-medcore"
+   ]
+  },
+  {
+   "id": "growth",
+   "icon": "🌍",
+   "name": {
+    "en": "Marketing, Learning & Sustainability",
+    "az": "Marketinq, Təlim və Dayanıqlılıq"
+   },
+   "desc": {
+    "en": "Communicate, teach and make organisations more sustainable.",
+    "az": "Ünsiyyət qurun, öyrədin və təşkilatları daha dayanıqlı edin."
+   },
+   "tracks": [
+    "digital-marketing-specialist-beacon",
+    "public-relations-specialist-beacon",
+    "education-manager-lumen",
+    "instructional-designer-brightpath",
+    "esg-analyst-greenfield",
+    "solar-project-analyst-voltara",
+    "gis-specialist-terra",
+    "oil-gas-process-engineer-hartmann"
+   ]
+  }
+ ],
+ "quiz": [
+  {
+   "q": {
+    "en": "How much paid, relevant experience do you have?",
+    "az": "Nə qədər ödənişli, əlaqəli iş təcrübəniz var?"
+   },
+   "o": [
+    [
+     {
+      "en": "None yet",
+      "az": "Hələ yoxdur"
+     },
+     0
+    ],
+    [
+     {
+      "en": "Under 2 years",
+      "az": "2 ildən az"
+     },
+     1
+    ],
+    [
+     {
+      "en": "2–5 years",
+      "az": "2–5 il"
+     },
+     2
+    ],
+    [
+     {
+      "en": "5–8 years",
+      "az": "5–8 il"
+     },
+     3
+    ],
+    [
+     {
+      "en": "More than 8 years",
+      "az": "8 ildən çox"
+     },
+     4
+    ]
+   ]
+  },
+  {
+   "q": {
+    "en": "How independent are you on your usual tasks?",
+    "az": "Adi tapşırıqlarda nə dərəcədə müstəqilsiniz?"
+   },
+   "o": [
+    [
+     {
+      "en": "I need step-by-step guidance",
+      "az": "Addım-addım göstəriş lazımdır"
+     },
+     0
+    ],
+    [
+     {
+      "en": "I do defined tasks, with review",
+      "az": "Müəyyən tapşırıqları yoxlama ilə edirəm"
+     },
+     1
+    ],
+    [
+     {
+      "en": "I own work end to end",
+      "az": "İşə başdan sona sahibəm"
+     },
+     2
+    ],
+    [
+     {
+      "en": "I solve ambiguous problems for others",
+      "az": "Başqaları üçün qeyri-müəyyən problemləri həll edirəm"
+     },
+     3
+    ]
+   ]
+  },
+  {
+   "q": {
+    "en": "What is your scope of responsibility?",
+    "az": "Məsuliyyət dairəniz nədir?"
+   },
+   "o": [
+    [
+     {
+      "en": "My own learning",
+      "az": "Öz öyrənməm"
+     },
+     0
+    ],
+    [
+     {
+      "en": "My own tasks",
+      "az": "Öz tapşırıqlarım"
+     },
+     1
+    ],
+    [
+     {
+      "en": "A workstream or project",
+      "az": "İş axını və ya layihə"
+     },
+     2
+    ],
+    [
+     {
+      "en": "A team or a full project",
+      "az": "Komanda və ya tam layihə"
+     },
+     4
+    ],
+    [
+     {
+      "en": "A function, department or company",
+      "az": "Funksiya, şöbə və ya şirkət"
+     },
+     5
+    ]
+   ]
+  },
+  {
+   "q": {
+    "en": "Do you mentor or lead others?",
+    "az": "Başqalarına mentorluq və ya rəhbərlik edirsiniz?"
+   },
+   "o": [
+    [
+     {
+      "en": "No",
+      "az": "Xeyr"
+     },
+     0
+    ],
+    [
+     {
+      "en": "I help new colleagues sometimes",
+      "az": "Bəzən yeni həmkarlara kömək edirəm"
+     },
+     2
+    ],
+    [
+     {
+      "en": "I mentor and review others' work",
+      "az": "Mentorluq edir və başqalarının işini yoxlayıram"
+     },
+     3
+    ],
+    [
+     {
+      "en": "I manage people or budgets",
+      "az": "İnsanları və ya büdcələri idarə edirəm"
+     },
+     4
+    ]
+   ]
+  },
+  {
+   "q": {
+    "en": "What do you want in the next 2 years?",
+    "az": "Növbəti 2 ildə nə istəyirsiniz?"
+   },
+   "o": [
+    [
+     {
+      "en": "Start in a field",
+      "az": "Sahədə başlamaq"
+     },
+     0
+    ],
+    [
+     {
+      "en": "Get my first or second job right",
+      "az": "İlk və ya ikinci işimi düzgün qurmaq"
+     },
+     1
+    ],
+    [
+     {
+      "en": "Grow deeper or take on more scope",
+      "az": "Dərinləşmək və ya əhatəni artırmaq"
+     },
+     2
+    ],
+    [
+     {
+      "en": "Lead projects or teams",
+      "az": "Layihə və ya komandalara rəhbərlik"
+     },
+     4
+    ],
+    [
+     {
+      "en": "Change to a different field",
+      "az": "Başqa sahəyə keçmək"
+     },
+     -1
+    ]
+   ]
+  }
+ ],
+ "switch": {
+  "steps": [
+   {
+    "t": {
+     "en": "1. Name the real reason",
+     "az": "1. Əsl səbəbi adlandırın"
+    },
+    "d": {
+     "en": "Money, boredom, burnout, growth, values? The reason decides how big a jump is sensible.",
+     "az": "Maaş, darıxma, tükənmə, inkişaf, dəyərlər? Səbəb tullanışın nə qədər böyük olmalı olduğunu müəyyən edir."
+    }
+   },
+   {
+    "t": {
+     "en": "2. Map transferable skills",
+     "az": "2. Ötürülə bilən bacarıqları xəritələyin"
+    },
+    "d": {
+     "en": "List skills that travel: analysis, Excel, writing, negotiation, safety, budgeting, client handling, project coordination.",
+     "az": "Daşına bilən bacarıqları yazın: təhlil, Excel, yazı, danışıq, təhlükəsizlik, büdcə, müştəri ilə iş, layihə koordinasiyası."
+    }
+   },
+   {
+    "t": {
+     "en": "3. Pick a bridge role",
+     "az": "3. Körpü rolu seçin"
+    },
+    "d": {
+     "en": "Jump to an adjacent role first (e.g., site engineer → planning engineer → project manager) rather than from zero.",
+     "az": "Sıfırdan yox, qonşu rola keçin (məsələn, sahə mühəndisi → planlama mühəndisi → layihə meneceri)."
+    }
+   },
+   {
+    "t": {
+     "en": "4. Close the gap with proof",
+     "az": "4. Boşluğu sübutla bağlayın"
+    },
+    "d": {
+     "en": "Complete 2–3 simulations in the new field, make one small project, and write what you learned.",
+     "az": "Yeni sahədə 2–3 simulyasiya bitirin, kiçik bir layihə edin və öyrəndiklərinizi yazın."
+    }
+   },
+   {
+    "t": {
+     "en": "5. Reposition your story",
+     "az": "5. Hekayənizi yenidən qurun"
+    },
+    "d": {
+     "en": "Rewrite CV and LinkedIn: lead with transferable results, then new skills. Explain the switch in one clear sentence.",
+     "az": "CV və LinkedIn-i yenidən yazın: əvvəl ötürülən nəticələr, sonra yeni bacarıqlar. Keçidi bir aydın cümlə ilə izah edin."
+    }
+   },
+   {
+    "t": {
+     "en": "6. Test and network",
+     "az": "6. Test edin və şəbəkə qurun"
+    },
+    "d": {
+     "en": "Talk to 5 people in the new field, apply to bridge roles, and accept a smaller step if it opens the door.",
+     "az": "Yeni sahədən 5 nəfərlə danışın, körpü rollarına müraciət edin və qapı açırsa kiçik addımı qəbul edin."
+    }
+   }
+  ],
+  "pairs": [
+   {
+    "from": {
+     "en": "Civil / site engineer",
+     "az": "Mülki / sahə mühəndisi"
+    },
+    "to": {
+     "en": "Planning, cost or project management",
+     "az": "Planlama, xərc və ya layihə idarəetməsi"
+    },
+    "keep": [
+     {
+      "en": "Site reality, quantities, safety",
+      "az": "Sahə reallığı, həcmlər, təhlükəsizlik"
+     }
+    ],
+    "gap": [
+     {
+      "en": "Scheduling software, earned value, contracts",
+      "az": "Planlama proqramı, qazanılmış dəyər, müqavilələr"
+     }
+    ],
+    "tracks": [
+     "planning-engineer-primavera-sterling",
+     "quantity-surveyor-sterling",
+     "construction-cost-controller-sterling",
+     "construction-project-manager-vertex"
+    ]
+   },
+   {
+    "from": {
+     "en": "Accountant / auditor",
+     "az": "Mühasib / auditor"
+    },
+    "to": {
+     "en": "Financial analyst, data or risk",
+     "az": "Maliyyə analitiki, data və ya risk"
+    },
+    "keep": [
+     {
+      "en": "Accuracy, controls, financial statements",
+      "az": "Dəqiqlik, nəzarətlər, maliyyə hesabatları"
+     }
+    ],
+    "gap": [
+     {
+      "en": "Modelling, SQL, forecasting",
+      "az": "Modelləşdirmə, SQL, proqnozlaşdırma"
+     }
+    ],
+    "tracks": [
+     "financial-analyst-quantis",
+     "sql-data-analyst-helix",
+     "credit-risk-analyst-quantis",
+     "data-analyst-nimbus"
+    ]
+   },
+   {
+    "from": {
+     "en": "Engineer (any)",
+     "az": "Mühəndis (istənilən)"
+    },
+    "to": {
+     "en": "Data, product or operations",
+     "az": "Data, məhsul və ya əməliyyat"
+    },
+    "keep": [
+     {
+      "en": "Structured thinking, maths, systems",
+      "az": "Strukturlu düşüncə, riyaziyyat, sistemlər"
+     }
+    ],
+    "gap": [
+     {
+      "en": "SQL, business context, communication",
+      "az": "SQL, biznes konteksti, kommunikasiya"
+     }
+    ],
+    "tracks": [
+     "data-analyst-nimbus",
+     "sql-data-analyst-helix",
+     "product-manager-nimbus",
+     "operations-manager-atlas"
+    ]
+   },
+   {
+    "from": {
+     "en": "Teacher / trainer",
+     "az": "Müəllim / təlimçi"
+    },
+    "to": {
+     "en": "Instructional design, HR or customer success",
+     "az": "Tədris dizaynı, HR və ya müştəri uğuru"
+    },
+    "keep": [
+     {
+      "en": "Explaining, planning, assessing",
+      "az": "İzah, planlama, qiymətləndirmə"
+     }
+    ],
+    "gap": [
+     {
+      "en": "Business metrics, tools, stakeholders",
+      "az": "Biznes göstəriciləri, alətlər, maraqlı tərəflər"
+     }
+    ],
+    "tracks": [
+     "instructional-designer-brightpath",
+     "hr-specialist-nimbus",
+     "customer-success-manager-cloudloop",
+     "education-manager-lumen"
+    ]
+   },
+   {
+    "from": {
+     "en": "Sales / customer service",
+     "az": "Satış / müştəri xidməti"
+    },
+    "to": {
+     "en": "Customer success, CRM or business analysis",
+     "az": "Müştəri uğuru, CRM və ya biznes analizi"
+    },
+    "keep": [
+     {
+      "en": "Customer insight, negotiation",
+      "az": "Müştəri anlayışı, danışıq"
+     }
+    ],
+    "gap": [
+     {
+      "en": "Data, process mapping, requirements",
+      "az": "Data, proses xəritələmə, tələblər"
+     }
+    ],
+    "tracks": [
+     "customer-success-manager-cloudloop",
+     "crm-specialist-nimbus",
+     "business-analyst-nimbus",
+     "sales-business-development-northwind"
+    ]
+   },
+   {
+    "from": {
+     "en": "IT support / developer",
+     "az": "İT dəstək / developer"
+    },
+    "to": {
+     "en": "Cloud, security or IT project management",
+     "az": "Cloud, təhlükəsizlik və ya İT layihə idarəetməsi"
+    },
+    "keep": [
+     {
+      "en": "Systems, troubleshooting",
+      "az": "Sistemlər, problem həlli"
+     }
+    ],
+    "gap": [
+     {
+      "en": "Cloud platforms, risk, planning",
+      "az": "Cloud platformaları, risk, planlama"
+     }
+    ],
+    "tracks": [
+     "cloud-solutions-cumulus",
+     "cybersecurity-analyst-sentinel",
+     "it-project-manager-nimbus",
+     "devops-engineer-cumulus"
+    ]
+   },
+   {
+    "from": {
+     "en": "HR / admin",
+     "az": "HR / inzibati"
+    },
+    "to": {
+     "en": "Payroll, reward, recruitment or employment law",
+     "az": "Əmək haqqı, mükafatlandırma, işə qəbul və ya əmək hüququ"
+    },
+    "keep": [
+     {
+      "en": "People processes, confidentiality",
+      "az": "İnsan prosesləri, məxfilik"
+     }
+    ],
+    "gap": [
+     {
+      "en": "Data, law, analytics",
+      "az": "Data, hüquq, analitika"
+     }
+    ],
+    "tracks": [
+     "payroll-specialist-people-first",
+     "compensation-benefits-analyst-people-first",
+     "recruiter-talent-acquisition-people-first",
+     "employment-law-specialist-kestrel"
+    ]
+   },
+   {
+    "from": {
+     "en": "Retail / hospitality manager",
+     "az": "Pərakəndə / qonaqpərvərlik meneceri"
+    },
+    "to": {
+     "en": "Operations, e-commerce or entrepreneurship",
+     "az": "Əməliyyat, e-ticarət və ya sahibkarlıq"
+    },
+    "keep": [
+     {
+      "en": "People, KPIs, customers",
+      "az": "İnsanlar, KPI-lər, müştərilər"
+     }
+    ],
+    "gap": [
+     {
+      "en": "Analytics, finance, systems",
+      "az": "Analitika, maliyyə, sistemlər"
+     }
+    ],
+    "tracks": [
+     "operations-manager-atlas",
+     "ecommerce-manager-nova",
+     "small-business-owner-harbour",
+     "retail-merchandiser-nova"
+    ]
+   }
+  ],
+  "plan": [
+   {
+    "t": {
+     "en": "Days 1–30: Explore",
+     "az": "1–30-cu günlər: Araşdırın"
+    },
+    "d": {
+     "en": "Define target role, read 10 job ads, list required skills, do one beginner simulation.",
+     "az": "Hədəf rolu müəyyənləşdirin, 10 vakansiya oxuyun, tələb olunan bacarıqları siyahılayın, bir başlanğıc simulyasiya edin."
+    }
+   },
+   {
+    "t": {
+     "en": "Days 31–60: Build proof",
+     "az": "31–60-cı günlər: Sübut yaradın"
+    },
+    "d": {
+     "en": "Finish 2–3 simulations, build one small project or portfolio piece, talk to 3 practitioners.",
+     "az": "2–3 simulyasiya bitirin, bir kiçik layihə və ya portfolio işi edin, 3 praktikla danışın."
+    }
+   },
+   {
+    "t": {
+     "en": "Days 61–90: Apply",
+     "az": "61–90-cı günlər: Müraciət edin"
+    },
+    "d": {
+     "en": "Update CV and LinkedIn, apply to 10 bridge roles, practise interview stories, review and adjust.",
+     "az": "CV və LinkedIn-i yeniləyin, 10 körpü roluna müraciət edin, müsahibə hekayələrini məşq edin, nəticəni nəzərdən keçirin."
+    }
+   }
+  ]
+ },
+ "checks": {
+  "cv": [
+   {
+    "en": "One page for under 5 years of experience",
+    "az": "5 ildən az təcrübə üçün bir səhifə"
+   },
+   {
+    "en": "Each bullet shows an outcome with a number",
+    "az": "Hər bənd rəqəmlə nəticə göstərir"
+   },
+   {
+    "en": "Skills match the job ad wording",
+    "az": "Bacarıqlar vakansiya mətni ilə uyğun gəlir"
+   },
+   {
+    "en": "Certificates link to a verifiable page",
+    "az": "Sertifikatlar yoxlanıla bilən səhifəyə bağlıdır"
+   },
+   {
+    "en": "No spelling mistakes",
+    "az": "Yazı səhvi yoxdur"
+   }
+  ],
+  "interview": [
+   {
+    "en": "Prepare 5 STAR stories (situation, task, action, result)",
+    "az": "5 STAR hekayəsi hazırlayın (vəziyyət, tapşırıq, hərəkət, nəticə)"
+   },
+   {
+    "en": "Research the company's products and problems",
+    "az": "Şirkətin məhsul və problemlərini araşdırın"
+   },
+   {
+    "en": "Prepare 3 questions for them",
+    "az": "Onlar üçün 3 sual hazırlayın"
+   },
+   {
+    "en": "Practise explaining a mistake and what you learned",
+    "az": "Səhvi və öyrəndiyinizi izah etməyi məşq edin"
+   },
+   {
+    "en": "Send a thank-you note within 24 hours",
+    "az": "24 saat ərzində təşəkkür mesajı göndərin"
+   }
+  ]
+ },
+ "disclaimer": {
+  "en": "General guidance only. Titles, years and requirements vary by country, company and sector. Always check real job ads and, where relevant, official qualification bodies.",
+  "az": "Yalnız ümumi istiqamətləndirmədir. Vəzifə adları, illər və tələblər ölkə, şirkət və sektora görə fərqlənir. Həmişə real vakansiyalara və lazım olduqda rəsmi ixtisas qurumlarına baxın."
+ }
+}
