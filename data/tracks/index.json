@@ -1546,5 +1546,149 @@
   "certificate": true,
   "playable": true,
   "summary": "Partner with managers — absence, turnover and engagement metrics, grievance handling and a fair investigation outcome."
+ },
+ {
+  "id": "construction-project-manager-vertex",
+  "title": "Construction Project Manager",
+  "company": "Vertex Infrastructure",
+  "companyId": "vertex-infrastructure",
+  "category": "Construction Management",
+  "difficulty": "Advanced",
+  "durationHours": 8,
+  "taskCount": 6,
+  "skills": [
+   "Earned Value",
+   "Retention & Cash Flow",
+   "Change Control"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Run a live construction project — retention, schedule and cost indices, forecast at completion, change control and a client progress report."
+ },
+ {
+  "id": "site-civil-engineer-vertex",
+  "title": "Site Civil Engineer",
+  "company": "Vertex Infrastructure",
+  "companyId": "vertex-infrastructure",
+  "category": "Site Engineering",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Quantities & Concrete",
+   "Earthworks",
+   "Site Quality Control"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Work on site — concrete volumes, earthwork haulage, cube strength results in Excel and a non-conformance report."
+ },
+ {
+  "id": "hospital-operations-manager-medcore",
+  "title": "Hospital Operations Manager",
+  "company": "MedCore Health Partners",
+  "companyId": "medcore-health",
+  "category": "Healthcare Operations",
+  "difficulty": "Intermediate",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Bed Occupancy",
+   "Length of Stay",
+   "Nurse Staffing"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Improve hospital flow — occupancy, length of stay, nurse ratios, ward table in Excel and a bed management plan."
+ },
+ {
+  "id": "real-estate-investment-analyst-landmark",
+  "title": "Real Estate Investment Analyst",
+  "company": "Landmark Realty Partners",
+  "companyId": "landmark-realty",
+  "category": "Real Estate Investment",
+  "difficulty": "Intermediate",
+  "durationHours": 7,
+  "taskCount": 6,
+  "skills": [
+   "Net Operating Income",
+   "Cap Rate & Valuation",
+   "Debt Cover"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Underwrite a property — NOI, cap rate, value, debt service cover, comparison table in Excel and an investment memo."
+ },
+ {
+  "id": "property-manager-landmark",
+  "title": "Property Manager",
+  "company": "Landmark Realty Partners",
+  "companyId": "landmark-realty",
+  "category": "Property Management",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Occupancy & Collections",
+   "Maintenance Prioritisation",
+   "Tenant Communication"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Run a residential block — occupancy, rent collection, lost rent, emergency repairs, rent roll in Excel and an arrears letter."
+ },
+ {
+  "id": "ip-trademark-specialist-lexora",
+  "title": "IP & Trademark Specialist",
+  "company": "Lexora IP Advisors",
+  "companyId": "lexora-ip",
+  "category": "Intellectual Property",
+  "difficulty": "Intermediate",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Royalty Calculation",
+   "Trademark Strength",
+   "Clearance Search"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Manage brand rights — royalties and minimum guarantees, renewal budgets, mark strength, royalty statements in Excel and a response to an infringement notice."
+ },
+ {
+  "id": "customer-success-manager-cloudloop",
+  "title": "Customer Success Manager",
+  "company": "CloudLoop Software",
+  "companyId": "cloudloop-saas",
+  "category": "Customer Success",
+  "difficulty": "Intermediate",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Churn & NRR",
+   "Customer Lifetime Value",
+   "Health Scoring"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Keep SaaS customers — churn, net revenue retention, lifetime value, renewal pipeline in Excel and a renewal-risk plan."
+ },
+ {
+  "id": "instructional-designer-brightpath",
+  "title": "Instructional Designer",
+  "company": "BrightPath Learning",
+  "companyId": "brightpath-learning",
+  "category": "Learning & Development",
+  "difficulty": "Beginner",
+  "durationHours": 6,
+  "taskCount": 6,
+  "skills": [
+   "Learning Objectives",
+   "Training Evaluation",
+   "Item Analysis"
+  ],
+  "certificate": true,
+  "playable": true,
+  "summary": "Design effective training — completion, ROI, Kirkpatrick levels, learning objectives, assessment item analysis in Excel and a course redesign note."
  }
 ]

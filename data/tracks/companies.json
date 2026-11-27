@@ -404,5 +404,75 @@
       "Micro-Business Bootcamp"
     ],
     "color": "#0F766E"
+  },
+  {
+    "id": "medcore-health",
+    "name": "MedCore Health Partners",
+    "country": "Germany",
+    "founded": 2005,
+    "mission": "Help hospitals use beds, staff and time so patients are treated safely and promptly.",
+    "culture": "Patient safety first, then flow, then cost. Every metric has a clinical owner.",
+    "projects": [
+      "Hospital Flow Programme",
+      "Ward Staffing Review",
+      "Discharge Improvement"
+    ],
+    "color": "#0E7490"
+  },
+  {
+    "id": "landmark-realty",
+    "name": "Landmark Realty Partners",
+    "country": "Australia",
+    "founded": 2003,
+    "mission": "Invest in and manage property with discipline on income, risk and tenants.",
+    "culture": "Underwrite conservatively, collect rent on time, fix what matters first.",
+    "projects": [
+      "Office Portfolio Acquisition",
+      "Residential Block Management",
+      "Retail Centre Refresh"
+    ],
+    "color": "#9A3412"
+  },
+  {
+    "id": "lexora-ip",
+    "name": "Lexora IP Advisors",
+    "country": "Netherlands",
+    "founded": 2009,
+    "mission": "Protect and license brands and inventions so clients earn from what they create.",
+    "culture": "Deadlines are law. File early, record everything, license with clear terms.",
+    "projects": [
+      "Global Trademark Portfolio",
+      "Technology Licensing Deal",
+      "Brand Enforcement Programme"
+    ],
+    "color": "#6D28D9"
+  },
+  {
+    "id": "cloudloop-saas",
+    "name": "CloudLoop Software",
+    "country": "United States",
+    "founded": 2016,
+    "mission": "Make customers successful so they renew, expand and recommend us.",
+    "culture": "Retention is a team sport. Health scores drive action, not reports.",
+    "projects": [
+      "Enterprise Onboarding Revamp",
+      "Renewal Risk Programme",
+      "Customer Health Scoring"
+    ],
+    "color": "#2563EB"
+  },
+  {
+    "id": "brightpath-learning",
+    "name": "BrightPath Learning",
+    "country": "United Kingdom",
+    "founded": 2011,
+    "mission": "Design training that changes what people do at work, not just what they know.",
+    "culture": "Start from the performance problem. Measure behaviour, not smiles.",
+    "projects": [
+      "Onboarding Academy",
+      "Compliance Refresh",
+      "Leadership Programme Redesign"
+    ],
+    "color": "#CA8A04"
   }
 ]
