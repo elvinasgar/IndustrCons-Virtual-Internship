@@ -1,5 +1,5 @@
 (async function () {
-  console.log('IndustrCons certificate.js v7 loaded');
+  console.log('IndustrCons certificate.js v10 loaded');
   await IC.i18n.init();
   const params = new URLSearchParams(window.location.search);
   const internshipId = params.get('internshipId');
@@ -288,8 +288,8 @@
       const qrEl = document.getElementById('qrcode');
       qrEl.innerHTML = '';
       new QRCode(qrEl, {
-        text: `IndustrCons IRE-3 | ${rec.certNo} | ${verifyCode} | ${String(name).slice(0,28)}`,
-        width: 72, height: 72, correctLevel: QRCode.CorrectLevel.M
+        text: IC.verify.buildUrl(new URL('verify.html', location.href).href.split('?')[0], { c: rec.certNo, t: internshipId, n: String(name).trim().slice(0,24), d: IC.verify.ymd(rec.completedAt) }),
+        width: 90, height: 90, correctLevel: QRCode.CorrectLevel.L
       });
     } catch (e) {
       console.error('QR render failed (non-blocking):', e);
