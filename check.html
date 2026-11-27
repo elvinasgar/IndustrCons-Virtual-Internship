@@ -1,0 +1,15 @@
+<!doctype html><html lang="az"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Yoxlama — IndustrCons</title>
+<style>body{font:15px/1.5 system-ui,sans-serif;max-width:720px;margin:20px auto;padding:0 16px}button{padding:12px 20px;font-size:16px;border:0;border-radius:8px;background:#f97316;color:#fff}.ok{color:#15803d}.bad{color:#b91c1c}pre{background:#f3f4f6;padding:12px;border-radius:8px;white-space:pre-wrap}</style></head><body>
+<h1>Sayt yoxlaması</h1><p>Düyməni bas — siyahıdakı hər peşənin faylı yoxlanır.</p><button id="b">Yoxla</button><pre id="o">Gözləyir…</pre>
+<script>
+const L=[];const log=(t,c)=>{L.push((c||'')+t);o.textContent=L.join('\n')};
+b.onclick=async()=>{L.length=0;const base=location.href.replace(/[^/]*$/,'');log('Qovluq: '+base);
+let idx;try{const r=await fetch('data/tracks/index.json?t='+Date.now(),{cache:'no-store'});log('index.json status: '+r.status);idx=await r.json();log('Siyahıda peşə sayı: '+idx.length+' (gözlənilən: 94)')}catch(e){log('index.json OXUNMADI: '+e.message);return}
+let miss=[],bad=[],ok=0;
+for(const t of idx){try{const r=await fetch('data/internships/'+t.id+'.json?t='+Date.now(),{cache:'no-store'});if(!r.ok){miss.push(t.id+' ('+r.status+')');continue}await r.json();ok++}catch(e){bad.push(t.id)}}
+log('Faylı olan: '+ok+' / '+idx.length);
+if(miss.length)log('\nYOXDUR (data/internships/ içinə yüklə):\n - '+miss.join('\n - '));
+if(bad.length)log('\nZƏDƏLİ JSON:\n - '+bad.join('\n - '));
+try{const r=await fetch('js/certificate.js?t='+Date.now(),{cache:'no-store'});const s=await r.text();log('certificate.js yeni versiya: '+(s.includes('Retail KPIs')?'BƏLİ':'XEYR (köhnədir)'))}catch(e){}
+if(!miss.length&&!bad.length)log('\nHər şey qaydasındadır. Görünmürsə brauzer keşini təmizlə (Ctrl+F5) və ya 2-5 dəq gözlə.')};
+</script></body></html>

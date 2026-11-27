@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Guide — IndustrCons</title>
+<meta name="description" content="Find your career stage, explore fields, plan a promotion to project manager or a switch to a new field, and get a personal roadmap with simulations.">
+<link rel="canonical" href="https://elvinasgar.github.io/IndustrCons-Virtual-Internship/career-guide.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Career Guide — IndustrCons">
+<meta property="og:description" content="From entry level to project manager or a new field: a practical roadmap with hands-on simulations.">
+<meta property="og:url" content="https://elvinasgar.github.io/IndustrCons-Virtual-Internship/career-guide.html">
+<meta property="og:image" content="https://elvinasgar.github.io/IndustrCons-Virtual-Internship/assets/icons/logo-real.png">
+<link rel="icon" type="image/svg+xml" href="assets/icons/mark.svg">
+<script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ic_theme') || 'light');</script>
+<link rel="stylesheet" href="css/core.css">
+<link rel="stylesheet" href="css/components.css?v=2">
+<style>
+.cg-sec{margin:0 0 44px}
+.cg-sec>h2{font-size:var(--step-2);margin:0 0 6px}
+.cg-sub{color:var(--ink-soft);margin:0 0 18px;max-width:720px}
+.cg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.cg-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.cg-chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 14px;border-radius:999px;font:inherit;font-size:.9rem;cursor:pointer}
+.cg-chip[aria-pressed="true"],.cg-opt[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.cg-opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:12px 14px;border-radius:12px;font:inherit;cursor:pointer;margin-top:8px}
+.cg-q{margin-bottom:18px}.cg-q h4{margin:0 0 4px}
+.cg-card{padding:18px}
+.cg-card h3{margin:6px 0 4px;font-size:1.05rem}
+.cg-card ul{margin:6px 0 0;padding-left:18px;color:var(--ink-soft);font-size:.9rem}
+.cg-ic{font-size:1.6rem}
+details.cg-card summary{cursor:pointer;list-style:none}
+details.cg-card summary::-webkit-details-marker{display:none}
+.cg-stage-cur{outline:3px solid #f97316}
+.cg-step{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line-soft)}
+.cg-step:first-child{border-top:0}
+.cg-num{flex:none;width:30px;height:30px;border-radius:50%;background:#f97316;color:#fff;display:grid;place-items:center;font-weight:700;font-size:.9rem}
+.cg-trk{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);text-decoration:none}
+.cg-trk:hover{border-color:#f97316}
+.cg-trk small{color:var(--ink-soft)}
+.cg-done{color:#15803d;font-weight:600;font-size:.8rem}
+.cg-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:16px}
+.cg-hero{padding:22px;border-radius:16px;background:linear-gradient(135deg,#0b1f3a,#16436b);color:#fff;margin-bottom:34px}
+.cg-hero h1{color:#fff;margin:0 0 8px;font-size:var(--step-3)}
+.cg-hero p{color:#dbe7f5;max-width:680px;margin:0 0 14px}
+.cg-hero .btn{background:#f97316;color:#fff;border:0}
+.cg-note{font-size:.82rem;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:12px}
+@media print{.cg-form,.cg-chips,.navbar,.mobile-tabbar,#footerInclude{display:none!important}}
+</style>
+</head>
+<body data-page="career">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="navbarInclude"></div>
+<main id="main" class="section-tight">
+ <div class="container">
+  <div class="cg-hero reveal is-visible">
+   <h1 id="uiTitle">Career Guide</h1>
+   <p id="uiLead"></p>
+   <a href="#cgQuiz" class="btn" id="uiStart"></a>
+  </div>
+
+  <section class="cg-sec" id="cgQuiz">
+   <h2 id="uiQuizH"></h2><p class="cg-sub" id="uiQuizP"></p>
+   <div id="quizBox"></div>
+   <div id="quizResult"></div>
+  </section>
+
+  <section class="cg-sec" id="cgStages"><h2 id="uiStagesH"></h2><p class="cg-sub" id="uiStagesP"></p><div class="cg-grid" id="stagesBox"></div></section>
+  <section class="cg-sec" id="cgPaths"><h2 id="uiPathsH"></h2><p class="cg-sub" id="uiPathsP"></p><div class="cg-grid" id="pathsBox"></div></section>
+  <section class="cg-sec" id="cgFields"><h2 id="uiFieldsH"></h2><p class="cg-sub" id="uiFieldsP"></p><div class="cg-chips" id="fieldChips"></div><div id="fieldBox"></div></section>
+  <section class="cg-sec" id="cgSwitch"><h2 id="uiSwitchH"></h2><p class="cg-sub" id="uiSwitchP"></p><div class="card cg-card" id="switchSteps"></div><h3 id="uiPairsH" style="margin:22px 0 10px"></h3><div class="cg-grid" id="pairsBox"></div><h3 id="uiPlanH" style="margin:22px 0 10px"></h3><div class="cg-grid" id="planBox"></div></section>
+
+  <section class="cg-sec" id="cgRoadmap">
+   <h2 id="uiRoadH"></h2><p class="cg-sub" id="uiRoadP"></p>
+   <div class="card cg-card">
+    <div class="cg-form">
+     <div class="field" style="margin:0"><label for="selStage" id="lblStage"></label><select id="selStage"></select></div>
+     <div class="field" style="margin:0"><label for="selGoal" id="lblGoal"></label><select id="selGoal"></select></div>
+     <div class="field" style="margin:0"><label for="selField" id="lblField"></label><select id="selField"></select></div>
+    </div>
+    <button class="btn btn-primary" id="btnRoad"></button> <button class="btn btn-ghost" id="btnPrint"></button>
+    <div id="roadOut" style="margin-top:18px"></div>
+   </div>
+  </section>
+
+  <section class="cg-sec" id="cgChecks"><h2 id="uiCheckH"></h2><div class="cg-grid" id="checksBox"></div></section>
+  <p class="cg-note" id="uiDisc"></p>
+ </div>
+</main>
+<div id="footerInclude"></div>
+<script src="js/i18n.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/main.js"></script>
+<script src="js/career-guide.js?v=1"></script>
+</body>
+</html>
